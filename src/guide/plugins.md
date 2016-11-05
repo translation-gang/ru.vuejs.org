@@ -1,81 +1,81 @@
 ---
-title: Plugins
+title: Плагины
 type: guide
 order: 18
 ---
 
-## Writing a Plugin
+## Создание Плагина
 
-Plugins usually add global-level functionality to Vue. There is no strictly defined scope for a plugin - there are typically several types of plugins you can write:
+Плагины обычно добавляют во Vue некоторый глобальный функционал. В явном виде область применения плагинов не определена. Вы можете создавать плагины нескольких различных типов:
 
-1. Add some global methods or properties. e.g. [vue-element](https://github.com/vuejs/vue-element)
+1. Добавляющие глобальные методы и/или свойства, например [vue-element](https://github.com/vuejs/vue-element)
 
-2. Add one or more global assets: directives/filters/transitions etc. e.g. [vue-touch](https://github.com/vuejs/vue-touch)
+2. Добавляющие глобальные объекты: директивы/фильтры/переходы и т.д., например. [vue-touch](https://github.com/vuejs/vue-touch)
 
-3. Add some component options by global mixin. e.g. [vuex](https://github.com/vuejs/vuex)
+3. Добавляющие опции компонентов посредством глобального миксина, например [vuex](https://github.com/vuejs/vuex)
 
-4. Add some Vue instance methods by attaching them to Vue.prototype.
+4. Добавляющие методы инстанса Vue через Vue.prototype.
 
-5. A library that provides an API of its own, while at the same time injecting some combination of the above. e.g. [vue-router](https://github.com/vuejs/vue-router)
+5. Библиотеки, предоставляющие собственные API, комбинируя вышеперечисленные возможности, например [vue-router](https://github.com/vuejs/vue-router)
 
-A Vue.js plugin should expose an `install` method. The method will be called with the `Vue` constructor as the first argument, along with possible options:
+Плагин Vue.js должен содержать метод `install`. Метод будет вызван с конструктором `Vue` в качестве первого аргумента, и, возможно, с дополнительными опциями:
 
 ``` js
 MyPlugin.install = function (Vue, options) {
-  // 1. add global method or property
+  // 1. добавление глобального метода или свойства
   Vue.myGlobalMethod = function () {
-    // something logic ...
+    // некоторая логика ...
   }
 
-  // 2. add a global asset
+  // 2. добавление глобального объекта
   Vue.directive('my-directive', {
     bind (el, binding, vnode, oldVnode) {
-      // something logic ...
+      // некоторая логика ...
     }
     ...
   })
 
-  // 3. inject some component options
+  // 3. добавление опций компонентов
   Vue.mixin({
     created: function () {
-      // something logic ...
+      // некоторая логика ...
     }
     ...
   })
 
-  // 4. add an instance method
+  // 4. добавление метода инстанса
   Vue.prototype.$myMethod = function (options) {
-    // something logic ...
+    // некоторая логика ...
   }
 }
 ```
 
-## Using a Plugin
+## Использование Плагинов
 
-Use plugins by calling the `Vue.use()` global method:
+Для использования плагинов применяется глобальный метод `Vue.use()`:
 
 ``` js
-// calls `MyPlugin.install(Vue)`
+// вызывает `MyPlugin.install(Vue)`
 Vue.use(MyPlugin)
 ```
 
-You can optionally pass in some options:
+Возможна передача дополнительных пользовательских параметров:
 
 ``` js
 Vue.use(MyPlugin, { someOption: true })
 ```
 
-`Vue.use` automatically prevents you from using the same plugin more than once, so calling it multiple times on the same plugin will install the plugin only once.
+`Vue.use` автоматически предохранит вас от многократной регистрации одного и того же плагина. Вызов `Vue.use` для одного и того же плагина несколько раз приведёт лишь к однократной его установке.
 
-Some plugins provided by Vue.js official plugins such as `vue-router` automatically calls `Vue.use()` if `Vue` is available as a global variable. However in a module environment such as CommonJS, you always need to call `Vue.use()` explicitly:
+Некоторые официальные плагины Vue.js, такие как `vue-router`, автоматически вызывают `Vue.use()`, если обнаруживают глобальную переменную `Vue`. Однако, в случае использования инструментов модульного окружения, таких как CommonJS, всегда необходимо вызывать `Vue.use()` явно:
 
 ``` js
-// When using CommonJS via Browserify or Webpack
+// При использовании CommonJS посредством Browserify или Webpack
 var Vue = require('vue')
 var VueRouter = require('vue-router')
 
-// Don't forget to call this
+// Не забудьте этот вызов!
 Vue.use(VueRouter)
 ```
 
-Checkout [awesome-vue](https://github.com/vuejs/awesome-vue#libraries--plugins) for a huge collection of community-contributed plugins and libraries.
+Обратите внимание на [awesome-vue](https://github.com/vuejs/awesome-vue#libraries--plugins) — огромную коллекцию плагинов и библиотек от сообщества Vue.
