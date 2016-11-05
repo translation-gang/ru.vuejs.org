@@ -253,16 +253,16 @@ render: function (createElement) {
 
 ## Замена Возможностей Шаблонов посредством Простого JavaScript
 
-Wherever something can be easily accomplished in plain JavaScript, Vue render functions do not provide a proprietary alternative. For example, in a template using `v-if` and `v-for`:
+Функциональность, легко выразимая обыкновенным JavaScript, не требует от Vue какой-либо проприетарной альтернативы. Так, например, используемые в шаблонах `v-if` и `v-for`:
 
 ``` html
 <ul v-if="items.length">
   <li v-for="item in items">{{ item.name }}</li>
 </ul>
-<p v-else>No items found.</p>
+<p v-else>Ничего не найдено.</p>
 ```
 
-This could be rewritten with JavaScript's `if`/`else` and `map` in a render function:
+...при использовании render-функции заменяются `if`/`else` и `map`:
 
 ``` js
 render: function (createElement) {
@@ -271,14 +271,14 @@ render: function (createElement) {
       return createElement('li', item.name)
     }))
   } else {
-    return createElement('p', 'No items found.')
+    return createElement('p', 'Ничего не найдено.')
   }
 }
 ```
 
 ## JSX
 
-If you're writing a lot of `render` functions, it might feel painful to write something like this:
+Если вы часто пишете `render`-функции, написание такого кода может утомить:
 
 ``` js
 createElement(
@@ -293,7 +293,7 @@ createElement(
 )
 ```
 
-Especially when the template version is so simple in comparison:
+Особенно если вы сравните его со столь простым кодом аналогичного шаблона:
 
 ``` html
 <anchored-heading :level="1">
@@ -301,7 +301,7 @@ Especially when the template version is so simple in comparison:
 </anchored-heading>
 ```
 
-That's why there's a [Babel plugin](https://github.com/vuejs/babel-plugin-transform-vue-jsx) to use JSX with Vue, getting us back to a syntax that's closer to templates:
+Поэтому есть [плагин для Babel](https://github.com/vuejs/babel-plugin-transform-vue-jsx), позволяющий использовать JSX во Vue, вновь приближая синтаксис в шаблонному:
 
 ``` js
 import AnchoredHeading from './AnchoredHeading.vue'
@@ -318,47 +318,47 @@ new Vue({
 })
 ```
 
-<p class="tip">Aliasing `createElement` to `h` is a common convention you'll see in the Vue ecosystem and is actually required for JSX. If `h` is not available in the scope, your app will throw an error.</p>
+<p class="tip">Сокращение `createElement` до `h` — распространённое в экосистеме Vue соглашение, для использование JSX являющееся необходимостью. В случае отсутствия `h` в области видимости, приложение выбросит ошибку.</p>
 
-For more on how JSX maps to JavaScript, see the [usage docs](https://github.com/vuejs/babel-plugin-transform-vue-jsx#usage).
+Для более подробной информации о соответствии JXS и JavaScript-кода, обратитесь к [документации плагина](https://github.com/vuejs/babel-plugin-transform-vue-jsx#usage).
 
-## Functional Components
+## Функциональные Компоненты
 
-The anchored heading component we created earlier is relatively simple. It doesn't manage any state, watch any state passed to it, and it has no lifecycle methods. Really, it's just a function with some props.
+Компонент для заголовков с "якорями", который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути это всего лишь функция с параметром.
 
-In cases like this, we can mark components as `functional`, which means that they're stateless (no `data`) and instanceless (no `this` context). A **functional component** looks like this:
+В подобных случаях мы можем пометить компоненты как `функциональные`, что означает отсутствие у них состояния (нет опции `data`) и инстанса (нет контекстной переменной `this`). **Функциональный компонент** выглядит так:
 
 ``` js
 Vue.component('my-component', {
   functional: true,
-  // To compensate for the lack of an instance,
-  // we are now provided a 2nd context argument.
+  // чтобы компенсировать отсутствие инстанса
+  // мы передаём контекст вторым аргументом
   render: function (createElement, context) {
     // ...
   },
-  // Props are optional
+  // входные параметры опциональны
   props: {
     // ...
   }
 })
 ```
 
-Everything the component needs is passed through `context`, which is an object containing:
+Всё, что необходимо компоненту, передаётся через `context` — объект, содержащий следующие поля:
 
-- `props`: An object of the provided props
-- `children`: An array of the VNode children
-- `slots`: A function returning a slots object
-- `data`: The entire data object passed to the component
-- `parent`: A reference to the parent component
+- `props`: Объект, содержащий переданные входные параметры
+- `children`: Массив дочерних VNode'ов
+- `slots`: Функция, возвращающая объект slots
+- `data`: Объект данных, переданный объекту, целиком
+- `parent`: Ссылка на родительский компонент
 
-After adding `functional: true`, updating the render function of our anchored heading component would simply require adding the `context` argument, updating `this.$slots.default` to `context.children`, then updating `this.level` to `context.props.level`.
+После указания `functional: true`, обновление render-функции нашего компонента для заголовков потребует только добавления параметра `context`, обновления `this.$slots.default` на `context.children` и замены `this.level` на `context.props.level`.
 
-Since functional components are just functions, they're much cheaper to render. They're also very useful as wrapper components. For example, when you need to:
+Поскольку функциональные компоненты — это просто функции, их рендеринг обходится значительно дешевле. Кроме того, они очень удобны в качестве обёрток. Например, если вам нужно:
 
-- Programmatically choose one of several other components to delegate to
-- Manipulate children, props, or data before passing them on to a child component
+- Выбрать один из компонентов для последующего рендеринга в данной точке
+- Произвести манипуляции над дочерними элементами, входными параметрами или данными, перед тем как передать их в дочерний компонент
 
-Here's an example of a `smart-list` component that delegates to more specific components, depending on the props passed to it:
+Вот пример компонента `smart-list`, делегирующего рендеринг к более специализированным компонентам, в зависимости от переданных в него данных:
 
 ``` js
 var EmptyList = { /* ... */ }
@@ -397,22 +397,22 @@ Vue.component('smart-list', {
 
 ### `slots()` vs `children`
 
-You may wonder why we need both `slots()` and `children`. Wouldn't `slots().default` be the same as `children`? In some cases, yes - but what if you have a functional component with the following children?
+Может вызвать удивление кажущееся дублирование функционала `slots()` и `children`. Разве не будет `slots().default` возвращать тот же результат, что и `children`? В некоторых случаях — да, но что если у нашего функционального компонента будут следующие дочерние элементы?
 
 ``` html
 <my-functional-component>
   <p slot="foo">
-    first
+    первый
   </p>
-  <p>second</p>
+  <p>второй</p>
 </my-functional-component>
 ```
 
-For this component, `children` will give you both paragraphs, `slots().default` will give you only the second, and `slots().foo` will give you only the first. Having both `children` and `slots()` therefore allows you to choose whether this component knows about a slot system or perhaps delegates that responsibility to another component by simply passing along `children`.
+Для этого компонента, `children` даст вам оба абзаца, `slots().default` — только второй, а `slots().foo` — только первый. Таким образом, наличие и `children`, и `slots()` позволяет выбрать, знать ли компоненту о системе слотов, или просто делегировать это знание потомку через `children`.
 
-## Template Compilation
+## Компиляция Шаблонов
 
-You may be interested to know that Vue's templates actually compile to render functions. This is an implementation detail you usually don't need to know about, but if you'd like to see how specific template features are compiled, you may find it interesting. Below is a little demo using `Vue.compile` to live-compile a template string:
+Возможно, вас заинтересует тот факт, что шаблоны Vue в действительности компилируются в render-функциию. Обычно нет необходимости знать подобные детали реализации, но может быть любопытным посмотреть на то, как компилируются те или иные возможности шаблонов. Ниже приведена небольшая демонстрация, с помощью `Vue.compile` в реальном времени компилирующая строки шаблонов:
 
 {% raw %}
 <div id="vue-compile-demo" class="demo">
@@ -424,7 +424,7 @@ You may be interested to know that Vue's templates actually compile to render fu
     <pre v-for="(fn, index) in result.staticRenderFns"><code>_m({{ index }}): {{ fn }}</code></pre>
   </div>
   <div v-else>
-    <label>Compilation Error:</label>
+    <label>Ошибка компиляции:</label>
     <pre><code>{{ result }}</code></pre>
   </div>
 </div>
@@ -447,7 +447,7 @@ new Vue({
   computed: {
     result: function () {
       if (!this.templateText) {
-        return 'Enter a valid template above'
+        return 'Введите выше валидный шаблон'
       }
       try {
         var result = Vue.compile(this.templateText.replace(/\s{2,}/g, ''))
