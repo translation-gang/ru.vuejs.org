@@ -1,30 +1,30 @@
 ---
-title: Server-Side Rendering
+title: Рендеринг на Стороне Сервера
 type: guide
 order: 24
 ---
 
-## Do You Need SSR?
+## Нужен ли вам Server Side Rendering?
 
-Before diving into SSR, let's explore what it actually does for you and when you might need it.
+Перед тем как углубляться в SSR, давайте разберёмся, что это за технология, и когда она может вам понадобиться.
 
 ### SEO
 
-Google and Bing can index synchronous JavaScript applications just fine. _Synchronous_ being the key word there. If your app starts with a loading spinner, then fetches content via Ajax, the crawler will not wait for you to finish.
+Google и Bing прекрасно индексируют синхронные JavaScript-приложения. _Синхронные_ здесь — ключевое слово. Если ваше приложение начинается с индикатора загрузки, подтягивая данные Ajax-запросом, поисковый робот ждать окончания загрузки не станет.
 
-This means if you have content fetched asynchronously on pages where SEO is important, SSR might be necessary.
+Это означает, что если данные загружаются асинхронно на страницах, для которых SEO важно, SSR может стать необходимостью.
 
-### Clients with a Slow Internet
+### Клиенты с Медленным Соединением
 
-Users might come to your site from a remote area with slow Internet - or just with a bad cell connection. In these cases, you'll want to minimize the number and size of requests necessary for users to see basic content.
+Пользователи могут приходить на ваш сайт из отдалённых районов с медленным соединением — или просто с медленного мобильного интернета. В таких случаях, будет лучше минимизировать количество и размер запросов, требующихся для отображения основного контента.
 
-You can use [Webpack's code splitting](https://webpack.github.io/docs/code-splitting.html) to avoid forcing users to download your entire application to view a single page, but it still won't be as performant as downloading a single, pre-rendered HTML file.
+Во избежания загрузки целого приложения, можно использовать [инструменты Webpack для разделения кода](https://webpack.github.io/docs/code-splitting.html), но даже этот подход не будет столь же эффективен, как скачивание уже готового срендеренного на сервере файла.
 
-### Clients with an Old (or Simply No) JavaScript Engine
+### Клиенты с Устаревшим JavaScript (или вовсе без такового)
 
-For some demographics or areas of the world, using a computer from 1998 to access the Internet might be the only option. While Vue only works with IE9+, you may still want to deliver basic content to those on older browsers - or to hipster hackers using [Lynx](http://lynx.browser.org/) in the terminal.
+В некоторых сообществах и регионах единственной опцией для доступа в интернет может оказаться компьютер из 1998 года. Несмотря на то, что Vue работает только с IE9+, возможно вы всё же захотите иметь возможность доставить основной контент в устаревшие браузеры — или хакерам-хипстерам, использующим [Lynx](http://lynx.browser.org/) в терминале.
 
-### SSR vs Prerendering
+### SSR vs Пререндеринг
 
 If you're only investigating SSR to improve the SEO of a handful of marketing pages (e.g. `/`, `/about`, `/contact`, etc), then you probably want __prerendering__ instead. Rather than using a web server to compile HTML on-the-fly, prerendering simply generates static HTML files for specific routes at build time. The advantage is setting up prerendering is much simpler and allows you to keep your frontend as a fully static site.
 
