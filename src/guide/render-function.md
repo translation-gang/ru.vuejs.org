@@ -1,14 +1,15 @@
 ---
-title: Render Functions
+title: Render-Функции
 type: guide
 order: 14
 ---
 
-## Basics
+## Основы
 
-Vue recommends using templates to build your HTML in the vast majority of cases. There are situations however, where you really need the full programmatic power of JavaScript. That's where you can use the **render  function**, a closer-to-the-compiler alternative to templates.
 
-Let's dive into a simple example where a `render` function would be practical. Say you want to generate anchored headings:
+В большинстве случаев для формирования HTML с помощью Vue рекомендуется использовать шаблоны. Впрочем, иногда возникает необходимость в использовании всех алгоритмических возможностей JavaScript. В таких случаях можно использовать **render-функции** — низкоуровневую альтернативу шаблонам.
+
+Давайте разберём простой пример, в котором использование `render`-функция будет целесообразным. Предположим, вы хотите сгенерировать заголовки с "якорями":
 
 ``` html
 <h1>
@@ -18,13 +19,13 @@ Let's dive into a simple example where a `render` function would be practical. S
 </h1>
 ```
 
-For the HTML above, you decide you want this component interface:
+Для генерации вышепредставленного HTML вы решаете использовать такой интерфейс компонента:
 
 ``` html
 <anchored-heading :level="1">Hello world!</anchored-heading>
 ```
 
-When you get started with a component that just generates a heading based on the `level` prop, you quickly arrive at this:
+При использовании шаблонов для реализации такого интерфейса придётся написать что-то вроде кода ниже:
 
 ``` html
 <script type="text/x-template" id="anchored-heading-template">
@@ -63,16 +64,16 @@ Vue.component('anchored-heading', {
 })
 ```
 
-That template doesn't feel great. It's not only verbose, but we're duplicating `<slot></slot>` for every heading level and will have to do the same when we add the anchor element. The whole thing is also wrapped in a useless `div` because components must contain exactly one root node.
+Смотрится не очень. Мало того, что шаблон получился очень многословным — приходится ещё и `<slot></slot>` повторять для каждого возможного уровня заголовка. Бесполезный корневой `div`, вызванный формальным требованием единственности корневого элемента шаблона, тоже красоту конструкции не увеличивает.
 
-While templates work great for most components, it's clear that this isn't one of them. So let's try rewriting it with a `render` function:
+Шаблоны хорошо подходят для большинства компонентов, но рассматриваемый — явно не один из них. Давайте попробуем переписать компонент, используя `render`-функцию:
 
 ``` js
 Vue.component('anchored-heading', {
   render: function (createElement) {
     return createElement(
-      'h' + this.level,   // tag name
-      this.$slots.default // array of children
+      'h' + this.level,   // имя тега
+      this.$slots.default // массив потомков
     )
   },
   props: {
@@ -84,29 +85,30 @@ Vue.component('anchored-heading', {
 })
 ```
 
-Much simpler! Sort of. The code is shorter, but also requires greater familiarity with Vue instance properties. In this case, you have to know that when you pass children without a `slot` attribute into a component, like the `Hello world!` inside of `anchored-heading`, those children are stored on the component instance at `$slots.default`. If you haven't already, **it's recommended to read through the [instance properties API](/api/#vm-slots) before diving into render functions.**
 
-## `createElement` Arguments
+Так-то лучше! Наверное. Код короче, но требует более подробного знакомства со свойствами инстанса Vue. В данном случае, необходимо знать, что когда дочерние элементы передаются без указания аттрибута `slot`, как например `Hello world!` внутри `anchored-heading`, они сохраняются в инстансе компонента как `$slots.default`. Если вы этого ещё не сделали, **советуем вам пробежать глазами [API свойств инстанса](/api/#vm-slots) перед тем как углубляться в рассмотрение render-функций.**
 
-The second thing you'll have to become familiar with is how to use template features in the `createElement` function. Here are the arguments that `createElement` accepts:
+## Аргументы `createElement`
+
+Второй момент, с которым необходимо познакомиться, это синтаксис использования возможностей шаблонизации функцией `createElement`. Вот аргументы, которые принимает `createElement`:
 
 ``` js
 // @returns {VNode}
 createElement(
   // {String | Object | Function}
-  // An HTML tag name, component options, or function
-  // returning one of these. Required.
+  // Название тега HTML, опции компонента, или функция,
+  // их возвращающая. Обязательный параметр.
   'div',
 
   // {Object}
-  // A data object corresponding to the attributes
-  // you would use in a template. Optional.
+  // Объект данных, содержащий аттрибуты,
+  // который вы бы указали в шаблоне. Опциональный параметр.
   {
-    // (see details in the next section below)
+    // (см. детали в секции ниже)
   },
 
   // {String | Array}
-  // Children VNodes. Optional.
+  // Дочерние VNode'ы. Опциональный параметр.
   [
     createElement('h1', 'hello world'),
     createElement(MyComponent, {
@@ -119,50 +121,47 @@ createElement(
 )
 ```
 
-### The Data Object In-Depth
+### Подробно об Объекте Данных
 
-One thing to note: similar to how `v-bind:class` and `v-bind:style` have special treatment in templates, they have their own top-level fields in VNode data objects.
+Заметьте: особым образом рассматриваемые в шаблонах аттрибуты `v-bind:class` и `v-bind:style` и в объектах данных VNode'ов имеют собственные поля на верхнем уровне объектов данных.
 
 ``` js
 {
-  // Same API as `v-bind:class`
+  // То же API что и у `v-bind:class`
   'class': {
     foo: true,
     bar: false
   },
-  // Same API as `v-bind:style`
+  // То же API что и у `v-bind:style`
   style: {
     color: 'red',
     fontSize: '14px'
   },
-  // Normal HTML attributes
+  // Обычные аттрибуты HTML
   attrs: {
     id: 'foo'
   },
-  // Component props
+  // Входные параметры компонентов
   props: {
     myProp: 'bar'
   },
-  // DOM properties
+  // Свойства DOM
   domProps: {
     innerHTML: 'baz'
   },
-  // Event handlers are nested under "on", though
-  // modifiers such as in v-on:keyup.enter are not
-  // supported. You'll have to manually check the
-  // keyCode in the handler instead.
+  // Обработчики событий располагаются под ключом "on",
+  // однако модификаторы вроде как v-on:keyup.enter не
+  // поддерживаются. Проверять keyCode придётся вручную.
   on: {
     click: this.clickHandler
   },
-  // For components only. Allows you to listen to
-  // native events, rather than events emitted from
-  // the component using vm.$emit.
+  // Только для компонентов. Позволяет слушать нативные события,
+  // а не эмитируемые сами компонентом через vm.$emit.
   nativeOn: {
     click: this.nativeClickHandler
   },
-  // Пользовательские Директивы. Note that the binding's 
-  // oldValue cannot be set, as Vue keeps track
-  // of it for you.
+  // Пользовательские Директивы. Обратите внимание, что oldValue
+  // не может быть указано, поскольку Vue сам отслеживает его
   directives: [
     {
       name: 'my-custom-directive', 
@@ -174,17 +173,17 @@ One thing to note: similar to how `v-bind:class` and `v-bind:style` have special
       }
     }
   ],
-  // The name of a slot if the child of a component
+  // Имя слота, в случае дочернего компонента
   slot: 'name-of-slot'
-  // Other special top-level properties
+  // Прочие специальные свойства верхнего уровня
   key: 'myKey',
   ref: 'myRef'
 }
 ```
 
-### Complete Example
+### Полный Пример
 
-With this knowledge, we can now finish the component we started:
+Узнав всё это, мы теперь можем завершить начатый ранее компонент:
 
 ``` js
 var getChildrenTextContent = function (children) {
@@ -197,7 +196,7 @@ var getChildrenTextContent = function (children) {
 
 Vue.component('anchored-heading', {
   render: function (createElement) {
-    // create kebabCase id
+    // создать id в kebabCase
     var headingId = getChildrenTextContent(this.$slots.default)
       .toLowerCase()
       .replace(/\W+/g, '-')
@@ -224,23 +223,23 @@ Vue.component('anchored-heading', {
 })
 ```
 
-### Constraints
+### Ограничения
 
-#### VNodes Must Be Unique
+#### VNode'ы Должны Быть Уникальными
 
-All VNodes in the component tree must be unique. That means the following render function is invalid:
+Все VNode'ы в компоненте должны быть уникальными. Это значит, что render-функция ниже — не валидна:
 
 ``` js
 render: function (createElement) {
   var myParagraphVNode = createElement('p', 'hi')
   return createElement('div', [
-    // Yikes - duplicate VNodes!
+    // Упс — дублирующиеся VNode'ы!
     myParagraphVNode, myParagraphVNode
   ])
 }
 ```
 
-If you really want to duplicate the same element/component many times, you can do so with a factory function. For example, the following render function is a perfectly valid way of rendering 20 identical paragraphs:
+Если вы действительно хотите многократно использовать один и тот же элемент/компонент, примените функцию-фабрику. Например, следующая render-функция вполне сработает, отобразив 20 идентичных абзацев:
 
 ``` js
 render: function (createElement) {
@@ -252,7 +251,7 @@ render: function (createElement) {
 }
 ```
 
-## Replacing Template Features with Plain JavaScript
+## Замена Возможностей Шаблонов посредством Простого JavaScript
 
 Wherever something can be easily accomplished in plain JavaScript, Vue render functions do not provide a proprietary alternative. For example, in a template using `v-if` and `v-for`:
 
