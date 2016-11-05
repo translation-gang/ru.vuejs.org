@@ -1,16 +1,16 @@
 ---
-title: Deploying For Production
+title: Развёртывание для Production
 type: guide
 order: 20
 ---
 
-## Stripping Out Warnings
+## Отключение Предупреждений
 
-The minified standalone build of Vue has already stripped out all the warnings for you for a smaller file size, but when you are using tools like Webpack or Browserify, you will need some additional configuration to achieve this.
+Минифицированная автономная сборка Vue уже не содержит кода предупреждений. Если же вы используете инструменты вроде Webpack или Browserify, для достижения этого эффекта понадобится немного дополнительного конфигурирования.
 
 ### Webpack
 
-Use Webpack's [DefinePlugin](http://webpack.github.io/docs/list-of-plugins.html#defineplugin) to indicate a production environment, so that warning blocks can be automatically dropped by UglifyJS during minification. Example config:
+Используйте плагин [DefinePlugin](http://webpack.github.io/docs/list-of-plugins.html#defineplugin) чтобы указать production-окружение, и позволить UglifyJS автоматически удалить предупреждения при минификации. Пример конфига:
 
 ``` js
 var webpack = require('webpack')
@@ -35,26 +35,27 @@ module.exports = {
 
 ### Browserify
 
-- Run your bundling command with `NODE_ENV` set to `"production"`. This tells `vueify` to avoid including hot-reload and development related code.
-- Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle. This allows the minifier to strip out all the warnings in Vue's source code wrapped in env variable conditional blocks. For example:
+- Запустите сборку, указав для переменной окружения `NODE_ENV` значение `"production". Это заставит `vueify` выбросить код, связанный с функционалом hot-reload и остальные development-инструменты.
+
+- Примените глобальную трансформацию [envify](https://github.com/hughsk/envify) для вашей сборки. Это позволит выбросить все предупреждения из исходного кода Vue. Пример:
 
 
 ``` bash
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-- To extract styles to a separate css file use a extract-css plugin which is included in vueify.
+- Для выноса стилей в отдельный css-файл, используйте плагин extract-css, включённый во vueify.
 
 ``` bash
 NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] -e main.js | uglifyjs -c -m > build.js
 ```
 
-## Tracking Runtime Errors
+## Отслеживание Ошибок Времени Выполнения
 
-If a runtime error occurs during a component's render, it will be passed to the global `Vue.config.errorHandler` config function if it has been set. It might be a good idea to leverage this hook together with an error-tracking service like [Sentry](https://sentry.io), which provides [an official integration](https://sentry.io/for/vue/) for Vue.
+Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию `Vue.config.errorHandler`, если она была установлена. Использование этого хука в связке с сервисом отслеживания ошибок, таким как [Sentry](https://sentry.io), может быть неплохой идеей — тем более, что [интеграцию с Vue официально поддерживается](https://sentry.io/for/vue/).
 
-## Extracting CSS
+## Экстракция CSS
 
-When using [Single-File Components](./single-file-components.html), the `<style>` tags are injected dynamically at runtime during development. In production you may want to extract the styles across all components into a single CSS file. For details on how to achieve this, consult the respective documentation for [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) and [vueify](https://github.com/vuejs/vueify#css-extraction).
+При использовании [Однофайловых Компонентов](./single-file-components.html), теги `<style>` во время разработки динамически обновляются на этапе выполнения. Для "боевого" окружения вы можете захотеть поместить все стили в единый CSS-файл. Детальную информацию для достижения этой цели можно получить в документации [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) и [vueify](https://github.com/vuejs/vueify#css-extraction).
 
-The official `webpack` template from `vue-cli` has this already configured out of the box.
+Официальный шаблон `webpack` для `vue-cli` содержит готовую конфигурацию "из коробки".
