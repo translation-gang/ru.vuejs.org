@@ -1,51 +1,51 @@
 ---
-title: Join the Vue.js Community!
+title: Присоединитесь к Сообществу Vue.js!
 type: guide
 order: 29
 ---
 
-Vue's community is growing incredibly fast and if you're reading this, there's a good chance you're ready to join it. So... welcome!
+Сообщество Vue растёт поразительно быстро, и если вы сейчас читаете эти строки, возможно что и вы готовы к нему присоединиться. Добро пожаловать!
 
-Now we'll answer both what the community can do for and what you can do for the community.
+Ниже мы расскажем, что сообщество может сделать для вас, и что вы можете сделать для сообщества.
 
-## Resources You'll Enjoy
+## Ресурсы, Которые Вам Понравятся
 
-### Get Support
+### Получить Поддержку
 
-- [Forum](http://forum.vuejs.org/): THE best place to ask questions and get answers about Vue and its ecosystem.
-- [Gitter Channel](https://gitter.im/vuejs/vue): A place for devs to meet and chat. You can ask questions here too, but the forum is the better platform, since the discussions are threaded.
-- [Github](https://github.com/vuejs): If you have a bug to report or feature to request, that's what the GitHub issues are for. We also welcome pull requests!
+- [Форум](http://forum.vuejs.org/): Лучшее место для вопросов и ответов по Vue и его экосистеме.
+- [Канал Gitter](https://gitter.im/vuejs/vue): Место встреч и общения разработчиков. Вопросы здесь тоже можно задавать, но форум для них структурно приспособлен лучше.
+- [Github](https://github.com/vuejs): GitHub issues — самое место для багрепортов, feature request'ов, и конечно же pull request'ов!
 
-### Explore the Ecosystem
+### Изучение Экосистемы
 
-- [The Awesome Vue Page](https://github.com/vuejs/awesome-vue): See what other awesome resources have been published by other awesome people.
-- [The "Show and Tell" Subforum](http://forum.vuejs.org/c/show-and-tell): Another great place to check out what others have built with and for the growing Vue ecosystem.
+- [Страница The Awesome Vue](https://github.com/vuejs/awesome-vue): Посмотрите, какие ещё крутые ресурсы были опубликованы другим крутым народом.
+- [Подфорум "Show and Tell"](http://forum.vuejs.org/c/show-and-tell): Ещё одно отличное место чтобы посмотреть на результаты работы других участников растущего сообщества Vue.
 
-## What You Can Do
+## Что Вы Можете Сделать
 
-### Contribute Code
+### Прислать Код
 
-As with any project, there are rules to contributing. To ensure that we can help you or accept your pull request as quickly as possible, please read [the contributing guide](https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md).
+Как и у других проектов, здесь есть свои правила. Чтобы удостовериться, что мы сможем помочь вам или принять ваш pull request в кратчайший срок, пожалуйста прочитайте [the contributing guide](https://github.com/vuejs/vue/blob/dev/.github/CONTRIBUTING.md).
 
-After that, you'll be ready to contribute to Vue's core repositories:
+После этого, вы будете готовы прислать код как в основные репозитории Vue:
 
-- [vue](https://github.com/vuejs/vue): the core library
-- [vuex](https://github.com/vuejs/vuex): Flux-inspired state management
-- [vue-router](https://github.com/vuejs/vue-router): a routing system for SPAs
+- [vue](https://github.com/vuejs/vue): ядро фреймворка
+- [vuex](https://github.com/vuejs/vuex): Flux-подобная система управления состоянием
+- [vue-router](https://github.com/vuejs/vue-router): роутер для SPA
 
-...as well as many smaller official [companion libraries](https://github.com/vuejs).
+...так и во множество небольших официальных [сопутствующих библиотек](https://github.com/vuejs).
 
-### Share (and Build) Your Experience
+### Поделитесь Своим Опытом (и Получите Его)
 
-Apart from answering questions and sharing resources in the forum and Gitter channel, there are a few other less obvious ways to share and expand what you know:
+Помимо вопросов и ответов на форуме и в канале Gitter, существуют и менее очевидные возможности поделиться имеющимися знаниями и приобрести новые:
 
-- **Develop learning materials.** It's often said that the best way to learn is to teach. If there's something interesting you're doing with Vue, strengthen your expertise by writing a blog post, developing a workshop, or even just publishing a gist that you share on social media.
-- **Watch a repo you care about.** This will send you notifications whenever there's activity in that repository, giving you insider knowledge about ongoing discussions and upcoming features. It's a fantastic way to build expertise so that you're eventually able to help address issues and pull requests.
+- **Создавайте обучающие материалы.** Часто говорят, что лучший способ научиться — это научить. Если вы делаете с Vue что-то интересное, не стесняйтесь написать об этом пост в блоге, провести воркшоп или просто опубликовать в соцсети ссылку на gist.
+- **Подпишитесь как наблюдатель на интересующий вас репозиторий.** Таким образом вы сможете получать уведомления каждый раз, когда в этом репозитории будет что-нибудь происходить, что даст вам инсадерскую информацию о происходящих обсуждениях и грядущих фичах. Это — прекрасная возможность набраться опыта, который поможет в дальнейшем.
 
-### Translate Docs
+### Переведите Документацию
 
-Vue has already spread across the globe, with even the core team in at least half a dozen timezones. [The forum](http://forum.vuejs.org/) includes 7 languages and counting and many of our docs have [actively-maintained translations](https://github.com/vuejs?utf8=%E2%9C%93&query=vuejs.org). We're very proud of Vue's international reach, but we can do even better.
+Vue уже распространился по планете: основная команда разработчиков распределена в как минимум полудюжине временных зон. [Форум](http://forum.vuejs.org/) включает разделы на  7 языках, а документация — имеет многие [активно поддерживаемые переводы](https://github.com/vuejs?utf8=%E2%9C%93&query=vuejs.org). Мы гордимся международным развитием Vue — но всё может быть ещё лучше!
 
-I hope that right now, you're reading this sentence in your preferred language. If not, would you like to help us get there?
+Мы надеемся, что сейчас вы читаете это предложение на своём родном языке. Если нет — может быть, вы хотели бы помочь с переводом?
 
-If so, please feel free to fork the repo for [these docs](https://github.com/vuejs/vuejs.org/) or for any other officially maintained documentation, then start translating. Once you've made some progress, open an issue or pull request in the main repo and we'll put out a call for more contributors to help you out.
+В этом случае, просто форкните репозиторий [основной документации](https://github.com/vuejs/vuejs.org/) или любой другой официально поддерживаемой документации, и начните перевод. По достижении некоторого прогресса, откройте issue или pull request в основном репозитории, и мы позовём ещё кого-нибудь вам в помощь.
