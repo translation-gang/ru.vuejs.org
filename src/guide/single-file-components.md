@@ -1,56 +1,57 @@
 ---
-title: Single File Components
+title: Однофайловые Компоненты
 type: guide
 order: 19
 ---
 
-## Introduction
+## Введение
 
 In many Vue projects, global components will be defined using `Vue.component`, followed by `new Vue({ el: '#container '})` to target a container element in the body of every page.
+Во многих проектах, глобальные компоненты определяются посредством `Vue.component`, с последующим `new Vue({ el: '#container' })` для указания элемента-контейнера в теле каждой страницы.
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+Для проектов малого и среднего размера, в которых JavaScript используется лишь для некоторых страниц, это может прекрасно работать. В более сложных же проектах, или в случаях когда весь ваш фронтенд управляется JavaScript, явными становятся следующие недостатки:
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
+- **Глобальное определение** заставляют давать уникальное имя каждому компоненту
+- **Строковым шаблонам** не хватает подсветки синтаксиса. Кроме того, приходится использовать уродливые слэши для многострочного HTML.
+- **Нет модульной поддержки CSS** — в то время как HTML и JavaScript разбиваются на модули-компоненты, CSS оказывается за бортом.
+- **Отсутствие шага сборки** ограничивает нас только HTML и ES5 JavaScript, не позволяя использовать препроцессоры вроде Pug (бывший Jade) и Babel
 
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
+Все эти недостатки решаются **однофайловыми компонентами** с расширением `.vue`, использование которых позволяют такие инструменты как WebPack и Browserify.
 
-Here's a simple example of a file we'll call `Hello.vue`:
+Вот простой пример файла, который мы назовём `Hello.vue`:
 
 <img src="/images/vue-component.png" style="display: block; margin: 30px auto">
 
-Now we get:
+Мы получили:
 
-- [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#syntax-highlighting)
-- [CommonJS modules](https://webpack.github.io/docs/commonjs.html)
-- [Component-scoped CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
+- [Полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#syntax-highlighting)
+- [модули CommonJS](https://webpack.github.io/docs/commonjs.html)
+- [покомпонентный CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
 
-As promised, we can also use preprocessors such as Jade, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
+Как и обещалось, мы также можем использовать препроцессоры, такие как Jade, Babel (с модулями ES2015) и Stylus для более ясных и функциональных компонентов.
 
 <img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto">
 
-These specific languages are just examples. You could just as easily use Buble, TypeScript, SCSS, PostCSS - or whatever other preprocessors that help you be productive.
+Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие препроцессоры, улучшающие вашу продуктивность.
 
 <!-- TODO: include CSS modules once it's supported in vue-loader 9.x -->
 
-## Getting Started
+## Начало Работы
 
-### For Users New to Module Build Systems in JavaScript
+### Для Новичков в Модульных Системах Сборки JavaScript
 
-With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
+С `.vue`-компонентами, мы входим во вселенную продвинутых JavaScript-приложений. Это значит, что если вы этого ещё не сделали, нужно будет освоить некоторые дополнительные инструменты:
 
-- **Node Package Manager (NPM)**: Read the [Getting Started guide](https://docs.npmjs.com/getting-started/what-is-npm) through section _10: Uninstalling global packages_.
+- **Node Package Manager (NPM)**: Прочитайте [Руководство по Началу Работы](https://docs.npmjs.com/getting-started/what-is-npm) до секции  _10: Uninstalling global packages_.
 
-- **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/learn-es2015/). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
+- **Современный JavaScript стандартов ES2015/16**: Прочитайте [руководство по ES2015](https://babeljs.io/docs/learn-es2015/) от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.
 
-After you've taken a day to dive into these resources, we recommend checking out the [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template. Follow the instructions and you should have a Vue project with `.vue` components, ES2015 and hot-reloading running in no time!
+После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на шаблон webpack-simple](https://github.com/vuejs-templates/webpack-simple). Следуйте инструкциям, и очень скоро у вас будет проект рабочий проект с `.vue`-компонентами, ES2015 и hot-reloading.
 
-The template uses [Webpack](https://webpack.github.io/), a module bundler that takes a number of "modules" and then bundle them into your final application. To learn more about Webpack itself, [this video](https://www.youtube.com/watch?v=WQue1AN93YU) offers a good intro. Once you get past the basics, you might also want to check out [this advanced Webpack course on Egghead.io](https://egghead.io/courses/using-webpack-for-production-javascript-applications).
+Этот шаблон использует [Webpack](https://webpack.github.io/) — сборщик, соединяющий набор "модулей" в результирующее приложение. [Это видео](https://www.youtube.com/watch?v=WQue1AN93YU) представляет собой неплохое введение чтобы узнать о Webpack больше. Разобравшись с основами, вы возможно также захотите посмотреть [этот курс по продвинутому использованию WebPack на Egghead.io](https://egghead.io/courses/using-webpack-for-production-javascript-applications).
 
-In Webpack, each module can be transformed by a "loader" before included into the bundle, and Vue offers the [vue-loader](https://github.com/vuejs/vue-loader) plugin to take care of translating `.vue` single-file components. The [webpack-simple](https://github.com/vuejs-templates/webpack-simple) template has already set up everything for you, but if you'd like to learn more about how `.vue` components work with Webpack, you can read [the docs for vue-loader](https://vue-loader.vuejs.org).
+В Webpack, каждый модуль может быть подвергнут трансформации "loader'ом" перед включением в сборку. Vue предоставляет плагин [vue-loader](https://github.com/vuejs/vue-loader) для трансляции однофайловых `.vue`-компонентов. Шаблон [webpack-simple](https://github.com/vuejs-templates/webpack-simple) содержит уже настроенный проект, но если вы хотели бы узнать больше о том, как работают `.vue`-компоненты в связке с Webpack, можно почитать [документацию vue-loader](https://vue-loader.vuejs.org).
 
-### For Advanced Users
+### Для Продвинутых Пользователей
 
-Whether you prefer Webpack or Browserify, we have documented templates for both simple and more complex projects. We recommend browsing [github.com/vuejs-templates](https://github.com/vuejs-templates), picking a template that's right for you, then following the instructions in the README to generate a new project with [vue-cli](https://github.com/vuejs/vue-cli).
+Независимо от того, Webpack или Browserify вы предпочитаете, у нас есть хорошо документированные шаблоны как для простых, так и для более сложных проектов. Мы советуем вам выбрать подходящий для вас шаблон на [github.com/vuejs-templates](https://github.com/vuejs-templates), и, следуя инструкциям в README, создать проект с помощью [vue-cli](https://github.com/vuejs/vue-cli).
