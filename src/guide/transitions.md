@@ -451,22 +451,22 @@ methods: {
 
 Эти хуки могут применяться как самостоятельно, так и в сочетании с CSS-переходами/анимациями.
 
-<p class="tip">When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, they will be called synchronously and the transition will finish immediately.</p>
+<p class="tip">Для чисто-JavaScript-овых переходов, **коллбэки `done` в хуках `enter` и `leave` вызывать обязательно**. В противном случае, они будут вызванны синхронно, что приведёт к немедленному завершению перехода.</p>
 
-<p class="tip">It's also a good idea to explicitly add `v-bind:css="false"` for JavaScript-only transitions so that Vue can skip the CSS detection. This also prevents CSS rules from accidentally interfering with the transition.</p>
+<p class="tip">Неплохой идеей будет явным образом указывать `v-bind:css="false"` для чисто-JavaScript-овых переходов: это позволит Vue не тратить время на определение параметров CSS. Кроме того, это убережёт нас от случайного взаимовлияния CSS-правил и перехода.</p>
 
-Now let's dive into an example. Here's a simple JavaScript transition using Velocity.js:
+Теперь давайте разберём пример. Рассмотрим простой JavaScript-переход, использующий Velocity.js:
 
 ``` html
 <!--
-Velocity works very much like jQuery.animate and is
-a great option for JavaScript animations
+Velocity работает примерно так же, как и jQuery.animate
+и весьма удобна для создания JavaScript-анимаций
 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="example-4">
   <button @click="show = !show">
-    Toggle
+    Переключить
   </button>
   <transition
     v-on:before-enter="beforeEnter"
@@ -475,7 +475,7 @@ a great option for JavaScript animations
     v-bind:css="false"
   >
     <p v-if="show">
-      Demo
+      Демо
     </p>
   </transition>
 </div>
@@ -512,7 +512,7 @@ new Vue({
 {% raw %}
 <div id="example-4" class="demo">
   <button @click="show = !show">
-    Toggle
+    Переключить
   </button>
   <transition
     v-on:before-enter="beforeEnter"
@@ -520,7 +520,7 @@ new Vue({
     v-on:leave="leave"
   >
     <p v-if="show">
-      Demo
+      Демо
     </p>
   </transition>
 </div>
@@ -555,9 +555,9 @@ new Vue({
 </script>
 {% endraw %}
 
-## Transitions on Initial Render
+## Переходы при Первичном Рендеринге
 
-If you also want to apply a transition on the initial render of a node, you can add the `appear` attribute:
+Если вы хотите применить анимированные переходы и при первичном рендеринге, можно добавить аттрибут `appear`:
 
 ``` html
 <transition appear>
@@ -565,7 +565,7 @@ If you also want to apply a transition on the initial render of a node, you can 
 </transition>
 ```
 
-By default, this will use the transitions specified for entering and leaving. If you'd like however, you can also specify custom CSS classes:
+По умолчанию, будут задействованы переходы, указанные для появления и исчезновения. Можно, впрочем, указать и отдельные:
 
 ``` html
 <transition
@@ -577,7 +577,7 @@ By default, this will use the transitions specified for entering and leaving. If
 </transition>
 ```
 
-and custom JavaScript hooks:
+То же справедливо и для хуков:
 
 ``` html
 <transition
@@ -590,63 +590,63 @@ and custom JavaScript hooks:
 </transition>
 ```
 
-## Transitioning Between Elements
+## Переходы Между Элементами
 
-We discuss [transitioning between components](#Transitioning-Between-Components) later, but you can also transition between raw elements using `v-if`/`v-else`. One of the most common two-element transitions is between a list container and a message describing an empty list:
+Подробно [переходы между компонентами](#Transitioning-Between-Components) мы обсудим позднее, а сейчас поговорим о переходах с помощью `v-if`/`v-else`. Один из наиболее частых случаев — переход от списка к сообщению, что список пуст:
 
 ``` html
 <transition>
   <table v-if="items.length > 0">
     <!-- ... -->
   </table>
-  <p v-else>Sorry, no items found.</p>
+  <p v-else>Жаль, но ничего не найдено.</p>
 </transition>
 ```
 
-This works well, but there's one caveat to be aware of:
+Это сработает, но следует знать о нескольких скользких моментах:
 
-<p class="tip">When toggling between elements that have **the same tag name**, you must tell Vue that they are distinct elements by giving them unique `key` attributes. Otherwise, Vue's compiler will only replace the content of the element for efficiency. Even when technically unnecessary though, **it's considered good practice to always key multiple items within a `<transition>` component.**</p>
+<p class="tip">При переключении между элементами, **использующими одноимённые теги**, нужно указать Vue, что это различные элементы, установив уникальные значения аттрибута `key`. В противном случае, компилятор Vue из соображений эффективности только поменяет содержимое элемента. Несмотря на отсутствие технической необходимости, **считается хорошим тоном всегда заворачивать множественные теги в компонент `<transition>`.**</p>
 
-For example:
+Например:
 
 ``` html
 <transition>
   <button v-if="isEditing" key="save">
-    Save
+    Сохранить
   </button>
   <button v-else key="edit">
-    Edit
+    Редактировать
   </button>
 </transition>
 ```
 
-In these cases, you can also use the `key` attribute to transition between different states of the same element. Instead of using `v-if` and `v-else`, the above example could be rewritten as:
+В этом случае вы можете использовать аттрибут `key` для перехода между разными состояниями элемента. Вместо использования `v-if` и `v-else`, можно переписать пример выше вот так:
 
 ``` html
 <transition>
   <button v-bind:key="isEditing">
-    {{ isEditing ? 'Save' : 'Edit' }}
+    {{ isEditing ? 'Сохранить' : 'Редактировать' }}
   </button>
 </transition>
 ```
 
-It's actually possible to transition between any number of elements, either by using multiple `v-if`s or binding a single element to a dynamic property. For example:
+В действительности можно не ограничиваться двумя вариантами, и организовать переходы между любым количеством элементов, используя либо множественные `v-if`, либо привязывая единственный элемент к динамеческому свойству. Например:
 
 ``` html
 <transition>
   <button v-if="docState === 'saved'" key="saved">
-    Edit
+    Редактировать
   </button>
   <button v-if="docState === 'edited'" key="edited">
-    Save
+    Сохранить
   </button>
   <button v-if="docState === 'editing'" key="editing">
-    Cancel
+    Отмена
   </button>
 </transition>
 ```
 
-Which could also be written as:
+Что можно также записать в таком виде:
 
 ``` html
 <transition>
@@ -661,17 +661,17 @@ Which could also be written as:
 computed: {
   buttonMessage: function () {
     switch (docState) {
-      case 'saved': return 'Edit'
-      case 'edited': return 'Save'
-      case 'editing': return 'Cancel'
+      case 'saved': return 'Редактировать'
+      case 'edited': return 'Сохранить'
+      case 'editing': return 'Отмена'
     }
   }
 }
 ```
 
-### Transition Modes
+### Режимы Перехода
 
-There's still one problem though. Try clicking the button below:
+Тем не менее, сохраняется одна проблема. Попробуйте кликнуть на кнопку ниже:
 
 {% raw %}
 <div id="no-mode-demo" class="demo">
@@ -702,9 +702,9 @@ new Vue({
 </style>
 {% endraw %}
 
-As it's transitioning between the "on" button and the "off" button, both buttons are rendered - one transitioning out while the other transitions in. This is the default behavior of `<transition>` - entering and leaving happens simultaneously.
+Во время перехода от кнопки "on" к кнопке "off" одновременно отображаются обе кнопки: одна — исчезая, другая — появляясь. Таково поведение `<transition>` по умолчанию.
 
-Sometimes this works great, like when transitioning items are absolutely positioned on top of each other:
+Иногда это поведение подходит, например в случае абсолютного позиционирования обоих элементов в одном и том же месте:
 
 {% raw %}
 <div id="no-mode-absolute-demo" class="demo">
@@ -744,7 +744,7 @@ new Vue({
 </style>
 {% endraw %}
 
-And then maybe also translated so that they look like slide transitions:
+Таким образом можно также сымитировать анимацию слайдера:
 
 {% raw %}
 <div id="no-mode-translate-demo" class="demo">
@@ -790,17 +790,17 @@ new Vue({
 </style>
 {% endraw %}
 
-Simultaneous entering and leaving transitions aren't always desirable though, so Vue offers some alternative **transition modes**:
+Тем не менее, одновременное сокрытие и появление элементов — это не всегда то, чего хочется. Поэтому Vue предоставляет альтернативные **режимы перехода**:
 
-- `in-out`: New element transitions in first, then when complete, the current element transitions out.
+- `in-out`: Сначала появляется новый элемент, и только после этого исчезает старый.
 
-- `out-in`: Current element transitions out first, then when complete, the new element transitions in.
+- `out-in`: Сначала исчезает старый элемент, и только после этого появляется новый.
 
-Now let's update the transition for our on/off buttons with `out-in`:
+Давайте теперь изменим переход для наших on/off кнопок, используя `out-in`:
 
 ``` html
 <transition name="fade" mode="out-in">
-  <!-- ... the buttons ... -->
+  <!-- ... кнопки ... -->
 </transition>
 ```
 
@@ -833,9 +833,9 @@ new Vue({
 </style>
 {% endraw %}
 
-With one simple attribute addition, we've fixed that original transition without having to add any special styling.
+Изменив всего лишь один аттрибут, мы "починили" анимацию перехода, не прибегая к редактированию стилей.
 
-The `in-out` mode isn't used as often, but can sometimes be useful for a slightly different transition effect. Let's try combining it with the slide-fade transition we worked on earlier:
+Режим `in-out` применяется не столь часто, но для достижения некоторых эффектов и он может быть полезен. Давайте попробуем совместить его с ранее рассмотренной анимацией слайдера:
 
 {% raw %}
 <div id="in-out-translate-demo" class="demo">
@@ -881,11 +881,11 @@ new Vue({
 </style>
 {% endraw %}
 
-Pretty cool, right?
+Круто, правда?
 
-## Transitioning Between Components
+## Переходы Между Компонентами
 
-Transitioning between components is even simpler - we don't even need the `key` attribute. Instead, we just wrap a [dynamic component](components.html#Dynamic-Components):
+Переходы между компонентами — ещё проще, нам даже не нужен аттрибут `key`. Всё, что нужно — завернуть [динамический компонент](components.html#Dynamic-Components) внуть `<transition>`:
 
 ``` html
 <transition name="component-fade" mode="out-in">
@@ -901,10 +901,10 @@ new Vue({
   },
   components: {
     'v-a': {
-      template: '<div>Component A</div>'
+      template: '<div>Компонент A</div>'
     },
     'v-b': {
-      template: '<div>Component B</div>'
+      template: '<div>Компонент B</div>'
     }
   }
 })
@@ -943,36 +943,36 @@ new Vue({
   },
   components: {
     'v-a': {
-      template: '<div>Component A</div>'
+      template: '<div>Компонент A</div>'
     },
     'v-b': {
-      template: '<div>Component B</div>'
+      template: '<div>Компонент B</div>'
     }
   }
 })
 </script>
 {% endraw %}
 
-## List Transitions
+## Переходы в Списках
 
-So far, we've managed transitions for:
+До сих пор мы разобрались с переходами для:
 
-- Individual nodes
-- Multiple nodes where only 1 is rendered at a time
+- Отдельных элементов
+- Множества элементов, из которого единовременно отображается всегда не более одного
 
-So what about for when we have a whole list of items we want to render simultaneously, for example with `v-for`? In this case, we'll use the `<transition-group>` component. Before we dive into an example though, there are a few things that are important to know about this component:
+А как насчёт ситуации, когда у нас есть целый список элементов, который мы бы хотели отображать одновременно, например директивой `v-for`? В этом случае, мы используем компонент `<transition-group>`. Перед тем как перейти к рассмотрению примера, важно отметить несколько важных моментов, касающихся этого компонента:
 
-- Unlike `<transition>`, it renders an actual element: a `<span>` by default. You can change the element that's rendered with the `tag` attribute.
-- Elements inside are **always required** to have a unique `key` attribute
+- В отличии от `<transition>`, он создаёт реальный элемент: по-умолчанию это `<span>`. Указание аттрибута `tag` позволяет изменить тег.
+- Для элементов внутри указание уникальных значений аттрибута `key` — **всегда обязательно**.
 
-### List Entering/Leaving Transitions
+### Переходы Вставки/Удаления Элементов Списка
 
-Now let's dive into a simple example, transitioning entering and leaving using the same CSS classes we've used previously:
+Давайте теперь разберём несложный пример анимации перехода вставки и удаления, использующий те же CSS-классы, что мы рассматривали ранее:
 
 ``` html
 <div id="list-demo" class="demo">
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button v-on:click="add">Добавить</button>
+  <button v-on:click="remove">Удалить</button>
   <transition-group name="list" tag="p">
     <span v-for="item in items" v-bind:key="item" class="list-item">
       {{ item }}
@@ -1018,8 +1018,8 @@ new Vue({
 
 {% raw %}
 <div id="list-demo" class="demo">
-  <button v-on:click="add">Add</button>
-  <button v-on:click="remove">Remove</button>
+  <button v-on:click="add">Добавить</button>
+  <button v-on:click="remove">Удалить</button>
   <transition-group name="list" tag="p">
     <span v-for="item in items" :key="item" class="list-item">
       {{ item }}
