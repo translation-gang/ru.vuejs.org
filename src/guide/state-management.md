@@ -14,7 +14,7 @@ order: 22
 
 ## Простое Управление Состоянием с Нуля
 
-It is often overlooked that the source of truth in Vue applications is the raw `data` object - a Vue instance simply proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can simply share it by identity:
+Часто упускается из виду тот факт, что "источником источником" во Vue-приложениях является исходный объект `data` — инстансы Vue всего лишь проксируют доступ к нему. Поэтому, состояние, которым должны совместно владеть несколько инстансов, можно просто передать по ссылке:
 
 ``` js
 const sourceOfTruth = {}
@@ -28,9 +28,9 @@ const vmB = new Vue({
 })
 ```
 
-Now whenever `sourceOfTruth` is mutated, both `vmA` and `vmB` will update their views automatically. Subcomponents within each of these instances would also have access via `this.$root.$data`. We have a single source of truth now, but debugging would be a nightmare. Any piece of data could be changed by any part of our app at any time, without leaving a trace.
+Теперь при любых изменениях `sourceOfTruth` обновится и `vmA`, и `vmB`. Подкомпоненты этих инстансов также имеют доступ — используя `this.$root.$data`. Эффект "единого источника истины" достигнут, но отладка превратится в сущее мучение: любая часть данных может быть изменена любой частью приложения, в любой момент и без каких-либо следов.
 
-To help solve this problem, we can adopt a simple **store pattern**:
+Для решения этой проблемы, мы можем использовать простой **стор**:
 
 ``` js
 var store = {
@@ -39,19 +39,19 @@ var store = {
     message: 'Hello!'
   },
   setMessageAction (newValue) {
-    this.debug && console.log('setMessageAction triggered with', newValue)
+    this.debug && console.log('setMessageAction вызвано с ', newValue)
     this.state.message = newValue
   },
   clearMessageAction () {
-    this.debug && console.log('clearMessageAction triggered')
-    this.state.message = 'action B triggered'
+    this.debug && console.log('clearMessageAction вызвано')
+    this.state.message = 'action B вызвано'
   }
 }
 ```
 
-Notice all actions that mutate the store's state are put inside the store itself. This type of centralized state management makes it easier to understand what type of mutations could happen and how are they triggered. When something goes wrong, we'll also now have a log of what happened leading up to the bug.
+Обратите внимание, что все действия, изменяющие состояние стора, сами помещены в стор. Такой подход к централизированному управлению состоянием приложения облегчает понимание возможных изменений и источников их появления. Кроме того, если что-то пойдёт не так — у нас будет лог, по которому можно отследить последовательность действий, приводящую к возникновению бага.
 
-In addition, each instance/component can still own and manage its own private state:
+Кроме того, каждый инстанс/компонент всё так же может иметь собственное, частное состояние:
 
 ``` js
 var vmA = new Vue({
@@ -69,10 +69,10 @@ var vmB = new Vue({
 })
 ```
 
-![State Management](/images/state.png)
+![Управление Состоянием](/images/state.png)
 
-<p class="tip">It's important to note that you should never replace the original state object in your actions - the components and the store need to share reference to the same object in order for mutations to be observed.</p>
+<p class="tip">Важно заметить, что никогда не стоит заменять оригинальный объект состояния в действиях - компоненты и стор должны ссылаться на один и тот же объект, иначе отследить изменения будет невозможно.</p>
 
-As we continue developing the convention where components are never allowed to directly mutate state that belongs to a store, but should instead dispatch events that notify the store to perform actions, we eventually arrive at the [Flux](https://facebook.github.io/flux/) architecture. The benefit of this convention is we can record all state mutations happening to the store and implement advanced debugging helpers such as mutation logs, snapshots, and history re-rolls / time travel.
+Если мы продолжим развивать концепцию, при которой компонентам запрещается прямое изменение состояния стора, а вместо этого предполагается обработка событий, указывающих стору на необходимость выполнения тех или иных действий, мы можем прийти к архитектуре [Flux](https://facebook.github.io/flux/).  Плюсом такого подхода будет являться возможность записи всех происходящих со стором изменений, что позволяет применять продвинутые техники отладки, такие как логи изменений, снапшоты и "машину времени".
 
-This brings us full circle back to [vuex](https://github.com/vuejs/vuex), so if you've read this far it's probably time to try it out!
+Это вновь приводит нас к [vuex](https://github.com/vuejs/vuex), так что если вы дочитали до этого места — пожалуй, пора его попробовать!
