@@ -224,9 +224,9 @@ Vue масштабируется вверх ничуть не хуже (если
 
 ### Нативный Рендеринг
 
-ReactNative enables you to write native-rendered apps for iOS and Android using the same React component model. This is great in that as a developer, you can apply your knowledge of a framework across multiple platforms. On this front, Vue has an official collaboration with [Weex](https://alibaba.github.io/weex/), a cross-platform UI framework developed by Alibaba Group, which uses Vue as its JavaScript framework runtime. This means with Weex, you can use the same Vue component syntax to author components that can not only be rendered in the Browser, but also natively on iOS and Android!
+ReactNative позволяет писать нативные приложения для iOS и Android, используя ту же самую модель компонент React'а. Это — прекрасно, так как позволяет разработчикам применить знание одного и того же фреймворка для различных платформ. В этой области, Vue официально поддерживает проект [Weex](https://alibaba.github.io/weex/), кросс-платформенный UI-фреймворк, разрабатываемый Alibaba Group и использующий Vue как JavaScript-фреймворк времени выполнения. Это значит, что с Weex вы можете использовать тот же синтаксис Vue для создания не только компонентов для отображения в браузерах, но и для нативных элементов iOS и Android!
 
-At this moment, Weex is still in active development and is not as mature and battle-tested as ReactNative, but its development is driven by the production needs of the largest e-commerce business in the world, and the Vue team will also actively collaborate with the Weex team to ensure a smooth experience for Vue developers.
+На данный момент, Weex всё ещё находится в активной фазе разработки, и ещё не столь матёр и проверен опытом, как ReactNative, но его разработка мотивируется реальными требованиями крупнейшего бизнеса электронной коммерции в мире. Команда разработки Vue также активно взаимодействует с разработчиками Weex, гарантируя приятный опыт для Vue-разработчиков.
 
 ### With MobX
 
