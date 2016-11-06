@@ -1,28 +1,28 @@
 ---
-title: Comparison with Other Frameworks
+title: Сравнение с Другими Фреймворками
 type: guide
 order: 28
 ---
 
-This is definitely the most difficult page in the guide to write, but we do feel it's important. Odds are, you've had problems you tried to solve and you've used another library to solve them. You're here because you want to know if Vue can solve your specific problems better. That's what we hope to answer for you.
+Определённо, этот раздел руководства — самый трудный для написания, но он очень важен. Вероятно, вы уже решаете некоторые задачи, используя тот или иной фреймворк или библиотеку. И сюда вас привело желание узнать, не позволит ли Vue решать стоящие перед вами задачи эффективнее и проще. На этот вопрос мы и надеемся дать ответ в этом документе.
 
-We also try very hard to avoid bias. As the core team, we obviously like Vue a lot. There are some problems we think it solves better than anything else out there. If we didn't believe that, we wouldn't be working on it. We do want to be fair and accurate though. Where other libraries offer significant advantages, such as React's vast ecosystem of alternative renderers or Knockout's browser support back to IE6, we try to list these as well.
+Мы очень постараемся не быть предвзятыми. Будучи членами основной команды разработки Vue, мы, разумеется, сами его очень любим. На наш взгляд, с некоторыми задачами он справляется лучше, чем какой-либо иной существующий инструмент. Если бы мы не верили в это, мы бы наверное и не работали над этим проектом, верно? И тем не менее, нам бы хотелось быть предельно честными и точными в оценках. В тех случаях, когда альтернативные библиотеки имеют существенные преимущества, как например обширнейшая экосистема альтернативных рендереров React'а или поддержка браузеров вплоть до IE6 Knockout'ом, мы постараемся о не забыть о них упомянуть.
 
-We'd also like **your** help keeping this document up-to-date because the JavaScript world moves fast! If you notice an inaccuracy or something that doesn't seem quite right, please let us know by [opening an issue](https://github.com/vuejs/vuejs.org/issues/new?title=Inaccuracy+in+comparisons+guide).
+Кроме того, мы бы очень оценили **вашу** помощь в деле поддержания актуальности этого документа, ибо мир JavaScript развивается стремительно! Если вы заметите какую-либо неточность или что-то, что не выглядит правильным, пожалуйста — дайте нам знать, [открыв issue](https://github.com/vuejs/vuejs.org/issues/new?title=Inaccuracy+in+comparisons+guide).
 
 ## React
 
-React and Vue share many similarities. They both:
+React и Vue во многом похожи. Они оба:
 
-- utilize a virtual DOM
-- provide reactive and composable view components
-- maintain focus in the core library, with concerns such as routing and global state management handled by companion libraries
+- используют virtual DOM
+- предоставляют реактивность и компонентную структуру
+- фокусируются на корневой библиотеке, вынося прочие вопросы, такие как роутинга или управления глобальным состоянием приложения в дополнительные библиотеки
 
-Being so similar in scope, we've put more time into fine-tuning this comparison than any other. We want to ensure not only technical accuracy, but also balance. We point out where React outshines Vue, for example in the richness of their ecosystem and abundance of their custom renderers.
+Из-за столь похожих ниш, мы уделили сравнению этих фреймворков больше всего времени. Нашей целью было не только удостовериться в технической точности, но также и сохранить баланс. Мы указываем, где React превосходит Vue, например — в богатстве экосистемы и изобилии доступных пользовательских рендереров.
 
-The React community [has been instrumental](https://github.com/vuejs/vuejs.org/issues/364) in helping us achieve this balance, with special thanks to Dan Abramov from the React team. He was extremely generous with his time and considerable expertise to help us refine this document until we were [both happy](https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244575740) with the final result.
+Помощь React-сообщества [была неоценима](https://github.com/vuejs/vuejs.org/issues/364) в деле достижения этого баланса. Особо хотелось бы поблагодарить Даниила Абрамова из команды разработки React. Он был крайне щедр на время и опыт, помогая нам довести этот документ до состояния, когда обе стороны [остались довольны](https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244575740) финальным результатом.
 
-With that said, we hope you can feel confident in the fairness of the review below as we explore the differences between these two libraries.
+Учитывая вышесказанное, мы надеемся что у вас не возникнет сомнений в честности нижепредставленного сравнения, в котором мы рассмотрим различия между этими библиотеками.
 
 ### Performance Profiles
 
