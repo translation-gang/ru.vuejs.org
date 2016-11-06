@@ -101,9 +101,11 @@ React и Vue во многом похожи. Они оба:
 
 В React, всё — это JavaScript. Пока не копнёшь глубже — звучит это замечательно. Неприятным свойством реальности, однако, является то, что изобретение заново HTML и CSS внутри JavaScript может принести немало страдания. Во Vue мы, напротив, постарались задействовать существующие web-технологии. Чтобы показать вам, что из этого вышло, мы рассмотрим несколько примеров.
 
-#### JSX vs Templates
+#### JSX vs Шаблоны
 
 In React, all components express their UI within render functions using JSX, a declarative XML-like syntax that works within Javascript. Here's an example, [vetted by the React community](https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244582684):
+
+В React, все компоненты описывают свой UI посредством render-функций, используя JSX — декларативные XML-подобный синтаксис, работающий внутри JavaScript. Вот пример, [проверенный сообществом React](https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244582684):
 
 ``` jsx
 render () {
@@ -130,14 +132,14 @@ render () {
 }
 ```
 
-Render functions with JSX have a few advantages:
+Render-функции, использующие JSX, имеют определённые преимущества:
 
-- You can use the power of a full programming language (JavaScript) to build your view.
-- The tooling support (e.g. linting, type checking, editor autocompletion) for JSX is in some ways more advanced than what's currently available for Vue templates.
+- Возможность использовать все алгоритмические возможности JavaScript при создании представления
+- Поддержка инструментария (линтинг, проверки типов, автодополнение в редакторах) для JSX зачастую более развито, чем то, что доступно сейчас для шаблонов Vue.
 
-In Vue, we also have [Render-Функции](render-function.html) and even [support JSX](render-function.html#JSX), because sometimes you need that power. Render functions are not recommended for most components however.
+Во Vue, у нас тоже есть [Render-Функции](render-function.html), и даже [поддежка JSX](render-function.html#JSX), так как иногда эти возможности нужны. Однако, для большей части компонентов render-функции использовать не рекомендуется.
 
-Instead, we offer templates as a simpler alternative:
+В качестве более простой альтернативы мы предлагаем использовать шаблоны:
 
 ``` html
 <template>
@@ -147,30 +149,30 @@ Instead, we offer templates as a simpler alternative:
         {{ item.name }}
       </li>
     </ul>
-    <p v-else>No items found.</p>
+    <p v-else>Ничего не найдено.</p>
   </div>
 </template>
 ```
 
-A few advantages here:
+Вот некоторые преимущества этого подхода:
 
-- Many fewer implementation and stylistic decisions have to be made while writing a template
-- A template will always be declarative
-- Any valid HTML is valid in a template
-- It reads more like English (e.g. for each item in items)
-- Advanced versions of JavaScript are not required to increase readability
+- При написании шаблона требуется принимать значительно меньшее количество решений по части деталей и стиля имплементации
+- Шаблон всегда остаётся декларативным
+- Любой валидный HTML — это автоматичеки валидный шаблон
+- Читать шаблоны проще, они больше похожи на обыкновенный английский (напр. for each item in items)
+- Для улучшения читабельности кода не требуется использования продвинутых версий JavaScript
 
-This is not only much easier for the developer that's writing it, but designers and less experienced developers will also find it much easier parsing and contributing code.
+Проще становится не только пишущим шаблон разработчикам, но и дизайнерам и менее опытным программистам, читающим и правящим его.
 
-It doesn't end there though. By embracing HTML rather than trying to reinvent it within JavaScript, Vue also allows you to use preprocessors such as Pug (formerly known as Jade) in your templates.
+Но это ещё не всё. Используя HTML вместо попытки его изобретения заново, Vue позволяет использовать в шаблонах препроцессоры, такие как Pug (ранее известный как Jade).
 
-The React ecosystem also has [a project](https://wix.github.io/react-templates/) that allows you to write templates, but there are a few disadvantages:
+В экосистеме React существует [проект](https://wix.github.io/react-templates/), позволяющий использовать шаблоны, но с некоторыми неудобствами:
 
-- It's not nearly as feature-rich as Vue's templating system
-- It requires separating your HTML from component files
-- Because it's a 3rd party library rather than officially supported, it may or may not be kept up-to-date with React core into the future
+- Возможностей значительно меньше, чем в шаблонах Vue
+- Требуется отделение HTML от файлов компонентов
+- Из-за того, что этот проект является сторонним, а не официально поддерживаемым, неизвестно, будет ли он сопровождаться и поддерживаться в актуальном состоянии при дальнейшем развитии ядра React в будущем
 
-#### Component-Scoped CSS
+#### Модульный (Компонентный) CSS
 
 Unless you spread components out over multiple files (for example with [CSS Modules](https://github.com/gajus/react-css-modules)), scoping CSS in React comes with caveats. Very basic CSS works great out-of-the-box, but some more complex features such as hover states, media queries, and pseudo-selectors all either require heavy dependencies to reinvent what CSS already does - or they simply don't work.
 
