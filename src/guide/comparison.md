@@ -24,7 +24,7 @@ React и Vue во многом похожи. Они оба:
 
 Учитывая вышесказанное, мы надеемся что у вас не возникнет сомнений в честности нижепредставленного сравнения, в котором мы рассмотрим различия между этими библиотеками.
 
-### Сравнени Быстродействия
+### Сравнение Быстродействия
 
 В каждом из реалистичных сценариев, в котором мы проводили тесты, Vue существенно превзошёл React по быстродействию. Если ваши брови сейчас поднялись, читайте дальше. Мы расскажем, почему (и даже покажем бенчмарк, разработанный вместе с командой React).
 
@@ -89,17 +89,17 @@ React и Vue во многом похожи. Они оба:
 
 Это значит, что обновления в приложениях без специально проведённой оптимизации Vue будет показывать значительно лучшую производительность. В действительности, из-за улучшенной производительности Vue, даже полностью оптимизированные React-приложения обычно оказываются медленнее, чем приложения Vue "из коробки".
 
-#### Производительность во время Разработки
+#### Производительность при Разработке
 
-Obviously, performance in production is the most important and that's what we've been discussing so far. Performance in development still matters though. The good news is that both Vue and React remain fast enough in development for most normal applications.
+Разумеется, производительность в production — наиболее важна, и её-то мы до сих пор и обсуждали. Но и при разработке быстродействие имеет не малое значение. Хорошие новости — и Vue, и React в режиме разработки остаются довольно шустрыми для большей части приложений.
 
-However, if you're prototyping any high-performance data visualizations or animations, you may find it useful to know that in scenarios where Vue can't handle more than 10 frames per second in development, we've seen React slow down to about 1 frame per second.
+Однако, если вы занимаетесь прототипированием высокопроизводительных визуализаций данных или анимаций, вам может быть полезным знать, что в тех сценариях где Vue не мог отрендерить больше 10 кадров в секунду в режиме разработки, наблюдаемая производительность React'а находилась на уровне около 1 кадра в секунду.
 
-This is due to React's many heavy invariant checks, which help it to provide many excellent warnings and error messages. We agree that these are important in Vue, but have tried to keep a closer eye on performance while we implement these checks.
+Причина этой разницы — во множестве тяжёлых инвариантных проверок, помогающих снабдить разработчиков прекрасными предупреждениями и сообщениями об ошибках. Мы согласны, что эти сообщения важны — но во Vue и при их имплементации постарались не забыть о производительности.
 
 ### HTML & CSS
 
-In React, everything is Just JavaScript, which sounds very simple and elegant - until you dig deeper. The unfortunate reality is that reinventing HTML and CSS within JavaScript can cause a lot of pain. In Vue, we instead embrace web technologies and build on top of them. To show you what that means, we'll dive into some examples.
+В React, всё — это JavaScript. Пока не копнёшь глубже — звучит это замечательно. Неприятным свойством реальности, однако, является то, что изобретение заново HTML и CSS внутри JavaScript может принести немало страдания. Во Vue мы, напротив, постарались задействовать существующие web-технологии. Чтобы показать вам, что из этого вышло, мы рассмотрим несколько примеров.
 
 #### JSX vs Templates
 
