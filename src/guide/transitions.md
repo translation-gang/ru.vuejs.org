@@ -1,35 +1,35 @@
 ---
-title: 'Transition Effects'
+title: Анимационные Эффекты Переходов
 type: guide
 order: 12
 ---
 
-## Overview
+## Общие Сведения
 
-Vue provides a variety of ways to apply transition effects when items are inserted, updated, or removed from the DOM. This includes tools to:
+Vue предоставляет немало возможностей для применения анимационных эффектов переходов в моменты, когда объекты обновляются, добавляются или удаляются из DOM. Они включают в себя инструменты для:
 
-- automatically apply classes for CSS transitions and animations
-- integrate 3rd-party CSS animation libraries, such as Animate.css
-- use JavaScript to directly manipulate the DOM during transition hooks
-- integrate 3rd-party JavaScript animation libraries, such as Velocity.js
+- автоматического применения CSS-классов для анимаций и переходов
+- интегрирования сторонних библиотек CSS-анимаций, таких как Animate.css
+- использования JavaScript для манипуляций с DOM напрямую в transition-хуках
+- интегрирования сторонних библиотек JavaScript-анимаций, таких как Velocity.js
 
-On this page, we'll only cover entering, leaving, and list transitions, but you can see the next section for [managing state transitions](transitioning-state.html).
+На этой странице мы рассмотрим только анимации появления/исчезновения элементов, а также анимации списков. В следующем разделе вы можете найти информацию об [анимировании переходов между состояниями компонентов](transitioning-state.html).
 
-## Transitioning Single Elements/Components
+## Анимирование Одиночного Элемента/Компонента
 
-Vue provides a `transition` wrapper component, allowing you to add entering/leaving transitions for any element or component in the following contexts:
+Vue располагает компонентом-обёрткой `transition`, позволяющим анимировать появление/исчезновение элемента или компонента в следующих случаях:
 
-- Conditional rendering (using `v-if`)
-- Conditional display (using `v-show`)
-- Dynamic components
-- Component root nodes
+- Условный рендеринг (используя `v-if`)
+- Условное отображение (используя `v-show`)
+- Динамические компоненты
+- Корневые элементы компонентов
 
-This is what a very simple example looks like in action:
+Рассмотрим в действии простой пример:
 
 ``` html
 <div id="demo">
   <button v-on:click="show = !show">
-    Toggle
+    Переключить
   </button>
   <transition name="fade">
     <p v-if="show">hello</p>
@@ -58,7 +58,7 @@ new Vue({
 {% raw %}
 <div id="demo">
   <button v-on:click="show = !show">
-    Toggle
+    Переключить
   </button>
   <transition name="demo-transition">
     <p v-if="show">hello</p>
@@ -82,15 +82,15 @@ new Vue({
 </style>
 {% endraw %}
 
-When an element wrapped in a `transition` component is inserted or removed, this is what happens:
+Когда элемент, завёрнутый в компонент `transition` вставляется или удаляется, происходит вот что:
 
-1. Vue will automatically sniff whether the target element has CSS transitions or animations applied. If it does, CSS transition classes will be added/removed at appropriate timings.
+1. Vue автоматически узнаёт, применены ли к целевому элементу CSS-transitions или анимации. Если да, соответствующие CSS-классы будут должным образом обновлены в нужные моменты времени.
 
-2. If the transition component provided [JavaScript hooks](#JavaScript-Hooks), these hooks will be called at appropriate timings.
+2. Если для компонента указаны [хуки JavaScript](#JavaScript-Hooks), они будут вызваны в соответствующие момент времени.
 
-3. If no CSS transitions/animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed immediately on next frame (Note: this is a browser animation frame, different from Vue's concept of `nextTick`).
+3. Если не обнаружено ни CSS-transitions или анимаций, ни JavaScript-хуков, операции DOM для вставки/удаления элемента будут выполнены непосредственно в следующем анимационном фрейме (Важно: речь идёт об анимационном фрейме браузера, отличном от используемой во Vue концепции `nextTick`).
 
-### Transition Classes
+### Классы Переходов
 
 There are four classes applied for enter/leave transitions.
 
