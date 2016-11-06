@@ -24,24 +24,24 @@ React и Vue во многом похожи. Они оба:
 
 Учитывая вышесказанное, мы надеемся что у вас не возникнет сомнений в честности нижепредставленного сравнения, в котором мы рассмотрим различия между этими библиотеками.
 
-### Performance Profiles
+### Сравнени Быстродействия
 
-In every real-world scenario that we've tested so far, Vue outperforms React by a fair margin. If your eyebrows are raising right now, read further. We'll breakdown why (and even include a benchmark developed in collaboration with the React team).
+В каждом из реалистичных сценариев, в котором мы проводили тесты, Vue существенно превзошёл React по быстродействию. Если ваши брови сейчас поднялись, читайте дальше. Мы расскажем, почему (и даже покажем бенчмарк, разработанный вместе с командой React).
 
-#### Render Performance
+#### Быстродействие при Рендеринге
 
-When rendering UI, manipulating the DOM is typically the most expensive operation and unfortunately, no library can make those raw operations faster. The best we can do is:
+При рендеренге UI, манипулирование DOM — зачастую самая дорогая операция. К сожалению, ни одна библиотека не может сделать эти низкоуровневые операции быстрее. Лучшее, что мы можем сделать — это:
 
-1. Minimize the number of necessary DOM mutations. Both React and Vue use virtual DOM abstractions to accomplish this and both implementations work about equally well.
-2. Add as little overhead as possible on top of those DOM manipulations. This is an area where Vue and React differ.
+1. Минимизировать необходимое количество изменений в DOM. Как React, так и Vue используют virtual DOM для этих целей — и примерно с равным успехом.
+2. Добавить как можно меньше дополнительных операций поверх манипуляций с DOM. Здесь Vue и React отличаются.
 
-In React, let's say the additional overhead of rendering an element is 1 and the overhead of an average component is 2. In Vue, the overhead of an element would be more like 0.1, but the overhead of an average component would be 4, due to the setup required for our reactivity system.
+В React, условно говоря, дополнительная трудоёмкость рендеринга элемента равна 1, а для компонента — 2. Для Vue эти цифры будут ближе к 0.1 и 4 соответственно, из-за архитектуры нашей системы реактивности.
 
-This means that in typical applications, where there are many more elements than components being rendered, Vue will outperform React by a significant margin. In extreme cases however, such as using 1 normal component to render each element, Vue will usually be slower. This isn't the end of the story though.
+Это значит, что в типичных приложениях, где элементов DOM куда больше, чем компонентов, Vue будет существенно обгонять React. В экстремальных же случаях, таких как использование 1 компонента для каждого HTML-элемента, Vue обычно будет медленнее. Но это ещё не всё.
 
-Both Vue and React also offer functional components, which are stateless and instanceless - and therefore, require less overhead. When these are used in performance-critical situations, Vue is once again faster. To demonstrate this, we built a simple [benchmark project](https://github.com/chrisvfritz/vue-render-performance-comparisons) that just renders 10,000 list items 100 times. We encourage you to try it yourself, as the results will vary depending on the hardware and browser used - and actually, they'll vary even between runs due to the nature of JavaScript engines.
+И Vue, и React позволяют использовать функциональные компоненты, не имеющие ни собственного состояния, ни инстанса — и потому требующие меньших вычислительных затрат. При использовании таких компонентов в критичных по быстродействию ситуациях, Vue вновь оказывается быстрее. Для демонстрации этого, мы создали простой [бенчмарк](https://github.com/chrisvfritz/vue-render-performance-comparisons), который просто рендерит 10,000 элементов списка 100 раз. Мы призываем вас попробовать запустить его самим. Результаты отличаются в зависимости от используемого железа, браузера — и даже просто от запуска к запуску, в силу природы JavaScript-движков.
 
-If you're feeling lazy though, below are the numbers from one run in Chrome 52 on a 2014 MacBook Air. To avoid cherry-picking, both benchmarks were actually run 20 separate times, with results from the best runs included below:
+Впрочем, если вам лень этим заниматься — вот цифры, полученные при запуска бенчмарка в Chrome 52 на MacBook Air 2014. Во избежание соблазнов интерпретации, в таблицу были включены лучшие из результатов, отобранные из 20 запусков теста:
 
 {% raw %}
 <table class="benchmark-table">
@@ -83,13 +83,13 @@ If you're feeling lazy though, below are the numbers from one run in Chrome 52 o
 </table>
 {% endraw %}
 
-#### Update Performance
+#### Производительность Обновлений
 
-In React, you need to implement `shouldComponentUpdate` everywhere and use immutable data structures to achieve fully optimized re-renders. In Vue, a component's dependencies are automatically tracked so that it only updates when one of those dependencies change. The only further optimization that sometimes can be helpful in Vue is adding a `key` attribute to items in long lists.
+В React для достижения полной оптимизации ререндеринга необходимо написать `shouldComponentUpdate` для каждого компонента, а также использовать иммутабельные структуры данных. Во Vue же, зависимости компонентов отслеживаются автоматически, поэтому они обновляются только при изменении одной из зависимостей. Единственная дополнительная оптимизация, иногда оказывающаяся полезной — это добавление ключа `key` в качестве аттрибута элементов длинных списков.
 
-This means updates in unoptimized Vue will be much faster than unoptimized React and actually, due to the improved render performance in Vue, even fully-optimized React will usually be slower than Vue is out-of-the-box.
+Это значит, что обновления в приложениях без специально проведённой оптимизации Vue будет показывать значительно лучшую производительность. В действительности, из-за улучшенной производительности Vue, даже полностью оптимизированные React-приложения обычно оказываются медленнее, чем приложения Vue "из коробки".
 
-#### In Development
+#### Производительность во время Разработки
 
 Obviously, performance in production is the most important and that's what we've been discussing so far. Performance in development still matters though. The good news is that both Vue and React remain fast enough in development for most normal applications.
 
