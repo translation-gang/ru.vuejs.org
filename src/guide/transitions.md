@@ -84,35 +84,35 @@ new Vue({
 
 Когда элемент, завёрнутый в компонент `transition` вставляется или удаляется, происходит вот что:
 
-1. Vue автоматически узнаёт, применены ли к целевому элементу CSS-transitions или анимации. Если да, соответствующие CSS-классы будут должным образом обновлены в нужные моменты времени.
+1. Vue автоматически узнаёт, применены ли к целевому элементу CSS-переходы или анимации. Если да, соответствующие CSS-классы будут должным образом обновлены в нужные моменты времени.
 
 2. Если для компонента указаны [хуки JavaScript](#JavaScript-Hooks), они будут вызваны в соответствующие момент времени.
 
-3. Если не обнаружено ни CSS-transitions или анимаций, ни JavaScript-хуков, операции DOM для вставки/удаления элемента будут выполнены непосредственно в следующем анимационном фрейме (Важно: речь идёт об анимационном фрейме браузера, отличном от используемой во Vue концепции `nextTick`).
+3. Если не обнаружено ни CSS-переходов/анимаций, ни JavaScript-хуков, операции DOM для вставки/удаления элемента будут выполнены непосредственно в следующем анимационном фрейме (Важно: речь идёт об анимационном фрейме браузера, отличном от используемой во Vue концепции `nextTick`).
 
 ### Классы Переходов
 
-There are four classes applied for enter/leave transitions.
+Для анимаций появления/исчезновения элемента применяются четыре класса:
 
-1. `v-enter`: Starting state for enter. Applied before element is inserted, removed after one frame.
-2. `v-enter-active`: Active and ending state for enter. Applied before element is inserted, removed when transition/animation finishes.
-3. `v-leave`: Starting state for leave. Applied when leave transition is triggered, removed after one frame.
-4. `v-leave-active`: Active and ending state for leave. Applied when leave transition is triggered, removed when the transition/animation finishes.
+1. `v-enter`: Изначальное состояние для анимации появления элемента. Применяется перед вставкой элемента, удаляется в следующем фрейме.
+2. `v-enter-active`: Активное/конечное состояние для анимации появления элемента. Применяется перед вставкой элемента, удаляется по завершении перехода/анимации.
+3. `v-leave`: Изначальное состояние для анимации исчезновения элемента. Применяется при начале анимации исчезновения, удаляется в следующем фрейме.
+4. `v-leave-active`: Активное/конечное состояние для анимации исчезновения элемента. Применяется при начале анимации исчезновения, удаляется по завершении перехода/анимации.
 
-![Transition Diagram](/images/transition.png)
+![Диаграмма Переходов](/images/transition.png)
 
-Each of these classes will be prefixed with the name of the transition. Here the `v-` prefix is the default when you use a `<transition>` element with no name. If you use `<transition name="my-transition">` for example, then the `v-enter` class would instead be `my-transition-enter`.
+Для каждого из этих классов указывается префикс, соответствующий имени перехода . Префикс `v-` применяется по умолчанию, если элемент `<transition>` используется без указания параметра `name` . Например, для `<transition name="my-transition">` вместо класса `v-enter` будет применяться `my-transition-enter`.
 
-`v-enter-active` and `v-leave-active` give you the ability to specify different easing curves for enter/leave transitions, which you'll see an example of in the following section.
+`v-enter-active` и `v-leave-active` дают возможность указать различные анимационные эффекты для переходов появления/исчезновения элемента. Пример использования будет приведён ниже.
 
-### CSS Transitions
+### CSS-Переходы
 
-One of the most common transition types uses CSS transitions. Here's a simple example:
+Одним из самых распространённых типов анимации перехода являются CSS-переходы. Вот небольшой пример:
 
 ``` html
 <div id="example-1">
   <button @click="show = !show">
-    Toggle render
+    Переключить рендеринг
   </button>
   <transition name="slide-fade">
     <p v-if="show">hello</p>
@@ -130,8 +130,8 @@ new Vue({
 ```
 
 ``` css
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
+/* Анимации появления и исчезновения могут иметь */
+/* различные продолжительсности и тайминг.       */
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
@@ -147,7 +147,7 @@ new Vue({
 {% raw %}
 <div id="example-1" class="demo">
   <button @click="show = !show">
-    Toggle
+    Переключить рендеринг
   </button>
   <transition name="slide-fade">
     <p v-if="show">hello</p>
@@ -175,17 +175,17 @@ new Vue({
 </style>
 {% endraw %}
 
-### CSS Animations
+### CSS-Анимации
 
-CSS animations are applied in the same way as CSS transitions, the difference being that `v-enter` is not removed immediately after the element is inserted, but on an `animationend` event.
+CSS-анимации применяются таким же образом, как и CSS-переходы, с одним отличием: `v-enter` удаляется не сразу же после вставки элемента, а только при наступлении события `animationend`.
 
-Here's an example, omitting prefixed CSS rules for the sake of brevity:
+В этом примере CSS-префиксы опущены для краткости:
 
 ``` html
 <div id="example-2">
-  <button @click="show = !show">Toggle show</button>
+  <button @click="show = !show">Переключить Отображение</button>
   <transition name="bounce">
-    <p v-if="show">Look at me!</p>
+    <p v-if="show">Посмотри на меня!</p>
   </transition>
 </div>
 ```
@@ -232,9 +232,9 @@ new Vue({
 
 {% raw %}
 <div id="example-2" class="demo">
-  <button @click="show = !show">Toggle show</button>
+  <button @click="show = !show">Переключить Отображение</button>
   <transition name="bounce">
-    <p v-show="show">Look at me!</p>
+    <p v-show="show">Посмотри на меня!</p>
   </transition>
 </div>
 
@@ -314,25 +314,25 @@ new Vue({
 </script>
 {% endraw %}
 
-### Custom Transition Classes
+### Пользовательские Классы Переходов
 
-You can also specify custom transition classes by providing the following attributes:
+Вы также можете использовать пользовательские классы переходов, указывая следующие аттрибуты:
 
 - `enter-class`
 - `enter-active-class`
 - `leave-class`
 - `leave-active-class`
 
-These will override the conventional class names. This is especially useful when you want to combine Vue's transition system with an existing CSS animation library, such as [Animate.css](https://daneden.github.io/animate.css/).
+Таким образом стандартные названия классов будут переопределены, что может быть особенно полезно для комбинирования системы анимированных переходов Vue с возможностями сторонних библиотек CSS-анимаций, таких как [Animate.css](https://daneden.github.io/animate.css/).
 
-Here's an example:
+Вот пример:
 
 ``` html
 <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
 
 <div id="example-3">
   <button @click="show = !show">
-    Toggle render
+    Переключить рендеринг
   </button>
   <transition
     name="custom-classes-transition"
@@ -357,7 +357,7 @@ new Vue({
 <link href="https://unpkg.com/animate.css@3.5.1" rel="stylesheet" type="text/css">
 <div id="example-3" class="demo">
   <button @click="show = !show">
-    Toggle render
+    Переключить рендеринг
   </button>
   <transition
     name="custom-classes-transition"
@@ -377,15 +377,15 @@ new Vue({
 </script>
 {% endraw %}
 
-### Using Transitions and Animations Together
+### Совместное Использование Переходов и Анимаций
 
-Vue needs to attach event listeners in order to know when a transition has ended. It can either be `transitionend` or `animationend`, depending on the type of CSS rules applied. If you are only using one or the other, Vue can automatically detect the correct type.
+Для того чтобы Vue знал о завершении перехода, ему требуется установка слушателей событий. В зависимости от используемых правил CSS, событием будет либо `transitionend`, либо `animationend`. Если вы используете только один из подходов, Vue определит правильный тип автоматически.
 
-However, in some cases you may want to have both on the same element, for example having a CSS animation triggered by Vue, along with a CSS transition effect on hover. In these cases, you will have to explicitly declare the type you want Vue to care about in a `type` attribute, with a value of either `animation` or `transition`.
+Однако, иногда может потребоваться использование обоих подходов на одном элементе. Например, CSS-анимация под управлением Vue при появлении/исчезновении элемента может соседствовать с эффектом CSS-перехода при наведении курсора мыши на элемент. В таких случаях потребуется явное указание типа события, на которое должен будет ориентироваться Vue. Аттрибут `type` может получить значение `animation` или `transition`.
 
-### JavaScript Hooks
+### Хуки JavaScript
 
-You can also define JavaScript hooks in attributes:
+Можно также указывать JavaScript-хуки:
 
 ``` html
 <transition
@@ -407,14 +407,14 @@ You can also define JavaScript hooks in attributes:
 // ...
 methods: {
   // --------
-  // ENTERING
+  // ПОЯВЛЕНИЕ
   // --------
 
   beforeEnter: function (el) {
     // ...
-  },
-  // the done callback is optional when
-  // used in combination with CSS
+  },  
+  // коллбэк done — опционален при
+  // использовании в сочетании с CSS
   enter: function (el, done) {
     // ...
     done()
@@ -427,14 +427,14 @@ methods: {
   },
 
   // --------
-  // LEAVING
+  // ИСЧЕЗНОВЕНИЕ
   // --------
 
   beforeLeave: function (el) {
     // ...
   },
-  // the done callback is optional when
-  // used in combination with CSS
+  // коллбэк done — опционален при
+  // использовании в сочетании с CSS
   leave: function (el, done) {
     // ...
     done()
@@ -442,14 +442,14 @@ methods: {
   afterLeave: function (el) {
     // ...
   },
-  // leaveCancelled only available with v-show
+  // leaveCancelled доступна только для v-show
   leaveCancelled: function (el) {
     // ...
   }
 }
 ```
 
-These hooks can be used in combination with CSS transitions/animations or on their own.
+Эти хуки могут применяться как самостоятельно, так и в сочетании с CSS-переходами/анимациями.
 
 <p class="tip">When using JavaScript-only transitions, **the `done` callbacks are required for the `enter` and `leave` hooks**. Otherwise, they will be called synchronously and the transition will finish immediately.</p>
 
