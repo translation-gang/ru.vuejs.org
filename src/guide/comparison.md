@@ -310,22 +310,23 @@ Knockout был пионером MVVM-подхода и отслеживания
 
 ## Polymer
 
-Polymer is yet another Google-sponsored project and in fact was a source of inspiration for Vue as well. Vue's components can be loosely compared to Polymer's custom elements and both provide a very similar development style. The biggest difference is that Polymer is built upon the latest Web Components features and requires non-trivial polyfills to work (with degraded performance) in browsers that don't support those features natively. In contrast, Vue works without any dependencies or polyfills down to IE9.
+Polymer — это ещё один проект, спонсируемый Google. В действительности, он тоже послужил источником вдохновления для Vue. Компоненты Vue можно приблизительно сравнивать с пользовательскими элементами Polymer. Стиль разработки с исползованием обоих фреймворков довольно похож. Самая существенная разница состоит в том, что Polymer базируется на последних возможностях Web Components и требует для работы использования весьма нетривиальных полифиллов (с потерей быстродействия в браузерах без нативной поддержки эти возможностей). Vue, напротив, без каких-либо зависимостей или полифиллов работает во всех браузерах, начиная с IE9.
 
-In Polymer 1.0, the team has also made its data-binding system very limited in order to compensate for the performance. For example, the only expressions supported in Polymer templates are boolean negation and single method calls. Its computed property implementation is also not very flexible.
+В Polymer 1.0, разработчики существенно ограничили систему связывания данных, с целью улучшения производительности. Например, единственными поддерживаемыми в шаблонах Polymer выражениями являются булево отрицание и одиночные вызовы методов. Реализация вычисляемых свойств — также не очень гибкая.
 
-Polymer custom elements are authored in HTML files, which limits you to plain JavaScript/CSS (and language features supported by today's browsers). In comparison, Vue's single file components allows you to easily use ES2015+ and any CSS preprocessors you want.
+Пользовательские элементы Polymer пишутся в HTML-файлах, что ограничивает авторов использованием обыкновенного JavaScript/CSS (и возможностей языка, поддерживаемых браузерами на данный момент). Vue же позволяет использовать в однофайловых компонентах какие угодно пост- и препроцессоры, включая, разумеется, и ES2015+.
 
-When deploying to production, Polymer recommends loading everything on-the-fly with HTML Imports, which assumes browsers implementing the spec, and HTTP/2 support on both server and client. This may or may not be feasible depending on your target audience and deployment environment. In cases where this is not desirable, you will have to use a special tool called Vulcanizer to bundle your Polymer elements. On this front, Vue can combine its async component feature with Webpack's code-splitting feature to easily split out parts of the application bundle to be lazy-loaded. This ensures compatibility with older browsers while retaining great app loading performance.
+При выгрузке на production, Polymer рекомендует загружать всё "на лету" при помощи HTML Import'ов, что подразумевает как имплементацию этой технологии браузерами, так и поддержку HTTP/2 как сервером, так и клиентом. Не для всякой целевой аудитории и не для всякого окружения это может быть выполнимо. В таких случаях приходится использовать специальный инструмент под названием Vulcanizer, объединяющий элементы Polymer. Vue позволяет комбинировать возможности асинхронной загрузки компонентов c функциями по разделению кода Webpack'а, организуя "ленивую" загрузку частей сборки приложения. Таким образом мы сохраняем совместимость со старыми браузерами, не теряя производительности на этапе загрузки приложения.
 
-It is also totally feasible to offer deeper integration between Vue with Web Component specs such as Custom Elements and Shadow DOM style encapsulation - however at this moment we are still waiting for the specs to mature and be widely implemented in all mainstream browsers before making any serious commitments.
+В дальнейшем скорее всего будет возможно углубить интеграцию между компонентами Vue и Web Compoments — однако пока что мы всё ещё ожидаем стабилизации и взросления спецификации, не озвучивая серьёзных обещаний до момента широкого распространения имплементации спецификации во всех распространённых браузерах.
 
 ## Riot
 
-Riot 2.0 provides a similar component-based development model (which is called a "tag" in Riot), with a minimal and beautifully designed API. Riot and Vue probably share a lot in design philosophies. However, despite being a bit heavier than Riot, Vue does offer some significant advantages:
+Riot 2.0 предлагает похожую модель разработки, основывающуюся на компонентах (в Riot называемых "тегами"), с минималистичным и прекрасно организованным API. Вероятно, Riot и Vue во многом основаны на схожих философских подходах. Однако, несмотря на немного больший размер по сравнению с Riot, Vue имеет некоторые существенные преимущества:
 
-- True conditional rendering. Riot renders all if branches and simply shows/hides them.
-- A far more powerful router. Riot’s routing API is extremely minimal.
+- Полноценный условный рендеринг. Riot умеет только скрывать неиспользуемые ветви, а рендерит — всегда всё дерево элементов.
+- Значительно более мощный роутер. API роутинга Riot'а — предельно минималистичен.
 - More mature tooling support. Vue provides official support for [Webpack](https://github.com/vuejs/vue-loader), [Browserify](https://github.com/vuejs/vueify), and [SystemJS](https://github.com/vuejs/systemjs-plugin-vue), while Riot relies on community support for build system integration.
-- [Transition effect system](transitions.html). Riot has none.
-- Better performance. [Despite advertising](https://github.com/vuejs/vuejs.org/issues/346) use of a virtual DOM, Riot in fact uses dirty checking and thus suffers from the same performance issues as Angular 1.
+- Поддержка более зрелого инструментария. Vue официально поддерживает [Webpack](https://github.com/vuejs/vue-loader), [Browserify](https://github.com/vuejs/vueify), и [SystemJS](https://github.com/vuejs/systemjs-plugin-vue), в то время как Riot полагается в вопросах интеграции с системами сборки на поддержку сообщества.
+- [Система анимации переходов](transitions.html). У Riot её просто нет.
+- Лучшая производительность. [Несмотря на заявленное](https://github.com/vuejs/vuejs.org/issues/346) использование virtual DOM, в действительности Riot применяет dirty checking, и потому страдает от тех же проблем, что и Angular 1.
