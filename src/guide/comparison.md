@@ -228,65 +228,65 @@ ReactNative позволяет писать нативные приложени�
 
 На данный момент, Weex всё ещё находится в активной фазе разработки, и ещё не столь матёр и проверен опытом, как ReactNative, но его разработка мотивируется реальными требованиями крупнейшего бизнеса электронной коммерции в мире. Команда разработки Vue также активно взаимодействует с разработчиками Weex, гарантируя приятный опыт для Vue-разработчиков.
 
-### With MobX
+### Сравнение с MobX
 
-MobX has become quite popular in the React community and it actually uses a nearly identical reactivity system to Vue. To a limited extent, the React + MobX workflow can be thought of as a more verbose Vue, so if you're using that combination and are enjoying it, jumping into Vue is probably the next logical step.
+MobX стал довольно популярным в сообществе React. Он использует почти идентичную Vue систему реактивности. В некотором смысле, связку React + MobX можно считать несколько более многословным Vue, так что если вы используете её и она вам нравится, возможно переход на Vue станет следующим логичным шагом.
 
 ## Angular 1
 
-Some of Vue's syntax will look very similar to Angular (e.g. `v-if` vs `ng-if`). This is because there were a lot of things that Angular got right and these were an inspiration for Vue very early in its development. There are also many pains that come with Angular however, where Vue has attempted to offer a significant improvement.
+Некоторые части синтаксиса Vue выглядят очень похоже на синтаксис Angular (напр. `v-if` vs `ng-if`). Причина в том, что многие идеи в основе Angular были верными, и вдохновили Vue на ранних этапах разработки. Впрочем, в Angular было немало и боли, и в этих вопросах мы при разработке Vue постарались добиться значительных улучшений.
 
-### Complexity
+### Сложность
 
-Vue is much simpler than Angular 1, both in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day, which is not true for Angular 1.
+Vue значительно проще Angular 1, как в смысле API, так и в смысле архитектуры. Получение достаточных знаний для написания нетривиальных приложений обычно происходит менее чем за день, чего нельзя сказать об Angular 1. 
 
-### Flexibility and Modularity
+### Гибкость и Модульность
 
-Angular 1 has strong opinions about how your applications should be structured, while Vue is a more flexible, modular solution. While this makes Vue more adaptable to a wide variety of projects, we also recognize that sometimes it's useful to have some decisions made for you, so that you can just get started coding.
+Angular 1 имеет жёсткое мнение насчёт структуры вашего приложения, в то время как Vue проявляет гибкость и является более модульным решением. Хотя это и делает Vue пригодным для большего разнообразия проектов, мы понимаем и то, что зачастую полезно, когда решения уже приняты за тебя — и можно сразу начать программировать.
 
-That's why we offer a [Webpack template](https://github.com/vuejs-templates/webpack) that can set you up within minutes, while also granting you access to advanced features such as hot module reloading, linting, CSS extraction, and much more.
+По этой причине мы предоставляем [Webpack template](https://github.com/vuejs-templates/webpack), позволяющий начать работу в течении нескольких минут, в то же время предоставляя доступ к таким продвинутым возможностям, как перезагрузка модулей, линтинг, экстракция CSS и прочим.
 
-### Data binding
+### Связывание данных
 
-Angular 1 uses two-way binding between scopes, while Vue enforces a one-way data flow between components. This makes the flow of data easier to reason about in non-trivial applications.
+Angular 1 использует двунаправленное связывание данных между областями видимости, в то время как Vue концентрируется на однонаправленном потоке данных между компонентами. Это позволяет облегчить размышление о потоке данных в нетривиальных приложениях.
 
-### Directives vs Components
+### Директивы vs Компоненты
 
-Vue has a clearer separation between directives and components. Directives are meant to encapsulate DOM manipulations only, while components are self-contained units that have their own view and data logic. In Angular, there's a lot of confusion between the two.
+Vue чётче разделяет директивы и компоненты. Директивы предназначены только для сокрытия низкоуровневых манипуляций с DOM, в то время как компоненты являют собой автономные объекты, со своей собственной логикой данных и представления. В Angular эти два концепта в значительной мере смешаны.
 
-### Performance
+### Производительность
 
-Vue has better performance and is much, much easier to optimize because it doesn't use dirty checking. Angular 1 becomes slow when there are a lot of watchers, because every time anything in the scope changes, all these watchers need to be re-evaluated again. Also, the digest cycle may have to run multiple times to "stabilize" if some watcher triggers another update. Angular users often have to resort to esoteric techniques to get around the digest cycle, and in some situations, there's simply no way to optimize a scope with many watchers.
+Vue имеет лучшую производительность. Кроме того, из-за отсутствия dirty-checking оптимизация Vue-приложений намного, намного проще. Angular 1 замедляется при увеличении количества наблюдателей, поскольку каждый раз при изменении чего-либо в области видимости все эти наблюдатели должны быть перезапущены. Кроме того, цикл может повториться несколько раз перед стабилизацией, поскольку реакция наблюдателей может спровоцировать следующее обновление. Пользователям Angular нередко приходится прибегать к весьма эзотерическим техникам для обхода этих трудностей. В некоторых случаях в случае избытка наблюдателей оптимизация и вовсе становится невозможной.
 
-Vue doesn't suffer from this at all because it uses a transparent dependency-tracking observation system with async queueing - all changes trigger independently unless they have explicit dependency relationships.
+Vue не подвержен всем этим проблемам по причине использования прозрачного механизма учёта зависимостей с асинхронной очередью — все изменения рассматриваются независимо, кроме случаев явного указания наличия их связи.
 
-Interestingly, there are quite a few similarities in how Angular 2 and Vue are addressing these Angular 1 issues.
+Любопытно, что этот подход делает Vue во многом похожим на Angular 2.
 
 ## Angular 2
 
-We have a separate section for Angular 2 because it really is a completely new framework. For example, it features a first-class component system, many implementation details have been completely rewritten, and the API has also changed quite drastically.
+Мы выделяем отдельную секцию для Angular 2, поскольку по сути он является совершенно новым фреймворком. Например, теперь он содержит первоклассную компонентную систему; многие детали имплементации были полностью переписаны, а API очень существенно изменился.
 
 ### TypeScript
 
-While Angular 1 could be used for smaller applications, Angular 2 has shifted focus to best facilitate large enterprise applications. As part of this, it almost requires TypeScript, which can be very useful for developers that desire the type safety of languages such as Java and C#.
+В то время как Angular мог быть использован для небольших приложений, Angular 2 сместил акцент в область крупных enterprise-приложений. Отчасти по этой причине, он почти требует использования TypeScript, что может быть весьма полезно для разработчиков, предпочитающих привычную по языкам вроде Java и C# безопасную типизацию.
 
-Vue is also well-suited to [enterprise environments](https://github.com/vuejs/awesome-vue#enterprise-usage) and can even be used with TypeScript via our [official typings](https://github.com/vuejs/vue/tree/dev/types) and [user-contributed decorators](https://github.com/itsFrank/vue-typescript), though it's definitely optional in our case.
+Vue тоже хорошо подходит для [enterprise-окружений](https://github.com/vuejs/awesome-vue#enterprise-usage) и может использоваться в том числе и с TypeScript при помощи наших [официальных типов](https://github.com/vuejs/vue/tree/dev/types) и [пользовательских декораторов](https://github.com/itsFrank/vue-typescript), что, впрочем, в нашем случае — полностью опционально.
 
-### Size and Performance
+### Размер и Быстродействие
 
-In terms of performance, both frameworks are exceptionally fast and there isn't enough data from real world use cases to make a verdict. However if you are determined to see some numbers, Vue 2.0 seems to be ahead of Angular 2 according to this [3rd party benchmark](http://stefankrause.net/js-frameworks-benchmark4/webdriver-ts/table.html).
+В смысле производительности, оба фреймворка весьма шустры, и пока нет достаточных данных из реального мира чтобы вынести вердикт. Но если вы хотите цифр, Vue 2.0 похоже что обгоняет Angular 2, если верить этому [стороннему исследованию производительности](http://stefankrause.net/js-frameworks-benchmark4/webdriver-ts/table.html).
 
-Size wise, although Angular 2 with offline compilation and tree-shaking is able to get its size down considerably, a full-featured Vue 2.0 with compiler included (23kb) is still lighter than a tree-shaken bare-bone example of Angular 2 (50kb). And do note the Angular 2 app's size is small due to tree-shaking, which removes code for features that you are not using. It will eventually grow back to its actual size as you import and use more features from the framework.
+Что касается размера, то хотя Angular 2 с его оффлайн-компиляцией и возможностями удаления неиспользуемого функционала может существенно уменьшить свой вес, полнофункциональная сборка Vue 2.0, включающая даже компилятор шаблонов (23kb) всё ещё оказывается значительно меньше предельно облегчённой версии Angular 2 (50kb). Заметьте и то, что уменьшение размера Angular 2 достигается путём выбрасывания неиспользуемого функционала. Когда этот функционал понадобится — размер сборки фреймворка может снова возрасти.
 
-### Flexibility
+### Гибкость
 
-Vue is much less opinionated than Angular 2, offering official support for a variety of build systems, with no restrictions on how you structure your application. Many developers enjoy this freedom, while some prefer having only one Right Way to build any application.
+Vue значительно менее упрям, чем Angular 2, и поддерживает множество различных систем сборок, не ограничивая разработчиков в том, какую структуру использовать для приложения. Многим программистам эта свобода нравится, хотя есть и те, кто предпочитают иметь Один Правильный Способ построения приложения.
 
-### Learning Curve
+### Кривая Обучения
 
-To get started with Vue, all you need is familiarity with HTML and ES5 JavaScript (i.e. plain JavaScript). With these basic skills, you can start building non-trivial applications within less than a day of reading [the guide](/guide).
+Всё что необходимо для начала работы с Vue — это знакомство с HTML и обыкновенным (ES5) JavaScript'ом. С этими базовыми навыками вы уже можете начать строить нетривиальные приложения после менее чем однодневного прочтения [руководства](/guide).
 
-Angular 2's learning curve is much steeper. Even without TypeScript, their [Quickstart guide](https://angular.io/docs/js/latest/quickstart.html) starts out with an app that uses ES2015 JavaScript, NPM with 18 dependencies, 4 files, and over 3,000 words to explain it all - just to say Hello World. It's an understatement to say that [Vue's Hello World](index.html#Hello-World) is considerably simpler. It's so trivial in fact, that we don't even dedicate a whole page in the guide to it.
+Кривая обучения Angular 2 — куда круче. Даже без TypeScript, их [Руководство по Быстрому Старту](https://angular.io/docs/js/latest/quickstart.html) начинает с приложения, использующего ES2015 JavaScript и NPM с 18 зависимостями, 4 файлами и более чем 3,000 слов объяснений — просто для "Hello World". Не будет преувеличением, если мы скажем что [Hello World в исполнении Vue](index.html#Hello-World) — немного попроще. Возможно по этой причине мы даже не посвящаем ему отдельной страницы в руководстве.
 
 ## Ember
 
