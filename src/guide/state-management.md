@@ -1,18 +1,18 @@
 ---
-title: State Management
+title: Управление Состоянием Приложения
 type: guide
 order: 22
 ---
 
-## Official Flux-Like Implementation
+## Официальная Flux-подобная Библиотека
 
-Large applications can often grow in complexity, due to multiple pieces of state scattered across many components and the interactions between them. To solve this problem, Vue offers [vuex](https://github.com/vuejs/vuex): our own Elm-inspired state management library. It even integrates into [vue-devtools](https://github.com/vuejs/vue-devtools), providing zero-setup access to time travel.
+Сложность больших приложений нередко разрастается из-за распределения кусочков состояния по многим компонентам и связям между ними. Для решения этой проблемы, Vue предлагает [vuex](https://github.com/vuejs/vuex): нашу собственную библиотеку управления состоянием, вдохновлённую языком Elm. Она даже интегрируется с [vue-devtools](https://github.com/vuejs/vue-devtools), из коробки давая доступ к функционалу "машины времени".
 
-### Information for React Developers
+### Информация React-Разработчикам
 
-If you're coming from React, you may be wondering how vuex compares to [redux](https://github.com/reactjs/redux), the most popular Flux implementation in that ecosystem. Redux is actually view-layer agnostic, so it can easily be used with Vue via some [simple bindings](https://github.com/egoist/revue). Vuex is different in that it _knows_ it's in a Vue app. This allows it to better integrate with Vue, offering a more intuitive API and improved development experience.
+Если вы переходите на Vue с React, может быть интересно, как связаны vuex и [redux](https://github.com/reactjs/redux), являющийся наиболее популярной имплементацией Flux в React-экосистеме. Redux агностистичен насчёт слоя представления, так что его можно напрямую использовать со Vue, применив [простые байндинги](https://github.com/egoist/revue). Vuex же _знает_, что работает с приложением Vue, что позволяет достичь лучшей интеграции, использовать более интуитивно-понятный API и в результате делает разработку приятнее.
 
-## Simple State Management from Scratch
+## Простое Управление Состоянием с Нуля
 
 It is often overlooked that the source of truth in Vue applications is the raw `data` object - a Vue instance simply proxies access to it. Therefore, if you have a piece of state that should be shared by multiple instances, you can simply share it by identity:
 
