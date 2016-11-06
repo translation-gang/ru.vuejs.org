@@ -174,9 +174,9 @@ Render-функции, использующие JSX, имеют определё
 
 #### Модульный (Компонентный) CSS
 
-Unless you spread components out over multiple files (for example with [CSS Modules](https://github.com/gajus/react-css-modules)), scoping CSS in React comes with caveats. Very basic CSS works great out-of-the-box, but some more complex features such as hover states, media queries, and pseudo-selectors all either require heavy dependencies to reinvent what CSS already does - or they simply don't work.
+Если только вы не разделяете компоненты на несколько файлов (например, используя [CSS-модули](https://github.com/gajus/react-css-modules)), ограничение области видимости CSS в React идёт в комплекте с некоторыми неприятностями. Самый базовый CSS прекрасно работает "из коробки", чего не скажешь о более сложных вещах, вроде hover-эффектов, media queries и псевдоселекторов: все они либо тащат за собой зависимости, переизобретающие уже существующие возможности CSS - либо и вовсе не работают.
 
-Vue on the other hand, gives you full access to CSS within [single-file components](single-file-components.html):
+Vue же позволяет напрямую использовать CSS в [однофайловых компонентах](single-file-components.html):
 
 ``` html
 <style scoped>
@@ -188,41 +188,41 @@ Vue on the other hand, gives you full access to CSS within [single-file componen
 </style>
 ```
 
-The optional `scoped` attribute automatically scopes this CSS to your component by adding a unique attribute (such as `data-v-1`) to elements and compiling `.list-container:hover` to something like `.list-container[data-v-1]:hover`.
+Опциональный аттрибут `scoped` автоматически ограничивает область видимости CSS текущим компонентом, добавляя элементам уникальные аттрибуты (такие как `data-v-1`), и компилируя `.list-container:hover` во что-нибудь вроде `.list-container[data-v-1]:hover`.
 
-Finally, just as with HTML, you also have the option of writing your CSS using any preprocessors (or postprocessors) you'd like. This allows you to perform design-centric operations such as color manipulation during your build process, rather than importing specialized JavaScript libraries that would increase the size of your build and complexity of your application.
+Наконец, как и с HTML, у вас есть возможность использования любых препроцессоров (или постпроцессоров) на ваш вкус. Это позволяет применять централизованные операции, такие как например управление цветами, на этапе сборки, не импортируя специализированных JavaScript-библиотек, увеличивающих как размер результирующей сборки, так и сложность вашего приложения.
 
-### Scale
+### Масштабирование
 
-#### Scaling Up
+#### Масштабирование Вверх
 
-For large applications, both Vue and React offer robust routing solutions. The React community has also been very innovative in terms of state management solutions (e.g. Flux/Redux). These state management patterns and [even Redux itself](https://github.com/egoist/revue) can be easily integrated into Vue applications. In fact, Vue has even taken this model a step further with [Vuex](https://github.com/vuejs/vuex), an Elm-inspired state management solution that integrates deeply into Vue that we think offers a superior development experience.
+Для крупных приложений, как Vue так и React предоставляют надёжные решения для роутинга. Сообщество React также породило весьма инновационные решения в области управления состоянием приложения (т.е. Flux/Redux). Эти подходы, и [даже сам Redux](https://github.com/egoist/revue) легко интегрируются в приложения на Vue. В действительности, Vue идёт на шаг дальше с [Vuex](https://github.com/vuejs/vuex) — вдохновлённым Elm решением для управления состоянием приложения, глубоко интегрирующимся с Vue, что, на наш взгляд, изрядно облегчает жизнь разработчикам.
 
-Another important difference between these offerings is that Vue's companion libraries for state management and routing (among [other concerns](https://github.com/vuejs)) are all officially supported and kept up-to-date with the core library. React instead chooses to leave these concerns to the community, creating a more fragmented ecosystem. Being more popular though, React's ecosystem is considerably richer than Vue's.
+В качестве ещё одно важного различия между React и Vue можно упомянуть тот факт, что все дополнительные библиотеки Vue для управления состоянием и роутинга (среди [прочих задач](https://github.com/vuejs)) официально поддерживаются и поддерживаются в актуальном соответствии с ядром библиотеки. React, напротив, предпочитает оставить эти вопросы на откуп сообществу, тем самым создавая более фрагментированную экосистему. Впрочем, в силу популярности, экосистема React значительно обширнее, чем у Vue.
 
-Finally, Vue offers a [CLI project generator](https://github.com/vuejs/vue-cli) that makes it trivially easy to start a new project using your choice of build system, including [Webpack](https://github.com/vuejs-templates/webpack), [Browserify](https://github.com/vuejs-templates/browserify), or even [no build system](https://github.com/vuejs-templates/simple). React is also making strides in this area with [create-react-app](https://github.com/facebookincubator/create-react-app), but it currently has a few limitations:
+Наконец, Vue предоставляет [инструменты командной строки для генерации проектов](https://github.com/vuejs/vue-cli), до смешного упрощающие создание новых проектов с использованием подходящей системы сборки, включая [Webpack](https://github.com/vuejs-templates/webpack), [Browserify](https://github.com/vuejs-templates/browserify), или даже [вовсе без таковой](https://github.com/vuejs-templates/simple). В сообществе React также существуют наработки в этом направлении — например, [create-react-app](https://github.com/facebookincubator/create-react-app), но на данный момент функционал этого решения имеет ряд ограничений:
 
-- It does not allow any configuration during project generation, while Vue's project templates allow Yeoman-like customization.
-- It only offers a single template that assumes you're building a single-page application, while Vue offers a wide variety of templates for various purposes and build systems.
-- It cannot generate projects from user-built templates, which can be especially useful for enterprise environments with pre-established conventions.
+- Нет возможности конфигурации проекта в процессе генерации. Vue позволяте Yeoman-подобную настройку шаблонов.
+- Существует единственный шаблон для одностраничного приложения, в то время как Vue позволяет выбрать подходящий шаблон из довольно широкого их многообразия.
+- Нет возможности создавать проекты из пользовательских шаблонов, что может быть особенно полезно для enterprise-окружений с установившимися ранее соглашениями.
 
-It's important to note though that many of these limitations are intentional design decisions made by the create-react-app team and they do have their advantages. For example, as long your project's needs are very simple and you never need to "eject" to customize your build process, you'll be able to update it as a dependency. You can read more about the [differing philosophy here](https://github.com/facebookincubator/create-react-app#philosophy).
+Важно заметить, что многие из этих ограничений — следствия сознательно принятых командой create-react-app решений, и в них есть и свои плюсы. Например, коль скоро ваш проект не требует многого, и не имеет необходимости пользовательской настройки процесса сборки, оную можно будет обновлять как зависимость. Прочитать больше [об этом подходе можно здесь](https://github.com/facebookincubator/create-react-app#philosophy).
 
-#### Scaling Down
+#### Масштабирование Вниз
 
-React is renowned for its steep learning curve. Before you can really get started, you need to know about JSX and probably ES2015+, since many examples use React's class syntax. You also have to learn about build systems, because although you could technically use Babel Standalone to live-compile your code, it's not recommended for production.
+React известен своей крутой кривой изучения. До того момента, когда новичок сможет что-то написать, ему придётся узнать о JSX, а вероятно — и о ES2015+, поскольку многие примеры используют синтаксис классов. Кроме того придётся разобраться с системами сборки, поскольку хотя технически и существует возможность использовать Babel самостоятельно для live-компиляции кода, для production это в любом случае не рекомендуется.
 
-While Vue scales up just as well as, if not better than React, it also scales down just as well as jQuery. That's right - all you have to do is drop a single script tag into a page:
+Vue масштабируется вверх ничуть не хуже (если не лучше), чем React, и в то же время его можно масштабировать вниз вплоть до варианта использования вместе с jQuery. Именно так — в простейшем случае достаточно добавить тег скрипта на HMTL-страницу.
 
 ``` html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 ```
 
-Then you can start writing Vue code and even ship the minified version to production without feeling guilty or having to worry about performance problems.
+Начиная с этого момента можно писать код на Vue, и даже собрать production-версию, не мучаясь угрызениями совести и волнениями насчёт производительности.
 
-Since you don't need to know about JSX, ES2015, or build systems to get started with Vue, it also typically takes developers less than a day reading [the guide](/guide) to learn enough to build non-trivial applications.
+Поскольку знания JSX, ES2015 и систем сборки не требуется для начала работы со Vue, в среднем у новых разработчиков уходит не больше дня на чтение [руководства](/guide), позволяющего узнать достаточно для построения нетривиальных приложений.
 
-### Native Rendering
+### Нативный Рендеринг
 
 ReactNative enables you to write native-rendered apps for iOS and Android using the same React component model. This is great in that as a developer, you can apply your knowledge of a framework across multiple platforms. On this front, Vue has an official collaboration with [Weex](https://alibaba.github.io/weex/), a cross-platform UI framework developed by Alibaba Group, which uses Vue as its JavaScript framework runtime. This means with Weex, you can use the same Vue component syntax to author components that can not only be rendered in the Browser, but also natively on iOS and Android!
 
