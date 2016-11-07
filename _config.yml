@@ -5,7 +5,7 @@
 # Site
 title: Vue.js
 subtitle:
-description: "The Progressive JavaScript Framework"
+description: "Прогрессивный JavaScript-Фреймворк"
 author: Evan You
 email:
 language:
@@ -97,7 +97,7 @@ markdown:
 ## Docs: http://zespia.tw/hexo/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:vuejs/vuejs.org.git
+  repository: git@github.com:gbezyuk/ru.vuejs.org.git
 
 feed:
   type: atom
