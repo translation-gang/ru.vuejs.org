@@ -45,7 +45,7 @@ type: api
   Стратегия слияния получает значения опции родительского и дочернего элемента первым и вторым параметром соответственно.
   Третьим параметром передаётся контекст действующего инстанса Vue.
 
-- **См. также:** [Пользовательские Методы Слияния Опций](/guide/mixins.html#Custom-Option-Merge-Strategies)
+- **См. также:** [Пользовательские Методы Слияния Опций](../guide/mixins.html#Custom-Option-Merge-Strategies)
 
 ### devtools
 
@@ -79,6 +79,22 @@ type: api
   Устанавливает обработчик для ошибок, не пойманных во время рендеренга компонентов и в наблюдателях. Обработчик получит в параметрах ошибку и действующий инстанс Vue.
 
   > Сервис отслеживания ошибок [Sentry](https://sentry.io) предлагает [официальную интеграцию](https://sentry.io/for/vue/) с использованием этого свойства.
+
+### ignoredElements
+
+- **Type:** `Array<string>`
+
+- **Default:** `[]`
+
+- **Usage:**
+
+  ``` js
+  Vue.config.ignoredElements = [
+    'my-custom-web-component', 'another-web-component'
+  ]
+  ```
+
+  Make Vue ignore custom elements defined outside of Vue (e.g., using the Web Components APIs). Otherwise, it will throw a warning about an `Unknown custom element`, assuming that you forgot to register a global component or misspelled a component name.
 
 ### keyCodes
 
@@ -137,7 +153,7 @@ type: api
   <p>Walter White aka Heisenberg</p>
   ```
 
-- **См. также:** [Компоненты](/guide/components.html)
+- **См. также:** [Компоненты](../guide/components.html)
 
 <h3 id="Vue-nextTick">Vue.nextTick( callback, [context] )</h3>
 
@@ -158,7 +174,7 @@ type: api
   })
   ```
 
-- **См. также:** [Очередь асинхронных обновлений](/guide/reactivity.html#Async-Update-Queue)
+- **См. также:** [Асинхронная Очередь Обновлений](../guide/reactivity.html#Async-Update-Queue)
 
 <h3 id="Vue-set">Vue.set( object, key, value )</h3>
 
@@ -175,7 +191,7 @@ type: api
 
   **Обратите внимание что объект не может быть инстансом Vue или корневым объектом data инстанса Vue.**
 
-- **См. также:** [Подробно о реактивности](/guide/reactivity.html)
+- **См. также:** [Подробно о реактивности](../guide/reactivity.html)
 
 <h3 id="Vue-delete">Vue.delete( object, key )</h3>
 
@@ -189,7 +205,7 @@ type: api
 
   **Обратите внимание что объект не может быть инстансом Vue или корневым объектом data инстанса Vue.**
 
-- **См. также:** [Подробно о реактивности](/guide/reactivity.html)
+- **См. также:** [Подробно о реактивности](../guide/reactivity.html)
 
 <h3 id="Vue-directive">Vue.directive( id, [definition] )</h3>
 
@@ -220,7 +236,7 @@ type: api
   var myDirective = Vue.directive('my-directive')
   ```
 
-- **См. также:** [Пользовательские директивы](/guide/custom-directive.html)
+- **См. также:** [Пользовательские директивы](../guide/custom-directive.html)
 
 <h3 id="Vue-filter">Vue.filter( id, [definition] )</h3>
 
@@ -250,7 +266,7 @@ type: api
 
 - **Использование:**
 
-  Регистрирует новый глобальный компонент или возвращает уже зарегистрированный.
+  Регистрирует новый глобальный компонент или возвращает уже зарегистрированный. Имя (`name`) компонента автоматически указывается равным переданному `id`.
 
   ``` js
   // регистрируем конструктор, полученный из Vue.extend:
@@ -263,7 +279,7 @@ type: api
   var MyComponent = Vue.component('my-component')
   ```
 
-- **См. также:** [Компоненты](/guide/components.html)
+- **См. также:** [Компоненты](../guide/components.html)
 
 <h3 id="Vue-use">Vue.use( plugin )</h3>
 
@@ -276,7 +292,7 @@ type: api
 
   Сколько бы раз вы не выполняли этот метод с одним и тем же плагином, плагин будет установлен только однажды.
 
-- **См. также:** [Плагины](/guide/plugins.html)
+- **См. также:** [Плагины](../guide/plugins.html)
 
 <h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
 
@@ -287,7 +303,7 @@ type: api
 
   Применяет миксин ко всем созданным впоследствии инстансам Vue. Так авторы плагинов могут встроить желаемое поведение в компоненты. **Не рекомендуем использовать в коде приложений**.
 
-- **См. также:** [Глобальные миксины](/guide/mixins.html#Global-Mixin)
+- **См. также:** [Глобальные миксины](../guide/mixins.html#Global-Mixin)
 
 <h3 id="Vue-compile">Vue.compile( template )</h3>
 
@@ -310,7 +326,7 @@ type: api
   })
   ```
 
-- **См. также:** [Render-функции](/guide/render-function.html)
+- **См. также:** [Render-функции](../guide/render-function.html)
 
 ## Опции — данные
 
@@ -356,7 +372,7 @@ type: api
 
   <p class="tip">Обратите внимание, что __вам не стоит использовать arrow-функции в параметре `data`__ (напр. `data: () => { return { a: this.myProp }}`). Поскольку arrow-функции связываются с родительским контекстом, `this` не будет указывать на инстанс Vue и `this.myProp` окажется неопределенным.</p>
 
-- **См. также:** [Подробно о реактивности](/guide/reactivity.html)
+- **См. также:** [Подробно о реактивности](../guide/reactivity.html)
 
 ### props
 
@@ -392,7 +408,7 @@ type: api
   })
   ```
 
-- **См. также:** [Параметры компонентов](/guide/components.html#Props)
+- **См. также:** [Входные Параметры](../guide/components.html#Props)
 
 ### propsData
 
@@ -459,7 +475,7 @@ type: api
   ```
 
 - **См. также:**
-  - [Вычисляемые свойства](/guide/computed.html)
+  - [Вычисляемые свойства](../guide/computed.html)
 
 ### methods
 
@@ -486,7 +502,7 @@ type: api
   vm.a // 2
   ```
 
-- **См. также:** [Методы и обработка событий](/guide/events.html)
+- **См. также:** [Методы и обработка событий](../guide/events.html)
 
 ### watch
 
@@ -543,7 +559,7 @@ type: api
 
   <p class="tip">Указанный элемент служит только точкой монтирования. В отличии от Vue 1.x, он обязательно будет заменен DOM-ом, сгенерированным Vue. Поэтому не стоит монтировать в корневые элементы `<html>` или `<body>`.</p>
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### template
 
@@ -558,8 +574,8 @@ type: api
   <p class="tip">Чтобы оставаться в безопасности, используйте только те шаблоны Vue, которым можете доверять. Никогда не используйте в качестве шаблона данные, вводимые пользователем.</p>
 
 - **См. также:**
-  - [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
-  - [Распределение контента слотами](/guide/components.html#Content-Distribution-with-Slots)
+  - [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
+  - [Распределение контента слотами](../guide/components.html#Content-Distribution-with-Slots)
 
 ### render
 
@@ -572,7 +588,7 @@ type: api
     Если компонент функциональный, вторым параметром передаётся `context`, дающий доступ к контекстным данным, так как функциональные компоненты не имеют инстансов.
 
   - **См. также:**
-    - [Render-функции](/guide/render-function)
+    - [Render-функции](../guide/render-function)
 
 ## Опции — Хуки жизненного цикла
 
@@ -586,7 +602,7 @@ type: api
 
   Вызывается синхронно сразу после инициализации инстанса, до настройки наблюдения за данными, механизмов слежения и событий.
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### created
 
@@ -596,7 +612,7 @@ type: api
 
   Вызывается синхронно сразу после создания инстанса. На этом этапе инстанс закончил обработку опций и настроил наблюдение за данными, вычисляемые свойства, методы, коллбэки слежения и событий. Однако, фаза монтирования ещё не начата, и свойство `$el` ещё не доступно.
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### beforeMount
 
@@ -608,7 +624,7 @@ type: api
 
   **При рендере на стороне сервера этот хук не вызывается.**
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### mounted
 
@@ -620,7 +636,7 @@ type: api
 
   **При рендере на стороне сервера этот хук не вызывается.**
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### beforeUpdate
 
@@ -634,7 +650,7 @@ type: api
 
   **При рендере на стороне сервера этот хук не вызывается.**
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### updated
 
@@ -648,7 +664,7 @@ type: api
 
   **При рендере на стороне сервера этот хук не вызывается.**
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### activated
 
@@ -662,7 +678,7 @@ type: api
 
 - **См. также:**
   - [Встроенные компоненты — keep-alive](#keep-alive)
-  - [Динамические компоненты — keep-alive](/guide/components.html#keep-alive)
+  - [Динамические компоненты — keep-alive](../guide/components.html#keep-alive)
 
 ### deactivated
 
@@ -676,7 +692,7 @@ type: api
 
 - **См. также:**
   - [Встроенные компоненты - keep-alive](#keep-alive)
-  - [Динамические компоненты - keep-alive](/guide/components.html#keep-alive)
+  - [Динамические компоненты - keep-alive](../guide/components.html#keep-alive)
 
 ### beforeDestroy
 
@@ -688,7 +704,7 @@ type: api
 
   **При рендере на стороне сервера этот хук не вызывается.**
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ### destroyed
 
@@ -700,7 +716,7 @@ type: api
 
   **При рендере на стороне сервера этот хук не вызывается.**
 
-- **См. также:** [Диаграмма жизненного цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма жизненного цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ## Опции — ресурсы
 
@@ -713,8 +729,8 @@ type: api
   Хэш директив, доступных инстансу Vue.
 
 - **См. также:**
-  - [Пользовательские директивы](/guide/custom-directive.html)
-  - [Соглашение по именованию ресурсов](/guide/components.html#Assets-Naming-Convention)
+  - [Пользовательские директивы](../guide/custom-directive.html)
+  - [Соглашение по именованию ресурсов](../guide/components.html#Assets-Naming-Convention)
 
 ### filters
 
@@ -736,7 +752,7 @@ type: api
   Хэш компонентов, доступных инстансу Vue.
 
 - **См. также:**
-  - [Компоненты](/guide/components.html)
+  - [Компоненты](../guide/components.html)
 
 ## Опции — разное
 
@@ -774,7 +790,7 @@ type: api
   // -> 2
   ```
 
-- **См. также:** [Миксины](/guide/mixins.html)
+- **См. также:** [Миксины](../guide/mixins.html)
 
 ### name
 
@@ -814,7 +830,7 @@ type: api
 
 - **Тип:** `Array<string>`
 
-- **По умолчанию:** `{% raw %}["{{", "}}"]{% endraw %}`
+- **по умолчанию:** `{% raw %}["{{", "}}"]{% endraw %}`
 
 - **Подробности:**
 
@@ -838,7 +854,7 @@ type: api
 
   Превращает компонент в функциональный, то есть не имеющий собственного состояния (`data`) и своего инстанса (`this`). Такие компоненты по сути — просто функция `render`, возвращающая узлы виртуального DOM. Это сильно ускоряет их рендер.
 
-- **См. также:** [Функциональные компоненты](/guide/render-function.html#Functional-Components)
+- **См. также:** [Функциональные компоненты](../guide/render-function.html#Functional-Components)
 
 ## Instance Properties
 
@@ -919,7 +935,7 @@ type: api
 
 - **Подробности:**
 
-  Используется для доступа к контенту, [распространяемому через слоты](/guide/components.html#Content-Distribution-with-Slots). Каждый [именованный слот](/guide/components.html#Named-Slots) имеет собственное соответствующее значение (например, содержимое `slot="foo"` будет находится в `vm.$slots.foo`). Свойство `default` содержит узлы, не включённые в именованные слоты.
+  Используется для доступа к контенту, [распространяемому через слоты](../guide/components.html#Content-Distribution-with-Slots). Каждый [именованный слот](../guide/components.html#Named-Slots) имеет собственное соответствующее значение (например, содержимое `slot="foo"` будет находится в `vm.$slots.foo`). Свойство `default` содержит узлы, не включённые в именованные слоты.
 
   Использование `vm.$slots` более всего находит своё применение при написании компонентов с [render-функциями](/guide/render-function.html).
 
@@ -958,8 +974,8 @@ type: api
 
 - **См. также:**
   - [`<slot>` Component](#slot)
-  - [Дистрибьюция Контента посредством Слотов](/guide/components.html#Content-Distribution-with-Slots)
-  - [Render-Функции](/guide/render-function.html)
+  - [Дистрибьюция Контента посредством Слотов](../guide/components.html#Content-Distribution-with-Slots)
+  - [Render-Функции](../guide/render-function.html)
 
 ### vm.$refs
 
@@ -972,7 +988,7 @@ type: api
   Объект, содержащий дочерние компоненты, зарегистрировавшие параметр `ref`.
 
 - **См. также:**
-  - [Ссылки на Дочерние Компоненты](/guide/components.html#Child-Component-Refs)
+  - [Ссылки на Дочерние Компоненты](../guide/components.html#Child-Component-Refs)
   - [ref](#ref)
 
 ### vm.$isServer
@@ -985,7 +1001,7 @@ type: api
 
   Запущен ли данный инстанс Vue на сервере.
 
-- **См. также:** [Рендеринг на Сервере](/guide/ssr.html)
+- **См. также:** [Рендеринг на Сервере](../guide/ssr.html)
 
 ## Методы инстанса / Данные
 
@@ -1002,7 +1018,7 @@ type: api
 
 - **Использование:**
 
-  Осуществляет наблюдение за выражением или вычисляемой функцией инстанса Vue на предмет изменений. Функция обратного вызывается с новым и старым значениями наблюдаемого объекта в качестве параметров. Выражение может быть как одиночным путём до переменной, так и любым валидным для связывания выражением. //TODO
+  Осуществляет наблюдение за выражением или вычисляемой функцией инстанса Vue на предмет изменений. Функция обратного вызывается с новым и старым значениями наблюдаемого объекта в качестве параметров. Выражением может быть только простой разделённый точками путь. Для более сложный варажений используйте функции.
 
 <p class="tip">Обратите внимание: при изменении (мутации, не замене) объекта (Object) или массива (Array), старое и новое значения будут совпадать, так как они ссылаются на один и тот же Object/Array. Vue не сохраняяет копии объекта на момент, предшествовавший изменениям.</p>
 
@@ -1011,11 +1027,6 @@ type: api
   ``` js
   // путь до переменной
   vm.$watch('a.b.c', function (newVal, oldVal) {
-    // что-нибудь происходит
-  })
-
-  // выражение
-  vm.$watch('a + b', function (newVal, oldVal) {
     // что-нибудь происходит
   })
 
@@ -1181,8 +1192,8 @@ type: api
   ```
 
 - **См. также:**
-  - [Диаграмма Жизненного Цикла](/guide/instance.html#Lifecycle-Diagram)
-  - [Рендеринг на Сервере](/guide/ssr.html)
+  - [Диаграмма Жизненного Цикла](../guide/instance.html#Lifecycle-Diagram)
+  - [Рендеринг на Сервере](../guide/ssr.html)
 
 <h3 id="vm-forceUpdate">vm.$forceUpdate()</h3>
 
@@ -1222,7 +1233,7 @@ type: api
 
 - **См. также:**
   - [Vue.nextTick](#Vue-nextTick)
-  - [Очередь Асинхронных Обновлений](/guide/reactivity.html#Async-Update-Queue)
+  - [Очередь Асинхронных Обновлений](../guide/reactivity.html#Async-Update-Queue)
 
 <h3 id="vm-destroy">vm.$destroy()</h3>
 
@@ -1234,7 +1245,7 @@ type: api
 
   <p class="tip">В нормальных вариантах использования вам не придётся вызывать этот метод самим. Предпочтительнее контроллировать жизненный цикл дочерних компонент в data-driven стиле, использую `v-if` и `v-for`.</p>
 
-- **См. также:** [Диаграмма Жизненного Цикла](/guide/instance.html#Lifecycle-Diagram)
+- **См. также:** [Диаграмма Жизненного Цикла](../guide/instance.html#Lifecycle-Diagram)
 
 ## Директивы
 
@@ -1254,7 +1265,7 @@ type: api
   <span>{{msg}}</span>
   ```
 
-- **См. также:** [Синтаксис Связывания Данных - интерполяции](/guide/syntax.html#Text)
+- **См. также:** [Синтаксис Связывания Данных - интерполяции](../guide/syntax.html#Text)
 
 ### v-html
 
@@ -1271,7 +1282,7 @@ type: api
   ```html
   <div v-html="html"></div>
   ```
-- **См. также:** [Синтаксис Связывания Данных - интерполяции](/guide/syntax.html#Raw-HTML)
+- **См. также:** [Синтаксис Связывания Данных - интерполяции](../guide/syntax.html#Raw-HTML)
 
 ### v-if
 
@@ -1283,7 +1294,7 @@ type: api
 
   Эта директива вызывает transitions при изменении состояния.
 
-- **См. также:** [Условный Рендеринг - v-if](/guide/conditional.html)
+- **См. также:** [Условный Рендеринг - v-if](../guide/conditional.html)
 
 ### v-show
 
@@ -1296,7 +1307,7 @@ type: api
   Эта директива вызывает transitions при изменении состояния.
 
 
-- **См. также:** [Условный Рендеринг - v-show](/guide/conditional.html#v-show)
+- **См. также:** [Условный Рендеринг - v-show](../guide/conditional.html#v-show)
 
 ### v-else
 
@@ -1318,7 +1329,7 @@ type: api
   ```
 
 - **См. также:**
-  - [Условный Рендеринг - v-else](/guide/conditional.html#v-else)
+  - [Условный Рендеринг - v-else](../guide/conditional.html#v-else)
 
 ### v-for
 
@@ -1353,8 +1364,8 @@ type: api
   Использование `v-for` подробно описано в нижеуказанной секции Руководства.
 
 - **См. также:**
-  - [Рендеринг Списков](/guide/list.html)
-  - [key](/guide/list.html#key)
+  - [Рендеринг Списков](../guide/list.html)
+  - [key](../guide/list.html#key)
 
 ### v-on
 
@@ -1424,8 +1435,8 @@ type: api
   ```
 
 - **См. также:**
-  - [Методы и Обработка Событий](/guide/events.html)
-  - [Компоненты - Пользовательские События](/guide/components.html#Custom-Events)
+  - [Методы и Обработка Событий](../guide/events.html)
+  - [Компоненты - Пользовательские События](../guide/components.html#Custom-Events)
 
 ### v-bind
 
@@ -1480,8 +1491,8 @@ type: api
   ```
 
 - **См. также:**
-  - [Связывание Классов и Стилей](/guide/class-and-style.html)
-  - [Компоненты - Входные Параметры Компонентов](/guide/components.html#Props)
+  - [Связывание Классов и Стилей](../guide/class-and-style.html)
+  - [Компоненты - Входные Параметры Компонентов](../guide/components.html#Props)
 
 ### v-model
 
@@ -1494,17 +1505,17 @@ type: api
   - components
 
 - **Модификаторы:**
-  - [`.lazy`](/guide/forms.html#lazy) - слушать события `change`, а не `input`
-  - [`.number`](/guide/forms.html#number) - приводить введённую строку к числу
-  - [`.trim`](/guild/forms.html#trim) - удалять пробелы в начале и в конце введённой строки
+  - [`.lazy`](../guide/forms.html#lazy) - слушать события `change`, а не `input`
+  - [`.number`](../guide/forms.html#number) - приводить введённую строку к числу
+  - [`.trim`](../guild/forms.html#trim) - удалять пробелы в начале и в конце введённой строки
 
 - **Использование:**
 
   Двусторонним образом связывает элемент ввода формы или компонент с переменной. См. секцию руководства по ссылке ниже для подробностей.
 
 - **См. также:**
-  - [Связывание Элементов Ввода Форм](/guide/forms.html)
-  - [Компоненты - Компоненты Элементов Ввода Форм c Использованием Пользовательских Событий](/guide/components.html#Form-Input-Components-using-Custom-Events)
+  - [Связывание Элементов Ввода Форм](../guide/forms.html)
+  - [Компоненты - Компоненты Элементов Ввода Форм c Использованием Пользовательских Событий](../guide/components.html#Form-Input-Components-using-Custom-Events)
 
 ### v-pre
 
@@ -1569,8 +1580,8 @@ type: api
   ```
 
 - **См. также:**
-  - [Синтаксис Связывания Данных - интерполяции](/guide/syntax.html#Text)
-  - [Компоненты - Дешёвые Статические Компоненты с использованием v-once](/guide/components.html#Cheap-Static-Components-with-v-once)
+  - [Синтаксис Связывания Данных - интерполяции](../guide/syntax.html#Text)
+  - [Компоненты - Дешёвые Статические Компоненты с использованием v-once](../guide/components.html#Cheap-Static-Components-with-v-once)
 
 ## Специальные Аттрибуты
 
@@ -1623,7 +1634,7 @@ type: api
 
   Важное замечание о времени регистрации ссылок: поскольку ссылки сами создаются в результате работы render-функции, вы не можете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект `$refs` не является реактивным, и поэтому не стоит пытаться использовать его в шаблонах для связывания данных.
 
-- **См. также:** [Ссылки на Дочерние Компоненты](/guide/components.html#Child-Component-Refs)
+- **См. также:** [Ссылки на Дочерние Компоненты](../guide/components.html#Child-Component-Refs)
 
 ### slot
 
@@ -1633,7 +1644,7 @@ type: api
 
   См. секцию руководства по ссылке ниже для подробностей.
 
-- **См. также:** [Именованные Слоты](/guide/components.html#Named-Slots)
+- **См. также:** [Именованные Слоты](../guide/components.html#Named-Slots)
 
 ## Built-In Компоненты
 
@@ -1656,7 +1667,7 @@ type: api
   <component :is="$options.components.child"></component>
   ```
 
-- **См. также:** [Динамические Компоненты](/guide/components.html#Dynamic-Components)
+- **См. также:** [Динамические Компоненты](../guide/components.html#Dynamic-Components)
 
 ### transition
 
@@ -1719,7 +1730,7 @@ type: api
   }).$mount('#transition-demo')
   ```
 
-- **См. также:** [Анимации Переходов: Появление, Исчезновение, и Списки](/guide/transitions.html)
+- **См. также:** [Анимации Переходов: Появление, Исчезновение, и Списки](../guide/transitions.html)
 
 ### transition-group
 
@@ -1747,7 +1758,7 @@ type: api
   </transition-group>
   ```
 
-- **См. также:** [Анимации Переходов: Появление, Исчезновение, и Списки](/guide/transitions.html)
+- **См. также:** [Анимации Переходов: Появление, Исчезновение, и Списки](../guide/transitions.html)
 
 ### keep-alive
 
@@ -1781,7 +1792,7 @@ type: api
 
   <p class="tip">`<keep-alive>` не работает с функциональными компонентами, так как у них отсутсвуют инстансы.</p>
 
-- **См. также:** [Динамические Компоненты - keep-alive](/guide/components.html#keep-alive)
+- **См. также:** [Динамические Компоненты - keep-alive](../guide/components.html#keep-alive)
 
 ### slot
 
@@ -1794,7 +1805,7 @@ type: api
 
   См. секцию руководства по ссылке ниже для подробностей.
 
-- **См. также:** [Дистрибьюция Контента посредством Слотов](/guide/components.html#Content-Distribution-with-Slots)
+- **См. также:** [Дистрибьюция Контента посредством Слотов](../guide/components.html#Content-Distribution-with-Slots)
 
 ## Интерфейс VNode
 

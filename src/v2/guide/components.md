@@ -229,7 +229,7 @@ new Vue({
 
 Каждый инстанс компонента обладает своей собственной **изолированной областью видимости**. Это значит, что вы не можете (и не должны пытаться) напрямую обратиться к данным родительского компонента из шаблона компонента-потомка. Данные можно передавать вниз по цепочке как **входных параметров**.
 
-Входной Параметр — это пользовательский аттрибут для передачи информации из родительского компонента. Компонент-потомок должен явно определить ожидаемые входные параметры, используя [опцию `props`](/api/#props)
+Входной Параметр — это пользовательский аттрибут для передачи информации из родительского компонента. Компонент-потомок должен явно определить ожидаемые входные параметры, используя [опцию `props`](../api/#props)
 
 ``` js
 Vue.component('child', {
@@ -357,9 +357,25 @@ new Vue({
 
 Правильным ответом в этих случаях будет:
 
-1. Определить локальную переменную, использующую для инициализации значение входного параметра;
+1. Определить локальную переменную, использующую для инициализации значение входного параметра:
 
-2. Определить вычисляемое свойство, основывающееся на значении входного параметра
+  ``` js
+  props: ['initialCounter'],
+  data: function () {
+    return { counter: this.initialCounter }
+  }
+  ```
+
+2. Определить вычисляемое свойство, основывающееся на значении входного параметра:
+
+  ``` js
+  props: ['size'],
+  computed: {
+    normalizedSize: function () {
+      return this.size.trim().toLowerCase()
+    }
+  }
+  ```
 
 <p class="tip">Обратите внимание, что объекты и массивы в JavaScript передаются по ссылке, так что если входным параметром является объект или массив, его изменение внутри дочернего компонента **повлияет** на состояние родительского компонента.</p>
 
@@ -419,14 +435,16 @@ Vue.component('example', {
 
 ## Пользовательские События
 
-Мы узнали, что родитель может передавать данные в дочерние компоненты через входные параметры, но как организовать обратную коммуникацию, когда что-то случится? Самое время поговорить о пользовательских событиях.
+Мы узнали, что родитель может передавать данные в дочерние компоненты через входные параметры, но как организовать обратную коммуникацию, когда что-то случится? Самое время поговорить о системе пользовательских событий Vue.
 
 ### Использование `v-on` с Пользовательскими Событиями
 
-Каждый инстанс Vue поддерживает [интерфейс Событий](/api/#Instance-Methods-Events), что означает возможность:
+Каждый инстанс Vue поддерживает [интерфейс Событий](../api/#Instance-Methods-Events), что означает возможность:
 
 - Слушать события, используя `$on(eventName)`
 - Порождать события, используя `$emit(eventName)`
+
+<p class="tip">Обратите внимание, что система событий Vue отделена от [EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget). Хотя они и похожи, `$on` и `$emit` __не являются__ псевдонимами для `addEventListener` и `dispatchEvent`.</p>
 
 Кроме того, родительский компонент может зарегистрировать слушателя событий, используя директиву `v-on` непосредственно в шаблоне при создании дочернего компонента.
 
@@ -539,85 +557,84 @@ new Vue({
 - принимать входной параметр `value`
 - эмитировать событие `input` с новым значением
 
-Давайте разберём реальный пример:
+Давайте разберём в качестве примера простой элемент ввода цены в валюте:
 
 ``` html
-<div id="v-model-example">
-  <p>{{ message }}</p>
-  <my-input
-    label="Message"
-    v-model="message"
-  ></my-input>
-</div>
+<currency-input v-model="price"></currency-input>
 ```
 
 ``` js
-Vue.component('my-input', {
+Vue.component('currency-input', {
   template: '\
-    <div class="form-group">\
-      <label v-bind:for="randomId">{{ label }}:</label>\
-      <input v-bind:id="randomId" v-bind:value="value" v-on:input="onInput">\
-    </div>\
+    <span>\
+      $\
+      <input\
+        ref="input"\
+        v-bind:value="value"\
+        v-on:input="updateValue($event.target.value)"\
+      >\
+    </span>\
   ',
-  props: ['value', 'label'],
-  data: function () {
-    return {
-      randomId: 'input-' + Math.random()
-    }
-  },
+  props: ['value'],
   methods: {
-    onInput: function (event) {
-      this.$emit('input', event.target.value)
+    // Этот метод используется для форматирования и
+    // нормализации введённого значения, а также порождает
+    // событие, уведомляющее родительский компонент об изменениях
+    updateValue: function (value) {
+      var formattedValue = value
+        // Удалить пробелы с обеих сторон
+        .trim()
+        // Shorten to 2 decimal places
+        .slice(0, value.indexOf('.') + 3)
+      // Если значение не нормализовано — нормализуем вручную
+      if (formattedValue !== value) {
+        this.$refs.input.value = formattedValue
+      }
+      // Порождаем событие с обновлённым значением элемента ввода
+      this.$emit('input', Number(formattedValue))
     }
-  },
-})
-
-new Vue({
-  el: '#v-model-example',
-  data: {
-    message: 'hello'
   }
 })
 ```
 
 {% raw %}
-<div id="v-model-example" class="demo">
-  <p>{{ message }}</p>
-  <my-input
-    label="Message"
-    v-model="message"
-  ></my-input>
+<div id="currency-input-example" class="demo">
+  <currency-input v-model="price"></currency-input>
 </div>
 <script>
-Vue.component('my-input', {
+Vue.component('currency-input', {
   template: '\
-    <div class="form-group">\
-      <label v-bind:for="randomId">{{ label }}:</label>\
-      <input v-bind:id="randomId" v-bind:value="value" v-on:input="onInput">\
-    </div>\
+    <span>\
+      $\
+      <input\
+        ref="input"\
+        v-bind:value="value"\
+        v-on:input="updateValue($event.target.value)"\
+      >\
+    </span>\
   ',
-  props: ['value', 'label'],
-  data: function () {
-    return {
-      randomId: 'input-' + Math.random()
-    }
-  },
+  props: ['value'],
   methods: {
-    onInput: function (event) {
-      this.$emit('input', event.target.value)
+    updateValue: function (value) {
+      var formattedValue = value
+        .trim()
+        .slice(0, value.indexOf('.') + 3)
+      if (formattedValue !== value) {
+        this.$refs.input.value = formattedValue
+      }
+      this.$emit('input', Number(formattedValue))
     }
-  },
-})
-new Vue({
-  el: '#v-model-example',
-  data: {
-    message: 'hello'
   }
 })
+new Vue({ el: '#currency-input-example' })
 </script>
 {% endraw %}
 
-Этот интерфейс может быть использован не только для связи с элементами ввода форм внутри компонентов, но и для интеграции новоизобретённых типов. Представьте только такие возможности:
+Реализация выше, конечно, остаётся довольно наивной. Например, она позволяет пользователям вводить несколько десятичных точек, и даже иногда буквы - упс! Если вы хотите более сложный и надёжный пример, то вот он:
+
+<iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/1oqjojjx/embedded/result,html,js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+Кроме того, этот интерфейс может быть использован не только для связи с элементами ввода форм внутри компонентов, но и для интеграции новоизобретённых типов. Представьте только такие возможности:
 
 ``` html
 <voice-recognizer v-model="question"></voice-recognizer>
@@ -643,7 +660,7 @@ bus.$on('id-selected', function (id) {
 })
 ```
 
-Для более сложных случаев, стоит рассмотреть использование специального [шаблона управления состоянием](/guide/state-management.html).
+Для более сложных случаев, стоит рассмотреть использование специального [шаблона управления состоянием](state-management.html).
 
 ## Дистрибьюция Контента через Слоты
 
@@ -854,7 +871,7 @@ var vm = new Vue({
 </keep-alive>
 ```
 
-Более детально `<keep-alive>` рассмотрен в [справочнике API](/api/#keep-alive).
+Более детально `<keep-alive>` рассмотрен в [справочнике по API](../api/#keep-alive).
 
 ## Разное
 
@@ -985,11 +1002,25 @@ components: {
 Компоненты могут рекурсивно вызывать самих себя в своих шаблонах. Однако, эта возможность доступна только при указании опции `name`:
 
 ``` js
+name: 'unique-name-of-my-component'
+```
+
+When you register a component globally using `Vue.component`, the global ID is automatically set as the component's `name` option.
+
+``` js
+Vue.component('unique-name-of-my-component', {
+  // ...
+})
+```
+
+If you're not careful, recursive components can also lead to infinite loops:
+
+``` js
 name: 'stack-overflow',
 template: '<div><stack-overflow></stack-overflow></div>'
 ```
 
-Компонент, подобный вышеописанному, породит ошибку переполнения стека, поэтому обязательно удостоверьтесь, что рекурсивный вызов является условным (т.е. использует директиву `v-if`, которая рано или поздно станет ложной). Если компонент регистрируется глобально с использованием `Vue.component`, глобальный ID автоматически устанавливается равным опции `name` компонента.
+Компонент, подобный вышеописанному, породит ошибку переполнения стека, поэтому обязательно удостоверьтесь, что рекурсивный вызов является условным (т.е. использует директиву `v-if`, которая рано или поздно станет ложной).
 
 ### Inline-Шаблоны
 

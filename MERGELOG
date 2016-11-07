@@ -1,0 +1,50 @@
+2016.11.07 Merging with https://github.com/vuejs/vuejs.org/commit/7cd45cf91aac22d94487368d093cead254048c06
+==========================================================================================================
+Removing themes/vue/layout/partials/ga.ejs
+Auto-merging src/v2/guide/unit-testing.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/unit-testing.md
+Auto-merging src/v2/guide/transitions.md
+Auto-merging src/v2/guide/transitioning-state.md
+Auto-merging src/v2/guide/syntax.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/syntax.md
+Auto-merging src/v2/guide/single-file-components.md
+MANUALLY fixed conflict (?) (content): Merge conflict in src/v2/guide/single-file-components.md
+Auto-merging src/v2/guide/render-function.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/render-function.md
+Auto-merging src/v2/guide/reactivity.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/reactivity.md
+Auto-merging src/v2/guide/mixins.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/mixins.md
+Auto-merging src/v2/guide/migration.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/migration.md
+Auto-merging src/v2/guide/migration-vuex.md
+Auto-merging src/v2/guide/migration-vue-router.md
+Auto-merging src/v2/guide/list.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/list.md
+Auto-merging src/v2/guide/instance.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/instance.md
+Auto-merging src/v2/guide/installation.md
+MANUALLY fixed conflict (local links, new paragraph) (content): Merge conflict in src/v2/guide/installation.md
+Auto-merging src/v2/guide/index.md
+MANUALLY fixed conflict (new conent, local links) (content): Merge conflict in src/v2/guide/index.md
+Auto-merging src/v2/guide/forms.md
+MANUALLY fixed conflict (new conent, local links) (content): Merge conflict in src/v2/guide/forms.md
+Auto-merging src/v2/guide/events.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/events.md
+Auto-merging src/v2/guide/custom-directive.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/custom-directive.md
+Auto-merging src/v2/guide/computed.md
+MANUALLY fixed conflict (local links) (content): Merge conflict in src/v2/guide/computed.md
+Auto-merging src/v2/guide/components.md
+MANUALLY fixed conflict (new conent, local links) (content): Merge conflict in src/v2/guide/components.md
+Auto-merging src/v2/guide/comparison.md
+MANUALLY fixed conflict (new conent, local links, translation typos) (content): Merge conflict in src/v2/guide/comparison.md
+Auto-merging src/v2/guide/class-and-style.md
+MANUALLY fixed conflict (new conent) (content): Merge conflict in src/v2/guide/class-and-style.md
+Auto-merging src/v2/examples/todomvc.md
+Auto-merging src/v2/api/index.md
+MANUALLY fixed conflict (new conent, local links) (content): Merge conflict in src/v2/api/index.md
+Auto-merging src/support-vuejs/index.md
+Removing src/guide/.npmignore
+Removing src/examples/index.md
+Automatic merge failed; fix conflicts and then commit the result.

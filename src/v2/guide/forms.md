@@ -38,14 +38,14 @@ new Vue({
 <span>Введённое многострочное сообщение:</span>
 <p style="white-space: pre">{{ message }}</p>
 <br>
-<textarea v-model="message" placeholder="добавь ко мне несколько строчек"></textarea>
+<textarea v-model="message" placeholder="введите несколько строчек"></textarea>
 ```
 
 {% raw %}
 <div id="example-textarea" class="demo">
   <span>Введённое многострочное сообщение:</span>
   <p style="white-space: pre">{{ message }}</p><br>
-  <textarea v-model="message" placeholder="добавь ко мне несколько строчек"></textarea>
+  <textarea v-model="message" placeholder="введите несколько строчек"></textarea>
 </div>
 <script>
 new Vue({
@@ -295,7 +295,8 @@ new Vue({
   type="checkbox"
   v-model="toggle"
   v-bind:true-value="a"
-  v-bind:false-value="b">
+  v-bind:false-value="b"
+>
 ```
 
 ``` js
@@ -359,3 +360,9 @@ vm.selected.number // -> 123
 ```html
 <input v-model.trim="msg">
 ```
+
+## Использование `v-model` с Компонентами
+
+> Если вы ещё не знакомы с компонентами Vue, пока просто пропустите эту секцию
+
+Встроенных в HTML элементов ввода не всегда достаточно. К счастью, компоненты Vue позволяют создавать их повторно используемые пользовательские аналоги, с полностью настраиваемым поведением. Эти элементы тоже могут работать с `v-model`. Чтобы узнать больше, прочитайте о [пользовательских элементах ввода](components.html#Form-Input-Components-using-Custom-Events) в руководстве по компонентам.
