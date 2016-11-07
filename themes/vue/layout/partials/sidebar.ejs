@@ -4,10 +4,8 @@
     </ul>
     <div class="list">
         <div id="donate" style="margin-bottom: 20px">
-            <span class="wrapper" style="width: 110px">
-              <img src="/images/patreon.png">
-              <a href="/support-vuejs">Support Vue.js</a>
-            </span>
+            <img src="/images/patreon.png">
+            <a href="/support-vuejs">Support Vue.js</a>
         </div>
         <h2>
             <%- type === 'api' ? 'API' : (type.charAt(0).toUpperCase() + type.slice(1)) %>
@@ -22,16 +20,16 @@
             <% type !== 'api' && site.pages.find({type: type}).sort('order').each(function (p) { %>
                 <% var fileName = p.path.replace(/^.+?\/([\w-]+)\.html/, '$1') %>
                 <% if (fileName === 'installation') { %>
-                  <li><h3>Essentials</h3></li>
+                  <li><h3>Основы</h3></li>
                 <% } %>
-                <% if (fileName === 'transitions') { %>
-                  <li><h3>Advanced</h3></li>
+                <% if (fileName === 'reactivity') { %>
+                  <li><h3>Продвинутые Темы</h3></li>
                 <% } %>
                 <% if (fileName === 'migration') { %>
-                  <li><h3>Migrating</h3></li>
+                  <li><h3>Вопросы Миграции</h3></li>
                 <% } %>
                 <% if (fileName === 'comparison') { %>
-                  <li><h3>Meta</h3></li>
+                  <li><h3>Мета</h3></li>
                 <% } %>
                 <li>
                     <a href="/<%- p.path %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
