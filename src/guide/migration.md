@@ -1,14 +1,14 @@
 ---
-title: Migration from Vue 1.x
+title: Миграция с Vue 1.x
 type: guide
 order: 25
 ---
 
-## FAQ
+## ЧАВО
 
-> Woah - this is a super long page! Does that mean 2.0 is completely different, I'll have to learn the basics all over again, and migrating will be practically impossible?
+> Ого! - это длиииииинная страница! Значит ли это, что 2.0 - совсем другая, снова будет нужно всему учитсья, а миграция будет практически невозможной?
 
-I'm glad you asked! The answer is no. About 90% of the API is the same and the core concepts haven't changed. It's long because we like to offer very detailed explanations and include a lot of examples. Rest assured, __this is not something you have to read from top to bottom!__
+Хорошо, что спросили! Ответ — нет. Около 90% API осталось тем же, основные концепции не изменились. А длинная страничка просто потому, что мы хотим максимально подробно объяснить все детали и привести много примеров. И уж точно __не предполагается что кто-то будет читать эту страницу от начала до конца!__
 
 > Where should I start in a migration?
 
