@@ -146,7 +146,7 @@ Vue.component('my-component', {
 Если `isActive` истинно, результирующим HTML будет:
 
 ``` html
-<div class="foo bar active"></div>
+<p class="foo bar active"></p>
 ```
 
 ## Связывание Inline-Стилей

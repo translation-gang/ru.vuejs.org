@@ -32,20 +32,14 @@ React и Vue во многом похожи. Они оба:
 
 При рендеренге UI, манипулирование DOM — зачастую самая дорогая операция. К сожалению, ни одна библиотека не может сделать эти низкоуровневые операции быстрее. Лучшее, что мы можем сделать — это:
 
-<<<<<<< HEAD:src/guide/comparison.md
 1. Минимизировать необходимое количество изменений в DOM. Как React, так и Vue используют virtual DOM для этих целей — и примерно с равным успехом.
-2. Добавить как можно меньше дополнительных операций поверх манипуляций с DOM. Здесь Vue и React отличаются.
+2. Привнести как можно меньше дополнительных накладных расходов в виде JavaScript-операций "поверх" манипуляций с DOM. В этой области Vue и React отличаются.
+
+Упомянутые накладные расходы напрямую связаны с используемыми для определения необходимых для выполнения операций с DOM механизмами. Как Vue, так и React используют Virtual DOM, но имплементация Virtual DOM, используемая во Vue (форк [snabbdom](https://github.com/snabbdom/snabbdom)) значительно более легковесна, и потому привносит меньше накладных расходов по сравнению с используемой в React.
 
 В React, условно говоря, дополнительная трудоёмкость рендеринга элемента равна 1, а для компонента — 2. Для Vue эти цифры будут ближе к 0.1 и 4 соответственно, из-за архитектуры нашей системы реактивности.
 
 Это значит, что в типичных приложениях, где элементов DOM куда больше, чем компонентов, Vue будет существенно обгонять React. В экстремальных же случаях, таких как использование 1 компонента для каждого HTML-элемента, Vue обычно будет медленнее. Но это ещё не всё.
-=======
-1. Minimize the number of necessary DOM mutations. Both React and Vue use virtual DOM abstractions to accomplish this and both implementations work about equally well.
-
-2. Add as little overhead (pure JavaScript computations) as possible on top of those DOM manipulations. This is an area where Vue and React differ.
-
-The JavaScript overhead is directly related to the mechanisms of computing the necessary DOM operations. Both Vue and React utilizes Virtual DOM to achieve that, but Vue's Virtual DOM implementation (a fork of [snabbdom](https://github.com/snabbdom/snabbdom)) is much lighter-weight and thus introduces less overhead than React's.
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
 
 И Vue, и React позволяют использовать функциональные компоненты, не имеющие ни собственного состояния, ни инстанса — и потому требующие меньших вычислительных затрат. При использовании таких компонентов в критичных по быстродействию ситуациях, Vue вновь оказывается быстрее. Для демонстрации этого, мы создали простой [бенчмарк](https://github.com/chrisvfritz/vue-render-performance-comparisons), который просто рендерит 10,000 элементов списка 100 раз. Мы призываем вас попробовать запустить его самим. Результаты отличаются в зависимости от используемого железа, браузера — и даже просто от запуска к запуску, в силу природы JavaScript-движков.
 
@@ -93,37 +87,22 @@ The JavaScript overhead is directly related to the mechanisms of computing the n
 
 #### Производительность Обновлений
 
-<<<<<<< HEAD:src/guide/comparison.md
-В React для достижения полной оптимизации ререндеринга необходимо написать `shouldComponentUpdate` для каждого компонента, а также использовать иммутабельные структуры данных. Во Vue же, зависимости компонентов отслеживаются автоматически, поэтому они обновляются только при изменении одной из зависимостей. Единственная дополнительная оптимизация, иногда оказывающаяся полезной — это добавление ключа `key` в качестве аттрибута элементов длинных списков.
-=======
-In React, when a component's state changes, it triggers the re-render of the entire component sub-tree, starting at that component as root. To avoid unnecessary re-renders of child components, you need to implement `shouldComponentUpdate` everywhere and use immutable data structures. In Vue, a component's dependencies are automatically tracked during its render, so the system knows precisely which components actually need to re-render.
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
+В React, когда состояние компонента изменяется, это вызывает также и ререндеринг всех его потомков. Чтобы избежать излишних операций рендеринга и оптимизировать процесс, необходимо указать метод `shouldComponentUpdate` для каждого компонента, а также использовать иммутабельные структуры данных. Во Vue зависимости автоматически отслеживаются в процессе рендеринга, поэтому системе всегда точно известно, какие элементы нужно обновить.
 
 Это значит, что обновления в приложениях без специально проведённой оптимизации Vue будет показывать значительно лучшую производительность. В действительности, из-за улучшенной производительности Vue, даже полностью оптимизированные React-приложения обычно оказываются медленнее, чем приложения Vue "из коробки".
 
 #### Производительность при Разработке
 
-<<<<<<< HEAD:src/guide/comparison.md
-Разумеется, производительность в production — наиболее важна, и её-то мы до сих пор и обсуждали. Но и при разработке быстродействие имеет не малое значение. Хорошие новости — и Vue, и React в режиме разработки остаются довольно шустрыми для большей части приложений.
+Разумеется, производительность в production — наиболее важна, поскольку именно она влияет на опыт конечных пользователей при взаимодействии с приложением. Но и при разработке быстродействие имеет не малое значение.
 
-Однако, если вы занимаетесь прототипированием высокопроизводительных визуализаций данных или анимаций, вам может быть полезным знать, что в тех сценариях где Vue не мог отрендерить больше 10 кадров в секунду в режиме разработки, наблюдаемая производительность React'а находилась на уровне около 1 кадра в секунду.
+И Vue, и React в режиме разработки остаются довольно шустрыми для большей части приложений.
+Однако, при прототипировании высокопроизводительных визуализаций данных или анимаций, мы обнаружили сценарии, в которых Vue не мог отрендерить больше 10 кадров в секунду в режиме разработки, а наблюдаемая производительность React'а находилась на уровне около 1 кадра в секунду.
 
 Причина этой разницы — во множестве тяжёлых инвариантных проверок, помогающих снабдить разработчиков прекрасными предупреждениями и сообщениями об ошибках. Мы согласны, что эти сообщения важны — но во Vue и при их имплементации постарались не забыть о производительности.
 
 ### HTML & CSS
 
-В React, всё — это JavaScript. Пока не копнёшь глубже — звучит это замечательно. Неприятным свойством реальности, однако, является то, что изобретение заново HTML и CSS внутри JavaScript может принести немало страдания. Во Vue мы, напротив, постарались задействовать существующие web-технологии. Чтобы показать вам, что из этого вышло, мы рассмотрим несколько примеров.
-=======
-While performance in production is the more important metrics as it is directly associated with end-user experience, performance in development still matters because it is associated with the developer experience.
-
-Both Vue and React remain fast enough in development for most normal applications. However, when prototyping high frame-rate data visualizations or animations, we've seen cases of Vue handling 10 frames per second in development while React dropping to about 1 frame per second.
-
-This is due to React's many heavy invariant checks in development mode, which help it to provide many excellent warnings and error messages. We agree that these are also important in Vue, but have tried to keep a closer eye on performance while we implement these checks.
-
-### HTML & CSS
-
-In React, everything is Just JavaScript, which sounds very simple and elegant - until you dig deeper. The unfortunate reality is that reinventing HTML and CSS within JavaScript, while solving some issues of the traditional model, can also cause pain of its own. In Vue, we instead embrace web technologies and build on top of them. To show you what that means, we'll dive into some examples.
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
+В React, всё — это JavaScript. Звучит это очень просто и элегантно — пока не копнёшь глубже. Неприятным свойством реальности, однако, является то, что изобретение заново HTML и CSS внутри JavaScript может принести немало страдания. Во Vue мы, напротив, постарались задействовать существующие web-технологии. Чтобы показать вам, что из этого вышло, мы рассмотрим несколько примеров.
 
 #### JSX vs Шаблоны
 
@@ -161,13 +140,7 @@ Render-функции, использующие JSX, имеют определё
 - Возможность использовать все алгоритмические возможности JavaScript при создании представления
 - Поддержка инструментария (линтинг, проверки типов, автодополнение в редакторах) для JSX зачастую более развито, чем то, что доступно сейчас для шаблонов Vue.
 
-<<<<<<< HEAD:src/guide/comparison.md
-Во Vue, у нас тоже есть [Render-Функции](render-function.html), и даже [поддежка JSX](render-function.html#JSX), так как иногда эти возможности нужны. Однако, для большей части компонентов render-функции использовать не рекомендуется.
-
-В качестве более простой альтернативы мы предлагаем использовать шаблоны:
-=======
-In Vue, we also have [render functions](render-function.html) and even [support JSX](render-function.html#JSX), because sometimes you need that power. However, as the default experience we offer templates as a simpler alternative:
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
+Во Vue, у нас тоже есть [Render-Функции](render-function.html), и даже [поддежка JSX](render-function.html#JSX), так как иногда эти возможности нужны. Тем не менее, в качестве более простой альтернативы мы предлагаем большую часть времени использовать шаблоны:
 
 ``` html
 <template>
@@ -184,48 +157,26 @@ In Vue, we also have [render functions](render-function.html) and even [support 
 
 Вот некоторые преимущества этого подхода:
 
-<<<<<<< HEAD:src/guide/comparison.md
-- При написании шаблона требуется принимать значительно меньшее количество решений по части деталей и стиля имплементации
+- При написании шаблона требуется принимать меньшее количество стилистических решений
 - Шаблон всегда остаётся декларативным
 - Любой валидный HTML — это автоматичеки валидный шаблон
 - Читать шаблоны проще, они больше похожи на обыкновенный английский (напр. for each item in items)
 - Для улучшения читабельности кода не требуется использования продвинутых версий JavaScript
-=======
-- Fewer implementation and stylistic decisions have to be made while writing a template
-- A template will always be declarative
-- Any valid HTML is valid in a template
-- It reads more like English (e.g. for each item in items)
-- Advanced versions of JavaScript are not required to increase readability
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
 
 Проще становится не только пишущим шаблон разработчикам, но и дизайнерам и менее опытным программистам, читающим и правящим его.
 
-<<<<<<< HEAD:src/guide/comparison.md
-Но это ещё не всё. Используя HTML вместо попытки его изобретения заново, Vue позволяет использовать в шаблонах препроцессоры, такие как Pug (ранее известный как Jade).
-
-В экосистеме React существует [проект](https://wix.github.io/react-templates/), позволяющий использовать шаблоны, но с некоторыми неудобствами:
-
-- Возможностей значительно меньше, чем в шаблонах Vue
-- Требуется отделение HTML от файлов компонентов
-- Из-за того, что этот проект является сторонним, а не официально поддерживаемым, неизвестно, будет ли он сопровождаться и поддерживаться в актуальном состоянии при дальнейшем развитии ядра React в будущем
-=======
-An additional benefit of HTML-compliant templates is that you can use pre-processors such as Pug (formerly known as Jade) to author your Vue templates:
+Дополнительным преимуществом является возможность использования препроцессоров, таких как Pug (ранее известный как Jade) при разработке шаблонов:
 
 ``` pug
 div.list-container
   ul(v-if="items.length")
     li(v-for="item in items") {{ item.name }}
-  p(v-else) No items found.
+  p(v-else) Ничего не найдено.
 ```
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
 
 #### Модульный (Компонентный) CSS
 
-<<<<<<< HEAD:src/guide/comparison.md
-Если только вы не разделяете компоненты на несколько файлов (например, используя [CSS-модули](https://github.com/gajus/react-css-modules)), ограничение области видимости CSS в React идёт в комплекте с некоторыми неприятностями. Самый базовый CSS прекрасно работает "из коробки", чего не скажешь о более сложных вещах, вроде hover-эффектов, media queries и псевдоселекторов: все они либо тащат за собой зависимости, переизобретающие уже существующие возможности CSS - либо и вовсе не работают.
-=======
-Unless you spread components out over multiple files (for example with [CSS Modules](https://github.com/gajus/react-css-modules)), scoping CSS in React is often done via CSS-in-JS solutions. There are many competing solutions out there, each with its own caveats. A common issue is that features such as hover states, media queries, and pseudo-selectors either require heavy dependencies to reinvent what CSS already does - or they simply are not supported. If not optimized carefully, CSS-in-JS can also introduce non-trivial runtime performance cost. Most importantly, it deviates from the experience of authoring normal CSS.
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
+Если только вы не разделяете компоненты на несколько файлов (например, используя [CSS-модули](https://github.com/gajus/react-css-modules)), для ограничения области видимости CSS в React обычно используются решения в стиле CSS-in-JS. В этой области существует множество соревнующихся решений, каждое с собственными недостатками. Общей проблемой такие вопросы как hover states, media queries и псевдоселекторы — зачастую либо требующие использования дополнительных "тяжёлых" зависимостей для переизобретения уже существующего в CSS функционала, либо вовсе не работающие. Без особого внимания к оптимизации, CSS-in-JS также может нетривиально повлиять на производительность. Что ещё важнее, использование этих инструментов в любом случае существенно отличается от написания обыкновенного CSS.
 
 Vue же позволяет напрямую использовать CSS в [однофайловых компонентах](single-file-components.html):
 
@@ -239,15 +190,9 @@ Vue же позволяет напрямую использовать CSS в [о
 </style>
 ```
 
-<<<<<<< HEAD:src/guide/comparison.md
-Опциональный аттрибут `scoped` автоматически ограничивает область видимости CSS текущим компонентом, добавляя элементам уникальные аттрибуты (такие как `data-v-1`), и компилируя `.list-container:hover` во что-нибудь вроде `.list-container[data-v-1]:hover`.
+Опциональный аттрибут `scoped` автоматически ограничивает область видимости CSS текущим компонентом, добавляя элементам уникальные аттрибуты (такие как `data-v-1-21e5b78`), и компилируя `.list-container:hover` во что-нибудь вроде `.list-container[data-v-1-21e5b78]:hover`.
 
 Наконец, как и с HTML, у вас есть возможность использования любых препроцессоров (или постпроцессоров) на ваш вкус. Это позволяет применять централизованные операции, такие как например управление цветами, на этапе сборки, не импортируя специализированных JavaScript-библиотек, увеличивающих как размер результирующей сборки, так и сложность вашего приложения.
-=======
-The optional `scoped` attribute automatically scopes this CSS to your component by adding a unique attribute (such as `data-v-21e5b78`) to elements and compiling `.list-container:hover` to something like `.list-container[data-v-21e5b78]:hover`.
-
-Finally, just as with HTML, you also have the option of writing your CSS using any preprocessors (or post-processors) you'd like, allowing you to leverage existing libraries in those ecosystems. You can also perform design-centric operations such as color manipulation during your build process, rather than importing specialized JavaScript libraries that would increase the size of your build and complexity of your application.
->>>>>>> 7cd45cf91aac22d94487368d093cead254048c06:src/v2/guide/comparison.md
 
 ### Масштабирование
 

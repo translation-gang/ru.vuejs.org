@@ -1,3 +1,10 @@
+2016.11.09 Merging 7cd45cf..97d7814
+==========================================================================================================
+Auto-merging src/v2/guide/comparison.md
+MANUALLY fixed conflict (updated content): Merge conflict in src/v2/guide/comparison.md
+Auto-merging src/v2/guide/class-and-style.md
+
+
 2016.11.07 Merging with https://github.com/vuejs/vuejs.org/commit/7cd45cf91aac22d94487368d093cead254048c06
 ==========================================================================================================
 Removing themes/vue/layout/partials/ga.ejs
@@ -47,4 +54,3 @@ MANUALLY fixed conflict (new conent, local links) (content): Merge conflict in s
 Auto-merging src/support-vuejs/index.md
 Removing src/guide/.npmignore
 Removing src/examples/index.md
-Automatic merge failed; fix conflicts and then commit the result.
