@@ -54,29 +54,29 @@ React и Vue во многом похожи. Они оба:
   </thead>
   <tbody>
     <tr>
-      <th>Fastest</th>
-      <td>23ms</td>
-      <td>63ms</td>
+      <th>Самое быстрое</th>
+      <td>23мс</td>
+      <td>63мс</td>
     </tr>
     <tr>
-      <th>Median</th>
-      <td>42ms</td>
-      <td>81ms</td>
+      <th>Медиана</th>
+      <td>42мс</td>
+      <td>81мс</td>
     </tr>
     <tr>
-      <th>Average</th>
-      <td>51ms</td>
-      <td>94ms</td>
+      <th>Среднее</th>
+      <td>51мс</td>
+      <td>94мс</td>
     </tr>
     <tr>
-      <th>95th Perc.</th>
-      <td>73ms</td>
-      <td>164ms</td>
+      <th>95%</th>
+      <td>73мс</td>
+      <td>164мс</td>
     </tr>
     <tr>
-      <th>Slowest</th>
-      <td>343ms</td>
-      <td>453ms</td>
+      <th>Самое медленное</th>
+      <td>343мс</td>
+      <td>453мс</td>
     </tr>
     </tr>
   </tbody>
