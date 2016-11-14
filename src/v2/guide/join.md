@@ -1,5 +1,5 @@
 ---
-title: Присоединитесь к Сообществу Vue.js!
+title: Присоединяйтесь к cообществу Vue.js!
 type: guide
 order: 29
 ---
