@@ -78,7 +78,6 @@ React и Vue во многом похожи. Они оба:
       <td>343мс</td>
       <td>453мс</td>
     </tr>
-    </tr>
   </tbody>
 </table>
 {% endraw %}
