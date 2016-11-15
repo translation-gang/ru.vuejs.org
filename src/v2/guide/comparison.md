@@ -118,7 +118,7 @@ render () {
       </ul>
     )
   } else {
-    children = <p>No items found.</p>
+    children = <p>Ничего не найдено.</p>
   }
 
   return (
