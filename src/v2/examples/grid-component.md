@@ -1,9 +1,9 @@
 ---
-title: Grid Component
+title: Компонент - грид
 type: examples
 order: 3
 ---
 
-> This is an example of creating a reusable grid component and using it with external data.
+> Пример создания переиспользуемого грид-компонента, использующего внешний источник данных.
 
 <iframe width="100%" height="500" src="https://jsfiddle.net/yyx990803/xkkbfL3L/embedded/result,html,js,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
