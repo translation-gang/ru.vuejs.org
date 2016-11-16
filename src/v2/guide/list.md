@@ -91,7 +91,7 @@ var example2 = new Vue({
 var example2 = new Vue({
   el: '#example-2',
   data: {
-    parentMessage: 'Parent',
+    parentMessage: 'Родитель',
     items: [
       { message: 'Foo' },
       { message: 'Bar' }
@@ -142,8 +142,8 @@ new Vue({
   el: '#repeat-object',
   data: {
     object: {
-      FirstName: 'John',
-      LastName: 'Doe',
+      FirstName: 'Иван',
+      LastName: 'Петров',
       Age: 30
     }
   }
@@ -163,8 +163,8 @@ new Vue({
   el: '#repeat-object',
   data: {
     object: {
-      FirstName: 'John',
-      LastName: 'Doe',
+      FirstName: 'Иван',
+      LastName: 'Петров',
       Age: 30
     }
   }
@@ -200,7 +200,7 @@ new Vue({
 </div>
 ```
 
-Result:
+Результат:
 
 {% raw %}
 <div id="range" class="demo">
@@ -288,7 +288,7 @@ new Vue({
   <input
     v-model="newTodoText" v
     v-on:keyup.enter="addNewTodo"
-    placeholder="Add a todo"
+    placeholder="Добавить todo"
   >
   <ul>
     <li
