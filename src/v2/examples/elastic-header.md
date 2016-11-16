@@ -1,5 +1,5 @@
 ---
-title: Elastic Header
+title: Эластичный заголовок
 type: examples
 order: 7
 ---

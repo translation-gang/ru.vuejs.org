@@ -4,8 +4,8 @@ type: examples
 order: 9
 ---
 
-> This is a fully spec-compliant TodoMVC implementation in under 120 effective lines of JavaScript (excluding comments and blank lines).
+> Это, полностью соответствующая спецификации, реализация TodoMVC в 120 строк JavaScript-кода (за исключением комментариев и пустых строк).
 
-<p class="tip">Note that if your web browser is configured to block 3rd-party data/cookies, the example below will not work, as the `localStorage` data will fail to be saved from JSFiddle. You'll have to click on `Edit in JSFiddle` to see the live result.</p>
+<p class="tip">Примите во внимание то, что если ваш браузер настроен на блокировку сторонних данных/куки - пример не будет работать, так как в этом случае данные с JSFiddle не могут быть сохранены в `localStorage`. Вам нужно кликнуть на ссылку `Edit in JSFiddle`, чтобы увидеть рабочий пример.</p>
 
 <iframe width="100%" height="500" src="https://jsfiddle.net/yyx990803/4dr2fLb7/embedded/result,html,js,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
