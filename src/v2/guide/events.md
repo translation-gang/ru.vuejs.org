@@ -65,7 +65,7 @@ var example2 = new Vue({
   methods: {
     greet: function (event) {
       // `this` внутри методов указывает на инстанс Vue
-      alert('Hello ' + this.name + '!')
+      alert('Привет ' + this.name + '!')
       // `event` — нативное событие DOM
       alert(event.target.tagName)
     }
@@ -73,7 +73,7 @@ var example2 = new Vue({
 })
 
 // вызывать методы можно и императивно
-example2.greet() // -> 'Hello Vue.js!'
+example2.greet() // -> 'Привет Vue.js!'
 ```
 
 Результат:
@@ -90,7 +90,7 @@ var example2 = new Vue({
   },
   methods: {
     greet: function (event) {
-      alert('Hello ' + this.name + '!')
+      alert('Привет ' + this.name + '!')
       alert(event.target.tagName)
     }
   }
