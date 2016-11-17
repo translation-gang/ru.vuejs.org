@@ -1,93 +1,93 @@
 ---
-title: Migration from Vuex 0.6.x to 1.0
+title: Миграция с Vuex 0.6.x на 1.0
 type: guide
 order: 27
 ---
 
-> Vuex 2.0 is released, but this guide only covers the migration to 1.0? Is that a typo? Also, it looks like Vuex 1.0 and 2.0 were released simultaneously. What's going on? Which one should I use and what's compatible with Vue 2.0?
+> Состоялся релиз Vuex 2.0, но эта инструкция покрывает только миграцию на 1.0? Это опечатка? Кроме того, похоже, что Vuex 1.0 и 2.0 были выпущены одновременно. Что происходит? Какую из версий я должен использовать и какая из них совместима с Vue 2.0?
 
-Both Vuex 1.0 and 2.0:
+Обе версии Vuex 1.0 и 2.0:
 
-- fully support both Vue 1.0 and 2.0
-- will be maintained for the forseeable future
+- полностью совместимы с Vue 1.0 и 2.0
+- будут поддерживаться в обозримом будущем
 
-They have slightly different target users however.
+Однако, они имеют различные целевые аудитории.
 
-__Vuex 2.0__ is a radical redesign and simplification of the API, for those who are starting new projects or want to be on the cutting edge of client-side state management. __It is not covered by this migration guide__, so you should check out [the Vuex 2.0 docs](https://vuex.vuejs.org/en/index.html) if you'd like to learn more about it.
+__Vuex 2.0__ радикально переписан и имеет упрощенный API, для тех, кто начинает новые проекты или хочет быть на острие прогресса в области управления состоянием фронтенд-приложений. __Он не покрывается данной инструкцией по миграции__, поэтому если вы хотите узнать о нём больше — обратитесь к [документации Vuex 2.0](https://vuex.vuejs.org/ru/index.html).
 
-__Vuex 1.0__ is mostly backwards-compatible, so requires very few changes to upgrade. It is recommended for those with large existing codebases or who just want the smoothest possible upgrade path to Vue 2.0. This guide is dedicated to facilitating that process, but only includes migration notes. For the complete usage guide, see [the Vuex 1.0 docs](https://github.com/vuejs/vuex/tree/1.0/docs/en).
+__Vuex 1.0__ обратно совместим, и требует внесения лишь довольно незначительных изменений при обновлении. Рекомендуется для тех, кто уже имеет дело с большими проектами, либо, для тех, кто просто хочет постепенно обновиться до Vue 2.0. Данное руководство призвано содействовать этому процессу, но включает в себя только заметки по миграции. Для изучения полного руководство по использованию обратитесь к [документации Vuex 1.0](https://github.com/vuejs/vuex/tree/1.0/docs/en).
 
-## `store.watch` with String Property Path <sup>replaced</sup>
+## `store.watch` со строковым параметром <sup>заменено</sup>
 
-`store.watch` now only accept functions. So for example, you would have to replace:
+`store.watch` теперь принимает в качестве аргумента только функции. Например, выдолжны заменить:
 
 ``` js
 store.watch('user.notifications', callback)
 ```
 
-with:
+на:
 
 ``` js
 store.watch(
-  // When the returned result changes...
+  // Когда возвращаемый результат изменится...
   function (state) {
     return state.user.notifications
   },
-  // Run this callback
+  // Запустится коллбэк
   callback
 )
 ```
 
-This gives you more complete control over the reactive properties you'd like to watch.
+Это дает более полный контроль над отслеживанием реактивных свойств.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>store.watch</code> with a string as the first argument.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование <code>store.watch</code> со строкой в качестве первого аргумента.</p>
 </div>
 {% endraw %}
 
-## Store's Event Emitter <sup>removed</sup>
+## Вызов событий из хранилища <sup>удалено</sup>
 
-The store instance no longer exposes the event emitter interface (`on`, `off`, `emit`). If you were previously using the store as a global event bus, [see this section](migration.html#dispatch-and-broadcast-removed) for migration instructions.
+Инстанс хранилища больше не предоставляет интерфейс вызова событий (`on`,` off`, `emit`). Если вы ранее использовали хранилище в качестве глобальной шины событий - [см. этот раздел](migration.html#dispatch-and-broadcast-removed) инструкций по миграции.
 
-Instead of using this interface to watch events emitted by the store itself (e.g. `store.on('mutation', callback)`), a new method `store.subscribe` is introduced. Typical usage inside a plugin would be:
+Вместо того чтобы использовать этот интерфейс для отслеживания событий, пробрасываемых самим хранилищем (например, `store.on('mutation', callback)`), представлен новый метод - `store.subscribe`. Типичное использование в плагине выглядит как:
 
 ``` js
 var myPlugin = store => {
   store.subscribe(function (mutation, state) {
-    // Do something...
+    // Дальнейшие действия...
   })
 }
 
 ```
 
-See example [the plugins docs](https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md) for more info.
+Обратитесь к [документации по плагинам](https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md) для большей информации.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>store.on</code>, <code>store.off</code>, and <code>store.emit</code>.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование <code>store.on</code>, <code>store.off</code> и <code>store.emit</code>.</p>
 </div>
 {% endraw %}
 
-## Middlewares <sup>replaced</sup>
+## Прослойки <sup>заменено</sup>
 
-Middlewares are replaced by plugins. A plugin is simply a function that receives the store as the only argument, and can listen to the mutation event on the store:
+Прослойки заменены плагинами. Плагин представляет собой обычную функцию, которая получает хранилище в качестве единственного аргумента, и может слушать событие мутации в хранилище:
 
 ``` js
 const myPlugins = store => {
   store.subscribe('mutation', (mutation, state) => {
-    // Do something...
+    // Дальнейшие действия...
   })
 }
 ```
 
-For more details, see [the plugins docs](https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md).
+Для более детального изучения, см. [документацию по плагинам](https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md).
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>middlewares</code> option on a store.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование <code>middlewares</code> в вашем хранилище.</p>
 </div>
 {% endraw %}
