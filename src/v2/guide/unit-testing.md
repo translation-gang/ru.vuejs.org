@@ -6,8 +6,6 @@ order: 23
 
 ## Выбор инструментов и предварительная настройка
 
-Anything compatible with a module-based build system will work, but if you're looking for a specific recommendation, try the [Karma](http://karma-runner.github.io) test runner. It has a lot of community plugins, including support for [Webpack](https://github.com/webpack/karma-webpack) and [Browserify](https://github.com/Nikku/karma-browserify). For detailed setup, please refer to each project's respective documentation, though these example Karma configurations for [Webpack](https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js) and [Browserify](https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js) may help you get started.
-
 В целом, сгодится любой инструментарий, совместимый с модульными системами сборки, но если вы ищете готовый рецепт, советуем вам использовать тестраннер [Karma](http://karma-runner.github.io). Для него создано много плагинов, включая обеспечивающие поддержку [Webpack](https://github.com/webpack/karma-webpack) и [Browserify](https://github.com/Nikku/karma-browserify). Для детального руководства, пожалуйста обратитесь к документации соответствующего проекта, а вот эти примеры конфигурации Karma для [Webpack](https://github.com/vuejs/vue-loader-example/blob/master/build/karma.conf.js) и [Browserify](https://github.com/vuejs/vueify-example/blob/master/karma.conf.js) могут помочь вам начать.
 
 ## Простые операторы контроля
@@ -72,7 +70,7 @@ describe('MyComponent', () => {
 
 ## Создание тестируемых компонентов
 
-Результаты рендеринга многих компонентов полностью определяются их входными параметрами. В действительности, если вывод рендеринга зависит только от входных параметров компонента, тестирование становится крайне прямолинейным и похожим на контроллирование возвращаемого значения чистой функции в зависимости от разных аргументов. Рассмотрим надуманный пример:
+Результаты рендеринга многих компонентов полностью определяются их входными параметрами. В действительности, если вывод рендеринга зависит только от входных параметров компонента, тестирование становится крайне прямолинейным и похожим на контроль возвращаемого значения чистой функции в зависимости от разных аргументов. Рассмотрим надуманный пример:
 
 ``` html
 <template>
