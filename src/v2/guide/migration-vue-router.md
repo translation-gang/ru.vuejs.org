@@ -428,7 +428,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `suppressTransitionError` <sup>удалено</sup>
 
-Удалено для упрощения. Если вам действительно нужно отловить ошибки переходов, вы можете использовать вместо этого [`try`...`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch).
+удалено из-за упрощения системы хуков. Если вам действительно нужно отловить ошибки переходов, вы можете использовать вместо этого [`try`...`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch).
 
 {% raw %}
 <div class="upgrade-path">
