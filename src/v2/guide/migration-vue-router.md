@@ -130,7 +130,7 @@ router.match = createMatcher(
 
 ### `subRoutes` <sup>переименовано</sup>
 
-[Переименовано на `children`](http://router.vuejs.org/en/essentials/nested-routes.html) для соответствия Vue другим библиотекам маршрутизации.
+[Переименовано в `children`](http://router.vuejs.org/en/essentials/nested-routes.html) для соответствия Vue другим библиотекам маршрутизации.
 
 {% raw %}
 <div class="upgrade-path">
