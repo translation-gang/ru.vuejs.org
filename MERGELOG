@@ -1,3 +1,42 @@
+2016.11.30 Merging v.2.1.0 changes (a3ccf791599610ab2367a2a6738b19d4ec9782b1) 
+==========================================================================================================
+Auto-merging themes/vue/source/css/_common.styl
+Auto-merging themes/vue/layout/partials/sidebar.ejs
+MANUALLY fixed conflict (content): Merge conflict in themes/vue/layout/partials/sidebar.ejs
+Auto-merging themes/vue/layout/partials/main_menu.ejs
+MANUALLY fixed conflict (content): Merge conflict in themes/vue/layout/partials/main_menu.ejs
+MANUALLY fixed conflict (modify/delete): themes/vue/layout/partials/community_dropdown.ejs deleted in english/master and modified in HEAD. Version HEAD of themes/vue/layout/partials/community_dropdown.ejs left in tree.
+Auto-merging themes/vue/layout/partials/ad.ejs
+MANUALLY fixed conflict (content): Merge conflict in themes/vue/layout/partials/ad.ejs
+Auto-merging themes/vue/layout/layout.ejs
+Auto-merging themes/vue/layout/index.ejs
+MANUALLY fixed conflict (content): Merge conflict in themes/vue/layout/index.ejs
+Auto-merging src/v2/guide/syntax.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/syntax.md
+Auto-merging src/v2/guide/single-file-components.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/single-file-components.md
+Auto-merging src/v2/guide/render-function.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/render-function.md
+Auto-merging src/v2/guide/migration.md
+Auto-merging src/v2/guide/installation.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/installation.md
+Auto-merging src/v2/guide/index.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/index.md
+Auto-merging src/v2/guide/forms.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/forms.md
+Auto-merging src/v2/guide/events.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/events.md
+Auto-merging src/v2/guide/conditional.md
+MANUALLY fixed conflict (content, UNTRANSLATED content added): Merge conflict in src/v2/guide/conditional.md
+Auto-merging src/v2/guide/components.md
+MANUALLY fixed conflict (content, UNTRANSLATED content added): Merge conflict in src/v2/guide/components.md
+Auto-merging src/v2/guide/comparison.md
+MANUALLY fixed conflict (content): Merge conflict in src/v2/guide/comparison.md
+Auto-merging src/v2/api/index.md
+MANUALLY fixed conflict (content, UNTRANSLATED content added): Merge conflict in src/v2/api/index.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+
 2016.11.09 Merging 7cd45cf..97d7814
 ==========================================================================================================
 Auto-merging src/v2/guide/comparison.md

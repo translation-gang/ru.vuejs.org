@@ -58,10 +58,10 @@
     function levenshteinDistance (a, b) {
       var m = []
       if (!(a && b)) return (b || a).length
-      for (let i = 0; i <= b.length; m[i] = [i++]) {}
-      for (let j = 0; j <= a.length; m[0][j] = j++) {}
-      for (let i = 1; i <= b.length; i++) {
-        for (let j = 1; j <= a.length; j++) {
+      for (var i = 0; i <= b.length; m[i] = [i++]) {}
+      for (var j = 0; j <= a.length; m[0][j] = j++) {}
+      for (var i = 1; i <= b.length; i++) {
+        for (var j = 1; j <= a.length; j++) {
           m[i][j] = b.charAt(i - 1) === a.charAt(j - 1)
             ? m[i - 1][j - 1]
             : m[i][j] = Math.min(
@@ -99,7 +99,8 @@
 
   function initVersionSelect () {
     // version select
-    document.querySelector('.version-select').addEventListener('change', function (e) {
+    var versionSelect = document.querySelector('.version-select')
+    versionSelect && versionSelect.addEventListener('change', function (e) {
       var version = e.target.value
       var section = window.location.pathname.match(/\/v\d\/(\w+?)\//)[1]
       if (version === 'SELF') return
@@ -212,9 +213,18 @@
       var text = h.textContent.replace(/\(.*\)$/, '')
       link.innerHTML =
         '<a class="section-link" data-scroll href="#' + h.id + '">' +
-          text +
+          htmlEscape(text) +
         '</a>'
       return link
+    }
+
+    function htmlEscape (text) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
     }
 
     function collectH3s (h) {

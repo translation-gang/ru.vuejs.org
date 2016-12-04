@@ -2,11 +2,11 @@
 title: Установка
 type: guide
 order: 1
-vue_version: 2.0.5
-dev_size: "194.65"
-min_size: "64.28"
-gz_size: "23.55"
-ro_gz_size: "16.39"
+vue_version: 2.1.3
+dev_size: "206.14"
+min_size: "67.60"
+gz_size: "24.72"
+ro_gz_size: "17.14"
 ---
 
 ### Предупреждение о cовместимости
@@ -57,14 +57,18 @@ $ npm install vue
 ``` js
 resolve: {
   alias: {
-    'vue$': 'vue/dist/vue.js'
+    'vue$': 'vue/dist/vue.common.js'
   }
 }
 ```
 
-Для достижения такого же эффекта в Browserify можно использовать [aliasify](https://github.com/benbria/aliasify).
+При использовании Browserify, можно добавить псевдоним в package.json:
 
-<p class="tip">Не импортируйте Vue командой `import Vue from 'vue/dist/vue.js'`. Некоторые инструменты и сторонние библиотеки могут импортировать другой вид сборки, и в вашем проекте будет одновременно и runtime-, и standalone-сборка. Это приведёт к ошибкам.</p>
+``` js
+"browser": {
+  "vue": "vue/dist/vue.common"
+},
+```
 
 ### CSP-окружения
 

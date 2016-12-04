@@ -155,10 +155,10 @@ type: api
 
 - **См. также:** [Компоненты](../guide/components.html)
 
-<h3 id="Vue-nextTick">Vue.nextTick( callback, [context] )</h3>
+<h3 id="Vue-nextTick">Vue.nextTick( [callback, context] )</h3>
 
 - **Аргументы:**
-  - `{Function} callback`
+  - `{Function} [callback]`
   - `{Object} [context]`
 
 - **Использование:**
@@ -174,7 +174,10 @@ type: api
   })
   ```
 
+  > Добавлено в версии 2.1.0: если колбэк не указан, а окружение поддерживает промисы — возвращает промис.
+
 - **См. также:** [Асинхронная Очередь Обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
+
 
 <h3 id="Vue-set">Vue.set( object, key, value )</h3>
 
@@ -929,13 +932,13 @@ type: api
 
 ### vm.$slots
 
-- **Тип:** `Object`
+- **Тип:** `{ [name: string]: ?Array<VNode> }`
 
 - **Только для чтения**
 
 - **Подробности:**
 
-  Используется для доступа к контенту, [распространяемому слотами](../guide/components.html#Дистрибьюция-контента-через-слоты). У каждого [именованного слота](../guide/components.html#Именованные-слоты) есть соответствующее значение в хэше (например, содержимое `slot="foo"` попадёт в `vm.$slots.foo`). Свойство `default` содержит узлы, не включённые в именованные слоты.
+  Используется для доступа к контенту, [распространяемому слотами](../guide/components.html#Дистрибьюция-контента-через-слоты). У каждого [именованного слота](../guide/components.html#Именованные-слоты) есть соответствующее значение (например, содержимое `slot="foo"` попадёт в `vm.$slots.foo`). Свойство `default` содержит узлы, не включённые в именованные слоты.
 
   Особенно полезно `vm.$slots` в компонентах с [render-функциями](../guide/render-function.html).
 
@@ -972,10 +975,30 @@ type: api
   })
   ```
 
-- **См. также:**
-  - [Компонент `<slot>`](#slot)
+  - [Компонент `<slot>`](#slot-1)
   - [Распределение контента через слоты](../guide/components.html#Дистрибьюция-контента-через-слоты)
-  - [Render-функции](../guide/render-function.html)
+  - [Render-функции и слоты](../guide/render-function.html#Slots)
+
+
+### vm.$scopedSlots
+
+> New in 2.1.0
+
+- **Type:** `{ [name: string]: props => VNode | Array<VNode> }`
+
+- **Read only**
+
+- **Details:**
+
+  Used to programmatically access [scoped slots](../guide/components.html#Scoped-Slots). For each slot, including the `default` one, the object contains a corresponding function that returns VNodes.
+
+  Accessing `vm.$scopedSlots` is most useful when writing a component with a [render function](../guide/render-function.html).
+
+- **See also:**
+  - [`<slot>` Component](#slot-1)
+  - [Scoped Slots](../guide/components.html#Scoped-Slots)
+  - [Render Functions: Slots](../guide/render-function.html#Slots)
+
 
 ### vm.$refs
 
@@ -1201,14 +1224,16 @@ type: api
 
   Заставляет инстанс Vue произвести перерендер. Обратите внимание, что этот метод перерендерит не все дочерние компоненты, только сам инстанс и дочерние компоненты с контентными слотами.
 
-<h3 id="vm-nextTick">vm.$nextTick( callback )</h3>
+<h3 id="vm-nextTick">vm.$nextTick( [callback] )</h3>
 
 - **Аргументы:**
-  - `{Function} callback`
+  - `{Function} [callback]`
 
 - **Использование:**
 
   Выполняет функцию callback при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM. Функция делает то же самое, что и глобальный `Vue.nextTick`, но кроме того связывает `this` с текущим инстансом в коллбэке.
+
+  > Добавлено в версии 2.1.0: если колбэк не указан, а окружение поддерживает промисы — возвращает промис.
 
 - **Пример:**
 
@@ -1284,18 +1309,6 @@ type: api
   ```
 - **См. также:** [Синтаксис связывания данных — интерполяции](../guide/syntax.html#Сырой-HTML)
 
-### v-if
-
-- **Принимает:** `any`
-
-- **Использование:**
-
-  Если указанное значение истинное, рендерит элемент, а если ложное — не рендерит. Когда значение переключается, элемент и содержащиеся в нём компоненты с директивами уничтожаются или пересоздаются. Если элемент — `<template>`, вместо элемента будет отрендерено его содержимое. Это нужно, чтобы завернуть в один v-if несколько элементов сразу.
-
-  При изменении состояния этой директивы вызываются анимации, заданные в transition.
-
-- **См. также:** [Условный рендер - v-if](../guide/conditional.html)
-
 ### v-show
 
 - **Принимает:** `any`
@@ -1306,18 +1319,31 @@ type: api
 
   При изменении состояния этой директивы вызываются анимации, заданные в transition.
 
+- **См. также:** [Условный рендер - v-show](../guide/conditional.html#v-show)
 
-- **См. также:** [Условный рендер — v-show](../guide/conditional.html#v-show)
+
+### v-if
+
+- **Принимает:** `any`
+
+- **Использование:**
+  
+  Если указанное значение истинное, рендерит элемент, а если ложное — не рендерит. Когда значение переключается, элемент и содержащиеся в нём компоненты с директивами уничтожаются или пересоздаются. Если элемент — `<template>`, вместо элемента будет отрендерено его содержимое. Это нужно, чтобы завернуть в один v-if несколько элементов сразу.
+
+
+- **См. также:** [Условный рендер — v-if](../guide/conditional.html)
+
 
 ### v-else
 
 - **Не принимает какое-либо выражение**
 
-- **Ограничение:** предыдущий элемент должен иметь директиву `v-if`.
+- **Ограничение:** предыдущий элемент должен иметь директиву `v-if` или `v-else-if`.
 
 - **Использование:**
 
-  Определяет "блок else" для `v-if`.
+  Определяет "блок else" для `v-if` или цепочки `v-if`/`v-else-if`.
+
 
   ```html
   <div v-if="Math.random() > 0.5">
@@ -1330,6 +1356,35 @@ type: api
 
 - **См. также:**
   - [Условный рендер — v-else](../guide/conditional.html#v-else)
+
+### v-else-if
+
+> New in 2.1.0
+
+- **Expects:** `any`
+
+- **Restriction:** previous sibling element must have `v-if` or `v-else-if`.
+
+- **Usage:**
+
+  Denote the "else if block" for `v-if`. Can be chained.
+
+  ```html
+  <div v-if="type === 'A'">
+    A
+  </div>
+  <div v-else-if="type === 'B'">
+    B
+  </div>
+  <div v-else-if="type === 'C'">
+    C
+  </div>
+  <div v-else>
+    Not A/B/C
+  </div>
+  ```
+
+- **See also:** [Conditional Rendering - v-else-if](../guide/conditional.html#v-else-if)
 
 ### v-for
 
@@ -1447,7 +1502,8 @@ type: api
 - **Параметр:** `attrOrProp (optional)`
 
 - **Модификаторы:**
-  - `.prop` - Используется для связывания DOM-аттрибутов.
+  - `.prop` - Используется для связывания в качесвте DOM-свойства, а не аттрибута. ([В чём разница?](http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028))
+  - `.camel` - преобразует имена аттрибутов в kebab-case в camelCase. (поддержка добавлена начиная с версии 2.1.0)
 
 - **Использование:**
 
@@ -1490,9 +1546,18 @@ type: api
   <svg><a :xlink:special="foo"></a></svg>
   ```
 
+  Модификатор `.camel` позволяет перевод имени аттрибута `v-bind` в camelCase при использовании DOM-шаблонов, например для атрибута `viewBox` SVG:
+
+  ``` html
+  <svg :view-box.camel="viewBox"></svg>
+  ```
+
+  В использовании `.camel` нет необходимости, если вы пользуетесь строковыми шаблонами или `vue-loader`/`vueify`.
+
 - **См. также:**
   - [Связывание классов и стилей](../guide/class-and-style.html)
   - [Компоненты — входные параметры компонентов](../guide/components.html#Входные-параметры)
+
 
 ### v-model
 
@@ -1511,7 +1576,7 @@ type: api
 
 - **Использование:**
 
-  Двусторонним образом связывает элемент ввода данных или компонент с переменной. Директива описана в руководстве по ссылке ниже.
+  Двусторонним образом связывает элемент ввода данных или компонент с переменной. Директива подробно описана в руководстве по ссылке ниже.
 
 - **См. также:**
   - [Связывание элементов ввода данных](../guide/forms.html)
@@ -1623,7 +1688,8 @@ type: api
   Название элемента или компонента для регистрации ссылки на него. В объекте `$refs` появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или инстансом компонента, если атрибут стоял на пользовательском компоненте:
 
   ``` html
-  <!-- vm.$refs.p будет указывать на элемент DOM -->
+  <!-- vm.$refs.p будет DOM-элементом -->
+
   <p ref="p">hello</p>
 
   <!-- vm.$refs.child будет указывать на инстанс ChildComp -->
@@ -1762,6 +1828,10 @@ type: api
 
 ### keep-alive
 
+- **Props:**
+  - `include` - строка или регулярное выражение. Только соответствующие компоненты будут кешироваться.
+  - `exclude` - строка или регулярное выражение. Все соответствующие компоненты не будут кешироваться.
+
 - **Использование:**
 
   Оберните динамические компоненты тегом `<keep-alive>`, чтобы кэшировать инстансы интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и `<transition>`, `<keep-alive>` — абстрактный компонент: при рендере он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.
@@ -1789,6 +1859,26 @@ type: api
     </keep-alive>
   </transition>
   ```
+
+- **`include` and `exclude`**
+
+  > New in 2.1.0
+
+  The `include` and `exclude` props allow components to be conditionally cached. Both props can either be a comma-delimited string or a RegExp:
+
+  ``` html
+  <!-- comma-delimited string -->
+  <keep-alive include="a,b">
+    <component :is="view"></component>
+  </keep-alive>
+
+  <!-- regex (use v-bind) -->
+  <keep-alive :include="/a|b/">
+    <component :is="view"></component>
+  </keep-alive>
+  ```
+
+  The match is first checked on the component's own `name` option, then its local registration name (the key in the parent's `components` option) if the `name` option is not available. Anonymous components cannot be matched against.
 
   <p class="tip">`<keep-alive>` не работает с функциональными компонентами, так как у них отсутствуют инстансы.</p>
 

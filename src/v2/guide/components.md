@@ -549,7 +549,7 @@ new Vue({
 При использовании с компонентом, запись упрощается до:
 
 ``` html
-<input v-bind:value="something" v-on:input="something = arguments[0]">
+<custom-input v-bind:value="something" v-on:input="something = arguments[0]"></custom-input>
 ```
 
 Таким образом, чтобы иметь возможность работать с `v-model`, компонент должен:
@@ -817,6 +817,67 @@ Vue.component('child-component', {
 
 API дистрибьюции контента оказывается очень полезным механизмом для создания компонентов, задуманных для совместного использования.
 
+### Scoped Slots
+
+> New in 2.1.0
+
+A scoped slot is a special type of slot that functions as a reusable template (that can be passed data to) instead of already-rendered-elements.
+
+In a child component, simply pass data into a slot as if you are passing props to a component:
+
+``` html
+<div class="child">
+  <slot text="hello from child"></slot>
+</div>
+```
+
+In the parent, a `<template>` element with a special attribute `scope` indicates that it is a template for a scoped slot. The value of `scope` is the name of a temporary variable that holds the props object passed from the child:
+
+``` html
+<div class="parent">
+  <child>
+    <template scope="props">
+      <span>hello from parent</span>
+      <span>{{ props.text }}</span>
+    </template>
+  </child>
+</div>
+```
+
+If we render the above, the output will be:
+
+``` html
+<div class="parent">
+  <div class="child">
+    <span>hello from parent</span>
+    <span>hello from child</span>
+  </div>
+</div>
+```
+
+A more typical use case for scoped slots would be a list component that allows the component consumer to customize how each item in the list should be rendered:
+
+``` html
+<my-awesome-list :items="items">
+  <!-- scoped slot can be named too -->
+  <template slot="item" scope="props">
+    <li class="my-fancy-item">{{ props.text }}</li>
+  </template>
+</my-awesome-list>
+```
+
+And the template for the list component:
+
+``` html
+<ul>
+  <slot name="item"
+    v-for="item in items"
+    :text="item.text">
+    <!-- fallback content here -->
+  </slot>
+</ul>
+```
+
 ## Динамическое переключение компонентов
 
 Существует возможность динамического переключения между различными компонентами, в единой точке монтирования. Для этого используется псевдоэлемент `<component>` и динамическое связывание его атрибута `is`:
@@ -926,6 +987,7 @@ var child = parent.$refs.profile
 ``` js
 Vue.component('async-example', function (resolve, reject) {
   setTimeout(function () {
+    // Pass the component definition to the resolve callback
     resolve({
       template: '<div>Я — асинхронный!</div>'
     })
@@ -953,7 +1015,7 @@ Vue.component(
 )
 ```
 
-<p class="tip">Если вы являетесь пользователем <strong>Browserify</strong> и хотите также использовать асинхронные компоненты, нам, к сожалению, придётся вас огорчить: это невозможно, и в ряд ли будет возможно когда-либо, так как сам создатель Browserify [прояснил](https://github.com/substack/node-browserify/issues/58#issuecomment-21978224), что асинхронная загрузка "не является чем-то, что Browserify когда-либо будет поддерживать." Если упомянутая возможность важна для вас, мы советуем использовать Webpack.</p>
+<p class="tip">Если вы используете <strong>Browserify</strong> и тоже хотите использовать асинхронные компоненты, нам, к сожалению, придётся вас огорчить: это невозможно, и в ряд ли будет возможно когда-либо, так как сам создатель Browserify [прояснил](https://github.com/substack/node-browserify/issues/58#issuecomment-21978224), что асинхронная загрузка "не является чем-то, что Browserify когда-либо будет поддерживать." По крайней мере, такова официальная позиция. Сообщество Browserify обнаружило возможные [обходные пути](https://github.com/vuejs/vuejs.org/issues/620), что может помочь уже существующим сложным приложениям. Но в целом мы советуем использовать Webpack, обладающий полноценной встроенной поддержкой асинхронной загрузки частей сборки.</p>
 
 ### Соглашения по именованию компонентов
 
@@ -1021,6 +1083,48 @@ template: '<div><stack-overflow></stack-overflow></div>'
 ```
 
 Компонент, подобный вышеописанному, породит ошибку переполнения стека, поэтому обязательно удостоверьтесь, что рекурсивный вызов является условным (т.е. использует директиву `v-if`, которая рано или поздно станет ложной).
+
+### Circular References Between Components
+
+Let's say you're building a file directory tree, like in Finder or File Explorer. You might have a `tree-folder` component with this template:
+
+``` html
+<p>
+  <span>{{ folder.name }}</span>
+  <tree-folder-contents :children="folder.children"/>
+</p>
+```
+
+Then a `tree-folder-contents` component with this template:
+
+``` html
+<ul>
+  <li v-for="child in children">
+    <tree-folder v-if="child.children" :folder="child"/>
+    <span v-else>{{ child.name }}</span>
+  </li>
+</ul>
+```
+
+When you look closely, you'll see that these components will actually be each other's descendent _and_ ancestor in the render tree - a paradox! When registering components globally with `Vue.component`, this paradox is resolved for you automatically. If that's you, you can stop reading here.
+
+However, if you're requiring/importing components using a __module system__, e.g. via Webpack or Browserify, you'll get an error:
+
+```
+Failed to mount component: template or render function not defined.
+```
+
+To explain what's happening, I'll call our components A and B. The module system sees that it needs A, but first A needs B, but B needs A, but A needs B, etc, etc. It's stuck in a loop, not knowing how to fully resolve either component without first resolving the other. To fix this, we need to give the module system a point at which it can say, "A needs B _eventually_, but there's no need to resolve B first."
+
+In our case, I'll make that point the `tree-folder` component. We know the child that creates the paradox is the `tree-folder-contents` component, so we'll wait until the `beforeCreate` lifecycle hook to register it:
+
+``` js
+beforeCreate: function () {
+  this.$options.components.TreeFolderContents = require('./tree-folder-contents.vue')
+}
+```
+
+Problem solved!
 
 ### Inline-шаблоны
 
