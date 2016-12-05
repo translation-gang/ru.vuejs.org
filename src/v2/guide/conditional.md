@@ -59,7 +59,7 @@ order: 7
 
 > Добавлено в версии 2.1.0
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+Как следует из названия, `v-else-if` служит в качестве "блока else if" для директивы `v-if`. Можно объединять эти директивы в длинные цепочки:
 
 ```html
 <div v-if="type === 'A'">
@@ -72,44 +72,44 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
   C
 </div>
 <div v-else>
-  Not A/B/C
+  Не A/B/C
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Подобно `v-else`, `v-else-if` должен непосредственно следовать за элементом с `v-if` или `v-else-if`.
 
-### Controlling Reusable Elements with `key`
+### Управление повторным использованием элементов при помощи `key`
 
-Vue tries to render elements as efficiently as possible, often re-using them instead of rendering from scratch. Beyond helping make Vue very fast, this can have some useful advantages. For example, if you allow users to toggle between multiple login types:
+Vue старается рендерить элементы DOM настолько эффективно, насколько это возможно, зачастую переиспользуя их вместо того чтобы создавать заново. Помимо улучшения производительности, в этом подходе можно обнаружить и иные преимущества. Например, если вы позволяете пользователю переключаться между несколькими возможными типами логина:
 
 ``` html
 <template v-if="loginType === 'username'">
-  <label>Username</label>
-  <input placeholder="Enter your username">
+  <label>Имя пользователя</label>
+  <input placeholder="Введите имя пользователя">
 </template>
 <template v-else>
   <label>Email</label>
-  <input placeholder="Enter your email address">
+  <input placeholder="Введите адрес email">
 </template>
 ```
 
-Then switching the `loginType` in the code above will not erase what the user has already entered. Since both templates use the same elements, the `<input>` is not replaced - just its `placeholder`.
+Переключение `loginType` в коде выше не сотрёт то, что пользователь уже ввёл. Оба шаблона используют одни и те же элементы, поэтому `<input>` не заменяется — только его `placeholder`.
 
-Check it out for yourself by entering some text in the input, then pressing the toggle button:
+Попробуйте сами, сначала введя что-нибудь в input, а затем нажав на кнопку переключения:
 
 {% raw %}
 <div id="no-key-example" class="demo">
   <div>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
-      <input placeholder="Enter your username">
+      <label>Имя пользователя</label>
+      <input placeholder="Введите имя пользователя">
     </template>
     <template v-else>
       <label>Email</label>
-      <input placeholder="Enter your email address">
+      <input placeholder="Введите адрес email">
     </template>
   </div>
-  <button @click="toggleLoginType">Toggle login type</button>
+  <button @click="toggleLoginType">Переключить тип логина</button>
 </div>
 <script>
 new Vue({
@@ -126,34 +126,34 @@ new Vue({
 </script>
 {% endraw %}
 
-This isn't always desirable though, so Vue offers a way for you to say, "These two elements are completely separate - don't re-use them." Just add a `key` attribute with unique values:
+Надо сказать, что это поведение может не всегда быть тем, что нужно. Поэтому Vue позволяет явно сказать: "эти элементы должны быть полностью независимы: не надо их переиспользовать". Для этого нужно всего лишь указать уникальное значение ключа `key`:
 
 ``` html
 <template v-if="loginType === 'username'">
-  <label>Username</label>
-  <input placeholder="Enter your username" key="username-input">
+  <label>Имя пользователя</label>
+      <input placeholder="Введите имя пользователя">
 </template>
 <template v-else>
   <label>Email</label>
-  <input placeholder="Enter your email address" key="email-input">
+      <input placeholder="Введите адрес email">
 </template>
 ```
 
-Now those inputs will be rendered from scratch each time you toggle. See for yourself:
+Теперь эти input'ы будут рендерится заново при каждом переключении. Смотрите сами:
 
 {% raw %}
 <div id="key-example" class="demo">
   <div>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
-      <input placeholder="Enter your username" key="username-input">
-    </template>
-    <template v-else>
-      <label>Email</label>
-      <input placeholder="Enter your email address" key="email-input">
-    </template>
+  <label>Имя пользователя</label>
+      <input placeholder="Введите имя пользователя">
+</template>
+<template v-else>
+  <label>Email</label>
+      <input placeholder="Введите адрес email">
+</template>
   </div>
-  <button @click="toggleLoginType">Toggle login type</button>
+  <button @click="toggleLoginType">Переключить тип логина</button>
 </div>
 <script>
 new Vue({
@@ -170,7 +170,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Note that the `<label>` elements are still efficiently re-used, because they don't have `key` attributes.
+Обратите внимание, что элементы `<label>` всё так же эффективно переиспользуются, поскольку для них `key` не указаны.
 
 ## `v-show`
 
