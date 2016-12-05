@@ -817,13 +817,13 @@ Vue.component('child-component', {
 
 API дистрибьюции контента оказывается очень полезным механизмом для создания компонентов, задуманных для совместного использования.
 
-### Scoped Slots
+### Слоты с ограниченной областью видимости
 
-> New in 2.1.0
+> Добавлены в 2.1.0
 
-A scoped slot is a special type of slot that functions as a reusable template (that can be passed data to) instead of already-rendered-elements.
+Слот с ограниченной областью видимости — это особый тип слота, который можно использовать в качестве повторно используемого шаблона (в который можно передать данные) вместо уже отрендеренных элементов.
 
-In a child component, simply pass data into a slot as if you are passing props to a component:
+В дочернем компоненте, просто передайте данные в слот, как если бы вы передавали входные параметры в компонент:
 
 ``` html
 <div class="child">
@@ -831,7 +831,7 @@ In a child component, simply pass data into a slot as if you are passing props t
 </div>
 ```
 
-In the parent, a `<template>` element with a special attribute `scope` indicates that it is a template for a scoped slot. The value of `scope` is the name of a temporary variable that holds the props object passed from the child:
+В родителе, элемент `<template>` с особым атрибутом `scope` указывает, что это шаблон для именованного слота. Значение `scope` — это имя временной переменной, содержащей массив входных параметров, переданных от потомка:
 
 ``` html
 <div class="parent">
@@ -844,7 +844,7 @@ In the parent, a `<template>` element with a special attribute `scope` indicates
 </div>
 ```
 
-If we render the above, the output will be:
+Результатом рендеринга кода выше будет:
 
 ``` html
 <div class="parent">
@@ -855,25 +855,25 @@ If we render the above, the output will be:
 </div>
 ```
 
-A more typical use case for scoped slots would be a list component that allows the component consumer to customize how each item in the list should be rendered:
+Более типичным случаем для использования слотов с ограниченной областью видимости является компонент списка, позволяющий кастомизировать отображение своих элементов:
 
 ``` html
 <my-awesome-list :items="items">
-  <!-- scoped slot can be named too -->
+  <!-- слот с ограниченной областью видимости может быть и именованным -->
   <template slot="item" scope="props">
     <li class="my-fancy-item">{{ props.text }}</li>
   </template>
 </my-awesome-list>
 ```
 
-And the template for the list component:
+И шаблон для компонента списка:
 
 ``` html
 <ul>
   <slot name="item"
     v-for="item in items"
     :text="item.text">
-    <!-- fallback content here -->
+    <!-- здесь — контент для резервного отображения -->
   </slot>
 </ul>
 ```
