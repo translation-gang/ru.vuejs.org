@@ -45,7 +45,7 @@ type: api
   Стратегия слияния получает значения опции родительского и дочернего элемента первым и вторым параметром соответственно.
   Третьим параметром передаётся контекст действующего инстанса Vue.
 
-- **См. также:** [Пользовательские Стратегии Слияния Опций](../guide/mixins.html#Пользовательские-стратегии-слияния-опций)
+- **См. также:** [Пользовательские стратегии слияния опций](../guide/mixins.html#Пользовательские-стратегии-слияния-опций)
 
 ### devtools
 
@@ -176,7 +176,7 @@ type: api
 
   > Добавлено в версии 2.1.0: если колбэк не указан, а окружение поддерживает промисы — возвращает промис.
 
-- **См. также:** [Асинхронная Очередь Обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
+- **См. также:** [Асинхронная очередь обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
 
 
 <h3 id="Vue-set">Vue.set( object, key, value )</h3>
@@ -411,7 +411,7 @@ type: api
   })
   ```
 
-- **См. также:** [Входные Параметры](../guide/components.html#Входные-параметры)
+- **См. также:** [Входные параметры](../guide/components.html#Входные-параметры)
 
 ### propsData
 
@@ -1359,15 +1359,15 @@ type: api
 
 ### v-else-if
 
-> New in 2.1.0
+> Добавлено в версии 2.1.0
 
-- **Expects:** `any`
+- **Ожидает:** `any`
 
-- **Restriction:** previous sibling element must have `v-if` or `v-else-if`.
+- **Ограничение:** предшествующий элемент должен иметь `v-if` или `v-else-if`.
 
-- **Usage:**
+- **Использование:**
 
-  Denote the "else if block" for `v-if`. Can be chained.
+  Обозначает "блок else if" для `v-if`. Можно объединять в цепочки.
 
   ```html
   <div v-if="type === 'A'">
@@ -1380,11 +1380,11 @@ type: api
     C
   </div>
   <div v-else>
-    Not A/B/C
+    Не A/B/C
   </div>
   ```
 
-- **See also:** [Conditional Rendering - v-else-if](../guide/conditional.html#v-else-if)
+- **См. также:** [Условный рендеринг - v-else-if](../guide/conditional.html#v-else-if)
 
 ### v-for
 
@@ -1862,23 +1862,23 @@ type: api
 
 - **`include` and `exclude`**
 
-  > New in 2.1.0
+  > Добавлено в версии 2.1.0
 
-  The `include` and `exclude` props allow components to be conditionally cached. Both props can either be a comma-delimited string or a RegExp:
+  Входные параметры `include` и `exclude` позволяют организовать условное кеширование компонентов. Оба параметра можно указать в виде строки со списокм имён компонентов через запятую, или регулярным выражением:
 
   ``` html
-  <!-- comma-delimited string -->
+  <!-- строка с именами через запятую -->
   <keep-alive include="a,b">
     <component :is="view"></component>
   </keep-alive>
 
-  <!-- regex (use v-bind) -->
+  <!-- регулярное выражение (используйте v-bind) -->
   <keep-alive :include="/a|b/">
     <component :is="view"></component>
   </keep-alive>
   ```
 
-  The match is first checked on the component's own `name` option, then its local registration name (the key in the parent's `components` option) if the `name` option is not available. Anonymous components cannot be matched against.
+  Проверяется сначала собственное значение опции `name` компонента, а в случае его недоступности — имя, указанное при локальной регистрации (ключ в опции `components` компонента-родителя). Анонимные компоненты таким образом проверить не получится.
 
   <p class="tip">`<keep-alive>` не работает с функциональными компонентами, так как у них отсутствуют инстансы.</p>
 
