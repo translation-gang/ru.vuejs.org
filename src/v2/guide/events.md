@@ -199,7 +199,7 @@ methods: {
 Удерживать все коды клавиш в памяти — неблагодарное дело, поэтому Vue предоставляет псевдонимы для наиболее часто используемых из них:
 
 ``` html
-<!-- анилогично примеру выше -->
+<!-- аналогично примеру выше -->
 <input v-on:keyup.enter="submit">
 
 <!-- работает также и в сокращённой записи -->
@@ -208,27 +208,15 @@ methods: {
 
 Вот полный список поддерживаемых псевдонимов:
 
-<<<<<<< HEAD
-- enter
-- tab
-- delete (ловит как "Delete", так и "Backspace")
-- esc
-- space
-- up
-- down
-- left
-- right
-=======
 - `.enter`
 - `.tab`
-- `.delete` (captures both "Delete" and "Backspace" keys)
+- `.delete` (ловит как "Delete", так и "Backspace")
 - `.esc`
 - `.space`
 - `.up`
 - `.down`
 - `.left`
 - `.right`
->>>>>>> english/master
 
 Вы можете также [определить пользовательские псевдонимы клавиш](../api/#keyCodes) через глобальный объект `config.keyCodes`:
 
@@ -237,14 +225,11 @@ methods: {
 Vue.config.keyCodes.f1 = 112
 ```
 
-<<<<<<< HEAD
-## Почему слушатели указываются в HTML?
-=======
-## Modifier Keys
+## Модификаторы клавиш
 
-> New in 2.1.0
+> Добавлено в версии 2.1.0
 
-You can use the following modifiers to trigger mouse or keyboard event listeners only when the corresponding modifier key is pressed:
+Вы можете использовать следующие модификаторы для отслеживания событий мыши или клавиатуры с зажатой клавишей модификатором:
 
 - `.ctrl`
 - `.alt`
@@ -253,18 +238,17 @@ You can use the following modifiers to trigger mouse or keyboard event listeners
 
 > Note: On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
 
-For example:
+Например:
 
 ```html
 <!-- Alt + C -->
 <input @keyup.alt.67="clear">
 
 <!-- Ctrl + Click -->
-<div @click.ctrl="doSomething">Do something</div>
+<div @click.ctrl="doSomething">Сделать что-нибудь</div>
 ```
 
-## Why Listeners in HTML?
->>>>>>> english/master
+## Почему слушатели указываются в HTML?
 
 Может показаться, что такой подход к отслеживанию событий нарушает старое доброе правило "разделения мух и котлет". Будьте уверены — поскольку все обработчики во Vue строго связываются с ответственным за текущее представление инстансом vm, трудностей в поддержке не возникает. На практике, есть даже несколько преимуществ при использовании `v-on`:
 
