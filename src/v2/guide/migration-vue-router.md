@@ -141,7 +141,7 @@ router.match = createMatcher(
 
 ### `router.redirect` <sup>заменено</sup>
 
-This is now an [option on route definitions](http://router.vuejs.org/en/essentials/redirect-and-alias.html). Например, вам нужно заменить:
+Теперь это [опция при объявлении роутера](http://router.vuejs.org/en/essentials/redirect-and-alias.html). Например, вам нужно заменить:
 
 ``` js
 router.redirect({
@@ -167,7 +167,7 @@ router.redirect({
 
 ### `router.alias` <sup>заменено</sup>
 
-This is now an [option on the definition for the route](http://router.vuejs.org/en/essentials/redirect-and-alias.html) you'd like to alias to. Например, вам нужно заменить:
+Теперь это [опция при объявлении роутера](http://router.vuejs.org/en/essentials/redirect-and-alias.html), которой вы присваиваете псевдоним. Например, вам нужно заменить:
 
 ``` js
 router.alias({
