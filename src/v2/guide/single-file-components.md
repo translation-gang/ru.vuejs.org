@@ -15,7 +15,7 @@ order: 19
 - **Нет модульной поддержки CSS** — в то время как HTML и JavaScript разбиваются на модули-компоненты, CSS оказывается за бортом.
 - **Отсутствие шага сборки** ограничивает нас только HTML и ES5 JavaScript, не позволяя использовать препроцессоры вроде Pug (бывший Jade) и Babel
 
-Все эти недостатки решаются **однофайловыми компонентами** с расширением `.vue`, использование которых позволяют такие инструменты как WebPack и Browserify.
+Все эти недостатки решаются **однофайловыми компонентами** с расширением `.vue`, использование которых позволяют такие инструменты как Webpack и Browserify.
 
 Вот простой пример файла, который мы назовём `Hello.vue`:
 
@@ -23,7 +23,7 @@ order: 19
 
 Мы получили:
 
-- [Полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#syntax-highlighting)
+- [полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#syntax-highlighting)
 - [модули CommonJS](https://webpack.github.io/docs/commonjs.html)
 - [модульный CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
 
