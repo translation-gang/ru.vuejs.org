@@ -1779,7 +1779,7 @@ type: api
   <!-- обработчик на событие -->
   <div id="transition-demo">
     <transition @after-enter="transitionComplete">
-      <div v-show="ok">toggled content</div>
+      <div v-show="ok">переключаемое содержимое</div>
     </transition>
   </div>
   ```
