@@ -44,7 +44,7 @@ module.exports = {
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-- Для выноса стилей в отдельный css-файл, используйте плагин extract-css, включённый во vueify.
+- Для выноса стилей в отдельный CSS-файл, используйте плагин extract-css, включённый во vueify.
 
 ``` bash
 NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] -e main.js | uglifyjs -c -m > build.js
@@ -52,7 +52,7 @@ NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o buil
 
 ## Отслеживание ошибок времени выполнения
 
-Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию `Vue.config.errorHandler`, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с [Sentry](https://sentry.io), может быть неплохой идеей — тем более, что [интеграция с Vue официально поддерживается](https://sentry.io/for/vue/).
+Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию `Vue.config.errorHandler`, если таковая была указана. Использование этого обработчика в связке с сервисом отслеживания ошибок, например с [Sentry](https://sentry.io), может быть неплохой идеей — тем более, что [интеграция с Vue официально поддерживается](https://sentry.io/for/vue/).
 
 ## Экстракция CSS
 
