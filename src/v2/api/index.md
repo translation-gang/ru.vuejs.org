@@ -1631,13 +1631,16 @@ type: api
   ```html
   <!-- одиночный элемент -->
   <span v-once>Это никогда не изменится: {{msg}}</span>
+
   <!-- элемент с потомком -->
   <div v-once>
     <h1>comment</h1>
     <p>{{msg}}</p>
   </div>
+
   <!-- компонент -->
   <my-component v-once :comment="msg"></my-component>
+  
   <!-- директива v-for -->
   <ul>
     <li v-for="i in list" v-once>{{i}}</li>
