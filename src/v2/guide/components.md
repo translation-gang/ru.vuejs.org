@@ -1085,10 +1085,8 @@ template: '<div><stack-overflow></stack-overflow></div>'
 Компонент, подобный вышеописанному, породит ошибку переполнения стека, поэтому обязательно удостоверьтесь, что рекурсивный вызов является условным (т.е. использует директиву `v-if`, которая рано или поздно станет ложной).
 
 ### Кольцевые ссылки между компонентами
-### Circular References Between Components
 
 Предположим вы конструируете каталог файлов в виде дерева, подобный Finder или Проводнику. У вас возможно есть компонент `tree-folder` с таким шаблоном:
-Let's say you're building a file directory tree, like in Finder or File Explorer. You might have a `tree-folder` component with this template:
 
 ``` html
 <p>
@@ -1098,7 +1096,6 @@ Let's say you're building a file directory tree, like in Finder or File Explorer
 ```
 
 Затем компонент `tree-folder-contents` с таким шаблоном:
-Then a `tree-folder-contents` component with this template:
 
 ``` html
 <ul>
