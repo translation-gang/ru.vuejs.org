@@ -56,6 +56,6 @@ NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o buil
 
 ## Извлечение CSS
 
-При использовании в разработке [однофайловых компонентов](./single-file-components.html), теги `<style>` обновляются автоматически. Для "боевого" окружения вам может понадобиться поместить все стили в единый CSS-файл. Детали о том как это сделать можно прочесть в документации [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) и [vueify](https://github.com/vuejs/vueify#css-extraction).
+При использовании в разработке [однофайловых компонентов](./single-file-components.html), теги `<style>` обновляются автоматически. Для "боевого" окружения вам может понадобиться поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно прочесть в документации [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) и [vueify](https://github.com/vuejs/vueify#css-extraction).
 
 Официальный шаблон `webpack` для `vue-cli` уже содержит готовую конфигурацию для извлечения стилей.
