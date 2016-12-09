@@ -73,7 +73,7 @@ vm.$watch('a', function (newVal, oldVal) {
 })
 ```
 
-<p class="tip">Не используйте [arrow-функции](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в свойствах инстанса и в коллбэках (напр. `vm.$watch('a', newVal => this.myMethod())`). Поскольку arrow-функции связываются с родительским контекстом, `this` не будет указывать на инстанс Vue, и `this.myMethod` окажется неопределённым.</p>
+<p class="tip">Не используйте [стрелочные функции](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в свойствах инстанса и в коллбэках (напр. `vm.$watch('a', newVal => this.myMethod())`). Поскольку стрелочные функции связываются с родительским контекстом, `this` не будет указывать на инстанс Vue, и `this.myMethod` окажется неопределённым.</p>
 
 Полный список свойств и методов инстанса Vue есть в [справочнике API](../api).
 
@@ -88,10 +88,10 @@ var vm = new Vue({
   },
   created: function () {
     // `this` указывает на инстанс vm
-    console.log('a is: ' + this.a)
+    console.log('Значение a: ' + this.a)
   }
 })
-// -> "a is: 1"
+// -> "Значение a: 1"
 ```
 
 Существуют также другие хуки, вызываемые на различных стадиях жизненного цикла инстанса, например `mounted`, `updated` и `destroyed`. Все хуки вызываются с контекстной переменной `this`, ссылающейся на вызывающий инстанс Vue. Возможно, вы недоумевали: где же в мире Vue живут контроллеры? Ответ на этот вопрос таков: контроллеров не существует. Всё пользовательское поведение компонента должно быть размещено в этих хуках.
