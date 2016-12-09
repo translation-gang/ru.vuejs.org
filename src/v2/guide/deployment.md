@@ -44,7 +44,7 @@ module.exports = {
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-- Для выноса стилей в отдельный css-файл, используйте плагин extract-css, включённый во vueify.
+- Для выноса стилей в отдельный CSS-файл, используйте плагин extract-css, включённый во vueify.
 
 ``` bash
 NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o build.css ] -e main.js | uglifyjs -c -m > build.js
@@ -58,4 +58,8 @@ NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o buil
 
 При использовании в разработке [однофайловых компонентов](./single-file-components.html), теги `<style>` обновляются автоматически. Для "боевого" окружения вам может понадобиться поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно прочесть в документации [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) и [vueify](https://github.com/vuejs/vueify#css-extraction).
 
+<<<<<<< HEAD
 Официальный шаблон `webpack` для `vue-cli` уже содержит готовую конфигурацию для извлечения стилей.
+=======
+Официальный шаблон `webpack` для `vue-cli` уже содержит готовую конфигурацию для экстрации стилей.
+>>>>>>> master
