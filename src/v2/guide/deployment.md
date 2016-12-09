@@ -54,8 +54,8 @@ NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o buil
 
 Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию `Vue.config.errorHandler`, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с [Sentry](https://sentry.io), может быть неплохой идеей — тем более, что [интеграция с Vue официально поддерживается](https://sentry.io/for/vue/).
 
-## Экстракция CSS
+## Извлечение CSS
 
-При использовании в разработке [однофайловых компонентов](./single-file-components.html), теги `<style>` обновляются автоматически. Для "боевого" окружения вы можете захотеть поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно получить в документации [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) и [vueify](https://github.com/vuejs/vueify#css-extraction).
+При использовании в разработке [однофайловых компонентов](./single-file-components.html), теги `<style>` обновляются автоматически. Для "боевого" окружения вам может понадобиться поместить все стили в единый CSS-файл. Детальную информацию о том как это сделать можно прочесть в документации [vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) и [vueify](https://github.com/vuejs/vueify#css-extraction).
 
-Официальный шаблон `webpack` для `vue-cli` уже содержит готовую конфигурацию для экстрации стилей.
+Официальный шаблон `webpack` для `vue-cli` уже содержит готовую конфигурацию для извлечения стилей.
