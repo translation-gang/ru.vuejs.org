@@ -428,7 +428,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `suppressTransitionError` <sup>удалено</sup>
 
-Удалено из-за упрощения системы обработчиков. Если вам действительно нужно отловить ошибки переходов, вы можете использовать вместо этого [`try`...`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch).
+Удалено из-за упрощения системы хуков. Если вам действительно нужно отловить ошибки переходов, вы можете использовать вместо этого [`try`...`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch).
 
 {% raw %}
 <div class="upgrade-path">
@@ -437,7 +437,7 @@ scrollBehavior: function (to, from, savedPosition) {
 </div>
 {% endraw %}
 
-## Обработчики путей
+## Хуки путей
 
 ### `activate` <sup>заменено</sup>
 
@@ -446,7 +446,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование обработчика <code>beforeRouteEnter</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>beforeRouteEnter</code>.</p>
 </div>
 {% endraw %}
 
@@ -457,18 +457,18 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование обработчика <code>canActivate</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>canActivate</code>.</p>
 </div>
 {% endraw %}
 
 ### `deactivate` <sup>удалено</sup>
 
-Вместо этого используйте обработчики [`beforeDestroy`](../api/#beforeDestroy) или [`destroyed`](../api/#destroyed).
+Вместо этого используйте хуки [`beforeDestroy`](../api/#beforeDestroy) или [`destroyed`](../api/#destroyed).
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование обработчика <code>deactivate</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>deactivate</code>.</p>
 </div>
 {% endraw %}
 
@@ -479,7 +479,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование обработчика <code>canDeactivate</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>canDeactivate</code>.</p>
 </div>
 {% endraw %}
 
@@ -512,7 +512,7 @@ methods: {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование обработчика <code>data</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>data</code>.</p>
 </div>
 {% endraw %}
 
