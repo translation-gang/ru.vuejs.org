@@ -1,5 +1,5 @@
 ---
-title: Компонента-обертка
+title: Компонент-обертка
 type: examples
 order: 8
 ---
