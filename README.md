@@ -2,6 +2,8 @@
 
 Этот репозиторий содержит [официальный перевод оригинальной документации vuejs.org на русский язык](https://ru.vuejs.org).
 
+Также переведена [документация vue-router](https://router.vuejs.org/ru/) и [vuex](https://vuex.vuejs.org/ru/).
+
 This is an official Russian translation branch of original vuejs.org repository.
 
 This site is built with [hexo](http://hexo.io/). Site content is written in Markdown format located in `src`. Pull requests welcome!
