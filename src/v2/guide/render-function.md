@@ -284,7 +284,7 @@ render: function (createElement) {
 
 ### `v-model`
 
-There is no direct `v-model` counterpart in render functions - you will have to implement the logic yourself:
+В render-функции нет прямого аналога `v-model` - вы должны реализовать эту логику самостоятельно:
 
 ``` js
 render: function (createElement) {
@@ -302,11 +302,11 @@ render: function (createElement) {
 }
 ```
 
-This is the cost of going lower-level, but it also gives you much more control over the interaction details compared to `v-model`.
+Это цена, которую необходимо заплатить за отказ от более высокоуровневого программирования, но в тоже время это дает вам гораздо больше контроля за деталями взаимодействия нежели использование `v-model`
 
-### Slots
+### Слоты
 
-You can access static slot contents as Arrays of VNodes from [`this.$slots`](http://vuejs.org/v2/api/#vm-slots):
+Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode используя [`this.$slots`](http://vuejs.org/v2/api/#vm-slots):
 
 ``` js
 render: function (createElement) {
@@ -315,7 +315,7 @@ render: function (createElement) {
 }
 ```
 
-And access scoped slots as functions that return VNodes from [`this.$scopedSlots`](http://vuejs.org/v2/api/#vm-scopedSlots):
+И получить доступ к слотам со своей областью видимости как к функциям, возвращающим VNode, используя [`this.$scopedSlots`](http://vuejs.org/v2/api/#vm-scopedSlots):
 
 ``` js
 render: function (createElement) {
@@ -328,14 +328,14 @@ render: function (createElement) {
 }
 ```
 
-To pass scoped slots to a child component using render functions, use the `scopedSlots` field in VNode data:
+Чтобы передать слоты со своей областью видимости в дочерний компонент используя render-функцию, применяйте свойство `scopedSlots` в данных VNode:
 
 ``` js
 render (createElement) {
   return createElement('div', [
     createElement('child', {
-      // pass scopedSlots in the data object
-      // in the form of { name: props => VNode | Array<VNode> }
+      // передаем scopedSlots в объект data
+      // в виде { name: props => VNode | Array<VNode> }
       scopedSlots: {
         default: function (props) {
           return h('span', props.text)
@@ -363,7 +363,7 @@ createElement(
 )
 ```
 
-Особенно если вы сравните его со столь простым кодом аналогичного шаблона:
+Особенно если вы сравните его с простым кодом аналогичного шаблона:
 
 ``` html
 <anchored-heading :level="1">
