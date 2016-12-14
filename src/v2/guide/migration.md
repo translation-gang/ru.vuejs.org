@@ -1,7 +1,7 @@
 ---
 title: Миграция с Vue 1.x
 type: guide
-order: 25
+order: 26
 ---
 
 ## ЧАВО
