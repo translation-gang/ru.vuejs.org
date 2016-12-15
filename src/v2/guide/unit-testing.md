@@ -59,7 +59,7 @@ describe('MyComponent', () => {
     expect(vm.message).toBe('bye!')
   })
 
-  // Монтирование инстанса и оценка вывода рендера
+  // Монтирование инстанса и оценка вывода рендеринга
   it('renders the correct message', () => {
     const Ctor = Vue.extend(MyComponent)
     const vm = new Ctor().$mount()
