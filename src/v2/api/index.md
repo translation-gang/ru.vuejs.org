@@ -495,7 +495,7 @@ type: api
   ```js
   var vm = new Vue({
     data: { a: 1 },
-    methods: {9
+    methods: {
       plus: function () {
         this.a++
       }
