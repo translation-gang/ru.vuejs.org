@@ -634,7 +634,7 @@ new Vue({ el: '#currency-input-example' })
 
 <iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/1oqjojjx/embedded/result,html,js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-Кроме того, этот интерфейс может быть использован не только для связи с полями ввода форм внутри компонентов, но и для создания более необычных полей воода. К примеру, представьте следующие возможности:
+Кроме того, этот интерфейс может быть использован не только для связи с полями ввода форм внутри компонентов, но и для создания более необычных полей ввода. К примеру, представьте следующие возможности:
 
 ``` html
 <voice-recognizer v-model="question"></voice-recognizer>
