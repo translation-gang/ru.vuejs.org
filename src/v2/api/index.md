@@ -108,7 +108,8 @@ type: api
   Vue.config.keyCodes = {
     v: 86,
     f1: 112,
-    mediaPlayPause: 179
+    mediaPlayPause: 179,
+    up: [38, 87]
   }
   ```
 
