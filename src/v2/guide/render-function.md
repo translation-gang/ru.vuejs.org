@@ -295,8 +295,8 @@ render: function (createElement) {
       value: self.value
     },
     on: {
-      input: function (e) {
-        self.value = e.target.value
+      input: function (event) {
+        self.value = event.target.value
       }
     }
   })
