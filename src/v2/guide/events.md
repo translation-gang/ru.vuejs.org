@@ -165,6 +165,7 @@ methods: {
 - `.prevent`
 - `.capture`
 - `.self`
+- `.once`
 
 ``` html
 <!-- всплытие события click будет остановлено -->
@@ -182,10 +183,19 @@ methods: {
 <!-- при добавлении слушателя события можно использовать capture mode -->
 <div v-on:click.capture="doThis">...</div>
 
-<!-- вызывать обработчик только в случае наступления события непосредственно на данном элементе -->
-<!-- (то есть не на дочернем компоненте) -->
+<!-- вызывать обработчик только в случае наступления события непосредственно -->
+<!--  на данном элементе (то есть не на дочернем компоненте) -->
 <div v-on:click.self="doThat">...</div>
 ```
+
+> Добавлено в 2.1.4
+
+``` html
+<!-- Событие click сработает только 1 раз -->
+<a v-on:click.once="doThis"></a>
+```
+
+В отличие от остальных модификаторов, которые исключительно нативные DOM-события, модификатор `.once` может также использоваться в [пользовательских событиях компонентов](components.html#Использование-v-on-с-пользовательскими-событиями). Если вы не читали ещё о компонентах, не беспокойтесь об этом сейчас.
 
 ## Модификаторы клавиш
 
@@ -236,7 +246,7 @@ Vue.config.keyCodes.f1 = 112
 - `.shift`
 - `.meta`
 
-> Note: On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+> Примечание: На клавиатурах Apple, клавиша meta отмечена как (⌘). На клавиатурах Windows, клавиша meta отмечена как (⊞). На клавиатурах Sun Microsystems, клавиша meta отмечена символом ромба (◆). На некоторых клавиатурах, особенно MIT и Lisp machine и их преемников, таких как Knight клавиатуры, space-cadet клавиатуры, клавиша meta отмечена как “META”. На клавиатурах Symbolics, meta клавиша отмечена как “META” или “Meta”.
 
 Например:
 

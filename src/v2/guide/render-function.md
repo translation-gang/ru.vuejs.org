@@ -174,9 +174,10 @@ createElement(
   // Слоты с ограниченной областью видимостью в формате
   // { name: props => VNode | Array<VNode> }
   scopedSlots: {
-    default: props => h('span', props.text)
+    default: props => createElement('span', props.text)
   },
-  // Имя слота, если потомок компонента
+  // Имя слота, если этот компонент
+  // является потомком другого компонента
   slot: 'name-of-slot'
   // Прочие специальные свойства верхнего уровня
   key: 'myKey',
@@ -294,8 +295,8 @@ render: function (createElement) {
       value: self.value
     },
     on: {
-      input: function (e) {
-        self.value = e.target.value
+      input: function (event) {
+        self.value = event.target.value
       }
     }
   })
@@ -391,7 +392,7 @@ render (createElement) {
       // в виде { name: props => VNode | Array<VNode> }
       scopedSlots: {
         default: function (props) {
-          return h('span', props.text)
+          return createElement('span', props.text)
         }
       }
     })

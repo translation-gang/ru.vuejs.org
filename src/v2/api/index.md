@@ -108,7 +108,8 @@ type: api
   Vue.config.keyCodes = {
     v: 86,
     f1: 112,
-    mediaPlayPause: 179
+    mediaPlayPause: 179,
+    up: [38, 87]
   }
   ```
 
@@ -969,8 +970,8 @@ type: api
       var body   = this.$slots.default
       var footer = this.$slots.footer
       return createElement('div', [
-        createElement('header', header)
-        createElement('main', body)
+        createElement('header', header),
+        createElement('main', body),
         createElement('footer', footer)
       ])
     }
@@ -1527,6 +1528,9 @@ type: api
 
   <!-- сокращение -->
   <img :src="imageSrc">
+
+  <!-- поддержка конкатенации строк -->
+  <img :src="'/path/to/images/' + fileName">
 
   <!-- связывание CSS-класса -->
   <div :class="{ red: isRed }"></div>
