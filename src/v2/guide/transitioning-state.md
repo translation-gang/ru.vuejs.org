@@ -250,7 +250,7 @@ new Vue({
     <polygon :points="points" class="demo-polygon"></polygon>
     <circle cx="100" cy="100" r="90" class="demo-circle"></circle>
   </svg>
-  <label>Стороны: {{ sides }}</label>
+  <label>Количество сторон: {{ sides }}</label>
   <input
     class="demo-range-input"
     type="range"
@@ -258,7 +258,7 @@ new Vue({
     max="500"
     v-model.number="sides"
   >
-  <label>Минимальный Радиус: {{ minRadius }}%</label>
+  <label>Минимальный радиус: {{ minRadius }}%</label>
   <input
     class="demo-range-input"
     type="range"
@@ -266,7 +266,7 @@ new Vue({
     max="90"
     v-model.number="minRadius"
   >
-  <label>Интервал Обновления: {{ updateInterval }} milliseconds</label>
+  <label>Интервал обновления: {{ updateInterval }} milliseconds</label>
   <input
     class="demo-range-input"
     type="range"
