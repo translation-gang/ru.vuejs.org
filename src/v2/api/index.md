@@ -1528,6 +1528,9 @@ type: api
   <!-- сокращение -->
   <img :src="imageSrc">
 
+  <!-- поддержка конкатенации строк -->
+  <img :src="'/path/to/images/' + fileName">
+
   <!-- связывание CSS-класса -->
   <div :class="{ red: isRed }"></div>
   <div :class="[classA, classB]"></div>
