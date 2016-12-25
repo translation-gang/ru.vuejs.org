@@ -154,7 +154,7 @@ createElement(
     click: this.clickHandler
   },
   // Только для компонентов. Позволяет слушать нативные события,
-  // а не генерируемые самим компонентом через vm.$emit.
+  // а не генерируемые в компоненте через vm.$emit.
   nativeOn: {
     click: this.nativeClickHandler
   },
