@@ -174,7 +174,7 @@ createElement(
   // Слоты с ограниченной областью видимостью в формате
   // { name: props => VNode | Array<VNode> }
   scopedSlots: {
-    default: props => h('span', props.text)
+    default: props => createElement('span', props.text)
   },
   // Имя слота, если этот компонент
   // является потомком другого компонента
