@@ -246,7 +246,7 @@ Vue.config.keyCodes.f1 = 112
 - `.shift`
 - `.meta`
 
-> Note: On Macintosh keyboards, meta is the command key (⌘). On Windows keyboards, meta is the windows key (⊞). On Sun Microsystems keyboards, meta is marked as a solid diamond (◆). On certain keyboards, specifically MIT and Lisp machine keyboards and successors, such as the Knight keyboard, space-cadet keyboard, meta is labeled “META”. On Symbolics keyboards, meta is labeled “META” or “Meta”.
+> Примечание: На клавиатурах Apple, клавиша meta отмечена как (⌘). На клавиатурах Windows, клавиша meta отмечена как (⊞). На клавиатурах Sun Microsystems, клавиша meta отмечена символом ромба (◆). На некоторых клавиатурах, особенно MIT и Lisp machine и их преемников, таких как Knight клавиатуры, space-cadet клавиатуры, клавиша meta отмечена как “META”. На клавиатурах Symbolics, meta клавиша отмечена как “META” или “Meta”.
 
 Например:
 
