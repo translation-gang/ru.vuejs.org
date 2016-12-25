@@ -176,7 +176,7 @@ createElement(
   scopedSlots: {
     default: props => h('span', props.text)
   },
-  // The name of a slot if the child of a component
+  // Имя слота, если потомок компонента
   slot: 'name-of-slot'
   // Прочие специальные свойства верхнего уровня
   key: 'myKey',
