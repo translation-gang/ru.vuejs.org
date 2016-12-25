@@ -158,7 +158,7 @@ createElement(
   nativeOn: {
     click: this.nativeClickHandler
   },
-  // Пользовательские Директивы. Обратите внимание, что oldValue
+  // Пользовательские директивы. Обратите внимание, что oldValue
   // не может быть указано, так как Vue сам его отслеживает
   directives: [
     {
