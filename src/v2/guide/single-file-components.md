@@ -47,7 +47,7 @@ order: 19
 
 После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на шаблон [webpack-simple](https://github.com/vuejs-templates/webpack-simple). Следуйте инструкциям, и очень скоро у вас будет рабочий проект с `.vue`-компонентами, ES2015 и hot-reloading.
 
-Этот шаблон использует [Webpack](https://webpack.github.io/) — сборщик, соединяющий набор "модулей" в результирующее приложение. [Это видео](https://www.youtube.com/watch?v=WQue1AN93YU) представляет собой неплохое введение. Разобравшись с основами, вы возможно также захотите посмотреть [этот курс по продвинутому использованию WebPack на Egghead.io](https://egghead.io/courses/using-webpack-for-production-javascript-applications).
+Этот шаблон использует [Webpack](https://webpack.github.io/) — сборщик, соединяющий набор "модулей" в результирующее приложение. [Это видео](https://www.youtube.com/watch?v=WQue1AN93YU) представляет собой неплохое введение. Разобравшись с основами, вы возможно также захотите посмотреть [этот курс по продвинутому использованию Webpack на Egghead.io](https://egghead.io/courses/using-webpack-for-production-javascript-applications).
 
 В Webpack каждый модуль может быть подвергнут трансформации загрузчиком ("loader") перед включением в сборку. Vue предоставляет плагин [vue-loader](https://github.com/vuejs/vue-loader) для трансляции однофайловых `.vue`-компонентов. Шаблон [webpack-simple](https://github.com/vuejs-templates/webpack-simple) содержит уже настроенный проект, но если вы хотели бы узнать больше о том, как работают `.vue`-компоненты в связке с Webpack, можно почитать [документацию vue-loader](https://vue-loader.vuejs.org).
 
