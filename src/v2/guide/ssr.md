@@ -136,7 +136,7 @@ new Vue({
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Моё Приложение Vue</title>
+  <title>Моё приложение на Vue</title>
   <script src="/assets/vue.js"></script>
 </head>
 <body>
