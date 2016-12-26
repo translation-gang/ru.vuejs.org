@@ -10,7 +10,7 @@ order: 18
 
 1. Добавляющие глобальные методы и/или свойства, например [vue-element](https://github.com/vuejs/vue-element)
 
-2. Добавляющие глобальные объекты: директивы/фильтры/переходы и т.д., например. [vue-touch](https://github.com/vuejs/vue-touch)
+2. Добавляющие глобальные объекты: директивы/фильтры/переходы и т.д., например [vue-touch](https://github.com/vuejs/vue-touch)
 
 3. Добавляющие опции компонентов посредством глобального миксина, например [vuex](https://github.com/vuejs/vuex)
 
