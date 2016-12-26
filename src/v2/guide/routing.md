@@ -18,8 +18,8 @@ const Home = { template: '<p>главная</p>' }
 const About = { template: '<p>о нас</p>' }
 
 const routes = {
-  '/': Главная,
-  '/about': О нас
+  '/': Home,
+  '/about': About
 }
 
 new Vue({
