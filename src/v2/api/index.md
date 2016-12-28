@@ -982,7 +982,6 @@ type: api
   - [Дистрибьюция контента через слоты](../guide/components.html#Дистрибьюция-контента-через-слоты)
   - [Render-функции и слоты](../guide/render-function.html#Слоты)
 
-
 ### vm.$scopedSlots
 
 > Добавлено в версии 2.1.0
@@ -999,8 +998,8 @@ type: api
 
 - **См. также:**
   - [`<slot>` компонент](#slot-1)
-  - [Слоты с ограниченной областью видимости](../guide/components.html#Scoped-Slots)
-  - [Render-функции: Слоты](../guide/render-function.html#Slots)
+  - [Слоты с ограниченной областью видимости](../guide/components.html#Слоты-с-ограниченной-областью-видимости)
+  - [Render-функции и слоты](../guide/render-function.html#Слоты)
 
 
 ### vm.$refs
