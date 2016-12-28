@@ -697,8 +697,8 @@ type: api
   **При рендеринге на стороне сервера этот хук не вызывается.**
 
 - **См. также:**
-  - [Встроенные компоненты - keep-alive](#keep-alive)
-  - [Динамические компоненты - keep-alive](../guide/components.html#keep-alive)
+  - [Встроенные компоненты — keep-alive](#keep-alive)
+  - [Динамические компоненты — keep-alive](../guide/components.html#keep-alive)
 
 ### beforeDestroy
 
