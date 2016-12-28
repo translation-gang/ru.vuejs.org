@@ -1388,7 +1388,7 @@ type: api
   </div>
   ```
 
-- **См. также:** [Условный рендеринг - v-else-if](../guide/conditional.html#v-else-if)
+- **См. также:** [Условный рендеринг — v-else-if](../guide/conditional.html#v-else-if)
 
 ### v-for
 
