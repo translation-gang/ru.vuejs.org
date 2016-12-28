@@ -1218,7 +1218,7 @@ type: api
 
 - **См. также:**
   - [Диаграмма жизненного цикла](../guide/instance.html#Диаграмма-жизненного-цикла)
-  - [Рендеринг на сервере](../guide/ssr.html)
+  - [SSR. Рендеринг на стороне сервера](../guide/ssr.html)
 
 <h3 id="vm-forceUpdate">vm.$forceUpdate()</h3>
 
