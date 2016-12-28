@@ -980,7 +980,7 @@ type: api
 
   - [Компонент `<slot>`](#slot-1)
   - [Дистрибьюция контента через слоты](../guide/components.html#Дистрибьюция-контента-через-слоты)
-  - [Render-функции и слоты](../guide/render-function.html#Slots)
+  - [Render-функции и слоты](../guide/render-function.html#Слоты)
 
 
 ### vm.$scopedSlots
