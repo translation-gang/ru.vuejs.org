@@ -1892,7 +1892,7 @@ type: api
 
   <p class="tip">`<keep-alive>` не работает с функциональными компонентами, так как у них отсутствуют инстансы.</p>
 
-- **См. также:** [Динамические компоненты — keep-alive](../guide/components.html#keep-alive)
+- **См. также:** [Динамическое переключение компонентов — keep-alive](../guide/components.html#keep-alive)
 
 ### slot
 
