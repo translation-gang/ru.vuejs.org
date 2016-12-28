@@ -1743,7 +1743,7 @@ type: api
   <component :is="$options.components.child"></component>
   ```
 
-- **См. также:** [Динамические компоненты](../guide/components.html#Динамическое-переключение-компонентов)
+- **См. также:** [Динамическое переключение компонентов](../guide/components.html#Динамическое-переключение-компонентов)
 
 ### transition
 
