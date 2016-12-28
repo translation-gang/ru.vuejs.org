@@ -999,7 +999,7 @@ type: api
 - **См. также:**
   - [`<slot>` компонент](#slot-1)
   - [Слоты с ограниченной областью видимости](../guide/components.html#Слоты-с-ограниченной-областью-видимости)
-  - [Render-функции и слоты](../guide/render-function.html#Слоты)
+  - [Render-функции — слоты](../guide/render-function.html#Слоты)
 
 
 ### vm.$refs
