@@ -1321,7 +1321,7 @@ type: api
 
   При изменении состояния этой директивы вызываются анимации, заданные в transition.
 
-- **См. также:** [Условный рендеринг - v-show](../guide/conditional.html#v-show)
+- **См. также:** [Условный рендеринг — v-show](../guide/conditional.html#v-show)
 
 
 ### v-if
