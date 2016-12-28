@@ -261,7 +261,7 @@ if (route.meta.requiresAuth) {
 <a v-link="'/about'">About</a>
 ```
 
-вам необходимо изменить ее следующим образом:
+вам необходимо изменить её следующим образом:
 
 ``` html
 <router-link to="/about">About</router-link>
