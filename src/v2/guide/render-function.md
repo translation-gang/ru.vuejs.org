@@ -388,7 +388,7 @@ render: function (createElement) {
 render (createElement) {
   return createElement('div', [
     createElement('child', {
-      // передаем scopedSlots в объект data
+      // передаём scopedSlots в объект data
       // в виде { name: props => VNode | Array<VNode> }
       scopedSlots: {
         default: function (props) {
