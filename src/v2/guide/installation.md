@@ -74,7 +74,7 @@ resolve: {
 
 Некоторые окружения, такие как Google Chrome Apps, требуют соблюдения Content Security Policy (CSP), запрещающей использование конструкции `new Function()` для исполнения выражений. Standalone-сборка использует подобные конструкции для компиляции шаблонов, и потому непригодна к использованию в таких окружениях.
 
-С другой стороны, версия runtime-only полностью совместима с CSP. Если использовать её с [Webpack и vue-loader](https://github.com/vuejs-templates/webpack-simple) или [Browserify и vueify](https://github.com/vuejs-templates/browserify-simple) шаблоны прекомпилируются в `render`-функции, которые отлично работают в CSP-окружениях.
+С другой стороны, runtime-сборка полностью совместима с CSP. Если использовать её с [Webpack и vue-loader](https://github.com/vuejs-templates/webpack-simple) или [Browserify и vueify](https://github.com/vuejs-templates/browserify-simple) шаблоны прекомпилируются в `render`-функции, которые отлично работают в CSP-окружениях.
 
 ## Инструменты командной строки (CLI)
 
@@ -114,4 +114,4 @@ $ bower install vue
 
 ## Загрузчики AMD-модулей
 
-И standalone-версия, и версии, устанавливаемые через Bower, заворачиваются с помощью UMD, поэтому их можно напрямую использовать как AMD-модули.
+И standalone-сборка, и версии, устанавливаемые через Bower, заворачиваются с помощью UMD, поэтому их можно напрямую использовать как AMD-модули.
