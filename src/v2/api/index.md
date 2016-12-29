@@ -1125,7 +1125,7 @@ type: api
 
 - **См. также:** [Vue.delete](#Vue-delete)
 
-## Методы инстанса — cобытия
+## Методы инстанса — события
 
 <h3 id="vm-on">vm.$on( event, callback )</h3>
 
