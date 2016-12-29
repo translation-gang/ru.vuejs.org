@@ -339,7 +339,7 @@ new Vue({
 
 ``` html
 <div v-for="item in items" :key="item.id">
-  <!-- content -->
+  <!-- содержимое -->
 </div>
 ```
 
