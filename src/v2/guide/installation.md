@@ -2,11 +2,11 @@
 title: Установка
 type: guide
 order: 1
-vue_version: 2.1.3
-dev_size: "206.14"
-min_size: "67.60"
-gz_size: "24.72"
-ro_gz_size: "17.14"
+vue_version: 2.1.8
+dev_size: "217.56"
+min_size: "70.37"
+gz_size: "25.75"
+ro_gz_size: "17.87"
 ---
 
 ### Предупреждение о совместимости
