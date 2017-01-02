@@ -994,7 +994,7 @@ var child = parent.$refs.profile
 ``` js
 Vue.component('async-example', function (resolve, reject) {
   setTimeout(function () {
-    // Передаем шаблон компонента в функцию обратного вызова resolve
+    // Передаем шаблон компонента в коллбэк resolve
     resolve({
       template: '<div>Я — асинхронный!</div>'
     })
