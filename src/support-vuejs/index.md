@@ -1,4 +1,6 @@
-# Support Vue.js Development
+---
+title: Поддержите разработку Vue.js
+---
 
 <a href="https://www.patreon.com/evanyou" target="_blank">
   <img style="width:120px" src="https://s3.amazonaws.com/patreon_public_assets/toolbox/patreon.png">
