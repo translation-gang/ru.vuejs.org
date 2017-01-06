@@ -2,7 +2,7 @@
 
 Этот репозиторий содержит [официальный перевод оригинальной документации vuejs.org на русский язык](https://ru.vuejs.org).
 
-Также переведена [документация vue-router](https://router.vuejs.org/ru/) и [vuex](https://vuex.vuejs.org/ru/).
+Также переведена [документация Vue-router](https://router.vuejs.org/ru/) и [Vuex](https://vuex.vuejs.org/ru/).
 
 This is an official Russian translation branch of original vuejs.org repository.
 
@@ -17,7 +17,7 @@ $ npm install
 $ npm run server
 ```
 
-or 
+or
 
 ```
 $ npm install -g hexo-cli

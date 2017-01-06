@@ -29,9 +29,9 @@ order: 30
 
 После этого, вы будете готовы прислать код как в основные репозитории Vue:
 
-- [vue](https://github.com/vuejs/vue): ядро фреймворка
-- [vuex](https://github.com/vuejs/vuex): Flux-подобная система управления состоянием
-- [vue-router](https://github.com/vuejs/vue-router): роутер для SPA
+- [Vue](https://github.com/vuejs/vue): ядро фреймворка
+- [Vuex](https://github.com/vuejs/vuex): Flux-подобная система управления состоянием
+- [Vue-router](https://github.com/vuejs/vue-router): роутер для SPA
 
 ...так и во множество небольших официальных [сопутствующих библиотек](https://github.com/vuejs).
 

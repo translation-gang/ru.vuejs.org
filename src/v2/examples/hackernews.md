@@ -4,7 +4,7 @@ type: examples
 order: 10
 ---
 
-> Это клон HackerNews, построенный на Firebase API, Vue 2.0 + vue-router + vuex, с использованием серверного рендеринга.
+> Это клон HackerNews, построенный на Firebase API, Vue 2.0 + Vue-router + Vuex, с использованием серверного рендеринга.
 
 {% raw %}
 <div style="max-width:600px">
@@ -22,7 +22,7 @@ order: 10
 ## Возможности
 
 - Серверный рендеринг
-  - Связка Vue + vue-router + vuex
+  - Связка Vue + Vue-router + Vuex
   - Предварительное получение данных на сервере
   - Клиентское состояние и гидрация DOM
 - Использование однофайловых компонентов
