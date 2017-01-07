@@ -50,7 +50,7 @@ new Vue({
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }
-.fade-enter, .fade-leave-active {
+.fade-enter, .fade-leave-to /* .fade-leave-active для <2.1.8 */ {
   opacity: 0
 }
 ```
@@ -76,7 +76,7 @@ new Vue({
 .demo-transition-enter-active, .demo-transition-leave-active {
   transition: opacity .5s
 }
-.demo-transition-enter, .demo-transition-leave-active {
+.demo-transition-enter, .demo-transition-leave-to {
   opacity: 0
 }
 </style>
@@ -92,12 +92,19 @@ new Vue({
 
 ### Классы переходов
 
-Для анимаций появления/исчезновения элемента применяются четыре класса:
+Есть шесть классов, применяющихся в анимациях появления/исчезновения:
 
-1. `v-enter`: Изначальное состояние для анимации появления элемента. Применяется перед вставкой элемента, удаляется в следующем фрейме.
-2. `v-enter-active`: Активное/конечное состояние для анимации появления элемента. Применяется перед вставкой элемента, удаляется по завершении перехода/анимации.
-3. `v-leave`: Изначальное состояние для анимации исчезновения элемента. Применяется при начале анимации исчезновения, удаляется в следующем фрейме.
-4. `v-leave-active`: Активное/конечное состояние для анимации исчезновения элемента. Применяется при начале анимации исчезновения, удаляется по завершении перехода/анимации.
+1. `v-enter`: Стартовое состояние анимации появления элемента. Добавляется перед вставкой элемента, удаляется в следующем фрейме после вставки.
+
+2. `v-enter-active`: Активное состояние анимации появления элемента. Применяется в течение всей фазы анимации появления элемента. Добавляется перед вставкой элемента, удаляется по завершении перехода/анимации. Этот класс может быть использован для установки длительности, задержки и плавности (easing curve) анимации появления.
+
+3. `v-enter-to`: **Доступно только в версиях >=2.1.8.** Конечное состояние анимации появления элемента. Добавляется в следующем фрейме после вставки элемента (в тоже время, когда `v-enter` будет удалён), удаляется по завершении перехода/анимации.
+
+4. `v-leave`: Стартовое состояние анимации исчезновения элемента. Добавляется как только начинается анимация исчезновения, удаляется в следующем фрейме.
+
+5. `v-leave-active`: Активное состояние анимации исчезновения элемента. Применяется в течение всей фазы анимации исчезновения элемента. Добавляется как только начинается анимация исчезновения, удаляется по завершении перехода/анимации. Этот класс может быть использован для установки длительности, задержки и плавности (easing curve) анимации исчезновения.
+
+6. `v-leave-to`: **Доступно только в версиях >=2.1.8.** Конечное состояние анимации исчезновения элемента. Добавляется в следующем фрейме после начала анимации исчезновения (в тоже время, когда `v-leave` будет удалён), удаляется по завершении перехода/анимации.
 
 ![Диаграмма Переходов](/images/transition.png)
 
@@ -138,7 +145,8 @@ new Vue({
 .slide-fade-leave-active {
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.slide-fade-enter, .slide-fade-leave-active {
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active для <2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
 }
@@ -168,7 +176,7 @@ new Vue({
 .slide-fade-leave-active {
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.slide-fade-enter, .slide-fade-leave-active {
+.slide-fade-enter, .slide-fade-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }
@@ -320,8 +328,10 @@ new Vue({
 
 - `enter-class`
 - `enter-active-class`
+- `enter-to-class` (только в >= 2.1.8)
 - `leave-class`
 - `leave-active-class`
+- `leave-to-class` (только в >= 2.1.8)
 
 Таким образом стандартные названия классов будут переопределены, что может быть особенно полезно для комбинирования системы анимированных переходов Vue с возможностями сторонних библиотек CSS-анимаций, таких как [Animate.css](https://daneden.github.io/animate.css/).
 
@@ -914,7 +924,8 @@ new Vue({
 .component-fade-enter-active, .component-fade-leave-active {
   transition: opacity .3s ease;
 }
-.component-fade-enter, .component-fade-leave-active {
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active для <2.1.8 */ {
   opacity: 0;
 }
 ```
@@ -931,7 +942,7 @@ new Vue({
 .component-fade-enter-active, .component-fade-leave-active {
   transition: opacity .3s ease;
 }
-.component-fade-enter, .component-fade-leave-active {
+.component-fade-enter, .component-fade-leave-to {
   opacity: 0;
 }
 </style>
@@ -1010,7 +1021,7 @@ new Vue({
 .list-enter-active, .list-leave-active {
   transition: all 1s;
 }
-.list-enter, .list-leave-active {
+.list-enter, .list-leave-to /* .list-leave-active для <2.1.8 */ {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -1054,7 +1065,7 @@ new Vue({
 .list-enter-active, .list-leave-active {
   transition: all 1s;
 }
-.list-enter, .list-leave-active {
+.list-enter, .list-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -1185,7 +1196,8 @@ new Vue({
   display: inline-block;
   margin-right: 10px;
 }
-.list-complete-enter, .list-complete-leave-active {
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active для <2.1.8 */ {
   opacity: 0;
   transform: translateY(30px);
 }
@@ -1235,7 +1247,7 @@ new Vue({
   display: inline-block;
   margin-right: 10px;
 }
-.list-complete-enter, .list-complete-leave-active {
+.list-complete-enter, .list-complete-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
