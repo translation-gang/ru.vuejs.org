@@ -1013,7 +1013,7 @@ Vue.component('async-webpack-example', function (resolve) {
 })
 ```
 
-Вы также можете вернуть `Promise` в функцию конструктора, так что с Webpack 2 и синтаксисом ES2015 можно сделать так:
+Вы также можете вернуть `Promise` в функции-фабрике, так что с Webpack 2 и синтаксисом ES2015 можно сделать так:
 
 ``` js
 Vue.component(
