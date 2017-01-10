@@ -152,7 +152,7 @@ type: api
   Результатом будет:
 
   ``` html
-  <p>Walter White aka Heisenberg</p>
+  <p>Уолтер Уайт, также известный как Гейзенберг</p>
   ```
 
 - **См. также:** [Компоненты](../guide/components.html)
