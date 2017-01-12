@@ -1763,21 +1763,27 @@ type: api
   - `mode` — string, управляет порядком анимаций исчезновения и появления элементов. Доступные режимы `"out-in"` (сначала старый элемент исчезает, потом новый появляется) и `"in-out"` (сначала новый элемент появляется, потом исчезает старый). По умолчанию исчезновение и появление происходят одновременно.
   - `enter-class` — string
   - `leave-class` — string
+  - `appear-class` — string
+  - `enter-to-class` — string
+  - `leave-to-class` — string
+  - `appear-to-class` — string
   - `enter-active-class` — string
   - `leave-active-class` — string
-  - `appear-class` — string
   - `appear-active-class` — string
 
 - **События:**
   - `before-enter`
-  - `enter`
-  - `after-enter`
   - `before-leave`
-  - `leave`
-  - `after-leave`
   - `before-appear`
+  - `enter`
+  - `leave`
   - `appear`
+  - `after-enter`
+  - `after-leave`
   - `after-appear`
+  - `enter-cancelled`
+  - `leave-cancelled` (только для `v-show`)
+  - `appear-cancelled`
 
 - **Использование:**
 
