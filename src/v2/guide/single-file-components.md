@@ -27,7 +27,7 @@ order: 19
 - [модули CommonJS](https://webpack.github.io/docs/commonjs.html)
 - [модульный CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
 
-Как и обещалось, мы также можем использовать препроцессоры, такие как Jade, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
+Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
 <img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto">
 
