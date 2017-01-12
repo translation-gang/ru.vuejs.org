@@ -581,6 +581,7 @@ new Vue({
 <transition
   appear
   appear-class="custom-appear-class"
+  appear-to-class="custom-appear-to-class" (только в >= 2.1.8)
   appear-active-class="custom-appear-active-class"
 >
   <!-- ... -->
@@ -595,6 +596,7 @@ new Vue({
   v-on:before-appear="customBeforeAppearHook"
   v-on:appear="customAppearHook"
   v-on:after-appear="customAfterAppearHook"
+  v-on:appear-cancelled="customAppearCancelledHook"
 >
   <!-- ... -->
 </transition>
