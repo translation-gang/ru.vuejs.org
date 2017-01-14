@@ -20,7 +20,7 @@ import Vue = require('vue')
 
 ### Опции компиляции
 
-Файлы деклараций Vue требуют [опцию компиляции](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `--lib DOM,ES2015.Promise`. Опцию можно передать в команду `tsc`, либо добавить её эквивалент в файл `tsconfig.json`.
+Файлы деклараций Vue требуют [опцию компиляции](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `--lib DOM,ES5,ES2015.Promise`. Опцию можно передать в команду `tsc`, либо добавить её эквивалент в файл `tsconfig.json`.
 
 ### Получение доступа к типам Vue
 
