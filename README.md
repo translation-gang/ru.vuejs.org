@@ -45,7 +45,7 @@ Russian translation is maintained by Translation Gang.
 
 ### Korean
 
-TODO: provide information here
+* Translation Repo - [/vuejs-kr/kr.vuejs.org](https://github.com/vuejs-kr/kr.vuejs.org)
 
 ### Want to help with the translation?
 
