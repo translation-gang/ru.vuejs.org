@@ -51,7 +51,7 @@ Russian translation is maintained by Translation Gang.
 Korean translation is maintained by Vue.js Korea.
 
 * Translation Repo - [/vuejs-kr/kr.vuejs.org](https://github.com/vuejs-kr/kr.vuejs.org)
-* Primary maintainer - [ChangJoo Park(박창주)](https://github.com/ChangJoo-Park)
+* Primary maintainer - [ChangJoo Park](https://github.com/ChangJoo-Park)
 
 ### French
 
