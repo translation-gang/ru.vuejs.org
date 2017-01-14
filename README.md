@@ -47,6 +47,12 @@ Russian translation is maintained by Translation Gang.
 
 * Translation Repo - [/vuejs-kr/kr.vuejs.org](https://github.com/vuejs-kr/kr.vuejs.org)
 
+### French
+
+French translation is maintained by Vuejs-FR.
+
+* Translation Repo — [/vuejs-fr/vuejs.org](https://github.com/vuejs-fr/vuejs.org)
+
 ### Want to help with the translation?
 
 If you feel okay with translating sorta alone, just fork the repo, create a "work-in-progress" issue to inform others that you're doing the translation, and just go on.
