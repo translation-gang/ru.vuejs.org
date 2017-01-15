@@ -14,7 +14,7 @@ order: 18
 
 3. Добавляющие опции компонентов посредством глобальной примеси, например [Vuex](https://github.com/vuejs/vuex)
 
-4. Добавляющие методы инстанса Vue через Vue.prototype.
+4. Добавляющие методы экземпляра Vue через Vue.prototype.
 
 5. Библиотеки, предоставляющие собственные API, комбинируя вышеперечисленные возможности, например [Vue-router](https://github.com/vuejs/vue-router)
 
@@ -43,7 +43,7 @@ MyPlugin.install = function (Vue, options) {
     ...
   })
 
-  // 4. добавление метода инстанса
+  // 4. добавление метода экземпляра
   Vue.prototype.$myMethod = function (options) {
     // некоторая логика ...
   }
