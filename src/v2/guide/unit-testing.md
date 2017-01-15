@@ -53,13 +53,13 @@ describe('MyComponent', () => {
     expect(defaultData.message).toBe('hello!')
   })
 
-  // Анализ инстанса компонента при монтировании
+  // Анализ экземпляра компонента при монтировании
   it('correctly sets the message when created', () => {
     const vm = new Vue(MyComponent).$mount()
     expect(vm.message).toBe('bye!')
   })
 
-  // Монтирование инстанса и оценка вывода рендеринга
+  // Монтирование экземпляра и оценка вывода рендеринга
   it('renders the correct message', () => {
     const Ctor = Vue.extend(MyComponent)
     const vm = new Ctor().$mount()
