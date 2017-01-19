@@ -67,7 +67,9 @@ var example2 = new Vue({
       // `this` внутри методов указывает на инстанс Vue
       alert('Привет, ' + this.name + '!')
       // `event` — нативное событие DOM
-      alert(event.target.tagName)
+      if (event) {
+        alert(event.target.tagName)
+      }
     }
   }
 })
@@ -91,7 +93,9 @@ var example2 = new Vue({
   methods: {
     greet: function (event) {
       alert('Привет, ' + this.name + '!')
-      alert(event.target.tagName)
+      if (event) {
+        alert(event.target.tagName)
+      }
     }
   }
 })
