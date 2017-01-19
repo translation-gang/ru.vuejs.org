@@ -102,7 +102,7 @@ React и Vue во многом похожи. Они оба:
 
 #### JSX vs Шаблоны
 
-В React, все компоненты описывают свой UI посредством render-функций, используя JSX — декларативный XML-подобный синтаксис, работающий внутри JavaScript. Вот пример, [одобренный сообществом React](https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244582684):
+В React, все компоненты описывают свой UI посредством `render`-функций, используя JSX — декларативный XML-подобный синтаксис, работающий внутри JavaScript. Вот пример, [одобренный сообществом React](https://github.com/vuejs/vuejs.org/issues/364#issuecomment-244582684):
 
 ``` jsx
 render () {
