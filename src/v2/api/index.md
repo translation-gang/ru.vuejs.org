@@ -1350,7 +1350,6 @@ type: api
 
   Определяет "блок else" для `v-if` или цепочки `v-if`/`v-else-if`.
 
-
   ```html
   <div v-if="Math.random() > 0.5">
     Сейчас меня видно
