@@ -44,13 +44,13 @@
   }
 
   function initLocationHashFuzzyMatching () {
-    var hash;
+    var rawHash = window.location.hash;
+    if (!rawHash) return
     try {
-      hash = escapeCharacters(decodeURIComponent(window.location.hash))
+      hash = escapeCharacters(decodeURIComponent(rawHash))
     } catch(e) {
-      hash = escapeCharacters(window.location.hash)
+      hash = escapeCharacters(rawHash)
     }
-    if (!hash) return
     var hashTarget = document.getElementById(hash)
     if (!hashTarget) {
       var normalizedHash = normalizeHash(hash)
@@ -175,7 +175,7 @@
 
       var animating = false
       sectionContainer.addEventListener('click', function (e) {
-        e.preventDefault()
+        // e.preventDefault()
         if (e.target.classList.contains('section-link')) {
           sidebar.classList.remove('open')
           setActive(e.target)
