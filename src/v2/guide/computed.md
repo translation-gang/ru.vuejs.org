@@ -227,12 +227,12 @@ var watchExampleVM = new Vue({
     // см. документацию: https://lodash.com/docs#debounce
     getAnswer: _.debounce(
       function () {
-        var vm = this
         if (this.question.indexOf('?') === -1) {
-          vm.answer = 'Вопросы обычно заканчиваются вопросительным знаком. ;-)'
+          this.answer = 'Вопросы обычно заканчиваются вопросительным знаком. ;-)'
           return
         }
-        vm.answer = 'Думаю...'
+        this.answer = 'Думаю...'
+        var vm = this
         axios.get('https://yesno.wtf/api')
           .then(function (response) {
             vm.answer = _.capitalize(response.data.answer)
