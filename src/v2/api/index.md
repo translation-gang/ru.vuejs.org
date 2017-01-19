@@ -1884,7 +1884,7 @@ type: api
   </transition>
   ```
 
-- **`include` and `exclude`**
+- **`include` и `exclude`**
 
   > Добавлено в версии 2.1.0
 
