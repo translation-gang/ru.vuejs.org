@@ -175,7 +175,7 @@
 
       var animating = false
       sectionContainer.addEventListener('click', function (e) {
-        // e.preventDefault()
+        e.preventDefault()
         if (e.target.classList.contains('section-link')) {
           sidebar.classList.remove('open')
           setActive(e.target)
