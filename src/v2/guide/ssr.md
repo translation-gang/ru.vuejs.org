@@ -325,7 +325,7 @@ Vue.component({
 
 Если вы хотите действительно хорошо разобраться в SSR сложных приложений, мы советуем ознакомиться со следующими ресурсами:
 
-- [документация vue-server-renderer](https://www.npmjs.com/package/vue-server-renderer#api): более подробно о том, о чём мы уже здесь говорили, а также по более продвинутым темам, таким как [предотвращение cross-request-загрязнения](https://www.npmjs.com/package/vue-server-renderer#why-use-bundlerenderer) и [и добавление отдельной серверной сборки](https://www.npmjs.com/package/vue-server-renderer#creating-the-server-bundle)
+- [документация vue-server-renderer](https://www.npmjs.com/package/vue-server-renderer#api): более подробно о том, о чём мы уже здесь говорили, а также по более продвинутым темам, таким как [предотвращение cross-request-загрязнения](https://www.npmjs.com/package/vue-server-renderer#why-use-bundlerenderer) и [добавление отдельной серверной сборки](https://www.npmjs.com/package/vue-server-renderer#creating-the-server-bundle)
 - [vue-hackernews-2.0](https://github.com/vuejs/vue-hackernews-2.0): подробный пример, объединяющий все основные библиотеки и концепции Vue в единое приложение
 
 ## Nuxt.js
