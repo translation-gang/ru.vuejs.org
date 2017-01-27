@@ -44,7 +44,7 @@ var store = {
   },
   clearMessageAction () {
     this.debug && console.log('clearMessageAction вызвано')
-    this.state.message = 'clearMessageAction вызвано'
+    this.state.message = ''
   }
 }
 ```
