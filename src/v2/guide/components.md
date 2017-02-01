@@ -1018,7 +1018,7 @@ Vue.component('async-webpack-example', function (resolve) {
 ``` js
 Vue.component(
   'async-webpack-example',
-  () => System.import('./my-async-component')
+  () => import('./my-async-component')
 )
 ```
 
