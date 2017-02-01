@@ -18,7 +18,7 @@ order: 20
 
 #### Webpack
 
-Используйте плагин Webpack [DefinePlugin](http://webpack.github.io/docs/list-of-plugins.html#defineplugin) для установки переменных окружения. Это позволит UglifyJS на этапе сборки удалить все предупреждения. Пример конфигурации:
+Используйте плагин Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) для установки переменных окружения. Это позволит UglifyJS на этапе сборки удалить все предупреждения. Пример конфигурации:
 
 ``` js
 var webpack = require('webpack')
