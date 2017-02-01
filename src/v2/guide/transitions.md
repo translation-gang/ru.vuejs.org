@@ -983,7 +983,7 @@ new Vue({
 Давайте теперь разберём несложный пример анимации перехода вставки и удаления, использующий те же CSS-классы, что мы рассматривали ранее:
 
 ``` html
-<div id="list-demo" class="demo">
+<div id="list-demo">
   <button v-on:click="add">Добавить</button>
   <button v-on:click="remove">Удалить</button>
   <transition-group name="list" tag="p">

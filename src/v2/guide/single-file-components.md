@@ -24,16 +24,29 @@ order: 19
 Мы получили:
 
 - [полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#syntax-highlighting)
-- [модули CommonJS](https://webpack.github.io/docs/commonjs.html)
+- [модули CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
 - [модульный CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
 
 Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
 <img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto">
 
-Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу.
+Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
 
-<!-- TODO: include CSS modules once it's supported in vue-loader 9.x -->
+### Что насчёт разделения ответственности?
+
+Одна важная вещь, что следует отметить — **разделение ответственности это не тоже самое что разделение на файлы по типу.** В современной разработке UI мы обнаружили, что вместо разделения кодовой базы на три огромных слоя, что тесно переплетаются друг с другом, имеет больше смысла делить их на слабо связанные компоненты и компоновать уже их. Внутри компонента, его шаблон, логика и стили неразрывно связаны между собой, что позволяет сделать компонент более сплочённым и удобным в поддержке.
+
+Если вам не нравится идея однофайловых компонентов, вы также можете пользоваться возможностями горячей заменой модулей и пре-компиляцией выделив JavaScript и CSS в отдельные файлы:
+
+``` html
+<!-- my-component.vue -->
+<template>
+  <div>Это будет предварительно скомпилировано</div>
+</template>
+<script src="./my-component.js"></script>
+<style src="./my-component.css"></style>
+```
 
 ## Начало работы
 
@@ -47,7 +60,7 @@ order: 19
 
 После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на шаблон [webpack-simple](https://github.com/vuejs-templates/webpack-simple). Следуйте инструкциям, и очень скоро у вас будет рабочий проект с `.vue`-компонентами, ES2015 и hot-reloading.
 
-Этот шаблон использует [Webpack](https://webpack.github.io/) — сборщик, соединяющий набор "модулей" в результирующее приложение. [Это видео](https://www.youtube.com/watch?v=WQue1AN93YU) представляет собой неплохое введение. Разобравшись с основами, вы возможно также захотите посмотреть [этот курс по продвинутому использованию Webpack на Egghead.io](https://egghead.io/courses/using-webpack-for-production-javascript-applications).
+Этот шаблон использует [Webpack](https://webpack.js.org/) — сборщик, соединяющий набор "модулей" в результирующее приложение. [Это видео](https://www.youtube.com/watch?v=WQue1AN93YU) представляет собой неплохое введение. Разобравшись с основами, вы возможно также захотите посмотреть [этот курс по продвинутому использованию Webpack на Egghead.io](https://egghead.io/courses/using-webpack-for-production-javascript-applications).
 
 В Webpack каждый модуль может быть подвергнут трансформации загрузчиком ("loader") перед включением в сборку. Vue предоставляет плагин [vue-loader](https://github.com/vuejs/vue-loader) для трансляции однофайловых `.vue`-компонентов. Шаблон [webpack-simple](https://github.com/vuejs-templates/webpack-simple) содержит уже настроенный проект, но если вы хотели бы узнать больше о том, как работают `.vue`-компоненты в связке с Webpack, можно почитать [документацию vue-loader](https://vue-loader.vuejs.org).
 
