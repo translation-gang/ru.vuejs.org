@@ -390,7 +390,7 @@ function generatePoints (stats) {
 </style>
 {% endraw %}
 
-См. [этот fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) для исходного кода.
+См. [этот fiddle](https://jsfiddle.net/termosa/65gLu2b6/81/) для исходного кода.
 
 ## Представление переходов как компонентов
 
