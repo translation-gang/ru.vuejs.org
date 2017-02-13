@@ -89,7 +89,7 @@ directives: {
 Пример пользовательской директивы, использующей некоторые из описанных возможностей:
 
 ``` html
-<div id="hook-arguments-example" v-demo:hello.a.b="message"></div>
+<div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
 ```
 
 ``` js
