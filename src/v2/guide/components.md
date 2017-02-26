@@ -545,16 +545,21 @@ new Vue({
 это всего лишь синтаксический сахар для:
 
 ``` html
-<input v-bind:value="something" v-on:input="something = $event.target.value">
+<input
+  v-bind:value="something"
+  v-on:input="something = $event.target.value">
 ```
 
 При использовании с компонентом, запись упрощается до:
 
 ``` html
-<custom-input v-bind:value="something" v-on:input="something = arguments[0]"></custom-input>
+<custom-input
+  :value="something"
+  @input="something = arguments[0]">
+</custom-input>
 ```
 
-Таким образом, чтобы иметь возможность работать с `v-model`, компонент должен:
+Таким образом, чтобы иметь возможность работать с `v-model`, компонент может (это настраивается в версиях 2.2.0+):
 
 - принимать входной параметр `value`
 - порождать событие `input` с новым значением
@@ -567,16 +572,16 @@ new Vue({
 
 ``` js
 Vue.component('currency-input', {
-  template: '\
-    <span>\
-      $\
-      <input\
-        ref="input"\
-        v-bind:value="value"\
-        v-on:input="updateValue($event.target.value)"\
-      >\
-    </span>\
-  ',
+  template: `
+    <span>
+      $
+      <input
+        ref="input"
+        v-bind:value="value"
+        v-on:input="updateValue($event.target.value)"
+      >
+    </span>
+  `,
   props: ['value'],
   methods: {
     // Вместо того, чтобы обновлять значение напрямую,
@@ -640,12 +645,38 @@ new Vue({
 
 <iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/1oqjojjx/embedded/result,html,js" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-Интерфейс событий может быть использован не только для связи с полями ввода форм внутри компонентов, но и для создания более необычных полей ввода. К примеру, представьте себе следующие возможности:
+### Настройка `v-model` у компонента
+
+> Добавлено в версии 2.2.0
+
+По умолчанию, `v-model` на компоненте использует входной параметр `value` и событие `input`. Но некоторые типы полей, такие как чекбоксы или радио-кнопки, могут использовать входной параметр `value` для других целей. Использование опции `model` позволит избежать конфликта в таких случаях:
+
+``` js
+Vue.component('my-checkbox', {
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  props: {
+    // это позволит использовать входной параметр `value` для других целей
+    value: String
+  },
+  // ...
+})
+```
 
 ``` html
-<voice-recognizer v-model="question"></voice-recognizer>
-<webcam-gesture-reader v-model="gesture"></webcam-gesture-reader>
-<webcam-retinal-scanner v-model="retinalImage"></webcam-retinal-scanner>
+<my-checkbox v-model="foo" value="some value"></my-checkbox>
+```
+
+Указанное выше эквивалентно:
+
+``` html
+<my-checkbox
+  :checked="foo"
+  @change="val => { foo = val }"
+  value="some value">
+</my-checkbox>
 ```
 
 ### Коммуникация между компонентами, не связанными иерархически
