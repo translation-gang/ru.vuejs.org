@@ -360,7 +360,7 @@ on: {
 
 ### Слоты
 
-Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode используя [`this.$slots`](http://vuejs.org/v2/api/#vm-slots):
+Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode используя [`this.$slots`](../api/#vm-slots):
 
 ``` js
 render: function (createElement) {
@@ -369,7 +369,7 @@ render: function (createElement) {
 }
 ```
 
-И получить доступ к слотам со своей областью видимости как к функциям, возвращающим VNode, используя [`this.$scopedSlots`](http://vuejs.org/v2/api/#vm-scopedSlots):
+И получить доступ к слотам со своей областью видимости как к функциям, возвращающим VNode, используя [`this.$scopedSlots`](../api/#vm-scopedSlots):
 
 ``` js
 render: function (createElement) {
