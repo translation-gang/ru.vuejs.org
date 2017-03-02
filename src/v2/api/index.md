@@ -209,11 +209,11 @@ type: api
 - **См. также:** [Асинхронная очередь обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
 
 
-<h3 id="Vue-set">Vue.set( object, key, value )</h3>
+<h3 id="Vue-set">Vue.set( target, key, value )</h3>
 
 - **Аргументы:**
-  - `{Object} object`
-  - `{string} key`
+  - `{Object | Array} target`
+  - `{string | number} key`
   - `{any} value`
 
 - **Возвращает:** установленное значение.
@@ -1282,11 +1282,11 @@ if (version === 2) {
   // callback вызывается сразу, с текущим значением `a`
   ```
 
-<h3 id="vm-set">vm.$set( object, key, value )</h3>
+<h3 id="vm-set">vm.$set( target, key, value )</h3>
 
 - **Аргументы:**
-  - `{Object} object`
-  - `{string} key`
+  - `{Object | Array} target`
+  - `{string | number} key`
   - `{any} value`
 
 - **Возвращает:** установленное значение.
@@ -1297,11 +1297,11 @@ if (version === 2) {
 
 - **См. также:** [Vue.set](#Vue-set)
 
-<h3 id="vm-delete">vm.$delete( object, key )</h3>
+<h3 id="vm-delete">vm.$delete( target, key )</h3>
 
 - **Аргументы:**
-  - `{Object} object`
-  - `{string} key`
+  - `{Object | Array} target`
+  - `{string | number} key`
 
 - **Использование:**
 
