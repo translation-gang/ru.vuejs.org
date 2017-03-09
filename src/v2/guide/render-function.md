@@ -297,6 +297,7 @@ render: function (createElement) {
     on: {
       input: function (event) {
         self.value = event.target.value
+        self.$emit('input', event.target.value)
       }
     }
   })
