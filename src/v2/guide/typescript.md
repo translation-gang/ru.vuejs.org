@@ -27,7 +27,7 @@ order: 25
     "lib": [
       "dom",
       "es5",
-      "es2015.Promise"
+      "es2015.promise"
     ]
   }
 }
