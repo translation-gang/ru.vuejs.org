@@ -113,10 +113,10 @@ type: api
   Vue.config.keyCodes = {
     v: 86,
     f1: 112,
-    // двойные кавычки при использовании с kebab-case
-   "media-play-pause": 179,
     // camelCase не будет работать
     mediaPlayPause: 179,
+    // можно использовать kebab-case в двойных кавычках
+   "media-play-pause": 179,
     up: [38, 87]
   }
   ```
