@@ -2,19 +2,20 @@
 title: Поддержите разработку Vue.js
 ---
 
-<a href="https://www.patreon.com/evanyou" target="_blank">
-  <img style="width:120px" src="https://s3.amazonaws.com/patreon_public_assets/toolbox/patreon.png">
-  <span>Поддержите Vue.js на Patreon (регулярный взнос)</span>
-</a>
-
-<a href="https://www.paypal.me/evanyou" target="_blank">
-  <img src="/images/paypal.png">
-  <span>Пожертвовать через PayPal (однократно)</span>
-</a>
+Vue.js является программным продуктом с открытым исходным кодом, распространяемым по лицензии MIT полностью бесплатно.
+Однако, стабильная поддержка проекта и разработка новых возможностей требует усилий, невозможных без должной финансовой поддержки. Вы можете поддержать разработку Vue.js [повторяющимся взносом на Patreon](https://www.patreon.com/evanyou) или [пожертвованием на PayPal](https://www.paypal.me/evanyou).
 
 ## Текущие премиальные спонсоры:
 
-<p style="text-align: center; padding-top: 30px; margin-bottom: 0"><a href="http://www.thedifferenceengine.io/"><img src="/images/tde.png" style="width: 300px"></a></p>
+### Platinum ($2000/mo)
+
+<p style="text-align: center;">
+  <a href="https://stdlib.com">
+    <img style="width:300px" src="/images/stdlib.png">
+  </a>
+</p>
+
+### Gold ($500/mo)
 
 <p style="text-align: center; margin-top: 0; margin-bottom: 60px" class="sponsors-page">
   <a href="https://jsfiddle.net">
@@ -39,13 +40,8 @@ title: Поддержите разработку Vue.js
     <img src="/images/vuejobs.png">
   </a><a href="https://leanpub.com/vuejs2" target="_blank">
     <img src="/images/tmvuejs2.png">
-  </a><a href="https://stdlib.com/" target="_blank">
-    <img src="/images/stdlib.png">
   </a>
 </p>
-
-Vue.js является программным продуктом с открытым исходным кодом, распространяемым по лицензии MIT полностью бесплатно.
-Однако, стабильная поддержка проекта и разработка новых возможностей требует усилий, невозможных без должной финансовой поддержки. Вы можете поддержать разработку Vue.js [повторяющимся взносом на Patreon](https://www.patreon.com/evanyou) или [пожертвованием на PayPal](https://www.paypal.me/evanyou).
 
 Если вы являетесь владельцем бизнеса и используете Vue в продукте, приносящий доход, спонсирование разработки Vue имеет смысл с точки зрения пользы для бизнеса: **это гарантирует, что проект, на который полагается ваш продукт остаётся здоровым и активно поддерживаемым.** Это также повышает вашу видимость в сообществе Vue и облегчает привлечение Vue-разработчиков.
 

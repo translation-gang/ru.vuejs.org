@@ -23,7 +23,7 @@ order: 19
 
 Мы получили:
 
-- [полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#syntax-highlighting)
+- [полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#source-code-editing)
 - [модули CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
 - [модульный CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
 
