@@ -1786,6 +1786,9 @@ if (version === 2) {
   <!-- связывание входного параметра. "prop" должен быть определён в my-component. -->
   <my-component :prop="someThing"></my-component>
 
+  <!-- передача всех входных параметров компонента child-component -->
+  <child-component v-bind.prop="$props"></child-component>
+
   <!-- XLink -->
   <svg><a :xlink:special="foo"></a></svg>
   ```
