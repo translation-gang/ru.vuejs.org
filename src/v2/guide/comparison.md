@@ -140,7 +140,7 @@ Render-функции, использующие JSX, имеют определё
 <template>
   <div class="list-container">
     <ul v-if="items.length">
-      <li v-for="item in items">
+      <li v-for="item in items" :key="item.id">
         {{ item.name }}
       </li>
     </ul>
