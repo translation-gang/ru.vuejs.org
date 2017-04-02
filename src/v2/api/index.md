@@ -1061,7 +1061,12 @@ if (version === 2) {
     },
     props: {
       // это позволит использовать входной параметр `value` для других целей
-      value: String
+      value: String,
+      // используйте `checked` в качестве параметра, который заменяет `value`
+      checked: {
+        type: Number,
+        default: 0
+      }
     },
     // ...
   })
