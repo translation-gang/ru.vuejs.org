@@ -1,7 +1,7 @@
 ---
 title: Клон HackerNews
 type: examples
-order: 10
+order: 12
 ---
 
 > Это клон HackerNews, построенный на Firebase API, Vue 2.0 + Vue-router + Vuex, с использованием серверного рендеринга.
