@@ -18,8 +18,8 @@ Vue.js является программным продуктом с откры�
 ### Gold ($500/mo)
 
 <p style="text-align: center; margin-top: 0; margin-bottom: 60px" class="sponsors-page">
-  <a href="https://deepstreamhub.com" target="_blank" style="width:130px;top:1px">
-    <img src="/images/deepstream.png" style="width:130px">
+  <a href="https://deepstreamhub.com" target="_blank" style="width:140px;top:1px">
+    <img src="/images/deepstream.png" style="width:140px">
   </a><a href="https://jsfiddle.net">
     <img src="/images/jsfiddle.png">
   </a><a href="https://laravel.com">
@@ -40,10 +40,12 @@ Vue.js является программным продуктом с откры�
     <img src="/images/vuejobs.png">
   </a><a href="https://leanpub.com/vuejs2" target="_blank">
     <img src="/images/tmvuejs2.png">
+  </a><a href="https://famebroker.com" target="_blank" style="width:135px">
+    <img src="/images/famebroker.png" style="width:135px">
   </a><a href="https://fancygrid.com" target="_blank">
     <img src="https://fancygrid.com/logo/logo.png">
-  </a><a href="https://component.io" target="_blank" style="width:150px">
-    <img src="/images/component_io.png" style="width:150px">
+  </a><a href="https://component.io" target="_blank" style="width:140px">
+    <img src="/images/component_io.png" style="width:140px">
   </a>
 </p>
 
