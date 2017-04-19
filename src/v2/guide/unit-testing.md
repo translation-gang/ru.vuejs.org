@@ -94,7 +94,7 @@ import MyComponent from './MyComponent.vue'
 // возвращающая строку с результатами рендеринга
 function getRenderedText (Component, propsData) {
   const Ctor = Vue.extend(Component)
-  const vm = new Ctor({ propsData }).$mount()
+  const vm = new Ctor({ propsData: propsData }).$mount()
   return vm.$el.textContent
 }
 
