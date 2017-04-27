@@ -206,7 +206,7 @@ NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 
 ### CSP-окружения
 
-Некоторые окружения, такие как Google Chrome Apps, требуют соблюдения Content Security Policy (CSP), запрещающей использование конструкции `new Function()` для исполнения выражений. Standalone-сборка использует подобные конструкции для компиляции шаблонов, и потому непригодна к использованию в таких окружениях.
+Некоторые окружения, такие как Google Chrome Apps, требуют соблюдения Content Security Policy (CSP), запрещающей использование конструкции `new Function()` для исполнения выражений. Полная сборка использует подобные конструкции для компиляции шаблонов, и потому непригодна к использованию в таких окружениях.
 
 С другой стороны, runtime-сборка полностью совместима с CSP. Если использовать её с [Webpack и vue-loader](https://github.com/vuejs-templates/webpack-simple) или [Browserify и vueify](https://github.com/vuejs-templates/browserify-simple) шаблоны прекомпилируются в `render`-функции, которые отлично работают в CSP-окружениях.
 
