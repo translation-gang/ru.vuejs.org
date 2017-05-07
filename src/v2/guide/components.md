@@ -621,7 +621,12 @@ Vue.component('currency-input', {
         // Удалить пробелы с обеих сторон
         .trim()
         // Сократить до 2 знаков после запятой
-        .slice(0, value.indexOf('.') + 3)
+        .slice(
+          0,
+          value.indexOf('.') === -1
+            ? value.length
+            : value.indexOf('.') + 3
+        )
       // Если значение не нормализовано — нормализуем вручную
       if (formattedValue !== value) {
         this.$refs.input.value = formattedValue
@@ -654,7 +659,12 @@ Vue.component('currency-input', {
     updateValue: function (value) {
       var formattedValue = value
         .trim()
-        .slice(0, value.indexOf('.') + 3)
+        .slice(
+          0,
+          value.indexOf('.') === -1
+            ? value.length
+            : value.indexOf('.') + 3
+        )
       if (formattedValue !== value) {
         this.$refs.input.value = formattedValue
       }
