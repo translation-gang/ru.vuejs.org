@@ -428,6 +428,7 @@ Vue.component('example', {
 - Function
 - Object
 - Array
+- Symbol
 
 Кроме того, `type` может быть и пользовательской функцией-конструктором. При этом проверка соответствия выполняется с помощью `instanceof`.
 
@@ -1130,7 +1131,7 @@ const AsyncComp = () => ({
 
 ### Соглашения по именованию компонентов
 
-При регистрации компонентов (или входных параметров), можно использовать kebab-case, camelCase или TitleCase. Это не имеет никакого значения для Vue.
+При регистрации компонентов (или входных параметров), можно использовать kebab-case, camelCase или TitleCase.
 
 ``` js
 // при определении компонента
@@ -1153,14 +1154,32 @@ components: {
 <title-cased-component></title-cased-component>
 ```
 
-При использовании **строковых** шаблонов ограничения регистронезависимости HTML не действуют. Это значит, что даже в шаблоне можно указывать компоненты и входные параметры как в camelCase, так и в TitleCase или kebab-case:
+При использовании **строковых** шаблонов ограничения регистронезависимости HTML не действуют. Это значит, что даже в шаблоне можно указывать компоненты используя:
+
+- kebab-case
+- camelCase или kebab-case если компонент был объявлен используя camelCase
+- kebab-case, camelCase или TitleCase если компонент был объявлен используя TitleCase
+
+``` js
+components: {
+  'kebab-case-component': { /* ... */ },
+  camelCaseComponent: { /* ... */ },
+  TitleCaseComponent: { /* ... */ }
+}
+```
 
 ``` html
-<!-- в строковых шаблонах вы вольны использовать любой подход! -->
-<my-component></my-component>
-<myComponent></myComponent>
-<MyComponent></MyComponent>
+<kebab-case-component />
+
+<camel-case-component />
+<camelCaseComponent />
+
+<title-case-component />
+<titleCaseComponent />
+<TitleCaseComponent />
 ```
+
+Это означает, что TitleCase является наиболее универсальным _соглашением объявления_, а kebab-case наиболее универсальным _соглашением использования_.
 
 Если компонент не содержит слотов, его можно даже сделать самозакрывающимся, указав `/` после имени:
 
