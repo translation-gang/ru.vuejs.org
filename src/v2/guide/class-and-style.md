@@ -200,5 +200,5 @@ data: {
 Начиная с версии 2.3 вы можете предоставить массив из нескольких (префиксных) значений для свойства style, например:
 
 ``` html
-<div :style="{ display: ["-webkit-box", "-ms-flexbox", "flex"] }">
+<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
 ```
