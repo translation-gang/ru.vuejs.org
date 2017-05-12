@@ -294,9 +294,17 @@ Vue.component('todo-item', {
 ``` html
 <div id="app-7">
   <ol>
-    <!-- Теперь мы можем передать каждому todo описание задачи, -->
-    <!-- то есть отображать данные динамически                  -->
-    <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+    <!--
+      Теперь мы можем передать каждому компоненту todo объект
+      с информацией о задаче, который будет динамически меняться.
+      Мы также определяем для каждого компонента "key",
+      значение которого будет объяснено далее в руководстве.
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item>
   </ol>
 </div>
 ```
@@ -310,9 +318,9 @@ var app7 = new Vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { text: 'Овощи' },
-      { text: 'Сыр' },
-      { text: 'Что там ещё люди едят?' }
+      { id: 0, text: 'Овощи' },
+      { id: 1, text: 'Сыр' },
+      { id: 2, text: 'Что там ещё люди едят?' }
     ]
   }
 })
@@ -320,7 +328,7 @@ var app7 = new Vue({
 {% raw %}
 <div id="app-7" class="demo">
   <ol>
-    <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+    <todo-item v-for="item in groceryList" v-bind:todo="item" :key="item.id"></todo-item>
   </ol>
 </div>
 <script>
@@ -332,9 +340,9 @@ var app7 = new Vue({
   el: '#app-7',
   data: {
     groceryList: [
-      { text: 'Овощи' },
-      { text: 'Сыр' },
-      { text: 'Что там ещё люди едят?' }
+      { id: 0, text: 'Овощи' },
+      { id: 1, text: 'Сыр' },
+      { id: 2, text: 'Что там ещё люди едят?' }
     ]
   }
 })
