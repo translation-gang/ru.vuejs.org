@@ -1162,21 +1162,21 @@ components: {
 
 ``` js
 components: {
-  'kebab-case-component': { /* ... */ },
-  camelCaseComponent: { /* ... */ },
-  TitleCaseComponent: { /* ... */ }
+  'kebab-cased-component': { /* ... */ },
+  camelCasedComponent: { /* ... */ },
+  TitleCasedComponent: { /* ... */ }
 }
 ```
 
 ``` html
-<kebab-case-component />
+<kebab-cased-component></kebab-cased-component>
 
-<camel-case-component />
-<camelCaseComponent />
+<camel-cased-component></camel-cased-component>
+<camelCasedComponent></camelCasedComponent>
 
-<title-case-component />
-<titleCaseComponent />
-<TitleCaseComponent />
+<title-cased-component></title-cased-component>
+<titleCasedComponent></titleCasedComponent>
+<TitleCasedComponent></TitleCasedComponent>
 ```
 
 Это означает, что TitleCase является наиболее универсальным _соглашением объявления_, а kebab-case наиболее универсальным _соглашением использования_.
