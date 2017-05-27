@@ -39,11 +39,11 @@ var store = {
     message: 'Hello!'
   },
   setMessageAction (newValue) {
-    this.debug && console.log('setMessageAction вызвано с ', newValue)
+    if (this.debug) console.log('setMessageAction вызвано с ', newValue)
     this.state.message = newValue
   },
   clearMessageAction () {
-    this.debug && console.log('clearMessageAction вызвано')
+    if (this.debug) console.log('clearMessageAction вызвано')
     this.state.message = ''
   }
 }
