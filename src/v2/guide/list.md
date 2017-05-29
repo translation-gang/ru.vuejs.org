@@ -230,7 +230,8 @@ new Vue({ el: '#range' })
   v-for="(item, index) in items"
   v-bind:item="item"
   v-bind:index="index"
-  v-bind:key="item.id">
+  v-bind:key="item.id"
+>
 </my-component>
 ```
 
