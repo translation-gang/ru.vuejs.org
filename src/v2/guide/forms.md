@@ -38,7 +38,7 @@ new Vue({
 
 ``` html
 <span>Введённое многострочное сообщение:</span>
-<p style="white-space: pre">{{ message }}</p>
+<p style="white-space: pre-line">{{ message }}</p>
 <br>
 <textarea v-model="message" placeholder="введите несколько строчек"></textarea>
 ```
