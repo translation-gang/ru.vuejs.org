@@ -697,6 +697,7 @@ Vue.component('my-checkbox', {
     event: 'change'
   },
   props: {
+    checked: Boolean,
     // это позволит использовать входной параметр `value` для других целей
     value: String
   },
@@ -717,6 +718,8 @@ Vue.component('my-checkbox', {
   value="some value">
 </my-checkbox>
 ```
+
+<p class="tip">Обратите внимание, что вам всё равно необходимо явно объявить `checked` во входных данных.</p>
 
 ### Коммуникация между компонентами, не связанными иерархически
 
