@@ -163,7 +163,7 @@ createElement(
   directives: [
     {
       name: 'my-custom-directive',
-      value: '2'
+      value: '2',
       expression: '1 + 1',
       arg: 'foo',
       modifiers: {
@@ -178,7 +178,7 @@ createElement(
   },
   // Имя слота, если этот компонент
   // является потомком другого компонента
-  slot: 'name-of-slot'
+  slot: 'name-of-slot',
   // Прочие специальные свойства верхнего уровня
   key: 'myKey',
   ref: 'myRef'
