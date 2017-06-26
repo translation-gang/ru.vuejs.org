@@ -106,15 +106,16 @@ createElement(
   },
 
   // {String | Array}
-  // Дочерние VNode'ы. Опциональный параметр.
+  // Дочерние VNode'ы, создаваемые с помощью createElement()
+  // или просто строки для получения 'текстовых VNode'. Опциональный параметр.
   [
-    createElement('h1', 'hello world'),
+    'Какой-то текст, идущий первым.',
+    createElement('h1', 'Заголовок'),
     createElement(MyComponent, {
       props: {
-        someProp: 'foo'
+        someProp: 'foobar'
       }
-    }),
-    'bar'
+    })
   ]
 )
 ```
