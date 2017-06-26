@@ -106,7 +106,7 @@ createElement(
   },
 
   // {String | Array}
-  // Дочерние VNode'ы, создаваемые с помощью createElement()
+  // Дочерние VNode'ы, создаваемые с помощью `createElement()`
   // или просто строки для получения 'текстовых VNode'. Опциональный параметр.
   [
     'Какой-то текст, идущий первым.',
@@ -148,14 +148,14 @@ createElement(
   domProps: {
     innerHTML: 'baz'
   },
-  // Обработчики событий располагаются под ключом "on",
-  // однако модификаторы вроде как v-on:keyup.enter не
+  // Обработчики событий располагаются под ключом `on`,
+  // однако модификаторы вроде как `v-on:keyup.enter` не
   // поддерживаются. Проверять keyCode придётся вручную.
   on: {
     click: this.clickHandler
   },
   // Только для компонентов. Позволяет слушать нативные события,
-  // а не генерируемые в компоненте через vm.$emit.
+  // а не генерируемые в компоненте через `vm.$emit`.
   nativeOn: {
     click: this.nativeClickHandler
   },
@@ -366,7 +366,7 @@ on: {
 
 ``` js
 render: function (createElement) {
-  // <div><slot></slot></div>
+  // `<div><slot></slot></div>`
   return createElement('div', this.$slots.default)
 }
 ```
@@ -375,7 +375,7 @@ render: function (createElement) {
 
 ``` js
 render: function (createElement) {
-  // <div><slot :text="msg"></slot></div>
+  // `<div><slot :text="msg"></slot></div>`
   return createElement('div', [
     this.$scopedSlots.default({
       text: this.msg
@@ -390,7 +390,7 @@ render: function (createElement) {
 render (createElement) {
   return createElement('div', [
     createElement('child', {
-      // передаём scopedSlots в объект data
+      // передаём `scopedSlots` в объект data
       // в виде { name: props => VNode | Array<VNode> }
       scopedSlots: {
         default: function (props) {
