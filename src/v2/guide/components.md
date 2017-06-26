@@ -697,6 +697,7 @@ Vue.component('my-checkbox', {
     event: 'change'
   },
   props: {
+    checked: Boolean,
     // это позволит использовать входной параметр `value` для других целей
     value: String
   },
@@ -717,6 +718,8 @@ Vue.component('my-checkbox', {
   value="some value">
 </my-checkbox>
 ```
+
+<p class="tip">Обратите внимание, что вам всё равно необходимо явно объявить `checked` во входных данных.</p>
 
 ### Коммуникация между компонентами, не связанными иерархически
 
@@ -751,7 +754,7 @@ bus.$on('id-selected', function (id) {
 
 Здесь стоит обратить внимание на две вещи:
 
-1. Компонент `<app>` не знает, какой контент он будет содержать после монтирования. Это определяется родительским компонентом, использующим `<app>`.
+1. Компонент `<app>` не знает, какой контент будет ему передан. Это определяется компонентом, использующим `<app>`.
 
 2. Скорее всего, у компонента `<app>` есть собственный шаблон.
 
@@ -1131,7 +1134,7 @@ const AsyncComp = () => ({
 
 ### Соглашения по именованию компонентов
 
-При регистрации компонентов (или входных параметров), можно использовать kebab-case, camelCase или TitleCase.
+При регистрации компонентов (или входных параметров), можно использовать kebab-case, camelCase или PascalCase.
 
 ``` js
 // при определении компонента
@@ -1140,8 +1143,8 @@ components: {
   'kebab-cased-component': { /* ... */ },
   // регистрация с использованием camelCase
   'camelCasedComponent': { /* ... */ },
-  // регистрация с использованием TitleCase
-  'TitleCasedComponent': { /* ... */ }
+  // регистрация с использованием PascalCase
+  'PascalCasedComponent': { /* ... */ }
 }
 ```
 
@@ -1151,20 +1154,20 @@ components: {
 <!-- всегда используйте kebab-case в HTML-шаблонах -->
 <kebab-cased-component></kebab-cased-component>
 <camel-cased-component></camel-cased-component>
-<title-cased-component></title-cased-component>
+<pascal-cased-component></pascal-cased-component>
 ```
 
 При использовании **строковых** шаблонов ограничения регистронезависимости HTML не действуют. Это значит, что даже в шаблоне можно указывать компоненты используя:
 
 - kebab-case
 - camelCase или kebab-case если компонент был объявлен используя camelCase
-- kebab-case, camelCase или TitleCase если компонент был объявлен используя TitleCase
+- kebab-case, camelCase или PascalCase если компонент был объявлен используя PascalCase
 
 ``` js
 components: {
   'kebab-cased-component': { /* ... */ },
   camelCasedComponent: { /* ... */ },
-  TitleCasedComponent: { /* ... */ }
+  PascalCasedComponent: { /* ... */ }
 }
 ```
 
@@ -1174,12 +1177,12 @@ components: {
 <camel-cased-component></camel-cased-component>
 <camelCasedComponent></camelCasedComponent>
 
-<title-cased-component></title-cased-component>
-<titleCasedComponent></titleCasedComponent>
-<TitleCasedComponent></TitleCasedComponent>
+<pascal-cased-component></pascal-cased-component>
+<pascalCasedComponent></pascalCasedComponent>
+<PascalCasedComponent></PascalCasedComponent>
 ```
 
-Это означает, что TitleCase является наиболее универсальным _соглашением объявления_, а kebab-case наиболее универсальным _соглашением использования_.
+Это означает, что PascalCase является наиболее универсальным _соглашением объявления_, а kebab-case наиболее универсальным _соглашением использования_.
 
 Если компонент не содержит слотов, его можно даже сделать самозакрывающимся, указав `/` после имени:
 
