@@ -51,7 +51,7 @@ order: 4
 С булевыми атрибутами этот метод тоже работает. Если переданное свойство ложное, атрибут будет удалён полностью:
 
 ``` html
-<button v-bind:disabled="someDynamicCondition">Кнопка</button>
+<button v-bind:disabled="isButtonDisabled">Кнопка</button>
 ```
 
 ### Использование выражений JavaScript
