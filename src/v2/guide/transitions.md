@@ -651,7 +651,7 @@ new Vue({
 // ...
 computed: {
   buttonMessage: function () {
-    switch (docState) {
+    switch (this.docState) {
       case 'saved': return 'Редактировать'
       case 'edited': return 'Сохранить'
       case 'editing': return 'Отмена'
