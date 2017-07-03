@@ -334,7 +334,7 @@ vm.pick === vm.a
 
 ``` html
 <select v-model="selected">
-  <!-- inline object literal -->
+  <!-- инлайновый объект с данными -->
   <option v-bind:value="{ number: 123 }">123</option>
 </select>
 ```
