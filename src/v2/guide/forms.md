@@ -46,7 +46,7 @@ new Vue({
 {% raw %}
 <div id="example-textarea" class="demo">
   <span>Введённое многострочное сообщение:</span>
-  <p style="white-space: pre">{{ message }}</p><br>
+  <p style="white-space: pre-line">{{ message }}</p><br>
   <textarea v-model="message" placeholder="введите несколько строчек"></textarea>
 </div>
 <script>
@@ -163,7 +163,7 @@ new Vue({
 
 ### Выпадающие списки
 
-Выбор единственной возможности:
+Выбор одного варианта из списка:
 
 ``` html
 <select v-model="selected">
@@ -204,7 +204,7 @@ new Vue({
 
 <p class="tip">Если начальное значение выражения `v-model` не соответствует ни одному из вариантов списка, элемент `<select>` будет отображаться в "невыбранном" состоянии. В iOS это приведёт к тому, что пользователь не сможет выбрать первый элемент, потому что iOS не сгенерирует событие change в этом случае. Поэтому рекомендуется предоставлять отключённый вариант выбора с пустым значением value, как показано в примере выше.</p>
 
-Выбор нескольких возможностей (с привязкой к массиву):
+Выбор нескольких вариантов из списка (с привязкой к массиву):
 
 ``` html
 <select v-model="selected" multiple>
@@ -334,7 +334,7 @@ vm.pick === vm.a
 
 ``` html
 <select v-model="selected">
-  <!-- inline object literal -->
+  <!-- инлайновый объект с данными -->
   <option v-bind:value="{ number: 123 }">123</option>
 </select>
 ```
