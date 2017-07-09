@@ -93,7 +93,7 @@ $ npm run dev
 ``` js
 // это требует компилятора
 new Vue({
-  template: `<div>{{ hi }}</div>`
+  template: '<div>{{ hi }}</div>'
 })
 
 // это нет
