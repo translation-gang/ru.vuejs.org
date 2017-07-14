@@ -957,6 +957,7 @@ order: 31
         if (event.keyCode !== this.konami.code[this.konami.position++]) {
           this.konami.position = 0
         }
+      }
     }
   })
 
