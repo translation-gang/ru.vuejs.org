@@ -38,8 +38,8 @@ order: 23
 import Vue from 'vue'
 import MyComponent from 'path/to/MyComponent.vue'
 
-// Здесь используются тексты Jasmine 2.0, но вы можете
-// выбрать любую предпочтительную библиотеку / тестраннер
+// Здесь используются тесты Jasmine 2.0, но вы можете
+// взять любой тест-раннер и библиотеку для сравнения
 describe('MyComponent', () => {
   // Проверка опций компонента
   it('has a created hook', () => {
