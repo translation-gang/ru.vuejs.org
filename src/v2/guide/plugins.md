@@ -44,7 +44,7 @@ MyPlugin.install = function (Vue, options) {
   })
 
   // 4. добавление метода экземпляра
-  Vue.prototype.$myMethod = function (options) {
+  Vue.prototype.$myMethod = function (methodOptions) {
     // некоторая логика ...
   }
 }
