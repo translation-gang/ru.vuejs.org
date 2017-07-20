@@ -247,7 +247,7 @@ new Vue({ el: '#range' })
   >
   <ul>
     <li
-      is="todo-item"
+      id="todo-item"
       v-for="(todo, index) in todos"
       v-bind:key="index"
       v-bind:title="todo"
