@@ -137,3 +137,63 @@ export default class MyComponent extends Vue {
 ```
 
 С таким альтернативным синтаксисом наши определения компонентов не только более краткие, но также позволяют TypeScript вывести типы `message` и `onClick` без необходимости в явном объявлении интерфейса. Такой подход позволяет управлять типами даже для вычисляемых свойств, хуков жизненного цикла и рендер-функций. Для полной информации об использовании смотрите [документацию vue-class-component](https://github.com/vuejs/vue-class-component#vue-class-component).
+
+## Объявление типов для Vue-плагинов
+
+Плагины могут добавлять во Vue новые глобальные свойства, свойства экземпляра и параметры компонента. В этих случаях необходимы декларации типов для возможности плагина компилироваться в TypeScript. К счастью, есть функция TypeScript для расширения существующих типов, называемая [расширением модуля (module augmentation)](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
+
+Например, чтобы объявить свойство экземпляра `$myProperty` с типом `string`:
+
+``` ts
+// 1. Обязательно импортируйте Vue перед объявлением расширенных типов
+import Vue from 'vue'
+
+// 2. Укажите файл с типами, которые вы хотите расширить
+//    Vue имеет тип конструктора в types/vue.d.ts
+declare module 'vue/types/vue' {
+  // 3. Объявите расширение для Vue
+  interface Vue {
+    $myProperty: string
+  }
+}
+```
+
+После включения указанного выше кода в файл деклараций (например, `my-property.d.ts`) в вашем проекте, вы можете использовать `$myProperty` в экземпляре Vue.
+
+```ts
+var vm = new Vue()
+console.log(vm.$myProperty) // Скомпилируется без ошибок
+```
+
+Вы также можете объявить дополнительные глобальные свойства и параметры компонента:
+
+```ts
+import Vue from 'vue'
+
+declare module 'vue/types/vue' {
+  // Глобальные свойства можно объявлять
+  // используя `namespace` вместо `interface`
+  namespace Vue {
+    const $myGlobal: string
+  }
+}
+
+// ComponentOptions объявляется в types/options.d.ts
+declare module 'vue/types/options' {
+  interface ComponentOptions<V extends Vue> {
+    myOption?: string
+  }
+}
+```
+
+Указанные выше объявления позволяют скомпилировать следующий код:
+
+```ts
+// Глобальное свойство
+console.log(Vue.$myGlobal)
+
+// Дополнительный параметр компонента
+var vm = new Vue({
+  myOption: 'Hello'
+})
+```
