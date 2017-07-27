@@ -32,4 +32,4 @@ order: 12
 
 ## Обзор архитектуры
 
-<img width="973" alt="Обзор архитектуры клона HackerNews" src="/images/hn-architecture.png">
+[[<img width="973" alt="Обзор архитектуры клона HackerNews" src="/images/hn-architecture.png">](/images/hn-architecture.png)]
