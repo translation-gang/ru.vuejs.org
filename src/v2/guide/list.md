@@ -249,8 +249,8 @@ new Vue({ el: '#range' })
     <li
       is="todo-item"
       v-for="(todo, index) in todos"
-      v-bind:key="index"
-      v-bind:title="todo"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
       v-on:remove="todos.splice(index, 1)"
     ></li>
   </ul>
@@ -273,14 +273,27 @@ new Vue({
   data: {
     newTodoText: '',
     todos: [
-      'Вымыть посуду',
-      'Вынести мусор',
-      'Подстричь газон'
-    ]
+      {
+        id: 1,
+        title: 'Вымыть посуду'
+      },
+      {
+        id: 2,
+        title: 'Вынести мусор'
+      },
+      {
+        id: 3,
+        title: 'Подстричь газон'
+      }
+    ],
+    nextTodoId: 4
   },
   methods: {
     addNewTodo: function () {
-      this.todos.push(this.newTodoText)
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
       this.newTodoText = ''
     }
   }
@@ -298,8 +311,8 @@ new Vue({
     <li
       is="todo-item"
       v-for="(todo, index) in todos"
-      v-bind:key="index"
-      v-bind:title="todo"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
       v-on:remove="todos.splice(index, 1)"
     ></li>
   </ul>
@@ -319,14 +332,27 @@ new Vue({
   data: {
     newTodoText: '',
     todos: [
-      'Вымыть посуду',
-      'Вынести мусор',
-      'Подстричь газон'
-    ]
+      {
+        id: 1,
+        title: 'Вымыть посуду'
+      },
+      {
+        id: 2,
+        title: 'Вынести мусор'
+      },
+      {
+        id: 3,
+        title: 'Подстричь газон'
+      }
+    ],
+    nextTodoId: 4
   },
   methods: {
     addNewTodo: function () {
-      this.todos.push(this.newTodoText)
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
       this.newTodoText = ''
     }
   }
