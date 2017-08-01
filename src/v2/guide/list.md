@@ -230,8 +230,8 @@ new Vue({ el: '#range' })
   v-for="(item, index) in items"
   v-bind:item="item"
   v-bind:index="index"
-  v-bind:key="item.id">
-</my-component>
+  v-bind:key="item.id"
+></my-component>
 ```
 
 Причина, по которой `item` не передаётся в компонент автоматически, в том, что это сделало бы компонент жёстко связанным с логикой работы `v-for`. А если источник данных указывается явно, компонент можно будет использовать и в других ситуациях.
