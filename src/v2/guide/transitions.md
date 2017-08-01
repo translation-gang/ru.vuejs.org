@@ -1622,7 +1622,7 @@ new Vue({
     stop: true
   },
   mounted: function () {
-    this.show = true
+    this.show = false
   },
   methods: {
     beforeEnter: function (el) {
