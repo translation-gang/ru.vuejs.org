@@ -622,7 +622,7 @@ this.$emit('update:foo', newValue)
 ``` html
 <custom-input
   :value="something"
-  @input="something = arguments[0]">
+  @input="value => { something = value }">
 </custom-input>
 ```
 
