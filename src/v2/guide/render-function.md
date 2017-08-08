@@ -170,7 +170,7 @@ createElement(
       }
     }
   ],
-  // Слоты с ограниченной областью видимостью в формате
+  // Слоты с ограниченной областью видимости в формате
   // { name: props => VNode | Array<VNode> }
   scopedSlots: {
     default: props => createElement('span', props.text)
@@ -303,7 +303,7 @@ render: function (createElement) {
 }
 ```
 
-Это цена использования низкоуровневой реализации, которая в тоже время предоставляет вам больше контроля над взаимодействием чем `v-model`.
+Это цена использования низкоуровневой реализации, которая в то же время предоставляет вам больше контроля над взаимодействием чем `v-model`.
 
 ### События и модификаторы клавиш
 
@@ -426,7 +426,7 @@ createElement(
 </anchored-heading>
 ```
 
-Поэтому есть [плагин для Babel](https://github.com/vuejs/babel-plugin-transform-vue-jsx), позволяющий использовать JSX во Vue, и применять синтаксис похожий на шаблоны:
+Поэтому есть [плагин для Babel](https://github.com/vuejs/babel-plugin-transform-vue-jsx), позволяющий использовать JSX во Vue, и применять синтаксис, похожий на шаблоны:
 
 ``` js
 import AnchoredHeading from './AnchoredHeading.vue'
