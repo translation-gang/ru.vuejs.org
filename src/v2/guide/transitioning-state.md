@@ -18,7 +18,7 @@ order: 14
 Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием  [Tween.js](https://github.com/tweenjs/tween.js):
 
 ``` html
-<script src="https://unpkg.com/tween.js@16.3.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 
 <div id="animated-number-demo">
   <input v-model.number="number" type="number" step="20">
@@ -49,7 +49,7 @@ new Vue({
           vm.animatedNumber = this.tweeningNumber.toFixed(0)
         })
         .start()
-      
+
       animate()
     }
   }
@@ -57,7 +57,7 @@ new Vue({
 ```
 
 {% raw %}
-<script src="https://unpkg.com/tween.js@16.3.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 <div id="animated-number-demo" class="demo">
   <input v-model.number="number" type="number" step="20">
   <p>{{ animatedNumber }}</p>
@@ -85,7 +85,7 @@ new Vue({
           vm.animatedNumber = this.tweeningNumber.toFixed(0)
         })
         .start()
-      
+
       animate()
     }
   }
@@ -96,8 +96,8 @@ new Vue({
 Когда вы изменяете число, это изменение в элементе под полем ввода анимируется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например таких как CSS-цвета? Используя [Color.js](https://github.com/brehaut/color-js), мы можем решить эту задачу:
 
 ``` html
-<script src="https://unpkg.com/tween.js@16.3.4"></script>
-<script src="https://unpkg.com/color-js@1.0.3/color.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
 
 <div id="example-7">
   <input
@@ -140,11 +140,11 @@ new Vue({
           requestAnimationFrame(animate)
         }
       }
-      
+
       new TWEEN.Tween(this.tweenedColor)
         .to(this.color, 750)
         .start()
-     
+
      animate()
     }
   },
@@ -176,8 +176,8 @@ new Vue({
 ```
 
 {% raw %}
-<script src="https://unpkg.com/tween.js@16.3.4"></script>
-<script src="https://unpkg.com/color-js@1.0.3/color.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
 <div id="example-7" class="demo">
   <input
     v-model="colorQuery"
@@ -220,7 +220,7 @@ new Vue({
       new TWEEN.Tween(this.tweenedColor)
         .to(this.color, 750)
         .start()
-      
+
       animate()
     }
   },
@@ -393,7 +393,7 @@ function generatePoints (stats) {
 Управление множеством переходов может быстро переусложнить экземпляр или компонент. К счастью, многие анимации могут быть выделены в специализированные дочерние компоненты. Давайте проделаем эту операцию с анимированным числом из одного из предыдущих примеров:
 
 ``` html
-<script src="https://unpkg.com/tween.js@16.3.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 
 <div id="example-8">
   <input v-model.number="firstNumber" type="number" step="20"> +
@@ -449,7 +449,7 @@ Vue.component('animated-integer', {
           vm.tweeningValue = this.tweeningValue.toFixed(0)
         })
         .start()
-      
+
       animate()
     }
   }
@@ -471,7 +471,7 @@ new Vue({
 ```
 
 {% raw %}
-<script src="https://unpkg.com/tween.js@16.3.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 <div id="example-8" class="demo">
   <input v-model.number="firstNumber" type="number" step="20"> +
   <input v-model.number="secondNumber" type="number" step="20"> =
@@ -519,7 +519,7 @@ Vue.component('animated-integer', {
           vm.tweeningValue = this.tweeningValue.toFixed(0)
         })
         .start()
-      
+
       animate()
     }
   }
