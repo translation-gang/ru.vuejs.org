@@ -1456,7 +1456,7 @@ if (version === 2) {
 <h3 id="vm-off">vm.$off( [event, callback] )</h3>
 
 - **Аргументы:**
-  - `{string} [event]`
+  - `{string | Array<string>} event` (массив поддерживается только в 2.2.2+)
   - `{Function} [callback]`
 
 - **Использование:**
