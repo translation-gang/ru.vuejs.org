@@ -61,7 +61,7 @@ import Vue = require('vue')
 
 Это сообщает TypeScript оставлять импорты ES-модуля нетронутыми, что в свою очередь позволяет Webpack 2 воспользоваться преимуществами tree-shaking для ES-модулей.
 
-Смотрите также [документацию по настройке компилатора TypeScript](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+Смотрите также [документацию по настройке компилятора TypeScript](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
 ## Использование файлов деклараций Vue
 
