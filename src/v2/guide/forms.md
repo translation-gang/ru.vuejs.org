@@ -59,7 +59,6 @@ new Vue({
 </script>
 {% endraw %}
 
-
 {% raw %}
 <p class="tip">Интерполяция внутри тега textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) не будет работать. Используйте вместо неё директиву <code>v-model</code></p>
 {% endraw %}
@@ -90,19 +89,21 @@ new Vue({
 Множество чекбоксов, привязанных к одному и тому же массиву:
 
 ``` html
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-<label for="jack">Jack</label>
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
-<label for="john">John</label>
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-<label for="mike">Mike</label>
-<br>
-<span>Отмеченные имена: {{ checkedNames }}</span>
+<div id="example-3" class="demo">
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Отмеченные имена: {{ checkedNames }}</span>
+</div>
 ```
 
 ``` js
 new Vue({
-  el: '...',
+  el: '#example-3',
   data: {
     checkedNames: []
   }
@@ -341,8 +342,8 @@ vm.pick === vm.a
 
 ``` js
 // когда выбрано:
-typeof vm.selected // -> 'object'
-vm.selected.number // -> 123
+typeof vm.selected // => 'object'
+vm.selected.number // => 123
 ```
 
 ## Модификаторы
