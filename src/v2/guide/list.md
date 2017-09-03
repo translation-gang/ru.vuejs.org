@@ -165,7 +165,7 @@ new Vue({
 </div>
 ```
 
-+{% raw %}
+{% raw %}
 <div id="v-for-object-value-key" class="demo">
   <div v-for="(value, key) in object">
     {{ key }}: {{ value }}
