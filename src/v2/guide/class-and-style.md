@@ -82,7 +82,7 @@ computed: {
 В `v-bind:class` можно передать и массив:
 
 ``` html
-<div v-bind:class="[activeClass, errorClass]">
+<div v-bind:class="[activeClass, errorClass]"></div>
 ```
 ``` js
 data: {
@@ -100,7 +100,7 @@ data: {
 Для переключения классов, переданных в массиве, в зависимости от некоторого условия, можно использовать тернарный оператор:
 
 ``` html
-<div v-bind:class="[isActive ? activeClass : '', errorClass]">
+<div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
 В этом случае `errorClass` будет применён к элементу всегда, а `activeClass` — только в случае истинности `isActive`.
@@ -108,7 +108,7 @@ data: {
 Однако, такая запись становится слегка громоздкой, если у вас есть несколько классов, задаваемых по условию. Поэтому можно использовать и смешанный синтаксис:
 
 ``` html
-<div v-bind:class="[{ active: isActive }, errorClass]">
+<div v-bind:class="[{ active: isActive }, errorClass]"></div>
 ```
 
 ### Использование с компонентами
@@ -186,7 +186,7 @@ data: {
 Запись `v-bind:style` с массивом позволяет применить несколько объектов стилей к одному и тому же элементу:
 
 ``` html
-<div v-bind:style="[baseStyles, overridingStyles]">
+<div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
 
 ### Автоматические префиксы
@@ -200,7 +200,7 @@ data: {
 Начиная с версии 2.3.0+ вы можете предоставить массив из нескольких (префиксных) значений для свойства style, например:
 
 ``` html
-<div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
+<div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 
 Это приведёт к отображению последнего значения в массиве, поддерживамого браузером. В этом примере он будет отображать `display: flex` для браузеров, которые поддерживают flexbox без префиксов.
