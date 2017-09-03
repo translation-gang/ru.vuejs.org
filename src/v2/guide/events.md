@@ -75,7 +75,7 @@ var example2 = new Vue({
 })
 
 // вызывать методы можно и императивно
-example2.greet() // -> 'Привет, Vue.js!'
+example2.greet() // => 'Привет, Vue.js!'
 ```
 
 Результат:

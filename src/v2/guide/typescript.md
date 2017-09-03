@@ -1,7 +1,7 @@
 ---
 title: Поддержка TypeScript
 type: guide
-order: 25
+order: 404
 ---
 
 ## Важное изменение в 2.2.0+ для пользователей TS + Webpack 2

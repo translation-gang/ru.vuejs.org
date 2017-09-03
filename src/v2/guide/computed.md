@@ -68,9 +68,9 @@ var vm = new Vue({
 Здесь мы определили вычисляемое свойство `reversedMessage`. Написанная нами функция будет использоваться как геттер свойства `vm.reversedMessage`:
 
 ``` js
-console.log(vm.reversedMessage) // -> 'тевирП'
+console.log(vm.reversedMessage) // => 'тевирП'
 vm.message = 'Пока'
-console.log(vm.reversedMessage) // -> 'акоП'
+console.log(vm.reversedMessage) // => 'акоП'
 ```
 
 Вы можете открыть консоль и поиграть с примером сами. Значение `vm.reversedMessage` всегда зависит от значения `vm.message`.

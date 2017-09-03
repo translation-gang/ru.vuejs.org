@@ -1,7 +1,7 @@
 ---
 title: Плагины
 type: guide
-order: 18
+order: 304
 ---
 
 ## Создание плагина

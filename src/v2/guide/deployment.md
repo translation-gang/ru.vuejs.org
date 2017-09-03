@@ -1,7 +1,7 @@
 ---
-title: Советы по развёртыванию
+title: Развёртывание на production
 type: guide
-order: 20
+order: 401
 ---
 
 ## Включение режима production

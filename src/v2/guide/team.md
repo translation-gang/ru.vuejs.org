@@ -1,7 +1,7 @@
 ---
 title: Познакомьтесь с командой
 type: guide
-order: 31
+order: 803
 ---
 
 {% raw %}
