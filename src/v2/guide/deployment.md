@@ -77,9 +77,9 @@ rollup({
 
 Обратитесь к документации соответствующих инструментов для сборки, чтобы узнать как это реализовать:
 
-- [Webpack + vue-loader](http://vue-loader.vuejs.org/en/configurations/extract-css.html) (в `vue-cli` с шаблоном webpack это уже настроено)
+- [Webpack + vue-loader](https://vue-loader.vuejs.org/ru/configurations/extract-css.html) (в `vue-cli` с шаблоном webpack это уже настроено)
 - [Browserify + vueify](https://github.com/vuejs/vueify#css-extraction)
-- [Rollup + rollup-plugin-vue](https://github.com/znck/rollup-plugin-vue#options)
+- [Rollup + rollup-plugin-vue](https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler)
 
 ## Отслеживание ошибок времени выполнения
 
