@@ -617,7 +617,7 @@ this.$emit('update:foo', newValue)
   v-on:input="something = $event.target.value">
 ```
 
-При использовании с компонентом, запись упрощается до:
+При использовании с компонентом вместо этого упрощается:
 
 ``` html
 <custom-input
