@@ -327,6 +327,30 @@ new Vue({
 </script>
 {% endraw %}
 
+Если вы хотите передать все свойства объекта в качестве параметров, вы можете использовать `v-bind` без аргументов (`v-bind` вместо `v-bind:prop-name`). К примеру для объекта `todo`:
+
+``` js
+todo: {
+  text: 'Learn Vue',
+  isComplete: false
+}
+```
+
+Запись:
+
+``` html
+<todo-item v-bind="todo"></todo-item>
+```
+
+Будет эквивалентна:
+
+``` html
+<todo-item
+  v-bind:text="todo.text"
+  v-bind:is-complete="todo.isComplete"
+></todo-item>
+```
+
 ### Различие между литералами и динамическими параметрами
 
 Часто встречается ошибка, когда число передаётся компоненту напрямую в виде константы:
