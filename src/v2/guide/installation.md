@@ -88,7 +88,7 @@ $ npm run dev
 
 - **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: CommonJS-сборки предназначены для использования вместе со старыми инструментами сборки, такими как [Browserify](http://browserify.org/) или [Webpack 1](https://webpack.github.io). Файлом по умолчанию для них (`pkg.main`) будет Runtime-only CommonJS сборка (`vue.runtime.common.js`).
 
-- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: ES module сборки предназначены для использования с современными инструментами сборки, такими как [Webpack 2](https://webpack.js.org) или [Rollup](http://rollupjs.org/). Файлом по умолчанию для них (`pkg.module`) будет Runtime-only ES Module сборка (`vue.runtime.esm.js`).
+- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: ES module сборки предназначены для использования с современными инструментами сборки, такими как [Webpack 2](https://webpack.js.org) или [Rollup](https://rollupjs.org/). Файлом по умолчанию для них (`pkg.module`) будет Runtime-only ES Module сборка (`vue.runtime.esm.js`).
 
 ### Runtime + Компилятор vs. Runtime-only
 

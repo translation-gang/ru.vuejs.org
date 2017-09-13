@@ -1393,7 +1393,7 @@ vm.$el.remove()
 
 ### `vm.$eval` <sup>removed</sup>
 
-No real use. If you do happen to rely on this feature somehow and aren't sure how to work around it, post on [the forum](http://forum.vuejs.org/) for ideas.
+No real use. If you do happen to rely on this feature somehow and aren't sure how to work around it, post on [the forum](https://forum.vuejs.org/) for ideas.
 
 {% raw %}
 <div class="upgrade-path">
@@ -1404,7 +1404,7 @@ No real use. If you do happen to rely on this feature somehow and aren't sure ho
 
 ### `vm.$interpolate` <sup>removed</sup>
 
-No real use. If you do happen to rely on this feature somehow and aren't sure how to work around it, post on [the forum](http://forum.vuejs.org/) for ideas.
+No real use. If you do happen to rely on this feature somehow and aren't sure how to work around it, post on [the forum](https://forum.vuejs.org/) for ideas.
 
 {% raw %}
 <div class="upgrade-path">

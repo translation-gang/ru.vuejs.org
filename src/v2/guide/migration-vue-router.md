@@ -4,7 +4,7 @@ type: guide
 order: 702
 ---
 
-> Только Vue Router 2 совместим с Vue 2, поэтому, если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации [Vue Router](http://router.vuejs.org/en/).
+> Только Vue Router 2 совместим с Vue 2, поэтому, если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации [Vue Router](https://router.vuejs.org/ru/).
 
 ## Инициализация роутера
 
@@ -49,7 +49,7 @@ new Vue({
 
 ### `router.map` <sup>заменено</sup>
 
-Теперь пути объявляются как массив в [свойстве `routes`](http://router.vuejs.org/en/essentials/getting-started.html#javascript) при установке роутера. Например, эти пути:
+Теперь пути объявляются как массив в [свойстве `routes`](https://router.vuejs.org/ru/essentials/getting-started.html#javascript) при установке роутера. Например, эти пути:
 
 ``` js
 router.map({
@@ -154,7 +154,7 @@ router.beforeEach(function (to, from, next) {
 
 ### `subRoutes` <sup>переименовано</sup>
 
-[Переименовано в `children`](http://router.vuejs.org/en/essentials/nested-routes.html) для соответствия Vue другим библиотекам маршрутизации.
+[Переименовано в `children`](https://router.vuejs.org/ru/essentials/nested-routes.html) для соответствия Vue другим библиотекам маршрутизации.
 
 {% raw %}
 <div class="upgrade-path">
@@ -165,7 +165,7 @@ router.beforeEach(function (to, from, next) {
 
 ### `router.redirect` <sup>заменено</sup>
 
-Теперь это [опция при объявлении роутера](http://router.vuejs.org/en/essentials/redirect-and-alias.html). Например, вам нужно заменить:
+Теперь это [опция при объявлении роутера](https://router.vuejs.org/ru/essentials/redirect-and-alias.html). Например, вам нужно заменить:
 
 ``` js
 router.redirect({
@@ -191,7 +191,7 @@ router.redirect({
 
 ### `router.alias` <sup>заменено</sup>
 
-Теперь это [опция при объявлении роутера](http://router.vuejs.org/en/essentials/redirect-and-alias.html), которой вы присваиваете псевдоним. Например, вам нужно заменить:
+Теперь это [опция при объявлении роутера](https://router.vuejs.org/ru/essentials/redirect-and-alias.html), которой вы присваиваете псевдоним. Например, вам нужно заменить:
 
 ``` js
 router.alias({
@@ -279,7 +279,7 @@ if (route.meta.requiresAuth) {
 
 ### `v-link` <sup>заменено</sup>
 
-Директива `v-link` заменена на новый [компонент `<router-link>`](http://router.vuejs.org/en/api/router-link.html), так как за данный тип работ, в Vue 2, теперь отвечают только компоненты. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
+Директива `v-link` заменена на новый [компонент `<router-link>`](https://router.vuejs.org/ru/api/router-link.html), так как за данный тип работ, в Vue 2, теперь отвечают только компоненты. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
 
 ``` html
 <a v-link="'/about'">About</a>
@@ -302,7 +302,7 @@ if (route.meta.requiresAuth) {
 
 ### `v-link-active` <sup>заменено</sup>
 
-Директива `v-link-active` также была заменена на атрибут `tag` в [компоненте `<router-link>`](http://router.vuejs.org/en/api/router-link.html). Например, вам нужно заменить это:
+Директива `v-link-active` также была заменена на атрибут `tag` в [компоненте `<router-link>`](https://router.vuejs.org/ru/api/router-link.html). Например, вам нужно заменить это:
 
 ``` html
 <li v-link-active>
@@ -331,7 +331,7 @@ if (route.meta.requiresAuth) {
 
 ### `router.go` <sup>изменено</sup>
 
-Для соответствия [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), `router.go` теперь используется только для [навигации вперед/назад](https://router.vuejs.org/en/essentials/navigation.html#routergon), в то время как [`router.push`](http://router.vuejs.org/en/essentials/navigation.html#routerpushlocation) используется для перехода на конкретную страницу.
+Для соответствия [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), `router.go` теперь используется только для [навигации вперед/назад](https://router.vuejs.org/ru/essentials/navigation.html#routergon), в то время как [`router.push`](https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation) используется для перехода на конкретную страницу.
 
 {% raw %}
 <div class="upgrade-path">
@@ -355,7 +355,7 @@ if (route.meta.requiresAuth) {
 
 ### `history: true` <sup>заменено</sup>
 
-Все параметры режима роутера были объединены в [опцию `mode`](http://router.vuejs.org/en/api/options.html#mode). Обновите:
+Все параметры режима роутера были объединены в [опцию `mode`](https://router.vuejs.org/ru/api/options.html#mode). Обновите:
 
 ``` js
 var router = new VueRouter({
@@ -380,7 +380,7 @@ var router = new VueRouter({
 
 ### `abstract: true` <sup>заменено</sup>
 
-Все параметры режима роутера были объединены в [опцию `mode`](http://router.vuejs.org/en/api/options.html#mode). Обновите:
+Все параметры режима роутера были объединены в [опцию `mode`](https://router.vuejs.org/ru/api/options.html#mode). Обновите:
 
 ``` js
 var router = new VueRouter({
@@ -407,7 +407,7 @@ var router = new VueRouter({
 
 ### `saveScrollPosition` <sup>заменено</sup>
 
-Было заменено на [опцию `scrollBehavior`](http://router.vuejs.org/en/advanced/scroll-behavior.html) которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, (but to simply replicate the old behavior of)?:
+Было заменено на [опцию `scrollBehavior`](https://router.vuejs.org/ru/advanced/scroll-behavior.html) которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, (but to simply replicate the old behavior of)?:
 
 ``` js
 saveScrollPosition: true
@@ -465,7 +465,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `activate` <sup>заменено</sup>
 
-Вместо этого используйте [`beforeRouteEnter`](http://router.vuejs.org/en/advanced/navigation-guards.html#incomponent-guards) в компоненте.
+Вместо этого используйте [`beforeRouteEnter`](https://router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards) в компоненте.
 
 {% raw %}
 <div class="upgrade-path">
@@ -476,7 +476,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `canActivate` <sup>заменено</sup>
 
-Вместо этого используйте [`beforeEnter`](http://router.vuejs.org/en/advanced/navigation-guards.html#perroute-guard) в компоненте.
+Вместо этого используйте [`beforeEnter`](https://router.vuejs.org/ru/advanced/navigation-guards.html#perroute-guard) в компоненте.
 
 {% raw %}
 <div class="upgrade-path">
@@ -498,7 +498,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `canDeactivate` <sup>заменено</sup>
 
-Вместо этого используйт [`beforeRouteLeave`](http://router.vuejs.org/en/advanced/navigation-guards.html#incomponent-guards) в компоненте.
+Вместо этого используйт [`beforeRouteLeave`](https://router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards) в компоненте.
 
 {% raw %}
 <div class="upgrade-path">
