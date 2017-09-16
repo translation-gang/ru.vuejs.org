@@ -219,8 +219,8 @@ new Vue({
 
 Во Vue иерархические отношения подчиняются следующему принципу: **"входные параметры — вниз, события — вверх" ("props down, events up")**. Родитель передаёт данные потомку через **входные параметры (props)**, а потомок посылает сообщения родителю посредством **событий (events)**. Давайте посмотрим как это работает.
 
-<p style="text-align: center">
-  <img style="width:300px" src="/images/props-events.png" alt="props down, events up">
+<p style="text-align: center;">
+  <img style="width: 300px;" src="/images/props-events.png" alt="props down, events up">
 </p>
 
 ## Входные параметры

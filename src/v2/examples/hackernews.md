@@ -7,9 +7,9 @@ order: 12
 > Это клон HackerNews, построенный на Firebase API, Vue 2.0 + Vue Router + Vuex, с использованием серверного рендеринга.
 
 {% raw %}
-<div style="max-width:600px">
+<div style="max-width: 600px;">
   <a href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank">
-    <img style="width:100%" src="/images/hn.png">
+    <img style="width: 100%;" src="/images/hn.png">
   </a>
 </div>
 {% endraw %}

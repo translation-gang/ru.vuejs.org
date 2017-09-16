@@ -19,7 +19,7 @@ order: 402
 
 Вот простой пример файла, который мы назовём `Hello.vue`:
 
-<img src="/images/vue-component.png" style="display: block; margin: 30px auto">
+<img src="/images/vue-component.png" style="display: block; margin: 30px auto;">
 
 Мы получили:
 
@@ -29,7 +29,7 @@ order: 402
 
 Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
-<img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto">
+<img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto;">
 
 Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
 
