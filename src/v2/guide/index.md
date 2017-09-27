@@ -99,7 +99,7 @@ var app2 = new Vue({
 
 ``` html
 <div id="app-3">
-  <p v-if="seen">Сейчас меня видно</p>
+  <span v-if="seen">Сейчас меня видно</span>
 </div>
 ```
 
