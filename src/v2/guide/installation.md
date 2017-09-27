@@ -30,7 +30,7 @@ Vue **не поддерживает** IE8 и ниже, потому что ис�
 <div id="downloads">
 <a class="button" href="/js/vue.js" download>Версия для разработки</a><span class="light info">С  предупреждениями для удобства разработки и отладки</span>
 
-<a class="button" href="/js/vue.min.js" download>Версия для production</a><span class="light info">Без предупреждений, {{gz_size}} Кб min+gzip</span>
+<a class="button" href="/js/vue.min.js" download>Версия для production</a><span class="light info">Без предупреждений, {{gz_size}}КБ min+gzip</span>
 </div>
 
 ### CDN
