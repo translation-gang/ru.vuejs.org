@@ -25,7 +25,7 @@ order: 402
 
 - [полную подсветку синтаксиса](https://github.com/vuejs/awesome-vue#source-code-editing)
 - [модули CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
-- [модульный CSS](https://github.com/vuejs/vue-loader/blob/master/docs/en/features/scoped-css.md)
+- [модульный CSS](https://vue-loader.vuejs.org/ru/features/scoped-css.html)
 
 Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
