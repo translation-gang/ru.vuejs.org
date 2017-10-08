@@ -118,7 +118,7 @@ new Vue({
 
 Существуют также другие хуки, вызываемые на различных стадиях жизненного цикла экземпляра, например [`mounted`](../api/#mounted), [`updated`](../api/#updated), и [`destroyed`](../api/#destroyed). Все хуки вызываются с контекстной переменной `this`, ссылающейся на вызывающий экземпляр Vue.
 
-<p class="tip">Не используйте [стрелочные функции](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в свойствах экземпляра и в коллбэках, например `created: () => console.log(this.a)` или `vm.$watch('a', newVal => this.myMethod())`. Поскольку стрелочные функции связываются с родительским контекстом, `this` не будет указывать на экземпляр Vue, и `this.myMethod` окажется неопределённым.</p>
+<p class="tip">Не используйте [стрелочные функции](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в свойствах экземпляра и в коллбэках, например `created: () => console.log(this.a)` или `vm.$watch('a', newVal => this.myMethod())`. Поскольку стрелочные функции связываются с родительским контекстом, `this` не будет указывать на экземпляр Vue, часто приводящие к ошибкам `Uncaught TypeError: Cannot read property of undefined` или `Uncaught TypeError: this.myMethod is not a function`.</p>
 
 ## Диаграмма жизненного цикла
 
