@@ -1307,66 +1307,66 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 
 
-## Priority C Rules: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
+## Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)
 
 
 
-### Component/instance options order <sup data-p="c">recommended</sup>
+### Порядок опций компонента/экземпляра <sup data-p="c">рекомендуется</sup>
 
-**Component/instance options should be ordered consistently.**
+**Опции компонента/экземпляра должны быть упорядочены консистентно.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add new properties from plugins.
+Это порядок по умолчанию, который мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы поймёте, где добавлять новые свойства из плагинов.
 
-1. **Side Effects** (triggers effects outside the component)
+1. **Побочные эффекты** (вызывает эффекты вне компонента)
   - `el`
 
-2. **Global Awareness** (requires knowledge beyond the component)
+2. **Глобальная осведомлённость** (требует знаний вне компонента)
   - `name`
   - `parent`
 
-3. **Component Type** (changes the type of the component)
+3. **Тип компонента** (изменяет тип компонента)
   - `functional`
 
-4. **Template Modifiers** (changes the way templates are compiled)
+4. **Модификаторы шаблона** (изменение способа компиляции шаблонов)
   - `delimiters`
   - `comments`
 
-5. **Template Dependencies** (assets used in the template)
+5. **Зависимости шаблона** (ресурсы используемые в шаблоне)
   - `components`
   - `directives`
   - `filters`
 
-6. **Composition** (merges properties into the options)
+6. **Композиция** (объединение свойств в опциях)
   - `extends`
   - `mixins`
 
-7. **Interface** (the interface to the component)
+7. **Интерфейс** (интерфейс компонента)
   - `inheritAttrs`
   - `model`
   - `props`/`propsData`
 
-8. **Local State** (local reactive properties)
+8. **Локальное состояние** (локальные реактивные свойства)
   - `data`
   - `computed`
 
-9. **Events** (callbacks triggered by reactive events)
+9. **События** (коллбэки вызываемые реактивными событиями)
   - `watch`
-  - Lifecycle Events (in the order they are called)
+  - События хуков жизненного цикла (в порядке их вызова)
 
-10. **Non-Reactive Properties** (instance properties independent of the reactivity system)
+10. **Нереактивные свойства** (свойства экземпляра независимые от системы реактивности)
   - `methods`
 
-11. **Rendering** (the declarative description of the component output)
+11. **Рендеринг** (декларативное описание вывода компонента)
   - `template`/`render`
   - `renderError`
 
 
 
-### Element attribute order <sup data-p="c">recommended</sup>
+### Порядок атрибутов элемента <sup data-p="c">рекомендуется</sup>
 
-**The attributes of elements (including components) should be ordered consistently.**
+**Атрибуты элементов (в том числе компонентов) должны быть упорядочены консистентно.**
 
-This is the default order we recommend for component options. They're split into categories, so you'll know where to add custom attributes and directives.
+Этот порядок по умолчанию мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы узнаете, где добавлять пользовательские атрибуты и директивы.
 
 1. **Definition** (provides the component options)
   - `is`
@@ -1407,7 +1407,7 @@ This is the default order we recommend for component options. They're split into
 
 
 
-### Empty lines in component/instance options <sup data-p="c">recommended</sup>
+### Empty lines in component/instance options <sup data-p="c">рекомендуется</sup>
 
 **You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
 
@@ -1471,7 +1471,7 @@ computed: {
 
 
 
-### Single-file component top-level element order <sup data-p="c">recommended</sup>
+### Single-file component top-level element order <sup data-p="c">рекомендуется</sup>
 
 **[Single-file components](../guide/single-file-components.html) should always order `template`, `script`, and `style` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
 
@@ -1527,11 +1527,11 @@ computed: {
 
 
 
-## Priority D Rules: Use with Caution (Potentially Dangerous Patterns)
+## Правила приоритета D: Используйте с осторожностью (Потенциально опасные паттерны)
 
 
 
-### `v-if`/`v-if-else`/`v-else` without `key` <sup data-p="d">use with caution</sup>
+### `v-if`/`v-if-else`/`v-else` without `key` <sup data-p="d">используйте с осторожностью</sup>
 
 **It's usually best to use `key` with `v-if` + `v-else`, if they are the same element type (e.g. both `<div>` elements).**
 
@@ -1574,7 +1574,7 @@ By default, Vue updates the DOM as efficiently as possible. That means when swit
 
 
 
-### Element selectors with `scoped` <sup data-p="d">use with caution</sup>
+### Element selectors with `scoped` <sup data-p="d">используйте с осторожностью</sup>
 
 **Element selectors should be avoided with `scoped`.**
 
@@ -1627,7 +1627,7 @@ button {
 
 
 
-### Parent-child communication <sup data-p="d">use with caution</sup>
+### Parent-child communication <sup data-p="d">используйте с осторожностью</sup>
 
 **Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
 
@@ -1720,7 +1720,7 @@ Vue.component('TodoItem', {
 
 
 
-### Global state management <sup data-p="d">use with caution</sup>
+### Global state management <sup data-p="d">используйте с осторожностью</sup>
 
 **[Vuex](https://github.com/vuejs/vuex) should be preferred for global state management, instead of `this.$root` or a global event bus.**
 
