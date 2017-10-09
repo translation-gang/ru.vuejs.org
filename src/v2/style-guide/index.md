@@ -1627,7 +1627,7 @@ button {
 
 
 
-### Parent-child communication <sup data-p="d">используйте с осторожностью</sup>
+### Implicit parent-child communication <sup data-p="d">используйте с осторожностью</sup>
 
 **Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
 
@@ -1720,7 +1720,7 @@ Vue.component('TodoItem', {
 
 
 
-### Global state management <sup data-p="d">используйте с осторожностью</sup>
+### Non-flux state management <sup data-p="d">используйте с осторожностью</sup>
 
 **[Vuex](https://github.com/vuejs/vuex) should be preferred for global state management, instead of `this.$root` or a global event bus.**
 
