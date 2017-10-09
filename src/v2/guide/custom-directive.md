@@ -43,6 +43,9 @@ Vue.directive('focus', {
 directives: {
   focus: {
     // определение директивы
+    inserted: function (el) {
+      el.focus()
+    }
   }
 }
 ```
