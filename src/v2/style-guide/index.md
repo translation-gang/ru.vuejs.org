@@ -946,12 +946,12 @@ PascalCase имеет следующие преимущества перед keb
 </summary>
 {% endraw %}
 
-In JavaScript, PascalCase is the convention for classes and prototype constructors - essentially, anything that can have distinct instances. Vue components also have instances, so it makes sense to also use PascalCase. As an added benefit, using PascalCase within JSX (and templates) allows readers of the code to more easily distinguish between components and HTML elements.
+В JavaScript, PascalCase — это соглашение для классов и конструкторов прототипов — по существу всё, что может иметь разные экземпляры. Компоненты Vue также могут иметь экземпляры, поэтому также имеет смысл использовать PascalCase. В качестве дополнительного преимущества, использование PascalCase в JSX (и шаблонах) позволяет изучающим код легче различать компоненты от HTML-элементов.
 
-However, for applications that use **only** global component definitions via `Vue.component`, we recommend kebab-case instead. The reasons are:
+Однако, для приложений, которые используют **только глобальные** определения компонентов через `Vue.component`, мы рекомендуем вместо него использовать kebab-case. Причины:
 
-- It's rare that global components are ever referenced in JavaScript, so following a convention for JavaScript makes less sense.
-- These applications always include many in-DOM templates, where [kebab-case **must** be used](#Component-name-casing-in-templates-strongly-recommended).
+- Редкость, когда на глобальные компоненты ссылаются в JavaScript, поэтому следование соглашению для JavaScript имеет меньше смысла.
+- Эти приложения всегда включают в себе множество шаблонов внутри DOM, где [kebab-case **должен быть** использован](#Component-name-casing-in-templates-strongly-recommended).
 {% raw %}</details>{% endraw %}
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
@@ -1011,11 +1011,11 @@ export default {
 
 
 
-### Full-word component names <sup data-p="b">настоятельно рекомендуется</sup>
+### Использование полных слов при именовании компонентов <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Component names should prefer full words over abbreviations.**
+**Имена компонентов должны состоять из полных слов, а не аббревиатур.**
 
-The autocompletion in editors make the cost of writing longer names very low, while the clarity they provide is invaluable. Uncommon abbreviations, in particular, should always be avoided.
+Автодополнение в редакторах уменьшают сложность написания более длинных имён, а ясность, которую они предоставляют неоценима. Мало известных аббревиатур, в частности, следует избегать.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1039,11 +1039,11 @@ components/
 
 
 
-### Prop name casing <sup data-p="b">настоятельно рекомендуется</sup>
+### Стиль именования входных параметров <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Prop names should always use camelCase during declaration, but kebab-case in templates and [JSX](../guide/render-function.html#JSX).**
+**Входные параметры должны всегда использовать camelCase при определении, но kebab-case в шаблонах и [JSX](../guide/render-function.html#JSX).**
 
-We're simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
+Мы просто придерживаемся соглашений каждого языка. Для JavaScript использовать camelCase является более естественным. Для HTML — kebab-case.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1075,11 +1075,11 @@ props: {
 
 
 
-### Multi-attribute elements <sup data-p="b">настоятельно рекомендуется</sup>
+### Элементы с несколькими атрибутами <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Elements with multiple attributes should span multiple lines, with one attribute per line.**
+**Элементы с несколькими атрибутами должны располагаться на нескольких строках, по одному атрибуту на строку.**
 
-In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it's much easier to read. Our templates and [JSX](../guide/render-function.html#JSX) deserve the same consideration.
+В JavaScript написание объектов с несколькими свойствами в несколько строк считается хорошей практикой, потому что при таком написании её гораздо легче читать. Наши шаблоны и [JSX](../guide/render-function.html#JSX) стоит рассматривать также.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1114,11 +1114,11 @@ In JavaScript, splitting objects with multiple properties over multiple lines is
 
 
 
-### Simple expressions in templates <sup data-p="b">настоятельно рекомендуется</sup>
+### Простые выражения в шаблонах <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.**
+**Шаблоны компонентов должны содержать только простые выражения, а более комплексные должны быть вынесены в вычисляемые свойства или методы.**
 
-Complex expressions in your templates make them less declarative. We should strive to describe _what_ should appear, not _how_ we're computing that value. Computed properties and methods also allow the code to be reused.
+Сложные выражения в ваших шаблонах делают их менее декларативными. Мы должны стремиться к описанию _что_ должно отобразиться, а не _как_ мы вычисляем это значение. Вычисляемые свойства и методы также упрощают переиспользование кода.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1136,12 +1136,12 @@ Complex expressions in your templates make them less declarative. We should stri
 #### Хорошо
 
 ``` html
-<!-- In a template -->
+<!-- В шаблоне -->
 {{ normalizedFullName }}
 ```
 
 ``` js
-// The complex expression has been moved to a computed property
+// Комплексное выражение было вынесено в вычисляемое свойство
 computed: {
   normalizedFullName: function () {
     return this.fullName.split(' ').map(function (word) {
@@ -1154,9 +1154,9 @@ computed: {
 
 
 
-### Simple computed properties <sup data-p="b">настоятельно рекомендуется</sup>
+### Простые вычисляемые свойства <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Complex computed properties should be split into as many simpler properties as possible.**
+**Комплексные вычисляемые свойства должны быть разделены на максимально простые свойства.**
 
 {% raw %}
 <details>
@@ -1165,21 +1165,21 @@ computed: {
 </summary>
 {% endraw %}
 
-Simpler, well-named computed properties are:
+Проще говоря, хорошие вычисляемые свойства будет:
 
-- __Easier to test__
+- __Легче тестировать__
 
-  When each computed property contains only a very simple expression, with very few dependencies, it's much easier to write tests confirming that it works correctly.
+  Когда каждое вычисляемое свойство содержит только очень простое выражение, с очень небольшим набором зависимостей, то будет гораздо проще писать тесты, подтверждающие его правильную работу.
 
-- __Easier to read__
+- __Легче читать__
 
-  Simplifying computed properties forces you to give each value a descriptive name, even if it's not reused. This makes it much easier for other developers (and future you) to focus in on the code they care about and figure out what's going on.
+  Упрощение вычисляемых свойств заставляет вас давать каждому значению понятное имя, даже если оно не будет использоваться повторно. Это облегчает другим разработчикам (и вам в будущем) сосредоточиться на коде, который им нужен и выяснить что происходит.
 
-- __More adaptable to changing requirements__
+- __Лучше приспособлены к изменяющимся требованиям__
 
-  Any value that can be named might be useful to the view. For example, we might decide to display a message telling the user how much money they saved. We might also decide to calculate sales tax, but perhaps display it separately, rather than as part of the final price.
+  Любое значение, которое можно назвать, может быть полезным для представления. Например, мы можем решить отображать сообщение пользователю с информацией сколько денег сэкономил. Мы также можем решить рассчитывать налог с продаж, но, возможно, отображать его отдельно, а не как часть окончательной цены.
 
-  Small, focused computed properties make fewer assumptions about how information will be used, so require less refactoring as requirements change.
+  Небольшие, сфокусированные вычисляемые свойства создают меньше предположений о том, как информация будет использована, поэтому при изменениях требований потребует меньше рефакторинга.
 
 {% raw %}</details>{% endraw %}
 
@@ -1219,11 +1219,11 @@ computed: {
 
 
 
-### Quoted attribute values <sup data-p="b">настоятельно рекомендуется</sup>
+### Значения атрибутов в кавычках <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).**
+**Непустые значения HTML-атрибутов должны быть обрамлены кавычками (одинарными или двойными, в зависимости от того, что не используется в JS).**
 
-While attribute values without any spaces are not required to have quotes in HTML, this practice often leads to _avoiding_ spaces, making attribute values less readable.
+Хотя значения атрибутов без каких-либо пробелов не требуют иметь кавычки в HTML, эта практика зачастую приводит к _избеганию_ использования пробелов, делая значения атрибутов менее читабельными.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1251,9 +1251,9 @@ While attribute values without any spaces are not required to have quotes in HTM
 
 
 
-### Directive shorthands <sup data-p="b">настоятельно рекомендуется</sup>
+### Сокращённая запись директив <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Directive shorthands (`:` for `v-bind:` and `@` for `v-on:`) should be used always or never.**
+**Сокращенная запись директив (`:` для `v-bind:` и `@` для `v-on:`) следует использовать всегда или никогда.**
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
