@@ -676,20 +676,20 @@ components/
 
 
 
-### Tightly coupled component names <sup data-p="b">настоятельно рекомендуется</sup>
+### Именование тесно связанных компонентов <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Child components that are tightly coupled with their parent should include the parent component name as a prefix.**
+**Дочерние компоненты, тесно связанные с родителями, должны включать имя родительского компонента в качестве префикса.**
 
-If a component only makes sense in the context of a single parent component, that relationship should be evident in its name. Since editors typically organize files alphabetically, this also keeps these related files next to each other.
+Если компонент имеет смысл только в контексте одного родительского компонента, то это отношение должно быть очевидным в его имени. Поскольку редакторы обычно упорядочивают файлы по алфавиту, это также расположит связанные файлы друг с другом.
 
 {% raw %}
 <details>
 <summary>
-  <h4>Detailed Explanation</h4>
+  <h4>Подробное объяснение</h4>
 </summary>
 {% endraw %}
 
-You might be tempted to solve this problem by nesting child components in directories named after their parent. For example:
+Возможно вы захотите решить эту проблему, вложив дочерние компоненты в каталоги, названные в честь их родителя. Например:
 
 ```
 components/
@@ -700,7 +700,7 @@ components/
    |- index.vue
 ```
 
-or:
+или:
 
 ```
 components/
@@ -711,10 +711,10 @@ components/
 |- TodoList.vue
 ```
 
-This isn't recommended, as it results in:
+Это не рекомендуется, так как это приводит к:
 
-- Many files with similar names, making rapid file switching in code editors more difficult.
-- Many nested sub-directories, which increases the time it takes to browse components in an editor's sidebar.
+- Множеству файлов с похожими именами, что затрудняет быстрое переключение между файлами в редакторе кода.
+- Множеству под-каталогов, что увеличивает время необходимое на изучение списка компонентов в боковой панели редактора.
 
 {% raw %}</details>{% endraw %}
 
@@ -754,9 +754,9 @@ components/
 
 
 
-### Order of words in component names <sup data-p="b">настоятельно рекомендуется</sup>
+### Порядок слов в именах компонентов <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Component names should start with the highest-level (often most general) words and end with descriptive modifying words.**
+**Компоненты должны именоваться начиная от высшего уровня (часто наиболее общих слов) и заканчиваться описательными дополняющими словами.**
 
 {% raw %}
 <details>
@@ -765,19 +765,19 @@ components/
 </summary>
 {% endraw %}
 
-You may be wondering:
+Вам может быть интересным:
 
-> "Why would we force component names to use less natural language?"
+> "Почему мы заставляем называть компоненты менее естественным языком?"
 
-In natural English, adjectives and other descriptors do typically appear before the nouns, while exceptions require connector words. For example:
+На естественном английском, прилагательные и другие дескрипторы обычно располагаются перед существительными, в то время как исключения требуют слов-соединителей. Например:
 
 - Coffee _with_ milk
 - Soup _of the_ day
 - Visitor _to the_ museum
 
-You can definitely include these connector words in component names if you'd like, but the order is still important.
+Вы определённо можете включать эти слова-соединители в именах компонентах если хотите, но порядок всё ещё важен.
 
-Also note that **what's considered "highest-level" will be contextual to your app**. For example, imagine an app with a search form. It may include components like this one:
+Также обратите внимание, **то что считается "высоким уровнем" будет относиться к вашему приложению**. Например, представьте приложение с формой для поиска. Оно может содержать компоненты наподобие таких:
 
 ```
 components/
@@ -789,7 +789,7 @@ components/
 |- TermsCheckbox.vue
 ```
 
-As you might notice, it's quite difficult to see which components are specific to the search. Now let's rename the components according to the rule:
+Как вы могли заметить, довольно сложно понять, какие из компонентов относятся к поиску. Давайте теперь переименуем компоненты в соответствии с правилом:
 
 ```
 components/
@@ -801,13 +801,13 @@ components/
 |- SettingsCheckboxTerms.vue
 ```
 
-Since editors typically organize files alphabetically, all the important relationships between components are now evident at a glance.
+Поскольку редакторы обычно упорядочивают файлы по алфавиту, все важные отношения между компонентами теперь очевидны с первого взгляда.
 
-You might be tempted to solve this problem differently, nesting all the search components under a "search" directory, then all the settings components under a "settings" directory. We only recommend considering this approach in very large apps (e.g. 100+ components), for these reasons:
+Возможно вы захотите решить эту проблему по-другому, переместив все компоненты поиска в отдельный каталог "search", а потом все компоненты параметров в каталог "settings". Мы рекомендуем применять этот подход только в очень больши приложениях (например, из более 100 компонентов) по следующим причинам:
 
-- It generally takes more time to navigate through nested sub-directories, than scrolling through a single `components` directory.
-- Name conflicts (e.g. multiple `ButtonDelete.vue` components) make it more difficult to quickly navigate to a specific component in a code editor.
-- Refactoring becomes more difficult, because find-and-replace often isn't sufficient to update relative references to a moved component.
+- Обычно требуется больше времени для навигации по вложенным подкаталогам, чем прокрутка одного каталога `components`.
+- Конфликты имён (например многочисленные компоненты `ButtonDelete.vue`) затрудняют быстрый переход к определённому компоненту в редакторе кода.
+- Рефакторинг становится более сложным, потому что поиска с заменой будет недостаточно, чтобы обновить относительные ссылки на перемещённый компонент.
 
 {% raw %}</details>{% endraw %}
 
@@ -841,7 +841,7 @@ components/
 
 
 
-### Self-closing components <sup data-p="b">настоятельно рекомендуется</sup>
+### Самозакрывающиеся компоненты <sup data-p="b">настоятельно рекомендуется</sup>
 
 **Components with no content should be self-closing in [single-file components](../guide/single-file-components.html), string templates, and [JSX](../guide/render-function.html#JSX) - but never in DOM templates.**
 
