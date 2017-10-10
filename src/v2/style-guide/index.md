@@ -841,24 +841,24 @@ components/
 
 
 
-### Самозакрывающиеся компоненты <sup data-p="b">настоятельно рекомендуется</sup>
+### Самозакрывающиеся теги компонентов <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Components with no content should be self-closing in [single-file components](../guide/single-file-components.html), string templates, and [JSX](../guide/render-function.html#JSX) - but never in DOM templates.**
+**Компоненты без содержимого должны быть самозакрывающимися тегами в [однофайловых компонентах](../guide/single-file-components.html), строковых шаблонах, и [JSX](../guide/render-function.html#JSX) — но никогда в DOM-шаблонах.**
 
-Components that self-close communicate that they not only have no content, but are **meant** to have no content. It's the difference between a blank page in a book and one labeled "This page intentionally left blank." Your code is also cleaner without the unnecessary closing tag.
+Самозакрывающиеся теги компонетов сообщают, что у них не только нет содержимого, но и **сообщает** что и не должны иметь содержимого. Это разница между пустой страницей в книге и страницей с надписью "Эта страница намеренно оставлена пустой". Ваш код также станет более лаконичным без ненужного закрывающего тега.
 
-Unfortunately, HTML doesn't allow custom elements to be self-closing - only [official "void" elements](https://www.w3.org/TR/html/syntax.html#void-elements). That's why the strategy is only possible when Vue's template compiler can reach the template before the DOM, then serve the DOM spec-compliant HTML.
+К сожалению, HTML не разрешает пользовательским элементам быть самозакрывающимися — только [официальные "void" элементы](https://www.w3.org/TR/html/syntax.html#void-elements). Вот почему эта стратегия возможно тольок тогда, когда компилятор шаблонов Vue может достичь шаблона перед DOM, а затем предоставить DOM-совместимый HTML.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
 
 ``` html
-<!-- In single-file components, string templates, and JSX -->
+<!-- В однофайловых компонентах, строковых шаблонах и JSX -->
 <MyComponent></MyComponent>
 ```
 
 ``` html
-<!-- In DOM templates -->
+<!-- В DOM-шаблонах -->
 <my-component/>
 ```
 {% raw %}</div>{% endraw %}
@@ -867,47 +867,47 @@ Unfortunately, HTML doesn't allow custom elements to be self-closing - only [off
 #### Хорошо
 
 ``` html
-<!-- In single-file components, string templates, and JSX -->
+<!-- В однофайловых компонентах, строковых шаблонах и JSX -->
 <MyComponent/>
 ```
 
 ``` html
-<!-- In DOM templates -->
+<!-- В DOM-шаблонах -->
 <my-component></my-component>
 ```
 {% raw %}</div>{% endraw %}
 
 
 
-### Component name casing in templates <sup data-p="b">настоятельно рекомендуется</sup>
+### Стиль именования компонентов в шаблонах <sup data-p="b">настоятельно рекомендуется</sup>
 
-**In most projects, component names should always be PascalCase in [single-file components](../guide/single-file-components.html) and string templates - but kebab-case in DOM templates.**
+**В большинстве проектов имена компонентов всегда должны быть в PascalCase в [однофайловых компонентах](../guide/single-file-components.html) и строковых шаблонах — но в kebab-case в DOM-шаблонах.**
 
-PascalCase has a few advantages over kebab-case:
+PascalCase имеет следующие преимущества перед kebab-case:
 
-- Editors can autocomplete component names in templates, because PascalCase is also used in JavaScript.
-- `<MyComponent>` is more visually distinct from a single-word HTML element than `<my-component>`, because there are two character differences (the two capitals), rather than just one (a hyphen).
-- If you use any non-Vue custom elements in your templates, such as a web component, PascalCase ensures that your Vue components remain distinctly visible.
+- Редакторы могут автодополнять имена компонентов в шаблонах, потому что PascalCase также используется в JavaScript.
+- `<MyComponent>` лучше отличим визуально от элемента HTML из одного слова, нежели `<my-component>`, потому что есть две заметных разницы в символах (две заглавных), а не только одна (дефис).
+- Если вы используете какие-либо пользовательские элементы, не связанные с Vue, в ваших шаблонах, например веб-компонент, PascalCase гарантирует, что ваши компоненты Vue остаются отчётливо видимыми.
 
-Unfortunately, due to HTML's case insensitivity, DOM templates must still use kebab-case.
+К сожалению, из-за нечувствительности HTML к регистру, DOM-шаблоны должны по-прежнему использовать kebab-case.
 
-Also note that if you've already invested heavily in kebab-case, consistency with HTML conventions and being able to use the same casing across all your projects may be more important than the advantages listed above. In those cases, **using kebab-case everywhere is also acceptable.**
+Также обратите внимание, что если вы уже вложили значительные силы в kebab-case, консистентность с соглашениями HTML и возможность использования такого же написания во всех ваших проектах, то это может быть более важным, чем преимущества перечисленные выше. В этих случаях **допускается использовать kebab-case повсюду.**
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
 
 ``` html
-<!-- In single-file components and string templates -->
+<!-- В однофайловых компонентах и строковых шаблонах -->
 <mycomponent/>
 ```
 
 ``` html
-<!-- In single-file components and string templates -->
+<!-- В однофайловых компонентах и строковых шаблонах -->
 <myComponent/>
 ```
 
 ``` html
-<!-- In DOM templates -->
+<!-- В DOM-шаблонах -->
 <MyComponent></MyComponent>
 ```
 {% raw %}</div>{% endraw %}
@@ -916,28 +916,28 @@ Also note that if you've already invested heavily in kebab-case, consistency wit
 #### Хорошо
 
 ``` html
-<!-- In single-file components and string templates -->
+<!-- В однофайловых компонентах и строковых шаблонах -->
 <MyComponent/>
 ```
 
 ``` html
-<!-- In DOM templates -->
+<!-- В DOM-шаблонах -->
 <my-component></my-component>
 ```
 
-OR
+ИЛИ
 
 ``` html
-<!-- Everywhere -->
+<!-- Везде -->
 <my-component></my-component>
 ```
 {% raw %}</div>{% endraw %}
 
 
 
-### Component name casing in JS/JSX <sup data-p="b">настоятельно рекомендуется</sup>
+### Стиль именования компонентов в JS/JSX <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Component names in JS/[JSX](../guide/render-function.html#JSX) should always be PascalCase, though may be kebab-case inside strings for simpler applications that only use global component registration through `Vue.component`.**
+**Стиль именования компонентов в JS/[JSX](../guide/render-function.html#JSX) всегда должен быть PascalCase, хотя возможно использовать kebab-case внутри строк для простых приложений, которые используют только глобальную регистрацию компонентов через `Vue.component`.**
 
 {% raw %}
 <details>
