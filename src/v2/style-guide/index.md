@@ -1627,13 +1627,13 @@ button {
 
 
 
-### Implicit parent-child communication <sup data-p="d">используйте с осторожностью</sup>
+### Неявная коммуникация между родительским и дочерними компонентами <sup data-p="d">используйте с осторожностью</sup>
 
-**Props and events should be preferred for parent-child component communication, instead of `this.$parent` or mutating props.**
+**Входные параметры и события должны быть предпочтительным способом коммуникации между родительским и дочерними компонентами, вместо использования `this.$parent` или изменения входных параметров.**
 
-An ideal Vue application is props down, events up. Sticking to this convention makes your components much easier to understand. However, there are edge cases where prop mutation or `this.$parent` can simplify two components that are already deeply coupled.
+В идеальном Vue приложении входные параметры передаются вниз, события всплывают наверх. Придерживаясь этого соглашения ваши компоненты будет намного легче понять. Тем не менее, есть крайние случаи, когда изменения входных параметров или использование `this.$parent` могут упростить два компонента, которые уже глубоко связаны между собой.
 
-The problem is, there are also many _simple_ cases where these patterns may offer convenience. Beware: do not be seduced into trading simplicity (being able to understand the flow of your state) for short-term convenience (writing less code).
+Проблема в том, что есть также множество _простых_ случаев, когда эти шаблоны могут показаться удобнее. Остерегайтесь: не соблазняйтесь кажущейся простоте (чтобы понять поток вашего состояния) для краткосрочной выгоды (написания чуть меньшего количества кода).
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1720,11 +1720,11 @@ Vue.component('TodoItem', {
 
 
 
-### Non-flux state management <sup data-p="d">используйте с осторожностью</sup>
+### Не-flux управление состоянием приложения <sup data-p="d">используйте с осторожностью</sup>
 
-**[Vuex](https://github.com/vuejs/vuex) should be preferred for global state management, instead of `this.$root` or a global event bus.**
+**[Vuex](https://github.com/vuejs/vuex) должен быть предпочтительным способом для глобального управления состоянием приложения, вместо использования `this.$root` или глобальной шины событий.**
 
-Managing state on `this.$root` and/or using a [global event bus](https://vuejs.org/v2/guide/migration.html#dispatch-and-broadcast-replaced) can be convenient for very simple cases, but are not appropriate for most applications. Vuex offers not only a central place to manage state, but also tools for organizing, tracking, and debugging state changes.
+Управление состоянием через `this.$root` и/или использование [глобальной шины событий](../guide/migration.html#dispatch-and-broadcast-replaced) может быть удобным для очень простых случаев, но не подходит для большинства приложений. Vuex предлагает не только централизованное место для управления состоянием приложения, но и также инструменты для организации, отслеживания и отладки изменений состояния.
 
 {% raw %}</details>{% endraw %}
 
