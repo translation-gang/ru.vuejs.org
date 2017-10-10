@@ -1368,50 +1368,50 @@ computed: {
 
 Этот порядок по умолчанию мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы узнаете, где добавлять пользовательские атрибуты и директивы.
 
-1. **Definition** (provides the component options)
+1. **Определение** (предоставляет параметры компонента)
   - `is`
 
-2. **List Rendering** (creates multiple variations of the same element)
+2. **Отображение списка** (создаёт несколько вариантов одного элемента)
   - `v-for`
 
-2. **Conditionals** (whether the element is rendered/shown)
+2. **Условия** (указывается рендерится/отображается ли элемент)
   - `v-if`
   - `v-else-if`
   - `v-else`
   - `v-show`
   - `v-cloak`
 
-3. **Render Modifiers** (changes the way the element renders)
+3. **Модификаторы рендеринга** (изменяют способ рендеринга элемента)
   - `v-pre`
   - `v-once`
 
-4. **Global Awareness** (requires knowledge beyond the component)
+4. **Глобальная осведомлённость** (требует знаний вне компонента)
   - `id`
 
-5. **Unique Attributes** (attributes that require unique values)
+5. **Уникальные атрибуты** (атрибуты, требующие уникальных значений)
   - `ref`
   - `key`
   - `slot`
 
-6. **Two-Way Binding** (combining binding and events)
+6. **Двусторонняя привязка** (объединение привязки и событий)
   - `v-model`
 
-7. **Other Attributes** (all unspecified bound & unbound attributes)
+7. **Другие атрибуты** (все неуказанные связанные или несвязанные атрибуты)
 
-8. **Events** (component event listeners)
+8. **События** (обработчики событий компонента)
   - `v-on`
 
-9. **Content** (overrides the content of the element)
+9. **Содержимое** (перезаписывает содержимое элемента)
   - `v-html`
   - `v-text`
 
 
 
-### Empty lines in component/instance options <sup data-p="c">рекомендуется</sup>
+### Пустые строки между опций компонента/экземпляра <sup data-p="c">рекомендуется</sup>
 
-**You may want to add one empty line between multi-line properties, particularly if the options can no longer fit on your screen without scrolling.**
+**Вы можете добавить одну пустую строку между многострочными свойствами, особенно если опции не могут больше помещаться на вашем экране без прокрутки.**
 
-When components begin to feel cramped or difficult to read, adding spaces between multi-line properties can make them easier to skim again. In some editors, such as Vim, formatting options like this can also make them easier to navigate with the keyboard.
+Когда компоненты кажутся неразборчивыми и становятся трудными для чтения, то добавление пустых строк между многострочными свойствами может облегчить их беглое изучение просматривая взглядом. В некоторых редакторах, таких как Vim, параметры форматирования подобные этому также могут облегчить навигацию с клавиатуры.
 
 {% raw %}<div class="style-example example-good">{% endraw %}
 #### Хорошо
@@ -1444,8 +1444,8 @@ computed: {
 ```
 
 ``` js
-// No spaces are also fine, as long as the component
-// is still easy to read and navigate.
+// Отсутствие пробелов не мешает, если компонент
+// всё ещё легко читать и перемещаться по нему.
 props: {
   value: {
     type: String,
@@ -1471,9 +1471,9 @@ computed: {
 
 
 
-### Single-file component top-level element order <sup data-p="c">рекомендуется</sup>
+### Порядок секций в однофайловых компонентах <sup data-p="c">рекомендуется</sup>
 
-**[Single-file components](../guide/single-file-components.html) should always order `template`, `script`, and `style` tags consistently, with `<style>` last, because at least one of the other two is always necessary.**
+**[Однофайловые компоненты](../guide/single-file-components.html) должны всегда использовать один порядок для корневых тегов секций `template`, `script`, и `style`, заканчиваясь `<style>`, потому что всегда требуется хотя бы один из двух других.**
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1531,11 +1531,11 @@ computed: {
 
 
 
-### `v-if`/`v-if-else`/`v-else` without `key` <sup data-p="d">используйте с осторожностью</sup>
+### `v-if`/`v-if-else`/`v-else` без `key` <sup data-p="d">используйте с осторожностью</sup>
 
-**It's usually best to use `key` with `v-if` + `v-else`, if they are the same element type (e.g. both `<div>` elements).**
+**Обычно лучше использовать `key` вместе с `v-if` + `v-else`, если они являются одним и тем же типом элемента (например когда оба элемента `<div>`).**
 
-By default, Vue updates the DOM as efficiently as possible. That means when switching between elements of the same type, it simply patches the existing element, rather than removing it and adding a new one in its place. This can have [unintended side effects](https://jsfiddle.net/chrisvfritz/bh8fLeds/) if these elements should not actually be considered the same.
+По умолчанию Vue обновляет DOM максимально эффективно. Это означает, что при переключении между элементами одного и того же типа, он просто исправляет текущий элемент, а не удаляет его и добавляет новый на своё место. Это может привести к [непреднамеренным побочным эффектам](https://jsfiddle.net/chrisvfritz/bh8fLeds/) если эти элементы не должны считаться одинаковыми.
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
@@ -1574,11 +1574,11 @@ By default, Vue updates the DOM as efficiently as possible. That means when swit
 
 
 
-### Element selectors with `scoped` <sup data-p="d">используйте с осторожностью</sup>
+### Селекторы элементов при использовании `scoped` <sup data-p="d">используйте с осторожностью</sup>
 
-**Element selectors should be avoided with `scoped`.**
+**Селекторов элементов следует избегать при использовании `scoped`.**
 
-Prefer class selectors over element selectors in `scoped` styles, because large numbers of element selectors are slow.
+Воспользуйтесь селектороми классов вместо селекторов элементов в стилях с атрибутом `scoped`, потому что большое количество селекторов элементов отрабатывает медленно.
 
 {% raw %}
 <details>
@@ -1587,9 +1587,9 @@ Prefer class selectors over element selectors in `scoped` styles, because large 
 </summary>
 {% endraw %}
 
-To scope styles, Vue adds a unique attribute to component elements, such as `data-v-f3f3eg9`. Then selectors are modified so that only matching elements with this attribute are selected (e.g. `button[data-v-f3f3eg9]`).
+Для ограничения области действия стилей Vue добавляет уникальный атрибут к элементам компонента, например такой как `data-v-f3f3eg9`. Затем селекторы изменяются так, чтобы воздействовали только на подходящие элементы с этим атрибутом (например, `button[data-v-f3f3eg9]`).
 
-The problem is that large numbers of [element-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `button[data-v-f3f3eg9]`) will be considerably slower than [class-attribute selectors](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (e.g. `.btn-close[data-v-f3f3eg9]`), so class selectors should be preferred whenever possible.
+Проблема в том, что большое количество [селекторов атрибутов элементов](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=a%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (например, `button[data-v-f3f3eg9]`) будет значительно медленнее [селекторов классов](http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&sel=.class%5Bhref%5D&body=background%3A+%23CFD&ne=1000) (например, `.btn-close[data-v-f3f3eg9]`), поэтому селекторы классов должны быть предпочтительными всегда когда это возможно.
 
 {% raw %}</details>{% endraw %}
 
