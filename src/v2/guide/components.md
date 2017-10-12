@@ -1153,6 +1153,7 @@ Vue.component('async-webpack-example', function (resolve) {
 ``` js
 Vue.component(
   'async-webpack-example',
+  // Функция `import` возвращает `Promise`.
   () => import('./my-async-component')
 )
 ```
