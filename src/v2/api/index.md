@@ -980,7 +980,7 @@ type: api
 
 - **Тип:**
   - **provide:** `Object | () => Object`
-  - **inject:** `Array<string> | { [key: string]: string | Symbol }`
+  - **inject:** `Array<string> | { [key: string]: string | Symbol | Object }`
 
 - **Подробности:**
 
@@ -1055,6 +1055,42 @@ type: api
     data () {
       return {
         bar: this.foo
+      }
+    }
+  }
+  ```
+
+  > С версии 2.5.0+ инъекции могут быть необязательными со значением по умолчанию:
+
+  ``` js
+  const Child = {
+    inject: {
+      foo: { default: 'foo' }
+    }
+  }
+  ```
+
+  Если потребуется внедрить значение из свойства с другим именем, используйте `from` для обозначения свойства-источника:
+
+  ``` js
+  const Child = {
+    inject: {
+      foo: {
+        from: 'bar',
+        default: 'foo'
+      }
+    }
+  }
+  ```
+
+  Аналогично значениям по умолчанию входных параметров, вам нужно использовать функцию фабрику для не-примитивных значений:
+
+  ``` js
+  const Child = {
+    inject: {
+      foo: {
+        from: 'bar',
+        default: () => [1, 2, 3]
       }
     }
   }
