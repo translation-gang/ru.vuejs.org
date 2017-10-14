@@ -117,7 +117,7 @@ type: api
   Vue.config.ignoredElements = [
     'my-custom-web-component',
     'another-web-component',
-    // Используйте RegExp чтобы игнорировать все элементы, начинающиеся с "ion-"
+    // Используйте `RegExp` чтобы игнорировать все элементы, начинающиеся с "ion-"
     // Добавлено в версии 2.5.0+
     /^ion-/
   ]
