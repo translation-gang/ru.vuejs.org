@@ -63,33 +63,33 @@ It's recommended to simply wrap the entire contents in a new element, like this:
 </div>
 {% endraw %}
 
-## Lifecycle Hooks
+## Хуки жизненного цикла
 
-### `beforeCompile` <sup>removed</sup>
+### `beforeCompile` <sup>удалено</sup>
 
-Use the `created` hook instead.
-
-{% raw %}
-<div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find all examples of this hook.</p>
-</div>
-{% endraw %}
-
-### `compiled` <sup>replaced</sup>
-
-Use the new `mounted` hook instead.
+Вместо этого используйте `created` в вашем компоненте.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find all examples of this hook.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `attached` <sup>removed</sup>
+### `compiled` <sup>заменено</sup>
 
-Use a custom in-DOM check in other hooks. For example, to replace:
+Вместо этого используйте новый хук `mounted`.
+
+{% raw %}
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+</div>
+{% endraw %}
+
+### `attached` <sup>удалено</sup>
+
+Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:
 
 ``` js
 attached: function () {
@@ -97,7 +97,7 @@ attached: function () {
 }
 ```
 
-You could use:
+вы можете использовать:
 
 ``` js
 mounted: function () {
@@ -109,14 +109,14 @@ mounted: function () {
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find all examples of this hook.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `detached` <sup>removed</sup>
+### `detached` <sup>удалено</sup>
 
-Use a custom in-DOM check in other hooks. For example, to replace:
+Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:
 
 ``` js
 detached: function () {
@@ -124,7 +124,7 @@ detached: function () {
 }
 ```
 
-You could use:
+вы можете использовать:
 
 ``` js
 destroyed: function () {
@@ -136,38 +136,38 @@ destroyed: function () {
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find all examples of this hook.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `init` <sup>renamed</sup>
+### `init` <sup>переименовано</sup>
 
-Use the new `beforeCreate` hook instead, which is essentially the same thing. It was renamed for consistency with other lifecycle methods.
+Вместо этого используйте новый хук `beforeCreate`, который фактически ничем не отличается. Данный хук был переименован для логической взаимосвязи с другими методами жизненного цикла.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find all examples of this hook.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `ready` <sup>replaced</sup>
+### `ready` <sup>заменено</sup>
 
-Use the new `mounted` hook instead. It should be noted though that with `mounted`, there's no guarantee to be in-document. For that, also include `Vue.nextTick`/`vm.$nextTick`. For example:
+Вместо этого используйте новый хук `mounted`. Однако, следует отметить, что использование хука `mounted` не даёт гарантии существования в документе. Для этого также используйте `Vue.nextTick`/`vm.$nextTick`. Например:
 
 ``` js
 mounted: function () {
   this.$nextTick(function () {
-    // code that assumes this.$el is in-document
+    // код предполагает наличие this.$el в документе
   })
 }
 ```
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Upgrade Path</h4>
-  <p>Run the <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find all examples of this hook.</p>
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
