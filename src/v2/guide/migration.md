@@ -97,7 +97,7 @@ attached: function () {
 }
 ```
 
-вы можете использовать:
+Вы можете использовать:
 
 ``` js
 mounted: function () {
