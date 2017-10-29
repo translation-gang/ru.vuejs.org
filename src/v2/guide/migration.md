@@ -124,7 +124,7 @@ detached: function () {
 }
 ```
 
-вы можете использовать:
+Вы можете использовать:
 
 ``` js
 destroyed: function () {
