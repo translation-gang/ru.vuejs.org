@@ -65,29 +65,29 @@ It's recommended to simply wrap the entire contents in a new element, like this:
 
 ## Хуки жизненного цикла
 
-### `beforeCompile` <sup>удалено</sup>
+### `beforeCompile` <sup>удалён</sup>
 
 Вместо этого используйте `created` в вашем компоненте.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Обновление</h4>
+  <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `compiled` <sup>заменено</sup>
+### `compiled` <sup>заменён</sup>
 
 Вместо этого используйте новый хук `mounted`.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Обновление</h4>
+  <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `attached` <sup>удалено</sup>
+### `attached` <sup>удалён</sup>
 
 Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:
 
@@ -109,12 +109,12 @@ mounted: function () {
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Обновление</h4>
+  <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `detached` <sup>удалено</sup>
+### `detached` <sup>удалён</sup>
 
 Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:
 
@@ -136,37 +136,37 @@ destroyed: function () {
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Обновление</h4>
+  <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `init` <sup>переименовано</sup>
+### `init` <sup>переименован</sup>
 
 Вместо этого используйте новый хук `beforeCreate`, который фактически ничем не отличается. Данный хук был переименован для логической взаимосвязи с другими методами жизненного цикла.
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Обновление</h4>
+  <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
 
-### `ready` <sup>заменено</sup>
+### `ready` <sup>заменён</sup>
 
 Вместо этого используйте новый хук `mounted`. Однако, следует отметить, что использование хука `mounted` не даёт гарантии существования в документе. Для этого также используйте `Vue.nextTick`/`vm.$nextTick`. Например:
 
 ``` js
 mounted: function () {
   this.$nextTick(function () {
-    // код предполагает наличие this.$el в документе
+    // код, уже предполагающий наличие this.$el в документе
   })
 }
 ```
 
 {% raw %}
 <div class="upgrade-path">
-  <h4>Обновление</h4>
+  <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 {% endraw %}
