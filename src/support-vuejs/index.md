@@ -17,14 +17,17 @@ Vue.js является программным продуктом с откры�
 
 <p style="text-align: center;">
   <a href="https://stdlib.com">
-    <img style="width: 300px;" src="/images/stdlib.png">
+    <img src="/images/stdlib.png" style="width: 300px;">
+  </a>
+  <a href="http://tooltwist.com/" target="_blank">
+    <img src="/images/tooltwist.png" style="width: 300px;">
   </a>
 </p>
 
 ### OpenCollective Platinum ($2000/mo)
 
 <p class="open-collective-sponsors sponsor-section">
-  <a href="https://opencollective.com/vuejs/platinumsponsor/0/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/0/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/1/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/1/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/2/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/2/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/3/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/3/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/4/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/4/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/5/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/5/avatar.svg"></a>
+  <!-- <a href="https://opencollective.com/vuejs/platinumsponsor/0/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/0/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/1/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/1/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/2/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/2/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/3/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/3/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/4/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/4/avatar.svg"></a><a href="https://opencollective.com/vuejs/platinumsponsor/5/website" target="_blank"><img src="https://opencollective.com/vuejs/platinumsponsor/5/avatar.svg"></a> -->
 </p>
 
 ### Patreon Gold ($500/mo)
@@ -60,8 +63,8 @@ Vue.js является программным продуктом с откры�
     <img src="/images/frontend-meetups.png" style="width: 120px;">
   </a><a href="https://onsen.io/vue/" target="_blank" style="width: 125px;">
     <img src="/images/onsen-ui.png" style="width: 125px;">
-  </a><a href="http://tooltwist.com/" target="_blank" style="width: 125px;">
-    <img src="/images/tooltwist.png" style="width: 125px;">
+  </a><a href="https://themeforest.net/item/clear-bootstrap-vuejs-admin-template/19339739?ref=jyostna&utm_source=vuejs&utm_campaign=vuejs_patreon&clickthrough_id=1113830525&redirect_back=true" target="_blank" style="width: 120px;">
+    <img src="/images/vuejsadmin.png" style="width: 120px;">
   </a>
 </p>
 
