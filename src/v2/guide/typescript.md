@@ -141,3 +141,39 @@ var vm = new Vue({
   myOption: 'Hello'
 })
 ```
+
+## Аннотации возвращаемых типов
+
+Из-за кольцевой природы файлов деклараций Vue, TypeScript может столкнуться с трудностями при определении типов определённых методов.
+По этой причине вам может потребоваться аннотировать возвращаемый тип для методов, таких как `render` и тех, что вынесены `computed`.
+
+```ts
+import Vue, { VNode } from 'vue'
+
+const Component = Vue.extend({
+  data() {
+    return {
+      msg: 'Hello'
+    }
+  },
+  methods: {
+    // необходима аннотация из-за `this` в возвращаемом типе
+    greet(): string {
+      return this.msg + ' world'
+    }
+  },
+  computed: {
+    // необходима аннотация
+    greeting(): string {
+      return this.greet() + '!'
+    }
+  },
+  // `createElement` выводится, но `render` нуждается в возвращаемом типе
+  render(createElement): VNode {
+    return createElement('div', this.greeting)
+  }
+})
+```
+
+Если вы обнаружите, что вывод типа или автодополнение не работают, аннотация некоторых методов может помочь решить эти проблемы.
+Использование опции `--noImplicitAny` поможет найти многие из этих методов без аннотаций.
