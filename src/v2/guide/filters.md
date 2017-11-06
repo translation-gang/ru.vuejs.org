@@ -14,20 +14,29 @@ order: 305
 <div v-bind:id="rawId | formatId"></div>
 ```
 
-Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра `capitalize` получит значение `message` в качестве аргумента.
+Вы можете определить локальные фильтры в опциях компонента:
 
 ``` js
-new Vue({
-  // ...
-  filters: {
-    capitalize: function (value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    }
+filters: {
+  capitalize: function (value) {
+    if (!value) return ''
+    value = value.toString()
+    return value.charAt(0).toUpperCase() + value.slice(1)
   }
+}
+```
+
+или определить фильтр глобально:
+
+``` js
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
 })
 ```
+
+Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра `capitalize` получит значение `message` в качестве аргумента.
 
 Фильтры можно объединять в цепочки:
 
