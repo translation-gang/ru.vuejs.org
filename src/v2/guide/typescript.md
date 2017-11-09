@@ -152,25 +152,25 @@ var vm = new Vue({
 import Vue, { VNode } from 'vue'
 
 const Component = Vue.extend({
-  data() {
+  data () {
     return {
       msg: 'Hello'
     }
   },
   methods: {
     // необходима аннотация из-за `this` в возвращаемом типе
-    greet(): string {
+    greet (): string {
       return this.msg + ' world'
     }
   },
   computed: {
     // необходима аннотация
-    greeting(): string {
+    greeting (): string {
       return this.greet() + '!'
     }
   },
   // `createElement` выводится, но `render` нуждается в возвращаемом типе
-  render(createElement): VNode {
+  render (createElement): VNode {
     return createElement('div', this.greeting)
   }
 })
