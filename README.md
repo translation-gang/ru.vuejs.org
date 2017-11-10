@@ -65,6 +65,12 @@ Spanish translation is maintained by VueJS-ES.
 
 * Translation Repo - [/vuejs-es/vuejs.org](https://github.com/vuejs-es/vuejs.org)
 
+### Persian (Farsi)
+
+Persian translation is maintained by VueJS-fa.
+
+* Translation Repo - [/vuejs-fa/fa.vuejs.org](https://github.com/vuejs-fa/fa.vuejs.org)
+* Primary maintainer - [Pooya Parsa](https://github.com/pi0)
 
 ### Want to help with the translation?
 
