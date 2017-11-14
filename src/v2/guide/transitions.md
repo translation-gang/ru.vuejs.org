@@ -193,7 +193,7 @@ CSS-анимации применяются таким же образом, ка
 <div id="example-2">
   <button @click="show = !show">Переключить отображение</button>
   <transition name="bounce">
-    <p v-if="show">Посмотри на меня!</p>
+    <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
   </transition>
 </div>
 ```
@@ -231,7 +231,7 @@ new Vue({
 <div id="example-2" class="demo">
   <button @click="show = !show">Переключить отображение</button>
   <transition name="bounce">
-    <p v-show="show">Посмотри на меня!</p>
+    <p v-show="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
   </transition>
 </div>
 
