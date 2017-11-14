@@ -1473,15 +1473,15 @@ computed: {
 
 ### Порядок секций в однофайловых компонентах <sup data-p="c">рекомендуется</sup>
 
-**[Однофайловые компоненты](../guide/single-file-components.html) должны всегда использовать один порядок для корневых тегов секций `<template>`, `<script>`, и `<style>`, заканчиваясь `<style>`, потому что всегда требуется хотя бы один из двух других.**
+**[Однофайловые компоненты](../guide/single-file-components.html) должны всегда использовать один порядок для корневых тегов секций `<script>`, `<template>`, и `<style>`, заканчиваясь `<style>`, потому что всегда требуется хотя бы одна из двух других.**
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 #### Плохо
 
 ``` html
 <style>/* ... */</style>
-<template>...</template>
 <script>/* ... */</script>
+<template>...</template>
 ```
 
 ``` html
@@ -1502,25 +1502,25 @@ computed: {
 
 ``` html
 <!-- ComponentA.vue -->
-<template>...</template>
 <script>/* ... */</script>
+<template>...</template>
 <style>/* ... */</style>
 
 <!-- ComponentB.vue -->
-<template>...</template>
 <script>/* ... */</script>
+<template>...</template>
 <style>/* ... */</style>
 ```
 
 ``` html
 <!-- ComponentA.vue -->
-<script>/* ... */</script>
 <template>...</template>
+<script>/* ... */</script>
 <style>/* ... */</style>
 
 <!-- ComponentB.vue -->
-<script>/* ... */</script>
 <template>...</template>
+<script>/* ... */</script>
 <style>/* ... */</style>
 ```
 {% raw %}</div>{% endraw %}
