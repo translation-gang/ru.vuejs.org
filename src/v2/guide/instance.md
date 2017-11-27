@@ -22,13 +22,13 @@ var vm = new Vue({
 
 ```
 Root Instance
-|- TodoList
-   |- TodoItem
-      |- DeleteTodoButton
-      |- EditTodoButton
-   |- TodoListFooter
-      |- ClearTodosButton
-      |- TodoListStatistics
+└─ TodoList
+   ├─ TodoItem
+   │  ├─ DeleteTodoButton
+   │  └─ EditTodoButton
+   └─ TodoListFooter
+      ├─ ClearTodosButton
+      └─ TodoListStatistics
 ```
 
 Мы поговорим о [системе компонентов](components.html) более подробно позднее. На данный момент запомните, что все компоненты Vue также являются экземплярами Vue и поэтому принимают тот же объект параметров (за исключением нескольких опций, специфичных для корневого).
