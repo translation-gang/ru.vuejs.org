@@ -36,6 +36,32 @@ Vue.filter('capitalize', function (value) {
 })
 ```
 
+Ниже приведён пример использования нашего фильтра `capitalize`:
+
+{% raw %}
+<div id="example_1" class="demo">
+  <input type="text" v-model="message">
+  <p>{{ message | capitalize }}</p>
+</div>
+<script>
+  new Vue({
+    el: '#example_1',
+    data: function () {
+      return {
+        message: 'john'
+      }
+    },
+    filters: {
+      capitalize: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      }
+    }
+  })
+</script>
+{% endraw %}
+
 Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра `capitalize` получит значение `message` в качестве аргумента.
 
 Фильтры можно объединять в цепочки:
