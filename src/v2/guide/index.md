@@ -69,7 +69,7 @@ var app = new Vue({
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'Вот когда вы загрузили эту страницу: ' + new Date().toLocaleString()
+    message: 'Вы загрузили эту страницу в: ' + new Date().toLocaleString()
   }
 })
 ```
@@ -83,7 +83,7 @@ var app2 = new Vue({
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'Вот когда вы загрузили эту страницу: ' + new Date().toLocaleString()
+    message: 'Вы загрузили эту страницу в: ' + new Date().toLocaleString()
   }
 })
 </script>
