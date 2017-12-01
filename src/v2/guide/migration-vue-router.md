@@ -279,7 +279,7 @@ if (route.meta.requiresAuth) {
 
 ### `v-link` <sup>заменено</sup>
 
-Директива `v-link` заменена на новый [компонент `<router-link>`](https://router.vuejs.org/ru/api/router-link.html), так как за данный тип работ, в Vue 2, теперь отвечают только компоненты. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
+Директива `v-link` заменена на новый [компонент `<router-link>`](https://router.vuejs.org/ru/api/router-link.html), так как за данный тип работ, во Vue 2, теперь отвечают только компоненты. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
 
 ``` html
 <a v-link="'/about'">About</a>

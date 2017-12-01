@@ -143,7 +143,7 @@ Vue.component('my-component', {
 <my-component v-bind:class="{ active: isActive }"></my-component>
 ```
 
-Если `isActive` истинно, результирующим HTML будет:
+Если `isActive` истинно, результирующий HTML будет:
 
 ``` html
 <p class="foo bar active">Hi</p>
@@ -153,7 +153,7 @@ Vue.component('my-component', {
 
 ### Использование объектов
 
-Объектная запись для `v-bind:style` довольно проста — выглядит почти как CSS, хотя на самом деле это объект JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case (не забывайте про кавычки при использовании kebab-case):
+Объектная запись для `v-bind:style` довольно проста — выглядит почти как CSS, хотя, на самом деле, это объект JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case (не забывайте про кавычки при использовании kebab-case):
 
 ``` html
 <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
