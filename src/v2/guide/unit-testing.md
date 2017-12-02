@@ -61,8 +61,8 @@ describe('MyComponent', () => {
 
   // Монтирование экземпляра и оценка вывода рендеринга
   it('renders the correct message', () => {
-    const Ctor = Vue.extend(MyComponent)
-    const vm = new Ctor().$mount()
+    const Constructor = Vue.extend(MyComponent)
+    const vm = new Constructor().$mount()
     expect(vm.$el.textContent).toBe('bye!')
   })
 })
@@ -93,8 +93,8 @@ import MyComponent from './MyComponent.vue'
 // вспомогательная функция, выполняющая монтирование и
 // возвращающая строку с результатами рендеринга
 function getRenderedText (Component, propsData) {
-  const Ctor = Vue.extend(Component)
-  const vm = new Ctor({ propsData: propsData }).$mount()
+  const Constructor = Vue.extend(Component)
+  const vm = new Constructor({ propsData: propsData }).$mount()
   return vm.$el.textContent
 }
 
