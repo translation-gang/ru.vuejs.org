@@ -2,7 +2,7 @@
 
 Этот репозиторий содержит [официальный перевод оригинальной документации vuejs.org на русский язык](https://ru.vuejs.org).
 
-Также переведена [документация Vue-router](https://router.vuejs.org/ru/) и [Vuex](https://vuex.vuejs.org/ru/).
+Также переведены документации по [Vue-router](https://router.vuejs.org/ru/), [Vuex](https://vuex.vuejs.org/ru/), [Vue-loader](https://vue-loader.vuejs.org/ru/), [Vue-server-renderer](https://ssr.vuejs.org/ru/) и [Vue-test-utils](https://vue-test-utils.vuejs.org/ru/).
 
 This is an official Russian translation branch of original vuejs.org repository.
 
