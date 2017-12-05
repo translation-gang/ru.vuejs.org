@@ -8,7 +8,7 @@ order: 404
 
 ## Официальные файлы деклараций в NPM-пакетах
 
-Статическая типизация может предотвратить много потенциальных ошибок времени выполнения, особенно при разрастании приложений. По этой причине Vue поставляется с [официальными файлами деклараций](https://github.com/vuejs/vue/tree/dev/types) [TypeScript](https://www.typescriptlang.org/) причём не только для ядра Vue, но также для [Vue Router](https://github.com/vuejs/vue-router/tree/dev/types) и [Vuex](https://github.com/vuejs/vuex/tree/dev/types).
+Статическая типизация может предотвратить много потенциальных ошибок времени выполнения, особенно при разрастании приложений. По этой причине Vue поставляется с [официальными файлами деклараций](https://github.com/vuejs/vue/tree/dev/types) [TypeScript](https://www.typescriptlang.org/), причём не только для ядра Vue, но также для [Vue Router](https://github.com/vuejs/vue-router/tree/dev/types) и [Vuex](https://github.com/vuejs/vuex/tree/dev/types).
 
 Так как всё это уже [опубликовано на NPM](https://cdn.jsdelivr.net/npm/vue/types/), то вам даже не понадобится использовать внешние инструменты, такие как `Typings`, потому что декларации типов автоматически импортируются вместе с Vue.
 

@@ -6,7 +6,7 @@ order: 403
 
 ## Выбор инструментов и предварительная настройка
 
-В целом, сгодится любой инструментарий, совместимый с модульными системами сборки, но если вы ищете готовый рецепт, советуем вам использовать тестраннер [Karma](http://karma-runner.github.io). Для него создано много плагинов, включая обеспечивающие поддержку [Webpack](https://github.com/webpack/karma-webpack) и [Browserify](https://github.com/Nikku/karma-browserify). Для детального руководства, пожалуйста обратитесь к документации соответствующего проекта, а вот эти примеры конфигурации Karma для [Webpack](https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js) и [Browserify](https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js) могут помочь вам начать.
+В целом, сгодится любой инструментарий, совместимый с модульными системами сборки, но если вы ищете готовый рецепт, советуем вам использовать тест-раннер [Karma](http://karma-runner.github.io). Для него создано много плагинов, включая обеспечивающие поддержку [Webpack](https://github.com/webpack/karma-webpack) и [Browserify](https://github.com/Nikku/karma-browserify). Для детального руководства, пожалуйста обратитесь к документации соответствующего проекта, а вот эти примеры конфигурации Karma для [Webpack](https://github.com/vuejs-templates/webpack/blob/master/template/test/unit/karma.conf.js) и [Browserify](https://github.com/vuejs-templates/browserify/blob/master/template/karma.conf.js) могут помочь вам начать.
 
 ## Простые операторы контроля
 
@@ -31,7 +31,7 @@ order: 403
 </script>
 ```
 
-Для тестирования компонента нужно просто импортировать его вместе со Vue, и использовать обыкновенные операторы контроля:
+Для тестирования компонента нужно просто импортировать его вместе с Vue, и использовать обыкновенные операторы контроля:
 
 ``` js
 // Импортируем Vue и тестируемый компонент
