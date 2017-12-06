@@ -4,7 +4,7 @@ type: guide
 order: 702
 ---
 
-> Только Vue Router 2 совместим с Vue 2, поэтому, если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации [Vue Router](https://router.vuejs.org/ru/).
+> Только Vue Router 2 совместим с Vue 2, поэтому если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации [Vue Router](https://router.vuejs.org/ru/).
 
 ## Инициализация роутера
 
@@ -331,7 +331,7 @@ if (route.meta.requiresAuth) {
 
 ### `router.go` <sup>изменено</sup>
 
-Для соответствия [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), `router.go` теперь используется только для [навигации вперед/назад](https://router.vuejs.org/ru/essentials/navigation.html#routergon), в то время как [`router.push`](https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation) используется для перехода на конкретную страницу.
+Для соответствия [HTML5 History API](https://developer.mozilla.org/ru/docs/Web/API/History_API), `router.go` теперь используется только для [навигации вперед/назад](https://router.vuejs.org/ru/essentials/navigation.html#routergon), в то время как [`router.push`](https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation) используется для перехода на конкретную страницу.
 
 {% raw %}
 <div class="upgrade-path">
@@ -430,7 +430,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `root` <sup>переименовано</sup>
 
-Переименовано в `base` для соответствия [HTML-эелементу `<base>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base).
+Переименовано в `base` для соответствия [HTML-эелементу `<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base).
 
 {% raw %}
 <div class="upgrade-path">
