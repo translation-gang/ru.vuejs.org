@@ -308,17 +308,19 @@ new Vue({
 <input
   type="checkbox"
   v-model="toggle"
-  v-bind:true-value="a"
-  v-bind:false-value="b"
+  true-value="yes"
+  false-value="no"
 >
 ```
 
 ``` js
-// если отмечено:
-vm.toggle === vm.a
-// если отметка снята:
-vm.toggle === vm.b
+// если чекбокс выбран:
+vm.toggle === 'yes'
+// если чекбокс сброшен:
+vm.toggle === 'no'
 ```
+
+<p class="tip">Атрибуты `true-value` и `false-value` не влияют на атрибут `value` тега input, потому что браузеры пропускают невыбранные чекбоксы при отправке форм. Чтобы гарантировать, что одно из двух значений будет отправлено с формой (например, "yes" или "no") используйте радиокнопки.</p>
 
 ### Радиокнопки
 
