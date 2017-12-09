@@ -205,7 +205,7 @@ rollup({
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-Также смотрите [советы по развёртыванию](deployment.html).
+Также смотрите [советы по развёртыванию на production](deployment.html).
 
 ### CSP-окружения
 
