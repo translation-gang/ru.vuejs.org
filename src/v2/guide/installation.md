@@ -2,8 +2,8 @@
 title: Установка
 type: guide
 order: 1
-vue_version: 2.5.10
-gz_size: "30.91"
+vue_version: 2.5.11
+gz_size: "30.59"
 ---
 
 ### Предупреждение о совместимости
