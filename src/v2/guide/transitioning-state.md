@@ -278,7 +278,7 @@ new Vue({
     max="90"
     v-model.number="minRadius"
   >
-  <label>Интервал обновления: {{ updateInterval }} milliseconds</label>
+  <label>Интервал обновления: {{ updateInterval }} миллисекунд</label>
   <input
     class="demo-range-input"
     type="range"
