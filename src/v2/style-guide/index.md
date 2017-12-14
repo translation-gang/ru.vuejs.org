@@ -303,6 +303,165 @@ data: function () {
 
 
 
+### Избегайте использования `v-if` с `v-for` <sup data-p="a">важно</sup>
+
+**Никогда не используйте `v-if` на том же элементе, что и `v-for`.**
+
+Есть два распространённых случая, когда это может быть заманчиво:
+
+- Чтобы фильтровать элементы списка (например, `v-for="user in users" v-if="user.isActive"`). В этих случаях замените `users` новым вычисляемым свойством, которое возвращает ваш отфильтрованный список (например, `activeUsers`).
+
+- Чтобы избежать отображения списка, если он должен быть скрыт (например, `v-for="user in users" v-if="shouldShowUsers"`). В этих случаях переместите `v-if` выше, в элемент контейнера (например, `ul`, `ol`).
+
+{% raw %}
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+{% endraw %}
+
+Когда Vue обрабатывает директивы, `v-for` имеет более высокий приоритет, чем `v-if`, поэтому такой шаблон:
+
+``` html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="user.isActive"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+
+Будет аналогичен подобному:
+
+``` js
+this.users.map(function (user) {
+  if (user.isActive) {
+    return user.name
+  }
+})
+```
+
+Таким образом, даже если мы показываем элементы только для небольшой части пользователей, мы должны перебирать весь список при каждом повторном рендеринге, независимо от того, изменился ли набор активных пользователей.
+
+Заменив это отображением вычисляемого свойства, подобным такому:
+
+``` js
+computed: {
+  activeUsers: function () {
+    return this.users.filter(function (user) {
+      return user.isActive
+    })
+  }
+}
+```
+
+``` html
+<ul>
+  <li
+    v-for="user in activeUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+
+Мы получаем следующие преимущества:
+
+- Отфильтрованный список будет вычисляться повторно _только_ при изменениях в массиве `users`, что делает фильтрацию более эффективной.
+- Используя `v-for="user in activeUsers"`, на этапе рендеринга мы итерируем  _только_ активных пользователей, что сделает рендеринг намного более эффективным.
+- Логика теперь отделена от уровня представления, что значительно упростит дальнейшую поддержку кода (изменение/расширение логики).
+
+Мы получаем такие же преимущества обновив подобное:
+
+``` html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="shouldShowUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+
+до такого:
+
+``` html
+<ul v-if="shouldShowUsers">
+  <li
+    v-for="user in users"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+
+Перемещая `v-if` в элемент контейнера, мы больше не проверяем `shouldShowUsers` для _каждого_ пользователя в списке. Вместо этого мы проверяем его один раз и даже не выполняем `v-for` если значение `shouldShowUsers` будет false.
+
+{% raw %}</details>{% endraw %}
+
+{% raw %}<div class="style-example example-bad">{% endraw %}
+#### Плохо
+
+``` html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="user.isActive"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+
+``` html
+<ul>
+  <li
+    v-for="user in users"
+    v-if="shouldShowUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+{% raw %}</div>{% endraw %}
+
+{% raw %}<div class="style-example example-good">{% endraw %}
+#### Хорошо
+
+``` html
+<ul>
+  <li
+    v-for="user in activeUsers"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+
+``` html
+<ul v-if="shouldShowUsers">
+  <li
+    v-for="user in users"
+    :key="user.id"
+  >
+    {{ user.name }}
+  <li>
+</ul>
+```
+{% raw %}</div>{% endraw %}
+
+
+
 ### Локальные стили компонента <sup data-p="a">важно</sup>
 
 **Для приложений стили в корневом компоненте `App` и в компонентах шаблона могут быть глобальными, но во всех остальных компонентах должны быть локальными.**
