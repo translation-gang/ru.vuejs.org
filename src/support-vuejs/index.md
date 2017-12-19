@@ -34,9 +34,7 @@ Vue.js является программным продуктом с откры�
 ### Patreon Gold
 
 <p style="text-align: center; margin-top: 0; margin-bottom: 60px" class="sponsors-page">
-  <a href="https://deepstreamhub.com" target="_blank" style="width: 140px; top: 1px;">
-    <img src="/images/deepstream.png" style="width: 140px;">
-  </a><a href="https://jsfiddle.net">
+  <a href="https://jsfiddle.net">
     <img src="/images/jsfiddle.png">
   </a><a href="https://laravel.com">
     <img src="/images/laravel.png">
@@ -66,6 +64,8 @@ Vue.js является программным продуктом с откры�
     <img src="/images/onsen-ui.png" style="width: 125px;">
   </a><a href="https://themeforest.net/item/clear-bootstrap-vuejs-admin-template/19339739?ref=jyostna&utm_source=vuejs.org&utm_campaign=vuejs_patreon" target="_blank" style="width: 120px;">
     <img src="/images/vuejsadmin.png" style="width: 120px;">
+  </a><a href="https://vuetifyjs.com" target="_blank">
+    <img src="/images/vuetify.png">
   </a>
 </p>
 
