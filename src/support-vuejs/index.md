@@ -54,16 +54,12 @@ Vue.js является программным продуктом с откры�
     <img src="/images/tmvuejs2.png">
   </a><a href="https://anymod.com" target="_blank" style="width: 140px;">
     <img src="/images/anymod.png" style="width: 140px;">
-  </a><a href="https://www.v2ex.com/t/379389" target="_blank" style="width: 120px;">
-    <img src="/images/v2exer.png" style="width: 120px;">
   </a><a href="https://www.xfive.co/" target="_blank" style="width: 80px;">
     <img src="/images/xfive.png" style="width: 80px;">
   </a><a href="https://www.frontenddeveloperlove.com/" target="_blank" style="width: 150px;">
     <img src="/images/frontend-love.png" style="width: 150px;">
   </a><a href="https://onsen.io/vue/" target="_blank" style="width: 125px;">
     <img src="/images/onsen-ui.png" style="width: 125px;">
-  </a><a href="https://themeforest.net/item/clear-bootstrap-vuejs-admin-template/19339739?ref=jyostna&utm_source=vuejs.org&utm_campaign=vuejs_patreon" target="_blank" style="width: 120px;">
-    <img src="/images/vuejsadmin.png" style="width: 120px;">
   </a><a href="https://vuetifyjs.com" target="_blank">
     <img src="/images/vuetify.png">
   </a>
