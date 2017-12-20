@@ -177,7 +177,7 @@ type: api
 
 ## Глобальный API
 
-<h3 id="Vue-extend">Vue.extend( options )</h3>
+### Vue.extend( options )
 
 - **Аргументы:**
   - `{Object} options`
@@ -216,7 +216,7 @@ type: api
 
 - **См. также:** [Компоненты](../guide/components.html)
 
-<h3 id="Vue-nextTick">Vue.nextTick( [callback, context] )</h3>
+### Vue.nextTick( [callback, context] )
 
 - **Аргументы:**
   - `{Function} [callback]`
@@ -245,7 +245,7 @@ type: api
 
 - **См. также:** [Асинхронная очередь обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
 
-<h3 id="Vue-set">Vue.set( target, key, value )</h3>
+### Vue.set( target, key, value )
 
 - **Аргументы:**
   - `{Object | Array} target`
@@ -262,7 +262,7 @@ type: api
 
 - **См. также:** [Подробно о реактивности](../guide/reactivity.html)
 
-<h3 id="Vue-delete">Vue.delete( target, key )</h3>
+### Vue.delete( target, key )
 
 - **Аргументы:**
   - `{Object| Array} target`
@@ -278,7 +278,7 @@ type: api
 
 - **См. также:** [Подробно о реактивности](../guide/reactivity.html)
 
-<h3 id="Vue-directive">Vue.directive( id, [definition] )</h3>
+### Vue.directive( id, [definition] )
 
 - **Аргументы:**
   - `{string} id`
@@ -309,7 +309,7 @@ type: api
 
 - **См. также:** [Пользовательские директивы](../guide/custom-directive.html)
 
-<h3 id="Vue-filter">Vue.filter( id, [definition] )</h3>
+### Vue.filter( id, [definition] )
 
 - **Аргументы:**
   - `{string} id`
@@ -329,7 +329,7 @@ type: api
   var myFilter = Vue.filter('my-filter')
   ```
 
-<h3 id="Vue-component">Vue.component( id, [definition] )</h3>
+### Vue.component( id, [definition] )
 
 - **Аргументы:**
   - `{string} id`
@@ -352,7 +352,7 @@ type: api
 
 - **См. также:** [Компоненты](../guide/components.html)
 
-<h3 id="Vue-use">Vue.use( plugin )</h3>
+### Vue.use( plugin )
 
 - **Аргументы:**
   - `{Object | Function} plugin`
@@ -365,7 +365,7 @@ type: api
 
 - **См. также:** [Плагины](../guide/plugins.html)
 
-<h3 id="Vue-mixin">Vue.mixin( mixin )</h3>
+### Vue.mixin( mixin )
 
 - **Аргументы:**
   - `{Object} mixin`
@@ -376,7 +376,7 @@ type: api
 
 - **См. также:** [Глобальные примеси](../guide/mixins.html#Глобальные-примеси)
 
-<h3 id="Vue-compile">Vue.compile( template )</h3>
+### Vue.compile( template )
 
 - **Аргументы:**
   - `{string} template`
@@ -399,7 +399,7 @@ type: api
 
 - **См. также:** [Render-функции и JSX](../guide/render-function.html)
 
-<h3 id="Vue-version">Vue.version</h3>
+### Vue.version
 
 - **Подробности:** Возвращает версию используемого Vue в виде строки. Это может быть полезно при разработке плагинов и компонентов, где вы могли бы использовать различные стратегии для работы с разными версиями.
 
@@ -1422,7 +1422,7 @@ type: api
 
 ## Методы экземпляра — данные
 
-<h3 id="vm-watch">vm.$watch( expOrFn, callback, [options] )</h3>
+### vm.$watch( expOrFn, callback, [options] )
 
 - **Аргументы:**
   - `{string | Function} expOrFn`
@@ -1489,7 +1489,7 @@ type: api
   // `callback` вызывается сразу, с текущим значением `a`
   ```
 
-<h3 id="vm-set">vm.$set( target, key, value )</h3>
+### vm.$set( target, key, value )
 
 - **Аргументы:**
   - `{Object | Array} target`
@@ -1504,7 +1504,7 @@ type: api
 
 - **См. также:** [Vue.set](#Vue-set)
 
-<h3 id="vm-delete">vm.$delete( target, key )</h3>
+### vm.$delete( target, key )
 
 - **Аргументы:**
   - `{Object | Array} target`
@@ -1518,7 +1518,7 @@ type: api
 
 ## Методы экземпляра — события
 
-<h3 id="vm-on">vm.$on( event, callback )</h3>
+### vm.$on( event, callback )
 
 - **Аргументы:**
   - `{string | Array<string>} event` (массив поддерживается только в версиях 2.2.0+)
@@ -1538,7 +1538,7 @@ type: api
   // => "привет"
   ```
 
-<h3 id="vm-once">vm.$once( event, callback )</h3>
+### vm.$once( event, callback )
 
 - **Аргументы:**
   - `{string} event`
@@ -1548,7 +1548,7 @@ type: api
 
   Создаёт подписку на пользовательское событие, но срабатывает только один раз. После первого же использования подписчик будет удалён.
 
-<h3 id="vm-off">vm.$off( [event, callback] )</h3>
+### vm.$off( [event, callback] )
 
 - **Аргументы:**
   - `{string | Array<string>} event` (массив поддерживается только в 2.2.2+)
@@ -1564,7 +1564,7 @@ type: api
 
   - Если указан и тип события, и коллбэк — будет удалена именно эта подписка именно этого события.
 
-<h3 id="vm-emit">vm.$emit( event, [...args] )</h3>
+### vm.$emit( event, [...args] )
 
 - **Аргументы:**
   - `{string} event`
@@ -1574,7 +1574,7 @@ type: api
 
 ## Методы экземпляра — жизненный цикл
 
-<h3 id="vm-mount">vm.$mount( [elementOrSelector] )</h3>
+### vm.$mount( [elementOrSelector] )
 
 - **Аргументы:**
   - `{Element | string} [elementOrSelector]`
@@ -1612,13 +1612,13 @@ type: api
   - [Диаграмма жизненного цикла](../guide/instance.html#Диаграмма-жизненного-цикла)
   - [SSR. Рендеринг на стороне сервера](../guide/ssr.html)
 
-<h3 id="vm-forceUpdate">vm.$forceUpdate()</h3>
+### vm.$forceUpdate()
 
 - **Использование:**
 
   Заставляет экземпляр Vue произвести перерендеринг. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам экземпляр и дочерние компоненты с контентными слотами.
 
-<h3 id="vm-nextTick">vm.$nextTick( [callback] )</h3>
+### vm.$nextTick( [callback] )
 
 - **Аргументы:**
   - `{Function} [callback]`
@@ -1654,7 +1654,7 @@ type: api
   - [Vue.nextTick](#Vue-nextTick)
   - [Асинхронная очередь обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
 
-<h3 id="vm-destroy">vm.$destroy()</h3>
+### vm.$destroy()
 
 - **Использование:**
 
