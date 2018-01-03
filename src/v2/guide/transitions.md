@@ -48,10 +48,10 @@ new Vue({
 
 ``` css
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
-  opacity: 0
+  opacity: 0;
 }
 ```
 
@@ -74,10 +74,10 @@ new Vue({
 </script>
 <style>
 .demo-transition-enter-active, .demo-transition-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s;
 }
 .demo-transition-enter, .demo-transition-leave-to {
-  opacity: 0
+  opacity: 0;
 }
 </style>
 {% endraw %}
@@ -816,10 +816,10 @@ new Vue({
 </script>
 <style>
 .with-mode-fade-enter-active, .with-mode-fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .5s;
 }
 .with-mode-fade-enter, .with-mode-fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 </style>
 {% endraw %}
