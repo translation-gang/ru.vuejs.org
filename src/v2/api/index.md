@@ -594,7 +594,7 @@ type: api
 
 ### watch
 
-- **Тип:** `{ [key: string]: string | Function | Object }`
+- **Тип:** `{ [key: string]: string | Function | Object | Array }`
 
 - **Подробности:**
 
@@ -608,7 +608,12 @@ type: api
       a: 1,
       b: 2,
       c: 3,
-      d: 4
+      d: 4,
+      e: {
+        f: {
+          g: 5
+        }
+      }
     },
     watch: {
       a: function (val, oldVal) {
@@ -625,7 +630,13 @@ type: api
       d: {
         handler: function (val, oldVal) { /* ... */ },
         immediate: true
-      }
+      },
+      e: [
+        function handle1 (val, oldVal) { /* ... */ },
+        function handle2 (val, oldVal) { /* ... */ }
+      ],
+      // отслеживание значения `vm.e.f`: {g: 5}
+      'e.f': function (val, oldVal) { /* ... */ }
     }
   })
   vm.a = 2 // => новое значение: 2, старое значение: 1
