@@ -53,7 +53,7 @@ module.exports = {
   var envify = require('envify/custom')
 
   browserify(browserifyOptions)
-    .transform(vueify),
+    .transform(vueify)
     .transform(
       // Порядок необходим для обработки файлов node_modules
       { global: true },
