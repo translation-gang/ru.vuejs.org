@@ -1,0 +1,119 @@
+<h1>Поддержите разработку Vue.js</h1>
+
+<p>
+Vue.js является программным продуктом с открытым исходным кодом, распространяемым по лицензии MIT полностью бесплатно.
+Однако, стабильная поддержка проекта и разработка новых возможностей требует усилий, невозможных без должной финансовой поддержки. Вы можете поддержать разработку Vue.js следующими способами:
+</p>
+
+<h2 id="One-time-Donations">Единоразовые пожертвования</h2>
+
+<p>Мы принимаем пожертвования следующими способами:</p>
+
+<div id="one-time-donations">
+  <a href="https://www.paypal.me/evanyou" target="_blank">
+    <img src="/images/paypal.png" style="width:100px">
+  </a>
+  <a href="#btc"><%- partial('icons/btc') %> BTC</a>
+  <a href="#bch"><%- partial('icons/bch') %> BCH</a>
+  <a href="#eth"><%- partial('icons/eth') %> ETH</a>
+  <a href="#ltc"><%- partial('icons/ltc') %> LTC</a>
+</div>
+
+<div id="coin-details" v-if="type && coins[type]">
+  <p>{{ coins[type].name }} Адрес:<br>{{ coins[type].address }}</p>
+  <img :src="'/images/coin-' + type + '.png'">
+</div>
+<script>
+var coins = new Vue({
+  el: '#coin-details',
+  data: {
+    type: window.location.hash.slice(1),
+    coins: {
+      btc: {
+        name: 'Bitcoin',
+        address: '14MEpy5a9MwDZa9CUzrfDhTU8dy2KKJ5mU'
+      },
+      bch: {
+        name: 'Bitcoin Cash',
+        address: '15gftB3fwumFRWGWFhVzTgc4nhM5w1F2Tu'
+      },
+      eth: {
+        name: 'Ethereum',
+        address: '0x3411356C1f0Bf5D859464eD2AC54DD2C222519B7'
+      },
+      ltc: {
+        name: 'Litecoin',
+        address: 'LUcHis3B8SFtEeZtuCaZoqsyN9XFAKmbCP'
+      }
+    }
+  }
+})
+window.addEventListener('hashchange', function () {
+  coins.type = window.location.hash.slice(1)
+})
+</script>
+
+<h2 id="Recurring-Pledges">Повторяющиеся взносы</h2>
+
+<p>
+Повторяющиеся взносы предоставляют эксклюзивные привилегии, например указание вашего имени в GitHub репозитории Vue, или размещение логотипа вашей компании на этом веб-сайте.
+</p>
+
+<ul>
+  <li>
+    <a href="https://www.patreon.com/evanyou" target="_blank">Стать сторонником или спонсором на Patreon</a> (идёт непосредственно на поддержку Evan You и его работу полный рабочий день на Vue)
+  </li>
+  <li>
+    <a href="https://opencollective.com/vuejs">Стать сторонником или спонсором на OpenCollective</a> (идёт в фонд с прозрачными схемами расходов, направленных на поддержку усилий сообщества и мероприятий)
+  </li>
+</ul>
+
+<h2>Текущие премиальные спонсоры:</h2>
+
+<h3>Platinum</h3>
+
+<p class="platinum">
+<%_ for (const sponsor of theme.platinum_sponsors) {_%>
+  <a href="<%- sponsor.url %>" target="_blank">
+    <img src="<%- url_for(`/images/${sponsor.img}`) %>">
+  </a>
+<%_ } _%>
+</p>
+
+<h3>OpenCollective Platinum</h3>
+
+<p class="open-collective-sponsors sponsor-section">
+<%_ for (let i = 0; i < 3; i++) {_%>
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/<%- i %>/website" target="_blank">
+    <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/<%- i %>/avatar.svg">
+  </a>
+<%_ } _%>
+</p>
+
+<h3>Patreon Gold</h3>
+
+<p class="patreon-sponsors sponsor-section">
+<%_ for (const sponsor of theme.gold_sponsors) {_%>
+  <a href="<%- sponsor.url %>" target="_blank">
+    <img src="<%- url_for(`/images/${sponsor.img}`) %>">
+  </a>
+<%_ } _%>
+</p>
+
+<h3>OpenCollective Gold</h3>
+
+<p class="open-collective-sponsors sponsor-section">
+<%_ for (let i = 0; i < 10; i++) {_%>
+  <a href="https://opencollective.com/vuejs/tiers/gold-sponsors/<%- i %>/website" target="_blank">
+    <img src="https://opencollective.com/vuejs/tiers/gold-sponsors/<%- i %>/avatar.svg">
+  </a>
+<%_ } _%>
+</p>
+
+<p>
+Если вы являетесь владельцем бизнеса и используете Vue в своем продукте, приносящем доход, то спонсирование разработки Vue имеет смысл с точки зрения пользы для бизнеса: <b>это гарантирует, что проект, на который полагается ваш продукт остаётся здоровым и активно поддерживаемым.</b> Это также повышает вашу видимость в сообществе Vue и облегчает привлечение Vue-разработчиков.
+</p>
+
+<p>
+Если вы — индивидуальный разработчик и используете Vue эффективно и с удовольствием, взгляните на пожертвование как на выражение признательности — как если бы вы угощали меня кофе время от времени :)
+</p>
