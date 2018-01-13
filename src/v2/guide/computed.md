@@ -213,7 +213,7 @@ var watchExampleVM = new Vue({
   },
   watch: {
     // эта функция запускается при любом изменении вопроса
-    question: function (newQuestion) {
+    question: function (newQuestion, oldQuestion) {
       this.answer = 'Ожидаю, когда вы закончите печатать...'
       this.getAnswer()
     }
@@ -269,7 +269,7 @@ var watchExampleVM = new Vue({
     answer: 'Пока вы не зададите вопрос, я не могу ответить!'
   },
   watch: {
-    question: function (newQuestion) {
+    question: function (newQuestion, oldQuestion) {
       this.answer = 'Ожидаю, когда вы закончите печатать...'
       this.getAnswer()
     }
