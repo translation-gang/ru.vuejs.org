@@ -62,6 +62,29 @@ module.exports = {
     .bundle()
   ```
 
+- Или используя [envify](https://github.com/hughsk/envify) вместе с Grunt и [grunt-browserify](https://github.com/jmreidy/grunt-browserify):
+
+  ``` js
+  // Используйте пользовательский модуль envify для указания переменных окружения
+  var envify = require('envify/custom')
+
+  browserify: {
+    dist: {
+      options: {
+        // Функция для изменения порядка по умолчанию у grunt-browserify
+        configure: b => b
+          .transform('vueify')
+          .transform(
+            // Порядок необходим для обработки файлов node_modules
+            { global: true },
+            envify({ NODE_ENV: 'production' })
+          )
+          .bundle()
+      }
+    }
+  }
+  ```
+
 #### Rollup
 
 Используйте [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
