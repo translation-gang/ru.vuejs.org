@@ -322,13 +322,13 @@ Vue.set(vm.userProfile, 'age', 27)
 Вы также можете использовать метод экземпляра `vm.$set`, который является псевдонимом для глобального `Vue.set`:
 
 ``` js
-vm.$set(this.userProfile, 'age', 27)
+vm.$set(vm.userProfile, 'age', 27)
 ```
 
 Иногда вам может потребоваться добавить ряд новых свойств существующему объекту, например, используя `Object.assign()` или `_.extend()`. В таких случаях, вы должны создать новый объект со свойствами обоих объектов. Поэтому вместо:
 
 ``` js
-Object.assign(this.userProfile, {
+Object.assign(vm.userProfile, {
   age: 27,
   favoriteColor: 'Vue Green'
 })
@@ -337,7 +337,7 @@ Object.assign(this.userProfile, {
 Вы должны добавлять новые, реактивные свойства таким образом:
 
 ``` js
-this.userProfile = Object.assign({}, this.userProfile, {
+vm.userProfile = Object.assign({}, vm.userProfile, {
   age: 27,
   favoriteColor: 'Vue Green'
 })
