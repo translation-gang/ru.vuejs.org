@@ -329,6 +329,8 @@ type: api
   var myFilter = Vue.filter('my-filter')
   ```
 
+  **См. также:** [Фильтры](../guide/filters.html)
+
 ### Vue.component( id, [definition] )
 
 - **Аргументы:**
