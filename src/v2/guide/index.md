@@ -186,7 +186,7 @@ var app4 = new Vue({
 ``` html
 <div id="app-5">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Поменять местами буквы в сообщении</button>
+  <button v-on:click="reverseMessage">Перевернуть сообщение</button>
 </div>
 ```
 ``` js
@@ -205,7 +205,7 @@ var app5 = new Vue({
 {% raw %}
 <div id="app-5" class="demo">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Поменять местами буквы в сообщении</button>
+  <button v-on:click="reverseMessage">Перевернуть сообщение</button>
 </div>
 <script>
 var app5 = new Vue({
