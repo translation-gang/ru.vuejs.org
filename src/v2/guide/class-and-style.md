@@ -10,7 +10,7 @@ order: 6
 
 ### Использование объектов
 
-Для динамического задания или удаления CSS классов мы можем передать в директиву `v-bind:class` объект:
+Для динамического задания или удаления CSS-классов мы можем передать в директиву `v-bind:class` объект:
 
 ``` html
 <div v-bind:class="{ active: isActive }"></div>
@@ -121,7 +121,7 @@ data: {
 
 ``` js
 Vue.component('my-component', {
-  template: '<p class="foo bar">Hi</p>'
+  template: '<p class="foo bar">Привет</p>'
 })
 ```
 
@@ -134,7 +134,7 @@ Vue.component('my-component', {
 В результате рендеринга получим:
 
 ``` html
-<p class="foo bar baz boo">Hi</p>
+<p class="foo bar baz boo">Привет</p>
 ```
 
 То же самое справедливо для связывания классов с данными:
@@ -146,7 +146,7 @@ Vue.component('my-component', {
 Если `isActive` истинно, результирующий HTML будет:
 
 ``` html
-<p class="foo bar active">Hi</p>
+<p class="foo bar active">Привет</p>
 ```
 
 ## Связывание inline-стилей
