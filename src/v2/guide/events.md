@@ -208,7 +208,7 @@ methods: {
 
 > Добавлено в версии 2.3.0+
 
-Vue также предоставляет модификатор `.passive`, соответствующий опции [`passive` в `addEventListener`](https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener#Syntax)
+Vue также предоставляет модификатор `.passive`, соответствующий опции [`passive` в `addEventListener`](https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener#Syntax).
 
 ``` html
 <!-- по умолчанию произойдёт событие scroll (при прокрутке)   -->
@@ -305,13 +305,13 @@ Vue.config.keyCodes.f1 = 112
 Модификатор `.exact` позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события.
 
 ``` html
-<!-- это сработает даже если Alt или Shift также нажаты -->
+<!-- это сработает, даже если Alt или Shift также нажаты -->
 <button @click.ctrl="onClick">A</button>
 
-<!-- это сработает только когда нажат Ctrl и не нажаты никакие другие клавиши -->
+<!-- это сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши -->
 <button @click.ctrl.exact="onCtrlClick">A</button>
 
-<!-- это сработает только когда не нажаты никакие системные модификаторы -->
+<!-- это сработает, только когда не нажаты никакие системные модификаторы -->
 <button @click.exact="onClick">A</button>
 ```
 
