@@ -14,7 +14,7 @@ order: 802
 
 - [Форум](https://forum.vuejs.org/): Лучшее место для вопросов и ответов по Vue и его экосистеме.
 - [Чат](https://chat.vuejs.org/): Место встреч и общения Vue разработчиков и чат в реальном времени.
-- [Github](https://github.com/vuejs): GitHub issues — самое место для багрепортов, feature request'ов, и конечно же pull request'ов!
+- [GitHub](https://github.com/vuejs): GitHub issues — самое место для багрепортов, feature request'ов, и конечно же pull request'ов!
 
 ### Изучение экосистемы
 
