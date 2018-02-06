@@ -90,12 +90,12 @@ new Vue({
 
 ``` html
 <div id="example-3" class="demo">
-  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-  <label for="jack">Jack</label>
-  <input type="checkbox" id="john" value="John" v-model="checkedNames">
-  <label for="john">John</label>
-  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-  <label for="mike">Mike</label>
+  <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+  <label for="jack">Джек</label>
+  <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+  <label for="john">Джон</label>
+  <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
+  <label for="mike">Майк</label>
   <br>
   <span>Отмеченные имена: {{ checkedNames }}</span>
 </div>
@@ -112,12 +112,12 @@ new Vue({
 
 {% raw %}
 <div id="example-3" class="demo">
-  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-  <label for="jack">Jack</label>
-  <input type="checkbox" id="john" value="John" v-model="checkedNames">
-  <label for="john">John</label>
-  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-  <label for="mike">Mike</label>
+  <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+  <label for="jack">Джек</label>
+  <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+  <label for="john">Джон</label>
+  <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
+  <label for="mike">Майк</label>
   <br>
   <span>Отмеченные имена: {{ checkedNames }}</span>
 </div>
@@ -134,21 +134,21 @@ new Vue({
 ### Радиокнопки
 
 ``` html
-<input type="radio" id="one" value="One" v-model="picked">
-<label for="one">One</label>
+<input type="radio" id="one" value="Один" v-model="picked">
+<label for="one">Один</label>
 <br>
-<input type="radio" id="two" value="Two" v-model="picked">
-<label for="two">Two</label>
+<input type="radio" id="two" value="Два" v-model="picked">
+<label for="two">Два</label>
 <br>
 <span>Выбрано: {{ picked }}</span>
 ```
 {% raw %}
 <div id="example-4" class="demo">
-  <input type="radio" id="one" value="One" v-model="picked">
-  <label for="one">One</label>
+  <input type="radio" id="one" value="Один" v-model="picked">
+  <label for="one">Один</label>
   <br>
-  <input type="radio" id="two" value="Two" v-model="picked">
-  <label for="two">Two</label>
+  <input type="radio" id="two" value="Два" v-model="picked">
+  <label for="two">Два</label>
   <br>
   <span>Выбрано: {{ picked }}</span>
 </div>
@@ -169,9 +169,9 @@ new Vue({
 ``` html
 <select v-model="selected">
   <option disabled value="">Выберите один из вариантов</option>
-  <option>A</option>
-  <option>B</option>
-  <option>C</option>
+  <option>А</option>
+  <option>Б</option>
+  <option>В</option>
 </select>
 <span>Выбрано: {{ selected }}</span>
 ```
@@ -187,9 +187,9 @@ new Vue({
 <div id="example-5" class="demo">
   <select v-model="selected">
     <option disabled value="">Выберите один из вариантов</option>
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
+    <option>А</option>
+    <option>Б</option>
+    <option>В</option>
   </select>
   <span>Выбрано: {{ selected }}</span>
 </div>
@@ -209,9 +209,9 @@ new Vue({
 
 ``` html
 <select v-model="selected" multiple>
-  <option>A</option>
-  <option>B</option>
-  <option>C</option>
+  <option>А</option>
+  <option>Б</option>
+  <option>В</option>
 </select>
 <br>
 <span>Выбрано: {{ selected }}</span>
@@ -219,9 +219,9 @@ new Vue({
 {% raw %}
 <div id="example-6" class="demo">
   <select v-model="selected" multiple style="width: 50px;">
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
+    <option>А</option>
+    <option>Б</option>
+    <option>В</option>
   </select>
   <br>
   <span>Выбрано: {{ selected }}</span>
@@ -250,11 +250,11 @@ new Vue({
 new Vue({
   el: '...',
   data: {
-    selected: 'A',
+    selected: 'А',
     options: [
-      { text: 'One', value: 'A' },
-      { text: 'Two', value: 'B' },
-      { text: 'Three', value: 'C' }
+      { text: 'Один', value: 'А' },
+      { text: 'Два', value: 'Б' },
+      { text: 'Три', value: 'В' }
     ]
   }
 })
@@ -272,11 +272,11 @@ new Vue({
 new Vue({
   el: '#example-7',
   data: {
-    selected: 'A',
+    selected: 'А',
     options: [
-      { text: 'One', value: 'A' },
-      { text: 'Two', value: 'B' },
-      { text: 'Three', value: 'C' }
+      { text: 'Один', value: 'А' },
+      { text: 'Два', value: 'Б' },
+      { text: 'Три', value: 'В' }
     ]
   }
 })
@@ -308,19 +308,19 @@ new Vue({
 <input
   type="checkbox"
   v-model="toggle"
-  true-value="yes"
-  false-value="no"
+  true-value="да"
+  false-value="нет"
 >
 ```
 
 ``` js
 // если чекбокс выбран:
-vm.toggle === 'yes'
+vm.toggle === 'да'
 // если чекбокс сброшен:
-vm.toggle === 'no'
+vm.toggle === 'нет'
 ```
 
-<p class="tip">Атрибуты `true-value` и `false-value` не влияют на атрибут `value` тега input, потому что браузеры пропускают невыбранные чекбоксы при отправке форм. Чтобы гарантировать, что одно из двух значений будет отправлено с формой (например, "yes" или "no") используйте радиокнопки.</p>
+<p class="tip">Атрибуты `true-value` и `false-value` не влияют на атрибут `value` тега input, потому что браузеры пропускают невыбранные чекбоксы при отправке форм. Чтобы гарантировать, что одно из двух значений будет отправлено с формой (например, "да" или "нет") используйте радиокнопки.</p>
 
 ### Радиокнопки
 
@@ -352,7 +352,7 @@ vm.selected.number // => 123
 
 ### `.lazy`
 
-По умолчанию, `v-model` синхронизирует ввод с данными на каждое событие `input` (за исключением [вышеупомянутых](#vmodel-ime-tip) событий IME). Вы можете указать модификатор `lazy`, чтобы вместо этого использовать для синхронизации события `change`:
+По умолчанию `v-model` синхронизирует ввод с данными на каждое событие `input` (за исключением [вышеупомянутых](#vmodel-ime-tip) событий IME). Вы можете указать модификатор `lazy`, чтобы вместо этого использовать для синхронизации события `change`:
 
 ``` html
 <!-- синхронизируется после "change", а не "input" -->
@@ -367,7 +367,7 @@ vm.selected.number // => 123
 <input v-model.number="age" type="number">
 ```
 
-Зачастую это оказывается полезным, так как даже при указанном атрибуте `type="number"` значением input'а всегда является строка.
+Зачастую это оказывается полезным, так как даже при указанном атрибуте `type="number"` значением поля ввода всегда является строка.
 
 ### `.trim`
 
