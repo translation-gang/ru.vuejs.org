@@ -250,7 +250,7 @@ new Vue({
 new Vue({
   el: '...',
   data: {
-    selected: 'A',
+    selected: 'А',
     options: [
       { text: 'Один', value: 'А' },
       { text: 'Два', value: 'Б' },
@@ -272,7 +272,7 @@ new Vue({
 new Vue({
   el: '#example-7',
   data: {
-    selected: 'A',
+    selected: 'А',
     options: [
       { text: 'Один', value: 'А' },
       { text: 'Два', value: 'Б' },
