@@ -171,7 +171,7 @@ createElement(
 ``` js
 {
   // То же API, что и у `v-bind:class`
-  'class': {
+  class: {
     foo: true,
     bar: false
   },
