@@ -112,7 +112,7 @@ Vue.directive('demo', {
 new Vue({
   el: '#hook-arguments-example',
   data: {
-    message: 'hello!'
+    message: 'привет!'
   }
 })
 ```
@@ -135,7 +135,7 @@ Vue.directive('demo', {
 new Vue({
   el: '#hook-arguments-example',
   data: {
-    message: 'hello!'
+    message: 'привет!'
   }
 })
 </script>
@@ -156,12 +156,12 @@ Vue.directive('color-swatch', function (el, binding) {
 В случае, если директива должна принимать несколько параметров, можно указать объект JavaScript — годится любое валидное выражение, помните?
 
 ``` html
-<div v-demo="{ color: 'white', text: 'hello!' }"></div>
+<div v-demo="{ color: 'белый', text: 'привет!' }"></div>
 ```
 
 ``` js
 Vue.directive('demo', function (el, binding) {
-  console.log(binding.value.color) // => "white"
-  console.log(binding.value.text)  // => "hello!"
+  console.log(binding.value.color) // => "белый"
+  console.log(binding.value.text)  // => "привет!"
 })
 ```
