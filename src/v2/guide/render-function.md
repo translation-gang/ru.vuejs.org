@@ -518,7 +518,7 @@ Vue.component('my-component', {
 
 С версии 2.5.0+, если вы используете [однофайловые компоненты](single-file-components.html), вы можете объявить функциональные компоненты основанные на шаблоне таким образом:
 
-``` js
+``` html
 <template functional>
 </template>
 ```
