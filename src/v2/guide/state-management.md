@@ -36,7 +36,7 @@ const vmB = new Vue({
 var store = {
   debug: true,
   state: {
-    message: 'Hello!'
+    message: 'Привет!'
   },
   setMessageAction (newValue) {
     if (this.debug) console.log('setMessageAction вызвано с ', newValue)
