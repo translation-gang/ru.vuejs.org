@@ -103,7 +103,7 @@ new Vue({
   <input
     v-model="colorQuery"
     v-on:keyup.enter="updateColor"
-    placeholder="Enter a color"
+    placeholder="Введите цвет"
   >
   <button v-on:click="updateColor">Обновить</button>
   <p>Предпросмотр:</p>
@@ -182,7 +182,7 @@ new Vue({
   <input
     v-model="colorQuery"
     v-on:keyup.enter="updateColor"
-    placeholder="Enter a color"
+    placeholder="Введите цвет"
   >
   <button v-on:click="updateColor">Обновить</button>
   <p>Предпросмотр:</p>
@@ -547,7 +547,7 @@ new Vue({
 
 Vue может помочь. Поскольку SVG это всего лишь данные, нам нужны только примеры того, как выглядят эти существа когда они радуются, думают или встревожены. Затем Vue берёт на себя всю работу по реализации переходов между этими состояниями, помогая создавать более эмоциональные приветственные страницы, индикаторы загрузки и уведомления.
 
-Sarah Drasner демонстрирует это в демо ниже, используя комбинацию временных и интерактивных изменений состояния:
+Сара Драснер (Sarah Drasner) демонстрирует это в демо ниже, используя комбинацию временных и интерактивных изменений состояния:
 
 <p data-height="265" data-theme-id="light" data-slug-hash="YZBGNp" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Vue-controlled Wall-E" class="codepen">Посмотрите на <a href="https://codepen.io/sdras/pen/YZBGNp/">Vue-контролируемый Wall-E</a> от Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
