@@ -10,7 +10,7 @@ order: 702
 
 ### `router.start` <sup>заменено</sup>
 
-Более нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:
+Больше нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:
 
 ``` js
 router.start({
@@ -41,7 +41,7 @@ new Vue({
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти вызовы <code>router.start</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.start</code>.</p>
 </div>
 {% endraw %}
 
@@ -78,7 +78,7 @@ var router = new VueRouter({
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти вызовы <code>router.map</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.map</code>.</p>
 </div>
 {% endraw %}
 
@@ -124,7 +124,7 @@ router.match = createMatcher(
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти вызовы <code>router.on</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.on</code>.</p>
 </div>
 {% endraw %}
 
@@ -159,7 +159,7 @@ router.beforeEach(function (to, from, next) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование свойства <code>subRoutes</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование свойства <code>subRoutes</code>.</p>
 </div>
 {% endraw %}
 
@@ -185,7 +185,7 @@ router.redirect({
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти вызовы <code>router.redirect</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.redirect</code>.</p>
 </div>
 {% endraw %}
 
@@ -218,7 +218,7 @@ alias: ['/manage', '/administer', '/administrate']
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти вызовы <code>router.alias</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.alias</code>.</p>
 </div>
 {% endraw %}
 
@@ -256,7 +256,7 @@ if (route.meta.requiresAuth) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещенные в свойство `meta`.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещенные в свойство `meta`.</p>
 </div>
 {% endraw %}
 
@@ -271,7 +271,7 @@ if (route.meta.requiresAuth) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование устаревшего синтаксиса.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование устаревшего синтаксиса.</p>
 </div>
 {% endraw %}
 
@@ -279,24 +279,24 @@ if (route.meta.requiresAuth) {
 
 ### `v-link` <sup>заменено</sup>
 
-Директива `v-link` заменена на новый [компонент `<router-link>`](https://router.vuejs.org/ru/api/router-link.html), так как за данный тип работ, во Vue 2, теперь отвечают только компоненты. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
+Директива `v-link` заменена на новый [компонент `<router-link>`](https://router.vuejs.org/ru/api/router-link.html), так как за данный тип работ теперь отвечают только компоненты во Vue 2. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
 
 ``` html
-<a v-link="'/about'">About</a>
+<a v-link="'/about'">О нас</a>
 ```
 
-вам необходимо изменить её следующим образом:
+Вам необходимо изменить её следующим образом:
 
 ``` html
-<router-link to="/about">About</router-link>
+<router-link to="/about">О нас</router-link>
 ```
 
-Запомните, что `target="_blank"` больше не поддреживается в `<router-link>`, поэтому, если вам нужно открыть ссылку в новой вкладке, вы должны использовать тег `<a>`.
+Запомните, что `target="_blank"` больше не поддерживается в `<router-link>`, поэтому, если вам нужно открыть ссылку в новой вкладке, вы должны использовать тег `<a>`.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование директивы <code>v-link</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link</code>.</p>
 </div>
 {% endraw %}
 
@@ -306,7 +306,7 @@ if (route.meta.requiresAuth) {
 
 ``` html
 <li v-link-active>
-  <a v-link="'/about'">About</a>
+  <a v-link="'/about'">О нас</a>
 </li>
 ```
 
@@ -314,7 +314,7 @@ if (route.meta.requiresAuth) {
 
 ``` html
 <router-link tag="li" to="/about">
-  <a>About</a>
+  <a>О нас</a>
 </router-link>
 ```
 
@@ -323,11 +323,11 @@ if (route.meta.requiresAuth) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование директивы <code>v-link-active</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link-active</code>.</p>
 </div>
 {% endraw %}
 
-## Programmatic Navigation
+## Программная навигация
 
 ### `router.go` <sup>изменено</sup>
 
@@ -336,7 +336,7 @@ if (route.meta.requiresAuth) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование <code>router.go</code> вместо необходимого использования <code>router.push</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>router.go</code> вместо необходимого использования <code>router.push</code>.</p>
 </div>
 {% endraw %}
 
@@ -344,12 +344,12 @@ if (route.meta.requiresAuth) {
 
 ### `hashbang: false` <sup>удалено</sup>
 
-Символ хэша более не обязателен для паука Google, при сканировании URL, так что они больше не используются по умолчанию (или в качестве опции) для хэш-стратегии.
+Символ хеша больше не требуется для Google при сканировании URL, так что они больше не используются по умолчанию (или в качестве опции) для хеш-стратегии.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>hashbang: false</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>hashbang: false</code>.</p>
 </div>
 {% endraw %}
 
@@ -374,7 +374,7 @@ var router = new VueRouter({
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>history: true</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>history: true</code>.</p>
 </div>
 {% endraw %}
 
@@ -399,7 +399,7 @@ var router = new VueRouter({
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>abstract: true</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>abstract: true</code>.</p>
 </div>
 {% endraw %}
 
@@ -407,7 +407,7 @@ var router = new VueRouter({
 
 ### `saveScrollPosition` <sup>заменено</sup>
 
-Было заменено на [опцию `scrollBehavior`](https://router.vuejs.org/ru/advanced/scroll-behavior.html) которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, (but to simply replicate the old behavior of)?:
+Было заменено на [опцию `scrollBehavior`](https://router.vuejs.org/ru/advanced/scroll-behavior.html) которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, но для возврата старого поведения:
 
 ``` js
 saveScrollPosition: true
@@ -424,7 +424,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>saveScrollPosition: true</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>saveScrollPosition: true</code>.</p>
 </div>
 {% endraw %}
 
@@ -435,7 +435,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>root</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>root</code>.</p>
 </div>
 {% endraw %}
 
@@ -446,7 +446,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>transitionOnLoad: true</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>transitionOnLoad: true</code>.</p>
 </div>
 {% endraw %}
 
@@ -457,7 +457,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>suppressTransitionError: true</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>suppressTransitionError: true</code>.</p>
 </div>
 {% endraw %}
 
@@ -470,7 +470,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>beforeRouteEnter</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>beforeRouteEnter</code>.</p>
 </div>
 {% endraw %}
 
@@ -481,7 +481,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>canActivate</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>canActivate</code>.</p>
 </div>
 {% endraw %}
 
@@ -492,35 +492,35 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>deactivate</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>deactivate</code>.</p>
 </div>
 {% endraw %}
 
 ### `canDeactivate` <sup>заменено</sup>
 
-Вместо этого используйт [`beforeRouteLeave`](https://router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards) в компоненте.
+Вместо этого используйте [`beforeRouteLeave`](https://router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards) в компоненте.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>canDeactivate</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>canDeactivate</code>.</p>
 </div>
 {% endraw %}
 
 ### `canReuse: false` <sup>удалено</sup>
 
-Более не существует вариантов использования этого в новой версии Vue Router.
+Больше не существует вариантов использования этого в новой версии Vue Router.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>canReuse: false</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>canReuse: false</code>.</p>
 </div>
 {% endraw %}
 
 ### `data` <sup>заменено</sup>
 
-Свойство `$route` теперь реактивно, поэтому, вы можете просто использовать слежение за изменением пути, например:
+Свойство `$route` теперь реактивно, поэтому вы можете просто использовать метод-наблюдатель для отслеживания изменения пути, например:
 
 ``` js
 watch: {
@@ -536,7 +536,7 @@ methods: {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование хука <code>data</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>data</code>.</p>
 </div>
 {% endraw %}
 
@@ -578,6 +578,6 @@ methods: {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти использование свойства <code>$loadingRouteData</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование свойства <code>$loadingRouteData</code>.</p>
 </div>
 {% endraw %}
