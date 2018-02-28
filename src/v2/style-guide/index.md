@@ -1,4 +1,5 @@
 ---
+title: Рекомендации
 type: style-guide
 ---
 
