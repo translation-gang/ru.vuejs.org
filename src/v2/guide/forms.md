@@ -294,7 +294,7 @@ new Vue({
 <!-- `toggle` может иметь значение true или false -->
 <input type="checkbox" v-model="toggle">
 
-<!-- `selected` при выборе становится равным строке "abc" -->
+<!-- `selected` при выборе первого пункта становится равным строке "abc" -->
 <select v-model="selected">
   <option value="abc">ABC</option>
 </select>
