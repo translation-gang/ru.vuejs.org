@@ -317,6 +317,7 @@ render: function (createElement) {
 При использовании `render`-функции это можно легко переписать с помощью `if`/`else` и `map`:
 
 ``` js
+props: ['items'],
 render: function (createElement) {
   if (this.items.length) {
     return createElement('ul', this.items.map(function (item) {
@@ -333,6 +334,7 @@ render: function (createElement) {
 В `render`-функции нет прямого аналога `v-model` — вы должны реализовать эту логику самостоятельно:
 
 ``` js
+props: ['value'],
 render: function (createElement) {
   var self = this
   return createElement('input', {
@@ -341,7 +343,6 @@ render: function (createElement) {
     },
     on: {
       input: function (event) {
-        self.value = event.target.value
         self.$emit('input', event.target.value)
       }
     }
@@ -419,11 +420,12 @@ render: function (createElement) {
 И получить доступ к слотам со своей областью видимости как к функциям, возвращающим VNode, используя [`this.$scopedSlots`](../api/#vm-scopedSlots):
 
 ``` js
+props: ['message'],
 render: function (createElement) {
-  // `<div><slot :text="msg"></slot></div>`
+  // `<div><slot :text="message"></slot></div>`
   return createElement('div', [
     this.$scopedSlots.default({
-      text: this.msg
+      text: this.message
     })
   ])
 }
@@ -432,7 +434,7 @@ render: function (createElement) {
 Чтобы передать слоты со своей областью видимости в дочерний компонент используя `render`-функцию, применяйте свойство `scopedSlots` в данных VNode:
 
 ``` js
-render (createElement) {
+render: function (createElement) {
   return createElement('div', [
     createElement('child', {
       // передаём `scopedSlots` в объект data
@@ -479,7 +481,7 @@ import AnchoredHeading from './AnchoredHeading.vue'
 
 new Vue({
   el: '#demo',
-  render (h) {
+  render: function (h) {
     return (
       <AnchoredHeading level={1}>
         <span>Hello</span> world!
