@@ -507,7 +507,7 @@ Vue.component('example', {
 Каждый экземпляр Vue поддерживает [интерфейс событий](../api/#Методы-экземпляра-—-события), позволяющий:
 
 - Отслеживать события, используя `$on(eventName)`
-- Порождать события, используя `$emit(eventName)`
+- Порождать события, используя `$emit(eventName, optionalPayload)`
 
 <p class="tip">Обратите внимание, что система событий Vue отделена от [EventTarget API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) браузера. Хотя они и похожи, `$on` и `$emit` — это не псевдонимы `addEventListener` и `dispatchEvent`.</p>
 
@@ -590,6 +590,85 @@ new Vue({
 {% endraw %}
 
 Важно отметить, что потомок остаётся полностью независимым от всего происходящего снаружи. Он всего лишь уведомляет внешний мир о происходящем с ним, на случай, если родительскому компоненту это будет интересно.
+
+Вот пример использования данных полезной нагрузки:
+ 
+``` html
+<div id="message-event-example" class="demo">
+  <p v-for="msg in messages">{{ msg }}</p>
+  <button-message v-on:message="handleMessage"></button-message>
+</div>
+```
+ 
+``` js
+Vue.component('button-message', {
+  template: `<div>
+    <input type="text" v-model="message" />
+    <button v-on:click="handleSendMessage">Отправить</button>
+  </div>`,
+  data: function () {
+    return {
+      message: 'тестовое сообщение'
+    }
+  },
+  methods: {
+    handleSendMessage: function () {
+      this.$emit('message', { message: this.message })
+    }
+  }
+})
+ 
+new Vue({
+  el: '#message-event-example',
+  data: {
+    messages: []
+  },
+  methods: {
+    handleMessage: function (payload) {
+      this.messages.push(payload.message)
+    }
+  }
+})
+```
+ 
+{% raw %}
+<div id="message-event-example" class="demo">
+  <p v-for="msg in messages">{{ msg }}</p>
+  <button-message v-on:message="handleMessage"></button-message>
+</div>
+<script>
+Vue.component('button-message', {
+  template: `<div>
+    <input type="text" v-model="message" />
+    <button v-on:click="handleSendMessage">Отправить</button>
+  </div>`,
+  data: function () {
+    return {
+      message: 'тестовое сообщение'
+    }
+  },
+  methods: {
+    handleSendMessage: function () {
+      this.$emit('message', { message: this.message })
+    }
+  }
+})
+new Vue({
+  el: '#message-event-example',
+  data: {
+    messages: []
+  },
+  methods: {
+    handleMessage: function (payload) {
+      this.messages.push(payload.message)
+    }
+  }
+})
+</script>
+{% endraw %}
+
+В этом втором примере важно отметить, что дочерний компонент всё остаётся полностью независимым от всего происходящего снаружи.
+Он всего лишь уведомляет внешний мир о происходящем с ним, включая данные полезной нагрузки в генераторе событий (event emitter), на случай, если родительскому компоненту это будет интересно.
 
 ### Подписка на нативные события в компонентах
 
