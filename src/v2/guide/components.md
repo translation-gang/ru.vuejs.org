@@ -292,11 +292,20 @@ Vue.component('child', {
 С помощью директивы `v-bind` входные параметры можно динамически связывать с данными родительского компонента аналогично тому, как обычные атрибуты связываются с выражениями. Любое обновление данных в родителе в этом случае будет передано и в компонент-потомок:
 
 ``` html
-<div>
+<div id="prop-example-2">
   <input v-model="parentMsg">
   <br>
   <child v-bind:my-message="parentMsg"></child>
 </div>
+```
+
+``` js
+new Vue({
+  el: '#prop-example-2',
+  data: {
+    parentMsg: 'Сообщение из родителя'
+  }
+})
 ```
 
 Зачастую проще использовать для `v-bind` сокращённую запись:
@@ -322,7 +331,7 @@ new Vue({
   components: {
     child: {
       props: ['myMessage'],
-      template: '<span>{{myMessage}}</span>'
+      template: '<span>{{ myMessage }}</span>'
     }
   }
 })
