@@ -46,7 +46,8 @@ var vm = new Vue({
   data: data
 })
 
-// Ссылки указывают на один и тот же объект!
+// Получение свойства из экземпляра
+// возвращает тоже значение из исходных данных
 vm.a === data.a // => true
 
 // Изменение свойства экземпляра
@@ -88,19 +89,15 @@ Object.freeze(obj)
 
 new Vue({
   el: '#app',
-  data () {
-    return {
-      obj
-    }
-  }
+  data: obj
 })
 ```
 
 ```html
 <div id="app">
-  <p>{{ obj.foo }}</p>
-  <!-- мы теперь не можем обновить obj.foo! -->
-  <button @click="obj.foo = 'baz'">Изменить</button>
+  <p>{{ foo }}</p>
+  <!-- мы теперь не можем обновить foo! -->
+  <button @click="foo = 'baz'">Изменить</button>
 </div>
 ```
 
