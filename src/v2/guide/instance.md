@@ -96,7 +96,7 @@ new Vue({
 ```html
 <div id="app">
   <p>{{ foo }}</p>
-  <!-- мы теперь не можем обновить foo! -->
+  <!-- мы теперь не можем обновить `foo`! -->
   <button @click="foo = 'baz'">Изменить</button>
 </div>
 ```
