@@ -106,8 +106,7 @@ Let's take a look at the component code first:
     <div class="message">
       {{ message }}
     </div>
-    Enter your username: <input v-model="username
-">
+    Enter your username: <input v-model="username">
     <div 
       v-if="error"
       class="error"
@@ -177,8 +176,7 @@ The below example improves the test by:
 - only making one assertion per `it` block
 - having short, clear test descriptions
 - providing only the minimum data requires for the test
-- refactoring duplicated
- logic (creating the `wrapper` and setting the `username` variable) into a factory function
+- refactoring duplicated logic (creating the `wrapper` and setting the `username` variable) into a factory function
 
 *Updated test*:
 ```js
