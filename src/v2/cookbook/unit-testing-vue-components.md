@@ -222,8 +222,7 @@ At the top, we declare the factory function which merges the `values` object int
 
 ## Additional Context
 
-The above test is fairly simple, but in practice
- Vue components often have other behaviors you want to test, such as:
+The above test is fairly simple, but in practice Vue components often have other behaviors you want to test, such as:
 
 - making API calls
 - committing or dispatching mutations or actions with a `Vuex` store
