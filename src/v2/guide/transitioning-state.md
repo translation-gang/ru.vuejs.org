@@ -15,10 +15,10 @@ order: 202
 
 ## Анимация состояния при помощи наблюдателей
 
-Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием  [Tween.js](https://github.com/tweenjs/tween.js):
+Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием [GreenSock](https://greensock.com/):
 
 ``` html
-<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 
 <div id="animated-number-demo">
   <input v-model.number="number" type="number" step="20">
@@ -31,33 +31,23 @@ new Vue({
   el: '#animated-number-demo',
   data: {
     number: 0,
-    animatedNumber: 0
+    tweenedNumber: 0
+  },
+  computed: {
+    animatedNumber: function() {
+      return this.tweenedNumber.toFixed(0);
+    }
   },
   watch: {
-    number: function(newValue, oldValue) {
-      var vm = this
-      function animate () {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
-        }
-      }
-
-      new TWEEN.Tween({ tweeningNumber: oldValue })
-        .easing(TWEEN.Easing.Quadratic.Out)
-        .to({ tweeningNumber: newValue }, 500)
-        .onUpdate(function () {
-          vm.animatedNumber = this.tweeningNumber.toFixed(0)
-        })
-        .start()
-
-      animate()
+    number: function(newValue) {
+      TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue });
     }
   }
 })
 ```
 
 {% raw %}
-<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 <div id="animated-number-demo" class="demo">
   <input v-model.number="number" type="number" step="20">
   <p>{{ animatedNumber }}</p>
@@ -67,33 +57,23 @@ new Vue({
   el: '#animated-number-demo',
   data: {
     number: 0,
-    animatedNumber: 0
+    tweenedNumber: 0
+  },
+  computed: {
+    animatedNumber: function() {
+      return this.tweenedNumber.toFixed(0);
+    }
   },
   watch: {
-    number: function(newValue, oldValue) {
-      var vm = this
-      function animate () {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
-        }
-      }
-
-      new TWEEN.Tween({ tweeningNumber: oldValue })
-        .easing(TWEEN.Easing.Quadratic.Out)
-        .to({ tweeningNumber: newValue }, 500)
-        .onUpdate(function () {
-          vm.animatedNumber = this.tweeningNumber.toFixed(0)
-        })
-        .start()
-
-      animate()
+    number: function(newValue) {
+      TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue });
     }
   }
 })
 </script>
 {% endraw %}
 
-Когда вы изменяете число, это изменение в элементе под полем ввода анимируется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например, таких, как CSS-цвета? Используя [Color.js](https://github.com/brehaut/color-js), мы можем решить эту задачу:
+Когда вы изменяете число, это изменение в элементе под полем ввода анимируется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например, таких, как CSS-цвета? Используя [Tween.js](https://github.com/tweenjs/tween.js) и [Color.js](https://github.com/brehaut/color-js), мы можем решить эту задачу:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
