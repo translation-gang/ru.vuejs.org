@@ -268,21 +268,39 @@ example1.items = example1.items.filter(function (item) {
 1. Прямую установку элемента по индексу, например: `vm.items[indexOfItem] = newValue`
 2. Явное изменение длины массива, например: `vm.items.length = newLength`
 
+Например:
+
+``` js
+var vm = new Vue({
+  data: {
+    items: ['a', 'b', 'c']
+  }
+})
+vm.items[1] = 'x' // НЕ РЕАКТИВНО
+vm.items.length = 2 // НЕ РЕАКТИВНО
+```
+
 Обойти первую проблему можно двумя способами, оба из которых не только дадут эффект аналогичный `vm.items[indexOfItem] = newValue`, но и инициируют реактивные обновления состояния приложения:
 
 ``` js
 // Vue.set
-Vue.set(example1.items, indexOfItem, newValue)
+Vue.set(vm.items, indexOfItem, newValue)
 ```
 ``` js
 // Array.prototype.splice
-example1.items.splice(indexOfItem, 1, newValue)
+vm.items.splice(indexOfItem, 1, newValue)
+```
+
+Вы также можете использовать метод экземпляра [`vm.$set`](https://ru.vuejs.org/v2/api/#vm-set), который является псевдонимом для глобального `Vue.set`:
+
+``` js
+vm.$set(vm.items, indexOfItem, newValue)
 ```
 
 Для обхода второй проблемы используйте `splice`:
 
 ``` js
-example1.items.splice(newLength)
+vm.items.splice(newLength)
 ```
 
 ## Предостережения об изменениях объектов
