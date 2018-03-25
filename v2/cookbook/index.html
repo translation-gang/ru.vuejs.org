@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Introduction — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/index.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/index.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/index.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/index.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/index.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/index.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/index.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Introduction — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Introduction — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+        <script>window.PAGE_TYPE = "cookbook"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link current">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/index.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+        </ul>
+        <div class="list">
+            <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Специальные спонсоры</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Спонсоры на Patreon</span>
+    <div>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Поддержите Vue.js
+  </a>
+</div>
+
+            <h2>
+                
+                Cookbook<sup class="beta">beta</sup>
+                
+            </h2>
+            <ul class="menu-root">
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/index.html" class="sidebar-link current">Introduction</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Adding Instance Properties</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Form Validation</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Editable SVG Icon Systems</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/serverless-blog.html" class="sidebar-link">Create a CMS-Powered Blog</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link">Unit Testing Vue Components</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/creating-custom-scroll-directives.html" class="sidebar-link">Creating Custom Scroll Directives</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Using Axios to Consume APIs</a>
+        </li>
+    
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="content cookbook with-sidebar ">
+    
+      
+        <div id="ad">
+  <script>
+    (function () {
+      var s = document.createElement('script')
+      s.setAttribute('async', '')
+      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
+      s.id = '_carbonads_js'
+      document.getElementById('ad').appendChild(s)
+    })()
+  </script>
+</div>
+
+      
+    
+    
+      <h1>Introduction</h1>
+    
+    
+      <h2 id="The-Cookbook-vs-the-Guide"><a href="#The-Cookbook-vs-the-Guide" class="headerlink" title="The Cookbook vs the Guide"></a>The Cookbook vs the Guide</h2><p>How is the cookbook different from the guide? Why is this necessary?</p>
+<ul>
+<li><p><strong>Greater Focus</strong>: In the guide, we’re essentially telling a story. Each section builds on and assumes knowledge from each previous section. In the cookbook, each recipe can and should stand on its own. This means recipes can focus on one specific aspect of Vue, rather than having to give a general overview.</p>
+</li>
+<li><p><strong>Greater Depth</strong>: To avoid making the guide too long, we try to include only the simplest possible examples to help you understand each feature. Then we move on. In the cookbook, we can include more complex examples, combining features in interesting ways. Each recipe can also be as long and detailed as it needs to be, in order to fully explore its niche.</p>
+</li>
+<li><p><strong>Teaching JavaScript</strong>: In the guide, we assume at least intermediate familiarity with ES5 JavaScript. For example, we won’t explain how <code>Array.prototype.filter</code> works in a computed property that filters a list. In the cookbook however, essential JavaScript features (including ES6/2015+) can be explored and explained in the context of how they help us build better Vue applications.</p>
+</li>
+<li><p><strong>Exploring the Ecosystem</strong>: For advanced features, we assume some ecosystem knowledge. For example, if you want to use single-file components in Webpack, we don’t explain how to configure the non-Vue parts of the Webpack config. In the cookbook, we have the space to explore these ecosystem libraries in more depth - at least to the extent that is universally useful for Vue developers.</p>
+</li>
+</ul>
+<h2 id="Cookbook-Contributions"><a href="#Cookbook-Contributions" class="headerlink" title="Cookbook Contributions"></a>Cookbook Contributions</h2><h3 id="What-we’re-looking-for"><a href="#What-we’re-looking-for" class="headerlink" title="What we’re looking for"></a>What we’re looking for</h3><p>The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.</p>
+<p>If you’re interested in contributing, please initiate collaboration by filing an issue under the tag <strong>cookbook idea</strong> with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.</p>
+<p>Recipes should generally:</p>
+<blockquote>
+<ul>
+<li>Solve a specific, common problem</li>
+<li>Start with the simplest possible example</li>
+<li>Introduce complexities one at a time</li>
+<li>Link to other docs, rather than re-explaining concepts</li>
+<li>Describe the problem, rather than assuming familiarity</li>
+<li>Explain the process, rather than just the end result</li>
+<li>Explain the pros and cons of your strategy, including when it is and isn’t appropriate</li>
+<li>Mention alternative solutions, if relevant, but leave in-depth explorations to a separate recipe</li>
+</ul>
+</blockquote>
+<h3 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h3><p><em>required</em></p>
+<ol>
+<li>Articulate the problem in a sentence or two.</li>
+<li>Explain the simplest possible solution in a sentence or two.</li>
+<li>Show a small code sample.</li>
+<li>Explain what this accomplishes in a sentence.</li>
+</ol>
+<h3 id="Details-about-the-Value"><a href="#Details-about-the-Value" class="headerlink" title="Details about the Value"></a>Details about the Value</h3><p><em>required</em></p>
+<ol>
+<li>Address common questions that one might have while looking at the example. (Blockquotes are great for this)</li>
+<li>Show examples of common missteps and how they can be avoided.</li>
+<li>Show very simple code samples of good and bad patterns.</li>
+<li>Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.</li>
+</ol>
+<h3 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h3><p><em>required</em></p>
+<p>Demonstrate the code that would power a common or interesting use case, either by:</p>
+<ol>
+<li>Walking through a few terse examples of setup, or</li>
+<li>Embedding a codepen/jsfiddle example</li>
+</ol>
+<p>If you choose to do the latter, you should still talk through what it is and does.</p>
+<h3 id="Additional-Context"><a href="#Additional-Context" class="headerlink" title="Additional Context"></a>Additional Context</h3><p><em>optional</em></p>
+<p>It’s extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.</p>
+<h3 id="When-To-Avoid-This-Pattern"><a href="#When-To-Avoid-This-Pattern" class="headerlink" title="When To Avoid This Pattern"></a>When To Avoid This Pattern</h3><p><em>optional</em></p>
+<p>This section is not required, but heavily recommended. It won’t make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it’s vital. The answer to most questions about development is <a href="https://codepen.io/rachsmith/pen/YweZbG" target="_blank" rel="noopener">“It depends!”</a>, this section embraces that. Here, we’ll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.</p>
+<h3 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h3><p><em>required</em></p>
+<p>This section is required when you’ve provided the section above about avoidance. It’s important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.</p>
+<h2 id="Thank-you"><a href="#Thank-you" class="headerlink" title="Thank you"></a>Thank you</h2><p>It takes time to contribute to documentation, and if you spend the time to submit a PR to this section of our docs, you do so with our gratitude.</p>
+
+    
+    
+    <div class="footer">
+        <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/cookbook/index.md" target="_blank">
+        Отредактируйте эту страницу на GitHub!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] }
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

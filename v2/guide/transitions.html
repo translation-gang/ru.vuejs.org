@@ -1,0 +1,1773 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Анимирование списков и появления/исчезновения — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/transitions.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/transitions.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/transitions.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/transitions.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/transitions.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/transitions.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/transitions.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Анимирование списков и появления/исчезновения — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Анимирование списков и появления/исчезновения — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+        <script>window.PAGE_TYPE = "guide"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/transitions.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+        </ul>
+        <div class="list">
+            <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Специальные спонсоры</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Спонсоры на Patreon</span>
+    <div>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Поддержите Vue.js
+  </a>
+</div>
+
+            <h2>
+                
+                Руководство
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                        <option value="012">0.12</option>
+                        <option value="011">0.11</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+                <li><h3>Переходы & Анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link current">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переиспользование & Композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar transitions-guide">
+    
+      
+        <div id="ad">
+  <script>
+    (function () {
+      var s = document.createElement('script')
+      s.setAttribute('async', '')
+      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
+      s.id = '_carbonads_js'
+      document.getElementById('ad').appendChild(s)
+    })()
+  </script>
+</div>
+
+      
+    
+    
+      <h1>Анимирование списков и появления/исчезновения</h1>
+    
+    
+      <h2 id="Общие-сведения"><a href="#Общие-сведения" class="headerlink" title="Общие сведения"></a>Общие сведения</h2><p>Vue даёт возможность самым разным образом анимировать переходы при обновлении объектов DOM, а также при их добавлении и удалении. Его инструменты дают возможность:</p>
+<ul>
+<li>автоматически применять CSS-классы для анимаций и переходов</li>
+<li>интегрировать сторонние библиотеки CSS-анимаций, такие как Animate.css</li>
+<li>использовать JavaScript для работы с DOM напрямую в хуках переходов</li>
+<li>интегрировать сторонние библиотеки JavaScript-анимаций, такие как Velocity.js</li>
+</ul>
+<p>На этой странице мы рассмотрим только анимации появления и исчезновения элементов, а также анимации списков. В следующем разделе вы можете найти информацию об <a href="transitioning-state.html">анимировании переходов между состояниями</a>.</p>
+<h2 id="Анимирование-одиночного-элемента-компонента"><a href="#Анимирование-одиночного-элемента-компонента" class="headerlink" title="Анимирование одиночного элемента/компонента"></a>Анимирование одиночного элемента/компонента</h2><p>Vue располагает компонентом-обёрткой <code>transition</code>, позволяющим анимировать появление и исчезновение элемента или компонента в следующих случаях:</p>
+<ul>
+<li>Условный рендеринг (используя <code>v-if</code>)</li>
+<li>Условное отображение (используя <code>v-show</code>)</li>
+<li>Динамические компоненты</li>
+<li>Корневые элементы компонентов</li>
+</ul>
+<p>Рассмотрим в действии простой пример:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.fade-enter-active</span>, <span class="selector-class">.fade-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: opacity .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-enter</span>, <span class="selector-class">.fade-leave-to</span> <span class="comment">/* .fade-leave-active до версии 2.1.8 */</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div id="demo">
+  <button v-on:click="show = !show">
+    Переключить
+  </button>
+  <transition name="demo-transition">
+    <p v-if="show">привет</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#demo',
+  data: {
+    show: true
+  }
+})
+</script>
+<style>
+.demo-transition-enter-active, .demo-transition-leave-active {
+  transition: opacity .5s;
+}
+.demo-transition-enter, .demo-transition-leave-to {
+  opacity: 0;
+}
+</style>
+
+<p>Когда элемент, завёрнутый в компонент <code>transition</code>, вставляется или удаляется, происходят следующие действия:</p>
+<ol>
+<li><p>Vue автоматически узнаёт, применены ли к целевому элементу CSS-переходы или анимации. Если да, соответствующие CSS-классы будут должным образом обновлены в нужные моменты времени.</p>
+</li>
+<li><p>Если для компонента указаны <a href="#JavaScript-хуки">хуки JavaScript</a>, они будут вызваны в соответствующие моменты времени.</p>
+</li>
+<li><p>Если не обнаружено ни CSS-переходов и анимаций, ни JavaScript-хуков, операции DOM для вставки или удаления элемента будут выполнены непосредственно в следующем анимационном фрейме (важно: речь идёт об анимационном фрейме браузера, отличном от используемой во Vue концепции <code>nextTick</code>).</p>
+</li>
+</ol>
+<h3 id="Классы-переходов"><a href="#Классы-переходов" class="headerlink" title="Классы переходов"></a>Классы переходов</h3><p>Есть шесть классов, применяющихся в анимациях появления и исчезновения элементов:</p>
+<ol>
+<li><p><code>v-enter</code>: Означает начало анимации появления элемента. Этот класс добавляется перед вставкой элемента, а удаляется в следующем фрейме после вставки.</p>
+</li>
+<li><p><code>v-enter-active</code>: Означает, что анимация появления элемента активна. Этот класс остаётся в течение всей анимации. Он добавляется перед вставкой элемента, а удаляется как только переход или анимация прекратились. Используйте его для установки длительности, задержки и плавности (easing curve) анимации появления.</p>
+</li>
+<li><p><code>v-enter-to</code>: <strong>Доступно только в версиях 2.1.8+.</strong> Означает, что анимация появления элемента завершается. Класс добавляется в следующем фрейме после вставки элемента (тогда же, когда будет удалён <code>v-enter</code> ), удаляется после завершения перехода или анимации.</p>
+</li>
+<li><p><code>v-leave</code>: Означает начало анимации исчезновения элемента. Класс добавляется как только началась анимация исчезновения, а удаляется в следующем фрейме после этого.</p>
+</li>
+<li><p><code>v-leave-active</code>: Означает, что анимация исчезновения элемента активна. Этот класс остаётся в течение всей анимации. Он добавляется как только начинается анимация исчезновения, а удаляется как только переход или анимация прекратились. Используйте его для установки длительности, задержки и плавности (easing curve) анимации исчезновения.</p>
+</li>
+<li><p><code>v-leave-to</code>: <strong>Доступно только в версиях 2.1.8+.</strong> Означает, что анимация исчезновения элемента завершается. Класс добавляется в следующем фрейме после начала анимации исчезновения (тогда же, когда будет удалён <code>v-leave</code>), а удаляется после завершения перехода или анимации.</p>
+</li>
+</ol>
+<p><img src="/images/transition.png" alt="Диаграмма переходов"></p>
+<p>Для каждого из этих классов указывается префикс, соответствующий имени перехода. Префикс <code>v-</code> применяется по умолчанию, если элемент <code>&lt;transition&gt;</code> используется без указания параметра <code>name</code> . Например, для <code>&lt;transition name=&quot;my-transition&quot;&gt;</code> вместо класса <code>v-enter</code> будет применяться <code>my-transition-enter</code>.</p>
+<p><code>v-enter-active</code> и <code>v-leave-active</code> дают возможность указать различные анимационные эффекты для переходов появления и исчезновения элемента. Пример их использования будет приведён ниже.</p>
+<h3 id="CSS-переходы"><a href="#CSS-переходы" class="headerlink" title="CSS-переходы"></a>CSS-переходы</h3><p>Одни из самых распространённых типов анимации — это CSS-переходы. Вот небольшой пример:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить рендеринг</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"slide-fade"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Анимации появления и исчезновения могут иметь */</span></span><br><span class="line"><span class="comment">/* различные продолжительности и динамику.       */</span></span><br><span class="line"><span class="selector-class">.slide-fade-enter-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all .<span class="number">3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-fade-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all .<span class="number">8s</span> <span class="built_in">cubic-bezier</span>(1.0, 0.5, 0.8, 1.0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-fade-enter</span>, <span class="selector-class">.slide-fade-leave-to</span></span><br><span class="line"><span class="comment">/* .slide-fade-leave-active до версии 2.1.8 */</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateX</span>(10px);</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div id="example-1" class="demo">
+  <button @click="show = !show">
+    Переключить рендеринг
+  </button>
+  <transition name="slide-fade">
+    <p v-if="show">привет</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#example-1',
+  data: {
+    show: true
+  }
+})
+</script>
+<style>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>
+
+<h3 id="CSS-анимации"><a href="#CSS-анимации" class="headerlink" title="CSS-анимации"></a>CSS-анимации</h3><p>CSS-анимации применяются таким же образом, как и CSS-переходы, с одним отличием: <code>v-enter</code> удаляется не сразу же после вставки элемента, а только при наступлении события <code>animationend</code>.</p>
+<p>В этом примере браузерные CSS-префиксы опущены для краткости:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span>Переключить отображение<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"bounce"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bounce-enter-active</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: bounce-in .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.bounce-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: bounce-in .<span class="number">5s</span> reverse;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> bounce-in &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(0);</span><br><span class="line">  &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1.5);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div id="example-2" class="demo">
+  <button @click="show = !show">Переключить отображение</button>
+  <transition name="bounce">
+    <p v-show="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
+  </transition>
+</div>
+
+<style>
+  .bounce-enter-active {
+    -webkit-animation: bounce-in .5s;
+    animation: bounce-in .5s;
+  }
+  .bounce-leave-active {
+    -webkit-animation: bounce-in .5s reverse;
+    animation: bounce-in .5s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @-webkit-keyframes bounce-in {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    50% {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+</style>
+<script>
+new Vue({
+  el: '#example-2',
+  data: {
+    show: true
+  }
+})
+</script>
+
+<h3 id="Пользовательские-классы-переходов"><a href="#Пользовательские-классы-переходов" class="headerlink" title="Пользовательские классы переходов"></a>Пользовательские классы переходов</h3><p>Вы также можете использовать пользовательские классы переходов, указывая следующие атрибуты:</p>
+<ul>
+<li><code>enter-class</code></li>
+<li><code>enter-active-class</code></li>
+<li><code>enter-to-class</code> (в версии 2.1.8+)</li>
+<li><code>leave-class</code></li>
+<li><code>leave-active-class</code></li>
+<li><code>leave-to-class</code> (в версии 2.1.8+)</li>
+</ul>
+<p>Таким образом стандартные названия классов будут переопределены, что может быть особенно полезно для комбинирования системы анимированных переходов Vue с возможностями сторонних библиотек CSS-анимаций, таких как <a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">Animate.css</a>.</p>
+<p>Вот пример:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/animate.css@3.5.1"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить рендеринг</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">"custom-classes-transition"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">enter-active-class</span>=<span class="string">"animated tada"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">leave-active-class</span>=<span class="string">"animated bounceOutRight"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-3'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+<div id="example-3" class="demo">
+  <button @click="show = !show">
+    Переключить рендеринг
+  </button>
+  <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+    <p v-if="show">привет</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#example-3',
+  data: {
+    show: true
+  }
+})
+</script>
+
+<h3 id="Совместное-использование-переходов-и-анимаций"><a href="#Совместное-использование-переходов-и-анимаций" class="headerlink" title="Совместное использование переходов и анимаций"></a>Совместное использование переходов и анимаций</h3><p>Для того чтобы Vue знал о завершении анимации, ему требуется установка подписчиков на события. В зависимости от используемых правил CSS, таким событием будет либо <code>transitionend</code>, либо <code>animationend</code>. Если вы используете только один из подходов, Vue определит правильный тип автоматически.</p>
+<p>Однако, иногда может потребоваться использование обоих подходов на одном элементе. Например, CSS-анимация под управлением Vue при появлении или исчезновении элемента может соседствовать с эффектом CSS-перехода при наведении курсора мыши на элемент. В таких случаях потребуется явное указание типа события, на которое должен будет ориентироваться Vue. Атрибут <code>type</code> может получить значение <code>animation</code> или <code>transition</code>.</p>
+<h3 id="Указание-длительности-перехода"><a href="#Указание-длительности-перехода" class="headerlink" title="Указание длительности перехода"></a>Указание длительности перехода</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<p>В большинстве случаев Vue может автоматически определить когда переход завершён. По умолчанию Vue дожидается первого события <code>transitionend</code> или <code>animationend</code> на корневом элементе. Тем не менее, это не всегда может быть нужным — например, мы можем иметь хореографическую последовательность переходов, где некоторые внутренние элементы могут иметь задержку перед переходом или более длинный по времени переход, чем у корневого элемента.</p>
+<p>В таких случаях вы можете явно указать продолжительность перехода (в миллисекундах) с помощью опции <code>duration</code> на компоненте <code>&lt;transition&gt;</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">:duration</span>=<span class="string">"1000"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Можно также указать отдельные значения продолжительностей начала и окончания перехода:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">:duration</span>=<span class="string">"&#123; enter: 500, leave: 800 &#125;"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="JavaScript-хуки"><a href="#JavaScript-хуки" class="headerlink" title="JavaScript-хуки"></a>JavaScript-хуки</h3><p>Можно также указывать JavaScript-хуки:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:before-enter</span>=<span class="string">"beforeEnter"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:enter</span>=<span class="string">"enter"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:after-enter</span>=<span class="string">"afterEnter"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:enter-cancelled</span>=<span class="string">"enterCancelled"</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:before-leave</span>=<span class="string">"beforeLeave"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:leave</span>=<span class="string">"leave"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:after-leave</span>=<span class="string">"afterLeave"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:leave-cancelled</span>=<span class="string">"leaveCancelled"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  <span class="comment">// --------</span></span><br><span class="line">  <span class="comment">// ПОЯВЛЕНИЕ</span></span><br><span class="line">  <span class="comment">// --------</span></span><br><span class="line"></span><br><span class="line">  beforeEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// коллбэк done не обязательно использовать, если</span></span><br><span class="line">  <span class="comment">// анимация или переход также определены в CSS</span></span><br><span class="line">  enter: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    done()</span><br><span class="line">  &#125;,</span><br><span class="line">  afterEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  enterCancelled: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// --------</span></span><br><span class="line">  <span class="comment">// ИСЧЕЗНОВЕНИЕ</span></span><br><span class="line">  <span class="comment">// --------</span></span><br><span class="line"></span><br><span class="line">  beforeLeave: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// коллбэк done не обязательно использовать, если</span></span><br><span class="line">  <span class="comment">// анимация или переход также определены в CSS</span></span><br><span class="line">  leave: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    done()</span><br><span class="line">  &#125;,</span><br><span class="line">  afterLeave: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// leaveCancelled доступна только для v-show</span></span><br><span class="line">  leaveCancelled: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Эти хуки могут применяться как самостоятельно, так и в сочетании с CSS-переходами и анимациями.</p>
+<p class="tip">Если ваш переход основан только на JavaScript, <strong>обязательно вызывайте коллбэки <code>done</code> в хуках <code>enter</code> и <code>leave</code></strong>. Если вы этого не сделаете, хуки будут вызваны синхронно, и переход закончится раньше, чем отработает ваш код.</p>
+
+<p class="tip">Лучше явным образом указывать <code>v-bind:css=&quot;false&quot;</code> для переходов, основанных только на JavaScript. Это позволит Vue не тратить время на определение параметров CSS. Кроме того, это убережёт нас от случайного взаимовлияния CSS-правил и JS-перехода.</p>
+
+<p>Теперь давайте разберём пример. Возьмём простой JavaScript-переход, использующий Velocity.js:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">Velocity работает примерно так же, как и jQuery.animate,</span></span><br><span class="line"><span class="comment">и весьма удобен для создания JavaScript-анимаций</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-4"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:before-enter</span>=<span class="string">"beforeEnter"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:enter</span>=<span class="string">"enter"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:leave</span>=<span class="string">"leave"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:css</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span></span><br><span class="line">      Демо</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-4'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    beforeEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      el.style.opacity = <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    enter: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">      Velocity(el, &#123; <span class="attr">opacity</span>: <span class="number">1</span>, <span class="attr">fontSize</span>: <span class="string">'1.4em'</span> &#125;, &#123; <span class="attr">duration</span>: <span class="number">300</span> &#125;)</span><br><span class="line">      Velocity(el, &#123; <span class="attr">fontSize</span>: <span class="string">'1em'</span> &#125;, &#123; <span class="attr">complete</span>: done &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    leave: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">      Velocity(el, &#123; <span class="attr">translateX</span>: <span class="string">'15px'</span>, <span class="attr">rotateZ</span>: <span class="string">'50deg'</span> &#125;, &#123; <span class="attr">duration</span>: <span class="number">600</span> &#125;)</span><br><span class="line">      Velocity(el, &#123; <span class="attr">rotateZ</span>: <span class="string">'100deg'</span> &#125;, &#123; <span class="attr">loop</span>: <span class="number">2</span> &#125;)</span><br><span class="line">      Velocity(el, &#123;</span><br><span class="line">        rotateZ: <span class="string">'45deg'</span>,</span><br><span class="line">        translateY: <span class="string">'30px'</span>,</span><br><span class="line">        translateX: <span class="string">'30px'</span>,</span><br><span class="line">        opacity: <span class="number">0</span></span><br><span class="line">      &#125;, &#123; <span class="attr">complete</span>: done &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<div id="example-4" class="demo">
+  <button @click="show = !show">
+    Переключить
+  </button>
+  <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+    <p v-if="show">
+      Демо
+    </p>
+  </transition>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script>
+new Vue({
+  el: '#example-4',
+  data: {
+    show: false
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.transformOrigin = 'left'
+    },
+    enter: function (el, done) {
+      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+      Velocity(el, { fontSize: '1em' }, { complete: done })
+    },
+    leave: function (el, done) {
+      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+      Velocity(el, {
+        rotateZ: '45deg',
+        translateY: '30px',
+        translateX: '30px',
+        opacity: 0
+      }, { complete: done })
+    }
+  }
+})
+</script>
+
+<h2 id="Переходы-при-первичном-рендеринге"><a href="#Переходы-при-первичном-рендеринге" class="headerlink" title="Переходы при первичном рендеринге"></a>Переходы при первичном рендеринге</h2><p>Если вы хотите, чтобы пользователь увидел анимацию перехода и при изначальном рендеринге, добавьте атрибут <code>appear</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">appear</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>По умолчанию будут задействованы переходы, указанные для появления и исчезновения. Можно, впрочем, указать и отдельные:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear-class</span>=<span class="string">"custom-appear-class"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear-to-class</span>=<span class="string">"custom-appear-to-class"</span> (в версии <span class="attr">2.1.8</span>+)</span></span><br><span class="line"><span class="tag">  <span class="attr">appear-active-class</span>=<span class="string">"custom-appear-active-class"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>То же справедливо и для хуков:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:before-appear</span>=<span class="string">"customBeforeAppearHook"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:appear</span>=<span class="string">"customAppearHook"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:after-appear</span>=<span class="string">"customAfterAppearHook"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:appear-cancelled</span>=<span class="string">"customAppearCancelledHook"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Переходы-между-элементами"><a href="#Переходы-между-элементами" class="headerlink" title="Переходы между элементами"></a>Переходы между элементами</h2><p>Подробно <a href="#Переходы-между-компонентами">переходы между компонентами</a> мы обсудим позднее, а сейчас поговорим о переходах с помощью <code>v-if</code>/<code>v-else</code>. Один из наиболее частых случаев — переход от списка к сообщению, что список пуст:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">v-if</span>=<span class="string">"items.length &gt; 0"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>Жаль, но ничего не найдено.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Это сработает, но следует знать о нескольких скользких моментах:</p>
+<p class="tip">При переключении между элементами, <strong>использующими одноимённые теги</strong>, нужно указать Vue, что это различные элементы, установив уникальные значения атрибута <code>key</code>. В противном случае компилятор Vue из соображений эффективности только поменяет содержимое элемента. Несмотря на отсутствие технической необходимости, <strong>считается хорошим тоном всегда оборачивать множественные теги в компонент <code>&lt;transition&gt;</code>.</strong></p>
+
+<p>Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-if</span>=<span class="string">"isEditing"</span> <span class="attr">key</span>=<span class="string">"save"</span>&gt;</span></span><br><span class="line">    Сохранить</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-else</span> <span class="attr">key</span>=<span class="string">"edit"</span>&gt;</span></span><br><span class="line">    Редактировать</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>В этом случае вы можете использовать атрибут <code>key</code> для перехода между разными состояниями элемента. Вместо использования <code>v-if</code> и <code>v-else</code>, можно переписать пример выше вот так:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:key</span>=<span class="string">"isEditing"</span>&gt;</span></span><br><span class="line">    &#123;&#123; isEditing ? 'Сохранить' : 'Редактировать' &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>В действительности можно не ограничиваться двумя вариантами, и организовать переходы между любым количеством элементов, либо многократно используя <code>v-if</code>, либо привязывая единственный элемент к динамическому свойству. Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-if</span>=<span class="string">"docState === 'saved'"</span> <span class="attr">key</span>=<span class="string">"saved"</span>&gt;</span></span><br><span class="line">    Редактировать</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-if</span>=<span class="string">"docState === 'edited'"</span> <span class="attr">key</span>=<span class="string">"edited"</span>&gt;</span></span><br><span class="line">    Сохранить</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-if</span>=<span class="string">"docState === 'editing'"</span> <span class="attr">key</span>=<span class="string">"editing"</span>&gt;</span></span><br><span class="line">    Отмена</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Что можно также записать в таком виде:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:key</span>=<span class="string">"docState"</span>&gt;</span></span><br><span class="line">    &#123;&#123; buttonMessage &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  buttonMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">this</span>.docState) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'saved'</span>: <span class="keyword">return</span> <span class="string">'Редактировать'</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'edited'</span>: <span class="keyword">return</span> <span class="string">'Сохранить'</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">'editing'</span>: <span class="keyword">return</span> <span class="string">'Отмена'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Режимы-переходов"><a href="#Режимы-переходов" class="headerlink" title="Режимы переходов"></a>Режимы переходов</h3><p>Однако сохраняется одна проблема. Попробуйте кликнуть на кнопку ниже:</p>
+
+<div id="no-mode-demo" class="demo">
+  <transition name="no-mode-fade">
+    <button v-if="on" key="on" @click="on = false">
+      on
+    </button>
+    <button v-else="" key="off" @click="on = true">
+      off
+    </button>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#no-mode-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.no-mode-fade-enter-active, .no-mode-fade-leave-active {
+  transition: opacity .5s
+}
+.no-mode-fade-enter, .no-mode-fade-leave-active {
+  opacity: 0
+}
+</style>
+
+<p>Во время перехода от кнопки “on” к кнопке “off” одновременно отображаются обе кнопки: одна — исчезая, другая — появляясь. Так <code>&lt;transition&gt;</code> ведёт себя по умолчанию.</p>
+<p>Иногда это поведение подходит, например если оба элемента абсолютно спозиционированы в одном и том же месте:</p>
+
+<div id="no-mode-absolute-demo" class="demo">
+  <div class="no-mode-absolute-demo-wrapper">
+    <transition name="no-mode-absolute-fade">
+      <button v-if="on" key="on" @click="on = false">
+        on
+      </button>
+      <button v-else="" key="off" @click="on = true">
+        off
+      </button>
+    </transition>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#no-mode-absolute-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.no-mode-absolute-demo-wrapper {
+  position: relative;
+  height: 18px;
+}
+.no-mode-absolute-demo-wrapper button {
+  position: absolute;
+}
+.no-mode-absolute-fade-enter-active, .no-mode-absolute-fade-leave-active {
+  transition: opacity .5s;
+}
+.no-mode-absolute-fade-enter, .no-mode-absolute-fade-leave-active {
+  opacity: 0;
+}
+</style>
+
+<p>Таким образом можно также сымитировать анимацию слайдера:</p>
+
+<div id="no-mode-translate-demo" class="demo">
+  <div class="no-mode-translate-demo-wrapper">
+    <transition name="no-mode-translate-fade">
+      <button v-if="on" key="on" @click="on = false">
+        on
+      </button>
+      <button v-else="" key="off" @click="on = true">
+        off
+      </button>
+    </transition>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#no-mode-translate-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.no-mode-translate-demo-wrapper {
+  position: relative;
+  height: 18px;
+}
+.no-mode-translate-demo-wrapper button {
+  position: absolute;
+}
+.no-mode-translate-fade-enter-active, .no-mode-translate-fade-leave-active {
+  transition: all 1s;
+}
+.no-mode-translate-fade-enter, .no-mode-translate-fade-leave-active {
+  opacity: 0;
+}
+.no-mode-translate-fade-enter {
+  transform: translateX(31px);
+}
+.no-mode-translate-fade-leave-active {
+  transform: translateX(-31px);
+}
+</style>
+
+<p>Тем не менее, одновременное сокрытие и появление элементов — это не всегда то, чего хочется. Поэтому Vue предоставляет альтернативные <strong>режимы перехода</strong>:</p>
+<ul>
+<li><p><code>in-out</code>: Сначала появляется новый элемент, и только после этого исчезает старый.</p>
+</li>
+<li><p><code>out-in</code>: Сначала исчезает старый элемент, и только после этого появляется новый.</p>
+</li>
+</ul>
+<p>Давайте теперь изменим переход для наших on/off кнопок, используя <code>out-in</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... кнопки ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div id="with-mode-demo" class="demo">
+  <transition name="with-mode-fade" mode="out-in">
+    <button v-if="on" key="on" @click="on = false">
+      on
+    </button>
+    <button v-else="" key="off" @click="on = true">
+      off
+    </button>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#with-mode-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.with-mode-fade-enter-active, .with-mode-fade-leave-active {
+  transition: opacity .5s;
+}
+.with-mode-fade-enter, .with-mode-fade-leave-active {
+  opacity: 0;
+}
+</style>
+
+<p>Добавив всего лишь один атрибут, мы исправили исходную анимацию перехода, не прибегая к редактированию стилей.</p>
+<p>Режим <code>in-out</code> применяется не столь часто, но для достижения некоторых эффектов и он может быть полезен. Давайте попробуем совместить его с ранее рассмотренной анимацией слайдера:</p>
+
+<div id="in-out-translate-demo" class="demo">
+  <div class="in-out-translate-demo-wrapper">
+    <transition name="in-out-translate-fade" mode="in-out">
+      <button v-if="on" key="on" @click="on = false">
+        on
+      </button>
+      <button v-else="" key="off" @click="on = true">
+        off
+      </button>
+    </transition>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#in-out-translate-demo',
+  data: {
+    on: false
+  }
+})
+</script>
+<style>
+.in-out-translate-demo-wrapper {
+  position: relative;
+  height: 18px;
+}
+.in-out-translate-demo-wrapper button {
+  position: absolute;
+}
+.in-out-translate-fade-enter-active, .in-out-translate-fade-leave-active {
+  transition: all .5s;
+}
+.in-out-translate-fade-enter, .in-out-translate-fade-leave-active {
+  opacity: 0;
+}
+.in-out-translate-fade-enter {
+  transform: translateX(31px);
+}
+.in-out-translate-fade-leave-active {
+  transform: translateX(-31px);
+}
+</style>
+
+<p>Круто, правда?</p>
+<h2 id="Переходы-между-компонентами"><a href="#Переходы-между-компонентами" class="headerlink" title="Переходы между компонентами"></a>Переходы между компонентами</h2><p>Переходы между компонентами — ещё проще, нам даже не нужен атрибут <code>key</code>. Всё, что нужно — завернуть <a href="components.html#Динамическое-переключение-компонентов">динамический компонент</a> в <code>&lt;transition&gt;</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"component-fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#transition-components-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    view: <span class="string">'v-a'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    <span class="string">'v-a'</span>: &#123;</span><br><span class="line">      template: <span class="string">'&lt;div&gt;Компонент А&lt;/div&gt;'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'v-b'</span>: &#123;</span><br><span class="line">      template: <span class="string">'&lt;div&gt;Компонент Б&lt;/div&gt;'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.component-fade-enter-active</span>, <span class="selector-class">.component-fade-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: opacity .<span class="number">3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.component-fade-enter</span>, <span class="selector-class">.component-fade-leave-to</span></span><br><span class="line"><span class="comment">/* .component-fade-leave-active до версии 2.1.8 */</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div id="transition-components-demo" class="demo">
+  <input v-model="view" type="radio" value="v-a" id="a" name="view"><label for="a">А</label>
+  <input v-model="view" type="radio" value="v-b" id="b" name="view"><label for="b">Б</label>
+  <transition name="component-fade" mode="out-in">
+    <component v-bind:is="view"></component>
+  </transition>
+</div>
+<style>
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to {
+  opacity: 0;
+}
+</style>
+<script>
+new Vue({
+  el: '#transition-components-demo',
+  data: {
+    view: 'v-a'
+  },
+  components: {
+    'v-a': {
+      template: '<div>Компонент А</div>'
+    },
+    'v-b': {
+      template: '<div>Компонент Б</div>'
+    }
+  }
+})
+</script>
+
+<h2 id="Переходы-в-списках"><a href="#Переходы-в-списках" class="headerlink" title="Переходы в списках"></a>Переходы в списках</h2><p>Мы уже разобрались с переходами для:</p>
+<ul>
+<li>Одиночных элементов</li>
+<li>Множеств элементов, в случаях когда единовременно не может отображаться более одного элемента из множества</li>
+</ul>
+<p>А как насчёт ситуации, когда у нас есть целый список элементов, который мы бы хотели отображать одновременно, например директивой <code>v-for</code>? В этом случае, мы используем компонент <code>&lt;transition-group&gt;</code>. Прежде чем мы перейдём к примеру, важно отметить несколько важных моментов, касающихся этого компонента:</p>
+<ul>
+<li>В отличие от <code>&lt;transition&gt;</code>, он создаёт реальный элемент. По умолчанию это <code>&lt;span&gt;</code>, но можно изменить на любой другой, указав атрибут <code>tag</code>.</li>
+<li>У каждого элемента внутри <code>&lt;transition-group&gt;</code> <strong>всегда обязательно</strong> должно быть уникальное значение атрибута <code>key</code>.</li>
+</ul>
+<h3 id="Анимация-вставки-и-удаления-элементов-списка"><a href="#Анимация-вставки-и-удаления-элементов-списка" class="headerlink" title="Анимация вставки и удаления элементов списка"></a>Анимация вставки и удаления элементов списка</h3><p>Давайте теперь разберём несложный пример анимации перехода вставки и удаления, использующий те же CSS-классы, что мы рассматривали ранее:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"list-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"add"</span>&gt;</span>Добавить<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"remove"</span>&gt;</span>Удалить<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">name</span>=<span class="string">"list"</span> <span class="attr">tag</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">v-bind:key</span>=<span class="string">"item"</span> <span class="attr">class</span>=<span class="string">"list-item"</span>&gt;</span></span><br><span class="line">      &#123;&#123; item &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#list-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    nextNum: <span class="number">10</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    randomIndex: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="keyword">this</span>.items.length)</span><br><span class="line">    &#125;,</span><br><span class="line">    add: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.randomIndex(), <span class="number">0</span>, <span class="keyword">this</span>.nextNum++)</span><br><span class="line">    &#125;,</span><br><span class="line">    remove: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.randomIndex(), <span class="number">1</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.list-item</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-enter-active</span>, <span class="selector-class">.list-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-enter</span>, <span class="selector-class">.list-leave-to</span> <span class="comment">/* .list-leave-active до версии 2.1.8 */</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(30px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div id="list-demo" class="demo">
+  <button v-on:click="add">Добавить</button>
+  <button v-on:click="remove">Удалить</button>
+  <transition-group name="list" tag="p">
+    <span v-for="item in items" :key="item" class="list-item">
+      {{ item }}
+    </span>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#list-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9],
+    nextNum: 10
+  },
+  methods: {
+    randomIndex: function () {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add: function () {
+      this.items.splice(this.randomIndex(), 0, this.nextNum++)
+    },
+    remove: function () {
+      this.items.splice(this.randomIndex(), 1)
+    },
+  }
+})
+</script>
+<style>
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>
+
+<p>С этим примером есть одна проблема. При добавлении или удалении элемента, окружающие его элементы резко перемещаются, вместо того чтобы плавно перелететь на новые места. Мы исправим это позднее.</p>
+<h3 id="Анимация-перемещения-элементов-списка"><a href="#Анимация-перемещения-элементов-списка" class="headerlink" title="Анимация перемещения элементов списка"></a>Анимация перемещения элементов списка</h3><p>У компонента <code>&lt;transition-group&gt;</code> припасён ещё один козырь в рукаве. Он способен анимировать не только появление и удаление элементов, но также и их перемещение. Происходит это путём добавления <strong>класса <code>v-move</code></strong>, который указывается при изменении позиции элементов. Как и с другими классами, префикс устанавливается в соответствии с указанным значением атрибута <code>name</code>. Аналогично, можно указать класс вручную в атрибуте <code>move-class</code>.</p>
+<p>Этим классом удобнее всего указывать продолжительность и тайминги перехода:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"flip-list-demo"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"shuffle"</span>&gt;</span>Перемешать<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">name</span>=<span class="string">"flip-list"</span> <span class="attr">tag</span>=<span class="string">"ul"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">v-bind:key</span>=<span class="string">"item"</span>&gt;</span></span><br><span class="line">      &#123;&#123; item &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#flip-list-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    shuffle: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.items = _.shuffle(<span class="keyword">this</span>.items)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.flip-list-move</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<div id="flip-list-demo" class="demo">
+  <button v-on:click="shuffle">Перемешать</button>
+  <transition-group name="flip-list" tag="ul">
+    <li v-for="item in items" :key="item">
+      {{ item }}
+    </li>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#flip-list-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9]
+  },
+  methods: {
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }
+  }
+})
+</script>
+<style>
+.flip-list-move {
+  transition: transform 1s;
+}
+</style>
+
+<p>Хотя это и может выглядеть как магия, “под капотом” Vue использует довольно простую анимационную технику под названием <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="noopener">FLIP</a>, которая позволяет плавно перевести элементы с их старых позиций на новые, используя CSS-трансформации.</p>
+<p>Теперь мы можем совместить эту технику с нашим предыдущим примером, чтобы анимировать все возможные изменения нашего списка!</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"list-complete-demo"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"shuffle"</span>&gt;</span>Перемешать<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"add"</span>&gt;</span>Добавить<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"remove"</span>&gt;</span>Удалить<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">name</span>=<span class="string">"list-complete"</span> <span class="attr">tag</span>=<span class="string">"p"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"item in items"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">"item"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"list-complete-item"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; item &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#list-complete-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>],</span><br><span class="line">    nextNum: <span class="number">10</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    randomIndex: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="keyword">this</span>.items.length)</span><br><span class="line">    &#125;,</span><br><span class="line">    add: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.randomIndex(), <span class="number">0</span>, <span class="keyword">this</span>.nextNum++)</span><br><span class="line">    &#125;,</span><br><span class="line">    remove: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.randomIndex(), <span class="number">1</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    shuffle: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.items = _.shuffle(<span class="keyword">this</span>.items)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.list-complete-item</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-complete-enter</span>, <span class="selector-class">.list-complete-leave-to</span></span><br><span class="line"><span class="comment">/* .list-complete-leave-active до версии 2.1.8 */</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(30px);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.list-complete-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+<div id="list-complete-demo" class="demo">
+  <button v-on:click="shuffle">Перемешать</button>
+  <button v-on:click="add">Добавить</button>
+  <button v-on:click="remove">Удалить</button>
+  <transition-group name="list-complete" tag="p">
+    <span v-for="item in items" :key="item" class="list-complete-item">
+      {{ item }}
+    </span>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#list-complete-demo',
+  data: {
+    items: [1,2,3,4,5,6,7,8,9],
+    nextNum: 10
+  },
+  methods: {
+    randomIndex: function () {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add: function () {
+      this.items.splice(this.randomIndex(), 0, this.nextNum++)
+    },
+    remove: function () {
+      this.items.splice(this.randomIndex(), 1)
+    },
+    shuffle: function () {
+      this.items = _.shuffle(this.items)
+    }
+  }
+})
+</script>
+<style>
+.list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
+</style>
+
+<p class="tip">Важно знать, что FLIP-анимации не работают с элементами, для которых установлен режим позиционирования <code>display: inline</code>. Вместо него используйте режим <code>display: inline-block</code> или flex-контейнер.</p>
+
+<p>FLIP-анимации не ограничены одной осью. Многомерные массивы могут быть анимированы <a href="https://jsfiddle.net/chrisvfritz/sLrhk1bc/" target="_blank" rel="noopener">столь же просто</a>:</p>
+
+<div id="sudoku-demo" class="demo">
+  <strong>Ленивое судоку</strong>
+  <p>Продолжайте перемешивать, пока случайно не выиграете.</p>
+  <button @click="shuffle">
+    Перемешать
+  </button>
+  <transition-group name="cell" tag="div" class="sudoku-container">
+    <div v-for="cell in cells" :key="cell.id" class="cell">
+      {{ cell.number }}
+    </div>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#sudoku-demo',
+  data: {
+    cells: Array.apply(null, { length: 81 })
+      .map(function (_, index) {
+        return {
+          id: index,
+          number: index % 9 + 1
+        }
+      })
+  },
+  methods: {
+    shuffle: function () {
+      this.cells = _.shuffle(this.cells)
+    }
+  }
+})
+</script>
+<style>
+.sudoku-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 238px;
+  margin-top: 10px;
+}
+.cell {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #aaa;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+.cell:nth-child(3n) {
+  margin-right: 0;
+}
+.cell:nth-child(27n) {
+  margin-bottom: 0;
+}
+.cell-move {
+  transition: transform 1s;
+}
+</style>
+
+<h3 id="Упругая-анимация-элементов-списка"><a href="#Упругая-анимация-элементов-списка" class="headerlink" title="Упругая анимация элементов списка"></a>Упругая анимация элементов списка</h3><p>Настраивая JavaScript-переходы через data-атрибуты возможно также организовать упругую анимацию списка:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"staggered-list-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"query"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition-group</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">"staggered-fade"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tag</span>=<span class="string">"ul"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:css</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:before-enter</span>=<span class="string">"beforeEnter"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:enter</span>=<span class="string">"enter"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:leave</span>=<span class="string">"leave"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"(item, index) in computedList"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">"item.msg"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:data-index</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">    &gt;</span>&#123;&#123; item.msg &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#staggered-list-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    query: <span class="string">''</span>,</span><br><span class="line">    list: [</span><br><span class="line">      &#123; <span class="attr">msg</span>: <span class="string">'Брюс Ли'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">msg</span>: <span class="string">'Джеки Чан'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">msg</span>: <span class="string">'Чак Норрис'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">msg</span>: <span class="string">'Джет Ли'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">msg</span>: <span class="string">'Кунг Фьюри'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    computedList: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.list.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== <span class="number">-1</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    beforeEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      el.style.opacity = <span class="number">0</span></span><br><span class="line">      el.style.height = <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    enter: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> delay = el.dataset.index * <span class="number">150</span></span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        Velocity(</span><br><span class="line">          el,</span><br><span class="line">          &#123; <span class="attr">opacity</span>: <span class="number">1</span>, <span class="attr">height</span>: <span class="string">'1.6em'</span> &#125;,</span><br><span class="line">          &#123; <span class="attr">complete</span>: done &#125;</span><br><span class="line">        )</span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125;,</span><br><span class="line">    leave: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> delay = el.dataset.index * <span class="number">150</span></span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        Velocity(</span><br><span class="line">          el,</span><br><span class="line">          &#123; <span class="attr">opacity</span>: <span class="number">0</span>, <span class="attr">height</span>: <span class="number">0</span> &#125;,</span><br><span class="line">          &#123; <span class="attr">complete</span>: done &#125;</span><br><span class="line">        )</span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<div id="example-5" class="demo">
+  <input v-model="query">
+  <transition-group name="staggered-fade" tag="ul" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+    <li v-for="(item, index) in computedList" v-bind:key="item.msg" v-bind:data-index="index">{{ item.msg }}</li>
+  </transition-group>
+</div>
+<script>
+new Vue({
+  el: '#example-5',
+  data: {
+    query: '',
+    list: [
+      { msg: 'Брюс Ли' },
+      { msg: 'Джеки Чан' },
+      { msg: 'Чак Норрис' },
+      { msg: 'Джет Ли' },
+      { msg: 'Кунг Фьюри' }
+    ]
+  },
+  computed: {
+    computedList: function () {
+      var vm = this
+      return this.list.filter(function (item) {
+        return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+      })
+    }
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.height = 0
+    },
+    enter: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 1, height: '1.6em' },
+          { complete: done }
+        )
+      }, delay)
+    },
+    leave: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 0, height: 0 },
+          { complete: done }
+        )
+      }, delay)
+    }
+  }
+})
+</script>
+
+<h2 id="Повторное-использование-анимированных-переходов"><a href="#Повторное-использование-анимированных-переходов" class="headerlink" title="Повторное использование анимированных переходов"></a>Повторное использование анимированных переходов</h2><p>Анимация переходов может быть переиспользована благодаря компонентной системе Vue. Всё, что необходимо сделать — это поместить компонент <code>&lt;transition&gt;</code> или <code>&lt;transition-group&gt;</code> в корне компонента, а затем передать в этот компонент потомков.</p>
+<p>Пример с использованием компонента со строковым шаблоном:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-special-transition'</span>, &#123;</span><br><span class="line">  template: <span class="string">'\</span></span><br><span class="line"><span class="string">    &lt;transition\</span></span><br><span class="line"><span class="string">      name="very-special-transition"\</span></span><br><span class="line"><span class="string">      mode="out-in"\</span></span><br><span class="line"><span class="string">      v-on:before-enter="beforeEnter"\</span></span><br><span class="line"><span class="string">      v-on:after-enter="afterEnter"\</span></span><br><span class="line"><span class="string">    &gt;\</span></span><br><span class="line"><span class="string">      &lt;slot&gt;&lt;/slot&gt;\</span></span><br><span class="line"><span class="string">    &lt;/transition&gt;\</span></span><br><span class="line"><span class="string">  '</span>,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    beforeEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;,</span><br><span class="line">    afterEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Особенно хорошо для этих целей подходят функциональные компоненты:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-special-transition'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = &#123;</span><br><span class="line">      props: &#123;</span><br><span class="line">        name: <span class="string">'very-special-transition'</span>,</span><br><span class="line">        mode: <span class="string">'out-in'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      on: &#123;</span><br><span class="line">        beforeEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">          <span class="comment">// ...</span></span><br><span class="line">        &#125;,</span><br><span class="line">        afterEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">          <span class="comment">// ...</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'transition'</span>, data, context.children)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Динамические-переходы"><a href="#Динамические-переходы" class="headerlink" title="Динамические переходы"></a>Динамические переходы</h2><p>Да, даже анимационные переходы во Vue управляются данными! Простейший пример — связывание атрибута <code>name</code> с динамическим свойством.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">v-bind:name</span>=<span class="string">"transitionName"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Может пригодиться, если вы определили CSS-переходы или анимации, используя принятые во Vue соглашения об именовании классов, и просто хотите переключаться между ними.</p>
+<p>На самом деле, любой атрибут может быть динамически связан. И речь не только об атрибутах. Поскольку хуки — это просто методы, у них есть доступ ко всем данным в текущем контексте, а значит и JavaScript-анимации могут зависеть от состояния компонента.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dynamic-fade-demo"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  Fade In: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">v-model</span>=<span class="string">"fadeInDuration"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">v-bind:max</span>=<span class="string">"maxFadeDuration"</span>&gt;</span></span><br><span class="line">  Fade Out: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">v-model</span>=<span class="string">"fadeOutDuration"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">v-bind:max</span>=<span class="string">"maxFadeDuration"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:css</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:before-enter</span>=<span class="string">"beforeEnter"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:enter</span>=<span class="string">"enter"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:leave</span>=<span class="string">"leave"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"stop"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:click</span>=<span class="string">"stop = false; show = false"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>Запустить анимацию<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:click</span>=<span class="string">"stop = true"</span></span></span><br><span class="line"><span class="tag">  &gt;</span>Остановить анимацию<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#dynamic-fade-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span>,</span><br><span class="line">    fadeInDuration: <span class="number">1000</span>,</span><br><span class="line">    fadeOutDuration: <span class="number">1000</span>,</span><br><span class="line">    maxFadeDuration: <span class="number">1500</span>,</span><br><span class="line">    stop: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.show = <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    beforeEnter: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      el.style.opacity = <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    enter: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      Velocity(el,</span><br><span class="line">        &#123; <span class="attr">opacity</span>: <span class="number">1</span> &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          duration: <span class="keyword">this</span>.fadeInDuration,</span><br><span class="line">          complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            done()</span><br><span class="line">            <span class="keyword">if</span> (!vm.stop) vm.show = <span class="literal">false</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;,</span><br><span class="line">    leave: <span class="function"><span class="keyword">function</span> (<span class="params">el, done</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      Velocity(el,</span><br><span class="line">        &#123; <span class="attr">opacity</span>: <span class="number">0</span> &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          duration: <span class="keyword">this</span>.fadeOutDuration,</span><br><span class="line">          complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            done()</span><br><span class="line">            vm.show = <span class="literal">true</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<div id="dynamic-fade-demo" class="demo">
+  Fade In: <input type="range" v-model="fadeInDuration" min="0" v-bind:max="maxFadeDuration">
+  Fade Out: <input type="range" v-model="fadeOutDuration" min="0" v-bind:max="maxFadeDuration">
+  <transition v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
+    <p v-if="show">привет</p>
+  </transition>
+  <button v-if="stop" v-on:click="stop = false; show = false">Запустить анимацию</button>
+  <button v-else="" v-on:click="stop = true">Остановить анимацию</button>
+</div>
+<script>
+new Vue({
+  el: '#dynamic-fade-demo',
+  data: {
+    show: true,
+    fadeInDuration: 1000,
+    fadeOutDuration: 1000,
+    maxFadeDuration: 1500,
+    stop: true
+  },
+  mounted: function () {
+    this.show = false
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+    },
+    enter: function (el, done) {
+      var vm = this
+      Velocity(el,
+        { opacity: 1 },
+        {
+          duration: this.fadeInDuration,
+          complete: function () {
+            done()
+            if (!vm.stop) vm.show = false
+          }
+        }
+      )
+    },
+    leave: function (el, done) {
+      var vm = this
+      Velocity(el,
+        { opacity: 0 },
+        {
+          duration: this.fadeOutDuration,
+          complete: function () {
+            done()
+            vm.show = true
+          }
+        }
+      )
+    }
+  }
+})
+</script>
+
+<p>Наконец, ещё больше возможностей для создания динамических переходов появляется, если создать компоненты, принимающих входные параметры, определяющие природу используемых переходов. Звучит избито, но всё равно — здесь всё ограничено только вашим воображением.</p>
+
+    
+    
+      <div class="guide-links">
+        
+        
+          <span>← <a href="/v2/guide/components.html">Компоненты</a></span>
+        
+        
+        
+          <span style="float: right;"><a href="/v2/guide/transitioning-state.html">Анимирование переходов между состояниями</a> →</span>
+        
+      </div>
+    
+    <div class="footer">
+        <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/transitions.md" target="_blank">
+        Отредактируйте эту страницу на GitHub!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] }
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

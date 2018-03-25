@@ -1,0 +1,1154 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Render-функции и JSX — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/render-function.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/render-function.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/render-function.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/render-function.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/render-function.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/render-function.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/render-function.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Render-функции и JSX — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Render-функции и JSX — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+        <script>window.PAGE_TYPE = "guide"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/render-function.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+        </ul>
+        <div class="list">
+            <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Специальные спонсоры</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Спонсоры на Patreon</span>
+    <div>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Поддержите Vue.js
+  </a>
+</div>
+
+            <h2>
+                
+                Руководство
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                        <option value="012">0.12</option>
+                        <option value="011">0.11</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+                <li><h3>Переходы & Анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переиспользование & Композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link current">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar render-function-guide">
+    
+      
+        <div id="ad">
+  <script>
+    (function () {
+      var s = document.createElement('script')
+      s.setAttribute('async', '')
+      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
+      s.id = '_carbonads_js'
+      document.getElementById('ad').appendChild(s)
+    })()
+  </script>
+</div>
+
+      
+    
+    
+      <h1>Render-функции и JSX</h1>
+    
+    
+      <h2 id="Основы"><a href="#Основы" class="headerlink" title="Основы"></a>Основы</h2><p>В большинстве случаев для формирования HTML с помощью Vue рекомендуется использовать шаблоны. Впрочем, иногда возникает необходимость в использовании всех алгоритмических возможностей JavaScript. В таких случаях можно применить <strong><code>render</code>-функции</strong> — более низкоуровневую альтернативу шаблонам.</p>
+<p>Давайте разберём простой пример, в котором использование <code>render</code>-функции будет целесообразным. Предположим, вы хотите сгенерировать заголовки с “якорями”:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">"hello-world"</span> <span class="attr">href</span>=<span class="string">"#hello-world"</span>&gt;</span></span><br><span class="line">    Hello world!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Для генерации представленного выше HTML вы решаете использовать такой интерфейс компонента:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">anchored-heading</span> <span class="attr">:level</span>=<span class="string">"1"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">anchored-heading</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>При использовании шаблонов для реализации интерфейса который генерирует только заголовок, основанный на свойстве <code>level</code>, вы быстро столкнетесь со следующей ситуацией:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"anchored-heading-template"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  &lt;h1 v-<span class="keyword">if</span>=<span class="string">"level === 1"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h2 v-<span class="keyword">if</span>=<span class="string">"level === 2"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h3 v-<span class="keyword">if</span>=<span class="string">"level === 3"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h4 v-<span class="keyword">if</span>=<span class="string">"level === 4"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h5 v-<span class="keyword">if</span>=<span class="string">"level === 5"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span></span><br><span class="line"><span class="javascript">  &lt;h6 v-<span class="keyword">if</span>=<span class="string">"level === 6"</span>&gt;</span></span><br><span class="line"><span class="javascript">    &lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  template: <span class="string">'#anchored-heading-template'</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Смотрится не очень. Шаблон получился не только очень многословным — приходится ещё и <code>&lt;slot&gt;&lt;/slot&gt;</code> повторять для каждого возможного уровня заголовка.</p>
+<p>Шаблоны хорошо подходят для большинства компонентов, но рассматриваемый сейчас — явно не один из них. Давайте попробуем переписать компонент, используя <code>render</code>-функцию:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      <span class="string">'h'</span> + <span class="keyword">this</span>.level,   <span class="comment">// имя тега</span></span><br><span class="line">      <span class="keyword">this</span>.$slots.default <span class="comment">// массив потомков</span></span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Так-то лучше, наверное? Код короче, но требует более подробного знакомства со свойствами экземпляра Vue. В данном случае, необходимо знать, что когда дочерние элементы передаются без указания атрибута <code>slot</code>, как например <code>Hello world!</code> внутри <code>anchored-heading</code>, они сохраняются в экземпляре компонента как <code>$slots.default</code>. Если вы этого ещё не сделали, <strong>советуем вам пробежать глазами <a href="../api/#Свойства-экземпляра">API свойств экземпляра</a>, перед тем как углубляться в рассмотрение render-функций.</strong></p>
+<h2 id="Узлы-деревья-и-виртуальный-DOM"><a href="#Узлы-деревья-и-виртуальный-DOM" class="headerlink" title="Узлы, деревья, и виртуальный DOM"></a>Узлы, деревья, и виртуальный DOM</h2><p>Прежде чем погрузиться в <code>render</code>-функции, важно знать как работают браузеры. Возьмите этот HTML-код, например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  Some text content</span><br><span class="line">  <span class="comment">&lt;!-- <span class="doctag">TODO:</span> Add tagline --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Когда браузер читает этот код, он создаёт <a href="https://learn.javascript.ru/dom-nodes" target="_blank" rel="noopener">дерево «узлов DOM»</a>, чтобы облегчить ему отслеживание всего, как, например, вы могли бы построить генеалогическое дерево для отслеживания вашей увеличивающейся семьи.</p>
+<p>Дерево узлов DOM для HTML из примера выше выглядит следующим образом:</p>
+<p><img src="/images/dom-tree.png" alt="Визуализация дерева DOM"></p>
+<p>Каждый элемент является узлом. Каждый фрагмент текста является узлом. Даже комментарии это узлы! Узел — это всего лишь часть страницы. И так же, как и в генеалогическом дереве, каждый узел может иметь своих потомков (т.е. каждая часть может содержать в себе другие части).</p>
+<p>Обновление всех этих узлов может быть затруднительно, но, к счастью, вам не придётся делать это вручную. Вы просто указываете в шаблоне какой HTML-код вы хотите получить на странице:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; blogTitle &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Или render-функцию:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'h1'</span>, <span class="keyword">this</span>.blogTitle)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>В обоих случаях Vue автоматически будет обновлять страницу при изменениях <code>blogTitle</code>.</p>
+<h3 id="Виртуальный-DOM"><a href="#Виртуальный-DOM" class="headerlink" title="Виртуальный DOM"></a>Виртуальный DOM</h3><p>Vue реализует это созданием <strong>виртуального DOM</strong>, чтобы отслеживать изменения, которые ему требуется внести в реальный DOM. Рассмотрим подробнее следующую строку:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> createElement(<span class="string">'h1'</span>, <span class="keyword">this</span>.blogTitle)</span><br></pre></td></tr></table></figure>
+<p>Что в действительности возвращает <code>createElement</code>? Это не <em>в точности</em> реальный DOM-элемент. Можно было бы назвать <code>createNodeDescription</code> для точности, так как результат содержит информацию, описывающую Vue какой именно узел должен быть отображён на странице, включая описания любых дочерних узлов. Мы называем это описание узла «виртуальной нодой», обычно сокращая до аббревиатуры <strong>VNode</strong>. «Виртуальный DOM» — это то, что мы называем всем деревом VNodes, созданных из дерева компонентов Vue.</p>
+<h2 id="Аргументы-createElement"><a href="#Аргументы-createElement" class="headerlink" title="Аргументы createElement"></a>Аргументы <code>createElement</code></h2><p>Следующий момент, с которым необходимо познакомиться, это синтаксис использования возможностей шаблонизации функцией <code>createElement</code>. Вот аргументы, которые принимает <code>createElement</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// @returns &#123;VNode&#125;</span></span><br><span class="line">createElement(</span><br><span class="line">  <span class="comment">// &#123;String | Object | Function&#125;</span></span><br><span class="line">  <span class="comment">// Название тега HTML, опции компонента, или функция,</span></span><br><span class="line">  <span class="comment">// их возвращающая. Обязательный параметр.</span></span><br><span class="line">  <span class="string">'div'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#123;Object&#125;</span></span><br><span class="line">  <span class="comment">// Объект данных, содержащий атрибуты,</span></span><br><span class="line">  <span class="comment">// который вы бы указали в шаблоне. Опциональный параметр.</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// (см. детали в секции ниже)</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#123;String | Array&#125;</span></span><br><span class="line">  <span class="comment">// Дочерние VNode'ы, создаваемые с помощью `createElement()`</span></span><br><span class="line">  <span class="comment">// или просто строки для получения 'текстовых VNode'. Опциональный параметр.</span></span><br><span class="line">  [</span><br><span class="line">    <span class="string">'Какой-то текст, идущий первым.'</span>,</span><br><span class="line">    createElement(<span class="string">'h1'</span>, <span class="string">'Заголовок'</span>),</span><br><span class="line">    createElement(MyComponent, &#123;</span><br><span class="line">      props: &#123;</span><br><span class="line">        someProp: <span class="string">'foobar'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="Подробно-об-объекте-данных"><a href="#Подробно-об-объекте-данных" class="headerlink" title="Подробно об объекте данных"></a>Подробно об объекте данных</h3><p>Заметьте: особым образом рассматриваемые в шаблонах атрибуты <code>v-bind:class</code> и <code>v-bind:style</code>, и в объектах данных VNode’ов имеют собственные поля на верхнем уровне объектов данных. Этот объект также позволяет вам связывать обычные атрибуты HTML, а также свойства DOM, такие как <code>innerHTML</code> (это заменит директиву <code>v-html</code>):</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// То же API, что и у `v-bind:class`</span></span><br><span class="line">  class: &#123;</span><br><span class="line">    foo: <span class="literal">true</span>,</span><br><span class="line">    bar: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// То же API, что и у `v-bind:style`</span></span><br><span class="line">  style: &#123;</span><br><span class="line">    color: <span class="string">'red'</span>,</span><br><span class="line">    fontSize: <span class="string">'14px'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Обычные атрибуты HTML</span></span><br><span class="line">  attrs: &#123;</span><br><span class="line">    id: <span class="string">'foo'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Входные параметры компонентов</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    myProp: <span class="string">'bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Свойства DOM</span></span><br><span class="line">  domProps: &#123;</span><br><span class="line">    innerHTML: <span class="string">'baz'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Обработчики событий располагаются под ключом `on`,</span></span><br><span class="line">  <span class="comment">// однако модификаторы, вроде как `v-on:keyup.enter`, не</span></span><br><span class="line">  <span class="comment">// поддерживаются. Проверять keyCode придётся вручную.</span></span><br><span class="line">  on: &#123;</span><br><span class="line">    click: <span class="keyword">this</span>.clickHandler</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Только для компонентов. Позволяет слушать нативные события,</span></span><br><span class="line">  <span class="comment">// а не генерируемые в компоненте через `vm.$emit`.</span></span><br><span class="line">  nativeOn: &#123;</span><br><span class="line">    click: <span class="keyword">this</span>.nativeClickHandler</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Пользовательские директивы. Обратите внимание, что `oldValue`</span></span><br><span class="line">  <span class="comment">// не может быть указано, так как Vue сам его отслеживает</span></span><br><span class="line">  directives: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'my-custom-directive'</span>,</span><br><span class="line">      value: <span class="string">'2'</span>,</span><br><span class="line">      expression: <span class="string">'1 + 1'</span>,</span><br><span class="line">      arg: <span class="string">'foo'</span>,</span><br><span class="line">      modifiers: &#123;</span><br><span class="line">        bar: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// Слоты с ограниченной областью видимости в формате</span></span><br><span class="line">  <span class="comment">// &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span></span><br><span class="line">  scopedSlots: &#123;</span><br><span class="line">    <span class="keyword">default</span>: <span class="function"><span class="params">props</span> =&gt;</span> createElement(<span class="string">'span'</span>, props.text)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Имя слота, если этот компонент</span></span><br><span class="line">  <span class="comment">// является потомком другого компонента</span></span><br><span class="line">  slot: <span class="string">'name-of-slot'</span>,</span><br><span class="line">  <span class="comment">// Прочие специальные свойства верхнего уровня</span></span><br><span class="line">  key: <span class="string">'myKey'</span>,</span><br><span class="line">  ref: <span class="string">'myRef'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Полный-пример"><a href="#Полный-пример" class="headerlink" title="Полный пример"></a>Полный пример</h3><p>Узнав всё это, мы теперь можем завершить начатый ранее компонент:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> getChildrenTextContent = <span class="function"><span class="keyword">function</span> (<span class="params">children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> children.map(<span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.children</span><br><span class="line">      ? getChildrenTextContent(node.children)</span><br><span class="line">      : node.text</span><br><span class="line">  &#125;).join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// создать id в kebabCase</span></span><br><span class="line">    <span class="keyword">var</span> headingId = getChildrenTextContent(<span class="keyword">this</span>.$slots.default)</span><br><span class="line">      .toLowerCase()</span><br><span class="line">      .replace(<span class="regexp">/\W+/g</span>, <span class="string">'-'</span>)</span><br><span class="line">      .replace(<span class="regexp">/(^\-|\-$)/g</span>, <span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      <span class="string">'h'</span> + <span class="keyword">this</span>.level,</span><br><span class="line">      [</span><br><span class="line">        createElement(<span class="string">'a'</span>, &#123;</span><br><span class="line">          attrs: &#123;</span><br><span class="line">            name: headingId,</span><br><span class="line">            href: <span class="string">'#'</span> + headingId</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, <span class="keyword">this</span>.$slots.default)</span><br><span class="line">      ]</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Ограничения"><a href="#Ограничения" class="headerlink" title="Ограничения"></a>Ограничения</h3><h4 id="VNode’ы-должны-быть-уникальными"><a href="#VNode’ы-должны-быть-уникальными" class="headerlink" title="VNode’ы должны быть уникальными"></a>VNode’ы должны быть уникальными</h4><p>Все VNode’ы в компоненте должны быть уникальными. Это значит, что <code>render</code>-функция ниже — не валидна:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myParagraphVNode = createElement(<span class="string">'p'</span>, <span class="string">'hi'</span>)</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span><br><span class="line">    <span class="comment">// Упс — дублирующиеся VNode'ы!</span></span><br><span class="line">    myParagraphVNode, myParagraphVNode</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Если вы действительно хотите многократно использовать один и тот же элемент/компонент, примените функцию-фабрику. Например, следующая <code>render</code>-функция полностью валидный способ для отображения 20 идентичных абзацев:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>,</span><br><span class="line">    <span class="built_in">Array</span>.apply(<span class="literal">null</span>, &#123; <span class="attr">length</span>: <span class="number">20</span> &#125;).map(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> createElement(<span class="string">'p'</span>, <span class="string">'hi'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Реализация-возможностей-шаблона-с-помощью-JavaScript"><a href="#Реализация-возможностей-шаблона-с-помощью-JavaScript" class="headerlink" title="Реализация возможностей шаблона с помощью JavaScript"></a>Реализация возможностей шаблона с помощью JavaScript</h2><h3 id="v-if-и-v-for"><a href="#v-if-и-v-for" class="headerlink" title="v-if и v-for"></a><code>v-if</code> и <code>v-for</code></h3><p>Функциональность, легко реализуемая в JavaScript, не требует от Vue какой-либо проприетарной альтернативы. Например, используемые в шаблонах <code>v-if</code> и <code>v-for</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"items.length"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span>&#123;&#123; item.name &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>Ничего не найдено.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>При использовании <code>render</code>-функции это можно легко переписать с помощью <code>if</code>/<code>else</code> и <code>map</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: [<span class="string">'items'</span>],</span><br><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.items.length) &#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'ul'</span>, <span class="keyword">this</span>.items.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> createElement(<span class="string">'li'</span>, item.name)</span><br><span class="line">    &#125;))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'p'</span>, <span class="string">'Ничего не найдено.'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a><code>v-model</code></h3><p>В <code>render</code>-функции нет прямого аналога <code>v-model</code> — вы должны реализовать эту логику самостоятельно:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: [<span class="string">'value'</span>],</span><br><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'input'</span>, &#123;</span><br><span class="line">    domProps: &#123;</span><br><span class="line">      value: self.value</span><br><span class="line">    &#125;,</span><br><span class="line">    on: &#123;</span><br><span class="line">      input: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        self.$emit(<span class="string">'input'</span>, event.target.value)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Это цена использования низкоуровневой реализации, которая в то же время предоставляет вам больше контроля над взаимодействием, чем <code>v-model</code>.</p>
+<h3 id="События-и-модификаторы-клавиш"><a href="#События-и-модификаторы-клавиш" class="headerlink" title="События и модификаторы клавиш"></a>События и модификаторы клавиш</h3><p>Для модификаторов событий <code>.passive</code>, <code>.capture</code> и <code>.once</code>, Vue предоставляет префиксы, которые могут быть использованы вместе с <code>on</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Модификаторы</th>
+<th>Префикс</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.passive</code></td>
+<td><code>&amp;</code></td>
+</tr>
+<tr>
+<td><code>.capture</code></td>
+<td><code>!</code></td>
+</tr>
+<tr>
+<td><code>.once</code></td>
+<td><code>~</code></td>
+</tr>
+<tr>
+<td><code>.capture.once</code> или<br><code>.once.capture</code></td>
+<td><code>~!</code></td>
+</tr>
+</tbody>
+</table>
+<p>Например:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">on: &#123;</span><br><span class="line">  <span class="string">'!click'</span>: <span class="keyword">this</span>.doThisInCapturingMode,</span><br><span class="line">  <span class="string">'~keyup'</span>: <span class="keyword">this</span>.doThisOnce,</span><br><span class="line">  <span class="string">'~!mouseover'</span>: <span class="keyword">this</span>.doThisOnceInCapturingMode</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Для всех остальных событий и модификаторов клавиш нет необходимости в префиксе, потому что вы можете просто использовать методы события в обработчике:</p>
+<table>
+<thead>
+<tr>
+<th>Модификаторы</th>
+<th>Эквивалент в обработчике</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.stop</code></td>
+<td><code>event.stopPropagation()</code></td>
+</tr>
+<tr>
+<td><code>.prevent</code></td>
+<td><code>event.preventDefault()</code></td>
+</tr>
+<tr>
+<td><code>.self</code></td>
+<td><code>if (event.target !== event.currentTarget) return</code></td>
+</tr>
+<tr>
+<td>Клавиши:<br><code>.enter</code>, <code>.13</code></td>
+<td><code>if (event.keyCode !== 13) return</code> (измените <code>13</code> на <a href="http://keycode.info/" target="_blank" rel="noopener">любой другой код клавиши</a> для модификаторов других клавиш)</td>
+</tr>
+<tr>
+<td>Модификаторы клавиш:<br><code>.ctrl</code>, <code>.alt</code>, <code>.shift</code>, <code>.meta</code></td>
+<td><code>if (!event.ctrlKey) return</code> (измените <code>ctrlKey</code> на <code>altKey</code>, <code>shiftKey</code> или <code>metaKey</code> соответственно)</td>
+</tr>
+</tbody>
+</table>
+<p>Пример использования всех этих модификаторов вместе:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">on: &#123;</span><br><span class="line">  keyup: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Ничего не делаем, если элемент на котором произошло</span></span><br><span class="line">    <span class="comment">// событие не является элементом, который мы отслеживаем</span></span><br><span class="line">    <span class="keyword">if</span> (event.target !== event.currentTarget) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Ничего не делаем, если клавиша не является Enter (13)</span></span><br><span class="line">    <span class="comment">// и клавиша SHIFT не была нажата в то же время</span></span><br><span class="line">    <span class="keyword">if</span> (!event.shiftKey || event.keyCode !== <span class="number">13</span>) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Останавливаем всплытие события</span></span><br><span class="line">    event.stopPropagation()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Останавливаем стандартный обработчик keyup для этого элемента</span></span><br><span class="line">    event.preventDefault()</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Слоты"><a href="#Слоты" class="headerlink" title="Слоты"></a>Слоты</h3><p>Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode используя <a href="../api/#vm-slots"><code>this.$slots</code></a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// `&lt;div&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;`</span></span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, <span class="keyword">this</span>.$slots.default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>И получить доступ к слотам со своей областью видимости как к функциям, возвращающим VNode, используя <a href="../api/#vm-scopedSlots"><code>this.$scopedSlots</code></a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: [<span class="string">'message'</span>],</span><br><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// `&lt;div&gt;&lt;slot :text="message"&gt;&lt;/slot&gt;&lt;/div&gt;`</span></span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span><br><span class="line">    <span class="keyword">this</span>.$scopedSlots.default(&#123;</span><br><span class="line">      text: <span class="keyword">this</span>.message</span><br><span class="line">    &#125;)</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Чтобы передать слоты со своей областью видимости в дочерний компонент используя <code>render</code>-функцию, применяйте свойство <code>scopedSlots</code> в данных VNode:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span><br><span class="line">    createElement(<span class="string">'child'</span>, &#123;</span><br><span class="line">      <span class="comment">// передаём `scopedSlots` в объект data</span></span><br><span class="line">      <span class="comment">// в виде &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span></span><br><span class="line">      scopedSlots: &#123;</span><br><span class="line">        <span class="keyword">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params">props</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> createElement(<span class="string">'span'</span>, props.text)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>Если приходится писать много <code>render</code>-функций, то такой код может утомлять:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">createElement(</span><br><span class="line">  <span class="string">'anchored-heading'</span>, &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">      level: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, [</span><br><span class="line">    createElement(<span class="string">'span'</span>, <span class="string">'Hello'</span>),</span><br><span class="line">    <span class="string">' world!'</span></span><br><span class="line">  ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Особенно в сравнении с кодом аналогичного шаблона:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">anchored-heading</span> <span class="attr">:level</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">span</span>&gt;</span> world!</span><br><span class="line"><span class="tag">&lt;/<span class="name">anchored-heading</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Поэтому есть <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx" target="_blank" rel="noopener">плагин для Babel</a>, позволяющий использовать JSX во Vue, и применять синтаксис, похожий на шаблоны:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> AnchoredHeading <span class="keyword">from</span> <span class="string">'./AnchoredHeading.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">h</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;AnchoredHeading level=&#123;<span class="number">1</span>&#125;&gt;</span><br><span class="line">        &lt;span&gt;Hello&lt;<span class="regexp">/span&gt; world!</span></span><br><span class="line"><span class="regexp">      &lt;/</span>AnchoredHeading&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p class="tip">Сокращение <code>createElement</code> до <code>h</code> — распространённое соглашение в экосистеме Vue и обязательное для использования JSX. В случае отсутствия <code>h</code> в области видимости, приложение выбросит ошибку.</p>
+
+<p>Подробную информацию о преобразовании JSX в JavaScript можно найти в <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#usage" target="_blank" rel="noopener">документации плагина</a>.</p>
+<h2 id="Функциональные-компоненты"><a href="#Функциональные-компоненты" class="headerlink" title="Функциональные компоненты"></a>Функциональные компоненты</h2><p>Компонент для заголовков с “якорями”, который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути это всего лишь функция с параметром.</p>
+<p>В подобных случаях мы можем пометить компоненты как функциональные (опция <code>functional</code>), что означает отсутствие у них состояния (нет опции <code>data</code>) и экземпляра (нет контекстной переменной <code>this</code>). <strong>Функциональный компонент</strong> выглядит так:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// чтобы компенсировать отсутствие экземпляра</span></span><br><span class="line">  <span class="comment">// мы передаём контекст вторым аргументом</span></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// входные параметры опциональны</span></span><br><span class="line">  props: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Примечание: в версиях до 2.3.0 опция <code>props</code> необходима, если вы хотите использовать входные параметры в функциональном компоненте. С версии 2.3.0+ вы можете опустить опцию <code>props</code> и все атрибуты, найденные на ноде компонента, будут неявно извлечены в качестве входных данных.</p>
+</blockquote>
+<p>С версии 2.5.0+, если вы используете <a href="single-file-components.html">однофайловые компоненты</a>, вы можете объявить функциональные компоненты основанные на шаблоне таким образом:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">functional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Всё необходимое компоненту передаётся через <code>context</code> — объект, содержащий следующие поля:</p>
+<ul>
+<li><code>props</code>: Объект, содержащий переданные входные параметры</li>
+<li><code>children</code>: Массив дочерних VNode’ов</li>
+<li><code>slots</code>: Функция, возвращающая объект slots</li>
+<li><code>data</code>: Объект данных, переданный объекту, целиком</li>
+<li><code>parent</code>: Ссылка на родительский компонент</li>
+<li><code>listeners</code>: (2.3.0+) Объект, содержащий все зарегистрированные в родителе прослушиватели событий. Это просто псевдоним для <code>data.on</code></li>
+<li><code>injections</code>: (2.3.0+) Если используется опция <a href="../api/#provide-inject"><code>inject</code></a>, будет содержать все разрешённые инъекции.</li>
+</ul>
+<p>После указания <code>functional: true</code>, обновление <code>render</code>-функции нашего компонента для заголовков потребует только добавления параметра <code>context</code>, обновления <code>this.$slots.default</code> на <code>context.children</code> и замены <code>this.level</code> на <code>context.props.level</code>.</p>
+<p>Поскольку функциональные компоненты — это просто функции, их рендеринг обходится значительно дешевле. Однако отсутствие постоянного экземпляра означает, что они не будут отображаться в дереве компонентов во <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a>.</p>
+<p>Кроме того, они очень удобны в качестве обёрток. Например, если вам нужно:</p>
+<ul>
+<li>Выбрать один из компонентов для последующего рендеринга в данной точке</li>
+<li>Произвести манипуляции над дочерними элементами, входными параметрами или данными, перед тем как передать их в дочерний компонент</li>
+</ul>
+<p>Вот пример компонента <code>smart-list</code>, делегирующего рендеринг к более специализированным компонентам, в зависимости от переданных в него данных:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> EmptyList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> TableList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> OrderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> UnorderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'smart-list'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">appropriateListComponent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> items = context.props.items</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (items.length === <span class="number">0</span>)           <span class="keyword">return</span> EmptyList</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> items[<span class="number">0</span>] === <span class="string">'object'</span>) <span class="keyword">return</span> TableList</span><br><span class="line">      <span class="keyword">if</span> (context.props.isOrdered)      <span class="keyword">return</span> OrderedList</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> UnorderedList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      appropriateListComponent(),</span><br><span class="line">      context.data,</span><br><span class="line">      context.children</span><br><span class="line">    )</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      type: <span class="built_in">Array</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    isOrdered: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Передача-атрибутов-и-событий-дочерним-элементам-компонентам"><a href="#Передача-атрибутов-и-событий-дочерним-элементам-компонентам" class="headerlink" title="Передача атрибутов и событий дочерним элементам/компонентам"></a>Передача атрибутов и событий дочерним элементам/компонентам</h3><p>В обычных компонентах, атрибуты не определённые как входные параметры, автоматически добавляются к корневому элементу компонента, заменяя или <a href="class-and-style.html">правильно объединяя</a> любые существующие атрибуты с тем же именем.</p>
+<p>Однако функциональные компоненты требуют явного определения этого поведения:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-functional-button'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Прозрачно передать любые атрибуты, слушатели событий, дочерние элементы и т.д.</span></span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'button'</span>, context.data, context.children)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Передавая <code>context.data</code> вторым аргументом в <code>createElement</code>, мы передаём любые атрибуты или слушатели событий, используемые на <code>my-functional-button</code>. На самом деле это настолько очевидно, что для событий не требуется модификатор <code>.native</code>.</p>
+<p>Если вы используете функциональные компоненты на основе шаблонов, вам также придётся вручную добавлять атрибуты и слушатели. Поскольку у нас есть доступ к индивидуальному содержимому контекста, мы можем использовать <code>data.attrs</code> для передачи любых атрибутов HTML и <code>listeners</code> <em>(псевдоним для <code>data.on</code>)</em> для передачи любых слушателей событий.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">functional</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"btn btn-primary"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind</span>=<span class="string">"data.attrs"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">v-on</span>=<span class="string">"listeners"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slot</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="slots-vs-children"><a href="#slots-vs-children" class="headerlink" title="slots() vs children"></a><code>slots()</code> vs <code>children</code></h3><p>Вы можете задаться вопросом зачем нужны <code>slots()</code> и <code>children</code> одновременно. Разве не будет <code>slots().default</code> возвращать тот же результат, что и <code>children</code>? В некоторых случаях — да, но что если у нашего функционального компонента будут следующие дочерние элементы?</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-functional-component</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"foo"</span>&gt;</span></span><br><span class="line">    первый</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>второй<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-functional-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Для этого компонента, <code>children</code> даст вам оба абзаца, <code>slots().default</code> — только второй, а <code>slots().foo</code> — только первый. Таким образом, наличие и <code>children</code>, и <code>slots()</code> позволяет выбрать, знать ли компоненту о системе слотов или просто делегировать это знание потомку через <code>children</code>.</p>
+<h2 id="Компиляция-шаблонов"><a href="#Компиляция-шаблонов" class="headerlink" title="Компиляция шаблонов"></a>Компиляция шаблонов</h2><p>Возможно, вас заинтересует тот факт, что шаблоны Vue в действительности компилируются в <code>render</code>-функцию. Обычно нет необходимости знать подобные детали реализации, но может быть любопытным посмотреть на то, как компилируются те или иные возможности шаблонов. Ниже приведена небольшая демонстрация, с помощью <code>Vue.compile</code> в реальном времени компилирующая строки шаблонов:</p>
+
+<div id="vue-compile-demo" class="demo">
+  <textarea v-model="templateText" rows="10"></textarea>
+  <div v-if="typeof result === 'object'">
+    <label>render:</label>
+    <pre><code>{{ result.render }}</code></pre>
+    <label>staticRenderFns:</label>
+    <pre v-for="(fn, index) in result.staticRenderFns"><code>_m({{ index }}): {{ fn }}</code></pre>
+    <pre v-if="!result.staticRenderFns.length"><code>{{ result.staticRenderFns }}</code></pre>
+  </div>
+  <div v-else="">
+    <label>Ошибка компиляции:</label>
+    <pre><code>{{ result }}</code></pre>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#vue-compile-demo',
+  data: {
+    templateText: '\
+<div>\n\
+  <header>\n\
+    <h1>I\'m a template!</h1>\n\
+  </header>\n\
+  <p v-if="message">\n\
+    {{ message }}\n\
+  </p>\n\
+  <p v-else>\n\
+    No message.\n\
+  </p>\n\
+</div>\
+    ',
+  },
+  computed: {
+    result: function () {
+      if (!this.templateText) {
+        return 'Введите выше валидный шаблон'
+      }
+      try {
+        var result = Vue.compile(this.templateText.replace(/\s{2,}/g, ''))
+        return {
+          render: this.formatFunction(result.render),
+          staticRenderFns: result.staticRenderFns.map(this.formatFunction)
+        }
+      } catch (error) {
+        return error.message
+      }
+    }
+  },
+  methods: {
+    formatFunction: function (fn) {
+      return fn.toString().replace(/(\{\n)(\S)/, '$1  $2')
+    }
+  }
+})
+console.error = function (error) {
+  throw new Error(error)
+}
+</script>
+<style>
+#vue-compile-demo {
+  -webkit-user-select: inherit;
+  user-select: inherit;
+}
+#vue-compile-demo pre {
+  padding: 10px;
+  overflow-x: auto;
+}
+#vue-compile-demo code {
+  white-space: pre;
+  padding: 0
+}
+#vue-compile-demo textarea {
+  width: 100%;
+  font-family: monospace;
+}
+</style>
+
+
+    
+    
+      <div class="guide-links">
+        
+        
+          <span>← <a href="/v2/guide/custom-directive.html">Пользовательские директивы</a></span>
+        
+        
+        
+          <span style="float: right;"><a href="/v2/guide/plugins.html">Плагины</a> →</span>
+        
+      </div>
+    
+    <div class="footer">
+        <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/render-function.md" target="_blank">
+        Отредактируйте эту страницу на GitHub!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] }
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

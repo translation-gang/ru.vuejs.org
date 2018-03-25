@@ -1,0 +1,1179 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Рендеринг списков — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/list.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/list.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/list.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/list.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/list.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/list.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/list.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Рендеринг списков — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Рендеринг списков — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+        <script>window.PAGE_TYPE = "guide"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/list.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+        </ul>
+        <div class="list">
+            <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Специальные спонсоры</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Спонсоры на Patreon</span>
+    <div>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Поддержите Vue.js
+  </a>
+</div>
+
+            <h2>
+                
+                Руководство
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                        <option value="012">0.12</option>
+                        <option value="011">0.11</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link current">Рендеринг списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+                <li><h3>Переходы & Анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переиспользование & Композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/unit-testing.html" class="sidebar-link">Модульное тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="content guide with-sidebar list-guide">
+    
+      
+        <div id="ad">
+  <script>
+    (function () {
+      var s = document.createElement('script')
+      s.setAttribute('async', '')
+      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
+      s.id = '_carbonads_js'
+      document.getElementById('ad').appendChild(s)
+    })()
+  </script>
+</div>
+
+      
+    
+    
+      <h1>Рендеринг списков</h1>
+    
+    
+      <h2 id="Отображение-массива-элементов-с-помощью-v-for"><a href="#Отображение-массива-элементов-с-помощью-v-for" class="headerlink" title="Отображение массива элементов с помощью v-for"></a>Отображение массива элементов с помощью <code>v-for</code></h2><p>Используйте директиву <code>v-for</code> для рендеринга списка элементов на основе массива данных. Директива <code>v-for</code> требует особого синтаксиса: записи <code>item in items</code>, где <code>items</code> — исходный массив данных, а <code>item</code> — <strong>ссылка</strong> на текущий элемент массива:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Результат:</p>
+
+<ul id="example-1" class="demo">
+  <li v-for="item in items">
+    {{item.message}}
+  </li>
+</ul>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+  watch: {
+    items: function () {
+      smoothScroll.animateScroll(document.querySelector('#example-1'))
+    }
+  }
+})
+</script>
+
+<p>Внутри блока <code>v-for</code> нам полностью доступны свойства из области видимости родителя. <code>v-for</code> также поддерживает необязательный второй параметр для указания индекса текущего элемента.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example2 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    parentMessage: <span class="string">'Родитель'</span>,</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Результат:</p>
+
+<ul id="example-2" class="demo">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+<script>
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Родитель',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  },
+  watch: {
+    items: function () {
+      smoothScroll.animateScroll(document.querySelector('#example-2'))
+    }
+  }
+})
+</script>
+
+<p>Вместо <code>in</code> разделителем может быть слово <code>of</code>, как в итераторах JavaScript:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item of items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="v-for-для-объекта"><a href="#v-for-для-объекта" class="headerlink" title="v-for для объекта"></a><code>v-for</code> для объекта</h3><p><code>v-for</code> можно также использовать для итерирования по свойствам объекта:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"v-for-object"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"value in object"</span>&gt;</span></span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#v-for-object'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    object: &#123;</span><br><span class="line">      firstName: <span class="string">'Иван'</span>,</span><br><span class="line">      lastName: <span class="string">'Петров'</span>,</span><br><span class="line">      age: <span class="number">30</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Результат:</p>
+
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+<script>
+new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      firstName: 'Иван',
+      lastName: 'Петров',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p>Можно также указать второй аргумент для получения ключей:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key) in object"</span>&gt;</span></span><br><span class="line">  &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div id="v-for-object-value-key" class="demo">
+  <div v-for="(value, key) in object">
+    {{ key }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-key',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p>И третий — для индексов:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key, index) in object"</span>&gt;</span></span><br><span class="line">  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<div id="v-for-object-value-key-index" class="demo">
+  <div v-for="(value, key, index) in object">
+    {{ index }}. {{ key }}: {{ value }}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#v-for-object-value-key-index',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+</script>
+
+<p class="tip">При итерировании по объекту, порядок обхода такой же, как порядок ключей в <code>Object.keys()</code>. Его консистентность <strong>не гарантируется</strong> при использовании различных реализаций движков JavaScript.</p>
+
+<h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>Когда Vue обновляет список элементов, управляемый директивой <code>v-for</code>, по умолчанию используется стратегия “обновления на месте”. Если порядок элементов массива или объекта изменился, Vue не будет перемещать элементы DOM, а попросту обновит каждый элемент “на месте”, чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
+<p>Режим по умолчанию эффективен, но применим только в случаях, <strong>когда результат рендеринга вашего списка не полагается на состояние дочерних компонентов или временные состояния DOM (например, значения полей форм)</strong>.</p>
+<p>Чтобы подсказать Vue, как отслеживать идентичность каждого элемента, позволяющую переиспользовать и перемещать существующие элементы, укажите уникальный атрибут <code>key</code> для каждого элемента. Идеальным значением <code>key</code> будет уникальный id сущности. Этот специальный атрибут является приблизительным эквивалентом <code>track-by</code> из Vue 1.x, но работает так же, как и все остальные атрибуты, а значит вам нужно использовать <code>v-bind</code> для связывания с динамическими значениями (в примере ниже используется сокращение):</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- содержимое --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Рекомендуем указывать <code>key</code> с <code>v-for</code> по возможности всегда, за исключением случаев, когда итерируемый контент DOM прост, или когда вы сознательно используете стратегию по умолчанию для улучшения производительности.</p>
+<p>Поскольку указанный механизм является общим для идентификации элементов во Vue, <code>key</code> имеет и другие варианты применения, не связанные явно с <code>v-for</code>, как мы увидим далее в руководстве.</p>
+<h2 id="Отслеживание-изменений-в-массивах"><a href="#Отслеживание-изменений-в-массивах" class="headerlink" title="Отслеживание изменений в массивах"></a>Отслеживание изменений в массивах</h2><h3 id="Методы-внесения-изменений"><a href="#Методы-внесения-изменений" class="headerlink" title="Методы внесения изменений"></a>Методы внесения изменений</h3><p>Vue оборачивает методы внесения изменений наблюдаемого массива таким образом, чтобы они вызывали обновления представления. Оборачиваются следующие методы:</p>
+<ul>
+<li><code>push()</code></li>
+<li><code>pop()</code></li>
+<li><code>shift()</code></li>
+<li><code>unshift()</code></li>
+<li><code>splice()</code></li>
+<li><code>sort()</code></li>
+<li><code>reverse()</code></li>
+</ul>
+<p>Вы можете открыть консоль и поиграть с массивом <code>items</code> из предыдущего примера, вызывая его методы внесения изменений. Например: <code>example1.items.push({ message: &#39;Baz&#39; })</code>.</p>
+<h3 id="Замены-в-массиве"><a href="#Замены-в-массиве" class="headerlink" title="Замены в массиве"></a>Замены в массиве</h3><p>Методы внесения изменений, как следует из их названия, изменяют оригинальный массив, на котором они вызываются. Существуют и неизменяющие методы, такие как <code>filter()</code>, <code>concat()</code> и <code>slice()</code>, не вносящие изменений в изначальный массив, а <strong>всегда возвращающие новый массив</strong>. При работе с неизменяющими методами вы можете просто заменить старый массив новым:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">example1.items = example1.items.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item.message.match(<span class="regexp">/Foo/</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Можно было бы предположить, что это заставит Vue выбросить существующий DOM и перерендерить список целиком, но, к счастью, это не так. Во Vue есть умные эвристики для максимизации переиспользования элементов DOM, так что замена одного массива другим, в случае совпадения части элементов в этих массивах, является очень эффективной операцией.</p>
+<h3 id="Предостережения"><a href="#Предостережения" class="headerlink" title="Предостережения"></a>Предостережения</h3><p>Из-за ограничений JavaScript, Vue <strong>не способен</strong> заметить следующие изменения в массиве:</p>
+<ol>
+<li>Прямую установку элемента по индексу, например: <code>vm.items[indexOfItem] = newValue</code></li>
+<li>Явное изменение длины массива, например: <code>vm.items.length = newLength</code></li>
+</ol>
+<p>Например:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.items[<span class="number">1</span>] = <span class="string">'x'</span> <span class="comment">// НЕ РЕАКТИВНО</span></span><br><span class="line">vm.items.length = <span class="number">2</span> <span class="comment">// НЕ РЕАКТИВНО</span></span><br></pre></td></tr></table></figure>
+<p>Обойти первую проблему можно двумя способами, оба из которых не только дадут эффект аналогичный <code>vm.items[indexOfItem] = newValue</code>, но и инициируют реактивные обновления состояния приложения:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Vue.set</span></span><br><span class="line">Vue.set(vm.items, indexOfItem, newValue)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Array.prototype.splice</span></span><br><span class="line">vm.items.splice(indexOfItem, <span class="number">1</span>, newValue)</span><br></pre></td></tr></table></figure>
+<p>Вы также можете использовать метод экземпляра <a href="https://ru.vuejs.org/v2/api/#vm-set" target="_blank" rel="noopener"><code>vm.$set</code></a>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$set(vm.items, indexOfItem, newValue)</span><br></pre></td></tr></table></figure>
+<p>Для обхода второй проблемы используйте <code>splice</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.items.splice(newLength)</span><br></pre></td></tr></table></figure>
+<h2 id="Предостережения-об-изменениях-объектов"><a href="#Предостережения-об-изменениях-объектов" class="headerlink" title="Предостережения об изменениях объектов"></a>Предостережения об изменениях объектов</h2><p>Опять же, из-за ограничений современного JavaScript, <strong>Vue не может обнаружить добавление или удаление свойств</strong>. Например:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// свойство `vm.a` реактивно</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// свойство `vm.b` НЕ реактивно</span></span><br></pre></td></tr></table></figure>
+<p>Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода <code>Vue.set(object, key, value)</code>. Например, для следующего:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    userProfile: &#123;</span><br><span class="line">      name: <span class="string">'Anika'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Вы можете добавить новое свойство <code>age</code> для вложенного объекта <code>userProfile</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<p>Вы также можете использовать метод экземпляра <code>vm.$set</code>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<p>Иногда вам может потребоваться добавить ряд новых свойств существующему объекту, например, используя <code>Object.assign()</code> или <code>_.extend()</code>. В таких случаях, вы должны создать новый объект со свойствами обоих объектов. Поэтому вместо:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(vm.userProfile, &#123;</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">'Vue Green'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Вы должны добавлять новые, реактивные свойства таким образом:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.userProfile = <span class="built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">'Vue Green'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Отображение-отфильтрованных-отсортированных-результатов"><a href="#Отображение-отфильтрованных-отсортированных-результатов" class="headerlink" title="Отображение отфильтрованных/отсортированных результатов"></a>Отображение отфильтрованных/отсортированных результатов</h2><p>Иногда хочется отобразить отфильтрованную или отсортированную версию массива, не изменяя оригинальных данных. В этом случае, можно создать вычисляемое свойство, возвращающее отфильтрованный или отсортированный массив.</p>
+<p>Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in evenNumbers"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  evenNumbers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>В ситуациях, когда вычисляемые свойства не пригодны к использованию (например, внутри вложенных циклов <code>v-for</code>), можно просто использовать метод:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  even: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="v-for-и-диапазоны"><a href="#v-for-и-диапазоны" class="headerlink" title="v-for и диапазоны"></a><code>v-for</code> и диапазоны</h3><p>В <code>v-for</code> можно также передать целое число. В этом случае шаблон будет повторён указанное число раз.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"n in 10"</span>&gt;</span>&#123;&#123; n &#125;&#125; <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Результат:</p>
+
+<div id="range" class="demo">
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+<script>
+  new Vue({ el: '#range' })
+</script>
+
+<h3 id="v-for-и-тег-template"><a href="#v-for-и-тег-template" class="headerlink" title="v-for и тег template"></a><code>v-for</code> и тег <code>template</code></h3><p>Подобно шаблону <code>v-if</code>, вы также можете использовать тег <code>&lt;template&gt;</code> с директивой <code>v-for</code> для отображения блока из нескольких элементов. Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; item.msg &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="v-for-и-v-if"><a href="#v-for-и-v-if" class="headerlink" title="v-for и v-if"></a><code>v-for</code> и <code>v-if</code></h3><p>Когда они присутствуют на одном элементе, <code>v-for</code> имеет больший приоритет, чем <code>v-if</code>. Другими словами, <code>v-if</code> будет выполняться отдельно для каждой итерации цикла. Это очень полезно, когда нужно отобразить только <em>некоторые</em> элементы списка, например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></span><br><span class="line">  &#123;&#123; todo &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>В результате будут отображены только задачи, которые ещё не выполнены.</p>
+<p>Если нужно, чтобы по условию пропускалось выполнение всего цикла, поместите <code>v-if</code> на внешний элемент (или на <a href="conditional.html#Условные-группы-с-использованием-v-if-и-lt-template-gt"><code>&lt;template&gt;</code></a>). Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"shouldRenderTodos"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">    &#123;&#123; todo &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Компоненты-и-v-for"><a href="#Компоненты-и-v-for" class="headerlink" title="Компоненты и v-for"></a>Компоненты и <code>v-for</code></h3><blockquote>
+<p>Эта секция подразумевает, что вы уже знакомы с <a href="components.html">компонентами</a>. Не стесняйтесь пропустить её сейчас и вернуться потом.</p>
+</blockquote>
+<p>Вы можете использовать <code>v-for</code> и на пользовательских компонентах — совершенно так же, как и на обычных элементах:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>В версиях 2.2.0+, при использовании <code>v-for</code> на компонентах теперь обязательно требуется указывать <a href="list.html#key"><code>key</code></a>.</p>
+</blockquote>
+<p>Однако, это не передаст в компонент никаких данных автоматически, поскольку компоненты имеют изолированные области видимости. Для передачи итерируемых данных в компонент нужно явно использовать входные параметры:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:item</span>=<span class="string">"item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:index</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"item.id"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Причина, по которой <code>item</code> не передаётся в компонент автоматически, в том, что это сделало бы компонент жёстко связанным с логикой работы <code>v-for</code>. А если источник данных указывается явно, компонент можно будет использовать и в других ситуациях.</p>
+<p>Ниже приведён полный пример простого списка задач:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"todo-list-example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-model</span>=<span class="string">"newTodoText"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:keyup.enter</span>=<span class="string">"addNewTodo"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">placeholder</span>=<span class="string">"Добавить задачу"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">      <span class="attr">is</span>=<span class="string">"todo-item"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"(todo, index) in todos"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">"todo.id"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:title</span>=<span class="string">"todo.title"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-on:remove</span>=<span class="string">"todos.splice(index, 1)"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p class="tip">Обратите внимание на атрибут <code>is=&quot;todo-item&quot;</code>. Это необходимо в DOM-шаблонах, потому что только элементы <code>&lt;li&gt;</code> разрешены внутри <code>&lt;ul&gt;</code>. Результат будет таким же, как использование <code>&lt;todo-item&gt;</code>, но позволяет обойти ошибки парсинга браузером. Чтобы узнать больше, изучите <a href="components.html#Особенности-парсинга-DOM-шаблона">особенности парсинга DOM-шаблона</a>.</p>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</span><br><span class="line">  template: <span class="string">'\</span></span><br><span class="line"><span class="string">    &lt;li&gt;\</span></span><br><span class="line"><span class="string">      &#123;&#123; title &#125;&#125;\</span></span><br><span class="line"><span class="string">      &lt;button v-on:click="$emit(\'remove\')"&gt;X&lt;/button&gt;\</span></span><br><span class="line"><span class="string">    &lt;/li&gt;\</span></span><br><span class="line"><span class="string">  '</span>,</span><br><span class="line">  props: [<span class="string">'title'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#todo-list-example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    newTodoText: <span class="string">''</span>,</span><br><span class="line">    todos: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        title: <span class="string">'Помыть посуду'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        title: <span class="string">'Вынести мусор'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">3</span>,</span><br><span class="line">        title: <span class="string">'Подстричь газон'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    nextTodoId: <span class="number">4</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNewTodo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.todos.push(&#123;</span><br><span class="line">        id: <span class="keyword">this</span>.nextTodoId++,</span><br><span class="line">        title: <span class="keyword">this</span>.newTodoText</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<div id="todo-list-example" class="demo">
+  <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Добавить задачу">
+  <ul>
+    <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index, 1)"></li>
+  </ul>
+</div>
+<script>
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">X</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Помыть посуду'
+      },
+      {
+        id: 2,
+        title: 'Вынести мусор'
+      },
+      {
+        id: 3,
+        title: 'Подстричь газон'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+</script>
+
+
+    
+    
+      <div class="guide-links">
+        
+        
+          <span>← <a href="/v2/guide/conditional.html">Условный рендеринг</a></span>
+        
+        
+        
+          <span style="float: right;"><a href="/v2/guide/events.html">Обработка событий</a> →</span>
+        
+      </div>
+    
+    <div class="footer">
+        <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/list.md" target="_blank">
+        Отредактируйте эту страницу на GitHub!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] }
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

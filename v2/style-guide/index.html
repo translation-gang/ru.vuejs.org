@@ -1,0 +1,1069 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Рекомендации — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/style-guide/index.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/style-guide/index.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/style-guide/index.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/style-guide/index.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/style-guide/index.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/style-guide/index.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/style-guide/index.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Рекомендации — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Рекомендации — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+        <script>window.PAGE_TYPE = "style-guide"</script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="/">
+    <img src="/images/logo.png">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link current">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+      <li><a href="/v2/api/" class="nav-link">API</a></li>
+      <li><a href="/v2/style-guide/" class="nav-link current">Рекомендации</a></li>
+      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://vuejs-templates.github.io/webpack" class="nav-link" target="_blank">Шаблон Webpack</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/roadmap" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/style-guide/index.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+        </ul>
+        <div class="list">
+            <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Специальные спонсоры</span>
+    <div>
+    <a href="https://stdlib.com" target="_blank" class="logo">
+      <img src="/images/stdlib.png">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum">
+  <div class="main-sponsor">
+    <span>Спонсоры на Patreon</span>
+    <div>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png">
+    </a>
+    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+      <img src="/images/datacamp.png">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Поддержите Vue.js
+  </a>
+</div>
+
+            <h2>
+                
+                Рекомендации <sup class="beta">beta</sup>
+                
+            </h2>
+            <ul class="menu-root">
+    
+</ul>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="content style-guide with-sidebar ">
+    
+      
+        <div id="ad">
+  <script>
+    (function () {
+      var s = document.createElement('script')
+      s.setAttribute('async', '')
+      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
+      s.id = '_carbonads_js'
+      document.getElementById('ad').appendChild(s)
+    })()
+  </script>
+</div>
+
+      
+    
+    
+      <h1>Рекомендации</h1>
+    
+    
+      <p>Это официальное руководство по стилю для Vue-специфичного кода. Если вы используете Vue в проекте, это отличная возможность избежать ошибок и антипаттернов. Однако мы не считаем, что любое подобное руководство идеально подходит для всех команд или проектов, поэтому разумные отклонения поощряются на основе полученного опыта, окружающего технологического стека и личных ценностей.</p>
+<p>В большинстве случаев мы также будем избегать общих рекомендаций о JavaScript или HTML. Мы не против, используете ли вы точки с запятой или висячие запятые. Мы не против, используются ли в вашем HTML одинарные или двойные кавычки для значений атрибутов. Однако некоторые исключения будут присутствовать для тех случаев, где мы нашли конкретный шаблон полезным в контексте Vue.</p>
+<blockquote>
+<p><strong>Скоро мы предоставим рекомендации по соблюдению единого стиля кода.</strong> Иногда вам нужно просто быть дисциплинированным, но там, где это возможно, мы постараемся показать, как можно использовать ESLint и другие автоматизированные процессы, чтобы упростить соблюдение единого стиля.</p>
+</blockquote>
+<p>Наконец, мы разделили правила на четыре категории:</p>
+<h2 id="Категории-правил"><a href="#Категории-правил" class="headerlink" title="Категории правил"></a>Категории правил</h2><h3 id="Приоритет-A-Важно"><a href="#Приоритет-A-Важно" class="headerlink" title="Приоритет A: Важно"></a>Приоритет A: Важно</h3><p>Эти правила помогут предотвратить ошибки, поэтому изучите и соблюдайте их любой ценой. Исключения могут быть, но должны быть очень редкими и должны выполняться только теми, у кого есть хорошие знания как JavaScript, так и Vue.</p>
+<h3 id="Приоритет-B-Настоятельно-рекомендуется"><a href="#Приоритет-B-Настоятельно-рекомендуется" class="headerlink" title="Приоритет B: Настоятельно рекомендуется"></a>Приоритет B: Настоятельно рекомендуется</h3><p>Эти правила помогут улучшить читаемость и/или опыт разработки в большинстве проектов. Ваш код всё равно будет работать, если вы нарушите их, но нарушения должны быть редкими и обоснованными.</p>
+<h3 id="Приоритет-C-Рекомендуется"><a href="#Приоритет-C-Рекомендуется" class="headerlink" title="Приоритет C: Рекомендуется"></a>Приоритет C: Рекомендуется</h3><p>Где существует множество одинаково хороших вариантов, можно сделать собственный выбор для обеспечения консистентности. В этих правилах мы описываем каждый приемлемый вариант и предлагаем выбор по умолчанию. Это означает, что вы можете свободно делать другой выбор в вашей собственной кодовой базе, если вы придерживаетесь консистентности и имеете вескую причину. Пожалуйста, не стесняйтесь! Приспосабливаясь к стандартам сообщества, вы будете:</p>
+<ol>
+<li>тренировать свой мозг, чтобы легче разбираться в большинстве кода сообщества, с которым придётся столкнуться</li>
+<li>иметь возможность копировать и использовать большинство примеров кода сообщества без изменений</li>
+<li>чаще находить новых сотрудников, уже знакомых с предпочитаемым стилем кода, по крайней мере, в отношении Vue</li>
+</ol>
+<h3 id="Приоритет-D-Используйте-с-осторожностью"><a href="#Приоритет-D-Используйте-с-осторожностью" class="headerlink" title="Приоритет D: Используйте с осторожностью"></a>Приоритет D: Используйте с осторожностью</h3><p>Некоторые возможности Vue существуют для приспосабливания к редким крайним случаям или для обеспечения более плавной миграции старой кодовой базы. Однако при чрезмерном использовании они сделают ваш код более сложным в поддержке или могут стать источником багов. Эти правила освещают потенциально опасные функции, объясняя, когда и почему их следует избегать.</p>
+<h2 id="Правила-приоритета-A-Важно-Предотвращение-ошибок"><a href="#Правила-приоритета-A-Важно-Предотвращение-ошибок" class="headerlink" title="Правила приоритета A: Важно (Предотвращение ошибок)"></a>Правила приоритета A: Важно (Предотвращение ошибок)</h2><h3 id="Имена-компонентов-из-нескольких-слов-важно"><a href="#Имена-компонентов-из-нескольких-слов-важно" class="headerlink" title="Имена компонентов из нескольких слов важно"></a>Имена компонентов из нескольких слов <sup data-p="a">важно</sup></h3><p><strong>Имена компонентов должны всегда состоять из нескольких слов, за исключением корневого компонента <code>App</code>.</strong></p>
+<p>Это <a href="http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name" target="_blank" rel="noopener">предотвращает конфликты</a> с существующими или будущими HTML-элементами, поскольку все HTML-элементы именуются одним словом.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо"><a href="#Плохо" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'Todo'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо"><a href="#Хорошо" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'TodoItem'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Данные-компонента-важно"><a href="#Данные-компонента-важно" class="headerlink" title="Данные компонента важно"></a>Данные компонента <sup data-p="a">важно</sup></h3><p><strong>Свойство <code>data</code> компонента должно быть функцией.</strong></p>
+<p>При использовании свойства <code>data</code> в компоненте (т.е. везде, за исключением <code>new Vue</code>), значением всегда должна быть функция, возвращающая объект.</p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Когда значением <code>data</code> будет объект, он будет использован для всех экземпляров компонента. Представьте, например, компонент <code>TodoList</code> с таким набором данных:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  listTitle: <span class="string">''</span>,</span><br><span class="line">  todos: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Мы можем захотеть повторно использовать этот компонент, позволяя пользователям использовать несколько списков (например, для покупок, списков желаний, ежедневных дел и т.п.). Однако есть проблема. Поскольку каждый экземпляр компонента ссылается на один и тот же объект данных, изменение названия одного списка также изменит заголовок всех остальных списков. То же самое случится и при добавлении/изменении/удалении элемента списка.</p>
+<p>Вместо этого мы хотим, чтобы каждый экземпляр компонента управлял только своими собственными данными. Чтобы этого добиться, каждый экземпляр должен сгенерировать собственный уникальный объект данных. В JavaScript этого возможно достигнуть, возвращая объект из функции:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    listTitle: <span class="string">''</span>,</span><br><span class="line">    todos: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-1"><a href="#Плохо-1" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'some-comp'</span>, &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-1"><a href="#Хорошо-1" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'some-comp'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      foo: <span class="string">'bar'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// В .vue-файле</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      foo: <span class="string">'bar'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Допускается использовать объект напрямую</span></span><br><span class="line"><span class="comment">// в корневом экземпляре Vue, поскольку только</span></span><br><span class="line"><span class="comment">// один экземпляр будет существовать.</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Определение-входных-параметров-важно"><a href="#Определение-входных-параметров-важно" class="headerlink" title="Определение входных параметров важно"></a>Определение входных параметров <sup data-p="a">важно</sup></h3><p><strong>Входные параметры должны быть определены как можно более подробно.</strong></p>
+<p>В готовом коде определение входных параметров всегда должно быть максимально подробным, по крайней мере определяя тип данных.</p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Подробное <a href="https://ru.vuejs.org/v2/guide/components.html#Валидация-входных-параметров" target="_blank" rel="noopener">определение входных параметров</a> имеет два преимущества:</p>
+<ul>
+<li>Документирование API компонента, что позволит легко понимать, как этот компонент должен использоваться.</li>
+<li>При разработке, Vue будет предупреждать вас, если компоненту были переданы входные параметры неправильного формата, позволяя вам отловить и исправить потенциальные источники ошибок.</li>
+</ul>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-2"><a href="#Плохо-2" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Этого достаточно лишь для прототипа</span></span><br><span class="line">props: [<span class="string">'status'</span>]</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-2"><a href="#Хорошо-2" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  status: <span class="built_in">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Ещё лучше!</span></span><br><span class="line">props: &#123;</span><br><span class="line">  status: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span>,</span><br><span class="line">    validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'syncing'</span>,</span><br><span class="line">        <span class="string">'synced'</span>,</span><br><span class="line">        <span class="string">'version-conflict'</span>,</span><br><span class="line">        <span class="string">'error'</span></span><br><span class="line">      ].indexOf(value) !== <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Уникальные-ключи-для-v-for-важно"><a href="#Уникальные-ключи-для-v-for-важно" class="headerlink" title="Уникальные ключи для v-for важно"></a>Уникальные ключи для <code>v-for</code> <sup data-p="a">важно</sup></h3><p><strong>Всегда используйте <code>key</code> с <code>v-for</code>.</strong></p>
+<p><code>key</code> с <code>v-for</code> <em>всегда</em> обязателен для компонентов, для поддержания внутреннего состояния компонента и его поддерева. Даже для элементов это хорошая практика для поддержания предсказуемого поведения, такого как <a href="https://bost.ocks.org/mike/constancy/" target="_blank" rel="noopener">консистентности объекта</a> в анимации.</p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Представим, что у нас есть список различных todo:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    todos: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        text: <span class="string">'Изучить, как использовать v-for'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        text: <span class="string">'Изучить, как использовать key'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Затем вы сортируете их по алфавиту. При обновлении DOM, Vue будет оптимизировать рендеринг для выполнения самых дешёвых изменений DOM. Это может означать удаление первого элемента списка, а затем добавление его снова в конце списка.</p>
+<p>Проблема в том, что бывают случаи, когда важно не удалять элементы, которые останутся в DOM. Например, вы можете использовать <code>&lt;transition-group&gt;</code> для анимации сортировки списка, или удержании фокуса, если отображаемый элемент является <code>&lt;input&gt;</code>. В этих случаях добавление уникального ключа для каждого элемента (например, <code>:key=&quot;todo.id&quot;</code>) подскажет Vue, как вести себя более предсказуемо.</p>
+<p>По нашему опыту, лучше <em>всегда</em> добавлять уникальный ключ, чтобы вам и вашей команде никогда не приходилось беспокоиться об этих крайних случаях. Затем в редких критически зависимых от производительности случаях, когда консистентность объекта не требуется — вы можете сделать сознательное исключение.</p>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-3"><a href="#Плохо-3" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">    &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-3"><a href="#Хорошо-3" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"todo in todos"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"todo.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Избегайте-использования-v-if-с-v-for-важно"><a href="#Избегайте-использования-v-if-с-v-for-важно" class="headerlink" title="Избегайте использования v-if с v-for важно"></a>Избегайте использования <code>v-if</code> с <code>v-for</code> <sup data-p="a">важно</sup></h3><p><strong>Никогда не используйте <code>v-if</code> на том же элементе, что и <code>v-for</code>.</strong></p>
+<p>Есть два распространённых случая, когда это может быть заманчиво:</p>
+<ul>
+<li><p>Чтобы фильтровать элементы списка (например, <code>v-for=&quot;user in users&quot; v-if=&quot;user.isActive&quot;</code>). В этих случаях замените <code>users</code> новым вычисляемым свойством, которое возвращает ваш отфильтрованный список (например, <code>activeUsers</code>).</p>
+</li>
+<li><p>Чтобы избежать отображения списка, если он должен быть скрыт (например, <code>v-for=&quot;user in users&quot; v-if=&quot;shouldShowUsers&quot;</code>). В этих случаях переместите <code>v-if</code> выше, в элемент контейнера (например, <code>ul</code>, <code>ol</code>).</p>
+</li>
+</ul>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Когда Vue обрабатывает директивы, <code>v-for</code> имеет более высокий приоритет, чем <code>v-if</code>, поэтому такой шаблон:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"user.isActive"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Будет аналогичен подобному:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.users.map(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user.isActive) &#123;</span><br><span class="line">    <span class="keyword">return</span> user.name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Таким образом, даже если мы показываем элементы только для небольшой части пользователей, мы должны перебирать весь список при каждом повторном рендеринге, независимо от того, изменился ли набор активных пользователей.</p>
+<p>Заменив это отображением вычисляемого свойства, подобным такому:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  activeUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> user.isActive</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in activeUsers"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Мы получаем следующие преимущества:</p>
+<ul>
+<li>Отфильтрованный список будет вычисляться повторно <em>только</em> при изменениях в массиве <code>users</code>, что делает фильтрацию более эффективной.</li>
+<li>Используя <code>v-for=&quot;user in activeUsers&quot;</code>, на этапе рендеринга мы итерируем  <em>только</em> активных пользователей, что сделает рендеринг намного более эффективным.</li>
+<li>Логика теперь отделена от уровня представления, что значительно упростит дальнейшую поддержку кода (изменение/расширение логики).</li>
+</ul>
+<p>Мы получаем такие же преимущества обновив подобное:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"shouldShowUsers"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>до такого:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"shouldShowUsers"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Перемещая <code>v-if</code> в элемент контейнера, мы больше не проверяем <code>shouldShowUsers</code> для <em>каждого</em> пользователя в списке. Вместо этого мы проверяем его один раз и даже не выполняем <code>v-for</code> если значение <code>shouldShowUsers</code> будет false.</p>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-4"><a href="#Плохо-4" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"user.isActive"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"shouldShowUsers"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-4"><a href="#Хорошо-4" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in activeUsers"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"shouldShowUsers"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Локальные-стили-компонента-важно"><a href="#Локальные-стили-компонента-важно" class="headerlink" title="Локальные стили компонента важно"></a>Локальные стили компонента <sup data-p="a">важно</sup></h3><p><strong>Для приложений стили в корневом компоненте <code>App</code> и в компонентах шаблона могут быть глобальными, но во всех остальных компонентах должны быть локальными.</strong></p>
+<p>Это относится только к <a href="../guide/single-file-components.html">однофайловым компонентам</a>. Это <em>не требует</em> использования <a href="https://vue-loader.vuejs.org/ru/features/scoped-css.html" target="_blank" rel="noopener">атрибута <code>scoped</code></a>. Область действия стилей может ограничиваться через <a href="https://vue-loader.vuejs.org/ru/features/css-modules.html" target="_blank" rel="noopener">CSS-модули</a>, стратегию на основе именования классов, такой как <a href="http://getbem.com/" target="_blank" rel="noopener">БЭМ</a>, или другой библиотекой/соглашением.</p>
+<p><strong>Однако библиотеки компонентов должны предпочитать использовать стратегию на основе именования классов вместо использования атрибута <code>scoped</code>.</strong></p>
+<p>Это упрощает переопределение внутренних стилей с использованием читаемых названий классов, которые не имеют слишком высокой специфичности, но всё же вряд ли приведут к конфликту.</p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Если вы разрабатываете большой проект, работая совместно с другими разработчиками или иногда используете сторонний HTML/CSS (например, от Auth0), консистентное ограничение области позволит гарантировать, что ваши стили применяются только к компонентам, для которых они предназначены.</p>
+<p>Помимо атрибута <code>scoped</code>, использование уникальных имён классов может помочь гарантировать, что сторонний CSS не применяется к вашему собственному HTML. Например, многие проекты используют классы <code>button</code>, <code>btn</code> или <code>icon</code>, поэтому даже если вы не используете стратегию, такую как БЭМ, то добавление префикса приложения и/или компонента (например, <code>ButtonClose-icon</code>) может обеспечить некоторую защиту.</p>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-5"><a href="#Плохо-5" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-close"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.btn-close</span> &#123;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-5"><a href="#Хорошо-5" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"button button-close"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Использование атрибута `scoped` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.button</span> &#123;</span></span><br><span class="line"><span class="undefined">  border: none;</span></span><br><span class="line"><span class="undefined">  border-radius: 2px;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.button-close</span> &#123;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">:class</span>=<span class="string">"[$style.button, $style.buttonClose]"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Использование CSS-модулей --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">module</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.button</span> &#123;</span></span><br><span class="line"><span class="undefined">  border: none;</span></span><br><span class="line"><span class="undefined">  border-radius: 2px;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.buttonClose</span> &#123;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"c-Button c-Button--close"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Использование методологии БЭМ --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.c-Button</span> &#123;</span></span><br><span class="line"><span class="undefined">  border: none;</span></span><br><span class="line"><span class="undefined">  border-radius: 2px;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.c-Button--close</span> &#123;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Именование-приватных-свойств-важно"><a href="#Именование-приватных-свойств-важно" class="headerlink" title="Именование приватных свойств важно"></a>Именование приватных свойств <sup data-p="a">важно</sup></h3><p><strong>Всегда используйте префикс <code>$_</code> для пользовательских приватных свойств в плагине, примеси и т.п. Затем, чтобы избежать конфликтов с кодом других авторов, также включайте именованную область (например, <code>$_yourPluginName_</code>).</strong></p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Vue использует префикс <code>_</code> для определения собственных приватных свойств, поэтому использование одного и того же префикса (например, <code>_update</code>) может привести к перезаписи свойства экземпляра. Даже если вы проверяете и Vue в настоящее время не использует определённое имя свойства, нет гарантий, что конфликт не возникнет в более поздних версиях.</p>
+<p>Что касается префикса <code>$</code>, то в рамках экосистемы Vue это специальные свойства экземпляра, которые публично доступны пользователю, поэтому использование его для <em>приватных</em> свойств было бы нецелесообразным.</p>
+<p>Вместо этого мы рекомендуем комбинировать два префикса в <code>$_</code>, как соглашение для пользовательских приватных свойств, которые гарантируют отсутствие конфликтов с Vue.</p>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-6"><a href="#Плохо-6" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    _update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $_update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-6"><a href="#Хорошо-6" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $_myGreatMixin_update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h2 id="Правила-приоритета-B-Настоятельно-рекомендуется-Улучшение-читаемости"><a href="#Правила-приоритета-B-Настоятельно-рекомендуется-Улучшение-читаемости" class="headerlink" title="Правила приоритета B: Настоятельно рекомендуется (Улучшение читаемости)"></a>Правила приоритета B: Настоятельно рекомендуется (Улучшение читаемости)</h2><h3 id="Файлы-компонентов-настоятельно-рекомендуется"><a href="#Файлы-компонентов-настоятельно-рекомендуется" class="headerlink" title="Файлы компонентов настоятельно рекомендуется"></a>Файлы компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Всякий раз, когда система сборки позволяет конкатенировать файлы, каждый компонент должен быть в собственном файле.</strong></p>
+<p>Это поможет вам быстрее найти компонент, когда потребуется его отредактировать или просмотреть как его использовать.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-7"><a href="#Плохо-7" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoList'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-7"><a href="#Хорошо-7" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList.js</span><br><span class="line">|- TodoItem.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList.vue</span><br><span class="line">|- TodoItem.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Именование-однофайловых-компонентов-настоятельно-рекомендуется"><a href="#Именование-однофайловых-компонентов-настоятельно-рекомендуется" class="headerlink" title="Именование однофайловых компонентов настоятельно рекомендуется"></a>Именование однофайловых компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Имена файлов <a href="../guide/single-file-components.html">однофайловых компонентов</a> должны быть всегда в PascalCase или всегда в kebab-case.</strong></p>
+<p>PascalCase лучше всего работает с автодополнением в редакторах кода, поскольку он согласуется с тем, как мы ссылаемся на компоненты в JS(X) и шаблонах. Тем не менее, смешанные имена файлов иногда могут создавать проблемы для нечувствительных к регистру файловых систем, поэтому kebab-case также вполне приемлем.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-8"><a href="#Плохо-8" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- mycomponent.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- myComponent.vue</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-8"><a href="#Хорошо-8" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- MyComponent.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- my-component.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Именование-базовых-компонентов-настоятельно-рекомендуется"><a href="#Именование-базовых-компонентов-настоятельно-рекомендуется" class="headerlink" title="Именование базовых компонентов настоятельно рекомендуется"></a>Именование базовых компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Базовые компоненты (известные как презентационные, глупые или чистые компоненты) которые применяют специфичные для вашего приложения стили или соглашения должны начинаться с определённого префикса, такого как <code>Base</code>, <code>App</code> или <code>V</code>.</strong></p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Эти компоненты закладывают основу для консистентности стилей и поведения в вашем приложении. Они могут содержать <strong>только</strong>:</p>
+<ul>
+<li>HTML-элементы,</li>
+<li>другие компоненты с <code>Base</code>-префиксом</li>
+<li>сторонние UI-компоненты.</li>
+</ul>
+<p>Но они <strong>никогда</strong> не содержат глобальное состояние (например, из хранилища Vuex).</p>
+<p>Их имена зачастую содержат название элемента, который они оборачивают (например, <code>BaseButton</code>, <code>BaseTable</code>), если не существует элемента для этих конкретных целей (например, <code>BaseIcon</code>). Если вы создадите похожие компоненты для более специфичного контекста, они почти всегда будут поглощать эти компоненты (например, <code>BaseButton</code> может использоваться в <code>ButtonSubmit</code>).</p>
+<p>Некоторые преимущества этого соглашения:</p>
+<ul>
+<li><p>Когда они организованы в алфавитном порядке в редакторе, базовые компоненты вашего приложения будут перечислены вместе, что упрощает их идентификацию.</p>
+</li>
+<li><p>Поскольку имена компонентов всегда должны состоять из нескольких слов, это соглашение запрещает вам выбирать произвольный префикс для простых компонентов-обёрток (например, <code>MyButton</code>, <code>VueButton</code>).</p>
+</li>
+<li><p>Поскольку эти компоненты часто используются, вы можете просто сделать их глобальными, а не импортировать их повсюду. Префикс делает это возможным с помощью Webpack:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requireComponent = <span class="built_in">require</span>.context(<span class="string">"./src"</span>, <span class="literal">true</span>, /^Base[A-Z]/)</span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> baseComponentConfig = requireComponent(fileName)</span><br><span class="line">  baseComponentConfig = baseComponentConfig.default || baseComponentConfig</span><br><span class="line">  <span class="keyword">var</span> baseComponentName = baseComponentConfig.name || (</span><br><span class="line">    fileName</span><br><span class="line">      .replace(<span class="regexp">/^.+\//</span>, <span class="string">''</span>)</span><br><span class="line">      .replace(<span class="regexp">/\.\w+$/</span>, <span class="string">''</span>)</span><br><span class="line">  )</span><br><span class="line">  Vue.component(baseComponentName, baseComponentConfig)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-9"><a href="#Плохо-9" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- MyButton.vue</span><br><span class="line">|- VueTable.vue</span><br><span class="line">|- Icon.vue</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-9"><a href="#Хорошо-9" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- BaseButton.vue</span><br><span class="line">|- BaseTable.vue</span><br><span class="line">|- BaseIcon.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- AppButton.vue</span><br><span class="line">|- AppTable.vue</span><br><span class="line">|- AppIcon.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- VButton.vue</span><br><span class="line">|- VTable.vue</span><br><span class="line">|- VIcon.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Именование-компонентов-используемых-в-единственном-экземпляре-настоятельно-рекомендуется"><a href="#Именование-компонентов-используемых-в-единственном-экземпляре-настоятельно-рекомендуется" class="headerlink" title="Именование компонентов, используемых в единственном экземпляре настоятельно рекомендуется"></a>Именование компонентов, используемых в единственном экземпляре <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Компоненты, которые должны иметь только один активный экземпляр, следует начинать именовать с префикса <code>The</code>, обозначая таким образом что он может быть только один.</strong></p>
+<p>Это не означает, что компонент используется только на одной странице, но означает что он будет использоваться только один раз <em>на странице</em>. Эти компоненты никогда не принимают каких-либо входных параметров, поскольку они специфичны для вашего приложения, а не их контекста в вашем приложении. Если вы обнаружите необходимость добавления входных параметров, это хороший признак того, что на самом деле этот компонент для многократного использования, который используется только один раз на странице <em>в данный момент</em>.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-10"><a href="#Плохо-10" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- Heading.vue</span><br><span class="line">|- MySidebar.vue</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-10"><a href="#Хорошо-10" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TheHeading.vue</span><br><span class="line">|- TheSidebar.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Именование-тесно-связанных-компонентов-настоятельно-рекомендуется"><a href="#Именование-тесно-связанных-компонентов-настоятельно-рекомендуется" class="headerlink" title="Именование тесно связанных компонентов настоятельно рекомендуется"></a>Именование тесно связанных компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Дочерние компоненты, тесно связанные с родителями, должны включать имя родительского компонента в качестве префикса.</strong></p>
+<p>Если компонент имеет смысл только в контексте одного родительского компонента, то это отношение должно быть очевидным в его имени. Поскольку редакторы обычно упорядочивают файлы по алфавиту, это также расположит связанные файлы друг с другом.</p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Возможно вы захотите решить эту проблему, вложив дочерние компоненты в каталоги, названные в честь их родителя. Например:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList/</span><br><span class="line">   |- Item/</span><br><span class="line">      |- index.vue</span><br><span class="line">      |- Button.vue</span><br><span class="line">   |- index.vue</span><br></pre></td></tr></table></figure>
+<p>или:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList/</span><br><span class="line">   |- Item/</span><br><span class="line">      |- Button.vue</span><br><span class="line">   |- Item.vue</span><br><span class="line">|- TodoList.vue</span><br></pre></td></tr></table></figure>
+<p>Это не рекомендуется, так как это приводит к:</p>
+<ul>
+<li>Множеству файлов с похожими именами, что затрудняет быстрое переключение между файлами в редакторе кода.</li>
+<li>Множеству подкаталогов, что увеличивает время необходимое на изучение списка компонентов в боковой панели редактора.</li>
+</ul>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-11"><a href="#Плохо-11" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList.vue</span><br><span class="line">|- TodoItem.vue</span><br><span class="line">|- TodoButton.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- SearchSidebar.vue</span><br><span class="line">|- NavigationForSearchSidebar.vue</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-11"><a href="#Хорошо-11" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList.vue</span><br><span class="line">|- TodoListItem.vue</span><br><span class="line">|- TodoListItemButton.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- SearchSidebar.vue</span><br><span class="line">|- SearchSidebarNavigation.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Порядок-слов-в-именах-компонентов-настоятельно-рекомендуется"><a href="#Порядок-слов-в-именах-компонентов-настоятельно-рекомендуется" class="headerlink" title="Порядок слов в именах компонентов настоятельно рекомендуется"></a>Порядок слов в именах компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Компоненты должны именоваться с высшего уровня (часто наиболее общих слов) и заканчиваться описательными дополняющими словами.</strong></p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Вам может быть интересно:</p>
+<blockquote>
+<p>“Почему мы заставляем называть компоненты менее естественным языком?”</p>
+</blockquote>
+<p>На естественном английском прилагательные и другие дескрипторы обычно располагаются перед существительными, в то время как исключения требуют слов-соединителей. Например:</p>
+<ul>
+<li>Coffee <em>with</em> milk</li>
+<li>Soup <em>of the</em> day</li>
+<li>Visitor <em>to the</em> museum</li>
+</ul>
+<p>Вы определённо можете включать эти слова-соединители в именах компонентах если хотите, но порядок всё ещё важен.</p>
+<p>Также обратите внимание, <strong>то что считается “высоким уровнем” будет относиться к вашему приложению</strong>. Например, представьте приложение с формой для поиска. Оно может содержать компоненты наподобие таких:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- ClearSearchButton.vue</span><br><span class="line">|- ExcludeFromSearchInput.vue</span><br><span class="line">|- LaunchOnStartupCheckbox.vue</span><br><span class="line">|- RunSearchButton.vue</span><br><span class="line">|- SearchInput.vue</span><br><span class="line">|- TermsCheckbox.vue</span><br></pre></td></tr></table></figure>
+<p>Как вы могли заметить, довольно сложно понять, какие из компонентов относятся к поиску. Давайте теперь переименуем компоненты в соответствии с правилом:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- SearchButtonClear.vue</span><br><span class="line">|- SearchButtonRun.vue</span><br><span class="line">|- SearchInputExcludeGlob.vue</span><br><span class="line">|- SearchInputQuery.vue</span><br><span class="line">|- SettingsCheckboxLaunchOnStartup.vue</span><br><span class="line">|- SettingsCheckboxTerms.vue</span><br></pre></td></tr></table></figure>
+<p>Поскольку редакторы обычно упорядочивают файлы по алфавиту, все важные отношения между компонентами теперь очевидны с первого взгляда.</p>
+<p>Возможно вы захотите решить эту проблему по-другому, переместив все компоненты поиска в отдельный каталог “search”, а потом все компоненты параметров в каталог “settings”. Мы рекомендуем применять этот подход только в очень больших приложениях (например, из более 100 компонентов) по следующим причинам:</p>
+<ul>
+<li>Обычно требуется больше времени для навигации по вложенным подкаталогам, чем прокрутка одного каталога <code>components</code>.</li>
+<li>Конфликты имён (например, многочисленные компоненты <code>ButtonDelete.vue</code>) затрудняют быстрый переход к определённому компоненту в редакторе кода.</li>
+<li>Рефакторинг становится более сложным, потому что поиска с заменой часто будет недостаточно, чтобы обновить относительные ссылки на перемещённый компонент.</li>
+</ul>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-12"><a href="#Плохо-12" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- ClearSearchButton.vue</span><br><span class="line">|- ExcludeFromSearchInput.vue</span><br><span class="line">|- LaunchOnStartupCheckbox.vue</span><br><span class="line">|- RunSearchButton.vue</span><br><span class="line">|- SearchInput.vue</span><br><span class="line">|- TermsCheckbox.vue</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-12"><a href="#Хорошо-12" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- SearchButtonClear.vue</span><br><span class="line">|- SearchButtonRun.vue</span><br><span class="line">|- SearchInputQuery.vue</span><br><span class="line">|- SearchInputExcludeGlob.vue</span><br><span class="line">|- SettingsCheckboxTerms.vue</span><br><span class="line">|- SettingsCheckboxLaunchOnStartup.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Самозакрывающиеся-теги-компонентов-настоятельно-рекомендуется"><a href="#Самозакрывающиеся-теги-компонентов-настоятельно-рекомендуется" class="headerlink" title="Самозакрывающиеся теги компонентов настоятельно рекомендуется"></a>Самозакрывающиеся теги компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Компоненты без содержимого должны быть самозакрывающимися тегами в <a href="../guide/single-file-components.html">однофайловых компонентах</a>, строковых шаблонах и <a href="../guide/render-function.html#JSX">JSX</a> — но никогда в DOM-шаблонах.</strong></p>
+<p>Самозакрывающиеся теги компонентов сообщают, что у них не только нет содержимого, но и <strong>сообщает</strong> что и не должны иметь содержимого. Это разница между пустой страницей в книге и страницей с надписью: “Эта страница намеренно оставлена пустой”. Ваш код также станет более лаконичным без ненужного закрывающего тега.</p>
+<p>К сожалению, HTML не разрешает пользовательским элементам быть самозакрывающимися — только <a href="https://www.w3.org/TR/html/syntax.html#void-elements" target="_blank" rel="noopener">официальные элементы “void”</a>. Вот почему эта стратегия возможна только тогда, когда компилятор шаблонов Vue может достичь шаблона перед DOM, а затем предоставить DOM-совместимый HTML.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-13"><a href="#Плохо-13" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В однофайловых компонентах, строковых шаблонах и JSX --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">MyComponent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В DOM-шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-13"><a href="#Хорошо-13" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В однофайловых компонентах, строковых шаблонах и JSX --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В DOM-шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Стиль-именования-компонентов-в-шаблонах-настоятельно-рекомендуется"><a href="#Стиль-именования-компонентов-в-шаблонах-настоятельно-рекомендуется" class="headerlink" title="Стиль именования компонентов в шаблонах настоятельно рекомендуется"></a>Стиль именования компонентов в шаблонах <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>В большинстве проектов имена компонентов всегда должны быть в PascalCase в <a href="../guide/single-file-components.html">однофайловых компонентах</a> и строковых шаблонах — но в kebab-case в случае DOM-шаблонов.</strong></p>
+<p>PascalCase имеет следующие преимущества перед kebab-case:</p>
+<ul>
+<li>Редакторы могут автодополнять имена компонентов в шаблонах, потому что PascalCase также используется в JavaScript.</li>
+<li><code>&lt;MyComponent&gt;</code> более визуально отличается от элемента HTML из одного слова, нежели <code>&lt;my-component&gt;</code>, потому что есть две заметных разницы в символах (две заглавных), а не только одна (дефис).</li>
+<li>Если вы используете какие-либо пользовательские элементы, отличные от Vue, в ваших шаблонах, например, веб-компонент, PascalCase гарантирует, что ваши компоненты Vue остаются отчётливо видимыми.</li>
+</ul>
+<p>К сожалению, из-за нечувствительности HTML к регистру, DOM-шаблоны должны по-прежнему использовать kebab-case.</p>
+<p>Также обратите внимание, что если вы уже вложили значительные силы в kebab-case, консистентность с соглашениями HTML и возможность использования такого же написания во всех ваших проектах, то это может быть более важным, чем преимущества, перечисленные выше. В этих случаях <strong>допускается использовать kebab-case повсюду.</strong></p>
+<div class="style-example example-bad">
+<h4 id="Плохо-14"><a href="#Плохо-14" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В однофайловых компонентах и строковых шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mycomponent</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В однофайловых компонентах и строковых шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">myComponent</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В DOM-шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span>&gt;</span><span class="tag">&lt;/<span class="name">MyComponent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-14"><a href="#Хорошо-14" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В однофайловых компонентах и строковых шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В DOM-шаблонах --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ИЛИ</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Везде --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Стиль-именования-компонентов-в-JS-JSX-настоятельно-рекомендуется"><a href="#Стиль-именования-компонентов-в-JS-JSX-настоятельно-рекомендуется" class="headerlink" title="Стиль именования компонентов в JS/JSX настоятельно рекомендуется"></a>Стиль именования компонентов в JS/JSX <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Стиль именования компонентов в JS/<a href="../guide/render-function.html#JSX">JSX</a> всегда должен быть PascalCase, хотя они могут быть в kebab-case внутри строк для простых приложений, которые используют только глобальную регистрацию компонентов через <code>Vue.component</code>.</strong></p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>В JavaScript PascalCase — это соглашение для классов и конструкторов прототипов — по существу всё, что может иметь разные экземпляры. Компоненты Vue также могут иметь экземпляры, поэтому также имеет смысл использовать PascalCase. В качестве дополнительного преимущества, использование PascalCase в JSX (и шаблонах) позволяет изучающим код легче различать компоненты от HTML-элементов.</p>
+<p>Однако, для приложений, которые используют <strong>только глобальные</strong> определения компонентов через <code>Vue.component</code>, мы рекомендуем вместо него использовать kebab-case. Причины:</p>
+<ul>
+<li>Редкость, когда на глобальные компоненты ссылаются в JavaScript, поэтому следование соглашению для JavaScript имеет меньше смысла.</li>
+<li>Эти приложения всегда включают в себе множество шаблонов внутри DOM, где <a href="#%D0%A1%D1%82%D0%B8%D0%BB%D1%8C-%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%B2-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0%D1%85-%D0%BD%D0%B0%D1%81%D1%82%D0%BE%D1%8F%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D0%B5%D1%82%D1%81%D1%8F">kebab-case <strong>должен быть</strong> использован</a>.</li></ul></details>
+
+
+<div class="style-example example-bad">
+<h4 id="Плохо-15"><a href="#Плохо-15" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'myComponent'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> myComponent <span class="keyword">from</span> <span class="string">'./MyComponent.vue'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'myComponent'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'my-component'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-15"><a href="#Хорошо-15" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'MyComponent'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">'./MyComponent.vue'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'MyComponent'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Использование-полных-слов-при-именовании-компонентов-настоятельно-рекомендуется"><a href="#Использование-полных-слов-при-именовании-компонентов-настоятельно-рекомендуется" class="headerlink" title="Использование полных слов при именовании компонентов настоятельно рекомендуется"></a>Использование полных слов при именовании компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Имена компонентов должны состоять из полных слов, а не аббревиатур.</strong></p>
+<p>Автодополнение в редакторах уменьшают сложность написания более длинных имён, а ясность, которую они предоставляют неоценима. Малоизвестных аббревиатур, в частности, следует избегать.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-16"><a href="#Плохо-16" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- SdSettings.vue</span><br><span class="line">|- UProfOpts.vue</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-16"><a href="#Хорошо-16" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- StudentDashboardSettings.vue</span><br><span class="line">|- UserProfileOptions.vue</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Стиль-именования-входных-параметров-настоятельно-рекомендуется"><a href="#Стиль-именования-входных-параметров-настоятельно-рекомендуется" class="headerlink" title="Стиль именования входных параметров настоятельно рекомендуется"></a>Стиль именования входных параметров <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Входные параметры должны всегда использовать camelCase при определении, но kebab-case в шаблонах и <a href="../guide/render-function.html#JSX">JSX</a>.</strong></p>
+<p>Мы просто придерживаемся соглашений каждого языка. Для JavaScript использовать camelCase является более естественным. Для HTML — kebab-case.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-17"><a href="#Плохо-17" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  <span class="string">'greeting-text'</span>: <span class="built_in">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">WelcomeMessage</span> <span class="attr">greetingText</span>=<span class="string">"hi"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-17"><a href="#Хорошо-17" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  greetingText: <span class="built_in">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">WelcomeMessage</span> <span class="attr">greeting-text</span>=<span class="string">"hi"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется"><a href="#Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется" class="headerlink" title="Элементы с несколькими атрибутами настоятельно рекомендуется"></a>Элементы с несколькими атрибутами <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Элементы с несколькими атрибутами должны располагаться на нескольких строках, по одному атрибуту на строку.</strong></p>
+<p>В JavaScript написание объектов с несколькими свойствами в несколько строк считается хорошей практикой, потому что при таком написании её гораздо легче читать. Наши шаблоны и <a href="../guide/render-function.html#JSX">JSX</a> стоит рассматривать также.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-18"><a href="#Плохо-18" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://vuejs.org/images/logo.png"</span> <span class="attr">alt</span>=<span class="string">"Vue Logo"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span> <span class="attr">foo</span>=<span class="string">"a"</span> <span class="attr">bar</span>=<span class="string">"b"</span> <span class="attr">baz</span>=<span class="string">"c"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-18"><a href="#Хорошо-18" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">"https://vuejs.org/images/logo.png"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">alt</span>=<span class="string">"Vue Logo"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span></span></span><br><span class="line"><span class="tag">  <span class="attr">foo</span>=<span class="string">"a"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">bar</span>=<span class="string">"b"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">baz</span>=<span class="string">"c"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Простые-выражения-в-шаблонах-настоятельно-рекомендуется"><a href="#Простые-выражения-в-шаблонах-настоятельно-рекомендуется" class="headerlink" title="Простые выражения в шаблонах настоятельно рекомендуется"></a>Простые выражения в шаблонах <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Шаблоны компонентов должны содержать только простые выражения, а более комплексные должны быть вынесены в вычисляемые свойства или методы.</strong></p>
+<p>Сложные выражения в ваших шаблонах делают их менее декларативными. Мы должны стремиться к описанию <em>что</em> должно отобразиться, а не <em>как</em> мы вычисляем это значение. Вычисляемые свойства и методы также упрощают переиспользование кода.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-19"><a href="#Плохо-19" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123;</span><br><span class="line">  fullName.split(' ').map(function (word) &#123;</span><br><span class="line">    return word[0].toUpperCase() + word.slice(1)</span><br><span class="line">  &#125;).join(' ')</span><br><span class="line">&#125;&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-19"><a href="#Хорошо-19" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- В шаблоне --&gt;</span></span><br><span class="line">&#123;&#123; normalizedFullName &#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Комплексное выражение было вынесено в вычисляемое свойство</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedFullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.fullName.split(<span class="string">' '</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> word[<span class="number">0</span>].toUpperCase() + word.slice(<span class="number">1</span>)</span><br><span class="line">    &#125;).join(<span class="string">' '</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Простые-вычисляемые-свойства-настоятельно-рекомендуется"><a href="#Простые-вычисляемые-свойства-настоятельно-рекомендуется" class="headerlink" title="Простые вычисляемые свойства настоятельно рекомендуется"></a>Простые вычисляемые свойства <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Комплексные вычисляемые свойства должны быть разделены на максимально простые свойства.</strong></p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Проще говоря, хорошие вычисляемые свойства будет:</p>
+<ul>
+<li><p><strong>Легче тестировать</strong></p>
+<p>Когда каждое вычисляемое свойство содержит только очень простое выражение, с очень небольшим набором зависимостей, то будет гораздо проще писать тесты, подтверждающие его правильную работу.</p>
+</li>
+<li><p><strong>Легче читать</strong></p>
+<p>Упрощение вычисляемых свойств заставляет вас давать каждому значению понятное имя, даже если оно не будет использоваться повторно. Это облегчает другим разработчикам (и вам в будущем) сосредоточиться на коде, который им нужен и выяснить что происходит.</p>
+</li>
+<li><p><strong>Лучше приспособлены к изменяющимся требованиям</strong></p>
+<p>Любое значение, которое можно назвать, может быть полезным для представления. Например, мы можем решить отображать сообщение пользователю с информацией сколько денег сэкономил. Мы также можем решить рассчитывать налог с продаж, но, возможно, отображать его отдельно, а не как часть окончательной цены.</p>
+<p>Небольшие, сфокусированные вычисляемые свойства создают меньше предположений о том, как информация будет использована, поэтому при изменениях требований потребуется меньше рефакторинга.</p>
+</li>
+</ul>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-20"><a href="#Плохо-20" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  price: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> basePrice = <span class="keyword">this</span>.manufactureCost / (<span class="number">1</span> - <span class="keyword">this</span>.profitMargin)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      basePrice -</span><br><span class="line">      basePrice * (<span class="keyword">this</span>.discountPercent || <span class="number">0</span>)</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-20"><a href="#Хорошо-20" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  basePrice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.manufactureCost / (<span class="number">1</span> - <span class="keyword">this</span>.profitMargin)</span><br><span class="line">  &#125;,</span><br><span class="line">  discount: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.basePrice * (<span class="keyword">this</span>.discountPercent || <span class="number">0</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  finalPrice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.basePrice - <span class="keyword">this</span>.discount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Значения-атрибутов-в-кавычках-настоятельно-рекомендуется"><a href="#Значения-атрибутов-в-кавычках-настоятельно-рекомендуется" class="headerlink" title="Значения атрибутов в кавычках настоятельно рекомендуется"></a>Значения атрибутов в кавычках <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Непустые значения HTML-атрибутов должны быть обрамлены кавычками (одинарными или двойными, в зависимости от того, что не используется в JS).</strong></p>
+<p>Хотя значения атрибутов без каких-либо пробелов не требуют иметь кавычки в HTML, эта практика зачастую приводит к <em>избеганию</em> использования пробелов, делая значения атрибутов менее читабельными.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-21"><a href="#Плохо-21" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">AppSidebar</span> <span class="attr">:style</span>=<span class="string">&#123;width:sidebarWidth+</span>'<span class="attr">px</span>'&#125;&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-21"><a href="#Хорошо-21" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">AppSidebar</span> <span class="attr">:style</span>=<span class="string">"&#123; width: sidebarWidth + 'px' &#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Сокращённая-запись-директив-настоятельно-рекомендуется"><a href="#Сокращённая-запись-директив-настоятельно-рекомендуется" class="headerlink" title="Сокращённая запись директив настоятельно рекомендуется"></a>Сокращённая запись директив <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Сокращённую запись директив (<code>:</code> для <code>v-bind:</code> и <code>@</code> для <code>v-on:</code>) следует использовать всегда или никогда.</strong></p>
+<div class="style-example example-bad">
+<h4 id="Плохо-22"><a href="#Плохо-22" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:value</span>=<span class="string">"newTodoText"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:placeholder</span>=<span class="string">"newTodoInstructions"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:input</span>=<span class="string">"onInput"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">focus</span>=<span class="string">"onFocus"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-22"><a href="#Хорошо-22" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:value</span>=<span class="string">"newTodoText"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:placeholder</span>=<span class="string">"newTodoInstructions"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:value</span>=<span class="string">"newTodoText"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:placeholder</span>=<span class="string">"newTodoInstructions"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">input</span>=<span class="string">"onInput"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">focus</span>=<span class="string">"onFocus"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:input</span>=<span class="string">"onInput"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:focus</span>=<span class="string">"onFocus"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h2 id="Правила-приоритета-C-Рекомендуется-Минимизация-произвольных-выборов-и-накладных-расходов"><a href="#Правила-приоритета-C-Рекомендуется-Минимизация-произвольных-выборов-и-накладных-расходов" class="headerlink" title="Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)"></a>Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)</h2><h3 id="Порядок-опций-компонента-экземпляра-рекомендуется"><a href="#Порядок-опций-компонента-экземпляра-рекомендуется" class="headerlink" title="Порядок опций компонента/экземпляра рекомендуется"></a>Порядок опций компонента/экземпляра <sup data-p="c">рекомендуется</sup></h3><p><strong>Опции компонента/экземпляра должны быть упорядочены консистентно.</strong></p>
+<p>Это порядок по умолчанию, который мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы поймёте, где добавлять новые свойства из плагинов.</p>
+<ol>
+<li><p><strong>Побочные эффекты</strong> (вызывает эффекты вне компонента)</p>
+<ul>
+<li><code>el</code></li>
+</ul>
+</li>
+<li><p><strong>Глобальная осведомлённость</strong> (требует знаний вне компонента)</p>
+<ul>
+<li><code>name</code></li>
+<li><code>parent</code></li>
+</ul>
+</li>
+<li><p><strong>Тип компонента</strong> (изменяет тип компонента)</p>
+<ul>
+<li><code>functional</code></li>
+</ul>
+</li>
+<li><p><strong>Модификаторы шаблона</strong> (изменение способа компиляции шаблонов)</p>
+<ul>
+<li><code>delimiters</code></li>
+<li><code>comments</code></li>
+</ul>
+</li>
+<li><p><strong>Зависимости шаблона</strong> (ресурсы, используемые в шаблоне)</p>
+<ul>
+<li><code>components</code></li>
+<li><code>directives</code></li>
+<li><code>filters</code></li>
+</ul>
+</li>
+<li><p><strong>Композиция</strong> (объединение свойств в опциях)</p>
+<ul>
+<li><code>extends</code></li>
+<li><code>mixins</code></li>
+</ul>
+</li>
+<li><p><strong>Интерфейс</strong> (интерфейс компонента)</p>
+<ul>
+<li><code>inheritAttrs</code></li>
+<li><code>model</code></li>
+<li><code>props</code>/<code>propsData</code></li>
+</ul>
+</li>
+<li><p><strong>Локальное состояние</strong> (локальные реактивные свойства)</p>
+<ul>
+<li><code>data</code></li>
+<li><code>computed</code></li>
+</ul>
+</li>
+<li><p><strong>События</strong> (коллбэки вызываемые реактивными событиями)</p>
+<ul>
+<li><code>watch</code></li>
+<li>События хуков жизненного цикла (в порядке их вызова)</li>
+</ul>
+</li>
+<li><p><strong>Нереактивные свойства</strong> (свойства экземпляра независимые от системы реактивности)</p>
+<ul>
+<li><code>methods</code></li>
+</ul>
+</li>
+<li><p><strong>Рендеринг</strong> (декларативное описание вывода компонента)</p>
+<ul>
+<li><code>template</code>/<code>render</code></li>
+<li><code>renderError</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Порядок-атрибутов-элемента-рекомендуется"><a href="#Порядок-атрибутов-элемента-рекомендуется" class="headerlink" title="Порядок атрибутов элемента рекомендуется"></a>Порядок атрибутов элемента <sup data-p="c">рекомендуется</sup></h3><p><strong>Атрибуты элементов (в том числе компонентов) должны быть упорядочены консистентно.</strong></p>
+<p>Этот порядок по умолчанию мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы узнаете, где добавлять пользовательские атрибуты и директивы.</p>
+<ol>
+<li><p><strong>Определение</strong> (предоставляет параметры компонента)</p>
+<ul>
+<li><code>is</code></li>
+</ul>
+</li>
+<li><p><strong>Отображение списка</strong> (создаёт несколько вариантов одного элемента)</p>
+<ul>
+<li><code>v-for</code></li>
+</ul>
+</li>
+<li><p><strong>Условия</strong> (указывается рендерится/отображается ли элемент)</p>
+<ul>
+<li><code>v-if</code></li>
+<li><code>v-else-if</code></li>
+<li><code>v-else</code></li>
+<li><code>v-show</code></li>
+<li><code>v-cloak</code></li>
+</ul>
+</li>
+<li><p><strong>Модификаторы рендеринга</strong> (изменяют способ рендеринга элемента)</p>
+<ul>
+<li><code>v-pre</code></li>
+<li><code>v-once</code></li>
+</ul>
+</li>
+<li><p><strong>Глобальная осведомлённость</strong> (требует знаний вне компонента)</p>
+<ul>
+<li><code>id</code></li>
+</ul>
+</li>
+<li><p><strong>Уникальные атрибуты</strong> (атрибуты, требующие уникальных значений)</p>
+<ul>
+<li><code>ref</code></li>
+<li><code>key</code></li>
+<li><code>slot</code></li>
+</ul>
+</li>
+<li><p><strong>Двусторонняя привязка</strong> (объединение привязки и событий)</p>
+<ul>
+<li><code>v-model</code></li>
+</ul>
+</li>
+<li><p><strong>Другие атрибуты</strong> (все неуказанные связанные или несвязанные атрибуты)</p>
+</li>
+<li><p><strong>События</strong> (обработчики событий компонента)</p>
+<ul>
+<li><code>v-on</code></li>
+</ul>
+</li>
+<li><p><strong>Содержимое</strong> (перезаписывает содержимое элемента)</p>
+<ul>
+<li><code>v-html</code></li>
+<li><code>v-text</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Пустые-строки-между-опций-компонента-экземпляра-рекомендуется"><a href="#Пустые-строки-между-опций-компонента-экземпляра-рекомендуется" class="headerlink" title="Пустые строки между опций компонента/экземпляра рекомендуется"></a>Пустые строки между опций компонента/экземпляра <sup data-p="c">рекомендуется</sup></h3><p><strong>Вы можете добавить одну пустую строку между многострочными свойствами, особенно если опции не могут больше помещаться на вашем экране без прокрутки.</strong></p>
+<p>Когда компоненты кажутся неразборчивыми и становятся трудными для чтения, то добавление пустых строк между многострочными свойствами может облегчить их беглое изучение просматривая взглядом. В некоторых редакторах, таких как Vim, параметры форматирования подобные этому также могут облегчить навигацию с клавиатуры.</p>
+<div class="style-example example-good">
+<h4 id="Хорошо-23"><a href="#Хорошо-23" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  value: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  focused: &#123;</span><br><span class="line">    type: <span class="built_in">Boolean</span>,</span><br><span class="line">    <span class="keyword">default</span>: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  label: <span class="built_in">String</span>,</span><br><span class="line">  icon: <span class="built_in">String</span></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line">  formattedValue: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  inputClasses: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Отсутствие пробелов не мешает, если компонент</span></span><br><span class="line"><span class="comment">// всё ещё легко читать и перемещаться по нему.</span></span><br><span class="line">props: &#123;</span><br><span class="line">  value: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  focused: &#123;</span><br><span class="line">    type: <span class="built_in">Boolean</span>,</span><br><span class="line">    <span class="keyword">default</span>: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  label: <span class="built_in">String</span>,</span><br><span class="line">  icon: <span class="built_in">String</span></span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  formattedValue: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  inputClasses: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Порядок-секций-в-однофайловых-компонентах-рекомендуется"><a href="#Порядок-секций-в-однофайловых-компонентах-рекомендуется" class="headerlink" title="Порядок секций в однофайловых компонентах рекомендуется"></a>Порядок секций в однофайловых компонентах <sup data-p="c">рекомендуется</sup></h3><p><strong><a href="../guide/single-file-components.html">Однофайловые компоненты</a> должны всегда использовать один порядок для корневых тегов секций <code>&lt;script&gt;</code>, <code>&lt;template&gt;</code> и <code>&lt;style&gt;</code>, заканчиваясь <code>&lt;style&gt;</code>, потому что всегда требуется хотя бы одна из двух других.</strong></p>
+<div class="style-example example-bad">
+<h4 id="Плохо-23"><a href="#Плохо-23" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ComponentA.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- ComponentB.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-24"><a href="#Хорошо-24" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ComponentA.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- ComponentB.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ComponentA.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- ComponentB.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span>...<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"><span class="comment">/* ... */</span></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h2 id="Правила-приоритета-D-Используйте-с-осторожностью-Потенциально-опасные-паттерны"><a href="#Правила-приоритета-D-Используйте-с-осторожностью-Потенциально-опасные-паттерны" class="headerlink" title="Правила приоритета D: Используйте с осторожностью (Потенциально опасные паттерны)"></a>Правила приоритета D: Используйте с осторожностью (Потенциально опасные паттерны)</h2><h3 id="v-if-v-if-else-v-else-без-key-используйте-с-осторожностью"><a href="#v-if-v-if-else-v-else-без-key-используйте-с-осторожностью" class="headerlink" title="v-if/v-if-else/v-else без key используйте с осторожностью"></a><code>v-if</code>/<code>v-if-else</code>/<code>v-else</code> без <code>key</code> <sup data-p="d">используйте с осторожностью</sup></h3><p><strong>Обычно лучше использовать <code>key</code> вместе с <code>v-if</code> + <code>v-else</code>, если они являются одним и тем же типом элемента (например, когда оба элемента <code>&lt;div&gt;</code>).</strong></p>
+<p>По умолчанию Vue обновляет DOM максимально эффективно. Это означает, что при переключении между элементами одного и того же типа, он просто исправляет текущий элемент, а не удаляет его и добавляет новый на своё место. Это может привести к <a href="https://jsfiddle.net/chrisvfritz/bh8fLeds/" target="_blank" rel="noopener">непреднамеренным побочным эффектам</a>, если эти элементы не должны считаться одинаковыми.</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-24"><a href="#Плохо-24" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"error"</span>&gt;</span></span><br><span class="line">  Ошибка: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-25"><a href="#Хорошо-25" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-if</span>=<span class="string">"error"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">key</span>=<span class="string">"search-status"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  Ошибка: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">  <span class="attr">key</span>=<span class="string">"search-results"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"error"</span>&gt;</span></span><br><span class="line">  Ошибка: &#123;&#123; error &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  &#123;&#123; results &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Селекторы-элементов-при-использовании-scoped-используйте-с-осторожностью"><a href="#Селекторы-элементов-при-использовании-scoped-используйте-с-осторожностью" class="headerlink" title="Селекторы элементов при использовании scoped используйте с осторожностью"></a>Селекторы элементов при использовании <code>scoped</code> <sup data-p="d">используйте с осторожностью</sup></h3><p><strong>Селекторов элементов следует избегать при использовании <code>scoped</code>.</strong></p>
+<p>Воспользуйтесь селекторами классов вместо селекторов элементов в стилях с атрибутом <code>scoped</code>, потому что большое количество селекторов элементов отрабатывает медленно.</p>
+
+<details>
+<summary>
+  <h4>Подробное объяснение</h4>
+</summary>
+
+<p>Для ограничения области действия стилей Vue добавляет уникальный атрибут к элементам компонента, например, такой как <code>data-v-f3f3eg9</code>. Затем селекторы изменяются так, чтобы воздействовали только на подходящие элементы с этим атрибутом (например, <code>button[data-v-f3f3eg9]</code>).</p>
+<p>Проблема в том, что большое количество <a href="http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&amp;sel=a%5Bhref%5D&amp;body=background%3A+%23CFD&amp;ne=1000" target="_blank" rel="noopener">селекторов атрибутов элементов</a> (например, <code>button[data-v-f3f3eg9]</code>) будет значительно медленнее <a href="http://stevesouders.com/efws/css-selectors/csscreate.php?n=1000&amp;sel=.class%5Bhref%5D&amp;body=background%3A+%23CFD&amp;ne=1000" target="_blank" rel="noopener">селекторов классов</a> (например, <code>.btn-close[data-v-f3f3eg9]</code>), поэтому селекторы классов должны быть предпочтительными всегда, когда это возможно.</p>
+</details>
+<div class="style-example example-bad">
+<h4 id="Плохо-25"><a href="#Плохо-25" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">button &#123;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-26"><a href="#Хорошо-26" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-close"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-class">.btn-close</span> &#123;</span></span><br><span class="line"><span class="undefined">  background-color: red;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Неявная-коммуникация-между-родительским-и-дочерними-компонентами-используйте-с-осторожностью"><a href="#Неявная-коммуникация-между-родительским-и-дочерними-компонентами-используйте-с-осторожностью" class="headerlink" title="Неявная коммуникация между родительским и дочерними компонентами используйте с осторожностью"></a>Неявная коммуникация между родительским и дочерними компонентами <sup data-p="d">используйте с осторожностью</sup></h3><p><strong>Входные параметры и события должны быть предпочтительным способом коммуникации между родительским и дочерними компонентами, вместо использования <code>this.$parent</code> или изменения входных параметров.</strong></p>
+<p>В идеальном Vue приложении входные параметры передаются вниз, события всплывают наверх. Придерживаясь этого соглашения ваши компоненты будет намного легче понять. Тем не менее, есть крайние случаи, когда изменения входных параметров или использование <code>this.$parent</code> могут упростить два компонента, которые уже глубоко связаны между собой.</p>
+<p>Проблема в том, что есть также множество <em>простых</em> случаев, когда эти шаблоны могут показаться удобнее. Остерегайтесь: не соблазняйтесь кажущейся простоте (чтобы понять поток вашего состояния) для краткосрочной выгоды (написания чуть меньшего количества кода).</p>
+<div class="style-example example-bad">
+<h4 id="Плохо-26"><a href="#Плохо-26" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;input v-model="todo.text"&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    removeTodo () &#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      vm.$parent.todos = vm.$parent.todos.filter(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> todo.id !== vm.todo.id</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click="removeTodo"&gt;</span></span><br><span class="line"><span class="string">        X</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/span&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-27"><a href="#Хорошо-27" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      :value="todo.text"</span></span><br><span class="line"><span class="string">      @input="$emit('input', $event.target.value)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click="$emit('delete')"&gt;</span></span><br><span class="line"><span class="string">        X</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/span&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</div>
+<h3 id="Управление-состоянием-приложения-без-flux-используйте-с-осторожностью"><a href="#Управление-состоянием-приложения-без-flux-используйте-с-осторожностью" class="headerlink" title="Управление состоянием приложения без flux используйте с осторожностью"></a>Управление состоянием приложения без flux <sup data-p="d">используйте с осторожностью</sup></h3><p><strong><a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> должен быть предпочтительным способом для глобального управления состоянием приложения вместо использования <code>this.$root</code> или глобальной шины событий.</strong></p>
+<p>Управление состоянием через <code>this.$root</code> и/или использование <a href="../guide/migration.html#dispatch-and-broadcast-replaced">глобальной шины событий</a> может быть удобным для очень простых случаев, но не подходит для большинства приложений. Vuex предлагает не только глобальное место для управления состоянием приложения, но и также инструменты для организации, отслеживания и отладки изменений состояния.</p>
+
+<div class="style-example example-bad">
+<h4 id="Плохо-27"><a href="#Плохо-27" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    todos: []</span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$on(<span class="string">'remove-todo'</span>, <span class="keyword">this</span>.removeTodo)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    removeTodo: <span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> todoIdToRemove = todo.id</span><br><span class="line">      <span class="keyword">this</span>.todos = <span class="keyword">this</span>.todos.filter(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> todo.id !== todoIdToRemove</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</div>
+<div class="style-example example-good">
+<h4 id="Хорошо-28"><a href="#Хорошо-28" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// store/modules/todos.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    list: []</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    REMOVE_TODO (state, todoId) &#123;</span><br><span class="line">      state.list = state.list.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.id !== todoId)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    removeTodo (&#123; commit, state &#125;, todo) &#123;</span><br><span class="line">      commit(<span class="string">'REMOVE_TODO'</span>, todo.id)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- TodoItem.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"removeTodo(todo)"</span>&gt;</span></span><br><span class="line">      X</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">  props: &#123;</span></span><br><span class="line"><span class="undefined">    todo: &#123;</span></span><br><span class="line"><span class="javascript">      type: <span class="built_in">Object</span>,</span></span><br><span class="line"><span class="javascript">      required: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="javascript">  methods: mapActions([<span class="string">'removeTodo'</span>])</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<script>
+(function () {
+  var enforcementTypes = {
+    none: '<span title="There is unfortunately no way to automatically enforce this rule.">self-discipline</span>',
+    runtime: 'runtime error',
+    linter: '<a href="https://github.com/vuejs/eslint-plugin-vue#eslint-plugin-vue" target="_blank">plugin:vue/recommended</a>'
+  }
+  Vue.component('sg-enforcement', {
+    template: '\
+      <span>\
+        <strong>Enforcement</strong>:\
+        <span class="style-rule-tag" v-html="humanType"/>\
+      </span>\
+    ',
+    props: {
+      type: {
+        type: String,
+        required: true,
+        validate: function (value) {
+          Object.keys(enforcementTypes).indexOf(value) !== -1
+        }
+      }
+    },
+    computed: {
+      humanType: function () {
+        return enforcementTypes[this.type]
+      }
+    }
+  })
+
+  // new Vue({
+  //  el: '#main'
+  // })
+})()
+</script>
+
+
+    
+    
+    <div class="footer">
+        <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/style-guide/index.md" target="_blank">
+        Отредактируйте эту страницу на GitHub!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] }
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>
