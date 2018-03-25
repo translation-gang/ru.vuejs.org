@@ -138,8 +138,8 @@ return createElement('h1', this.blogTitle)
 // @returns {VNode}
 createElement(
   // {String | Object | Function}
-  // Название тега HTML, опции компонента, или функция,
-  // их возвращающая. Обязательный параметр.
+  // Название тега HTML, опции компонента, или async функция,
+  // возвращающая один из них. Обязательный параметр.
   'div',
 
   // {Object}
@@ -605,7 +605,7 @@ Vue.component('my-functional-button', {
 <template functional>
   <button
     class="btn btn-primary"
-    v-bind="data.attrs" 
+    v-bind="data.attrs"
     v-on="listeners"
   >
     <slot/>
