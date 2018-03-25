@@ -353,6 +353,12 @@
         
         
         <li>
+            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Debugging in VS Code and Chrome</a>
+        </li>
+    
+        
+        
+        <li>
             <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link current">Using Axios to Consume APIs</a>
         </li>
     
@@ -384,7 +390,7 @@
       <h1>Using Axios to Consume APIs</h1>
     
     
-      <h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p>There are many times when building application for the web that you may want to consume and display data from an API. There are several ways to do so, but a very popular approach is to use <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>, a promise-based HTTP client.</p>
+      <h2 id="Base-Example"><a href="#Base-Example" class="headerlink" title="Base Example"></a>Base Example</h2><p>There are many times when building application for the web that you may want to consume and display data from an API. There are several ways to do so, but a very popular approach is to use <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>, a promise-based HTTP client.</p>
 <p>In this exercise, we’ll use the <a href="https://www.coindesk.com/api/" target="_blank" rel="noopener">CoinDesk API</a> to walk through displaying Bitcoin prices, updated every minute. First, we’d install axios with either npm/yarn or through a CDN link.</p>
 <p>There are a number of ways we can request information from the API, but it’s nice to first find out what the shape of the data looks like, in order to know what to display. In order to do so, we’ll make a call to the API endpoint and output it so we can see it. We can see in the CoinDesk API documentation, that this call will be made to <code>https://api.coindesk.com/v1/bpi/currentprice.json</code>. So first, we’ll create a data property that will eventually house our information, and we’ll retrieve the data and assign it using the <code>mounted</code> lifecycle hook:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      info: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    axios</span><br><span class="line">      .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
