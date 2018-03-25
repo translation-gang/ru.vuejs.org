@@ -1,5 +1,5 @@
 ---
-title: Debugging in VS Code and Chrome
+title: Отладка в VS Code и Chrome
 type: cookbook
 order: 8
 ---
