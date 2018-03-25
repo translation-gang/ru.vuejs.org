@@ -87,9 +87,9 @@ npm start
 
 ![Vuetron Heirarchy](/images/vuetron-heirarchy.gif)
 
-### Simple Debugger Statement
+### Использование Debugger в коде
 
-The example above has a great workflow. However, there is an alternative option where you can use the [native debugger statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger) directly in your code. If you choose to work this way, it's important that you remember to remove the statements when you're done.
+Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать [нативный debugger оператор](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger) прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти операторы из кода после окончания отладки.
 
 ```js
 <script>
