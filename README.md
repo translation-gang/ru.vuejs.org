@@ -12,7 +12,7 @@ This site is built with [hexo](http://hexo.io/). Site content is written in Mark
 
 ## Developing
 
-``` bash
+```bash
 $ npm install
 $ npm start # dev server at http://localhost:4000
 ```
@@ -21,14 +21,14 @@ $ npm start # dev server at http://localhost:4000
 
 The site is deployed using GitHub pages, therefore you need push access to the vuejs.org repo to run the deploy script:
 
-``` bash
+```bash
 $ npm run deploy
 ```
 
 If you are working on a fork and deploying to a different URL, you need to update the following accordingly:
 
-- `url` and `deploy` sections in `_config.yml`
-- `src/CNAME`
+* `url` and `deploy` sections in `_config.yml`
+* `src/CNAME`
 
 ## On Translations
 
@@ -45,8 +45,8 @@ Japanese translation is maintained by [Vue.js japan user group](https://github.c
 * Translation Repo - [/vuejs/jp.vuejs.org](https://github.com/vuejs/jp.vuejs.org)
 * Primary maintainer - [kazupon](https://github.com/kazupon)
 * Secondary Maintainers:
-    * [re-fort](https://github.com/re-fort)
-    * [potato4d](https://github.com/potato4d)
+  * [re-fort](https://github.com/re-fort)
+  * [potato4d](https://github.com/potato4d)
 
 ### Russian
 
@@ -84,6 +84,13 @@ Persian translation is maintained by VueJS-fa.
 
 * Translation Repo - [/vuejs-fa/fa.vuejs.org](https://github.com/vuejs-fa/fa.vuejs.org)
 * Primary maintainer - [Pooya Parsa](https://github.com/pi0)
+
+### Vietnamese
+
+Vietnamese translation is maintained by [Vue.js Vietnam User group](https://github.com/vuejs-vn/).
+
+* Translation Repo: [/vuejs-vn/vuejs.org](https://github.com/vuejs-vn/vuejs.org)
+* Primary maintainer - [phanan](https://github.com/phanan)
 
 ### Want to help with the translation?
 
