@@ -14,18 +14,18 @@ There are a number of ways we can request information from the API, but it's nic
 
 ```js
 new Vue({
-  el: '#app',
-  data () {
+  el: "#app",
+  data() {
     return {
       info: null
-    }
+    };
   },
-  mounted () {
+  mounted() {
     axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response))
+      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .then(response => (this.info = response));
   }
-})
+});
 ```
 
 ```html
@@ -49,8 +49,8 @@ It's pretty typical that the information we'll need is within the response, and 
 
 ```js
 axios
-  .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-  .then(response => (this.info = response.data.bpi))
+  .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+  .then(response => (this.info = response.data.bpi));
 ```
 
 <p data-height="200" data-theme-id="32763" data-slug-hash="6100b10f1b4ac2961208643560ba7d11" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Second Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/6100b10f1b4ac2961208643560ba7d11/">Second Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) on <a href="https://codepen.io">CodePen</a>.</p>
@@ -93,41 +93,41 @@ When making this request, we should be checking for just such circumstances, and
 
 ```js
 axios
-  .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+  .get("https://api.coindesk.com/v1/bpi/currentprice.json")
   .then(response => (this.info = response.data.bpi))
-  .catch(error => console.log(error))
+  .catch(error => console.log(error));
 ```
 
 This will let us know if something failed during the API request, but what if the data is mangled or the API is down? Right now the user will just see nothing. We might want to build a loader for this case, and then tell the user if we're not able to get the data at all.
 
 ```js
 new Vue({
-  el: '#app',
-  data () {
+  el: "#app",
+  data() {
     return {
       info: null,
       loading: true,
       errored: false
-    }
+    };
   },
   filters: {
-    currencydecimal (value) {
-      return value.toFixed(2)
+    currencydecimal(value) {
+      return value.toFixed(2);
     }
   },
-  mounted () {
+  mounted() {
     axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
       .then(response => {
-        this.info = response.data.bpi
+        this.info = response.data.bpi;
       })
       .catch(error => {
-        console.log(error)
-        this.errored = true
-      }).
-      .finally(() => this.loading = false)
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   }
-})
+});
 ```
 
 ```html
