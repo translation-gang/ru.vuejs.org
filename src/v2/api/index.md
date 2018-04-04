@@ -2132,8 +2132,8 @@ type: api
 
   <p ref="p">hello</p>
 
-  <!-- vm.$refs.child будет указывать на экземпляр ChildComp -->
-  <child-comp ref="child"></child-comp>
+  <!-- vm.$refs.child будет указывать на экземпляр дочернего компонента -->
+  <child-component ref="child"></child-component>
   ```
 
   При использовании на элементах/компонентах с `v-for`, регистрируется массив ссылок на элементы DOM или экземпляры компонентов.
