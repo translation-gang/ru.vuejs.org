@@ -1283,7 +1283,7 @@ props: {
 #### Плохо
 
 ```html
-<img src="https://vuejs.org/images/logo.png" alt="Vue Logo">
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 ```
 
 ```html
@@ -1300,7 +1300,7 @@ props: {
 <img
   src="https://vuejs.org/images/logo.png"
   alt="Vue Logo"
->
+/>
 ```
 
 ```html
