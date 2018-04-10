@@ -172,6 +172,7 @@ methods: {
 - `.capture`
 - `.self`
 - `.once`
+- `.passive`
 
 ``` html
 <!-- событие click не будет всплывать дальше -->
