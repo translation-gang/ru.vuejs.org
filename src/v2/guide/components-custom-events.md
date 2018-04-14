@@ -4,31 +4,31 @@ type: guide
 order: 103
 ---
 
-> Предполагается, что вы уже изучили раздел [Основы компонентов](components.html). Прочитайте его сначала, если вы новичок в компонентах.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](components.html). Если нет — прочитайте его сначала.
 
 ## Стиль именования событий
 
-Unlike components and props, event names don't provide any automatic case transformation. Instead, the name of an emitted event must exactly match the name used to listen to that event. For example, if emitting a camelCased event name:
+В отличие от компонентов и входных параметров, имена событий не предоставляют никакой автоматической трансформации стиля именования события. Вместо этого, имя генерируемого события должно точно соответствовать имени, используемому при прослушивании события. К примеру, если генерируем событие с именем в camelCase:
 
 ```js
 this.$emit('myEvent')
 ```
 
-Listening to the kebab-cased version will have no effect:
+Прослушивание kebab-cased версии этого имени не будет иметь никакого эффекта:
 
 ```html
 <my-component v-on:my-event="doSomething"></my-component>
 ```
 
-Unlike components and props, event names will never be used as variable or property names in JavaScript, so there's no reason to use camelCase or PascalCase. Additionally, `v-on` event listeners inside DOM templates will be automatically transformed to lowercase (due to HTML's case-insensitivity), so `v-on:myEvent` would become `v-on:myevent` -- making `myEvent` impossible to listen to.
+В отличие от компонентов и входных параметров, имена событий никогда не будут использоваться в качестве имён переменных или имён свойств в JavaScript, поэтому нет причин использовать camelCase или PascalCase. Кроме того, директивы прослушивания событий `v-on` внутри DOM-шаблонов автоматически преобразуются в нижний регистр (из-за нечувствительности HTML к регистру), поэтому `v-on:myEvent` станет `v-on:myevent` — что делает прослушивание события `myEvent` невозможным.
 
-For these reasons, we recommend you **always use kebab-case for event names**.
+По этим причинам мы рекомендуем **всегда использовать kebab-case для имён событий**.
 
-## Customizing Component `v-model`
+## Настройка `v-model` у компонента
 
 > Добавлено в версии 2.2.0+
 
-By default, `v-model` on a component uses `value` as the prop and `input` as the event, but some input types such as checkboxes and radio buttons may want to use the `value` attribute for a [different purpose](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value). Using the `model` option can avoid a conflict in such cases:
+По умолчанию `v-model` на компоненте использует входной параметр `value` и событие `input`. Но некоторые типы полей, такие как чекбоксы или радиокнопки, могут использовать атрибут `value` для [других целей](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value). Использование опции `model` позволит избежать конфликта в таких случаях:
 
 ```js
 Vue.component('base-checkbox', {
@@ -49,25 +49,25 @@ Vue.component('base-checkbox', {
 })
 ```
 
-Now when using `v-model` on this component:
+Теперь, когда используем `v-model` на этом компоненте:
 
 ```js
 <base-checkbox v-model="lovingVue"></base-checkbox>
 ```
 
-the value of `lovingVue` will be passed to the `checked` prop. The `lovingVue` property will then be updated when `<base-checkbox>` emits a `change` event with a new value.
+значение `lovingVue` будет передано во входном параметре `checked`. А обновляться свойство `lovingVue` будет когда `<base-checkbox>` сгенерирует событие `change` с новым значением.
 
-<p class="tip">Note that you still have to declare the <code>checked</code> prop in component's <code>props</code> option.</p>
+<p class="tip">Обратите внимание, что вам всё равно нужно объявлять входной параметр <code>checked</code> в опции <code>props</code> компонента.</p>
 
-## Binding Native Events to Components
+## Подписка на нативные события в компонентах
 
-There may be times when you want to listen directly to a native event on the root element of a component. In these cases, you can use the `.native` modifier for `v-on`:
+Иногда нужно подписаться на нативные события браузера на корневом элементе компонента. В таких случаях можно применять модификатор `.native` для `v-on`:
 
 ```html
 <base-input v-on:focus.native="onFocus"></base-input>
 ```
 
-This can be useful sometimes, but it's not a good idea when you're trying to listen on a very specific element, like an `<input>`. For example, the `<base-input>` component above might refactor so that the root element is actually a `<label>` element:
+Иногда это может быть полезно, но это не очень хорошая идея, когда вы пытаетесь прослушивать очень специфичный элемент, к примеру `<input>`. Например, компонент `<base-input>` можно переделать так, чтобы корневой элемент был фактически элементов `<label>`:
 
 ```html
 <label>
@@ -80,9 +80,9 @@ This can be useful sometimes, but it's not a good idea when you're trying to lis
 </label>
 ```
 
-In that case, the `.native` listener in the parent would silently break. There would be no errors, but the `onFocus` handler wouldn't be called when we expected it to.
+В этом случае слушатель `.native` в родителе просто тихо перестанет работать. Ошибок не будет, но обработчик `onFocus` не будет вызываться, когда мы этого ожидаем.
 
-To solve this problem, Vue provides a `$listeners` property containing an object of listeners being used on the component. For example:
+Для решения этой проблемы Vue предоставляет свойство `$listeners`, содержащее объект всех слушателей, которые используются на компоненте. Например:
 
 ```js
 {
@@ -91,7 +91,7 @@ To solve this problem, Vue provides a `$listeners` property containing an object
 }
 ```
 
-Using the `$listeners` property, you can forward all event listeners on the component to a specific child element with `v-on="$listeners"`. For elements like `<input>`, that you also want to work with `v-model`, it's often useful to create a new computed property for listeners, like `inputListeners` below:
+Используя свойство `$listeners`, вы можете передать все слушатели событий на компоненте на определённый дочерний элемент с помощью `v-on="$listeners"`. Для таких элементов как `<input>`, вы также можете захотеть работоспособности с `v-model`, для чего бывает полезно создать новое вычисляемое свойство для слушателей, например `inputListeners` указанный ниже:
 
 ```js
 Vue.component('base-input', {
@@ -100,14 +100,14 @@ Vue.component('base-input', {
   computed: {
     inputListeners: function () {
       var vm = this
-      // `Object.assign` merges objects together to form a new object
+      // `Object.assign` объединяет объекты вместе, чтобы получить новый объект
       return Object.assign({},
-        // We add all the listeners from the parent
+        // Мы добавляем все слушатели из родителя
         this.$listeners,
-        // Then we can add custom listeners or override the
-        // behavior of some listeners.
+        // Затем мы можем добавить собственные слушатели или
+        // перезаписать поведение некоторых существующих.
         {
-          // This ensures that the component works with v-model
+          // Это обеспечит, что будет работать v-model на компоненте
           input: function (event) {
             vm.$emit('input', event.target.value)
           }
@@ -128,21 +128,21 @@ Vue.component('base-input', {
 })
 ```
 
-Now the `<base-input>` component is a **fully transparent wrapper**, meaning it can be used exactly like a normal `<input>` element: all the same attributes and listeners will work.
+Теперь компонент `<base-input>` стал **полностью прозрачной обёрткой**, что означает, что его можно использовать точно также, как и обычный элемент `<input>`: все те же атрибуты и слушатели будут работать.
 
 ## Модификатор `.sync`
 
 > Добавлено в версии 2.3.0+
 
-In some cases, we may need "two-way binding" for a prop. Unfortunately, true two-way binding can create maintenance issues, because child components can mutate the parent without the source of that mutation being obvious in both the parent and the child.
+В некоторых случаях нам может понадобиться "двусторонняя привязка" для входных параметров. К сожалению, настоящая двусторонняя привязка может создавать проблемы с поддержкой, поскольку дочерние компоненты смогут мутировать состояние родителя без источника, который является очевидным как у родителя, так и у потомков.
 
-That's why instead, we recommend emitting events in the pattern of `update:my-prop-name`. For example, in a hypothetical component with a `title` prop, we could communicate the intent of assigning a new value with:
+Поэтому вместо этого, мы рекомендуем генерировать события с определённым шаблоном имени `update:my-prop-name`. Например, в гипотетическом компоненте с входным параметром `title`, мы можем сообщить о намерении присвоить новое значение:
 
 ```js
 this.$emit('update:title', newTitle)
 ```
 
-Then the parent can listen to that event and update a local data property, if it wants to. For example:
+Затем, родитель может прослушать это событие и обновить локальное свойство, если захочет. Например:
 
 ```html
 <text-document
@@ -151,18 +151,18 @@ Then the parent can listen to that event and update a local data property, if it
 ></text-document>
 ```
 
-For convenience, we offer a shorthand for this pattern with the `.sync` modifier:
+Для удобства мы предлагаем краткую запись для этого шаблона с помощью модификатора `.sync`:
 
 ```html
 <text-document v-bind:title.sync="doc.title"></text-document>
 ```
 
-The `.sync` modifier can also be used with `v-bind` when using an object to set multiple props at once:
+Модификатор `.sync` также может использовать вместе с `v-bind` при использовании объектной записи, чтобы устанавливать сразу значения нескольких входных параметров:
 
 ```html
 <text-document v-bind.sync="doc"></text-document>
 ```
 
-This passes each property in the `doc` object (e.g. `title`) as an individual prop, then adds `v-on` update listeners for each one.
+Это передаёт каждое свойство в объекте `doc` (например, `title`) в качестве индивидуальных входных параметров, а затем добавляет слушатели событий `v-on` для каждого из них.
 
-<p class="tip">Using <code>v-bind.sync</code> with a literal object, such as in <code>v-bind.sync="{ title: doc.title }"</code>, will not work, because there are too many edge cases to consider in parsing a complex expression like this.</p>
+<p class="tip">Используя <code>v-bind.sync</code> с литеральным объектом, например таким как <code>v-bind.sync="{ title: doc.title }"</code>, не будет работать, потому что слишком много различных граничных случаев необходимо учитывать при анализе подобного сложного выражения</p>
