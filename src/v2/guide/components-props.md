@@ -4,11 +4,11 @@ type: guide
 order: 102
 ---
 
-> Предполагается, что вы уже изучили раздел [Основы компонентов](components.html). Прочитайте его сначала, если вы новичок в компонентах.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](components.html). Если нет — прочитайте его сначала.
 
 ## Стиль именования входных параметров (camelCase vs kebab-case)
 
-HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you're using in-DOM templates, camelCased prop names need to use their kebab-cased (hyphen-delimited) equivalents:
+Имена HTML-атрибутов являются регистро-независимыми, поэтому браузеры интерпретируют любые прописные символы как строчные. Это означает, что при использовании шаблонов в DOM, входные параметры в camelCase стиле должны использовать свои эквиваленты в стиле kebab-case (разделённые дефисами):
 
 ``` js
 Vue.component('blog-post', {
@@ -19,78 +19,78 @@ Vue.component('blog-post', {
 ```
 
 ``` html
-<!-- kebab-case in HTML -->
+<!-- kebab-case в HTML -->
 <blog-post post-title="hello!"></blog-post>
 ```
 
-Again, if you're using string templates, this limitation does not apply.
+Опять же, если вы используете строковые шаблоны, то это ограничение не применяется.
 
 ## Статические и динамические входные параметры
 
-So far, you've seen props passed a static value, like in:
+До сих пор вы встречали, что во входные параметры передавались статические значения, например:
 
 ```html
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
-You've also seen props assigned dynamically with `v-bind`, such as in:
+Вы также встречали входные параметры, присваивающие динамическое значение с помощью `v-bind`, например:
 
 ```html
 <blog-post v-bind:title="post.title"></blog-post>
 ```
 
-In the two examples above, we happen to pass string values, but _any_ type of value can actually be passed to a prop.
+В этих двух примерах мы передаём строковые значения, но могут передаваться значения _любого типа_ во входной параметр.
 
 ### Передача чисел
 
 ```html
-<!-- Even though `42` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.       -->
+<!-- Несмотря на то, что `42` статическое значение, нам нужен v-bind, -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   -->
 <blog-post v-bind:likes="42"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <blog-post v-bind:likes="post.likes"></blog-post>
 ```
 
 ### Передача булевых значений
 
 ```html
-<!-- Including the prop with no value will imply `true`. -->
+<!-- Указание входного параметра без значения будет означать `true`. -->
 <blog-post favorited></blog-post>
 
-<!-- Even though `false` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.          -->
+<!-- Несмотря на то, что `false` статическое значение, нам нужен v-bind -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.     -->
 <base-input v-bind:favorited="false">
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <base-input v-bind:favorited="post.currentUserFavorited">
 ```
 
 ### Передача массивов
 
 ```html
-<!-- Even though the array is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.            -->
+<!-- Несмотря на то, что указан статический массив, нам нужен v-bind -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  -->
 <blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <blog-post v-bind:comment-ids="post.commentIds"></blog-post>
 ```
 
 ### Передача объектов
 
 ```html
-<!-- Even though the object is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.             -->
+<!-- Несмотря на то, что указан статический объект, нам нужен v-bind -->
+<!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  -->
 <blog-post v-bind:comments="{ id: 1, title: 'My Journey with Vue' }"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Динамическое присвоение значения переменной. -->
 <blog-post v-bind:post="post"></blog-post>
 ```
 
 ### Передача свойств объекта
 
-If you want to pass all the properties of an object as props, you can use `v-bind` without an argument (`v-bind` instead of `v-bind:prop-name`). For example, given a `post` object:
+Если вы хотите передать все свойства объекта в качестве входных параметров, вы можете использовать `v-bind` без аргументов (`v-bind` вместо `v-bind:prop-name`). Например, для объекта `post`:
 
 ``` js
 post: {
@@ -99,13 +99,13 @@ post: {
 }
 ```
 
-The following template:
+Следующий шаблон:
 
 ``` html
 <blog-post v-bind="post"></blog-post>
 ```
 
-Will be equivalent to:
+Будет аналогичен:
 
 ``` html
 <blog-post
@@ -116,13 +116,13 @@ Will be equivalent to:
 
 ## Однонаправленный поток данных
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Все входные параметры образуют **одностороннюю привязку** между дочерним свойством и родительским: когда родительское свойство обновляется — оно будет передаваться дочернему, но не наоборот. Это предотвращает случайное изменение дочерними компонентами родительского состояния, что может затруднить понимание потока данных вашего приложения.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
+Кроме того, каждый раз, когда обновляется родительский компонент, все входные параметры дочернего компонента будут обновлены актуальными значениями. Это означает, что вы **не должны** пытаться изменять входной параметр внутри дочернего компонента. Если вы это сделаете, Vue отобразит предупреждение в консоли.
 
-There are usually two cases where it's tempting to mutate a prop:
+Обычно встречаются два случая, когда возникает соблазн изменять входной параметр:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. **Входной параметр используется для передачи начального значения; дочерний компонент хочет использовать его как локальное свойство данных в дальнейшем.** В этом случае лучше всего определить локальное свойство в данных, которое использует значение входного параметра в качестве начального:
 
   ``` js
   props: ['initialCounter'],
@@ -133,7 +133,7 @@ There are usually two cases where it's tempting to mutate a prop:
   }
   ```
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. **Входной параметр передаётся как необработанное значение, которое необходимо преобразовать.** В этом случае лучше всего определить вычисляемое свойство с использованием входного параметра:
 
   ``` js
   props: ['size'],
@@ -144,44 +144,44 @@ There are usually two cases where it's tempting to mutate a prop:
   }
   ```
 
-<p class="tip">Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect parent state.</p>
+<p class="tip">Обратите внимание, что объекты и массивы в JavaScript передаются по ссылке, поэтому если входной параметр является массивом или объектом, то изменение объекта или массива внутри дочернего компонента **будет влиять** на состояние родителя.</p>
 
 ## Валидация входных параметров
 
-Components can specify requirements for its props. If a requirement isn't met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that's intended to be used by others.
+Компоненты могут указывать требования к своим входным параметрам. Если эти требования не выполнены — Vue предупредит вас сообщением в JavaScript-консоли браузера. Это особенно полезно при разработке компонента, который предназначен для использования другими.
 
-To specify prop validations, you can provide an object with validation requirements to the value of `props`, instead of an array of strings. For example:
+Чтобы указать валидации входного параметра, вы можете предоставить в `props` объект с валидациями для проверки значения, вместо массива строк. Например:
 
 ``` js
 Vue.component('my-component', {
   props: {
-    // Basic type check (`null` matches any type)
+    // Просто проверка типа (`null` означает любой тип)
     propA: Number,
-    // Multiple possible types
+    // Несколько допустимых типов
     propB: [String, Number],
-    // Required string
+    // Обязательное значение строкового типа
     propC: {
       type: String,
       required: true
     },
-    // Number with a default value
+    // Число со значением по умолчанию
     propD: {
       type: Number,
       default: 100
     },
-    // Object with a default value
+    // Объект со значением по умолчанию
     propE: {
       type: Object,
-      // Object or array defaults must be returned from
-      // a factory function
+      // Для объектов или массивов значения по умолчанию
+      // должны возвращаться из функции
       default: function () {
         return { message: 'hello' }
       }
     },
-    // Custom validator function
+    // Пользовательская функция для валидации
     propF: {
       validator: function (value) {
-        // The value must match one of these strings
+        // Значение должно соответствовать одной из этих строк
         return ['success', 'warning', 'danger'].indexOf(value) !== -1
       }
     }
@@ -189,13 +189,13 @@ Vue.component('my-component', {
 })
 ```
 
-When prop validation fails, Vue will produce a console warning (if using the development build).
+Когда валидация входного параметра заканчивается ошибкой — Vue выдаст предупреждение в консоли (если используется сборка для разработки).
 
-<p class="tip">Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.</p>
+<p class="tip">Обратите внимание, что входные параметры валидируются **перед** созданием экземпляра компонента, поэтому свойства экземпляра (например, `data`, `computed`, и т.д.) не будут доступны внутри `default` или функций `validator`.</p>
 
-### Type Checks
+### Проверка типа
 
-The `type` can be one of the following native constructors:
+Значением `type` может быть один из следующих нативных конструкторов:
 
 - String
 - Number
@@ -205,7 +205,7 @@ The `type` can be one of the following native constructors:
 - Array
 - Symbol
 
-In addition, `type` can also be a custom constructor function and the assertion will be made with an `instanceof` check. For example, given the following constructor function exists:
+Кроме того, `type` также может быть пользовательской функцией-конструктором и валидация будет выполняться проверкой с помощью `instanceof`. Например, если существует следующая функция-конструктор:
 
 ```js
 function Person (firstName, lastName) {
@@ -214,7 +214,7 @@ function Person (firstName, lastName) {
 }
 ```
 
-You could use:
+Вы можете использовать:
 
 ```js
 Vue.component('blog-post', {
@@ -224,31 +224,31 @@ Vue.component('blog-post', {
 })
 ```
 
-to validate that the value of the `author` prop was created with `new Person`.
+чтобы проверить, что значение входного параметра `author` было создано с помощью `new Person`.
 
-## Non-Prop Attributes
+## Передача обычных атрибутов
 
-A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
+Обычные атрибуты — это атрибуты, передаваемые в компонент, но не имеющие определения соответствующего входного параметра в компоненте.
 
-While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes, which are added to the component's root element.
+Хотя явно определённые свойства предпочтительны для передачи информации дочернему компоненту, авторы библиотек компонентов не всегда могут предвидеть все контексты, в которых будут использованы их компоненты. Вот почему компоненты могут принимать произвольные атрибуты, которые добавляются в корневой элемент компонента.
 
-For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
+Например, представьте, что мы используем сторонний компонент `bootstrap-date-input` с плагином Bootstrap, который требует указания атрибута `data-date-picker` на элементе `input`. Мы можем добавить этот атрибут к нашему экземпляру компонента:
 
 ``` html
 <bootstrap-date-input data-date-picker="activated"></bootstrap-date-input>
 ```
 
-And the `data-date-picker="activated"` attribute will automatically be added to the root element of `bootstrap-date-input`.
+И атрибут `data-date-picker="activated"` будет автоматически добавлен в корневой элемент `bootstrap-date-input`.
 
-### Replacing/Merging with Existing Attributes
+### Замена/Объединение существующих атрибутов
 
-Imagine this is the template for `bootstrap-date-input`:
+Представьте, что это шаблон для `bootstrap-date-input`:
 
 ``` html
 <input type="date" class="form-control">
 ```
 
-To specify a theme for our date picker plugin, we might need to add a specific class, like this:
+Чтобы добавить тему для нашего плагина выбора даты, нам может понадобиться добавить определённый класс, например:
 
 ``` html
 <bootstrap-date-input
@@ -257,16 +257,16 @@ To specify a theme for our date picker plugin, we might need to add a specific c
 ></bootstrap-date-input>
 ```
 
-In this case, two different values for `class` are defined:
+В этом случае определены два разных значения для `class`:
 
-- `form-control`, which is set by the component in its template
-- `date-picker-theme-dark`, which is passed to the component by its parent
+- `form-control`, который задаётся компонентом в его шаблоне
+- `date-picker-theme-dark`, который передаётся компоненту его родителем
 
-For most attributes, the value provided to the component will replace the value set by the component. So for example, passing `type="text"` will replace `type="date"` and probably break it! Fortunately, the `class` and `style` attributes are a little smarter, so both values are merged, making the final value: `form-control date-picker-theme-dark`.
+Для большинства атрибутов значение, предоставляемое компоненту, будет заменять значение, заданное компонентом. Например, передача `type="text"` будет заменять `type="date"` и, вероятно, ломать всё! К счастью, работа с атрибутами `class` и `style` немного умнее, поэтому оба значения будут объединены в итоговое: `form-control date-picker-theme-dark`.
 
-### Disabling Attribute Inheritance
+### Отключение наследования атрибутов
 
-If you do **not** want the root element of a component to inherit attributes, you can set `inheritAttrs: false` in the component's options. For example:
+Если вы **не хотите**, чтобы корневой элемент компонента наследовал атрибуты, вы можете установить `inheritAttrs: false` в опциях компонента. Например:
 
 ```js
 Vue.component('my-component', {
@@ -275,7 +275,7 @@ Vue.component('my-component', {
 })
 ```
 
-This can be especially useful in combination with the `$attrs` instance property, which contains the attribute names and values passed to a component, such as:
+Это может быть особенно полезно в сочетании со свойством экземпляра `$attrs`, которое содержит имена атрибутов и значения, переданные компоненту, например:
 
 ```js
 {
@@ -284,7 +284,7 @@ This can be especially useful in combination with the `$attrs` instance property
 }
 ```
 
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#Base-component-names-strongly-recommended):
+С помощью `inheritAttrs: false` и `$attrs` вы можете вручную определять к какому элементу должны применяться атрибуты, что часто требуется для [базовых компонентов](../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется):
 
 ```js
 Vue.component('base-input', {
@@ -303,7 +303,7 @@ Vue.component('base-input', {
 })
 ```
 
-This pattern allows you to use base components more like raw HTML elements, without having to care about which element is actually at its root:
+Этот шаблон позволяет вам использовать базовые компоненты больше как обычные HTML-элементы, не беспокоясь о том, какой элемент будет у него корневым:
 
 ```html
 <base-input
