@@ -4,21 +4,21 @@ type: guide
 order: 101
 ---
 
-> Предполагается, что вы уже изучили раздел [Основы компонентов](components.html). Прочитайте его сначала, если вы новичок в компонентах.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](components.html). Если нет — прочитайте его сначала.
 
 ## Именование компонентов
 
-When registering a component, it will always be given a name. For example, in the global registration we've seen so far:
+При регистрации компонента у него всегда будет имя. Например, при глобальной регистрации, которую мы видели до сих пор:
 
 ```js
 Vue.component('my-component-name', { /* ... */ })
 ```
 
-The component's name is the first argument of `Vue.component`.
+Именем компонента будет первый аргумент `Vue.component`.
 
-The name you give a component may depend on where you intend to use it. When using a component directly in the DOM (as opposed to in a string template or [single-file component](single-file-components.html)), we strongly recommend following the [W3C rules](https://www.w3.org/TR/custom-elements/#concepts) for custom tag names (all-lowercase, must contain a hyphen). This helps you avoid conflicts with current and future HTML elements.
+Имя, которое вы даёте компоненту, может зависеть от того, где вы собираетесь его использовать. При использовании компонента непосредственно в DOM (в отличие от строковых шаблонов или [однофайловых компонентов](single-file-components.html)), мы настоятельно рекомендуем следовать [правилам W3C](https://www.w3.org/TR/custom-elements/#concepts) для именования пользовательских тегов (все символы в нижнем регистре, должен содержать дефис). Это позволит избежать конфликтов с текущими и будущими HTML-элементами.
 
-You can see other recommendations for component names in the [Style Guide](../style-guide/#Base-component-names-strongly-recommended).
+Вы можете изучить другие рекомендации по именованию компонентов в разделе [Рекомендаций](../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется).
 
 ### Стиль именования
 
@@ -30,7 +30,7 @@ You can see other recommendations for component names in the [Style Guide](../st
 Vue.component('my-component-name', { /* ... */ })
 ```
 
-When defining a component with kebab-case, you must also use kebab-case when referencing its custom element, such as in `<my-component-name>`.
+При определении компонента в стиле kebab-case, вы также должны использовать kebab-case при обращении к пользовательскому элементу, например так `<my-component-name>`.
 
 #### В стиле PascalCase
 
@@ -38,19 +38,19 @@ When defining a component with kebab-case, you must also use kebab-case when ref
 Vue.component('MyComponentName', { /* ... */ })
 ```
 
-When defining a component with PascalCase, you can use either case when referencing its custom element. That means both `<my-component-name>` and `<MyComponentName>` are acceptable. Note, however, that only kebab-case names are valid directly in the DOM (i.e. non-string templates).
+При определении компонента в стиле PascalCase, вы можете использовать любой стиль именования при обращении к пользовательскому элементу. Это означает, что `<my-component-name>` и `<MyComponentName>` являются приемлемыми вариантами. Однако, обратите внимание, что только имена в kebab-case являются валидными при использовании непосредственно в DOM (т.е. не строковые шаблоны).
 
 ## Глобальная регистрация
 
-So far, we've only created components using `Vue.component`:
+До сих пор мы создавали компоненты с помощью `Vue.component`:
 
 ```js
 Vue.component('my-component-name', {
-  // ... options ...
+  // ... опции ...
 })
 ```
 
-These components are **globally registered**. That means they can be used in the template of any root Vue instance (`new Vue`) created after registration. For example:
+Такие компоненты **регистрируются глобально**. Это означает, что они могут использоваться в шаблоне любого корневого экземпляра (`new Vue`), созданного после регистрации. Например:
 
 ```js
 Vue.component('component-a', { /* ... */ })
@@ -68,13 +68,13 @@ new Vue({ el: '#app' })
 </div>
 ```
 
-This even applies to all subcomponents, meaning all three of these components will also be available _inside each other_.
+Это относится также ко всем дочерним компонентам и означает что все три из этих компонентов также будут доступны _внутри каждого из них_.
 
 ## Локальная регистрация
 
-Global registration often isn't ideal. For example, if you're using a build system like Webpack, globally registering all components means that even if you stop using a component, it could still be included in your final build. This unnecessarily increases the amount of JavaScript your users have to download.
+Глобальная регистрация часто не идеальна. Например, если вы используете систему сборки, такую как Webpack, глобальная регистрация всех компонентов означает, что даже если вы прекратите использовать компонент, то он всё равно будет включён в вашу сборку приложения. Это излишне увеличит количество JavaScript, который должны будут загрузить ваши пользователи.
 
-In these cases, you can define your components as plain JavaScript objects:
+В таких случаях вы можете определить свои компоненты как обычные объекты JavaScript:
 
 ```js
 var ComponentA = { /* ... */ }
@@ -82,7 +82,7 @@ var ComponentB = { /* ... */ }
 var ComponentC = { /* ... */ }
 ```
 
-Then define the components you'd like to use in a `components` option:
+Затем укажите компоненты которые вы хотите использовать в опции `components`:
 
 ```js
 new Vue({
@@ -94,9 +94,9 @@ new Vue({
 })
 ```
 
-For each property in the `components` object, the key will be the name of the custom element, while the value will contain the options object for the component.
+Для каждого свойства в объекте `components`, ключ будет именем пользовательского элемента, в то время как значение будет объектом, содержащим опции компонента.
 
-Note that **locally registered components are _not_ also available in subcomponents**. For example, if you wanted `ComponentA` to be available in `ComponentB`, you'd have to use:
+Обратите внимание, что **локально зарегистрированные компоненты _не будут_ доступны в дочерних компонентах**. Например, если вы хотите, чтобы `ComponentA` был доступен в `ComponentB`, вам нужно будет использовать:
 
 ```js
 var ComponentA = { /* ... */ }
@@ -109,7 +109,7 @@ var ComponentB = {
 }
 ```
 
-Or if you're using ES2015 modules, such as through Babel and Webpack, that might look more like:
+Или если вы используете модули ES2015, например, через Babel и Webpack, это может выглядеть так:
 
 ```js
 import ComponentA from './ComponentA.vue'
@@ -122,20 +122,20 @@ export default {
 }
 ```
 
-Note that in ES2015+, placing a variable name like `ComponentA` inside an object is shorthand for `ComponentA: ComponentA`, meaning the name of the variable is both:
+Обратите внимание, что в ES2015+ указание имени переменной, такой как `ComponentA` внутри объекта, является сокращением для `ComponentA: ComponentA`, что означает имя переменной будет:
 
-- the custom element name to use in the template, and
-- the name of the variable containing the component options
+- именем пользовательского элемента для использования в шаблоне, и
+- именем переменной, содержащей опции компонента
 
-## Module Systems
+## Модульные системы
 
-If you're not using a module system with `import`/`require`, you can probably skip this section for now. If you are, we have some special instructions and tips just for you.
+Если вы не используете модульную систему с `import`/`require`, вы можете пропустить этот раздел сейчас. Если используете — у нас есть для вас специальные инструкции и советы.
 
-### Local Registration in a Module System
+### Локальная регистрация в модульной системе
 
-If you're still here, then it's likely you're using a module system, such as with Babel and Webpack. In these cases, we recommend creating a `components` directory, with each component in its own file.
+Если вы ещё здесь, вероятно вы используете модульную систему, такую как Babel и Webpack. В этих случаях мы рекомендуем создать каталог `components`, с каждым компонентом в его собственном файле.
 
-Then you'll need to import each component you'd like to use, before you locally register it. For example, in a hypothetical `ComponentB.js` or `ComponentB.vue` file:
+Затем вам нужно будет импортировать каждый компонент, который вы хотите использовать, прежде чем регистрировать его локально. Например, в гипотетическом файле `ComponentB.js` или `ComponentB.vue`:
 
 ```js
 import ComponentA from './ComponentA'
@@ -150,13 +150,13 @@ export default {
 }
 ```
 
-Now both `ComponentA` and `ComponentC` can be used inside `ComponentB`'s template.
+Теперь оба компонента `ComponentA` и `ComponentC` могут быть использованы в шаблоне `ComponentB`.
 
 ### Автоматическая глобальная регистрация базовых компонентов
 
-Many of your components will be relatively generic, possibly only wrapping an element like an input or a button. We sometimes refer to these as [base components](../style-guide/#Base-component-names-strongly-recommended) and they tend to be used very frequently across your components.
+Многие из ваших компонентов будут относительно общими, возможно только оборачивая элемент, например input или button. Мы иногда ссылаемся на них, как на [базовые компоненты](../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется) и они, как правило, очень часто используются в ваших компонентах.
 
-The result is that many components may include long lists of base components:
+В результате многие компоненты будут содержать в себе длинные списки базовых компонентов:
 
 ```js
 import BaseButton from './BaseButton.vue'
@@ -172,7 +172,7 @@ export default {
 }
 ```
 
-Just to support relatively little markup in a template:
+Только для поддержки относительно небольшой разметки в шаблоне:
 
 ```html
 <BaseInput
@@ -184,7 +184,7 @@ Just to support relatively little markup in a template:
 </BaseButton>
 ```
 
-Fortunately, if you're using Webpack (or [Vue CLI 3+](https://github.com/vuejs/vue-cli), which uses Webpack internally), you can use `require.context` to globally register only these very common base components. Here's an example of the code you might use to globally import base components in your app's entry file (e.g. `src/main.js`):
+К счастью, если вы используете Webpack (или [Vue CLI 3+](https://github.com/vuejs/vue-cli), которая использует Webpack внутри), вы можете использовать `require.context` для глобальной регистрации только таких, очень общих базовых компонентов. Ниже приведён пример кода, который можно использовать для глобального импорта базовых компонентов в файле точки старта вашего приложения (например, `src/main.js`):
 
 ```js
 import Vue from 'vue'
@@ -192,35 +192,35 @@ import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
 const requireComponent = require.context(
-  // The relative path of the components folder
+  // Относительный путь до каталога компонентов
   './components',
-  // Whether or not to look in subfolders
+  // Обрабатывать или нет подкаталоги
   false,
-  // The regular expression used to match base component filenames
+  // Регулярное выражение для определения файлов базовых компонентов
   /Base[A-Z]\w+\.(vue|js)$/
 )
 
 requireComponent.keys().forEach(fileName => {
-  // Get component config
+  // Получение конфигурации компонента
   const componentConfig = requireComponent(fileName)
 
-  // Get PascalCase name of component
+  // Получение имени компонента в PascalCase
   const componentName = upperFirst(
     camelCase(
-      // Strip the leading `'./` and extension from the filename
+      // Удаление из начала `'./` и расширения из имени файла
       fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
     )
   )
 
-  // Register component globally
+  // Глобальная регистрация компонента
   Vue.component(
     componentName,
-    // Look for the component options on `.default`, which will
-    // exist if the component was exported with `export default`,
-    // otherwise fall back to module's root.
+    // Поиск опций компонента в `.default`, который будет существовать,
+    // если компонент экспортирован с помощью `export default`,
+    // иначе будет использован корневой уровень модуля.
     componentConfig.default || componentConfig
   )
 })
 ```
 
-Remember that **global registration must take place before the root Vue instance is created (with `new Vue`)**. [Here's an example](https://github.com/chrisvfritz/vue-enterprise-boilerplate/blob/master/src/components/_globals.js) of this pattern in a real project context.
+Запомните, что **глобальная регистрация должна происходить до создания корневого экземпляра Vue (с помощью `new Vue`)**. [Вот пример](https://github.com/chrisvfritz/vue-enterprise-boilerplate/blob/master/src/components/_globals.js) этого шаблона в реальном контексте проекта.
