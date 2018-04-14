@@ -504,13 +504,13 @@ new Vue({
 ``` js
 Vue.component('my-component', {
   functional: true,
+  // входные параметры опциональны
+  props: {
+    // ...
+  },
   // чтобы компенсировать отсутствие экземпляра
   // мы передаём контекст вторым аргументом
   render: function (createElement, context) {
-    // ...
-  },
-  // входные параметры опциональны
-  props: {
     // ...
   }
 })
@@ -554,6 +554,13 @@ var UnorderedList = { /* ... */ }
 
 Vue.component('smart-list', {
   functional: true,
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    isOrdered: Boolean
+  },
   render: function (createElement, context) {
     function appropriateListComponent () {
       var items = context.props.items
@@ -570,13 +577,6 @@ Vue.component('smart-list', {
       context.data,
       context.children
     )
-  },
-  props: {
-    items: {
-      type: Array,
-      required: true
-    },
-    isOrdered: Boolean
   }
 })
 ```
