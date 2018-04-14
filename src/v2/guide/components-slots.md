@@ -4,21 +4,21 @@ type: guide
 order: 104
 ---
 
-> Предполагается, что вы уже изучили раздел [Основы компонентов](components.html). Прочитайте его сначала, если вы новичок в компонентах.
+> Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](components.html). Если нет — прочитайте его сначала.
 
-## Slot Content
+## Содержимое слотов
 
-Vue implements a content distribution API that's modeled after the current [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), using the `<slot>` element to serve as distribution outlets for content.
+Vue реализует API распределения контента, которое основывается на текущем [черновике спецификации веб-компонентов](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), используя элемент `<slot>` в качестве точек распространения контента.
 
-This allows you to compose components like this:
+Это позволяет вам составлять например такие компоненты:
 
 ``` html
 <navigation-link url="/profile">
-  Your Profile
+  Ваш профиль
 </navigation-link>
 ```
 
-Then in the template for `<navigation-link>`, you might have:
+Затем в шаблоне для `<navigation-link>` у вас должно быть:
 
 ``` html
 <a
@@ -29,47 +29,47 @@ Then in the template for `<navigation-link>`, you might have:
 </a>
 ```
 
-When the component renders, the `<slot>` element will be replaced by "Your Profile". Slots can contain any template code, including HTML:
+Когда компонент будет отрендерен, элемент `<slot>` будет заменён на "Ваш профиль". Слоты могут содержать любой код шаблона, включая HTML:
 
 ``` html
 <navigation-link url="/profile">
-  <!-- Add a Font Awesome icon -->
+  <!-- Добавляем иконку Font Awesome -->
   <span class="fa fa-user"></span>
-  Your Profile
+  Ваш профиль
 </navigation-link>
 ```
 
-Or even other components:
+Или даже другие компоненты:
 
 ``` html
 <navigation-link url="/profile">
-  <!-- Use a component to add an icon -->
+  <!-- Используем компонент чтобы добавить иконку -->
   <font-awesome-icon name="user"></font-awesome-icon>
-  Your Profile
+  Ваш профиль
 </navigation-link>
 ```
 
-If `<navigation-link>` did **not** contain a `<slot>` element, any content passed to it would simply be discarded.
+Если `<navigation-link>` **не содержит** элемент `<slot>`, любой переданный контент будет просто проигнорирован.
 
-## Named Slots
+## Именованные слоты
 
-There are times when it's useful to have multiple slots. For example, in a hypothetical `base-layout` component with the following template:
+Бывают случаи, когда полезно иметь несколько слотов. Например, в гипотетическом компоненте `base-layout` со следующим шаблоном:
 
 ``` html
 <div class="container">
   <header>
-    <!-- We want header content here -->
+    <!-- Мы хотим отобразить контент заголовка здесь -->
   </header>
   <main>
-    <!-- We want main content here -->
+    <!-- Мы хотим отобразить основной контент здесь -->
   </main>
   <footer>
-    <!-- We want footer content here -->
+    <!-- Мы хотим отобразить контент подвала здесь -->
   </footer>
 </div>
 ```
 
-For these cases, the `<slot>` element has a special attribute, `name`, which can be used to define additional slots:
+Для этих случаев элемент `<slot>` имеет специальный атрибут `name`, который может использоваться для определения дополнительных слотов:
 
 ``` html
 <div class="container">
@@ -85,86 +85,86 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 </div>
 ```
 
-To provide content to named slots, we can use the `slot` attribute on a `<template>` element in the parent:
+Чтобы передать контент в именованные слоты, мы можем использовать атрибут `slot` на элементе `<template>` в родителе:
 
 ```html
 <base-layout>
   <template slot="header">
-    <h1>Here might be a page title</h1>
+    <h1>Здесь мог быть заголовок страницы</h1>
   </template>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <p>Параграф для основного контента.</p>
+  <p>И ещё один.</p>
 
   <template slot="footer">
-    <p>Here's some contact info</p>
+    <p>Некая контактная информация</p>
   </template>
 </base-layout>
 ```
 
-Or, the `slot` attribute can also be used directly on a normal element:
+Или атрибут `slot` также может использоваться непосредственно на обычном элементе:
 
 ``` html
 <base-layout>
-  <h1 slot="header">Here might be a page title</h1>
+  <h1 slot="header">Здесь мог быть заголовок страницы</h1>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <p>Параграф для основного контента.</p>
+  <p>И ещё один.</p>
 
-  <p slot="footer">Here's some contact info</p>
+  <p slot="footer">Некая контактная информация</p>
 </base-layout>
 ```
 
-There can still be one unnamed slot, which is the **default slot** that serves as a catch-all outlet for any unmatched content. In both examples above, the  rendered HTML would be:
+Всё ещё может оставаться один слот без имени, который будет считаться **слотом по умолчанию**, в который будет помещён контент без указания слота. В обоих примерах выше отрендеренный HTML будет таким:
 
 ``` html
 <div class="container">
   <header>
-    <h1>Here might be a page title</h1>
+    <h1>Здесь мог быть заголовок страницы</h1>
   </header>
   <main>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+    <p>Параграф для основного контента.</p>
+    <p>И ещё один.</p>
   </main>
   <footer>
-    <p>Here's some contact info</p>
+    <p>Некая контактная информация</p>
   </footer>
 </div>
 ```
 
-## Default Slot Content
+## Определение контента по умолчанию для слота
 
-There are cases when it's useful to provide a slot with default content. For example, a `<submit-button>` component might want the content of the button to be "Submit" by default, but also allow users to override with "Save", "Upload", or anything else.
+Бывают случаи, когда полезно предоставить слот с каким-то контентом по умолчанию. Например, для компонента `<submit-button>` мы можем захотеть, чтобы по умолчанию содержимое кнопки было "Отправить", но также позволяет пользователям переопределить на "Сохранить", "Загрузить", или что-то ещё.
 
-To achieve this, specify the default content in between the `<slot>` tags.
+Чтобы достичь этого, необходимо указать контент по умолчанию внутри тега `<slot>`.
 
 ```html
 <button type="submit">
-  <slot>Submit</slot>
+  <slot>Отправить</slot>
 </button>
 ```
 
-If the slot is provided content by the parent, it will replace the default content.
+Если родитель предоставит содержимое для слота, он заменит контент по умолчанию.
 
-## Compilation Scope
+## Область видимости при компиляции
 
-When you want to use data inside a slot, such as in:
+Иногда вы хотите использовать данные внутри слота, например так:
 
 ``` html
 <navigation-link url="/profile">
-  Logged in as {{ user.name }}
+  Привет, {{ user.name }}
 </navigation-link>
 ```
 
-That slot has access to the same instance properties (i.e. the same "scope") as the rest of the template. The slot does **not** have access to `<navigation-link>`'s scope. For example, trying to access `url` would not work. As a rule, remember that:
+Слот имеет доступ к тем же свойствам экземпляра (т.е. имеет такую же "область видимости"), что и остальная часть шаблона. Слот **не имеет доступа** к области видимости `<navigation-link>`. Например, попытка обратиться к `url` не будет работать. Как правило, запомните что:
 
-> Everything in the parent template is compiled in parent scope; everything in the child template is compiled in the child scope.
+> Всё в шаблоне родительского компонента компилируется в области видимости родителя; всё в шаблоне потомка — в области видимости потомка.
 
-## Scoped Slots
+## Слоты с ограниченной областью видимости
 
 > Добавлено в версии 2.1.0+
 
-Sometimes you'll want to provide a component with a reusable slot that can access data from the child component. For example, a simple `<todo-list>` component may contain the following in its template:
+Иногда вам может потребоваться реализовать компонент с переиспользуемым слотом, который может получить доступ к данным дочернего компонента. Например, простой компонент `<todo-list>` может содержать такой шаблон:
 
 ```html
 <ul>
@@ -177,9 +177,9 @@ Sometimes you'll want to provide a component with a reusable slot that can acces
 </ul>
 ```
 
-But in some parts of our app, we want the individual todo items to render something different than just the `todo.text`. This is where scoped slots come in.
+Но в некоторых частях нашего приложения мы хотим, чтобы определённые записи todo отображали нечто иное, чем просто `todo.text`. Здесь и пригодятся слоты с ограниченной областью видимости.
 
-To make the feature possible, all we have to do is wrap the todo item content in a `<slot>` element, then pass the slot any data relevant to its context: in this case, the `todo` object:
+Чтобы реализовать подобное, всё что нам нужно это обернуть содержимое todo в элемент `<slot>`, а затем передать слоту данные, относящиеся к его контексту: в нашем случае объект `todo`:
 
 ```html
 <ul>
@@ -187,35 +187,35 @@ To make the feature possible, all we have to do is wrap the todo item content in
     v-for="todo in todos"
     v-bind:key="todo.id"
   >
-    <!-- We have a slot for each todo, passing it the -->
-    <!-- `todo` object as a slot prop.                -->
+    <!-- У нас есть слот на каждый todo, передающий   -->
+    <!-- объект `todo` в качестве входного параметра. -->
     <slot v-bind:todo="todo">
-      <!-- Fallback content -->
+      <!-- Контент по умолчанию -->
       {{ todo.text }}
     </slot>
   </li>
 </ul>
 ```
 
-Now when we use the `<todo-list>` component, we can optionally define an alternative `<template>` for todo items, but with access to data from the child via the `slot-scope` attribute:
+Теперь, когда мы используем компонент `<todo-list>`, мы можем опционально определить альтернативный `<template>` для элементов todo, но с доступом к данным элемента через атрибут `slot-scope`:
 
 ```html
 <todo-list v-bind:todos="todos">
-  <!-- Define `slotProps` as the name of our slot scope -->
+  <!-- Указываем `slotProps` как имя нашей области видимости слота -->
   <template slot-scope="slotProps">
-    <!-- Define a custom template for todo items, using -->
-    <!-- `slotProps` to customize each todo.            -->
+    <!-- Указываем другой шаблон для элементов, -->
+    <!-- используя `slotProps` для доступа к данным todo. -->
     <span v-if="slotProps.todo.isComplete">✓</span>
     {{ slotProps.todo.text }}
   </template>
 </todo-list>
 ```
 
-> In 2.5.0+, `slot-scope` is no longer limited to the `<template>` element, but can instead be used on any element or component in the slot.
+> С версии 2.5.0+, `slot-scope` больше не ограничен элементом `<template>` и может использоваться на любом элементе или компоненте в слоте.
 
-### Destructuring `slot-scope`
+### Деструктурирование `slot-scope`
 
-The value of `slot-scope` can actually accept any valid JavaScript expression that can appear in the argument position of a function definition. This means in supported environments ([single-file components](single-file-components.html) or [modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) you can also use [ES2015 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) in the expression, like so:
+Значение `slot-scope` может принимать любое валидное JavaScript-выражение, которое может быть указано в аргументе определения функции. Это означает, что в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) вы также можете использовать [деструктурирование ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) в выражении, например так:
 
 ```html
 <todo-list v-bind:todos="todos">
@@ -226,4 +226,4 @@ The value of `slot-scope` can actually accept any valid JavaScript expression th
 </todo-list>
 ```
 
-This is a great way to make scoped slots a little cleaner.
+Это отличный способ сделать слоты с ограниченной областью видимости немного чище.
