@@ -291,8 +291,8 @@
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
       <img src="/images/vueschool.png">
     </a>
-    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-      <img src="/images/datacamp.png">
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png">
     </a>
     </div>
   </div>
@@ -479,7 +479,97 @@
             
         
         <li>
-            <a href="/v2/guide/components.html" class="sidebar-link">Компоненты</a>
+            <a href="/v2/guide/components.html" class="sidebar-link">Основы компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-registration.html" class="sidebar-link">Регистрация компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-props.html" class="sidebar-link">Входные параметры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Пользовательские события</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-slots.html" class="sidebar-link">Слоты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические & Асинхронные компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-edge-cases.html" class="sidebar-link">Обработка крайних случаев</a>
         </li>
     
         
@@ -839,20 +929,20 @@
       <h1>Управление состоянием приложения</h1>
     
     
-      <h2 id="Официальная-Flux-подобная-библиотека"><a href="#Официальная-Flux-подобная-библиотека" class="headerlink" title="Официальная Flux-подобная библиотека"></a>Официальная Flux-подобная библиотека</h2><p>Сложность больших приложений нередко возрастает из-за распределения кусочков состояния по многим компонентам и связям между ними. Для решения этой проблемы, Vue предлагает <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>: нашу собственную библиотеку управления состоянием, вдохновлённую языком Elm. Она даже интегрируется с <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue-devtools</a>, из коробки давая доступ к функциональности “машины времени”.</p>
+      <h2 id="Официальная-Flux-подобная-библиотека"><a href="#Официальная-Flux-подобная-библиотека" class="headerlink" title="Официальная Flux-подобная библиотека"></a>Официальная Flux-подобная библиотека</h2><p>Сложность больших приложений нередко возрастает из-за распределения кусочков состояния по многим компонентам и связям между ними. Для решения этой проблемы, Vue предлагает <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>: нашу собственную библиотеку управления состоянием, вдохновлённую языком Elm. Она даже интегрируется с <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue-devtools</a>, из коробки давая доступ к функциональности <a href="https://raw.githubusercontent.com/vuejs/vue-devtools/master/media/demo.gif" target="_blank" rel="noopener">“машины времени”</a>.</p>
 <h3 id="Информация-для-React-разработчиков"><a href="#Информация-для-React-разработчиков" class="headerlink" title="Информация для React-разработчиков"></a>Информация для React-разработчиков</h3><p>Если вы переходите на Vue с React, может быть интересно, как связаны Vuex и <a href="https://github.com/reactjs/redux" target="_blank" rel="noopener">Redux</a>, являющийся наиболее популярной имплементацией Flux в React-экосистеме. Redux агностичен по отношению к слою представления, так что его можно напрямую использовать с Vue, применив <a href="https://yarnpkg.com/en/packages?q=redux%20vue&amp;p=1" target="_blank" rel="noopener">простые байндинги</a>. Vuex же <em>знает</em>, что работает с приложением Vue, что позволяет достичь лучшей интеграции, использовать более интуитивно-понятный API и в результате делает разработку приятнее.</p>
 <h2 id="Простой-контейнер-состояния-с-нуля"><a href="#Простой-контейнер-состояния-с-нуля" class="headerlink" title="Простой контейнер состояния с нуля"></a>Простой контейнер состояния с нуля</h2><p>Часто упускается из виду тот факт, что “источником истины” во Vue-приложениях является исходный объект <code>data</code> — экземпляры Vue всего лишь проксируют доступ к нему. Поэтому состояние, которым должны совместно владеть несколько экземпляров, можно просто передать по ссылке:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceOfTruth = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceOfTruth = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Теперь при любых изменениях <code>sourceOfTruth</code> обновится и <code>vmA</code>, и <code>vmB</code>. Подкомпоненты этих экземпляров также имеют доступ — используя <code>this.$root.$data</code>. Эффект “единого источника истины” достигнут, но отладка превратится в сущее мучение: любая часть данных может быть изменена любой частью приложения в любой момент и без каких-либо следов.</p>
 <p>Для решения этой проблемы, мы можем использовать простое <strong>хранилище</strong>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> store = &#123;</span><br><span class="line">  debug: <span class="literal">true</span>,</span><br><span class="line">  state: &#123;</span><br><span class="line">    message: <span class="string">'Привет!'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  setMessageAction (newValue) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.debug) <span class="built_in">console</span>.log(<span class="string">'setMessageAction вызвано с '</span>, newValue)</span><br><span class="line">    <span class="keyword">this</span>.state.message = newValue</span><br><span class="line">  &#125;,</span><br><span class="line">  clearMessageAction () &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.debug) <span class="built_in">console</span>.log(<span class="string">'clearMessageAction вызвано'</span>)</span><br><span class="line">    <span class="keyword">this</span>.state.message = <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> store = &#123;</span><br><span class="line">  debug: <span class="literal">true</span>,</span><br><span class="line">  state: &#123;</span><br><span class="line">    message: <span class="string">"Привет!"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  setMessageAction(newValue) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.debug) <span class="built_in">console</span>.log(<span class="string">"setMessageAction вызвано с "</span>, newValue);</span><br><span class="line">    <span class="keyword">this</span>.state.message = newValue;</span><br><span class="line">  &#125;,</span><br><span class="line">  clearMessageAction() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.debug) <span class="built_in">console</span>.log(<span class="string">"clearMessageAction вызвано"</span>);</span><br><span class="line">    <span class="keyword">this</span>.state.message = <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>Обратите внимание, что все действия, изменяющие состояние хранилища, сами помещены в него. Такой подход к глобальному управлению состоянием приложения облегчает понимание возможных изменений и источников их появления. Кроме того, если что-то пойдёт не так — у нас будет лог, по которому можно отследить последовательность действий, приводящую к возникновению бага.</p>
 <p>Каждый экземпляр/компонент по-прежнему может иметь собственное, частное состояние:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    privateState: &#123;&#125;,</span><br><span class="line">    sharedState: store.state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    privateState: &#123;&#125;,</span><br><span class="line">    sharedState: store.state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    privateState: &#123;&#125;,</span><br><span class="line">    sharedState: store.state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    privateState: &#123;&#125;,</span><br><span class="line">    sharedState: store.state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="/images/state.png" alt="Управление состоянием"></p>
 <p class="tip">Важно заметить, что никогда не стоит заменять оригинальный объект состояния в действиях — компоненты и хранилище должны ссылаться на один и тот же объект, иначе отследить изменения будет невозможно.</p>
 
-<p>Если мы продолжим развивать концепцию, при которой компонентам запрещается прямое изменение состояния хранилища, а вместо этого предполагается обработка событий, указывающих хранилищу на необходимость выполнения тех или иных действий, мы можем прийти к архитектуре <a href="https://facebook.github.io/flux/" target="_blank" rel="noopener">Flux</a>.  Плюсом такого подхода является возможность записи всех происходящих с хранилищем изменений, что позволяет применять продвинутые техники отладки, такие как логи изменений, слепки данных и “машину времени”.</p>
+<p>Если мы продолжим развивать концепцию, при которой компонентам запрещается прямое изменение состояния хранилища, а вместо этого предполагается обработка событий, указывающих хранилищу на необходимость выполнения тех или иных действий, мы можем прийти к архитектуре <a href="https://facebook.github.io/flux/" target="_blank" rel="noopener">Flux</a>. Плюсом такого подхода является возможность записи всех происходящих с хранилищем изменений, что позволяет применять продвинутые техники отладки, такие как логи изменений, слепки данных и “машину времени”.</p>
 <p>Это вновь приводит нас к <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>, так что если вы дочитали до этого места — пожалуй, пора его попробовать!</p>
 
     

@@ -291,8 +291,8 @@
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
       <img src="/images/vueschool.png">
     </a>
-    <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-      <img src="/images/datacamp.png">
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png">
     </a>
     </div>
   </div>
@@ -354,15 +354,16 @@
 <h2 id="Правила-приоритета-A-Важно-Предотвращение-ошибок"><a href="#Правила-приоритета-A-Важно-Предотвращение-ошибок" class="headerlink" title="Правила приоритета A: Важно (Предотвращение ошибок)"></a>Правила приоритета A: Важно (Предотвращение ошибок)</h2><h3 id="Имена-компонентов-из-нескольких-слов-важно"><a href="#Имена-компонентов-из-нескольких-слов-важно" class="headerlink" title="Имена компонентов из нескольких слов важно"></a>Имена компонентов из нескольких слов <sup data-p="a">важно</sup></h3><p><strong>Имена компонентов должны всегда состоять из нескольких слов, за исключением корневого компонента <code>App</code>.</strong></p>
 <p>Это <a href="http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name" target="_blank" rel="noopener">предотвращает конфликты</a> с существующими или будущими HTML-элементами, поскольку все HTML-элементы именуются одним словом.</p>
 <div class="style-example example-bad">
-<h4 id="Плохо"><a href="#Плохо" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'Todo'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо"><a href="#Плохо" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"todo"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">"Todo"</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо"><a href="#Хорошо" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'TodoItem'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо"><a href="#Хорошо" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"todo-item"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">"TodoItem"</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Данные-компонента-важно"><a href="#Данные-компонента-важно" class="headerlink" title="Данные компонента важно"></a>Данные компонента <sup data-p="a">важно</sup></h3><p><strong>Свойство <code>data</code> компонента должно быть функцией.</strong></p>
 <p>При использовании свойства <code>data</code> в компоненте (т.е. везде, за исключением <code>new Vue</code>), значением всегда должна быть функция, возвращающая объект.</p>
+
 
 <details>
 <summary>
@@ -376,16 +377,17 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    listTitle: <span class="string">''</span>,</span><br><span class="line">    todos: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </details>
 <div class="style-example example-bad">
-<h4 id="Плохо-1"><a href="#Плохо-1" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'some-comp'</span>, &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-1"><a href="#Плохо-1" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"some-comp"</span>, &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">"bar"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">"bar"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-1"><a href="#Хорошо-1" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'some-comp'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      foo: <span class="string">'bar'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// В .vue-файле</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      foo: <span class="string">'bar'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Допускается использовать объект напрямую</span></span><br><span class="line"><span class="comment">// в корневом экземпляре Vue, поскольку только</span></span><br><span class="line"><span class="comment">// один экземпляр будет существовать.</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">'bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-1"><a href="#Хорошо-1" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"some-comp"</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      foo: <span class="string">"bar"</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// В .vue-файле</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      foo: <span class="string">"bar"</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Допускается использовать объект напрямую</span></span><br><span class="line"><span class="comment">// в корневом экземпляре Vue, поскольку только</span></span><br><span class="line"><span class="comment">// один экземпляр будет существовать.</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="string">"bar"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Определение-входных-параметров-важно"><a href="#Определение-входных-параметров-важно" class="headerlink" title="Определение входных параметров важно"></a>Определение входных параметров <sup data-p="a">важно</sup></h3><p><strong>Входные параметры должны быть определены как можно более подробно.</strong></p>
 <p>В готовом коде определение входных параметров всегда должно быть максимально подробным, по крайней мере определяя тип данных.</p>
+
 
 <details>
 <summary>
@@ -399,14 +401,15 @@
 </ul>
 </details>
 <div class="style-example example-bad">
-<h4 id="Плохо-2"><a href="#Плохо-2" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Этого достаточно лишь для прототипа</span></span><br><span class="line">props: [<span class="string">'status'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-2"><a href="#Плохо-2" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Этого достаточно лишь для прототипа</span></span><br><span class="line">props: [<span class="string">"status"</span>];</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-2"><a href="#Хорошо-2" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  status: <span class="built_in">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-2"><a href="#Хорошо-2" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  status: <span class="built_in">String</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Ещё лучше!</span></span><br><span class="line">props: &#123;</span><br><span class="line">  status: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span>,</span><br><span class="line">    validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'syncing'</span>,</span><br><span class="line">        <span class="string">'synced'</span>,</span><br><span class="line">        <span class="string">'version-conflict'</span>,</span><br><span class="line">        <span class="string">'error'</span></span><br><span class="line">      ].indexOf(value) !== <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Уникальные-ключи-для-v-for-важно"><a href="#Уникальные-ключи-для-v-for-важно" class="headerlink" title="Уникальные ключи для v-for важно"></a>Уникальные ключи для <code>v-for</code> <sup data-p="a">важно</sup></h3><p><strong>Всегда используйте <code>key</code> с <code>v-for</code>.</strong></p>
 <p><code>key</code> с <code>v-for</code> <em>всегда</em> обязателен для компонентов, для поддержания внутреннего состояния компонента и его поддерева. Даже для элементов это хорошая практика для поддержания предсказуемого поведения, такого как <a href="https://bost.ocks.org/mike/constancy/" target="_blank" rel="noopener">консистентности объекта</a> в анимации.</p>
+
 
 <details>
 <summary>
@@ -434,6 +437,7 @@
 </li>
 </ul>
 
+
 <details>
 <summary>
   <h4>Подробное объяснение</h4>
@@ -442,7 +446,7 @@
 <p>Когда Vue обрабатывает директивы, <code>v-for</code> имеет более высокий приоритет, чем <code>v-if</code>, поэтому такой шаблон:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"user.isActive"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Будет аналогичен подобному:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.users.map(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user.isActive) &#123;</span><br><span class="line">    <span class="keyword">return</span> user.name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.users.map(<span class="function"><span class="keyword">function</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user.isActive) &#123;</span><br><span class="line">    <span class="keyword">return</span> user.name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Таким образом, даже если мы показываем элементы только для небольшой части пользователей, мы должны перебирать весь список при каждом повторном рендеринге, независимо от того, изменился ли набор активных пользователей.</p>
 <p>Заменив это отображением вычисляемого свойства, подобным такому:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  activeUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> user.isActive</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -450,7 +454,7 @@
 <p>Мы получаем следующие преимущества:</p>
 <ul>
 <li>Отфильтрованный список будет вычисляться повторно <em>только</em> при изменениях в массиве <code>users</code>, что делает фильтрацию более эффективной.</li>
-<li>Используя <code>v-for=&quot;user in activeUsers&quot;</code>, на этапе рендеринга мы итерируем  <em>только</em> активных пользователей, что сделает рендеринг намного более эффективным.</li>
+<li>Используя <code>v-for=&quot;user in activeUsers&quot;</code>, на этапе рендеринга мы итерируем <em>только</em> активных пользователей, что сделает рендеринг намного более эффективным.</li>
 <li>Логика теперь отделена от уровня представления, что значительно упростит дальнейшую поддержку кода (изменение/расширение логики).</li>
 </ul>
 <p>Мы получаем такие же преимущества обновив подобное:</p>
@@ -472,6 +476,7 @@
 <p><strong>Однако библиотеки компонентов должны предпочитать использовать стратегию на основе именования классов вместо использования атрибута <code>scoped</code>.</strong></p>
 <p>Это упрощает переопределение внутренних стилей с использованием читаемых названий классов, которые не имеют слишком высокой специфичности, но всё же вряд ли приведут к конфликту.</p>
 
+
 <details>
 <summary>
   <h4>Подробное объяснение</h4>
@@ -490,6 +495,7 @@
 </div>
 <h3 id="Именование-приватных-свойств-важно"><a href="#Именование-приватных-свойств-важно" class="headerlink" title="Именование приватных свойств важно"></a>Именование приватных свойств <sup data-p="a">важно</sup></h3><p><strong>Всегда используйте префикс <code>$_</code> для пользовательских приватных свойств в плагине, примеси и т.п. Затем, чтобы избежать конфликтов с кодом других авторов, также включайте именованную область (например, <code>$_yourPluginName_</code>).</strong></p>
 
+
 <details>
 <summary>
   <h4>Подробное объяснение</h4>
@@ -500,18 +506,18 @@
 <p>Вместо этого мы рекомендуем комбинировать два префикса в <code>$_</code>, как соглашение для пользовательских приватных свойств, которые гарантируют отсутствие конфликтов с Vue.</p>
 </details>
 <div class="style-example example-bad">
-<h4 id="Плохо-6"><a href="#Плохо-6" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    _update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $_update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-6"><a href="#Плохо-6" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    _update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $_update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-6"><a href="#Хорошо-6" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $_myGreatMixin_update: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-6"><a href="#Хорошо-6" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myGreatMixin = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    $_myGreatMixin_update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <h2 id="Правила-приоритета-B-Настоятельно-рекомендуется-Улучшение-читаемости"><a href="#Правила-приоритета-B-Настоятельно-рекомендуется-Улучшение-читаемости" class="headerlink" title="Правила приоритета B: Настоятельно рекомендуется (Улучшение читаемости)"></a>Правила приоритета B: Настоятельно рекомендуется (Улучшение читаемости)</h2><h3 id="Файлы-компонентов-настоятельно-рекомендуется"><a href="#Файлы-компонентов-настоятельно-рекомендуется" class="headerlink" title="Файлы компонентов настоятельно рекомендуется"></a>Файлы компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Всякий раз, когда система сборки позволяет конкатенировать файлы, каждый компонент должен быть в собственном файле.</strong></p>
 <p>Это поможет вам быстрее найти компонент, когда потребуется его отредактировать или просмотреть как его использовать.</p>
 <div class="style-example example-bad">
-<h4 id="Плохо-7"><a href="#Плохо-7" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoList'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-7"><a href="#Плохо-7" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"TodoList"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">"TodoItem"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
 <h4 id="Хорошо-7"><a href="#Хорошо-7" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- TodoList.js</span><br><span class="line">|- TodoItem.js</span><br></pre></td></tr></table></figure>
@@ -529,6 +535,7 @@
 </div>
 <h3 id="Именование-базовых-компонентов-настоятельно-рекомендуется"><a href="#Именование-базовых-компонентов-настоятельно-рекомендуется" class="headerlink" title="Именование базовых компонентов настоятельно рекомендуется"></a>Именование базовых компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Базовые компоненты (известные как презентационные, глупые или чистые компоненты) которые применяют специфичные для вашего приложения стили или соглашения должны начинаться с определённого префикса, такого как <code>Base</code>, <code>App</code> или <code>V</code>.</strong></p>
 
+
 <details>
 <summary>
   <h4>Подробное объяснение</h4>
@@ -537,7 +544,7 @@
 <p>Эти компоненты закладывают основу для консистентности стилей и поведения в вашем приложении. Они могут содержать <strong>только</strong>:</p>
 <ul>
 <li>HTML-элементы,</li>
-<li>другие компоненты с <code>Base</code>-префиксом</li>
+<li>другие базовые компоненты</li>
 <li>сторонние UI-компоненты.</li>
 </ul>
 <p>Но они <strong>никогда</strong> не содержат глобальное состояние (например, из хранилища Vuex).</p>
@@ -549,7 +556,7 @@
 <li><p>Поскольку имена компонентов всегда должны состоять из нескольких слов, это соглашение запрещает вам выбирать произвольный префикс для простых компонентов-обёрток (например, <code>MyButton</code>, <code>VueButton</code>).</p>
 </li>
 <li><p>Поскольку эти компоненты часто используются, вы можете просто сделать их глобальными, а не импортировать их повсюду. Префикс делает это возможным с помощью Webpack:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requireComponent = <span class="built_in">require</span>.context(<span class="string">"./src"</span>, <span class="literal">true</span>, /^Base[A-Z]/)</span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> baseComponentConfig = requireComponent(fileName)</span><br><span class="line">  baseComponentConfig = baseComponentConfig.default || baseComponentConfig</span><br><span class="line">  <span class="keyword">var</span> baseComponentName = baseComponentConfig.name || (</span><br><span class="line">    fileName</span><br><span class="line">      .replace(<span class="regexp">/^.+\//</span>, <span class="string">''</span>)</span><br><span class="line">      .replace(<span class="regexp">/\.\w+$/</span>, <span class="string">''</span>)</span><br><span class="line">  )</span><br><span class="line">  Vue.component(baseComponentName, baseComponentConfig)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> requireComponent = <span class="built_in">require</span>.context(<span class="string">"./src"</span>, <span class="literal">true</span>, /^Base[A-Z]/);</span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="keyword">function</span>(<span class="params">fileName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> baseComponentConfig = requireComponent(fileName);</span><br><span class="line">  baseComponentConfig = baseComponentConfig.default || baseComponentConfig;</span><br><span class="line">  <span class="keyword">var</span> baseComponentName =</span><br><span class="line">    baseComponentConfig.name ||</span><br><span class="line">    fileName.replace(<span class="regexp">/^.+\//</span>, <span class="string">""</span>).replace(<span class="regexp">/\.\w+$/</span>, <span class="string">""</span>);</span><br><span class="line">  Vue.component(baseComponentName, baseComponentConfig);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </details>
@@ -571,6 +578,7 @@
 </div>
 <h3 id="Именование-тесно-связанных-компонентов-настоятельно-рекомендуется"><a href="#Именование-тесно-связанных-компонентов-настоятельно-рекомендуется" class="headerlink" title="Именование тесно связанных компонентов настоятельно рекомендуется"></a>Именование тесно связанных компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Дочерние компоненты, тесно связанные с родителями, должны включать имя родительского компонента в качестве префикса.</strong></p>
 <p>Если компонент имеет смысл только в контексте одного родительского компонента, то это отношение должно быть очевидным в его имени. Поскольку редакторы обычно упорядочивают файлы по алфавиту, это также расположит связанные файлы друг с другом.</p>
+
 
 <details>
 <summary>
@@ -596,6 +604,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">components/</span><br><span class="line">|- SearchSidebar.vue</span><br><span class="line">|- SearchSidebarNavigation.vue</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Порядок-слов-в-именах-компонентов-настоятельно-рекомендуется"><a href="#Порядок-слов-в-именах-компонентов-настоятельно-рекомендуется" class="headerlink" title="Порядок слов в именах компонентов настоятельно рекомендуется"></a>Порядок слов в именах компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Компоненты должны именоваться с высшего уровня (часто наиболее общих слов) и заканчиваться описательными дополняющими словами.</strong></p>
+
 
 <details>
 <summary>
@@ -664,6 +673,7 @@
 </div>
 <h3 id="Стиль-именования-компонентов-в-JS-JSX-настоятельно-рекомендуется"><a href="#Стиль-именования-компонентов-в-JS-JSX-настоятельно-рекомендуется" class="headerlink" title="Стиль именования компонентов в JS/JSX настоятельно рекомендуется"></a>Стиль именования компонентов в JS/JSX <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Стиль именования компонентов в JS/<a href="../guide/render-function.html#JSX">JSX</a> всегда должен быть PascalCase, хотя они могут быть в kebab-case внутри строк для простых приложений, которые используют только глобальную регистрацию компонентов через <code>Vue.component</code>.</strong></p>
 
+
 <details>
 <summary>
   <h4>Подробное объяснение</h4>
@@ -677,16 +687,16 @@
 
 
 <div class="style-example example-bad">
-<h4 id="Плохо-15"><a href="#Плохо-15" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'myComponent'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> myComponent <span class="keyword">from</span> <span class="string">'./MyComponent.vue'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'myComponent'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'my-component'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-15"><a href="#Плохо-15" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"myComponent"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> myComponent <span class="keyword">from</span> <span class="string">"./MyComponent.vue"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">"myComponent"</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">"my-component"</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-15"><a href="#Хорошо-15" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'MyComponent'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">'./MyComponent.vue'</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'MyComponent'</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-15"><a href="#Хорошо-15" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"MyComponent"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"my-component"</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">"./MyComponent.vue"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">"MyComponent"</span></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Использование-полных-слов-при-именовании-компонентов-настоятельно-рекомендуется"><a href="#Использование-полных-слов-при-именовании-компонентов-настоятельно-рекомендуется" class="headerlink" title="Использование полных слов при именовании компонентов настоятельно рекомендуется"></a>Использование полных слов при именовании компонентов <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Имена компонентов должны состоять из полных слов, а не аббревиатур.</strong></p>
 <p>Автодополнение в редакторах уменьшают сложность написания более длинных имён, а ясность, которую они предоставляют неоценима. Малоизвестных аббревиатур, в частности, следует избегать.</p>
@@ -703,7 +713,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">WelcomeMessage</span> <span class="attr">greetingText</span>=<span class="string">"hi"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-17"><a href="#Хорошо-17" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  greetingText: <span class="built_in">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-17"><a href="#Хорошо-17" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  greetingText: <span class="built_in">String</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">WelcomeMessage</span> <span class="attr">greeting-text</span>=<span class="string">"hi"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется"><a href="#Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется" class="headerlink" title="Элементы с несколькими атрибутами настоятельно рекомендуется"></a>Элементы с несколькими атрибутами <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Элементы с несколькими атрибутами должны располагаться на нескольких строках, по одному атрибуту на строку.</strong></p>
@@ -726,6 +736,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Комплексное выражение было вынесено в вычисляемое свойство</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedFullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.fullName.split(<span class="string">' '</span>).map(<span class="function"><span class="keyword">function</span> (<span class="params">word</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> word[<span class="number">0</span>].toUpperCase() + word.slice(<span class="number">1</span>)</span><br><span class="line">    &#125;).join(<span class="string">' '</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Простые-вычисляемые-свойства-настоятельно-рекомендуется"><a href="#Простые-вычисляемые-свойства-настоятельно-рекомендуется" class="headerlink" title="Простые вычисляемые свойства настоятельно рекомендуется"></a>Простые вычисляемые свойства <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Комплексные вычисляемые свойства должны быть разделены на максимально простые свойства.</strong></p>
+
 
 <details>
 <summary>
@@ -776,86 +787,98 @@
 <h2 id="Правила-приоритета-C-Рекомендуется-Минимизация-произвольных-выборов-и-накладных-расходов"><a href="#Правила-приоритета-C-Рекомендуется-Минимизация-произвольных-выборов-и-накладных-расходов" class="headerlink" title="Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)"></a>Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)</h2><h3 id="Порядок-опций-компонента-экземпляра-рекомендуется"><a href="#Порядок-опций-компонента-экземпляра-рекомендуется" class="headerlink" title="Порядок опций компонента/экземпляра рекомендуется"></a>Порядок опций компонента/экземпляра <sup data-p="c">рекомендуется</sup></h3><p><strong>Опции компонента/экземпляра должны быть упорядочены консистентно.</strong></p>
 <p>Это порядок по умолчанию, который мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы поймёте, где добавлять новые свойства из плагинов.</p>
 <ol>
-<li><p><strong>Побочные эффекты</strong> (вызывает эффекты вне компонента)</p>
+<li><strong>Побочные эффекты</strong> (вызывает эффекты вне компонента)</li>
+</ol>
 <ul>
 <li><code>el</code></li>
 </ul>
-</li>
-<li><p><strong>Глобальная осведомлённость</strong> (требует знаний вне компонента)</p>
+<ol>
+<li><strong>Глобальная осведомлённость</strong> (требует знаний вне компонента)</li>
+</ol>
 <ul>
 <li><code>name</code></li>
 <li><code>parent</code></li>
 </ul>
-</li>
-<li><p><strong>Тип компонента</strong> (изменяет тип компонента)</p>
+<ol>
+<li><strong>Тип компонента</strong> (изменяет тип компонента)</li>
+</ol>
 <ul>
 <li><code>functional</code></li>
 </ul>
-</li>
-<li><p><strong>Модификаторы шаблона</strong> (изменение способа компиляции шаблонов)</p>
+<ol>
+<li><strong>Модификаторы шаблона</strong> (изменение способа компиляции шаблонов)</li>
+</ol>
 <ul>
 <li><code>delimiters</code></li>
 <li><code>comments</code></li>
 </ul>
-</li>
-<li><p><strong>Зависимости шаблона</strong> (ресурсы, используемые в шаблоне)</p>
+<ol>
+<li><strong>Зависимости шаблона</strong> (ресурсы, используемые в шаблоне)</li>
+</ol>
 <ul>
 <li><code>components</code></li>
 <li><code>directives</code></li>
 <li><code>filters</code></li>
 </ul>
-</li>
-<li><p><strong>Композиция</strong> (объединение свойств в опциях)</p>
+<ol>
+<li><strong>Композиция</strong> (объединение свойств в опциях)</li>
+</ol>
 <ul>
 <li><code>extends</code></li>
 <li><code>mixins</code></li>
 </ul>
-</li>
-<li><p><strong>Интерфейс</strong> (интерфейс компонента)</p>
+<ol>
+<li><strong>Интерфейс</strong> (интерфейс компонента)</li>
+</ol>
 <ul>
 <li><code>inheritAttrs</code></li>
 <li><code>model</code></li>
 <li><code>props</code>/<code>propsData</code></li>
 </ul>
-</li>
-<li><p><strong>Локальное состояние</strong> (локальные реактивные свойства)</p>
+<ol>
+<li><strong>Локальное состояние</strong> (локальные реактивные свойства)</li>
+</ol>
 <ul>
 <li><code>data</code></li>
 <li><code>computed</code></li>
 </ul>
-</li>
-<li><p><strong>События</strong> (коллбэки вызываемые реактивными событиями)</p>
+<ol>
+<li><strong>События</strong> (коллбэки вызываемые реактивными событиями)</li>
+</ol>
 <ul>
 <li><code>watch</code></li>
 <li>События хуков жизненного цикла (в порядке их вызова)</li>
 </ul>
-</li>
-<li><p><strong>Нереактивные свойства</strong> (свойства экземпляра независимые от системы реактивности)</p>
+<ol>
+<li><strong>Нереактивные свойства</strong> (свойства экземпляра независимые от системы реактивности)</li>
+</ol>
 <ul>
 <li><code>methods</code></li>
 </ul>
-</li>
-<li><p><strong>Рендеринг</strong> (декларативное описание вывода компонента)</p>
+<ol>
+<li><strong>Рендеринг</strong> (декларативное описание вывода компонента)</li>
+</ol>
 <ul>
 <li><code>template</code>/<code>render</code></li>
 <li><code>renderError</code></li>
 </ul>
-</li>
-</ol>
 <h3 id="Порядок-атрибутов-элемента-рекомендуется"><a href="#Порядок-атрибутов-элемента-рекомендуется" class="headerlink" title="Порядок атрибутов элемента рекомендуется"></a>Порядок атрибутов элемента <sup data-p="c">рекомендуется</sup></h3><p><strong>Атрибуты элементов (в том числе компонентов) должны быть упорядочены консистентно.</strong></p>
 <p>Этот порядок по умолчанию мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы узнаете, где добавлять пользовательские атрибуты и директивы.</p>
 <ol>
-<li><p><strong>Определение</strong> (предоставляет параметры компонента)</p>
+<li><strong>Определение</strong> (предоставляет параметры компонента)</li>
+</ol>
 <ul>
 <li><code>is</code></li>
 </ul>
-</li>
-<li><p><strong>Отображение списка</strong> (создаёт несколько вариантов одного элемента)</p>
+<ol>
+<li><strong>Отображение списка</strong> (создаёт несколько вариантов одного элемента)</li>
+</ol>
 <ul>
 <li><code>v-for</code></li>
 </ul>
-</li>
-<li><p><strong>Условия</strong> (указывается рендерится/отображается ли элемент)</p>
+<ol>
+<li><strong>Условия</strong> (указывается рендерится/отображается ли элемент)</li>
+</ol>
 <ul>
 <li><code>v-if</code></li>
 <li><code>v-else-if</code></li>
@@ -863,44 +886,49 @@
 <li><code>v-show</code></li>
 <li><code>v-cloak</code></li>
 </ul>
-</li>
-<li><p><strong>Модификаторы рендеринга</strong> (изменяют способ рендеринга элемента)</p>
+<ol>
+<li><strong>Модификаторы рендеринга</strong> (изменяют способ рендеринга элемента)</li>
+</ol>
 <ul>
 <li><code>v-pre</code></li>
 <li><code>v-once</code></li>
 </ul>
-</li>
-<li><p><strong>Глобальная осведомлённость</strong> (требует знаний вне компонента)</p>
+<ol>
+<li><strong>Глобальная осведомлённость</strong> (требует знаний вне компонента)</li>
+</ol>
 <ul>
 <li><code>id</code></li>
 </ul>
-</li>
-<li><p><strong>Уникальные атрибуты</strong> (атрибуты, требующие уникальных значений)</p>
+<ol>
+<li><strong>Уникальные атрибуты</strong> (атрибуты, требующие уникальных значений)</li>
+</ol>
 <ul>
 <li><code>ref</code></li>
 <li><code>key</code></li>
 <li><code>slot</code></li>
 </ul>
-</li>
-<li><p><strong>Двусторонняя привязка</strong> (объединение привязки и событий)</p>
+<ol>
+<li><strong>Двусторонняя привязка</strong> (объединение привязки и событий)</li>
+</ol>
 <ul>
 <li><code>v-model</code></li>
 </ul>
-</li>
+<ol>
 <li><p><strong>Другие атрибуты</strong> (все неуказанные связанные или несвязанные атрибуты)</p>
 </li>
 <li><p><strong>События</strong> (обработчики событий компонента)</p>
+</li>
+</ol>
 <ul>
 <li><code>v-on</code></li>
 </ul>
-</li>
-<li><p><strong>Содержимое</strong> (перезаписывает содержимое элемента)</p>
+<ol>
+<li><strong>Содержимое</strong> (перезаписывает содержимое элемента)</li>
+</ol>
 <ul>
 <li><code>v-html</code></li>
 <li><code>v-text</code></li>
 </ul>
-</li>
-</ol>
 <h3 id="Пустые-строки-между-опций-компонента-экземпляра-рекомендуется"><a href="#Пустые-строки-между-опций-компонента-экземпляра-рекомендуется" class="headerlink" title="Пустые строки между опций компонента/экземпляра рекомендуется"></a>Пустые строки между опций компонента/экземпляра <sup data-p="c">рекомендуется</sup></h3><p><strong>Вы можете добавить одну пустую строку между многострочными свойствами, особенно если опции не могут больше помещаться на вашем экране без прокрутки.</strong></p>
 <p>Когда компоненты кажутся неразборчивыми и становятся трудными для чтения, то добавление пустых строк между многострочными свойствами может облегчить их беглое изучение просматривая взглядом. В некоторых редакторах, таких как Vim, параметры форматирования подобные этому также могут облегчить навигацию с клавиатуры.</p>
 <div class="style-example example-good">
@@ -928,6 +956,7 @@
 <h3 id="Селекторы-элементов-при-использовании-scoped-используйте-с-осторожностью"><a href="#Селекторы-элементов-при-использовании-scoped-используйте-с-осторожностью" class="headerlink" title="Селекторы элементов при использовании scoped используйте с осторожностью"></a>Селекторы элементов при использовании <code>scoped</code> <sup data-p="d">используйте с осторожностью</sup></h3><p><strong>Селекторов элементов следует избегать при использовании <code>scoped</code>.</strong></p>
 <p>Воспользуйтесь селекторами классов вместо селекторов элементов в стилях с атрибутом <code>scoped</code>, потому что большое количество селекторов элементов отрабатывает медленно.</p>
 
+
 <details>
 <summary>
   <h4>Подробное объяснение</h4>
@@ -946,23 +975,24 @@
 <p>В идеальном Vue приложении входные параметры передаются вниз, события всплывают наверх. Придерживаясь этого соглашения ваши компоненты будет намного легче понять. Тем не менее, есть крайние случаи, когда изменения входных параметров или использование <code>this.$parent</code> могут упростить два компонента, которые уже глубоко связаны между собой.</p>
 <p>Проблема в том, что есть также множество <em>простых</em> случаев, когда эти шаблоны могут показаться удобнее. Остерегайтесь: не соблазняйтесь кажущейся простоте (чтобы понять поток вашего состояния) для краткосрочной выгоды (написания чуть меньшего количества кода).</p>
 <div class="style-example example-bad">
-<h4 id="Плохо-26"><a href="#Плохо-26" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;input v-model="todo.text"&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    removeTodo () &#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      vm.$parent.todos = vm.$parent.todos.filter(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> todo.id !== vm.todo.id</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click="removeTodo"&gt;</span></span><br><span class="line"><span class="string">        X</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/span&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-26"><a href="#Плохо-26" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"TodoItem"</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;input v-model="todo.text"&gt;'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"TodoItem"</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    removeTodo() &#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span>;</span><br><span class="line">      vm.$parent.todos = vm.$parent.todos.filter(<span class="function"><span class="keyword">function</span>(<span class="params">todo</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> todo.id !== vm.todo.id;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click="removeTodo"&gt;</span></span><br><span class="line"><span class="string">        X</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/span&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-27"><a href="#Хорошо-27" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      :value="todo.text"</span></span><br><span class="line"><span class="string">      @input="$emit('input', $event.target.value)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'TodoItem'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click="$emit('delete')"&gt;</span></span><br><span class="line"><span class="string">        X</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/span&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-27"><a href="#Хорошо-27" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"TodoItem"</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      :value="todo.text"</span></span><br><span class="line"><span class="string">      @input="$emit('input', $event.target.value)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">"TodoItem"</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    todo: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; todo.text &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;button @click="$emit('delete')"&gt;</span></span><br><span class="line"><span class="string">        X</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/span&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </div>
 <h3 id="Управление-состоянием-приложения-без-flux-используйте-с-осторожностью"><a href="#Управление-состоянием-приложения-без-flux-используйте-с-осторожностью" class="headerlink" title="Управление состоянием приложения без flux используйте с осторожностью"></a>Управление состоянием приложения без flux <sup data-p="d">используйте с осторожностью</sup></h3><p><strong><a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> должен быть предпочтительным способом для глобального управления состоянием приложения вместо использования <code>this.$root</code> или глобальной шины событий.</strong></p>
 <p>Управление состоянием через <code>this.$root</code> и/или использование <a href="../guide/migration.html#dispatch-and-broadcast-replaced">глобальной шины событий</a> может быть удобным для очень простых случаев, но не подходит для большинства приложений. Vuex предлагает не только глобальное место для управления состоянием приложения, но и также инструменты для организации, отслеживания и отладки изменений состояния.</p>
 
 <div class="style-example example-bad">
-<h4 id="Плохо-27"><a href="#Плохо-27" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    todos: []</span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$on(<span class="string">'remove-todo'</span>, <span class="keyword">this</span>.removeTodo)</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    removeTodo: <span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> todoIdToRemove = todo.id</span><br><span class="line">      <span class="keyword">this</span>.todos = <span class="keyword">this</span>.todos.filter(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> todo.id !== todoIdToRemove</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Плохо-27"><a href="#Плохо-27" class="headerlink" title="Плохо"></a>Плохо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    todos: []</span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$on(<span class="string">"remove-todo"</span>, <span class="keyword">this</span>.removeTodo);</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    removeTodo: <span class="function"><span class="keyword">function</span>(<span class="params">todo</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> todoIdToRemove = todo.id;</span><br><span class="line">      <span class="keyword">this</span>.todos = <span class="keyword">this</span>.todos.filter(<span class="function"><span class="keyword">function</span>(<span class="params">todo</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> todo.id !== todoIdToRemove;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </div>
 <div class="style-example example-good">
-<h4 id="Хорошо-28"><a href="#Хорошо-28" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// store/modules/todos.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    list: []</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    REMOVE_TODO (state, todoId) &#123;</span><br><span class="line">      state.list = state.list.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.id !== todoId)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    removeTodo (&#123; commit, state &#125;, todo) &#123;</span><br><span class="line">      commit(<span class="string">'REMOVE_TODO'</span>, todo.id)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Хорошо-28"><a href="#Хорошо-28" class="headerlink" title="Хорошо"></a>Хорошо</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// store/modules/todos.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    list: []</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    REMOVE_TODO(state, todoId) &#123;</span><br><span class="line">      state.list = state.list.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.id !== todoId);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    removeTodo(&#123; commit, state &#125;, todo) &#123;</span><br><span class="line">      commit(<span class="string">"REMOVE_TODO"</span>, todo.id);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- TodoItem.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">    &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"removeTodo(todo)"</span>&gt;</span></span><br><span class="line">      X</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">  props: &#123;</span></span><br><span class="line"><span class="undefined">    todo: &#123;</span></span><br><span class="line"><span class="javascript">      type: <span class="built_in">Object</span>,</span></span><br><span class="line"><span class="javascript">      required: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="javascript">  methods: mapActions([<span class="string">'removeTodo'</span>])</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </div>
+
 
 <script>
 (function () {
@@ -999,6 +1029,7 @@
   // })
 })()
 </script>
+
 
 
     

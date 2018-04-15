@@ -3,26 +3,26 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Однофайловые компоненты — Vue.js</title>
+        <title>Пользовательские события — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/single-file-components.html">
-        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/single-file-components.html">
-        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/single-file-components.html">
-        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/single-file-components.html">
-        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/single-file-components.html">
-        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/single-file-components.html">
-        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/single-file-components.html">
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/components-custom-events.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/components-custom-events.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/components-custom-events.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/components-custom-events.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components-custom-events.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/components-custom-events.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/components-custom-events.html">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Однофайловые компоненты — Vue.js">
+        <meta property="og:title" content="Пользовательские события — Vue.js">
         <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Однофайловые компоненты — Vue.js">
+        <meta name="twitter:title" content="Пользовательские события — Vue.js">
         <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -159,13 +159,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -254,13 +254,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/single-file-components.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-custom-events.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -524,7 +524,7 @@
             
         
         <li>
-            <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Пользовательские события</a>
+            <a href="/v2/guide/components-custom-events.html" class="sidebar-link current">Пользовательские события</a>
         </li>
     
         
@@ -710,7 +710,7 @@
             
         
         <li>
-            <a href="/v2/guide/single-file-components.html" class="sidebar-link current">Однофайловые компоненты</a>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
         </li>
     
         
@@ -908,7 +908,7 @@
 </div>
 
 
-<div class="content guide with-sidebar single-file-components-guide">
+<div class="content guide with-sidebar components-custom-events-guide">
     
       
         <div id="ad">
@@ -926,54 +926,63 @@
       
     
     
-      <h1>Однофайловые компоненты</h1>
+      <h1>Пользовательские события</h1>
     
     
-      <h2 id="Введение"><a href="#Введение" class="headerlink" title="Введение"></a>Введение</h2><p>Во многих проектах, глобальные компоненты определяются посредством <code>Vue.component</code>, с последующим <code>new Vue({ el: &#39;#container&#39; })</code> для указания элемента-контейнера в теле каждой страницы.</p>
-<p>Для проектов малого и среднего размера, в которых JavaScript используется лишь для некоторых страниц, этот подход может прекрасно работать. В более же сложных проектах или в случаях, когда весь ваш фронтенд управляется JavaScript, явными становятся следующие недостатки:</p>
-<ul>
-<li><strong>Глобальное определение</strong> заставляет давать уникальное имя каждому компоненту</li>
-<li><strong>Строковым шаблонам</strong> не хватает подсветки синтаксиса. Кроме того, приходится использовать уродливые слэши для многострочного HTML.</li>
-<li><strong>Нет модульной поддержки CSS</strong> — в то время как HTML и JavaScript разбиваются на модули-компоненты, CSS оказывается за бортом.</li>
-<li><strong>Отсутствие шага сборки</strong> ограничивает нас только HTML и ES5 JavaScript, не позволяя использовать препроцессоры вроде Pug (бывший Jade) и Babel</li>
-</ul>
-<p>Все эти недостатки решаются <strong>однофайловыми компонентами</strong> с расширением <code>.vue</code>, использование которых позволяют такие инструменты как Webpack и Browserify.</p>
-<p>Вот простой пример файла, который мы назовём <code>Hello.vue</code>:</p>
-<p><img src="/images/vue-component.png" style="display: block; margin: 30px auto;"></p>
-<p>Мы получили:</p>
-<ul>
-<li><a href="https://github.com/vuejs/awesome-vue#source-code-editing" target="_blank" rel="noopener">полную подсветку синтаксиса</a></li>
-<li><a href="https://webpack.js.org/concepts/modules/#what-is-a-webpack-module" target="_blank" rel="noopener">модули CommonJS</a></li>
-<li><a href="https://vue-loader.vuejs.org/ru/features/scoped-css.html" target="_blank" rel="noopener">модульный CSS</a></li>
-</ul>
-<p>Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.</p>
-<p><img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto;"></p>
-<p>Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с <code>vue-loader</code>, вы также получаете прекрасную поддержку CSS-модулей.</p>
-<h3 id="Что-насчёт-разделения-ответственности"><a href="#Что-насчёт-разделения-ответственности" class="headerlink" title="Что насчёт разделения ответственности?"></a>Что насчёт разделения ответственности?</h3><p>Одна важная вещь, что следует отметить — <strong>разделение ответственности это не то же самое, что разделение на файлы по типу.</strong> В современной разработке UI мы обнаружили, что вместо разделения кодовой базы на три огромных слоя, что тесно переплетаются друг с другом, имеет больше смысла делить их на слабо связанные компоненты и компоновать уже их. Внутри компонента, его шаблон, логика и стили неразрывно связаны между собой, что позволяет сделать компонент более сплочённым и удобным в поддержке.</p>
-<p>Если вам не нравится идея однофайловых компонентов, вы также можете пользоваться возможностями горячей замены модулей и прекомпиляцией, выделив JavaScript и CSS в отдельные файлы:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- my-component.vue --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>Это будет предварительно скомпилировано<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./my-component.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">src</span>=<span class="string">"./my-component.css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Начало-работы"><a href="#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h2><h3 id="Песочница-с-примером"><a href="#Песочница-с-примером" class="headerlink" title="Песочница с примером"></a>Песочница с примером</h3><p>Если вы хотите прямо сейчас поиграться с однофайловыми компонентами — начните с этого <a href="https://codesandbox.io/s/o29j95wx9" target="_blank" rel="noopener">простого todo приложения</a> на CodeSandbox.</p>
-<h3 id="Для-новичков-в-модульных-системах-сборки-JavaScript"><a href="#Для-новичков-в-модульных-системах-сборки-JavaScript" class="headerlink" title="Для новичков в модульных системах сборки JavaScript"></a>Для новичков в модульных системах сборки JavaScript</h3><p>С <code>.vue</code>-компонентами, мы входим во вселенную продвинутых JavaScript-приложений. Это значит, что если вы этого ещё не сделали, нужно будет освоить некоторые дополнительные инструменты:</p>
-<ul>
-<li><p><strong>Node Package Manager (NPM)</strong>: Прочитайте <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="noopener">руководство по началу работы</a> до секции  <em>10: Uninstalling global packages</em>.</p>
-</li>
-<li><p><strong>Современный JavaScript стандартов ES2015/16</strong>: Прочитайте <a href="https://babeljs.io/docs/learn-es2015/" target="_blank" rel="noopener">руководство по ES2015</a> от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.</p>
-</li>
-</ul>
-<p>После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на шаблон <a href="https://vuejs-templates.github.io/webpack" target="_blank" rel="noopener">webpack</a>. Следуйте инструкциям, и очень скоро у вас будет рабочий проект с <code>.vue</code>-компонентами, ES2015 и hot-reloading.</p>
-<p>Чтобы узнать больше о самом Webpack, ознакомьтесь с <a href="https://webpack.js.org/configuration/" target="_blank" rel="noopener">их официальной документацией</a> и <a href="https://webpack.academy/p/the-core-concepts" target="_blank" rel="noopener">Webpack Academy</a>. В Webpack каждый модуль может быть подвергнут трансформации загрузчиком (“loader”) перед включением в сборку и Vue предоставляет собственный загрузчик <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="noopener">vue-loader</a> для обработки однофайловых (<code>.vue</code>) компонентов.</p>
-<h3 id="Для-продвинутых-пользователей"><a href="#Для-продвинутых-пользователей" class="headerlink" title="Для продвинутых пользователей"></a>Для продвинутых пользователей</h3><p>Независимо от того, предпочитаете вы Webpack или Browserify, у нас есть хорошо документированные шаблоны как для простых, так и для более сложных проектов. Мы советуем вам выбрать подходящий для вас шаблон на <a href="https://github.com/vuejs-templates" target="_blank" rel="noopener">github.com/vuejs-templates</a>, и, следуя инструкциям в README, создать проект с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>.</p>
+      <blockquote>
+<p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
+</blockquote>
+<h2 id="Стиль-именования-событий"><a href="#Стиль-именования-событий" class="headerlink" title="Стиль именования событий"></a>Стиль именования событий</h2><p>В отличие от компонентов и входных параметров, имена событий не предоставляют никакой автоматической трансформации стиля именования события. Вместо этого, имя генерируемого события должно точно соответствовать имени, используемому при прослушивании события. К примеру, если генерируем событие с именем в camelCase:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'myEvent'</span>)</span><br></pre></td></tr></table></figure>
+<p>Прослушивание kebab-cased версии этого имени не будет иметь никакого эффекта:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:my-event</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>В отличие от компонентов и входных параметров, имена событий никогда не будут использоваться в качестве имён переменных или имён свойств в JavaScript, поэтому нет причин использовать camelCase или PascalCase. Кроме того, директивы прослушивания событий <code>v-on</code> внутри DOM-шаблонов автоматически преобразуются в нижний регистр (из-за нечувствительности HTML к регистру), поэтому <code>v-on:myEvent</code> станет <code>v-on:myevent</code> — что делает прослушивание события <code>myEvent</code> невозможным.</p>
+<p>По этим причинам мы рекомендуем <strong>всегда использовать kebab-case для имён событий</strong>.</p>
+<h2 id="Настройка-v-model-у-компонента"><a href="#Настройка-v-model-у-компонента" class="headerlink" title="Настройка v-model у компонента"></a>Настройка <code>v-model</code> у компонента</h2><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<p>По умолчанию <code>v-model</code> на компоненте использует входной параметр <code>value</code> и событие <code>input</code>. Но некоторые типы полей, такие как чекбоксы или радиокнопки, могут использовать атрибут <code>value</code> для <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value" target="_blank" rel="noopener">других целей</a>. Использование опции <code>model</code> позволит избежать конфликта в таких случаях:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-checkbox'</span>, &#123;</span><br><span class="line">  model: &#123;</span><br><span class="line">    prop: <span class="string">'checked'</span>,</span><br><span class="line">    event: <span class="string">'change'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    checked: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      type="checkbox"</span></span><br><span class="line"><span class="string">      v-bind:checked="checked"</span></span><br><span class="line"><span class="string">      v-on:change="$emit('change', $event.target.checked)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Теперь, когда используем <code>v-model</code> на этом компоненте:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;base-checkbox v-model=<span class="string">"lovingVue"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">base-checkbox</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>значение <code>lovingVue</code> будет передано во входном параметре <code>checked</code>. А обновляться свойство <code>lovingVue</code> будет когда <code>&lt;base-checkbox&gt;</code> сгенерирует событие <code>change</code> с новым значением.</p>
+<p class="tip">Обратите внимание, что вам всё равно нужно объявлять входной параметр <code>checked</code> в опции <code>props</code> компонента.</p>
+
+<h2 id="Подписка-на-нативные-события-в-компонентах"><a href="#Подписка-на-нативные-события-в-компонентах" class="headerlink" title="Подписка на нативные события в компонентах"></a>Подписка на нативные события в компонентах</h2><p>Иногда нужно подписаться на нативные события браузера на корневом элементе компонента. В таких случаях можно применять модификатор <code>.native</code> для <code>v-on</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">v-on:focus.native</span>=<span class="string">"onFocus"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Иногда это может быть полезно, но это не очень хорошая идея, когда вы пытаетесь прослушивать очень специфичный элемент, к примеру <code>&lt;input&gt;</code>. Например, компонент <code>&lt;base-input&gt;</code> можно переделать так, чтобы корневой элемент был фактически элементов <code>&lt;label&gt;</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">  &#123;&#123; label &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind</span>=<span class="string">"$attrs"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:value</span>=<span class="string">"value"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:input</span>=<span class="string">"$emit('input', $event.target.value)"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>В этом случае слушатель <code>.native</code> в родителе просто тихо перестанет работать. Ошибок не будет, но обработчик <code>onFocus</code> не будет вызываться, когда мы этого ожидаем.</p>
+<p>Для решения этой проблемы Vue предоставляет свойство <code>$listeners</code>, содержащее объект всех слушателей, которые используются на компоненте. Например:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  focus: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  input: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Используя свойство <code>$listeners</code>, вы можете передать все слушатели событий на компоненте на определённый дочерний элемент с помощью <code>v-on=&quot;$listeners&quot;</code>. Для таких элементов как <code>&lt;input&gt;</code>, вы также можете захотеть работоспособности с <code>v-model</code>, для чего бывает полезно создать новое вычисляемое свойство для слушателей, например <code>inputListeners</code> указанный ниже:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-input'</span>, &#123;</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  props: [<span class="string">'label'</span>, <span class="string">'value'</span>],</span><br><span class="line">  computed: &#123;</span><br><span class="line">    inputListeners: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      <span class="comment">// `Object.assign` объединяет объекты вместе, чтобы получить новый объект</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,</span><br><span class="line">        <span class="comment">// Мы добавляем все слушатели из родителя</span></span><br><span class="line">        <span class="keyword">this</span>.$listeners,</span><br><span class="line">        <span class="comment">// Затем мы можем добавить собственные слушатели или</span></span><br><span class="line">        <span class="comment">// перезаписать поведение некоторых существующих.</span></span><br><span class="line">        &#123;</span><br><span class="line">          <span class="comment">// Это обеспечит, что будет работать v-model на компоненте</span></span><br><span class="line">          input: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">            vm.$emit(<span class="string">'input'</span>, event.target.value)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;label&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; label &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;input</span></span><br><span class="line"><span class="string">        v-bind="$attrs"</span></span><br><span class="line"><span class="string">        v-bind:value="value"</span></span><br><span class="line"><span class="string">        v-on="inputListeners"</span></span><br><span class="line"><span class="string">      &gt;</span></span><br><span class="line"><span class="string">    &lt;/label&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Теперь компонент <code>&lt;base-input&gt;</code> стал <strong>полностью прозрачной обёрткой</strong>, что означает, что его можно использовать точно также, как и обычный элемент <code>&lt;input&gt;</code>: все те же атрибуты и слушатели будут работать.</p>
+<h2 id="Модификатор-sync"><a href="#Модификатор-sync" class="headerlink" title="Модификатор .sync"></a>Модификатор <code>.sync</code></h2><blockquote>
+<p>Добавлено в версии 2.3.0+</p>
+</blockquote>
+<p>В некоторых случаях нам может понадобиться “двусторонняя привязка” для входных параметров. К сожалению, настоящая двусторонняя привязка может создавать проблемы с поддержкой, поскольку дочерние компоненты смогут мутировать состояние родителя без источника, который является очевидным как у родителя, так и у потомков.</p>
+<p>Поэтому вместо этого, мы рекомендуем генерировать события с определённым шаблоном имени <code>update:my-prop-name</code>. Например, в гипотетическом компоненте с входным параметром <code>title</code>, мы можем сообщить о намерении присвоить новое значение:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:title'</span>, newTitle)</span><br></pre></td></tr></table></figure>
+<p>Затем, родитель может прослушать это событие и обновить локальное свойство, если захочет. Например:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"doc.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:title</span>=<span class="string">"doc.title = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Для удобства мы предлагаем краткую запись для этого шаблона с помощью модификатора <code>.sync</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:title.sync</span>=<span class="string">"doc.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Модификатор <code>.sync</code> также может использовать вместе с <code>v-bind</code> при использовании объектной записи, чтобы устанавливать сразу значения нескольких входных параметров:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind.sync</span>=<span class="string">"doc"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Это передаёт каждое свойство в объекте <code>doc</code> (например, <code>title</code>) в качестве индивидуальных входных параметров, а затем добавляет слушатели событий <code>v-on</code> для каждого из них.</p>
+<p class="tip">Используя <code>v-bind.sync</code> с литеральным объектом, например таким как <code>v-bind.sync=”{ title: doc.title }”</code>, не будет работать, потому что слишком много различных граничных случаев необходимо учитывать при анализе подобного сложного выражения</p>
 
     
     
       <div class="guide-links">
         
         
-          <span>← <a href="/v2/guide/deployment.html">Развёртывание на production</a></span>
+          <span>← <a href="/v2/guide/components-props.html">Входные параметры</a></span>
         
         
         
-          <span style="float: right;"><a href="/v2/guide/unit-testing.html">Модульное тестирование</a> →</span>
+          <span style="float: right;"><a href="/v2/guide/components-slots.html">Слоты</a> →</span>
         
       </div>
     
@@ -993,7 +1002,7 @@
 </script>
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
-      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/single-file-components.md" target="_blank">
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/components-custom-events.md" target="_blank">
         Отредактируйте эту страницу на GitHub!
       </a>
     </div>
