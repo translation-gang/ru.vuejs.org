@@ -1034,6 +1034,7 @@ type: api
 - **Пример:**
 
   ``` js
+  // родительский компонент предоставляет доступ к 'foo'
   var Provider = {
     provide: {
       foo: 'bar'
@@ -1041,6 +1042,7 @@ type: api
     // ...
   }
 
+  // дочерний компонент внедряет 'foo'
   var Child = {
     inject: ['foo'],
     created () {
