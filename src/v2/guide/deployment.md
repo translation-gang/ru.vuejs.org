@@ -18,7 +18,15 @@ order: 401
 
 #### Webpack
 
-Используйте плагин Webpack [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) для установки переменных окружения. Это позволит UglifyJS на этапе сборки удалить все предупреждения. Пример конфигурации:
+С версии Webpack 4+ вы можете использовать опцию `mode`:
+
+``` js
+module.exports = {
+  mode: 'production'
+}
+```
+
+Но в версиях Webpack 3 и более ранних вам необходимо использовать [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
 ``` js
 var webpack = require('webpack')
@@ -29,7 +37,7 @@ module.exports = {
     // ...
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
+        NODE_ENV: JSON.stringify('production')
       }
     })
   ]
