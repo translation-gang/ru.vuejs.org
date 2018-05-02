@@ -170,12 +170,14 @@ createElement(
 
 ``` js
 {
-  // То же API, что и у `v-bind:class`
+  // То же API, что и у `v-bind:class`, принимающий
+  // строку, объект, массив строк или массив объектов
   class: {
     foo: true,
     bar: false
   },
-  // То же API, что и у `v-bind:style`
+  // То же API, что и у `v-bind:style`, принимающий
+  // строку, объект, массив строк или массив объектов
   style: {
     color: 'red',
     fontSize: '14px'
