@@ -55,6 +55,10 @@ gold_sponsors:
     img: aaha.png
   - url: https://www.valuecoders.com
     img: valuecoders.png
+  - url: https://www.nsoft.com/careers/
+    img: nsoft.png
+  - url: https://www.pubnub.com/vue-js/
+    img: pubnub.png
 
 bronze_sponsors:
   - url: http://tighten.co/
