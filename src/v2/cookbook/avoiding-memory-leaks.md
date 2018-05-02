@@ -139,7 +139,7 @@ new Vue({
 
 ```js
 beforeDestroy: function () {
-    this.choicesSelect.destroy()
+  this.choicesSelect.destroy()
 }
 ```
 
