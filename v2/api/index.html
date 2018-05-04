@@ -1692,7 +1692,7 @@
 </li>
 </ul>
 <h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>
-<li><p><strong>Принимает:</strong> <code>string</code></p>
+<li><p><strong>Принимает:</strong> <code>string | Object (объект с настройками компонента)</code></p>
 <p>Используется для <a href="../guide/components.html#Динамическое-переключение-компонентов">динамически переключаемых компонентов</a> и для обхода <a href="../guide/components.html#Особенности-парсинга-DOM-шаблона">ограничений при использовании DOM-шаблонов</a>.</p>
 <p>Например:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- используемый компонент меняется при изменениях currentView --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentView"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- необходим, потому что `&lt;my-row&gt;` будет считаться невалидным --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- элементом внутри `&lt;table&gt;` и будет вынесен выше             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"my-row"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
