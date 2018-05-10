@@ -615,7 +615,7 @@ Vue.component('my-functional-button', {
 </template>
 ```
 
-### `slots()` vs `children`
+### (slots vs children) `slots()` vs `children`
 
 Вы можете задаться вопросом зачем нужны `slots()` и `children` одновременно. Разве не будет `slots().default` возвращать тот же результат, что и `children`? В некоторых случаях — да, но что если у нашего функционального компонента будут следующие дочерние элементы?
 
