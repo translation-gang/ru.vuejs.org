@@ -313,14 +313,8 @@
         }
       }).join('').replace(/\(.*\)$/, '')
 
-      var methodMatch = h.textContent.match(/^([^(]+)\(/)
-      var idWithoutArguments = slugize(h.textContent)
-      if (methodMatch) {
-        idWithoutArguments = slugize(methodMatch[1])
-      }
-
       link.innerHTML =
-        '<a class="section-link" data-scroll href="#' + idWithoutArguments + '">' +
+        '<a class="section-link" data-scroll href="#' + h.id + '">' +
           htmlEscape(text) +
         '</a>'
       return link
