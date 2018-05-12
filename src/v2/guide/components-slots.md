@@ -215,7 +215,7 @@ Vue реализует API распределения контента, кото
 
 ### Деструктурирование `slot-scope`
 
-Значение `slot-scope` может принимать любое валидное JavaScript-выражение, которое может быть указано в аргументе определения функции. Это означает, что в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) вы также можете использовать [деструктурирование ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) в выражении, например так:
+Значение `slot-scope` может принимать любое валидное JavaScript-выражение, которое может быть указано в аргументе определения функции. Это означает, что в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Совместимость_с_браузерами)) вы также можете использовать [деструктурирование ES2015](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Простой_пример_2) в выражении, например так:
 
 ```html
 <todo-list v-bind:todos="todos">

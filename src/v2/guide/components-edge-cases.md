@@ -237,7 +237,7 @@ methods: {
 
 Чтобы узнать больше о программных прослушивателях событий, ознакомьтесь на странице API с разделом [Методы экземпляра — события](../api/#Методы-экземпляра-—-события).
 
-<p class="tip">Обратите внимание, что система событий Vue отличаетсмя от браузерного <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">EventTarget API</a>. Хотя они работают аналогично, <code>$emit</code>, <code>$on</code>, и <code>$off</code> <strong>не являются</strong> псевдонимами для <code>dispatchEvent</code>, <code>addEventListener</code>, и <code>removeEventListener</code>.</p>
+<p class="tip">Обратите внимание, что система событий Vue отличается от браузерного <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">EventTarget API</a>. Хотя они работают аналогично, <code>$emit</code>, <code>$on</code>, и <code>$off</code> <strong>не являются</strong> псевдонимами для <code>dispatchEvent</code>, <code>addEventListener</code>, и <code>removeEventListener</code>.</p>
 
 ## Циклические ссылки
 
