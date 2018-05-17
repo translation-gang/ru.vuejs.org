@@ -488,11 +488,15 @@ methods: {
 
 ``` html
 <div id="todo-list-example">
-  <input
-    v-model="newTodoText"
-    v-on:keyup.enter="addNewTodo"
-    placeholder="Добавить задачу"
-  >
+  <form v-on:submit.prevent="addNewTodo">
+    <label for="new-todo">Добавить задачу</label>
+    <input
+      v-model="newTodoText"
+      id="new-todo"
+      placeholder="Например, покормить кота"
+    >
+    <button>Добавить</button>
+  </form>
   <ul>
     <li
       is="todo-item"
@@ -512,7 +516,7 @@ Vue.component('todo-item', {
   template: '\
     <li>\
       {{ title }}\
-      <button v-on:click="$emit(\'remove\')">X</button>\
+      <button v-on:click="$emit(\'remove\')">Удалить</button>\
     </li>\
   ',
   props: ['title']
@@ -552,11 +556,15 @@ new Vue({
 
 {% raw %}
 <div id="todo-list-example" class="demo">
-  <input
-    v-model="newTodoText"
-    v-on:keyup.enter="addNewTodo"
-    placeholder="Добавить задачу"
-  >
+  <form v-on:submit.prevent="addNewTodo">
+    <label for="new-todo">Добавить задачу</label>
+    <input
+      v-model="newTodoText"
+      id="new-todo"
+      placeholder="Например, покормить кота"
+    >
+    <button>Добавить</button>
+  </form>
   <ul>
     <li
       is="todo-item"
@@ -572,7 +580,7 @@ Vue.component('todo-item', {
   template: '\
     <li>\
       {{ title }}\
-      <button v-on:click="$emit(\'remove\')">X</button>\
+      <button v-on:click="$emit(\'remove\')">Удалить</button>\
     </li>\
   ',
   props: ['title']
