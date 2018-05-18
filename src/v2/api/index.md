@@ -1593,13 +1593,138 @@ type: api
 
   - Если указан и тип события, и коллбэк — будет удалена именно эта подписка именно этого события.
 
-### vm.$emit( event, [...args] )
+### vm.$emit( eventName, [...args] )
 
 - **Аргументы:**
-  - `{string} event`
+  - `{string} eventName`
   - `[...args]`
 
   Порождает событие в текущем экземпляре. Все дополнительно указанные параметры будут переданы в коллбэк подписки.
+
+- **Примеры:**
+
+  Использование `$emit` только с именем события:
+
+  ```js
+  Vue.component('welcome-button', {
+    template: `
+      <button v-on:click="$emit('welcome')">
+        Нажмите для приветствия
+      </button>
+    `
+  })
+  ```
+  ```html
+  <div id="emit-example-simple">
+    <welcome-button v-on:welcome="sayHi"></welcome-button>
+  </div>
+  ```
+  ```js
+  new Vue({
+    el: '#emit-example-simple',
+    methods: {
+      sayHi: function () {
+        alert('Привет!')
+      }
+    }
+  })
+  ```
+  {% raw %}
+  <div id="emit-example-simple" class="demo">
+    <welcome-button v-on:welcome="sayHi"></welcome-button>
+  </div>
+  <script>
+    Vue.component('welcome-button', {
+      template: `
+        <button v-on:click="$emit('welcome')">
+          Нажмите для приветствия
+        </button>
+      `
+    })
+    new Vue({
+      el: '#emit-example-simple',
+      methods: {
+        sayHi: function () {
+          alert('Привет!')
+        }
+      }
+    })
+  </script>
+  {% endraw %}
+
+  Использование `$emit` с дополнительными аргументами:
+
+  ```js
+  Vue.component('magic-eight-ball', {
+    data: function () {
+      return {
+        possibleAdvice: ['Да', 'Нет', 'Может быть']
+      }
+    },
+    methods: {
+      giveAdvice: function () {
+        var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+        this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+      }
+    },
+    template: `
+      <button v-on:click="giveAdvice">
+        Делать или нет?
+      </button>
+    `
+  })
+  ```
+
+  ```html
+  <div id="emit-example-argument">
+    <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+  </div>
+  ```
+
+  ```js
+  new Vue({
+    el: '#emit-example-argument',
+    methods: {
+      showAdvice: function (advice) {
+        alert(advice)
+      }
+    }
+  })
+  ```
+
+  {% raw %}
+  <div id="emit-example-argument" class="demo">
+    <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+  </div>
+  <script>
+    Vue.component('magic-eight-ball', {
+      data: function () {
+        return {
+          possibleAdvice: ['Да', 'Нет', 'Может быть']
+        }
+      },
+      methods: {
+        giveAdvice: function () {
+          var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+          this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+        }
+      },
+      template: `
+        <button v-on:click="giveAdvice">
+          Делать или нет?
+        </button>
+      `
+    })
+    new Vue({
+      el: '#emit-example-argument',
+      methods: {
+        showAdvice: function (advice) {
+          alert(advice)
+        }
+      }
+    })
+  </script>
+  {% endraw %}
 
 ## Методы экземпляра — жизненный цикл
 
