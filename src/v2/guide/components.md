@@ -210,24 +210,63 @@ new Vue({
 При создании компонента `<blog-post>`, ваш шаблон в конечном итоге будет содержать не только название:
 
 ```html
-<h3>{{ post.title }}</h3>
+<h3>{{ title }}</h3>
 ```
 
 По крайней мере, вы захотите отобразить и содержимое записи в блог:
 
 ```html
-<h3>{{ post.title }}</h3>
-<div v-html="post.content"></div>
+<h3>{{ title }}</h3>
+<div v-html="content"></div>
 ```
 
 Однако, если вы попробуете сделать это в шаблоне, Vue покажет ошибку с пояснением что **каждый компонент должен иметь один корневой элемент**. Вы можете исправить эту ошибку, обернув шаблон в родительский элемент, например так:
 
 ```html
 <div class="blog-post">
-  <h3>{{ post.title }}</h3>
-  <div v-html="post.content"></div>
+  <h3>{{ title }}</h3>
+  <div v-html="content"></div>
 </div>
 ```
+
+По мере роста нашего компонента, вероятно, нам может понадобиться не только заголовок и содержание поста блога, но и дата публикации, комментарии и так далее. Определять входной параметр для каждой связанной части информации может стать очень раздражающим:
+
+```html
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title"
+  v-bind:content="post.content"
+  v-bind:publishedAt="post.publishedAt"
+  v-bind:comments="post.comments"
+></blog-post>
+```
+
+Это подходящее время для рефакторинга компонента `<blog-post>`, чтобы вместо длинного списка принимать лишь один входной параметр `post`:
+
+```html
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:post="post"
+></blog-post>
+```
+
+```js
+Vue.component('blog-post', {
+  props: ['post'],
+  template: `
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <div v-html="post.content"></div>
+    </div>
+  `
+})
+```
+
+<p class="tip">Приведённый выше пример и некоторые далее используют [шаблонные строки](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/template_strings) JavaScript, чтобы сделать многострочные шаблоны более читаемыми. Эта возможность не поддерживается Internet Explorer (IE), поэтому если вам нужна поддержка IE и нет возможности использовать транспиляцию (например с помощью Babel или TypeScript), то используйте [запись с обратными слэшами для многострочных шаблонов](https://css-tricks.com/snippets/javascript/multiline-string-variables-in-javascript/) вместо них.</p>
+
+Теперь, когда добавляется новое свойство в объект `post`, оно будет автоматически доступно внутри `<blog-post>`.
 
 ## Отправка сообщений родителям с помощью событий
 
@@ -275,8 +314,6 @@ Vue.component('blog-post', {
   `
 })
 ```
-
-<p class="tip">Приведённый выше пример и некоторые далее используют [шаблонные строки](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/template_strings) JavaScript, чтобы сделать многострочные шаблоны более читаемыми. Эта возможность не поддерживается Internet Explorer (IE), поэтому если вам нужна поддержка IE и нет возможности использовать транспиляцию (например с помощью Babel или TypeScript), то используйте [запись с обратными слэшами для многострочных шаблонов](https://css-tricks.com/snippets/javascript/multiline-string-variables-in-javascript/) вместо них.</p>
 
 Проблема в том, что эта кнопка ничего не делает:
 
