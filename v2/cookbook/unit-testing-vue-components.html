@@ -387,14 +387,11 @@
     
       
         <div id="ad">
-  <script>
-    (function () {
-      var s = document.createElement('script')
-      s.setAttribute('async', '')
-      s.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs'
-      s.id = '_carbonads_js'
-      document.getElementById('ad').appendChild(s)
-    })()
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -418,7 +415,7 @@
 <li>Facilitate refactoring</li>
 </ul>
 <p>Automated testing allows large teams of developers to maintain complex codebases.</p>
-<h4 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h4><p><a href="https://github.com/vuejs/vue-test-utils" target="_blank" rel="noopener">Vue Test Utils</a> is the official library for unit testing Vue components. The <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a> <code>webpack</code> template comes with either Karma or Jest, both well supported test runners, and there are some <a href="https://vue-test-utils.vuejs.org/en/guides/" target="_blank" rel="noopener">guides</a> in the Vue Test Utils documentation.</p>
+<h4 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h4><p><a href="https://github.com/vuejs/vue-test-utils" target="_blank" rel="noopener">Vue Test Utils</a> is the official library for unit testing Vue components. The <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a> <code>webpack</code> template comes with either Karma or Jest, both well supported test runners, and there are some <a href="https://vue-test-utils.vuejs.org/guides/" target="_blank" rel="noopener">guides</a> in the Vue Test Utils documentation.</p>
 <h2 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h2><p>Unit tests should be:</p>
 <ul>
 <li>Fast to run</li>
@@ -462,7 +459,7 @@
 <li>committing or dispatching mutations or actions with a <code>Vuex</code> store</li>
 <li>testing interaction</li>
 </ul>
-<p>There are more complete examples showing such tests in the Vue Test Utils <a href="https://vue-test-utils.vuejs.org/en/guides/" target="_blank" rel="noopener">guides</a>.</p>
+<p>There are more complete examples showing such tests in the Vue Test Utils <a href="https://vue-test-utils.vuejs.org/guides/" target="_blank" rel="noopener">guides</a>.</p>
 <p>Vue Test Utils and the enormous JavaScript ecosystem provides plenty of tooling to facilitate almost 100% test coverage. Unit tests are only one part of the testing pyramid, though. Some other types of tests include e2e (end to end) tests, and snapshot tests. Unit tests are the smallest and most simple of tests - they make assertions on the smallest units of work, isolating each part of a single component.</p>
 <p>Snapshot tests save the markup of your Vue component, and compare to the new one generated each time the test runs. If something changes, the developer is notified, and can decide if the change was intentional (the component was updated) or accidental (the component is behaving incorrectly).</p>
 <p>End to end tests ensure a number of components interact well together. They are more high level. Some examples might be testing if a user can sign up, log in, and update their username. These are slower to run than unit tests or snapshot tests.</p>
