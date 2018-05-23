@@ -131,4 +131,4 @@ it('updates the rendered message when vm.message updates', done => {
 
 Мы планируем создать набор вспомогательных функций для дальнейшего облегчения тестирования рендеринга компонентов с определёнными ограничениями (например, для поверхностного рендеринга, игнорирующего дочерние компоненты) и оценки его результатов.
 
-Подробнее о модульном тестировании во Vue, вы можете изучить на [vue-test-utils](https://vue-test-utils.vuejs.org/ru/) и на странице нашей книги рецептов [о модульном тестировании компонентов Vue](https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html).
+Подробнее о модульном тестировании во Vue, вы можете изучить на [vue-test-utils](https://vue-test-utils.vuejs.org/) и на странице нашей книги рецептов [о модульном тестировании компонентов Vue](https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html).
