@@ -65,7 +65,7 @@ devtool: 'source-map',
 
 4.  Ваша точка остановки должна быть достигнута когда новый экземпляр Chrome откроет `http://localhost:8080`.
 
-![Breakpoint Hit](/images/breakpoint_hit.png)
+  ![Breakpoint Hit](/images/breakpoint_hit.png)
 
 ## Альтернативные варианты
 
