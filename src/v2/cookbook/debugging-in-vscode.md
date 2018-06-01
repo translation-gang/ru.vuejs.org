@@ -53,13 +53,13 @@ devtool: 'source-map',
 
 1.  Установите точку остановки в файле **src/components/HelloWorld.vue** на `line 90` где функция `data` возвращает строку.
 
-![Breakpoint Renderer](/images/breakpoint_set.png)
+  ![Breakpoint Renderer](/images/breakpoint_set.png)
 
 2.  Откройте консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:
 
-```
-npm start
-```
+  ```
+  npm start
+  ```
 
 3.  Перейдите в режим отладки, выберите конфигурацию **'vuejs: chrome'**, затем нажмите F5 или зеленую кнопку для старта.
 
