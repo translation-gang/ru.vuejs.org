@@ -418,14 +418,12 @@
 <p><img src="/images/config_add.png" alt="Добавление конфигурации Chrome"></p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: chrome"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"breakOnLoad"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Установка-Breakpoint"><a href="#Установка-Breakpoint" class="headerlink" title="Установка Breakpoint"></a>Установка Breakpoint</h2><ol>
-<li>Установите точку остановки в файле <strong>src/components/HelloWorld.vue</strong> на <code>line 90</code> где функция <code>data</code> возвращает строку.</li>
-</ol>
+<li><p>Установите точку остановки в файле <strong>src/components/HelloWorld.vue</strong> на <code>line 90</code> где функция <code>data</code> возвращает строку.</p>
 <p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
-<ol>
-<li>Откройте консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</li>
-</ol>
+</li>
+<li><p>Откройте консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
-<ol>
+</li>
 <li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome’</strong>, затем нажмите F5 или зеленую кнопку для старта.</p>
 </li>
 <li><p>Ваша точка остановки должна быть достигнута когда новый экземпляр Chrome откроет <code>http://localhost:8080</code>.</p>
