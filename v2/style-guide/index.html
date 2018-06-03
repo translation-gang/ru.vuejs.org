@@ -58,7 +58,10 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
-        <script>window.PAGE_TYPE = "style-guide"</script>
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "style-guide"
+        </script>
 
         <!-- ga -->
         <script>
@@ -838,6 +841,18 @@
 <ul>
 <li><code>watch</code></li>
 <li>События хуков жизненного цикла (в порядке их вызова)</li>
+</ul>
+<ul>
+<li><code>beforeCreate</code></li>
+<li><code>created</code></li>
+<li><code>beforeMount</code></li>
+<li><code>mounted</code></li>
+<li><code>beforeUpdate</code></li>
+<li><code>updated</code></li>
+<li><code>activated</code></li>
+<li><code>deactivated</code></li>
+<li><code>beforeDestroy</code></li>
+<li><code>destroyed</code></li>
 </ul>
 </li>
 <li><p><strong>Нереактивные свойства</strong> (свойства экземпляра независимые от системы реактивности)</p>

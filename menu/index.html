@@ -58,7 +58,10 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
-        <script>window.PAGE_TYPE = "menu"</script>
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "menu"
+        </script>
 
         <!-- ga -->
         <script>
