@@ -120,6 +120,16 @@ window.addEventListener('hashchange', function () {
 <%_ } _%>
 </p>
 
+<h3>Patreon Silver</h3>
+
+<p class="patreon-sponsors sponsor-section">
+<%_ for (const sponsor of theme.silver_sponsors) {_%>
+  <a href="<%- sponsor.url %>" target="_blank">
+    <img src="<%- url_for(`/images/${sponsor.img}`) %>">
+  </a>
+<%_ } _%>
+</p>
+
 <p>
 Если вы являетесь владельцем бизнеса и используете Vue в своем продукте, приносящем доход, то спонсирование разработки Vue имеет смысл с точки зрения пользы для бизнеса: <b>это гарантирует, что проект, на который полагается ваш продукт, остаётся здоровым и активно поддерживаемым.</b> Это также повышает вашу видимость в сообществе Vue и облегчает привлечение Vue-разработчиков.
 </p>
