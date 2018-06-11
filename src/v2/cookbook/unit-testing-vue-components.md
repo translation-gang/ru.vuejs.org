@@ -1,14 +1,14 @@
 ---
-title: Unit Testing Vue Components
+title: Модульное тестирование Vue-компонентов
 type: cookbook
 order: 6
 ---
 
-## Base Example
+## Простой пример
 
-Unit testing is a fundamental part of software development. Unit tests execute the smallest units of code in isolation, in order to increase ease of adding new features and track down bugs. Vue's [single-file components](../guide/single-file-components.html) make it straight forward to write unit tests for components in isolation. This lets you develop new features with confidence you are not breaking existing ones, and helps other developers understand what your component does.
+Модульное тестирование - фундаментальная часть разработки программного обеспечения. В модульных тестах выполняются небольшие фрагменты (единицы) кода в изоляции для упрощения добавления новых функциональных возможностей и отслеживания ошибок. [Однофайловые компоненты](../guide/single-file-components.html) Vue позволяют просто писать модульные тесты для компонентов в изоляции. Это поможет вам разрабатывать новую функциональность с уверенностью, что вы не ломаете работу существующей, и помогает другим разработчикам понять, как работает компонент.
 
-This simple example tests whether some text is rendered:
+Этот простой пример проверяет, отрисовывается ли какой-либо текст:
 
 ```html
 <template>
@@ -25,7 +25,7 @@ This simple example tests whether some text is rendered:
 
 <script>
 export default {
-  name: 'Hello',
+  name: 'Привет',
   data () {
     return {
       username: ''
@@ -35,7 +35,7 @@ export default {
   computed: {
     error () {
       return this.username.trim().length < 7
-        ? 'Please enter a longer username'
+        ? 'Введите более длинное имя пользователя'
         : ''
     }
   }
@@ -47,58 +47,58 @@ export default {
 import { shallowMount } from '@vue/test-utils'
 
 test('Foo', () => {
-  // render the component
+  // отрисовать компонент
   const wrapper = shallowMount(Hello)
 
-  // should not allow for `username` less than 7 characters, excludes whitespace
+  // не разрешено для `username` меньше 7 символов, без учёта пробелов
   wrapper.setData({ username: ' '.repeat(7) })
 
-  // assert the error is rendered
+  // проверить, что ошибка отрисовалась
   expect(wrapper.find('.error').exists()).toBe(true)
 
-  // update the name to be long enough
+  // обновить имя, чтобы оно было достаточно длинным
   wrapper.setData({
-    username: 'Lachlan'
+    username: 'Александр'
   })
 
-  // assert the error has gone away
+  // проверяем, что ошибка исчезла
   expect(wrapper.find('.error').exists()).toBe(false)
 })
 ```
 
-The above code snippet shows how to test whether an error message is rendered based on the length of the username. It demonstrates the general idea of unit testing Vue components: render the component, and assert that the markup matches the state of the component.
+Вышеприведённый фрагмент кода показывает, как проверить, отрисовывается ли сообщение в зависимости от длины имени пользователя. Он демонстрирует общую идею модульного тестирования Vue-компонентов: отрисовка компонента и проверка, что разметка соответствует состоянию компонента.
 
-## Why test?
+## Зачем тестировать?
 
-Component unit tests have lots of benefits:
+У модульных тестов компонентов есть множество преимуществ:
 
-- Provide documentation on how the component should behave
-- Save time over testing manually
-- Reduce bugs in new features
-- Improve design
-- Facilitate refactoring
+- Предоставляет документацию, как должен работать компонент
+- Экономит время на ручное тестирование
+- Уменьшает баги при реализации новой функциональности
+- Улучшает дизайн кода
+- Способствует рефакторингу кода
 
-Automated testing allows large teams of developers to maintain complex codebases.
+Автоматическое тестирование позволяет большим командам разработчиков поддерживать сложную кодовую базу.
 
-#### Getting started
+#### Начало работы
 
-[Vue Test Utils](https://github.com/vuejs/vue-test-utils) is the official library for unit testing Vue components. The [vue-cli](https://github.com/vuejs/vue-cli) `webpack` template comes with either Karma or Jest, both well supported test runners, and there are some [guides](https://vue-test-utils.vuejs.org/guides/) in the Vue Test Utils documentation.
+[Vue Test Utils](https://github.com/vuejs/vue-test-utils) - официальная библиотека для модульного тестирования Vue-компонентов. Шаблон `webpack` [vue-cli](https://github.com/vuejs/vue-cli) идёт в комплекте с Karma или Jest, как с хорошо поддерживаемыми исполнителями тестов (test runners), и есть некоторые [руководства](https://vue-test-utils.vuejs.org/guides/) в документации Vue Test Utils.
 
-## Real-World Example
+## Пример из реального мира
 
-Unit tests should be:
+Модульные тесты должны быть:
 
-- Fast to run
-- Easy to understand
-- Only test a _single unit of work_
+- Быстрыми для выполнения
+- Простыми для понимания
+- Тестировать только _единственный участок функциональности_
 
-Let's continue building on the previous example, while introducing the idea of a <a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">factory function</a> to make our test more compact and readable. The component should:
+Давайте продолжим работу с предыдущим примером, представив идею <a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">фабричной функцию</a>, чтобы сделать наш тест более компактным и читаемым.  Компонент должен:
 
-- show a 'Welcome to the Vue.js cookbook' greeting.
-- prompt the user to enter their username
-- display an error if the entered username is less than seven letters
+- показать приветствие 'Добро пожаловать в книгу рецептов Vue.js'.
+- попросить пользователя ввести своё имя пользователя
+- показать ошибку, если введённое имя пользователя меньше семи символов
 
-Let's take a look at the component code first:
+Давайте сначала рассмотрим код компонента:
 
 ```html
 <template>
@@ -106,12 +106,12 @@ Let's take a look at the component code first:
     <div class="message">
       {{ message }}
     </div>
-    Enter your username: <input v-model="username">
+    Введите имя пользователя: <input v-model="username">
     <div 
       v-if="error"
       class="error"
     >
-      Please enter a username with at least seven letters.
+      Пожалуйста, введите имя пользователя длиной не менее семи символов.
     </div>
   </div>
 </template>
@@ -122,7 +122,7 @@ export default {
 
   data () {
     return {
-      message: 'Welcome to the Vue.js cookbook',
+      message: 'Добро пожаловать в книгу рецептов Vue.js',
       username: ''
     }
   },
@@ -136,50 +136,50 @@ export default {
 </script>
 ```
 
-The things that we should test are:
+Список из того, что нам нужно проверить:
 
-- is the `message` rendered?
-- if `error` is `true`, `<div class="error">` should be present
-- if `error` is `false`, `<div class="error">` should not be present
+- отрисовалось ли свойство `message`?
+- если `error` равно `true`, в разметке должен быть `<div class="error">`
+- если `error` равно `false`, в разметке не должно быть `<div class="error">`
 
-And our first attempt at test:
+И наша первая попытка теста:
 
 ```js
 import { shallowMount } from '@vue/test-utils'
 
 describe('Foo', () => {
-  it('renders a message and responds correctly to user input', () => {
-      const wrapper = shallowMount(Foo, {
-    data: {
-      message: 'Hello World',
-      username: ''
-    }
-  })
+  it('отрисовывает сообщение и правильно реагирует на пользовательский ввод', () => {
+    const wrapper = shallowMount(Foo, {
+      data: {
+        message: 'Привет, мир',
+        username: ''
+      }
+    })
 
-  // see if the message renders
-  expect(wrapper.find('.message').text()).toEqual('Hello World')
+    // посмотреть, отрисовалось ли сообщение
+    expect(wrapper.find('.message').text()).toEqual('Привет, мир')
 
-  // assert the error is rendered
-  expect(wrapper.find('.error').exists()).toBeTruthy()
+    // проверить, что ошибка отрисовалась
+    expect(wrapper.find('.error').exists()).toBeTruthy()
 
-  // update the `username` and assert error is no longer rendered
-  wrapper.setData({ username: 'Lachlan' })
-  expect(wrapper.find('.error').exists()).toBeFalsy()
+    // обновить `username` и проверить, что ошибка больше не отрисовалась
+    wrapper.setData({ username: 'Александр' })
+    expect(wrapper.find('.error').exists()).toBeFalsy()
   })
 })
 ```
 
-There are some problems with the above:
+Есть несколько проблем с вышеприведённым кодом:
 
-- a single test is making assertions about different things
-- difficult to tell the different states the component can be in, and what should be rendered
+- в одном тесте проверяются сразу много чего
+- трудно определить различные состояния компонента, и что должно отрисовываться
 
-The below example improves the test by:
+В примере ниже тестирование улучшается с помощью следующих правил:
 
-- only making one assertion per `it` block
-- having short, clear test descriptions
-- providing only the minimum data required for the test
-- refactoring duplicated logic (creating the `wrapper` and setting the `username` variable) into a factory function
+- один блок `it` содержит только один вызов `expect`
+- наличие краткого и чёткого описания для каждого теста
+- предоставление только минимальных данных, требуемых для выполнения теста
+- рефакторинг дублирования логики (создание `wrapper` и установка переменной `username`) в фабричную функцию
 
 *Updated test*:
 ```js
@@ -193,58 +193,58 @@ const factory = (values = {}) => {
 }
 
 describe('Foo', () => {
-  it('renders a welcome message', () => {
+  it('отрисовывает приветственное сообщение', () => {
     const wrapper = factory()
 
-    expect(wrapper.find('.message').text()).toEqual("Welcome to the Vue.js cookbook")
+    expect(wrapper.find('.message').text()).toEqual('Добро пожаловать в книгу рецептов Vue.js')
   })
 
-  it('renders an error when username is less than 7 characters', () => {
-    const wrapper = factory({ username: ''  })
+  it('отрисовывает ошибку, когда имя пользователя меньше 7 символов', () => {
+    const wrapper = factory({ username: '' })
 
     expect(wrapper.find('.error').exists()).toBeTruthy()
   })
 
-  it('renders an error when username is whitespace', () => {
+  it('отрисовывает ошибку, когда имя пользователя состоит только из пробелов', () => {
     const wrapper = factory({ username: ' '.repeat(7) })
 
     expect(wrapper.find('.error').exists()).toBeTruthy()
   })
 
-  it('does not render an error when username is 7 characters or more', () => {
-    const wrapper = factory({ username: 'Lachlan'  })
+  it('не отрисовывает ошибку, когда имя пользователя равно 7 символам или более', () => {
+    const wrapper = factory({ username: 'Александр' })
 
     expect(wrapper.find('.error').exists()).toBeFalsy()
   })
 })
 ```
 
-Points to note:
+Следует отметить:
 
-At the top, we declare the factory function which merges the `values` object into `data` and returns a new `wrapper` instance. This way, we don't need to duplicate `const wrapper = shallowMount(Foo)` in every test. Another great benefit to this is when more complex components with a method or computed property you might want to mock or stub in every test, you only need to declare it once.
+В верхней части мы объявляем фабричную функцию, когда объединяет объект `values` в свойство `data` и возвращает новый экземпляр `wrapper`. Таким образом, нам не нужно дублировать `const wrapper = shallowMount(Foo)` в каждом тесте. Ещё одно преимущество для этого - когда более сложные с методом или вычисляемым свойством, которые вы, возможно, имитировать (mock) или создать заглушку (stub) в каждом тесте, вам нужно объявить его только один раз.
 
-## Additional Context
+## Дополнительный контекст
 
-The above test is fairly simple, but in practice Vue components often have other behaviors you want to test, such as:
+Вышеприведённый тест довольно прост, но на практике у Vue-компонентов часто другое поведение, которые вы хотите проверить, например:
 
-- making API calls
-- committing or dispatching mutations or actions with a `Vuex` store
-- testing interaction
+- вызовы к API
+- совершение или отправка мутаций или действий с хранилищем `Vuex`
+- тестирования взаимодействия
 
-There are more complete examples showing such tests in the Vue Test Utils [guides](https://vue-test-utils.vuejs.org/guides/).
+Более подробные примеры, показывающие такие тесты в действии, вы можете найти в [руководствах](https://vue-test-utils.vuejs.org/guides/).
 
-Vue Test Utils and the enormous JavaScript ecosystem provides plenty of tooling to facilitate almost 100% test coverage. Unit tests are only one part of the testing pyramid, though. Some other types of tests include e2e (end to end) tests, and snapshot tests. Unit tests are the smallest and most simple of tests - they make assertions on the smallest units of work, isolating each part of a single component.
+Vue Test Utils и огромная экосистема JavaScript обеспечивают множество инструментов для обеспечения почти 100% покрытия тестирования. Однако модульные тесты являются лишь частью пирамиды тестирования. Некоторые другие типы тестов, включая тесты e2e (end-to-end) и тесты снапшотами. Модульные тесты - это самые маленькие и самые простые тесты - они проверяет утверждения на маленьких единицах работы, изолируя каждую часть единственного компонента.
 
-Snapshot tests save the markup of your Vue component, and compare to the new one generated each time the test runs. If something changes, the developer is notified, and can decide if the change was intentional (the component was updated) or accidental (the component is behaving incorrectly).
+Тесты снимков (snapshot) сохраняют разметку вашего Vue-компонента и сравниваются с новым, созданным при каждом выполнении теста. Если что-то изменяется, разработчик будет в курсе и сможет решить, было ли решение намеренным (компонент был обновлён) или случайным (компонент работает некорректно).
 
-End to end tests ensure a number of components interact well together. They are more high level. Some examples might be testing if a user can sign up, log in, and update their username. These are slower to run than unit tests or snapshot tests.
+Тесты end-to-end гарантирует, что несколько компонентов хорошо взаимодействуют друг с другом. Они находятся на более высоком уровне. Примерами таких тестов может быть тестирование регистрации, входа и изменения данных у пользователя. Они работают медленнее, чем модульные тесты или тесты снимками.
 
-Unit tests are most useful during development, either to help a developer think about how to design a component, or refactor an existing component, and are often run every time code is changed.
+Модульные тесты наиболее полезны во время разработки, либо чтобы помочь разработчику подумать спроектировать компонент, либо отрефакторить существующий компонент. Они запускаются каждый раз при изменении кода.
 
-Higher level tests, such as end to end tests, run much slower. These usually run pre-deploy, to ensure each part of the system is working together correctly.
+Тесты высокого уровня, такие как end-to-end тесты, работают намного медленнее. Обычно они запускают перед деплоем для гарантии, что каждая часть системы работает корректно.
 
-More information about testing Vue components can be found in [Testing Vue.js Applications](https://www.manning.com/books/testing-vuejs-applications) by core team member [Edd Yerburgh](https://eddyerburgh.me/).
+Более подробную информацию о тестировании Vue-компонентов вы можете найти в книге [Testing Vue.js Applications](https://www.manning.com/books/testing-vuejs-applications) от члена команды [Эдда Йербурга](https://eddyerburgh.me/).
 
-## When To Avoid This Pattern
+## Когда не следует тестировать
 
-Unit testing is an important part of any serious application. At first, when the vision of an application is not clear, unit testing might slow down development, but once a vision is established and real users will be interacting with the application, unit tests (and other types of automated tests) are absolutely essential to ensure the codebase is maintainable and scalable.
+Модульное тестирование - важная часть любого серьёзного приложения. Сначала, когда версия приложения остаётся неясной, модульное тестирование может замедлить разработку, но после стабилизации версии и настоящие пользователи будут взаимодействовать с приложением, модульные тесты (и другие типы автоматических тестов) абсолютно необходимы для обеспечения удобства в поддержке и масштабируемости кодовой базы.
