@@ -1322,6 +1322,41 @@ ul.demo li {
     width: 98%;
   }
 }
+.scrimba {
+  background-color: #e7ecf3;
+  padding: 1em 1.25em;
+  border-radius: 2px;
+  color: #486491;
+  position: relative;
+}
+.scrimba a {
+  color: #486491 !important;
+  position: relative;
+  padding-left: 36px;
+}
+.scrimba a:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  top: -5px;
+  left: -4px;
+  border-radius: 50%;
+  background-color: #73abfe;
+}
+.scrimba a:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  top: 5px;
+  left: 8px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #fff;
+}
 #header {
   box-shadow: 0 0 1px rgba(0,0,0,0.25);
   transition: background-color 0.3s ease-in-out;
