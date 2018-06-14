@@ -70,7 +70,7 @@ Vue.component('anchored-heading', {
   render: function (createElement) {
     return createElement(
       'h' + this.level,   // имя тега
-      this.$slots.default // массив потомков
+      this.$slots.default // массив дочерних элементов
     )
   },
   props: {
