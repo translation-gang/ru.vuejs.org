@@ -3,26 +3,26 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Отладка в VS Code и Chrome — Vue.js</title>
+        <title>Dockerize Vue.js App — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html">
-        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html">
-        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html">
-        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/debugging-in-vscode.html">
-        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html">
-        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html">
-        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html">
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Отладка в VS Code и Chrome — Vue.js">
+        <meta property="og:title" content="Dockerize Vue.js App — Vue.js">
         <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Отладка в VS Code и Chrome — Vue.js">
+        <meta name="twitter:title" content="Dockerize Vue.js App — Vue.js">
         <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -163,13 +163,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -259,13 +259,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -359,7 +359,7 @@
         
         
         <li>
-            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link current">Отладка в VS Code и Chrome</a>
+            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Отладка в VS Code и Chrome</a>
         </li>
     
         
@@ -389,7 +389,7 @@
         
         
         <li>
-            <a href="/v2/cookbook/dockerize-vuejs-app.html" class="sidebar-link">Dockerize Vue.js App</a>
+            <a href="/v2/cookbook/dockerize-vuejs-app.html" class="sidebar-link current">Dockerize Vue.js App</a>
         </li>
     
 </ul>
@@ -415,48 +415,56 @@
       
     
     
-      <h1>Отладка в VS Code и Chrome</h1>
+      <h1>Dockerize Vue.js App</h1>
     
     
-      <p>Каждое приложение достигает отметки, когда становится необходимо разбираться в ошибках, от больших до малых. В этом рецепте мы исследуем несколько возможностей для пользователей VS Code, кто использует Chrome для тестирования.</p>
-<p>Этот рецепт покажет как использовать расширение <a href="https://github.com/Microsoft/VSCode-chrome-debug" target="_blank" rel="noopener">Debugger for Chrome</a> в паре с VS Code для отладки приложений Vue.js, сгенерированных с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI</a>.</p>
-<h2 id="Подготовка"><a href="#Подготовка" class="headerlink" title="Подготовка"></a>Подготовка</h2><p>У вас должен быть установлен Chrome и VS Code. Убедитесь, что установили последнюю версию расширения <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank" rel="noopener">Debugger for Chrome</a> в VS Code.</p>
-<p>Установите и создайте проект с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, руководствуясь инструкциям по установке, указанным в readme проекта. Перейдите в каталог новосозданного приложения и откройте VS Code.</p>
-<h3 id="Отображение-исходного-кода-в-инструментах-разработчика-Chrome"><a href="#Отображение-исходного-кода-в-инструментах-разработчика-Chrome" class="headerlink" title="Отображение исходного кода в инструментах разработчика Chrome"></a>Отображение исходного кода в инструментах разработчика Chrome</h3><p>Перед тем, как вы сможете отлаживать ваши компоненты Vue из VS Code, вам необходимо обновить сгенерированную конфигурацию Webpack для генерации sourcemaps. Мы делаем это, чтобы отладчик имел возможность сопоставлять код в сжатых файлов со строками в оригинальных. Это гарантирует, что вы можете отлаживать приложения даже после того, как все ваши ресурсы были оптимизированы с помощью Webpack.</p>
-<p>Откройте <code>config/index.js</code> и найдите свойство <code>devtool</code>. Обновите до указанного:</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">devtool: 'source-map',</span><br></pre></td></tr></table></figure>
-<p>При использовании Vue CLI 3 вам необходимо установить свойство <code>devtool</code> в файле <code>vue.config.js</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    devtool: <span class="string">'source-map'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление “Отладка”, затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome</strong> для окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
-<p><img src="/images/config_add.png" alt="Добавление конфигурации Chrome"></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: chrome"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"breakOnLoad"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Установка-точки-останова"><a href="#Установка-точки-останова" class="headerlink" title="Установка точки останова"></a>Установка точки останова</h2><ol>
-<li><p>Установите точку останова в файле <strong>src/components/HelloWorld.vue</strong> на <code>строке 90</code> где функция <code>data</code> возвращает строку.</p>
-<p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
-</li>
-<li><p>Откройте свою любимую консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome’</strong>, затем нажмите F5 или зелёную кнопку для старта.</p>
-</li>
-<li><p>Ваша точка останова должна быть достигнута, когда новый экземпляр Chrome откроет <code>http://localhost:8080</code>.</p>
-<p><img src="/images/breakpoint_hit.png" alt="Breakpoint Hit"></p>
-</li>
-</ol>
-<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">vue-devtools</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
-<p><img src="/images/devtools-timetravel.gif" alt="Devtools Timetravel Debugger"></p>
-<p class="tip">Обратите внимание, если на странице используется production/минифицированная сборка Vue.js (как например, стандартная ссылка на CDN), то проверка инструментов разработки по умолчанию отключена и поэтому панель Vue не будет отображаться в инструментах разработчика. Если вы переключитесь на неминифицированную версию, вам может потребоваться обновить страницу, чтобы увидеть изменения.</p>
-
-<h3 id="Vuetron"><a href="#Vuetron" class="headerlink" title="Vuetron"></a>Vuetron</h3><p><a href="http://vuetron.io/" target="_blank" rel="noopener">Vuetron</a> — действительно хороший проект, который расширяет часть идей vue-devtools. В дополнение к обычным принципам работы с инструментами разработки вы сможете:</p>
+      <h2 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h2><p>So you built your first Vue.js app using the amazing <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">Vue.js webpack template</a> and now you really want to show off with your colleagues by demonstrating that you can also run it in a Docker container.</p>
+<p>Let’s start by creating a <code>Dockerfile</code> in the root folder of our project:</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">9.11</span>.<span class="number">1</span>-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># install simple http server for serving static content</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> npm install -g http-server</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># make the 'app' folder the current working directory</span></span></span><br><span class="line"><span class="bash">WORKDIR /app</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># copy both 'package.json' and 'package-lock.json' (if available)</span></span></span><br><span class="line"><span class="bash">COPY package*.json ./</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># install project dependencies</span></span></span><br><span class="line"><span class="bash">RUN npm install</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># copy project files and folders to the current working directory (i.e. 'app' folder)</span></span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># build app for production with minification</span></span></span><br><span class="line"><span class="bash">RUN npm run build</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">EXPOSE 8080</span></span><br><span class="line"><span class="bash">CMD [ <span class="string">"http-server"</span>, <span class="string">"dist"</span> ]</span></span><br></pre></td></tr></table></figure>
+<p>It may seem reduntant to first copy <code>package.json</code> and <code>package-lock.json</code> and then all project files and folders in two separate steps but there is actually <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">a very good reason for that</a> (spoiler: it allows us to take advantage of cached Docker layers).</p>
+<p>Now let’s build the Docker image of our Vue.js app:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t vuejs-cookbook/dockerize-vuejs-app .</span><br></pre></td></tr></table></figure>
+<p>Finally, let’s run our Vue.js app in a Docker container:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</span><br></pre></td></tr></table></figure>
+<p>We should be able to access our Vue.js app on <code>localhost:8080</code>.</p>
+<h2 id="Real-World-Example"><a href="#Real-World-Example" class="headerlink" title="Real-World Example"></a>Real-World Example</h2><p>In the previous example, we used a simple, zero-configuration command-line <a href="https://github.com/indexzero/http-server" target="_blank" rel="noopener">http server</a> to serve our Vue.js app which is perfectly ok for quick prototyping and <em>may</em> even be ok for simple production scenarios. After all, the documentation says:</p>
+<blockquote>
+<p>It is powerful enough for production usage, but it’s simple and hackable enough to be used for testing, local development, and learning.</p>
+</blockquote>
+<p>Nevertheless, for realistically complex production use cases, it may be wiser to stand on the shoulders of some giant like <a href="https://www.nginx.com/" target="_blank" rel="noopener">NGINX</a> or <a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a> and that is exactly what we are going to do next: we are about to leverage NGINX to serve our vue.js app because it is considered to be one of the most performant and battle-tested solutions out there.</p>
+<p>Let’s refactor our <code>Dockerfile</code> to use NGINX:</p>
+ <figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="comment"># build stage</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">9.11</span>.<span class="number">1</span>-alpine as build-stage</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="bash">COPY package*.json ./</span></span><br><span class="line"><span class="bash">RUN npm install</span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash">RUN npm run build</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># production stage</span></span></span><br><span class="line"><span class="bash">FROM nginx:1.13.12-alpine as production-stage</span></span><br><span class="line"><span class="bash">COPY --from=build-stage /app/dist /usr/share/nginx/html</span></span><br><span class="line"><span class="bash">EXPOSE 80</span></span><br><span class="line"><span class="bash">CMD [<span class="string">"nginx"</span>, <span class="string">"-g"</span>, <span class="string">"daemon off;"</span>]</span></span><br></pre></td></tr></table></figure>
+<p>Ok, let’s see what’s going on here:</p>
 <ul>
-<li>Быстро просмотреть запрос/ответ к API: если вы используете fetch API для запросов, это событие будет отображаться для любого отправленного запроса. Расширенная карта отображает как данные запроса, так и данные ответа.</li>
-<li>Возможность подписаться на определённые части вашего состояния приложения для ускорения отладки</li>
-<li>Визуализировать иерархию компонентов с возможностью свернуть или развернуть дерево компонентов для определённых частей иерархии.</li>
+<li>we have split our original <code>Dockerfile</code> in multiple stages by leveraging the Docker <a href="https://docs.docker.com/develop/develop-images/multistage-build/" target="_blank" rel="noopener">multi-stage builds</a> feature;</li>
+<li>the first stage is responsible for building a production-ready artifact of our Vue.js app;</li>
+<li>the second stage is responsible for serving such artifact using NGINX.</li>
 </ul>
-<p><img src="/images/vuetron-heirarchy.gif" alt="Vuetron Heirarchy"></p>
-<h3 id="Использование-выражения-Debugger"><a href="#Использование-выражения-Debugger" class="headerlink" title="Использование выражения Debugger"></a>Использование выражения Debugger</h3><p>Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger" target="_blank" rel="noopener">нативное выражение debugger</a> прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти выражения после окончания отладки.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    <span class="keyword">const</span> hello = <span class="string">'Hello World!'</span></span><br><span class="line">    <span class="keyword">debugger</span></span><br><span class="line">    <span class="keyword">this</span>.message = hello</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт был основан на примере <a href="https://twitter.com/auchenberg" target="_blank" rel="noopener">Kenneth Auchenberg</a>, который <a href="https://github.com/Microsoft/VSCode-recipes/tree/master/vuejs-cli" target="_blank" rel="noopener">доступен здесь</a>.</p>
+<p>Now let’s build the Docker image of our Vue.js app:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t vuejs-cookbook/dockerize-vuejs-app .</span><br></pre></td></tr></table></figure>
+<p>Finally, let’s run our Vue.js app in a Docker container:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</span><br></pre></td></tr></table></figure>
+<p>We should be able to access our Vue.js app on <code>localhost:8080</code>.</p>
+<h2 id="Additional-Context"><a href="#Additional-Context" class="headerlink" title="Additional Context"></a>Additional Context</h2><p>If you are reading this cookbook, chances are you already know why you decided to dockerize your Vue.js app. But if you simply landed on this page after hitting the Google’s <code>I&#39;m feeling lucky</code> button, let me share with you a couple of good reasons for doing that.</p>
+<p>Today’s modern trend is to build applications using the <a href="https://pivotal.io/cloud-native" target="_blank" rel="noopener">Cloud-Native</a> approach which revolves mainly around the following buzzwords:</p>
+<ul>
+<li>Microservices</li>
+<li>DevOps</li>
+<li>Continuous Delivery</li>
+</ul>
+<p>Let’s see how these concepts actually affect our decision of dockerizing our Vue.js app.</p>
+<h3 id="Effects-of-Microservices"><a href="#Effects-of-Microservices" class="headerlink" title="Effects of Microservices"></a>Effects of Microservices</h3><p>By adopting the <a href="https://martinfowler.com/microservices/" target="_blank" rel="noopener">microservices architectural style</a>, we end up building a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms. These services are built around business capabilities and independently deployable by fully automated deployment machinery. </p>
+<p>So, committing to this architectural approach most of the time implies developing and delivering our front-end as an independent service.</p>
+<h3 id="Effects-of-DevOps"><a href="#Effects-of-DevOps" class="headerlink" title="Effects of DevOps"></a>Effects of DevOps</h3><p>The adoption of <a href="https://martinfowler.com/bliki/DevOpsCulture.html" target="_blank" rel="noopener">DevOps</a> culture, tools and agile engineering practices has, among other things, the nice effect of increasing the collaboration between the roles of development and operations. One of the main problem of the past (but also today in some realities) is that the dev team tended to be uninterested in the operation and maintenance of a system once it was handed over to the ops team, while the latter tended to be not really aware of the system’s business goals and, therefore, reluctant in satisfying the operational needs of the system (also referred to as “whims of developers”).</p>
+<p>So, delivering our Vue.js app as a Docker image helps reducing, if not removing entirely, the difference between running the service on a deveveloper’s laptop, the production environment or any environment we may think of.</p>
+<h3 id="Effects-of-Continuous-Delivery"><a href="#Effects-of-Continuous-Delivery" class="headerlink" title="Effects of Continuous Delivery"></a>Effects of Continuous Delivery</h3><p>By leveraging the <a href="https://martinfowler.com/bliki/ContinuousDelivery.html" target="_blank" rel="noopener">Continuous Delivery</a> discipline we build our software in a way that it can potentially be released to production at any time. Such engineering practice is enabled by means of what is normally called <a href="https://martinfowler.com/bliki/DeploymentPipeline.html" target="_blank" rel="noopener">continuous delivery pipeline</a>. The purpose of a continuous delivery pipeline is to split our build into stages (e.g. compilation, unit tests, integration tests, performance tests, etc.) and let each stage verify our build artifact whenever our software changes. Ultimately, each stage increases our confidence in the production readiness of our build artifact and, therefore, reduces the risk of breaking things in production (or any other environment for that matters).</p>
+<p>So, creating a Docker image for our Vue.js app is a good choice here because that would represent our final build artifact, the same artifact that would be verified against our continuous delivery pipeline and that could potentially be released to production with confidence.</p>
+<h2 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h2><p>If your company is not into Docker and Kubernetes just yet or you simply want to get your MVP out the door, maybe dockerizing your Vue.js app is not what you need.</p>
+<p>Common alternatives are:</p>
+<ul>
+<li>leveraging an all-in-one platform like <a href="https://www.netlify.com/" target="_blank" rel="noopener">netlify</a>;</li>
+<li>hosting your SPA on <a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener">Amazon S3</a> and serving it with <a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener">Amazon CloudFront</a> (see <a href="https://serverless-stack.com/chapters/deploy-the-frontend.html" target="_blank" rel="noopener">this</a> link for a detailed guide).</li>
+</ul>
 
     
     
@@ -476,7 +484,7 @@
 </script>
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
-      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/cookbook/debugging-in-vscode.md" target="_blank">
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/cookbook/dockerize-vuejs-app.md" target="_blank">
         Отредактируйте эту страницу на GitHub!
       </a>
     </div>
