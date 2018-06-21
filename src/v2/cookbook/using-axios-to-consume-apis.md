@@ -36,10 +36,10 @@ new Vue({
 
 И вот что мы получаем:
 
-<p data-height="350" data-theme-id="32763" data-slug-hash="80043dfdb7b90f138f5585ade1a5286f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="First Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/80043dfdb7b90f138f5585ade1a5286f/">First Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="350" data-theme-id="32763" data-slug-hash="80043dfdb7b90f138f5585ade1a5286f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="First Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/80043dfdb7b90f138f5585ade1a5286f/">First Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Отлично! Мы получили какие-то данные. Но сейчас они выглядят достаточно грязно, так что давайте отобразим их должным образом и добавим обработку ошибок на случай, если что-то работает не так, как ожидается, либо для получения информации требуется больше времени, чем мы ожидали.
+Отлично! Мы получили какие-то данные. Но сейчас они выглядят достаточно грязно, так что давайте отобразим их должным образом и добавим обработку ошибок на случай, если что-то работает не так, как ожидается, либо для получения информации потребовалось больше времени.
 
 ## Пример из жизни: работа с данными 
 
@@ -53,7 +53,7 @@ axios
   .then(response => (this.info = response.data.bpi));
 ```
 
-<p data-height="200" data-theme-id="32763" data-slug-hash="6100b10f1b4ac2961208643560ba7d11" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Second Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/6100b10f1b4ac2961208643560ba7d11/">Second Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="200" data-theme-id="32763" data-slug-hash="6100b10f1b4ac2961208643560ba7d11" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Second Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/6100b10f1b4ac2961208643560ba7d11/">Second Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Такие данные намного проще отображать, так что мы можем сейчас обновить HTML-разметку для отображения только нужной информации из полученных данных. Создадим [фильтр](../api/#Vue-filter), чтобы гарантировать, что десятичные значения отображаются как нужно.
@@ -78,18 +78,18 @@ filters: {
 },
 ```
 
-<p data-height="300" data-theme-id="32763" data-slug-hash="9d59319c09eaccfaf35d9e9f11990f0f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Third Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/9d59319c09eaccfaf35d9e9f11990f0f/">Third Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="32763" data-slug-hash="9d59319c09eaccfaf35d9e9f11990f0f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Third Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/9d59319c09eaccfaf35d9e9f11990f0f/">Third Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### Обработка ошибок
 
-Бывают моменты, когда мы не получали необходимых нам данных с API. Существует несколько причин, из-за которых наш вызов axios потерпел неудачу, включая следующие, но не ограничиваясь ими:
+Бывают моменты, когда мы не получили необходимых нам данных с API. Может быть множество причин, из-за которых наш вызов axios закончился неудачей, например, таких:
 
 * API не доступен.
 * Запрос был сделан неправильно.
 * API не предоставил данные в ожидаемом нами формате.
 
-Делая запрос, следует проверять подобные обстоятельства и предоставлять себе информацию о каждом случае, чтобы знать, как решить проблему. При вызове axios сделать это можно при помощи `catch`.
+При выполнении этого запроса мы должны проверять такие обстоятельства и предоставлять информацию в каждом случае, чтобы мы знали, как справиться с этой проблемой. В вызове axios мы сделаем это, используя `catch`.
 
 ```js
 axios
@@ -98,7 +98,7 @@ axios
   .catch(error => console.log(error));
 ```
 
-Так мы узнаем, если что-то пойдет не так во время вызова API. Но что если данные повреждены или API не доступен? Сейчас пользователь просто ничего не увидит. Мы могли бы использовать индикатор загрузки для этого случая и сообщать пользователю, что не можем получить данные.
+Так мы узнаем, если что-то пойдёт не так во время вызова API. Но что если данные повреждены или API не доступен? Сейчас пользователь просто ничего не увидит. Мы могли бы использовать индикатор загрузки для этого случая и сообщать пользователю, что не можем получить данные.
 
 ```js
 new Vue({
@@ -154,7 +154,7 @@ new Vue({
 
 Вы можете нажимать на кнопку перезапуска (находится в правом нижнем углу во вкладке Result), чтобы увидеть индикатор загрузки во время получения данных с API.
 
-<p data-height="300" data-theme-id="32763" data-slug-hash="6c01922c9af3883890fd7393e8147ec4" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Fourth Step Axios and Vue" class="codepen">See the Pen <a href="https://codepen.io/team/Vue/pen/6c01922c9af3883890fd7393e8147ec4/">Fourth Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="32763" data-slug-hash="6c01922c9af3883890fd7393e8147ec4" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Fourth Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/6c01922c9af3883890fd7393e8147ec4/">Fourth Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 В дальнейшем код может быть улучшен использованием компонентов для различных секций и более подробного отчета об ошибках. Это зависит от используемого API и сложности вашего приложения.
@@ -163,10 +163,10 @@ new Vue({
 
 ### Fetch API
 
-[Fetch API](https://developers.google.com/web/updates/2015/03/introduction-to-fetch) - мощный нативный API для создания запросов. Вы могли слышать, что одним из преимуществ Fetch API является то, что вам не нужно загружать внешние зависимости для его использования, что является правдой! Однако... он еще не полностью поддерживается, поэтому вам все равно необходимо использовать полифил. Существуют также подводные камни по работе с этим API, из-за которых многие сейчас предпочитают использовать axios. В будущем это может измениться.
+[Fetch API](https://developers.google.com/web/updates/2015/03/introduction-to-fetch) - мощный нативный API для создания запросов. Вы могли слышать, что одним из преимуществ Fetch API является то, что вам не нужно загружать внешние зависимости для его использования, что является правдой! Однако... он ещё не полностью поддерживается, поэтому вам всё равно необходимо использовать полифил. Существуют также подводные камни по работе с этим API, из-за которых многие сейчас предпочитают использовать axios. В будущем это может измениться.
 
-Если вы заинтересовались использованием Fetch API, существует несколько [очень хороших статей](https://scotch.io/@bedakb/lets-build-type-ahead-component-with-vuejs-2-and-fetch-api), объясняющих, как его использовать.
+Если вы заинтересовались Fetch API — существуют [очень хорошие статьи](https://scotch.io/@bedakb/lets-build-type-ahead-component-with-vuejs-2-and-fetch-api), где объясняются тонкости его использования.
 
 ## Резюме
 
-Существует множество способов работы с Vue и axios, выходящие за рамки получения и отображения данных с API. Вы можете также взаимодействовать с бессерверными функциями (Serverless Functions), публикацией/редактированием/удалением через API, к которому вы имеете доступ, и т.д. Простая интеграция этих двух библиотек сделала axios очень распространенным выбором среди разработчиков, которым необходимо интегрировать HTTP-клиенты в их приложения.
+Существует множество способов работы с Vue и axios, выходящие за рамки получения и отображения данных с API. Вы можете также взаимодействовать с бессерверными функциями (Serverless Functions), публикацией/редактированием/удалением через API, к которому вы имеете доступ, и т.д. Простая интеграция этих двух библиотек сделала axios очень распространённым выбором среди разработчиков, которым необходимо интегрировать HTTP-клиенты в их приложения.
