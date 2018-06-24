@@ -1567,16 +1567,16 @@ computed: {
 
   * `watch`
   * События хуков жизненного цикла (в порядке их вызова)
-    - `beforeCreate`
-    - `created`
-    - `beforeMount`
-    - `mounted`
-    - `beforeUpdate`
-    - `updated`
-    - `activated`
-    - `deactivated`
-    - `beforeDestroy`
-    - `destroyed`
+      * `beforeCreate`
+      * `created`
+      * `beforeMount`
+      * `mounted`
+      * `beforeUpdate`
+      * `updated`
+      * `activated`
+      * `deactivated`
+      * `beforeDestroy`
+      * `destroyed`
 
 10. **Нереактивные свойства** (свойства экземпляра независимые от системы реактивности)
 
