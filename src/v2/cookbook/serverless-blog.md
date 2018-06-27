@@ -14,11 +14,16 @@ order: 5
 
 Выполните в командной строке:
 
-`npm install buttercms --save`
+```bash
+npm install buttercms --save
+```
 
 Butter также можно подключить с помощью CDN: 
 
-`<script src="https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"></script>`
+```html
+<script src="https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"></script>
+```
+
 
 ## Быстрый старт
 
@@ -119,7 +124,8 @@ export default new Router({
 <template>
   <div id="blog-home">
       <h1>{{ page_title }}</h1>
-      <!-- Создаем `v-for` и добавляем `key` для Vue. Здесь мы используем комбинацию slug и index. -->
+      <!-- Создаем `v-for` и добавляем `key` для Vue. -->
+      <!-- Здесь мы используем комбинацию slug и index -->
       <div v-for="(post,index) in posts" :key="post.slug + '_' + index">
         <router-link :to="'/blog/' + post.slug">
           <article class="media">
