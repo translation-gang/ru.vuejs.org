@@ -97,10 +97,10 @@ props: {
 ```html
 <!-- Несмотря на то, что указан статический массив, нам нужен v-bind -->
 <!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  -->
-<blog-post v-bind:author="{ name: 'Veronica', company: 'Veridian Dynamics' }"></blog-post>
+<blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
 
 <!-- Динамическое присвоение значения переменной. -->
-<blog-post v-bind:author="post.author"></blog-post>
+<blog-post v-bind:comment-ids="post.commentIds"></blog-post>
 ```
 
 ### Передача объектов
@@ -108,10 +108,10 @@ props: {
 ```html
 <!-- Несмотря на то, что указан статический объект, нам нужен v-bind -->
 <!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  -->
-<blog-post v-bind:comments="{ id: 1, title: 'My Journey with Vue' }"></blog-post>
+<blog-post v-bind:author="{ name: 'Veronica', company: 'Veridian Dynamics' }"></blog-post>
 
 <!-- Динамическое присвоение значения переменной. -->
-<blog-post v-bind:post="post"></blog-post>
+<blog-post v-bind:author="post.author"></blog-post>
 ```
 
 ### Передача свойств объекта
