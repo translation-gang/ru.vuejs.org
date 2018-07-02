@@ -14,7 +14,7 @@ order: 11
 
 ``` html
 <div id="app">
-  My name is <input v-model="name">
+  Моё имя <input v-model="name">
 </div>
 ```
 
@@ -22,12 +22,14 @@ order: 11
 
 ``` js
 const app = new Vue({
-  el:'#app',
+  el: '#app',
   data: {
-    name:''
+    name: ''
   },
   mounted() {
-    if(localStorage.name) this.name = localStorage.name;
+    if (localStorage.name) {
+      this.name = localStorage.name;
+    }
   },
   watch: {
     name(newName) {
@@ -62,10 +64,11 @@ const app = new Vue({
 
 ``` html
 <div id="app">
-  My name is <input v-model="name">
-  and I am <input v-model="age"> years old.
+  <p>
+    Моё имя <input v-model="name">
+    и мне <input v-model="age"> лет.
   <p/>
-  <button @click="persist">Save</button>
+  <button @click="persist">Сохранить</button>
 </div>
 ```
 
@@ -75,12 +78,16 @@ const app = new Vue({
 const app = new Vue({
   el:'#app',
   data: {
-    name:'',
-    age:0
+    name: '',
+    age: 0
   },
   mounted() {
-    if(localStorage.name) this.name = localStorage.name;
-    if(localStorage.age) this.age = localStorage.age;
+    if (localStorage.name) {
+      this.name = localStorage.name;
+    }
+    if (localStorage.age) {
+      this.age = localStorage.age;
+    }
   },
   methods: {
     persist() {
@@ -103,18 +110,17 @@ const app = new Vue({
 
 ``` html
 <div id="app">
-  <h2>Cats</h2>
+  <h2>Коты</h2>
   <div v-for="(cat,n) in cats">
     <p>
-    <span class="cat">{{cat}}</span> <button @click="removeCat(n)">Remove</button>
+      <span class="cat">{{cat}}</span> <button @click="removeCat(n)">Удалить</button>
     </p>
   </div>
   
   <p>
     <input v-model="newCat"> 
-    <button @click="addCat">Add Cat</button>
+    <button @click="addCat">Добавить кота</button>
   </p>
-  
 </div>
 ```
 
@@ -122,14 +128,13 @@ const app = new Vue({
 
 ``` js
 const app = new Vue({
-  el:'#app',
+  el: '#app',
   data: {
-    cats:[],
-    newCat:null
+    cats: [],
+    newCat: null
   },
   mounted() {
-    
-    if(localStorage.getItem('cats')) {
+    if (localStorage.getItem('cats')) {
       try {
         this.cats = JSON.parse(localStorage.getItem('cats'));
       } catch(e) {
@@ -139,18 +144,21 @@ const app = new Vue({
   },
   methods: {
     addCat() {
-      // ensure they actually typed something
-      if(!this.newCat) return;
+      // убедиться, что было что-либо введено
+      if (!this.newCat) {
+        return;
+      }
+      
       this.cats.push(this.newCat);
       this.newCat = '';
       this.saveCats();
     },
     removeCat(x) {
-      this.cats.splice(x,1);
+      this.cats.splice(x, 1);
       this.saveCats();
     },
     saveCats() {
-      let parsed = JSON.stringify(this.cats);
+      const parsed = JSON.stringify(this.cats);
       localStorage.setItem('cats', parsed);
     }
   }
