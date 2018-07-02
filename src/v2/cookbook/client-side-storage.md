@@ -76,7 +76,7 @@ const app = new Vue({
 
 ``` js 
 const app = new Vue({
-  el:'#app',
+  el: '#app',
   data: {
     name: '',
     age: 0
@@ -93,7 +93,7 @@ const app = new Vue({
     persist() {
       localStorage.name = this.name;
       localStorage.age = this.age;
-      console.log('now pretend I did more stuff...');
+      console.log('теперь я притворяюсь, что сделал ещё кое-что....');
     }
   }
 })
