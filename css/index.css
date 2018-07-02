@@ -882,7 +882,6 @@ body {
 }
 #special-sponsor a {
   color: #7f8c8d;
-  margin: 8px 0;
 }
 #special-sponsor a,
 #special-sponsor span,
@@ -891,7 +890,7 @@ body {
   vertical-align: middle;
 }
 #special-sponsor img {
-  margin: 0 15px;
+  margin: 15px;
 }
 #highlights {
   background-color: #fff;
