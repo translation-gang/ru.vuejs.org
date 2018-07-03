@@ -46,14 +46,14 @@ type: style-guide
 #### Плохо
 
 ```js
-Vue.component("todo", {
+Vue.component('todo', {
   // ...
 });
 ```
 
 ```js
 export default {
-  name: "Todo"
+  name: 'Todo'
   // ...
 };
 ```
@@ -65,14 +65,14 @@ export default {
 #### Хорошо
 
 ```js
-Vue.component("todo-item", {
+Vue.component('todo-item', {
   // ...
 });
 ```
 
 ```js
 export default {
-  name: "TodoItem"
+  name: 'TodoItem'
   // ...
 };
 ```
@@ -122,9 +122,9 @@ data: function () {
 #### Плохо
 
 ```js
-Vue.component("some-comp", {
+Vue.component('some-comp', {
   data: {
-    foo: "bar"
+    foo: 'bar'
   }
 });
 ```
@@ -132,7 +132,7 @@ Vue.component("some-comp", {
 ```js
 export default {
   data: {
-    foo: "bar"
+    foo: 'bar'
   }
 };
 ```
@@ -144,10 +144,10 @@ export default {
 #### Хорошо
 
 ```js
-Vue.component("some-comp", {
+Vue.component('some-comp', {
   data: function() {
     return {
-      foo: "bar"
+      foo: 'bar'
     };
   }
 });
@@ -158,7 +158,7 @@ Vue.component("some-comp", {
 export default {
   data() {
     return {
-      foo: "bar"
+      foo: 'bar'
     };
   }
 };
@@ -170,7 +170,7 @@ export default {
 // один экземпляр будет существовать.
 new Vue({
   data: {
-    foo: "bar"
+    foo: 'bar'
   }
 });
 ```
@@ -204,7 +204,7 @@ new Vue({
 
 ```js
 // Этого достаточно лишь для прототипа
-props: ["status"];
+props: ['status']
 ```
 
 {% raw %}</div>{% endraw %}
@@ -215,7 +215,7 @@ props: ["status"];
 
 ```js
 props: {
-  status: String;
+  status: String
 }
 ```
 
@@ -773,7 +773,7 @@ components/
 * Поскольку эти компоненты часто используются, вы можете просто сделать их глобальными, а не импортировать их повсюду. Префикс делает это возможным с помощью Webpack:
 
   ```js
-  var requireComponent = require.context("./src", true, /^Base[A-Z]/);
+  var requireComponent = require.context('./src', true, /^Base[A-Z]/);
   requireComponent.keys().forEach(function(fileName) {
     var baseComponentConfig = requireComponent(fileName);
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig;
@@ -1150,25 +1150,25 @@ PascalCase имеет следующие преимущества перед keb
 #### Плохо
 
 ```js
-Vue.component("myComponent", {
+Vue.component('myComponent', {
   // ...
 });
 ```
 
 ```js
-import myComponent from "./MyComponent.vue";
+import myComponent from './MyComponent.vue';
 ```
 
 ```js
 export default {
-  name: "myComponent"
+  name: 'myComponent'
   // ...
 };
 ```
 
 ```js
 export default {
-  name: "my-component"
+  name: 'my-component'
   // ...
 };
 ```
@@ -1180,24 +1180,24 @@ export default {
 #### Хорошо
 
 ```js
-Vue.component("MyComponent", {
+Vue.component('MyComponent', {
   // ...
 });
 ```
 
 ```js
-Vue.component("my-component", {
+Vue.component('my-component', {
   // ...
 });
 ```
 
 ```js
-import MyComponent from "./MyComponent.vue";
+import MyComponent from './MyComponent.vue';
 ```
 
 ```js
 export default {
-  name: "MyComponent"
+  name: 'MyComponent'
   // ...
 };
 ```
@@ -1262,7 +1262,7 @@ props: {
 
 ```js
 props: {
-  greetingText: String;
+  greetingText: String
 }
 ```
 
@@ -1883,7 +1883,7 @@ button {
 #### Плохо
 
 ```js
-Vue.component("TodoItem", {
+Vue.component('TodoItem', {
   props: {
     todo: {
       type: Object,
@@ -1895,7 +1895,7 @@ Vue.component("TodoItem", {
 ```
 
 ```js
-Vue.component("TodoItem", {
+Vue.component('TodoItem', {
   props: {
     todo: {
       type: Object,
@@ -1928,7 +1928,7 @@ Vue.component("TodoItem", {
 #### Хорошо
 
 ```js
-Vue.component("TodoItem", {
+Vue.component('TodoItem', {
   props: {
     todo: {
       type: Object,
@@ -1945,7 +1945,7 @@ Vue.component("TodoItem", {
 ```
 
 ```js
-Vue.component("TodoItem", {
+Vue.component('TodoItem', {
   props: {
     todo: {
       type: Object,
@@ -1984,7 +1984,7 @@ new Vue({
     todos: []
   },
   created: function() {
-    this.$on("remove-todo", this.removeTodo);
+    this.$on('remove-todo', this.removeTodo);
   },
   methods: {
     removeTodo: function(todo) {
@@ -2016,7 +2016,7 @@ export default {
   },
   actions: {
     removeTodo({ commit, state }, todo) {
-      commit("REMOVE_TODO", todo.id);
+      commit('REMOVE_TODO', todo.id);
     }
   }
 };
