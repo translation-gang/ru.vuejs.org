@@ -48,14 +48,14 @@ type: style-guide
 ```js
 Vue.component('todo', {
   // ...
-});
+})
 ```
 
 ```js
 export default {
   name: 'Todo'
   // ...
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -67,14 +67,14 @@ export default {
 ```js
 Vue.component('todo-item', {
   // ...
-});
+})
 ```
 
 ```js
 export default {
   name: 'TodoItem'
   // ...
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -126,7 +126,7 @@ Vue.component('some-comp', {
   data: {
     foo: 'bar'
   }
-});
+})
 ```
 
 ```js
@@ -134,7 +134,7 @@ export default {
   data: {
     foo: 'bar'
   }
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -148,9 +148,9 @@ Vue.component('some-comp', {
   data: function() {
     return {
       foo: 'bar'
-    };
+    }
   }
-});
+})
 ```
 
 ```js
@@ -159,9 +159,9 @@ export default {
   data() {
     return {
       foo: 'bar'
-    };
+    }
   }
-};
+}
 ```
 
 ```js
@@ -172,7 +172,7 @@ new Vue({
   data: {
     foo: 'bar'
   }
-});
+})
 ```
 
 {% raw %}</div>{% endraw %}
@@ -348,9 +348,9 @@ data: function () {
 ```js
 this.users.map(function(user) {
   if (user.isActive) {
-    return user.name;
+    return user.name
   }
-});
+})
 ```
 
 Таким образом, даже если мы показываем элементы только для небольшой части пользователей, мы должны перебирать весь список при каждом повторном рендеринге, независимо от того, изменился ли набор активных пользователей.
@@ -607,7 +607,7 @@ var myGreatMixin = {
       // ...
     }
   }
-};
+}
 ```
 
 ```js
@@ -618,7 +618,7 @@ var myGreatMixin = {
       // ...
     }
   }
-};
+}
 ```
 
 ```js
@@ -629,7 +629,7 @@ var myGreatMixin = {
       // ...
     }
   }
-};
+}
 ```
 
 ```js
@@ -640,7 +640,7 @@ var myGreatMixin = {
       // ...
     }
   }
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -657,7 +657,7 @@ var myGreatMixin = {
       // ...
     }
   }
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -675,13 +675,13 @@ var myGreatMixin = {
 #### Плохо
 
 ```js
-Vue.component("TodoList", {
+Vue.component('TodoList', {
   // ...
-});
+})
 
-Vue.component("TodoItem", {
+Vue.component('TodoItem', {
   // ...
-});
+})
 ```
 
 {% raw %}</div>{% endraw %}
@@ -773,15 +773,15 @@ components/
 * Поскольку эти компоненты часто используются, вы можете просто сделать их глобальными, а не импортировать их повсюду. Префикс делает это возможным с помощью Webpack:
 
   ```js
-  var requireComponent = require.context('./src', true, /^Base[A-Z]/);
+  var requireComponent = require.context('./src', true, /^Base[A-Z]/)
   requireComponent.keys().forEach(function(fileName) {
-    var baseComponentConfig = requireComponent(fileName);
-    baseComponentConfig = baseComponentConfig.default || baseComponentConfig;
+    var baseComponentConfig = requireComponent(fileName)
+    baseComponentConfig = baseComponentConfig.default || baseComponentConfig
     var baseComponentName =
       baseComponentConfig.name ||
-      fileName.replace(/^.+\//, "").replace(/\.\w+$/, "");
-    Vue.component(baseComponentName, baseComponentConfig);
-  });
+      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
+    Vue.component(baseComponentName, baseComponentConfig)
+  })
   ```
 
 {% raw %}</details>{% endraw %}
@@ -1152,25 +1152,25 @@ PascalCase имеет следующие преимущества перед keb
 ```js
 Vue.component('myComponent', {
   // ...
-});
+})
 ```
 
 ```js
-import myComponent from './MyComponent.vue';
+import myComponent from './MyComponent.vue'
 ```
 
 ```js
 export default {
   name: 'myComponent'
   // ...
-};
+}
 ```
 
 ```js
 export default {
   name: 'my-component'
   // ...
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -1182,24 +1182,24 @@ export default {
 ```js
 Vue.component('MyComponent', {
   // ...
-});
+})
 ```
 
 ```js
 Vue.component('my-component', {
   // ...
-});
+})
 ```
 
 ```js
-import MyComponent from './MyComponent.vue';
+import MyComponent from './MyComponent.vue'
 ```
 
 ```js
 export default {
   name: 'MyComponent'
   // ...
-};
+}
 ```
 
 {% raw %}</div>{% endraw %}
@@ -1891,7 +1891,7 @@ Vue.component('TodoItem', {
     }
   },
   template: '<input v-model="todo.text">'
-});
+})
 ```
 
 ```js
@@ -1904,10 +1904,10 @@ Vue.component('TodoItem', {
   },
   methods: {
     removeTodo() {
-      var vm = this;
+      var vm = this
       vm.$parent.todos = vm.$parent.todos.filter(function(todo) {
-        return todo.id !== vm.todo.id;
-      });
+        return todo.id !== vm.todo.id
+      })
     }
   },
   template: `
@@ -1918,7 +1918,7 @@ Vue.component('TodoItem', {
       </button>
     </span>
   `
-});
+})
 ```
 
 {% raw %}</div>{% endraw %}
@@ -1941,7 +1941,7 @@ Vue.component('TodoItem', {
       @input="$emit('input', $event.target.value)"
     >
   `
-});
+})
 ```
 
 ```js
@@ -1960,7 +1960,7 @@ Vue.component('TodoItem', {
       </button>
     </span>
   `
-});
+})
 ```
 
 {% raw %}</div>{% endraw %}
@@ -1984,17 +1984,17 @@ new Vue({
     todos: []
   },
   created: function() {
-    this.$on('remove-todo', this.removeTodo);
+    this.$on('remove-todo', this.removeTodo)
   },
   methods: {
     removeTodo: function(todo) {
-      var todoIdToRemove = todo.id;
+      var todoIdToRemove = todo.id
       this.todos = this.todos.filter(function(todo) {
-        return todo.id !== todoIdToRemove;
-      });
+        return todo.id !== todoIdToRemove
+      })
     }
   }
-});
+})
 ```
 
 {% raw %}</div>{% endraw %}
@@ -2011,15 +2011,15 @@ export default {
   },
   mutations: {
     REMOVE_TODO(state, todoId) {
-      state.list = state.list.filter(todo => todo.id !== todoId);
+      state.list = state.list.filter(todo => todo.id !== todoId)
     }
   },
   actions: {
     removeTodo({ commit, state }, todo) {
-      commit('REMOVE_TODO', todo.id);
+      commit('REMOVE_TODO', todo.id)
     }
   }
-};
+}
 ```
 
 ```html
