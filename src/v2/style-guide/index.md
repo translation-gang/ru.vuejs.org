@@ -774,12 +774,14 @@ components/
 
   ```js
   var requireComponent = require.context('./src', true, /^Base[A-Z]/)
-  requireComponent.keys().forEach(function(fileName) {
+  requireComponent.keys().forEach(function (fileName) {
     var baseComponentConfig = requireComponent(fileName)
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-    var baseComponentName =
-      baseComponentConfig.name ||
-      fileName.replace(/^.+\//, '').replace(/\.\w+$/, '')
+    var baseComponentName = baseComponentConfig.name || (
+      fileName
+        .replace(/^.+\//, '')
+        .replace(/\.\w+$/, '')
+    )
     Vue.component(baseComponentName, baseComponentConfig)
   })
   ```
