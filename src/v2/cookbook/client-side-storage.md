@@ -93,7 +93,7 @@ const app = new Vue({
     persist() {
       localStorage.name = this.name;
       localStorage.age = this.age;
-      console.log('теперь я притворяюсь, что сделал ещё кое-что....');
+      console.log('теперь я притворяюсь, что сделал ещё кое-что...');
     }
   }
 })
