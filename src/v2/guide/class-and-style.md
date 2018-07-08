@@ -64,8 +64,10 @@ data: {
 ```
 ``` js
 data: {
-  isActive: true,
-  error: null
+  classObject: {
+    isActive: true,
+    error: false
+  }
 },
 computed: {
   classObject: function () {
