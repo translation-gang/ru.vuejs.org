@@ -1,13 +1,12 @@
 ---
-title: Creating Custom Scroll Directives
+title: Создание пользовательской директивы прокрутки
 type: cookbook
 order: 7
 ---
 
-## Base Example
+## Простой пример
 
-There are many times that we might want to add a bit of behavior, especially animation, to a scroll event on a site. There are many ways to do so, but the path with the least amount of code and dependencies is perhaps to use a [custom directive](https://vuejs.org/v2/guide/custom-directive.html) to create a hook for anything that fires off a particular scroll event.
-
+Часто случается, что нам необходимо добавить какое-нибудь нестандартное поведение, например анимацию, при прокрутке на сайте. Существует много способов, как реализовать подобное, но способ, требующий меньше всего кода и зависимостей, заключается в использовании [пользовательской директивы](https://ru.vuejs.org/v2/guide/custom-directive.html) для создания хука, который срабатывает при определённом событии прокрутки.
 ```js
 Vue.directive('scroll', {
   inserted: function (el, binding) {
@@ -20,7 +19,7 @@ Vue.directive('scroll', {
   }
 })
 
-// main app
+// основное приложение
 new Vue({
   el: '#app',
   methods: {
@@ -39,16 +38,16 @@ new Vue({
 
 ```html
 <div id="app">
-  <h1 class="centered">Scroll me</h1>
+  <h1 class="centered">Прокрути меня</h1>
   <div class="box" v-scroll="handleScroll">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque amet harum aut ab veritatis earum porro praesentium ut corporis. Quasi provident dolorem officia iure fugiat, eius mollitia sequi quisquam.</p>
   </div>
 </div>
 ```
 
-<p class="tip">Remember! The directive must be registered before the Vue instance.</p>
+<p class="tip">Важно! Директива должна быть зарегистрирована до экземпляра Vue.</p>
 
-We'd also need a style property that will transition the intermediary values here, in this case:
+Также нам понадобится свойство в стилях, которое позволит сделать переход между промежуточными состояниями более плавным:
 
 ```css
 .box {
@@ -56,10 +55,10 @@ We'd also need a style property that will transition the intermediary values her
 }
 ```
 
-<p data-height="450" data-theme-id="5162" data-slug-hash="983220ed949ac670dff96bdcaf9d3338" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Custom Scroll Directive- CSS Transition" class="codepen">See the Pen <a href="https://codepen.io/sdras/pen/983220ed949ac670dff96bdcaf9d3338/">Custom Scroll Directive- CSS Transition</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="450" data-theme-id="5162" data-slug-hash="983220ed949ac670dff96bdcaf9d3338" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Пользовательская директива прокрутки - CSS переходы" class="codepen">Посмотреть пример<a href="https://codepen.io/sdras/pen/983220ed949ac670dff96bdcaf9d3338/">Пользовательская директива прокрутки - CSS переходы</a> от Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-Or, with GreenSock(GSAP) or any other JavaScript animation library, the code becomes even more simple:
+С помощью GreenSock или любой другой JS-библиотеки для анимаций, можно упростить код:
 
 ```js
 Vue.directive('scroll', {
@@ -73,7 +72,7 @@ Vue.directive('scroll', {
   }
 })
 
-// main app
+// основное приложение
 new Vue({
   el: '#app',
   methods: {
@@ -91,28 +90,32 @@ new Vue({
 })
 ```
 
-Though we would remove the previous CSS transition from this implementation because it's now handled with JavaScript.
+Мы удалим предыдущее CSS-свойство transition из этого решения, так как теперь плавность перехода управляется с помощью JavaScript.
 
-## The Benefit of Using Custom Directives
+## Выгода от использования пользовательской директивы прокрутки
 
-Vue is rich with options for directives, most of which cover very common use-cases, which can create a very productive developer experience. But even if you have an edge case not covered by the framework, it's got you covered in this case as well, because you can quite easily create a custom directive to fit your needs.
+Vue богат различными настройками для директив, многие из которых решают большинство задач, что положительно сказывается на процессе разработки. Но даже если у вас есть частный случай, который не покрывается стандартными средствами фреймворка, он может быть легко решён с помощью создания пользовательской директивы, соответствующей вашим требованиям.
 
-Attaching and removing scroll events to elements is a really good use case for this technique because just like other directives we use, they are necessarily tied to the element and otherwise, we'd have to find the reference for it in the DOM. This pattern avoids the need for traversal, and keeps the event logic paired with the node that it's in reference to.
+Добавление и удаление обработчиков на события прокрутки элементов - это действительно хорошее использование данной техники, потому, что директивы прокрутки всегда связаны с самим элементом. В противном случае, нам пришлось бы искать ссылку на соответствующий элемент в DOM. Данный подход избавляет от необходимости прохода по DOM, и держит логику события связанной с узлом, на который оно ссылается.
 
-## Real-World Example: Using a Custom Scroll Directive for Cascading Animations
+## Реальный пример: использование пользовательской директивы прокрутки для каскадных анимаций
 
-In the course of creating a cohesive site, you may find that you're reusing the same type of animation logic in several areas. It seems simple, we would then create a very specific custom directive, right? Well, typically if you're reusing it, you will need to change it _just_ slightly for each use.
+В процессе создания связующего сайта вы можете обнаружить, что переиспользуете один и тот же тип анимаций в нескольких областях.
+Это кажется простым — создать весьма конкретную пользовательскую директиву, не так ли? Обычно, если вы её переиспользуете, вам понадобится её _просто_ слегка изменить при каждом использовании
 
-To help keep our code concise and legible, we would want to pass in some predefined arguments such as the beginning point and ending of the animation as we scroll down the page.
+Чтобы оставить наш код лаконичным и понятным, мы бы захотели передать некоторые параметры, такие, как начальная и конечная точки анимации во время прокрутки страницы вниз.
 
-**This example is better viewed in the [full screen version](https://s.codepen.io/sdras/debug/078c19f5b3ed7f7d28584da450296cd0).**
 
-<p data-height="500" data-theme-id="5162" data-slug-hash="c8c55e3e0bba997350551dd747119100" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Scrolling Example- Using Custom Directives in Vue" class="codepen">See the Pen <a href="https://codepen.io/sdras/pen/c8c55e3e0bba997350551dd747119100/">Scrolling Example- Using Custom Directives in Vue</a> by Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+**Этот пример лучше просматривать в [полноэкранной версии](https://s.codepen.io/sdras/debug/078c19f5b3ed7f7d28584da450296cd0).**
+
+<p data-height="500" data-theme-id="5162" data-slug-hash="c8c55e3e0bba997350551dd747119100" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Пример с прокруткой - Использование пользовательской директивы во Vue" class="codepen">Посмотреть пример <a href="https://codepen.io/sdras/pen/c8c55e3e0bba997350551dd747119100/">Пример с прокруткой - Использование пользовательской директивы во Vue</a> от Sarah Drasner (<a href="https://codepen.io/sdras">@sdras</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-In the demo above, each of the sections has two different types of animation triggered from the scroll: a morphing animation, and a drawing animation that animates the individual paths in the SVG. We reuse those two animations, so we can create a custom directive for each. The arguments we'll pass in will help keep everything simple and reusable.
 
-To show how we do this, we'll take a look at the morphing shape example, where we'll need to state the start and finish, as well as pass in a path value that we'll create a morph to. These arguments are each defined as `binding.value.foo`:
+
+В примере выше каждая секция имеет два типа анимаций, которые срабатывают во время прокрутки: анимация изменения формы и анимация отрисовки, которая анимирует отдельные пути в SVG. Мы переиспользуем обе, так что мы можем написать пользовательские директивы для каждой из них. Аргументы, которые мы передадим внутрь, помогут сохранить простоту и универсальность.
+
+Чтобы показать, как это делается, мы рассмотрим пример с изменением формы, где нам нужно указать значения старта и окончания анимации, а также передать значение пути, в который мы будем трансформировать форму. Эти аргументы определяются как `binding.value.foo`
 
 ```js
 Vue.directive('clipscroll', {
@@ -135,7 +138,7 @@ Vue.directive('clipscroll', {
 })
 ```
 
-We can then use this animation in our template, in this case we're attaching the directive to the `clipPath` element, and pass all of our arguments to the directives in an object.
+После этого, мы можем использовать эту анимацию в нашем шаблоне. В данном случае мы привязываем директиву к элементу `clipPath` и передаём все наши аргументы внутри объекта в директиву.
 
 ```html
 <clipPath id="clip-path">
@@ -147,8 +150,8 @@ We can then use this animation in our template, in this case we're attaching the
 </clipPath>
 ```
 
-## Alternative Patterns
+## Альтернативные варианты
 
-Custom directives are extremely useful, but you may find some situations where you need something very specific that already exists in scrolling libraries that you don't wish to rebuild from scratch yourself.
+Пользовательские директивы очень полезны, но у вас может возникнуть ситуация, когда вам понадобится что-то очень специфичное, но уже реализованное в библиотеках для прокрутки страницы, и у вас не будет желания писать это с нуля.
 
-[Scrollmagic](http://scrollmagic.io/) has a very rich ecosystem of offerings to work with, as well as good documentation and demos to explore. This includes, but is not limited to things like [parallax](http://scrollmagic.io/examples/advanced/parallax_scrolling.html), [cascading pinning](http://scrollmagic.io/examples/expert/cascading_pins.html), [section wipes](http://scrollmagic.io/examples/basic/section_wipes_natural.html), and [responsive duration](http://scrollmagic.io/examples/basic/responsive_duration.html).
+[Scrollmagic](http://scrollmagic.io/) обладает очень богатой экосистемой для работы, так же, как и хорошей документацией с примерами. Он включает в себя, но не ограничивается такими возможностями, как  [паралакс](http://scrollmagic.io/examples/advanced/parallax_scrolling.html), [каскадное закрепление](http://scrollmagic.io/examples/expert/cascading_pins.html), [вытеснение областей](http://scrollmagic.io/examples/basic/section_wipes_natural.html) и [отзывчивая продолжительность анимации](http://scrollmagic.io/examples/basic/responsive_duration.html).
