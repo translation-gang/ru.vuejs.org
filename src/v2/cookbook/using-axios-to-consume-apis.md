@@ -14,7 +14,7 @@ order: 9
 
 ```js
 new Vue({
-  el: "#app",
+  el: '#app',
   data() {
     return {
       info: null
@@ -22,7 +22,7 @@ new Vue({
   },
   mounted() {
     axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(response => (this.info = response));
   }
 });
@@ -49,7 +49,7 @@ new Vue({
 
 ```js
 axios
-  .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+  .get('https://api.coindesk.com/v1/bpi/currentprice.json')
   .then(response => (this.info = response.data.bpi));
 ```
 
@@ -61,7 +61,10 @@ axios
 ```html
 <div id="app">
   <h1>Bitcoin Price Index</h1>
-  <div v-for="currency in info" class="currency">
+  <div
+    v-for="currency in info"
+    class="currency"
+  >
     {{ currency.description }}:
     <span class="lighten">
       <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
@@ -93,7 +96,7 @@ filters: {
 
 ```js
 axios
-  .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+  .get('https://api.coindesk.com/v1/bpi/currentprice.json')
   .then(response => (this.info = response.data.bpi))
   .catch(error => console.log(error));
 ```
@@ -102,7 +105,7 @@ axios
 
 ```js
 new Vue({
-  el: "#app",
+  el: '#app',
   data() {
     return {
       info: null,
@@ -117,7 +120,7 @@ new Vue({
   },
   mounted() {
     axios
-      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
       .then(response => {
         this.info = response.data.bpi;
       })
@@ -141,7 +144,11 @@ new Vue({
   <section v-else>
     <div v-if="loading">Loading...</div>
 
-    <div v-else v-for="currency in info" class="currency">
+    <div
+      v-else
+      v-for="currency in info"
+      class="currency"
+    >
       {{ currency.description }}:
       <span class="lighten">
         <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}

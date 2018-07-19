@@ -7,7 +7,7 @@ order: 5
 Итак, вы только что запустили свой веб-сайт на Vue.js, поздравляем! Теперь вы хотите добавить блог, который быстро встраивается на ваш сайт и вы не хотите перевернуть всё вверх дном на сервере в попытке запустить WordPress (или любую другую CMS, использующую базу данных для этих целей). Вы хотите просто добавить несколько компонентов Vue.js для блога и пару маршрутов и чтобы всё это просто работало, не так ли? То что вы ищете для блога должно полностью основываться на API, чтобы вы могли использовать непосредственно из своего приложения Vue.js. Этот рецепт научит вас, как это сделать, давайте приступим!
 
 Мы собираемся быстро создать блог на основе CMS с помощью Vue.js. Мы будем использовать [ButterCMS](https://buttercms.com/), CMS в первую очередь ориентированную на API, которая позволяет управлять контентом с помощью панели управления ButterCMS и интегрировать API для получения контента в ваше приложение Vue.js. Вы можете использовать ButterCMS для новых или уже существующих проектов Vue.js.
- 
+
 ![Панель управления Butter](https://user-images.githubusercontent.com/160873/36677285-648798e4-1ad3-11e8-9454-d22fca8280b7.png "Butter Dashboard")
 
 ## Установка
@@ -17,7 +17,7 @@ order: 5
 ```bash
 npm install buttercms --save
 ```
-Butter также можно подключить с помощью CDN: 
+Butter также можно подключить с помощью CDN:
 
 ```html
 <script src="https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"></script>
@@ -38,7 +38,7 @@ import Butter from 'buttercms';
 const butter = Butter('your_api_token');
 ```
 
-С использованием CDN: 
+С использованием CDN:
 
 ```html
 <script src="https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"></script>
@@ -46,9 +46,9 @@ const butter = Butter('your_api_token');
   var butter = Butter('your_api_token');
 </script>
 ```
- 
+
 Импортируйте этот файл в любой компонент, где вы хотите использовать ButterCMS. Затем выполните в консоли команду:
- 
+
 ```javascript
 butter.post.list({page: 1, page_size: 10}).then(function(response) {
   console.log(response)
@@ -59,7 +59,7 @@ butter.post.list({page: 1, page_size: 10}).then(function(response) {
 
 ## Отображение записей
 
-Для отображения записей мы создадим маршрут `/blog` (используя Vue Router) в нашем приложении и будем получать записи блога через Butter API, аналогично будет работать маршрут `/blog/:slug` для работы с конкретными записями блога. 
+Для отображения записей мы создадим маршрут `/blog` (используя Vue Router) в нашем приложении и будем получать записи блога через Butter API, аналогично будет работать маршрут `/blog/:slug` для работы с конкретными записями блога.
 
 Обратитесь к [справочнику API](https://buttercms.com/docs/api/?javascript#blog-posts) ButterCMS для получения информации по  дополнительным опциям, таким как фильтрация по категориям или автору. Ответ сервера также включает некоторые метаданные, которые мы будем использовать для пагинации.
 
@@ -124,14 +124,25 @@ export default new Router({
       <h1>{{ page_title }}</h1>
       <!-- Создаем `v-for` и добавляем `key` для Vue. -->
       <!-- Для этого используем комбинацию slug и index -->
-      <div v-for="(post,index) in posts" :key="post.slug + '_' + index">
+      <div
+        v-for="(post,index) in posts"
+        :key="post.slug + '_' + index"
+      >
         <router-link :to="'/blog/' + post.slug">
           <article class="media">
             <figure>
               <!-- Привязываем результаты с помощью `:` -->
               <!-- Используем `v-if`/`else` для отображения картинки записи блога (`featured_image`) -->
-              <img v-if="post.featured_image" :src="post.featured_image" alt="">
-              <img v-else src="http://via.placeholder.com/250x250" alt="">
+              <img
+                v-if="post.featured_image"
+                :src="post.featured_image"
+                alt=""
+              >
+              <img
+                v-else
+                src="http://via.placeholder.com/250x250"
+                alt=""
+              >
             </figure>
             <h2>{{ post.title }}</h2>
             <p>{{ post.summary }}</p>
@@ -180,10 +191,18 @@ export default new Router({
     <h4>{{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
     <div v-html="post.data.body"></div>
 
-    <router-link v-if="post.meta.previous_post" :to="/blog/ + post.meta.previous_post.slug" class="button">
+    <router-link
+      v-if="post.meta.previous_post"
+      :to="/blog/ + post.meta.previous_post.slug"
+      class="button"
+    >
       {{ post.meta.previous_post.title }}
     </router-link>
-    <router-link v-if="post.meta.next_post" :to="/blog/ + post.meta.next_post.slug" class="button">
+    <router-link
+      v-if="post.meta.next_post"
+      :to="/blog/ + post.meta.next_post.slug"
+      class="button"
+    >
       {{ post.meta.next_post.title }}
     </router-link>
   </div>
@@ -196,7 +215,7 @@ export default new Router({
 
 Теперь наше приложение загружает все записи и мы можем переходить к чтению конкретной записи блога. Однако, наши кнопки следующей/предыдущей записи ещё не работают.
 
-При использовании маршрутов с параметрами следует помнить, что при переходе пользователя с адреса `/blog/foo` на `/blog/bar`, будет переиспользоваться тот же экземпляр компонента. Поскольку оба маршрута рендерят один и тот же компонент, это эффективнее, чем уничтожение старого экземпляра компонента, а затем создание нового. 
+При использовании маршрутов с параметрами следует помнить, что при переходе пользователя с адреса `/blog/foo` на `/blog/bar`, будет переиспользоваться тот же экземпляр компонента. Поскольку оба маршрута рендерят один и тот же компонент, это эффективнее, чем уничтожение старого экземпляра компонента, а затем создание нового.
 
 <p class="tip">Помните, что использование этого компонента означает то, что хуки жизненного цикла не будут вызываться. Посетите документацию по Vue Router, чтобы узнать больше о [динамических путях](https://router.vuejs.org/ru/guide/essentials/dynamic-matching.html)</p>
 

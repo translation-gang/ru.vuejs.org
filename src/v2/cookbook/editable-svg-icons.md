@@ -35,7 +35,10 @@ order: 4
     :aria-labelledby="iconName"
     role="presentation"
   >
-    <title :id="iconName" lang="en">{{iconName}} icon</title>
+    <title
+      :id="iconName"
+      lang="en"
+    >{{iconName}} icon</title>
     <g :fill="iconColor">
       <slot />
     </g>
@@ -83,11 +86,19 @@ export default {
 ```html
 <p>
   <!-- вы можете передать меньшую `width` и `height` во входные данные -->
-  <icon-base width="12" height="12" icon-name="write"><icon-write /></icon-base>
+  <icon-base
+    width="12"
+    height="12"
+    icon-name="write"
+  ><icon-write /></icon-base>
   <!-- или вы можете использовать значение по умолчанию, которое равно 18 -->
   <icon-base icon-name="write"><icon-write /></icon-base>
   <!-- или также сделать её немного больше :) -->
-  <icon-base width="30" height="30" icon-name="write"><icon-write /></icon-base>
+  <icon-base
+    width="30"
+    height="30"
+    icon-name="write"
+  ><icon-write /></icon-base>
 </p>
 ```
 
@@ -99,7 +110,8 @@ export default {
 
 ```html
 <template>
-  <svg @click="startScissors"
+  <svg
+    @click="startScissors"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 100"
     width="100"
@@ -107,8 +119,14 @@ export default {
     aria-labelledby="scissors"
     role="presentation"
     >
-    <title id="scissors" lang="en">Анимированная иконка с ножницами</title>
-    <path id="bk" fill="#fff" d="M0 0h100v100H0z"/>
+    <title
+      id="scissors"
+      lang="en"
+    >Анимированная иконка с ножницами</title>
+    <path
+      id="bk"
+      fill="#fff"
+      d="M0 0h100v100H0z"/>
     <g ref="leftscissor">
       <path d="M..."/>
       ...

@@ -11,7 +11,12 @@ order: 3
 Есть форма с тремя полями, сделаем два из них обязательными. Давайте посмотрим на HTML для решения этой задачи:
 
 ``` html
-<form id="app" @submit="checkForm" action="https://vuejs.org/" method="post">
+<form
+  id="app"
+  @submit="checkForm"
+  action="https://vuejs.org/"
+  method="post"
+>
   
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
@@ -22,17 +27,32 @@ order: 3
   
   <p>
     <label for="name">Имя</label>
-    <input type="text" name="name" id="name" v-model="name">
+    <input
+      id="name"
+      v-model="name"
+      type="text"
+      name="name"
+    >
   </p>
 
   <p>
     <label for="age">Возраст</label>
-    <input type="number" name="age" id="age" v-model="age" min="0">
+    <input
+      id="age"
+      v-model="age"
+      type="number"
+      name="age"
+      min="0"
+    >
   </p>
 
   <p>
     <label for="movie">Любимый фильм</label>
-    <select name="movie" id="movie" v-model="movie">
+    <select
+      id="movie"
+      v-model="movie"
+      name="movie"
+    >
       <option>Star Wars</option>
       <option>Vanilla Sky</option>
       <option>Atomic Blonde</option>
@@ -40,7 +60,10 @@ order: 3
   </p>
 
   <p>
-    <input type="submit" value="Отправить">  
+    <input
+      type="submit"
+      value="Отправить"
+    >  
   </p>
 
 </form>
@@ -48,25 +71,34 @@ order: 3
 
 Начнём с начала. Тег `<form>` имеет ID, который мы будем использовать для компонента Vue. Есть обработчик события отправки формы (submit), который мы увидим далее, и также атрибут `action` с временным URL-адресом, который будет указывать на что-то реальное где-нибудь на сервере (где конечно же будет реализована и валидация на стороне сервера).
 
-После этого расположен абзац, который показывается или скрывается в зависимости от наличия ошибок. Это позволит отобразить простой список ошибок над формой. Также обратите внимание, что мы запускаем проверку на submit формы, а не при изменении каждого поля. 
+После этого расположен абзац, который показывается или скрывается в зависимости от наличия ошибок. Это позволит отобразить простой список ошибок над формой. Также обратите внимание, что мы запускаем проверку на submit формы, а не при изменении каждого поля.
 
 Последнее, что нужно отметить — каждое из трёх полей имеет соответствующую `v-model` для связи с значениями, с которыми мы будем работать в JavaScript. Теперь давайте посмотрим на код.
 
 ``` js
 const app = new Vue({
-  el:'#app',
-  data:{
-    errors:[],
-    name:null,
-    age:null,
-    movie:null
+  el: '#app',
+  data: {
+    errors: [],
+    name: null,
+    age: null,
+    movie: null
   },
-  methods:{
-    checkForm:function(e) {
-      if(this.name && this.age) return true;
+  methods: {
+    checkForm: function (e) {
+      if (this.name && this.age) {
+        return true;
+      }
+
       this.errors = [];
-      if(!this.name) this.errors.push("Требуется указать имя.");
-      if(!this.age) this.errors.push("Требуется указать возраст.");
+      
+      if (!this.name) {
+        this.errors.push('Требуется указать имя.');
+      }
+      if (!this.age) {
+        this.errors.push('Требуется указать возраст.');
+      }
+
       e.preventDefault();
     }
   }
@@ -83,7 +115,13 @@ const app = new Vue({
 Во втором примере, второе текстовое поле (возраст) было заменено на email, который будет проверяться с помощью специальной логики. Код взят из вопроса на StackOverflow, [Как валидировать электронный адрес в JavaScript?](https://stackoverflow.com/questions/46155/how-to-validate-email-address-in-javascript). Классный вопрос — на его фоне любые политические/религиозные холивары выглядят как незначительные разночтения насчёт сортов пива. Серьёзно — это безумие. Вот HTML, хотя он действительно близок к первому примеру.
 
 ``` html
-<form id="app" @submit="checkForm" action="https://vuejs.org/" method="post" novalidate="true">
+<form
+  id="app"
+  @submit="checkForm"
+  action="https://vuejs.org/"
+  method="post"
+  novalidate="true"
+>
   
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
@@ -94,17 +132,31 @@ const app = new Vue({
   
   <p>
     <label for="name">Имя</label>
-    <input type="text" name="name" id="name" v-model="name">
+    <input
+    id="name"
+    v-model="name"
+    type="text"
+    name="name"
+    >
   </p>
 
   <p>
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" v-model="email">
+    <input
+      id="email"
+      v-model="email"
+      type="email"
+      name="email"
+    >
   </p>
 
   <p>
     <label for="movie">Любимый фильм</label>
-    <select name="movie" id="movie" v-model="movie">
+    <select
+      id="movie"
+      v-model="movie"
+      name="movie"
+    >
       <option>Star Wars</option>
       <option>Vanilla Sky</option>
       <option>Atomic Blonde</option>
@@ -112,7 +164,10 @@ const app = new Vue({
   </p>
 
   <p>
-    <input type="submit" value="Отправить">  
+    <input
+      type="submit"
+      value="Отправить"
+    >  
   </p>
 
 </form>
@@ -122,26 +177,33 @@ const app = new Vue({
 
 ``` js
 const app = new Vue({
-  el:'#app',
-  data:{
-    errors:[],
-    name:null,
-    email:null,
-    movie:null
+  el: '#app',
+  data: {
+    errors: [],
+    name: null,
+    email: null,
+    movie: null
   },
-  methods:{
-    checkForm:function(e) {
+  methods: {
+    checkForm: function (e) {
       this.errors = [];
-      if(!this.name) this.errors.push("Укажите имя.");
-      if(!this.email) {
-        this.errors.push("Укажите электронную почту.");
-      } else if(!this.validEmail(this.email)) {
-        this.errors.push("Укажите корректный адрес электронной почты.");        
+
+      if (!this.name) {
+        this.errors.push('Укажите имя.');
       }
-      if(!this.errors.length) return true;
+      if (!this.email) {
+        this.errors.push('Укажите электронную почту.');
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push('Укажите корректный адрес электронной почты.');
+      }
+
+      if (!this.errors.length) {
+        return true;
+      }
+
       e.preventDefault();
     },
-    validEmail:function(email) {
+    validEmail: function (email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     }
@@ -159,7 +221,13 @@ const app = new Vue({
 Для третьего примера, мы создадим то, что вы вероятно видели в приложениях для опросов. Пользователю предлагается потратить "бюджет" на набор возможностей новой модели Star Destroyer. Сумма должна быть равна 100. Во-первых, HTML.
 
 ``` html
-<form id="app" @submit="checkForm" action="https://vuejs.org/" method="post" novalidate="true">
+<form
+  id="app"
+  @submit="checkForm"
+  action="https://vuejs.org/"
+  method="post"
+  novalidate="true"
+>
   
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
@@ -175,19 +243,42 @@ const app = new Vue({
   </p>
 
   <p>
-    <input type="number" name="weapons" v-model.number="weapons"> Орудия <br/>
-    <input type="number" name="shields" v-model.number="shields"> Броня <br/>
-    <input type="number" name="coffee" v-model.number="coffee"> Кофе <br/>
-    <input type="number" name="ac" v-model.number="ac"> Кондиционирование <br/>
-    <input type="number" name="mousedroids" v-model.number="mousedroids"> Мыши-дройды <br/>
+    <input
+      type="number"
+      name="weapons"
+      v-model.number="weapons"
+    > Орудия <br/>
+    <input
+      type="number"
+      name="shields"
+      v-model.number="shields"
+    > Броня <br/>
+    <input
+      type="number"
+      name="coffee"
+      v-model.number="coffee"
+    > Кофе <br/>
+    <input
+      type="number"
+      name="ac"
+      v-model.number="ac"
+    > Кондиционирование <br/>
+    <input
+      type="number"
+      name="mousedroids"
+      v-model.number="mousedroids"
+    > Мыши-дройды <br/>
   </p>
 
   <p>
-    Итого: {{total}}
+    Итого: {{ total }}
   </p>
 
   <p>
-    <input type="submit" value="Отправить">  
+    <input
+      type="submit"
+      value="Отправить"
+    >  
   </p>
 
 </form>
@@ -197,30 +288,37 @@ const app = new Vue({
 
 ``` js
 const app = new Vue({
-  el:'#app',
-  data:{
-    errors:[],
-    weapons:0,
-    shields:0,
-    coffee:0,
-    ac:0,
-    mousedroids:0
+  el: '#app',
+  data: {
+    errors: [],
+    weapons: 0,
+    shields: 0,
+    coffee: 0,
+    ac: 0,
+    mousedroids: 0
   },
-  computed:{
-     total:function() {
+  computed: {
+     total: function () {
        // необходимо парсить, потому что Vue
        // преобразует пустое значение в строку
-       return Number(this.weapons)+
-         Number(this.shields)+
-         Number(this.coffee)+
-         Number(this.ac+this.mousedroids);
+       return Number(this.weapons) +
+         Number(this.shields) +
+         Number(this.coffee) +
+         Number(this.ac + this.mousedroids);
      }
   },
-  methods:{
-    checkForm:function(e) {
+  methods: {
+    checkForm: function (e) {
       this.errors = [];
-      if(this.total != 100) this.errors.push("Итоговая сумму должна быть 100!");
-      if(!this.errors.length) return true;
+
+      if (this.total != 100) {
+        this.errors.push('Итоговая сумму должна быть 100!');
+      }
+
+      if (!this.errors.length) {
+        return true;
+      }
+
       e.preventDefault();
     }
   }
@@ -238,23 +336,27 @@ const app = new Vue({
 
 ``` js
 function main(args) {
+  return new Promise((resolve, reject) => {
+    // плохие имена продуктов: vista, empire, mbp
+    let badNames = ['vista','empire','mbp'];
 
-    return new Promise((resolve, reject) => {
+    if (badNames.includes(args.name)) {
+      reject({ error: 'Существующий продукт' });
+    }
 
-        // плохие имена продуктов: vista, empire, mbp
-        let badNames = ['vista','empire','mbp'];
-        if(badNames.includes(args.name)) reject({error:'Существующий продукт'});
-        resolve({status:'ok'});
-
-    });
-
+    resolve({ status: 'ok' });
+  });
 }
 ```
 
 В принципе, любое имя кроме "vista", "empire", и "mbp" приемлемы. Хорошо, давайте посмотрим на форму.
 
 ``` html
-<form id="app" @submit="checkForm" method="post">
+<form
+  id="app"
+  @submit="checkForm"
+  method="post"
+>
   
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
@@ -265,11 +367,19 @@ function main(args) {
 
   <p>
     <label for="name">Имя нового продукта: </label>
-    <input type="text" name="name" id="name" v-model="name">
+    <input
+      id="name"
+      v-model="name"
+      type="text"
+      name="name"
+    >
   </p>
 
   <p>
-    <input type="submit" value="Отправить">  
+    <input
+      type="submit"
+      value="Отправить"
+    >  
   </p>
 
 </form>
@@ -281,28 +391,30 @@ function main(args) {
 const apiUrl = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/productName.json?name=';
 
 const app = new Vue({
-  el:'#app',
-  data:{
-    errors:[],
-    name:''
+  el: '#app',
+  data: {
+    errors: [],
+    name: ''
   },
-  methods:{
-    checkForm:function(e) {
+  methods: {
+    checkForm: function (e) {
       e.preventDefault();
+
       this.errors = [];
-      if(this.name === '') {
-        this.errors.push("Укажите имя продукта.");
+
+      if (this.name === '') {
+        this.errors.push('Укажите имя продукта.');
       } else {
-        fetch(apiUrl+encodeURIComponent(this.name))
-        .then(res => res.json())
-        .then(res => {
-          if(res.error) {
-            this.errors.push(res.error);
-          } else {
-            // перенаправляем на новый URL, или делаем что-либо при успехе
-            alert('ok!');
-          }
-        });
+        fetch(apiUrl + encodeURIComponent(this.name))
+          .then(res => res.json())
+          .then(res => {
+            if (res.error) {
+              this.errors.push(res.error);
+            } else {
+              // перенаправляем на новый URL, или делаем что-либо при успехе
+              alert('ok!');
+            }
+          });
       }
     }
   }
