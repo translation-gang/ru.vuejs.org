@@ -9,14 +9,14 @@ order: 2
 Могут быть данные/утилиты, которые планируете использовать во многих компонентах, но не хотите при этом [загрязнять глобальную область видимости](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md). В этих случаях вы можете сделать их доступными для каждого экземпляра Vue, указав их в прототипе:
 
 ```js
-Vue.prototype.$appName = "Моё приложение";
+Vue.prototype.$appName = 'Моё приложение';
 ```
 
 Теперь `$appName` доступно во всех экземплярах Vue, даже до создания. Если мы запустим:
 
 ```js
 new Vue({
-  beforeCreate: function() {
+  beforeCreate: function () {
     console.log(this.$appName);
   }
 });
@@ -37,7 +37,7 @@ new Vue({
 Ещё один хороший вопрос! Допустим, если вы установили:
 
 ```js
-Vue.prototype.appName = "Моё приложение";
+Vue.prototype.appName = 'Моё приложение';
 ```
 
 Тогда что вы ожидаете будет выведено в консоль в примере ниже?
@@ -47,12 +47,12 @@ new Vue({
   data: {
     // Ох ах - appName *случайно* совпало с именем
     // свойства экземпляра, которое мы определили!
-    appName: "Название какого-то другого приложения"
+    appName: 'Название какого-то другого приложения'
   },
-  beforeCreate: function() {
+  beforeCreate: function () {
     console.log(this.appName);
   },
-  created: function() {
+  created: function () {
     console.log(this.appName);
   }
 });
@@ -86,15 +86,15 @@ Vue.prototype.$http = axios;
 
 ```js
 new Vue({
-  el: "#app",
+  el: '#app',
   data: {
     users: []
   },
   created() {
     var vm = this;
     this.$http
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then(function(response) {
+      .get('https://jsonplaceholder.typicode.com/users')
+      .then(function (response) {
         vm.users = response.data;
       });
   }
@@ -108,20 +108,20 @@ new Vue({
 Воспользуемся этой возможностью в методе `$reverseText`:
 
 ```js
-Vue.prototype.$reverseText = function(propertyName) {
+Vue.prototype.$reverseText = function (propertyName) {
   this[propertyName] = this[propertyName]
-    .split("")
+    .split('')
     .reverse()
-    .join("");
+    .join('');
 };
 
 new Vue({
   data: {
-    message: "Привет"
+    message: 'Привет'
   },
-  created: function() {
+  created: function () {
     console.log(this.message); // => "Привет"
-    this.$reverseText("message");
+    this.$reverseText('message');
     console.log(this.message); // => "тевирП"
   }
 });
@@ -132,9 +132,9 @@ new Vue({
 ```js
 Vue.prototype.$reverseText = propertyName => {
   this[propertyName] = this[propertyName]
-    .split("")
+    .split('')
     .reverse()
-    .join("");
+    .join('');
 };
 ```
 
@@ -164,16 +164,16 @@ Uncaught TypeError: Cannot read property 'split' of undefined
 
 ```js
 var App = Object.freeze({
-  name: "My App",
-  version: "2.1.4",
+  name: 'Моё приложение',
+  version: '2.1.4',
   helpers: {
     // Это чистая функциональная версия
     // метода $reverseText, который мы видели ранее
-    reverseText: function(text) {
+    reverseText: function (text) {
       return text
-        .split("")
+        .split('')
         .reverse()
-        .join("");
+        .join('');
     }
   }
 });
