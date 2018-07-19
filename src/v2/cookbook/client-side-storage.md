@@ -74,7 +74,7 @@ const app = new Vue({
 
 У нас есть 2 поля (опять-таки связанные с экземпляром Vue), но теперь добавилась и кнопка, запускающая метод `persist`. Давайте посмотрим на код JavaScript.
 
-``` js 
+``` js
 const app = new Vue({
   el: '#app',
   data: {
@@ -111,14 +111,15 @@ const app = new Vue({
 ``` html
 <div id="app">
   <h2>Коты</h2>
-  <div v-for="(cat,n) in cats">
+  <div v-for="(cat, n) in cats">
     <p>
-      <span class="cat">{{cat}}</span> <button @click="removeCat(n)">Удалить</button>
+      <span class="cat">{{ cat }}</span>
+      <button @click="removeCat(n)">Удалить</button>
     </p>
   </div>
   
   <p>
-    <input v-model="newCat"> 
+    <input v-model="newCat">
     <button @click="addCat">Добавить кота</button>
   </p>
 </div>
@@ -148,7 +149,7 @@ const app = new Vue({
       if (!this.newCat) {
         return;
       }
-      
+
       this.cats.push(this.newCat);
       this.newCat = '';
       this.saveCats();
