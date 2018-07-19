@@ -117,7 +117,7 @@ const app = new Vue({
       <button @click="removeCat(n)">Удалить</button>
     </p>
   </div>
-  
+
   <p>
     <input v-model="newCat">
     <button @click="addCat">Добавить кота</button>

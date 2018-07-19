@@ -17,14 +17,14 @@ order: 3
   action="https://vuejs.org/"
   method="post"
 >
-  
+
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
     <ul>
       <li v-for="error in errors">{{ error }}</li>
     </ul>
   </p>
-  
+
   <p>
     <label for="name">Имя</label>
     <input
@@ -63,7 +63,7 @@ order: 3
     <input
       type="submit"
       value="Отправить"
-    >  
+    >
   </p>
 
 </form>
@@ -91,7 +91,7 @@ const app = new Vue({
       }
 
       this.errors = [];
-      
+
       if (!this.name) {
         this.errors.push('Требуется указать имя.');
       }
@@ -122,14 +122,14 @@ const app = new Vue({
   method="post"
   novalidate="true"
 >
-  
+
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
     <ul>
       <li v-for="error in errors">{{ error }}</li>
     </ul>
   </p>
-  
+
   <p>
     <label for="name">Имя</label>
     <input
@@ -167,7 +167,7 @@ const app = new Vue({
     <input
       type="submit"
       value="Отправить"
-    >  
+    >
   </p>
 
 </form>
@@ -228,7 +228,7 @@ const app = new Vue({
   method="post"
   novalidate="true"
 >
-  
+
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
     <ul>
@@ -278,7 +278,7 @@ const app = new Vue({
     <input
       type="submit"
       value="Отправить"
-    >  
+    >
   </p>
 
 </form>
@@ -357,7 +357,7 @@ function main(args) {
   @submit="checkForm"
   method="post"
 >
-  
+
   <p v-if="errors.length">
     <b>Пожалуйста исправьте указанные ошибки:</b>
     <ul>
@@ -379,7 +379,7 @@ function main(args) {
     <input
       type="submit"
       value="Отправить"
-    >  
+    >
   </p>
 
 </form>

@@ -14,7 +14,7 @@ order: 6
 <template>
   <div>
     <input v-model="username">
-    <div 
+    <div
       v-if="error"
       class="error"
     >
@@ -107,7 +107,7 @@ test('Foo', () => {
       {{ message }}
     </div>
     Введите имя пользователя: <input v-model="username">
-    <div 
+    <div
       v-if="error"
       class="error"
     >
