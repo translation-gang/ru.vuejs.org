@@ -1,68 +1,68 @@
 ---
-title: Dockerize Vue.js App
+title: Интегрируем Docker в приложение Vue.js
 type: cookbook
 order: 13
 ---
 
-## Simple Example
+## Простой пример
 
-So you built your first Vue.js app using the amazing [Vue.js webpack template](https://github.com/vuejs-templates/webpack) and now you really want to show off with your colleagues by demonstrating that you can also run it in a Docker container.
+Итак, вы создали свое первое приложение на Vue.js, используя потрясающий [шаблон для webpack Vue.js] (https://github.com/vuejs-templates/webpack), и теперь вы на самом деле хотите похвастаться своим коллегам, продемонстрировав им, что вы можете также запустите его в Docker-контейнере.
 
-Let's start by creating a `Dockerfile` in the root folder of our project:
+Начнем с создания `Dockerfile` в корневом каталоге нашего проекта:
 
 ```docker
 FROM node:9.11.1-alpine
 
-# install simple http server for serving static content
+# установить простой HTTP-сервис для обслуживания статичного содержимого
 RUN npm install -g http-server
 
-# make the 'app' folder the current working directory
+# сделать каталог 'app' текущим рабочим каталогом
 WORKDIR /app
 
-# copy both 'package.json' and 'package-lock.json' (if available)
+# скопировать оба 'package.json' и 'package-lock.json' (если есть)
 COPY package*.json ./
 
-# install project dependencies
+# установить зависимости проекта
 RUN npm install
 
-# copy project files and folders to the current working directory (i.e. 'app' folder)
+# скопировать файлы и каталоги проекта в текущий рабочий каталог (например, в каталог 'app')
 COPY . .
 
-# build app for production with minification
+# собрать прилложение для продакшена с минификацией
 RUN npm run build
 
 EXPOSE 8080
 CMD [ "http-server", "dist" ]
 ```
 
-It may seem reduntant to first copy `package.json` and `package-lock.json` and then all project files and folders in two separate steps but there is actually [a very good reason for that](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/) (spoiler: it allows us to take advantage of cached Docker layers).
+Может показаться излишним копировать `package.json` и `package-lock.json`, а затем все файлы и каталоги проекта в два отдельных шага, но на самом деле есть [одна очень весная причина для этого](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/) (спойлер: это позволяет нам использовать кешированные слои Docker).
 
-Now let's build the Docker image of our Vue.js app:
+Теперь давайте соберём образ Docker для нашего приложения на Vue.js:
 
 ```bash
 docker build -t vuejs-cookbook/dockerize-vuejs-app .
 ```
 
-Finally, let's run our Vue.js app in a Docker container:
+Наконец, давайте запустим наше приложение Vue.js в контейнере Docker:
 
 ```bash
 docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
 ```
 
-We should be able to access our Vue.js app on `localhost:8080`.
+У нас есть доступ к нашему Vue.js-приложению по адресу `localhost: 8080`.
 
-## Real-World Example
+## Пример из реальной жизни
 
-In the previous example, we used a simple, zero-configuration command-line [http server](https://github.com/indexzero/http-server) to serve our Vue.js app which is perfectly ok for quick prototyping and _may_ even be ok for simple production scenarios. After all, the documentation says:
+В предыдущем примере мы использовали простой [HTTP-сервер](https://github.com/indexzero/http-server), работающий из командной строки без необходимости ручной конфигурации, для обслуживания нашего приложения на Vue.js, который отлично подходит для быстрого прототипирования и _может быть_ даже для простых сценариев на продакшене. В конце концов, в документации говорится:
 
-> It is powerful enough for production usage, but it's simple and hackable enough to be used for testing, local development, and learning.
+> Он достаточно мощный для использования в продакшене, но он прост и достаточно уязвим для хакерских атак, поэтому он подходит для использования в качестве тестирования, локальной разработки и обучения.
 
-Nevertheless, for realistically complex production use cases, it may be wiser to stand on the shoulders of some giant like [NGINX](https://www.nginx.com/) or [Apache](https://httpd.apache.org/) and that is exactly what we are going to do next: we are about to leverage NGINX to serve our Vue.js app because it is considered to be one of the most performant and battle-tested solutions out there.
+Тем не менее, для реально сложных случаев использования в продакшене может быть разумнее стоять на плечах какого-нибудь гиганта, например, такого как [NGINX](https://www.nginx.com/) или [Apache](https://httpd.apache.org/), и это именно то, что мы собираемся сделать дальше: мы собираемся использовать NGINX для обслуживания нашего приложения на Vue.js, потому что данный сервер считается одним из наиболее эффективных и проверенных на практике решений.
 
-Let's refactor our `Dockerfile` to use NGINX:
+Давайте отрефакторим наш `Dockerfile` для использования NGINX:
 
  ```docker
-# build stage
+# этап сборки (build stage)
 FROM node:9.11.1-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
@@ -70,31 +70,31 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# production stage
+# продакшен-этап (production-stage)
 FROM nginx:1.13.12-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-Ok, let's see what's going on here:
-* we have split our original `Dockerfile` in multiple stages by leveraging the Docker [multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/) feature;
-* the first stage is responsible for building a production-ready artifact of our Vue.js app;
-* the second stage is responsible for serving such artifact using NGINX.
+Хорошо, давайте посмотрим, что здесь происходит:
+* мы разделили наш оригинальный файл `Dockerfile` на несколько этапа, используя возможность Docker [многоступенчатые сборки](https://docs.docker.com/develop/develop-images/multistage-build/);
+* первый этап отвечает за сборку готового для продакшена артефакта нашего приложения Vue.js;
+* второй этап отвечает за обслуживание такого артефакта с использованием NGINX.
 
-Now let's build the Docker image of our Vue.js app:
+Теперь давайте соберём Docker-образ нашего приложения на Vue.js:
 
 ```bash
 docker build -t vuejs-cookbook/dockerize-vuejs-app .
 ```
 
-Finally, let's run our Vue.js app in a Docker container:
+Наконец, давайте запустим наше приложение Vue.js в контейнере Docker:
 
 ```bash
 docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
 ```
 
-We should be able to access our Vue.js app on `localhost:8080`.
+У нас есть доступ к нашему Vue.js-приложению по адресу `localhost: 8080`.
 
 ## Additional Context
 
