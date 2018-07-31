@@ -283,7 +283,7 @@
   </div>
 </div>
 
-<div id="sidebar-sponsors-platinum">
+<div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
@@ -305,9 +305,10 @@
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
-    Поддержите Vue.js
+    Стать спонсором
   </a>
 </div>
+
 
       
         <h2>
@@ -957,6 +958,33 @@
   </div>
 </div>
 
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
 
 <div class="content guide with-sidebar forms-guide">
     
@@ -976,7 +1004,7 @@
       <h1>Работа с формами</h1>
     
     
-      <h2 id="Типичное-использование"><a href="#Типичное-использование" class="headerlink" title="Типичное использование"></a>Типичное использование</h2><p>Вы можете использовать директиву <code>v-model</code> для двунаправленного связывания данных с элементами форм input и textarea. Способ обновления элемента выбирается автоматически в зависимости от типа элемента. Хотя <code>v-model</code> и выглядит как нечто слегка волшебное, в действительности это всего лишь синтаксический сахар для обновления данных в элементах ввода, с некоторыми поправками для граничных случаев.</p>
+      <h2 id="Типичное-использование"><a href="#Типичное-использование" class="headerlink" title="Типичное использование"></a>Типичное использование</h2><p>Вы можете использовать директиву <code>v-model</code> для двунаправленного связывания данных с элементами форм input, textarea и select. Способ обновления элемента выбирается автоматически в зависимости от типа элемента. Хотя <code>v-model</code> и выглядит как нечто слегка волшебное, в действительности это всего лишь синтаксический сахар для обновления данных в элементах ввода, с некоторыми поправками для граничных случаев.</p>
 <p class="tip"><code>v-model</code> будет игнорировать атрибуты <code>value</code>, <code>checked</code> или <code>selected</code> найденные на любых элементах форм. Данные экземпляра Vue всегда будут рассматриваться как источник истины. Вы должны объявить начальное значение на стороне JavaScript, внутри опции <code>data</code> вашего компонента.</p>
 
 <p class="tip" id="vmodel-ime-tip">В языках, требующих <a href="https://ru.wikipedia.org/wiki/IME" target="_blank" rel="noopener">IME</a> (китайский, японский, корейский и т.д.), можно заметить, что <code>v-model</code> не обновляется по мере IME-композиции. Если вы хотите обрабатывать и эти обновления, используйте события <code>input</code>.</p>

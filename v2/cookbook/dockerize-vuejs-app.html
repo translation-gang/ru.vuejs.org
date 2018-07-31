@@ -283,7 +283,7 @@
   </div>
 </div>
 
-<div id="sidebar-sponsors-platinum">
+<div id="sidebar-sponsors-platinum-left">
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
@@ -305,9 +305,10 @@
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
-    Поддержите Vue.js
+    Стать спонсором
   </a>
 </div>
+
 
       
         <h2>
@@ -402,6 +403,33 @@
   </div>
 </div>
 
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="/images/bit-wide.png" alt="">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="/images/tooltwist.png" alt="tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="/images/vueschool.png" alt="vue school">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="/images/vehikl.png" alt="vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="/images/nativescript.png" alt="nativescript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
 
 <div class="content cookbook with-sidebar ">
     
@@ -434,7 +462,7 @@
 <blockquote>
 <p>It is powerful enough for production usage, but it’s simple and hackable enough to be used for testing, local development, and learning.</p>
 </blockquote>
-<p>Nevertheless, for realistically complex production use cases, it may be wiser to stand on the shoulders of some giant like <a href="https://www.nginx.com/" target="_blank" rel="noopener">NGINX</a> or <a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a> and that is exactly what we are going to do next: we are about to leverage NGINX to serve our vue.js app because it is considered to be one of the most performant and battle-tested solutions out there.</p>
+<p>Nevertheless, for realistically complex production use cases, it may be wiser to stand on the shoulders of some giant like <a href="https://www.nginx.com/" target="_blank" rel="noopener">NGINX</a> or <a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a> and that is exactly what we are going to do next: we are about to leverage NGINX to serve our Vue.js app because it is considered to be one of the most performant and battle-tested solutions out there.</p>
 <p>Let’s refactor our <code>Dockerfile</code> to use NGINX:</p>
  <figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="comment"># build stage</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">9.11</span>.<span class="number">1</span>-alpine as build-stage</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="bash">COPY package*.json ./</span></span><br><span class="line"><span class="bash">RUN npm install</span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash">RUN npm run build</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># production stage</span></span></span><br><span class="line"><span class="bash">FROM nginx:1.13.12-alpine as production-stage</span></span><br><span class="line"><span class="bash">COPY --from=build-stage /app/dist /usr/share/nginx/html</span></span><br><span class="line"><span class="bash">EXPOSE 80</span></span><br><span class="line"><span class="bash">CMD [<span class="string">"nginx"</span>, <span class="string">"-g"</span>, <span class="string">"daemon off;"</span>]</span></span><br></pre></td></tr></table></figure>
 <p>Ok, let’s see what’s going on here:</p>
@@ -465,7 +493,7 @@
 <h2 id="Alternative-Patterns"><a href="#Alternative-Patterns" class="headerlink" title="Alternative Patterns"></a>Alternative Patterns</h2><p>If your company is not into Docker and Kubernetes just yet or you simply want to get your MVP out the door, maybe dockerizing your Vue.js app is not what you need.</p>
 <p>Common alternatives are:</p>
 <ul>
-<li>leveraging an all-in-one platform like <a href="https://www.netlify.com/" target="_blank" rel="noopener">netlify</a>;</li>
+<li>leveraging an all-in-one platform like <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>;</li>
 <li>hosting your SPA on <a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener">Amazon S3</a> and serving it with <a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener">Amazon CloudFront</a> (see <a href="https://serverless-stack.com/chapters/deploy-the-frontend.html" target="_blank" rel="noopener">this</a> link for a detailed guide).</li>
 </ul>
 
