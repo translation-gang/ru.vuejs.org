@@ -96,28 +96,28 @@ docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/docke
 
 У нас есть доступ к нашему Vue.js-приложению по адресу `localhost: 8080`.
 
-## Additional Context
+## Дополнительный контекст
 
-If you are reading this cookbook, chances are you already know why you decided to dockerize your Vue.js app. But if you simply landed on this page after hitting the Google's `I'm feeling lucky` button, let me share with you a couple of good reasons for doing that.
+Если вы читаете этот сборник рецептов, скорее всего, вы уже знаете, почему вы решили использовать Docker в вашем приложении на Vue.js. Но если вы просто пришли на данную страницу, нажав кнопку «Мне повезёт» с Google, позвольте мне поделиться с вами несколькими вескими основаниями для этого.
 
-Today's modern trend is to build applications using the [Cloud-Native](https://pivotal.io/cloud-native) approach which revolves mainly around the following buzzwords:
-* Microservices
+Сегодняшняя современная тенденция заключается в создании приложений с использованием подхода [Cloud-Native](https://pivotal.io/cloud-native), который связан главным образом со следующими ключевыми словами:
+* Микросервисы
 * DevOps
-* Continuous Delivery
+* Непрерывная доставка
 
-Let's see how these concepts actually affect our decision of dockerizing our Vue.js app.
+Посмотрим, как эти понятия действительно влияют на наше решение о использовании Docker в нашем приложении на Vue.js.
 
-### Effects of Microservices
+### Последствия микросервисов
 
-By adopting the [microservices architectural style](https://martinfowler.com/microservices/), we end up building a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms. These services are built around business capabilities and independently deployable by fully automated deployment machinery.
+Принимая этот [архитектурный стиль микросервисов](https://martinfowler.com/microservices/), мы создаём единое приложение в как набор небольших сервисов, каждый из которых работает в собственном процессе и взаимодействует с лёгкими механизмами. Эти сервисы основаны на бизнес-возможностях и независимо развёртываются путём полного автоматизированного механизма развёртывания.
 
-So, committing to this architectural approach most of the time implies developing and delivering our front-end as an independent service.
+Таким образом, принятие этого архитектурного подхода в большинстве случаев подразумевает разработку и доставку нашего фронтенда как независимого сервиса.
 
-### Effects of DevOps
+### Последствия DevOps
 
-The adoption of [DevOps](https://martinfowler.com/bliki/DevOpsCulture.html) culture, tools and agile engineering practices has, among other things, the nice effect of increasing the collaboration between the roles of development and operations. One of the main problem of the past (but also today in some realities) is that the dev team tended to be uninterested in the operation and maintenance of a system once it was handed over to the ops team, while the latter tended to be not really aware of the system's business goals and, therefore, reluctant in satisfying the operational needs of the system (also referred to as "whims of developers").
+Принимая культуру [DevOps](https://martinfowler.com/bliki/DevOpsCulture.html), инструменты и гибкую инженерную практику, в частности, получается хороший эффект расширения сотрудничества между ролями разработки и операциями. Одна из главных проблем прошлого (но и сегодня в некоторых реалиях) заключается в том, что команда разработчиков обычно не интересовалась операцией и обслуживанием системы после её передачи команде технической поддержки, в то время как последняя, как правило, не была в курсе всех бизнес-целей системы и, следовательно, неохотно удовлетворяя оперативные потребности системы (также называемые "капризы разработчиков").
 
-So, delivering our Vue.js app as a Docker image helps reducing, if not removing entirely, the difference between running the service on a deveveloper's laptop, the production environment or any environment we may think of.
+Таким образом, доставка нашего Vue.js-приложения в качестве Docker-образа помогает уменьшить, если не полностью устранить, разницу между запуском сервиса на ноутбуке разработчика, в продакшене или любом другом окружении, о котором мы можем думать.
 
 ### Effects of Continuous Delivery
 
