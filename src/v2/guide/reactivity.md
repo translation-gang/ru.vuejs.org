@@ -8,7 +8,7 @@ order: 601
 
 ## Как отслеживаются изменения
 
-Когда простой JavaScript-объект передаётся в экземпляр Vue в качестве опции `data`, Vue обходит все его поля и превращает их в пары геттер/сеттер, используя [Object.defineProperty](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty). Эта возможность появилась в JavaScript только начиная с версии ES5, и в более ранних версиях её эмулировать не получится — по этой-то причине Vue и не поддерживает IE8 и ниже.
+Когда простой JavaScript-объект передаётся в экземпляр Vue в качестве опции `data`, Vue обходит все его поля и превращает их в пары [геттер/сеттер](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters), используя [Object.defineProperty](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty). Эта возможность появилась в JavaScript только начиная с версии ES5, и в более ранних версиях её эмулировать не получится — по этой-то причине Vue и не поддерживает IE8 и ниже.
 
 Геттеры и сеттеры не видны пользователю, но именно они являются тем внутренним механизмом, который позволяет Vue отслеживать зависимости и изменения данных. К сожалению, при таком подходе выведенные в консоль браузера геттеры и сеттеры выглядят не так, как обычные объекты, поэтому для более наглядной визуализации лучше использовать [инструменты разработчика Vue-devtools](https://github.com/vuejs/vue-devtools).
 
