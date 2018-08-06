@@ -113,22 +113,22 @@ docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/docke
 
 Таким образом, принятие этого архитектурного подхода в большинстве случаев подразумевает разработку и доставку нашего фронтенда как независимого сервиса.
 
-### Последствия DevOps
+### Влияние DevOps
 
 Принимая культуру [DevOps](https://martinfowler.com/bliki/DevOpsCulture.html), инструменты и гибкую инженерную практику, в частности, получается хороший эффект расширения сотрудничества между ролями разработки и операциями. Одна из главных проблем прошлого (но и сегодня в некоторых реалиях) заключается в том, что команда разработчиков обычно не интересовалась операцией и обслуживанием системы после её передачи команде технической поддержки, в то время как последняя, как правило, не была в курсе всех бизнес-целей системы и, следовательно, неохотно удовлетворяя оперативные потребности системы (также называемые "капризы разработчиков").
 
 Таким образом, доставка нашего Vue.js-приложения в качестве Docker-образа помогает уменьшить, если не полностью устранить, разницу между запуском сервиса на ноутбуке разработчика, в продакшене или любом другом окружении, о котором мы можем думать.
 
-### Effects of Continuous Delivery
+### Влияние непрерывной доставки
 
-By leveraging the [Continuous Delivery](https://martinfowler.com/bliki/ContinuousDelivery.html) discipline we build our software in a way that it can potentially be released to production at any time. Such engineering practice is enabled by means of what is normally called [continuous delivery pipeline](https://martinfowler.com/bliki/DeploymentPipeline.html). The purpose of a continuous delivery pipeline is to split our build into stages (e.g. compilation, unit tests, integration tests, performance tests, etc.) and let each stage verify our build artifact whenever our software changes. Ultimately, each stage increases our confidence in the production readiness of our build artifact and, therefore, reduces the risk of breaking things in production (or any other environment for that matters).
+Используя дисциплину [непрерывная доставка](https://martinfowler.com/bliki/ContinuousDelivery.html), мы создаём наше программное обеспечение таким образом, чтобы оно могло быть выпущено в продакшен в любое время. Такая инженерная практика обеспечивается с помощью того, что обычно называется [конвейер непрерывной доставки](https://martinfowler.com/bliki/DeploymentPipeline.html). Цель непрерывной доставки — разделение нашей сборки на этапы (например, компиляция, модульные тесты, интеграционные тесты, тесты производительности и т.д.), И каждый этап проверяет наш артефакт сборки каждый раз при изменении нашего программного обеспечения. В конечном итоге, каждый этап повышает нашу уверенность в готовности к продакшену нашего артефакта сборки и, следовательно, снижает риск сломать что-то в продакшене (или любых других окружений по этой причине).
 
-So, creating a Docker image for our Vue.js app is a good choice here because that would represent our final build artifact, the same artifact that would be verified against our continuous delivery pipeline and that could potentially be released to production with confidence.
+Таким образом, создание Docker-образа для нашего приложения на Vue.js является хорошим выбором, потому что это будет представлять собой наш последний артефакт сборки, тот же артефакт, который будет проверен нашим конвейером непрерывной  доставки и который потенциально может быть выпущен в продакшен с уверенностью.
 
-## Alternative Patterns
+## Альтернативные варианты
 
-If your company is not into Docker and Kubernetes just yet or you simply want to get your MVP out the door, maybe dockerizing your Vue.js app is not what you need.
+Если ваша компания ещё не использует Docker и Kubernetes, или вы просто хотите выпустить в продакшен ваш MVP, возможно, интеграция Docker к вашему приложения на Vue.js не то, что вам нужно.
 
-Common alternatives are:
-* leveraging an all-in-one platform like [Netlify](https://www.netlify.com/);
-* hosting your SPA on [Amazon S3](https://aws.amazon.com/s3/) and serving it with [Amazon CloudFront](https://aws.amazon.com/cloudfront/) (see [this](https://serverless-stack.com/chapters/deploy-the-frontend.html) link for a detailed guide).
+Распространённые альтернативы:
+* использование платформы «всё-в-одном», например [Netlify](https://www.netlify.com/);
+* Размещенеие вашего SPA на [Amazon S3](https://aws.amazon.com/s3/) и его обслуживание с [Amazon CloudFront](https://aws.amazon.com/cloudfront/) (см. [эту страницу](https://serverless-stack.com/chapters/deploy-the-frontend.html) для подробного руководства).
