@@ -78,7 +78,7 @@ filters: {
   currencydecimal (value) {
     return value.toFixed(2)
   }
-},
+}
 ```
 
 <p data-height="300" data-theme-id="32763" data-slug-hash="9d59319c09eaccfaf35d9e9f11990f0f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Third Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/9d59319c09eaccfaf35d9e9f11990f0f/">Third Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) на <a href="https://codepen.io">CodePen</a>.</p>
