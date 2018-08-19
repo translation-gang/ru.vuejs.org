@@ -145,7 +145,7 @@ type: api
   }
   ```
 
-  ```js
+  ```html
   <input type="text" @keyup.media-play-pause="method">
   ```
 
