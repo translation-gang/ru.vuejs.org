@@ -20,7 +20,7 @@ order: 8
 
 Откройте `config/index.js` и найдите свойство `devtool`. Обновите до указанного:
 
-```json
+```js
 devtool: 'source-map',
 ```
 
@@ -101,7 +101,7 @@ module.exports = {
 
 Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать [нативное выражение debugger](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger) прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти выражения после окончания отладки.
 
-```js
+```html
 <script>
 export default {
   data() {
