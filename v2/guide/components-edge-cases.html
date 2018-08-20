@@ -582,7 +582,7 @@
             
         
         <li>
-            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические & Асинхронные компоненты</a>
+            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические и асинхронные компоненты</a>
         </li>
     
         
@@ -606,7 +606,7 @@
             
             
             
-                <li><h3>Переходы & Анимации</h3></li>
+                <li><h3>Переходы и анимации</h3></li>
             
             
             
@@ -641,7 +641,7 @@
             
             
             
-                <li><h3>Переиспользование & Композиция</h3></li>
+                <li><h3>Переиспользование и композиция</h3></li>
             
             
             
@@ -1009,7 +1009,7 @@
 </blockquote>
 <p class="tip">Все возможности, описанные на этой странице, описывают способы обработки крайних случаев, что означает необычные ситуации, которые иногда требуют исключений в правилах Vue. Однако обратите внимание, что все они имеют недостатки или ситуации, когда они могут быть опасными. Они отмечены в каждом случае, поэтому помните о них, когда решаете использовать каждую из возможностей.</p>
 
-<h2 id="Доступ-к-элементу-amp-компоненту"><a href="#Доступ-к-элементу-amp-компоненту" class="headerlink" title="Доступ к элементу &amp; компоненту"></a>Доступ к элементу &amp; компоненту</h2><p>В большинстве случаев лучше избегать связи с другими экземплярами компонентов или вручную манипулировать элементами DOM. Однако есть случаи, когда это может быть уместно.</p>
+<h2 id="Доступ-к-элементу-и-компоненту"><a href="#Доступ-к-элементу-и-компоненту" class="headerlink" title="Доступ к элементу и компоненту"></a>Доступ к элементу и компоненту</h2><p>В большинстве случаев лучше избегать связи с другими экземплярами компонентов или вручную манипулировать элементами DOM. Однако есть случаи, когда это может быть уместно.</p>
 <h3 id="Доступ-к-корневому-экземпляру"><a href="#Доступ-к-корневому-экземпляру" class="headerlink" title="Доступ к корневому экземпляру"></a>Доступ к корневому экземпляру</h3><p>В каждом дочернем компоненте экземпляра <code>new Vue</code>, к этому корневому экземпляру можно получить доступ через свойство <code>$root</code>. Например, для этого корневого экземпляра:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Корневой экземпляр Vue</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    bar: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    baz: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Теперь все дочерние компоненты смогут получить доступ к этому экземпляру и использовать его в качестве глобального хранилища:</p>
@@ -1027,7 +1027,7 @@
 <p>Затем внутри <code>&lt;google-map-markers&gt;</code> вы можете застать себя за созданием хаков наподобие такого:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">this</span>.$parent.map || <span class="keyword">this</span>.$parent.$parent.map</span><br></pre></td></tr></table></figure>
 <p>Это может быстро выйти из-под контроля. Поэтому, чтобы предоставлять контекстную информацию для компонентов-потомков на любую глубину вложенности, мы вместо этого рекомендуем <a href="#Внедрение-зависимостей">инъекцию зависимостей</a>.</p>
-<h3 id="Доступ-к-экземплярам-дочерних-компонентов-amp-элементов"><a href="#Доступ-к-экземплярам-дочерних-компонентов-amp-элементов" class="headerlink" title="Доступ к экземплярам дочерних компонентов &amp; элементов"></a>Доступ к экземплярам дочерних компонентов &amp; элементов</h3><p>Несмотря на наличие входных параметров и событий, иногда вам может потребоваться прямой доступ к дочернему компоненту в JavaScript. Для этого вы можете назначить ссылочный ID дочернему компоненту с помощью атрибута <code>ref</code>. Например:</p>
+<h3 id="Доступ-к-экземплярам-дочерних-компонентов-и-элементов"><a href="#Доступ-к-экземплярам-дочерних-компонентов-и-элементов" class="headerlink" title="Доступ к экземплярам дочерних компонентов и элементов"></a>Доступ к экземплярам дочерних компонентов и элементов</h3><p>Несмотря на наличие входных параметров и событий, иногда вам может потребоваться прямой доступ к дочернему компоненту в JavaScript. Для этого вы можете назначить ссылочный ID дочернему компоненту с помощью атрибута <code>ref</code>. Например:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">ref</span>=<span class="string">"usernameInput"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Теперь в компоненте, где вы определили этот <code>ref</code>, вы можете использовать:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.usernameInput</span><br></pre></td></tr></table></figure>
@@ -1120,7 +1120,7 @@
       <div class="guide-links">
         
         
-          <span>← <a href="/v2/guide/components-dynamic-async.html">Динамические & Асинхронные компоненты</a></span>
+          <span>← <a href="/v2/guide/components-dynamic-async.html">Динамические и асинхронные компоненты</a></span>
         
         
         
