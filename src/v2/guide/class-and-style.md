@@ -131,7 +131,7 @@ Vue.component('my-component', {
 <my-component class="baz boo"></my-component>
 ```
 
-В результате рендеринга получим:
+В результате отрисовки получим:
 
 ``` html
 <p class="foo bar baz boo">Привет</p>

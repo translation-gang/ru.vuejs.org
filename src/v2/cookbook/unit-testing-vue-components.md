@@ -47,7 +47,7 @@ export default {
 import { shallowMount } from '@vue/test-utils'
 
 test('Foo', () => {
-  // рендерим компонент в изоляции
+  // отрисовываем компонент в изоляции
   const wrapper = shallowMount(Hello)
 
   // устанавливаем `username` меньше 7 символов, без учёта пробелов
