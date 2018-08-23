@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1014,7 +1014,7 @@
 <p>На этой странице мы рассмотрим только анимации появления и исчезновения элементов, а также анимации списков. В следующем разделе вы можете найти информацию об <a href="transitioning-state.html">анимировании переходов между состояниями</a>.</p>
 <h2 id="Анимирование-одиночного-элемента-компонента"><a href="#Анимирование-одиночного-элемента-компонента" class="headerlink" title="Анимирование одиночного элемента/компонента"></a>Анимирование одиночного элемента/компонента</h2><p>Vue располагает компонентом-обёрткой <code>transition</code>, позволяющим анимировать появление и исчезновение элемента или компонента в следующих случаях:</p>
 <ul>
-<li>Условный рендеринг (используя <code>v-if</code>)</li>
+<li>Условная отрисовка (используя <code>v-if</code>)</li>
 <li>Условное отображение (используя <code>v-show</code>)</li>
 <li>Динамические компоненты</li>
 <li>Корневые элементы компонентов</li>
@@ -1077,13 +1077,13 @@ new Vue({
 <p>Для каждого из этих классов указывается префикс, соответствующий имени перехода. Префикс <code>v-</code> применяется по умолчанию, если элемент <code>&lt;transition&gt;</code> используется без указания параметра <code>name</code> . Например, для <code>&lt;transition name=&quot;my-transition&quot;&gt;</code> вместо класса <code>v-enter</code> будет применяться <code>my-transition-enter</code>.</p>
 <p><code>v-enter-active</code> и <code>v-leave-active</code> дают возможность указать различные анимационные эффекты для переходов появления и исчезновения элемента. Пример их использования будет приведён ниже.</p>
 <h3 id="CSS-переходы"><a href="#CSS-переходы" class="headerlink" title="CSS-переходы"></a>CSS-переходы</h3><p>Одни из самых распространённых типов анимации — это CSS-переходы. Вот небольшой пример:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить рендеринг</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"slide-fade"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить отрисовку</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"slide-fade"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Анимации появления и исчезновения могут иметь */</span></span><br><span class="line"><span class="comment">/* различные продолжительности и динамику.       */</span></span><br><span class="line"><span class="selector-class">.slide-fade-enter-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all .<span class="number">3s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-fade-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all .<span class="number">8s</span> <span class="built_in">cubic-bezier</span>(1.0, 0.5, 0.8, 1.0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-fade-enter</span>, <span class="selector-class">.slide-fade-leave-to</span></span><br><span class="line"><span class="comment">/* .slide-fade-leave-active до версии 2.1.8 */</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateX</span>(10px);</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <div id="example-1" class="demo">
   <button @click="show = !show">
-    Переключить рендеринг
+    Переключить отрисовку
   </button>
   <transition name="slide-fade">
     <p v-if="show">привет</p>
@@ -1181,13 +1181,13 @@ new Vue({
 </ul>
 <p>Таким образом стандартные названия классов будут переопределены, что может быть особенно полезно для комбинирования системы анимированных переходов Vue с возможностями сторонних библиотек CSS-анимаций, таких как <a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">Animate.css</a>.</p>
 <p>Вот пример:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/animate.css@3.5.1"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить рендеринг</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">"custom-classes-transition"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">enter-active-class</span>=<span class="string">"animated tada"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">leave-active-class</span>=<span class="string">"animated bounceOutRight"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/animate.css@3.5.1"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"show = !show"</span>&gt;</span></span><br><span class="line">    Переключить отрисовку</span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">    <span class="attr">name</span>=<span class="string">"custom-classes-transition"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">enter-active-class</span>=<span class="string">"animated tada"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">leave-active-class</span>=<span class="string">"animated bounceOutRight"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"show"</span>&gt;</span>привет<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-3'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    show: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 <div id="example-3" class="demo">
   <button @click="show = !show">
-    Переключить рендеринг
+    Переключить отрисовку
   </button>
   <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
     <p v-if="show">привет</p>
@@ -1264,7 +1264,7 @@ new Vue({
 })
 </script>
 
-<h2 id="Переходы-при-первичном-рендеринге"><a href="#Переходы-при-первичном-рендеринге" class="headerlink" title="Переходы при первичном рендеринге"></a>Переходы при первичном рендеринге</h2><p>Если вы хотите, чтобы пользователь увидел анимацию перехода и при изначальном рендеринге, добавьте атрибут <code>appear</code>:</p>
+<h2 id="Переходы-при-первичной-отрисовке"><a href="#Переходы-при-первичной-отрисовке" class="headerlink" title="Переходы при первичной отрисовке"></a>Переходы при первичной отрисовке</h2><p>Если вы хотите, чтобы пользователь увидел анимацию перехода и при изначальной отрисовке, добавьте атрибут <code>appear</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">appear</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>По умолчанию будут задействованы переходы, указанные для появления и исчезновения. Можно, впрочем, указать и отдельные:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear-class</span>=<span class="string">"custom-appear-class"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">appear-to-class</span>=<span class="string">"custom-appear-to-class"</span> (в версии <span class="attr">2.1.8</span>+)</span></span><br><span class="line"><span class="tag">  <span class="attr">appear-active-class</span>=<span class="string">"custom-appear-active-class"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>

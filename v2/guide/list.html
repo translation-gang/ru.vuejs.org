@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Рендеринг списков — Vue.js</title>
+        <title>Отрисовка списков — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,12 +17,12 @@
         <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/list.html">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Рендеринг списков — Vue.js">
+        <meta property="og:title" content="Отрисовка списков — Vue.js">
         <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Рендеринг списков — Vue.js">
+        <meta name="twitter:title" content="Отрисовка списков — Vue.js">
         <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link current">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link current">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1001,10 +1001,10 @@
       
     
     
-      <h1>Рендеринг списков</h1>
+      <h1>Отрисовка списков</h1>
     
     
-      <h2 id="Отображение-массива-элементов-с-помощью-v-for"><a href="#Отображение-массива-элементов-с-помощью-v-for" class="headerlink" title="Отображение массива элементов с помощью v-for"></a>Отображение массива элементов с помощью <code>v-for</code></h2><p>Используйте директиву <code>v-for</code> для рендеринга списка элементов на основе массива данных. Директива <code>v-for</code> требует особого синтаксиса: записи <code>item in items</code>, где <code>items</code> — исходный массив данных, а <code>item</code> — <strong>ссылка</strong> на текущий элемент массива:</p>
+      <h2 id="Отображение-массива-элементов-с-помощью-v-for"><a href="#Отображение-массива-элементов-с-помощью-v-for" class="headerlink" title="Отображение массива элементов с помощью v-for"></a>Отображение массива элементов с помощью <code>v-for</code></h2><p>Используйте директиву <code>v-for</code> для отрисовки списка элементов на основе массива данных. Директива <code>v-for</code> требует особого синтаксиса: записи <code>item in items</code>, где <code>items</code> — исходный массив данных, а <code>item</code> — <strong>ссылка</strong> на текущий элемент массива:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Результат:</p>
@@ -1129,7 +1129,7 @@ new Vue({
 <p class="tip">При итерировании по объекту, порядок обхода такой же, как порядок ключей в <code>Object.keys()</code>. Его консистентность <strong>не гарантируется</strong> при использовании различных реализаций движков JavaScript.</p>
 
 <h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>Когда Vue обновляет список элементов, управляемый директивой <code>v-for</code>, по умолчанию используется стратегия “обновления на месте”. Если порядок элементов массива или объекта изменился, Vue не будет перемещать элементы DOM, а попросту обновит каждый элемент “на месте”, чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
-<p>Режим по умолчанию эффективен, но применим только в случаях, <strong>когда результат рендеринга вашего списка не полагается на состояние дочерних компонентов или временные состояния DOM (например, значения полей форм)</strong>.</p>
+<p>Режим по умолчанию эффективен, но применим только в случаях, <strong>когда результат отрисовки вашего списка не полагается на состояние дочерних компонентов или временные состояния DOM (например, значения полей форм)</strong>.</p>
 <p>Чтобы подсказать Vue, как отслеживать идентичность каждого элемента, позволяющую переиспользовать и перемещать существующие элементы, укажите уникальный атрибут <code>key</code> для каждого элемента. Идеальным значением <code>key</code> будет уникальный id сущности. Этот специальный атрибут является приблизительным эквивалентом <code>track-by</code> из Vue 1.x, но работает так же, как и все остальные атрибуты, а значит вам нужно использовать <code>v-bind</code> для связывания с динамическими значениями (в примере ниже используется сокращение):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- содержимое --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Рекомендуем указывать <code>key</code> с <code>v-for</code> по возможности всегда, за исключением случаев, когда итерируемый контент DOM прост, или когда вы сознательно используете стратегию по умолчанию для улучшения производительности.</p>
@@ -1147,7 +1147,7 @@ new Vue({
 <p>Вы можете открыть консоль и поиграть с массивом <code>items</code> из предыдущего примера, вызывая его методы внесения изменений. Например: <code>example1.items.push({ message: &#39;Baz&#39; })</code>.</p>
 <h3 id="Замены-в-массиве"><a href="#Замены-в-массиве" class="headerlink" title="Замены в массиве"></a>Замены в массиве</h3><p>Методы внесения изменений, как следует из их названия, изменяют оригинальный массив, на котором они вызываются. Существуют и неизменяющие методы, такие как <code>filter()</code>, <code>concat()</code> и <code>slice()</code>, не вносящие изменений в изначальный массив, а <strong>всегда возвращающие новый массив</strong>. При работе с неизменяющими методами вы можете просто заменить старый массив новым:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">example1.items = example1.items.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item.message.match(<span class="regexp">/Foo/</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>Можно было бы предположить, что это заставит Vue выбросить существующий DOM и перерендерить список целиком, но, к счастью, это не так. Во Vue есть умные эвристики для максимизации переиспользования элементов DOM, так что замена одного массива другим, в случае совпадения части элементов в этих массивах, является очень эффективной операцией.</p>
+<p>Можно было бы предположить, что это заставит Vue выбросить существующий DOM и переотрисовать список целиком, но, к счастью, это не так. Во Vue есть умные эвристики для максимизации переиспользования элементов DOM, так что замена одного массива другим, в случае совпадения части элементов в этих массивах, является очень эффективной операцией.</p>
 <h3 id="Предостережения"><a href="#Предостережения" class="headerlink" title="Предостережения"></a>Предостережения</h3><p>Из-за ограничений JavaScript, Vue <strong>не способен</strong> заметить следующие изменения в массиве:</p>
 <ol>
 <li>Прямую установку элемента по индексу, например: <code>vm.items[indexOfItem] = newValue</code></li>
@@ -1274,7 +1274,7 @@ new Vue({
       <div class="guide-links">
         
         
-          <span>← <a href="/v2/guide/conditional.html">Условный рендеринг</a></span>
+          <span>← <a href="/v2/guide/conditional.html">Условная отрисовка</a></span>
         
         
         

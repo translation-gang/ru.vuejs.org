@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1013,7 +1013,7 @@
 <p>Мы поговорим о <a href="components.html">системе компонентов</a> более подробно позднее. На данный момент запомните, что все компоненты Vue также являются экземплярами Vue и поэтому принимают тот же объект параметров (за исключением нескольких опций, специфичных для корневого).</p>
 <h2 id="Данные-и-методы"><a href="#Данные-и-методы" class="headerlink" title="Данные и методы"></a>Данные и методы</h2><p>Когда экземпляр Vue создан, он добавляет все свойства, найденные в его объекте <code>data</code>, в <strong>систему реактивности</strong> Vue. Когда значения этих свойств изменятся, представление будет «реагировать», обновляясь в соответствии с новыми значениями.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Наш объект data</span></span><br><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Объект добавляется в экземпляр Vue</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Получение свойства из экземпляра</span></span><br><span class="line"><span class="comment">// возвращает то же значение из исходных данных</span></span><br><span class="line">vm.a === data.a <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Изменение свойства экземпляра</span></span><br><span class="line"><span class="comment">// будет влиять на оригинальные данные</span></span><br><span class="line">vm.a = <span class="number">2</span></span><br><span class="line">data.a <span class="comment">// =&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ... и наоборот</span></span><br><span class="line">data.a = <span class="number">3</span></span><br><span class="line">vm.a <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure>
-<p>Когда эти данные изменятся, представление будет перерендерено (повторно отображено). Следует запомнить, что свойства в <code>data</code> будут <strong>реактивными</strong>, только если они существовали при создании экземпляра. Это означает, что если вы добавите новое свойство, например:</p>
+<p>Когда эти данные изменятся, представление будет переотрисовано (повторно отображено). Следует запомнить, что свойства в <code>data</code> будут <strong>реактивными</strong>, только если они существовали при создании экземпляра. Это означает, что если вы добавите новое свойство, например:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.b = <span class="string">'hi'</span></span><br></pre></td></tr></table></figure>
 <p>То изменения в <code>b</code> не будут вызывать никаких обновлений. Если вы знаете, что свойство вам понадобится позже, но изначально оно пустое или несуществующее, вам просто нужно установить начальное значение. Например:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  newTodoText: <span class="string">''</span>,</span><br><span class="line">  visitCount: <span class="number">0</span>,</span><br><span class="line">  hideCompletedTodos: <span class="literal">false</span>,</span><br><span class="line">  todos: [],</span><br><span class="line">  error: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

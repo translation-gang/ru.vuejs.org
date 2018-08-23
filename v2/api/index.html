@@ -419,7 +419,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.config.errorHandler = <span class="function"><span class="keyword">function</span> (<span class="params">err, vm, info</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Обработка ошибки. В `info` подробности Vue-специфичной ошибки,</span></span><br><span class="line">  <span class="comment">// например, в каком хуке жизненного цикла произошла ошибка.</span></span><br><span class="line">  <span class="comment">// Доступно только в версиях 2.2.0+</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Определение обработчика для ошибок, не отловленных во время рендеринга компонентов и в наблюдателях. Обработчик получает аргументами ошибку и действующий экземпляр Vue.</p>
+<p>Определение обработчика для ошибок, не отловленных во время отрисовки компонентов и в наблюдателях. Обработчик получает аргументами ошибку и действующий экземпляр Vue.</p>
 <blockquote>
 <p>В версиях 2.2.0+, этот хук также отслеживает ошибки в хуках жизненного цикла компонентов. Кроме того, если установлено значение <code>undefined</code>, отловленные ошибки будут выведены через <code>console.error</code> вместо остановки приложения.</p>
 </blockquote>
@@ -474,7 +474,7 @@
 <li><p><strong>По умолчанию:</strong> <code>false</code> (с версии 2.2.3+)</p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Установка <code>true</code> включает отслеживание производительности на этапах инициализации, компиляции, рендера и обновления компонента на графике в инструментах разработчика браузера. Работает только в режиме разработки в браузерах, которые поддерживают <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark" target="_blank" rel="noopener">performance.mark</a> API.</p>
+<p>Установка <code>true</code> включает отслеживание производительности на этапах инициализации, компиляции, отрисовки и обновления компонента на графике в инструментах разработчика браузера. Работает только в режиме разработки в браузерах, которые поддерживают <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark" target="_blank" rel="noopener">performance.mark</a> API.</p>
 </li>
 </ul>
 <h3 id="productionTip"><a href="#productionTip" class="headerlink" title="productionTip"></a>productionTip</h3><blockquote>
@@ -819,7 +819,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается перед началом монтирования, перед первым вызовом функции <code>render</code>.</p>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовкe на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -829,9 +829,9 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается сразу после монтирования экземпляра, когда взамен <code>el</code> создан <code>vm.$el</code>. Если корневой экземпляр смонтирован на элемент документа, <code>vm.$el</code> тоже будет элементом документа.</p>
-<p>Обратите внимание, что <code>mounted</code> <strong>не гарантирует</strong> что все дочерние компоненты будут уже примонтированы. Если необходимо подождать пока не будут отрендерены все дочерние, можно воспользоваться <a href="#vm-nextTick">vm.$nextTick</a> внутри <code>mounted</code>:</p>
+<p>Обратите внимание, что <code>mounted</code> <strong>не гарантирует</strong> что все дочерние компоненты будут уже примонтированы. Если необходимо подождать пока не будут отрисованы все дочерние, можно воспользоваться <a href="#vm-nextTick">vm.$nextTick</a> внутри <code>mounted</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Код, который будет запущен только после</span></span><br><span class="line">    <span class="comment">// отображения всех представлений</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -841,7 +841,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается при изменении данных перед тем, как DOM будет обновляться. Это хорошее место для получения доступа к существующему DOM перед обновлением, например чтобы удалить добавленные слушатели событий.</p>
-<p><strong>Не вызывается при рендеринге на стороне сервера, потому что на сервере выполняется только начальный рендеринг.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера, потому что на сервере выполняется только начальная отрисовка.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -852,9 +852,9 @@
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после того, как виртуальный DOM был обновлён из-за изменения данных.</p>
 <p>DOM компонента будет уже обновлён к моменту вызова этого хука, поэтому вы можете выполнять здесь операции связанные с DOM. Тем не менее, старайтесь избегать изменения состояния в этом хуке. Для реагирования на изменения состояния лучше использовать <a href="#computed">вычисляемые свойства</a> или <a href="#watch">отслеживание с помощью watch</a>.</p>
-<p>Обратите внимание, что <code>updated</code> <strong>не гарантирует</strong> что все дочерние компоненты будут уже перерендерены. Если необходимо подождать пока все не будут перерендерены, можно воспользоваться <a href="#vm-nextTick">vm.$nextTick</a> внутри <code>updated</code>:</p>
+<p>Обратите внимание, что <code>updated</code> <strong>не гарантирует</strong> что все дочерние компоненты будут уже переотрисованы. Если необходимо подождать пока все не будут повторно отрисованы, можно воспользоваться <a href="#vm-nextTick">vm.$nextTick</a> внутри <code>updated</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Код, который будет запущен только после</span></span><br><span class="line">    <span class="comment">// обновления всех представлений</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -864,7 +864,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается при активации компонента внутри <code>&lt;keep-alive&gt;</code>.</p>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -878,7 +878,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после деактивации компонента внутри <code>&lt;keep-alive&gt;</code>.</p>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
@@ -892,7 +892,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается перед уничтожением экземпляра Vue. На этом этапе экземпляр всё ещё полностью функционален.</p>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -902,7 +902,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается после уничтожения экземпляра Vue. К моменту вызова этого хука, все директивы экземпляра Vue уже отвязаны, все подписчики событий удалены, а все дочерние экземпляры Vue уничтожены.</p>
-<p><strong>Не вызывается при рендеринге на стороне сервера.</strong></p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -915,7 +915,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Вызывается, когда фиксируется ошибка из любого дочернего компонента. Хук получает три аргумента: ошибку, экземпляр компонента, который вызвал ошибку, и строку, содержащую информацию где была зафиксирована ошибка. Хук может возвращать <code>false</code>, чтобы предотвратить дальнейшее распространение ошибки.</p>
-<p class="tip">Вы можете изменить состояние компонента в этом хуке. Тем не менее, важно иметь в вашем шаблоне или <code>render</code>-функции условия, которые оборачивают другой контент при обнаружении ошибки; иначе компонент может попасть в бесконечный цикл рендеринга.</p>
+<p class="tip">Вы можете изменить состояние компонента в этом хуке. Тем не менее, важно иметь в вашем шаблоне или <code>render</code>-функции условия, которые оборачивают другой контент при обнаружении ошибки; иначе компонент может попасть в бесконечный цикл отрисовки.</p>
 
 <p><strong>Правила распространения ошибок</strong></p>
 <ul>
@@ -1071,7 +1071,7 @@
 <li><p><strong>Тип:</strong> <code>boolean</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Превращает компонент в функциональный, то есть не имеющий собственного состояния (<code>data</code>) и своего экземпляра (<code>this</code>). Такие компоненты по сути — просто <code>render</code>-функция, возвращающая узлы виртуального DOM. Это сильно ускоряет их рендеринг.</p>
+<p>Превращает компонент в функциональный, то есть не имеющий собственного состояния (<code>data</code>) и своего экземпляра (<code>this</code>). Такие компоненты по сути — просто <code>render</code>-функция, возвращающая узлы виртуального DOM. Это сильно ускоряет их отрисовку.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/render-function.html#Функциональные-компоненты">Функциональные компоненты</a></p>
 </li>
@@ -1116,7 +1116,7 @@
 <li><p><strong>Ограничения:</strong> Эта опция доступна только в полной сборке, поддерживающей компиляцию шаблонов в браузере.</p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Когда установлено в значение <code>true</code>, будут сохраняться и рендериться HTML-комментарии, найденные в шаблонах. Поведение по умолчанию выбрасывает их.</p>
+<p>Когда установлено в значение <code>true</code>, будут сохраняться и отрисовываться HTML-комментарии, найденные в шаблонах. Поведение по умолчанию выбрасывает их.</p>
 </li>
 </ul>
 <h2 id="Свойства-экземпляра"><a href="#Свойства-экземпляра" class="headerlink" title="Свойства экземпляра"></a>Свойства экземпляра</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
@@ -1246,7 +1246,7 @@
 <li><p><strong>Подробности:</strong></p>
 <p>Запущен ли данный экземпляр Vue на сервере.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">SSR. Рендеринг на стороне сервера</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">SSR. Отрисовка на стороне сервера</a></p>
 </li>
 </ul>
 <h3 id="vm-attrs"><a href="#vm-attrs" class="headerlink" title="vm.$attrs"></a>vm.$attrs</h3><ul>
@@ -1457,22 +1457,22 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Если при создании экземпляра Vue не была указана опция <code>el</code>, он окажется в “непримонтированном” (unmounted) состоянии, то есть без ассоциированного элемента DOM. Вызовите <code>vm.$mount()</code>, чтобы примонтировать такой экземпляр.</p>
-<p>Если параметр <code>elementOrSelector</code> не указан, шаблон будет отрендерен как элемент вне документа. Вы сможете затем вставить такой элемент нативным интерфейсом DOM.</p>
+<p>Если параметр <code>elementOrSelector</code> не указан, шаблон будет отрисован как элемент вне документа. Вы сможете затем вставить такой элемент нативным интерфейсом DOM.</p>
 <p>Метод возвращает сам экземпляр, чтобы вы могли вызывать дополнительные методы по цепочке.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</span><br><span class="line">  template: <span class="string">'&lt;div&gt;Привет!&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// создаём и монтируем в #app (заменит #app):</span></span><br><span class="line"><span class="keyword">new</span> MyComponent().$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// другой вариант записи, делает то же самое:</span></span><br><span class="line"><span class="keyword">new</span> MyComponent(&#123; <span class="attr">el</span>: <span class="string">'#app'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// рендерим вне документа и вставляем в DOM позднее:</span></span><br><span class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> MyComponent().$mount()</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).appendChild(component.$el)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</span><br><span class="line">  template: <span class="string">'&lt;div&gt;Привет!&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// создаём и монтируем в #app (заменит #app):</span></span><br><span class="line"><span class="keyword">new</span> MyComponent().$mount(<span class="string">'#app'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// другой вариант записи, делает то же самое:</span></span><br><span class="line"><span class="keyword">new</span> MyComponent(&#123; <span class="attr">el</span>: <span class="string">'#app'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// отрисовываем вне документа и вставляем в DOM позднее:</span></span><br><span class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> MyComponent().$mount()</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).appendChild(component.$el)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
-<li><a href="../guide/ssr.html">SSR. Рендеринг на стороне сервера</a></li>
+<li><a href="../guide/ssr.html">SSR. Отрисовка на стороне сервера</a></li>
 </ul>
 </li>
 </ul>
 <h3 id="vm-forceUpdate"><a href="#vm-forceUpdate" class="headerlink" title="vm.$forceUpdate()"></a>vm.$forceUpdate()</h3><ul>
 <li><p><strong>Использование:</strong></p>
-<p>Заставляет экземпляр Vue произвести перерендеринг. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам экземпляр и дочерние компоненты с контентными слотами.</p>
+<p>Заставляет экземпляр Vue произвести переотрисовку. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам экземпляр и дочерние компоненты с контентными слотами.</p>
 </li>
 </ul>
 <h3 id="vm-nextTick-callback"><a href="#vm-nextTick-callback" class="headerlink" title="vm.$nextTick( [callback] )"></a>vm.$nextTick( [callback] )</h3><ul>
@@ -1523,7 +1523,7 @@
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Управляет HTML-содержимым элемента (<code>innerHTML</code>). <strong>Обратите внимание, что содержимое вставляется как обычный HTML — то есть не компилируется как шаблон Vue</strong>. Не стоит организовывать вложенные шаблоны с помощью <code>v-html</code>, попробуйте лучше применить компоненты.</p>
-<p class="tip">Динамический рендеринг произвольного HTML-кода на сайте — это очень опасная практика, легко приводящая к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Передавайте в <code>v-html</code> только содержимое, которому можно доверять, и <strong>никогда</strong> — необработанный пользовательский ввод.</p>
+<p class="tip">Динамическая отрисовка произвольного HTML-кода на сайте — это очень опасная практика, легко приводящая к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Передавайте в <code>v-html</code> только содержимое, которому можно доверять, и <strong>никогда</strong> — необработанный пользовательский ввод.</p>
 
 <p class="tip">В <a href="../guide/single-file-components.html">однофайловых компонентах</a> <code>scoped</code> стили не будут применены к содержимому внутри <code>v-html</code>, потому что этот HTML не обрабатывается компилятором шаблонов Vue. Если вы хотите стилизовать содержимое <code>v-html</code> с помощью локального CSS, то вы можете вместо этого использовать <a href="https://vue-loader.vuejs.org/ru/features/css-modules.html" target="_blank" rel="noopener">CSS-модули</a> или дополнительный глобальный элемент <code>&lt;style&gt;</code> с иной стратегией, такой как БЭМ.</p>
 </li>
@@ -1540,18 +1540,18 @@
 <p>Переключает CSS-свойство <code>display</code> элемента, в зависимости от того, истинно ли указанное выражение.</p>
 <p>При изменении состояния этой директивы вызываются анимации, заданные в transition.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условный рендеринг — v-show</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условная отрисовка — v-show</a></p>
 </li>
 </ul>
 <h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><ul>
 <li><p><strong>Принимает:</strong> <code>any</code></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Осуществляет рендеринг элемента, только если передаваемое выражение истинно. При изменении значения выражения на противоположное, элемент и содержащиеся в нём компоненты и директивы уничтожаются/пересоздаются. Если элемент — <code>&lt;template&gt;</code>, вместо него будет отрендерено его содержимое.</p>
+<p>Осуществляет отрисовку элемента, только если передаваемое выражение истинно. При изменении значения выражения на противоположное, элемент и содержащиеся в нём компоненты и директивы уничтожаются/пересоздаются. Если элемент — <code>&lt;template&gt;</code>, вместо него будет отрисовано его содержимое.</p>
 <p>Эта директива также запускает анимационные переходы при изменении условия.</p>
-<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if">рендеринга списков</a>.</p>
+<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if">отрисовки списков</a>.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-if">Условный рендеринг — v-if</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-if">Условная отрисовка — v-if</a></p>
 </li>
 </ul>
 <h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
@@ -1563,7 +1563,7 @@
 <p>Определяет “блок else” для <code>v-if</code> или цепочки <code>v-if</code>/<code>v-else-if</code>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></span><br><span class="line">  Сейчас меня видно</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  А сейчас — нет</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else">Условный рендеринг — v-else</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else">Условная отрисовка — v-else</a></p>
 </li>
 </ul>
 <h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><blockquote>
@@ -1578,26 +1578,26 @@
 <p>Обозначает “блок else if” для <code>v-if</code>. Можно объединять в цепочки.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"type === 'A'"</span>&gt;</span></span><br><span class="line">  A</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'B'"</span>&gt;</span></span><br><span class="line">  B</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'C'"</span>&gt;</span></span><br><span class="line">  C</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  Не A/B/C</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else-if">Условный рендеринг — v-else-if</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else-if">Условная отрисовка — v-else-if</a></p>
 </li>
 </ul>
 <h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
 <li><p><strong>Принимает:</strong> <code>Array | Object | number | string</code></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Многократно рендерит элемент или блок шаблона, основываясь на переданных данных. Значение директивы должно следовать синтаксису <code>alias in expression</code> — в <code>alias</code> будет элемент текущей итерации:</p>
+<p>Многократно отрисовывает элемент или блок шаблона, основываясь на переданных данных. Значение директивы должно следовать синтаксису <code>alias in expression</code> — в <code>alias</code> будет элемент текущей итерации:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">  &#123;&#123; item.text &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p> Кроме того, вы можете указать название для индекса (или ключа, если вы работаете с объектом):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key, index) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>По умолчанию <code>v-for</code> будет пытаться обновить элементы “на месте”, не перемещая их. Если вам нужно, чтобы элементы перемещались, сохраняя явную упорядоченность, укажите атрибут <code>key</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">  &#123;&#123; item.text &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if&quot;">рендеринга списков</a>.</p>
+<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if&quot;">отрисовки списков</a>.</p>
 
 <p>Использование <code>v-for</code> подробно описано в секции руководства по ссылке ниже.</p>
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="../guide/list.html">Рендеринг списков</a></li>
+<li><a href="../guide/list.html">Отрисовка списков</a></li>
 <li><a href="../guide/list.html#key">key</a></li>
 </ul>
 </li>
@@ -1690,7 +1690,7 @@
 <li><p><strong>Модификаторы:</strong></p>
 <ul>
 <li><a href="../guide/forms.html#lazy"><code>.lazy</code></a> — подписаться на события <code>change</code>, а не <code>input</code></li>
-<li><a href="../guide/forms.html#number"><code>.number</code></a> — приводить введённую строку к числу</li>
+<li><a href="../guide/forms.html#number"><code>.number</code></a> — приводить корректную введённую строку к числу</li>
 <li><a href="../guide/forms.html#trim"><code>.trim</code></a> — удалять пробелы в начале и в конце введённой строки</li>
 </ul>
 </li>
@@ -1730,7 +1730,7 @@
 <li><p><strong>Не принимает какое-либо выражение</strong></p>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p><strong>Однократно</strong> рендерит элемент или компонент. При повторном рендеринге он, а также все его потомки, рассматриваются как статический контент и пропускаются. Это поможет увеличить производительность обновлений.</p>
+<p><strong>Однократно</strong> отрисовывает элемент или компонент. При повторной отрисовке он, а также все его потомки, рассматриваются как статический контент и пропускаются. Это поможет увеличить производительность обновлений.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- одиночный элемент --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>Это никогда не изменится: &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- элемент с потомком --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-once</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>comment<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- компонент --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-once</span> <span class="attr">:comment</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- директива `v-for` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"i in list"</span> <span class="attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong></p>
@@ -1743,7 +1743,7 @@
 <h2 id="Специальные-атрибуты"><a href="#Специальные-атрибуты" class="headerlink" title="Специальные атрибуты"></a>Специальные атрибуты</h2><h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><ul>
 <li><p><strong>Принимает:</strong> <code>number | string</code></p>
 <p>Атрибут <code>key</code> помогает алгоритму работы с виртуальным DOM определить, какие ноды соответствует какой строке данных. Если этот атрибут не указан, Vue использует алгоритм, минимизирующий перемещение элементов и старается обновить и повторно использовать как можно больше элементов правильного типа “на местах”. А если ключ указан, Vue изменяет порядок следования элементов, основываясь на изменении порядка ключей. Элементы, соответствующие ключам, которых больше нет, Vue всегда уничтожает.</p>
-<p>Потомки одного и того же общего родителя должны иметь <strong>уникальные ключи</strong>. Повторяющиеся ключи приведут к ошибкам при рендеринге.</p>
+<p>Потомки одного и того же общего родителя должны иметь <strong>уникальные ключи</strong>. Повторяющиеся ключи приведут к ошибкам при отрисовке.</p>
 <p>Как правило, используется в связке с <code>v-for</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Можно также применить эту директиву, чтобы элемент всегда заменялся на новый, а не переиспользовался. Это может помочь, если вы хотите:</p>
@@ -1761,7 +1761,7 @@
 <p>Название элемента или компонента для регистрации ссылки на него. В объекте <code>$refs</code> появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или экземпляром компонента, если атрибут стоял на пользовательском компоненте:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- vm.$refs.p будет DOM-элементом --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">"p"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- vm.$refs.child будет указывать на экземпляр дочернего компонента --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">child-component</span> <span class="attr">ref</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или экземпляры компонентов.</p>
-<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются <code>render</code>-функцией, вы не сможете использовать их при первичном рендеринге — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
+<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются <code>render</code>-функцией, вы не сможете использовать их при первичной отрисовке — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components-edge-cases.html#Доступ-к-экземплярам-дочерних-компонентов-amp-элементов">Ссылки на компоненты-потомки</a></p>
 </li>
@@ -1815,8 +1815,8 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>“Метакомпонент” для рендеринга динамических компонентов. Настоящий компонент для рендеринга определяется параметром <code>is</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- динамический компонент, контролируемый --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- свойством vm `componentId`--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentId"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- может также рендерить зарегистрированный или переданный параметром компонент --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.child"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>“Метакомпонент” для отрисовки динамических компонентов. Настоящий компонент для отрисовки определяется параметром <code>is</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- динамический компонент, контролируемый --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- свойством vm `componentId`--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"componentId"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- может также отрисовываеть зарегистрированный или переданный параметром компонент --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"$options.components.child"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Динамическое-переключение-компонентов">Динамическое переключение компонентов</a></p>
 </li>
@@ -1825,7 +1825,7 @@
 <li><p><strong>Входные параметры:</strong></p>
 <ul>
 <li><code>name</code> — string, используется для автоматической генерации имён CSS-классов для анимаций. Например, <code>name: &#39;fade&#39;</code> автоматически раскроется в <code>.fade-enter</code>, <code>.fade-enter-active</code> и т. д. Значение по умолчанию — <code>&quot;v&quot;</code>.</li>
-<li><code>appear</code> — boolean, вызывать ли анимацию при первом рендеринге. По умолчанию <code>false</code>.</li>
+<li><code>appear</code> — boolean, вызывать ли анимацию при первой отрисовке. По умолчанию <code>false</code>.</li>
 <li><code>css</code> — boolean, применять ли CSS-классы. По умолчанию <code>true</code>. Если установить в <code>false</code>, будут вызываться только обработчики JavaScript, зарегистрированные для событий компонента.</li>
 <li><code>type</code> — string, указывает тип событий, с помощью которых определяется момент завершения анимации. Доступные значения: <code>&quot;transition&quot;</code> и <code>&quot;animation&quot;</code>. По умолчанию автоматически выбирается тип, задающий наибольшую продолжительность.</li>
 <li><code>mode</code> — string, управляет порядком анимаций исчезновения и появления элементов. Доступные режимы <code>&quot;out-in&quot;</code> (сначала старый элемент исчезает, потом новый появляется) и <code>&quot;in-out&quot;</code> (сначала новый элемент появляется, потом исчезает старый). По умолчанию исчезновение и появление происходят одновременно.</li>
@@ -1857,7 +1857,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Указывает анимацию перехода для <strong>одного</strong> элемента или компонента. <code>&lt;transition&gt;</code> не порождает дополнительного элемента DOM при рендеринге, и не отображается в иерархии компонентов в инспекторе. Этот компонент просто применяет поведение перехода к своему содержимому.</p>
+<p>Указывает анимацию перехода для <strong>одного</strong> элемента или компонента. <code>&lt;transition&gt;</code> не порождает дополнительного элемента DOM при отрисовке, и не отображается в иерархии компонентов в инспекторе. Этот компонент просто применяет поведение перехода к своему содержимому.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- простой элемент --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- динамический компонент --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- хук на событие --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  ...</span><br><span class="line">  methods: &#123;</span><br><span class="line">    transitionComplete: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// сделайте что-нибудь с переданным элементом DOM ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</span><br></pre></td></tr></table></figure>
 </li>
@@ -1894,12 +1894,12 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кешировать экземпляры интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при рендеринге он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
+<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кешировать экземпляры интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при отрисовке он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
 <p>Когда компонент, расположенный внутри <code>&lt;keep-alive&gt;</code> показывается или скрывается, вызываются его хуки жизненного цикла <code>activated</code> или <code>deactivated</code> соответственно.</p>
 <blockquote>
 <p>В версии 2.2.0+, <code>activated</code> и <code>deactivated</code> будет срабатывать для всех вложенных компонентов внутри <code>&lt;keep-alive&gt;</code> дерева.</p>
 </blockquote>
-<p>В основном используется для сохранения состояния компонента, чтобы избежать повторного рендеринга.</p>
+<p>В основном используется для сохранения состояния компонента, чтобы избежать повторной отрисовки.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- базовый вариант --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- несколько потомков --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- использование вместе с `&lt;transition&gt;` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Обратите внимание, <code>&lt;keep-alive&gt;</code> предназначен для случая, когда есть один прямой дочерний компонент, который переключается. Он не будет работать, если в нём есть <code>v-for</code>. При наличии несколько дочерних компонентов отображаемых по условию, как указано выше, <code>&lt;keep-alive&gt;</code> требует, чтобы отображался только один дочерний компонент  в один момент времени.</p>
 </li>
@@ -1922,7 +1922,7 @@
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
-<p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при рендеринге заменяется.</p>
+<p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при отрисовке заменяется.</p>
 <p>Подробнее этот механизм описан в руководстве по ссылке ниже.</p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></p>
@@ -1931,7 +1931,7 @@
 <h2 id="Интерфейс-VNode"><a href="#Интерфейс-VNode" class="headerlink" title="Интерфейс VNode"></a>Интерфейс VNode</h2><ul>
 <li>Смотрите информацию об <a href="https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js" target="_blank" rel="noopener">объявлении классов VNode</a>.</li>
 </ul>
-<h2 id="Рендеринг-на-стороне-сервера"><a href="#Рендеринг-на-стороне-сервера" class="headerlink" title="Рендеринг на стороне сервера"></a>Рендеринг на стороне сервера</h2><ul>
+<h2 id="Отрисовка-на-стороне-сервера"><a href="#Отрисовка-на-стороне-сервера" class="headerlink" title="Отрисовка на стороне сервера"></a>Отрисовка на стороне сервера</h2><ul>
 <li>Смотрите <a href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer" target="_blank" rel="noopener">документацию пакета vue-server-renderer</a>.</li>
 </ul>
 

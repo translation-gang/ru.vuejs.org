@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1005,7 +1005,7 @@
     
     
       <p>Чтобы связывать DOM с данными экземпляра, Vue использует синтаксис, основанный на HTML. Все шаблоны Vue являются валидным HTML-кодом, который могут распарсить все HTML-парсеры и браузеры.</p>
-<p>Для работы Vue компилирует шаблоны в <code>render</code>-функции виртуального DOM. В сочетании с системой реактивности Vue умеет определять минимальное количество компонентов для повторного рендеринга и применяет минимальное число манипуляций к DOM при изменении состояния приложения.</p>
+<p>Для работы Vue компилирует шаблоны в <code>render</code>-функции виртуального DOM. В сочетании с системой реактивности Vue умеет определять минимальное количество компонентов для повторной отрисовки и применяет минимальное число манипуляций к DOM при изменении состояния приложения.</p>
 <p>Если вы знакомы с концепцией виртуального DOM и предпочитаете использовать ничем не ограниченную мощь JavaScript, вы можете также <a href="render-function.html">писать render-функции напрямую</a>, минуя этап шаблонов, в том числе и используя JSX.</p>
 <h2 id="Интерполяции"><a href="#Интерполяции" class="headerlink" title="Интерполяции"></a>Интерполяции</h2><h3 id="Текст"><a href="#Текст" class="headerlink" title="Текст"></a>Текст</h3><p>Наиболее простой способ связывания данных — это текстовая интерполяция с использованием синтаксиса Mustache (двойных фигурных скобок):</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Сообщение: &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1031,13 +1031,13 @@ new Vue({
 </script>
 
 <p>Содержимое этого <code>span</code> будет заменено значением свойства <code>rawHtml</code>, интерпретированного как обычный HTML — все привязки данных игнорируются. Обратите внимание, что вы не можете использовать <code>v-html</code> для вложения шаблонов друг в друга, так как движок шаблонов Vue не основывается на строках. Вместо этого лучше использовать компоненты, позволяющие сочетать и переиспользовать элементы UI.</p>
-<p class="tip">Динамический рендеринг произвольного HTML-кода на вашем сайте крайне опасен, так как может легко привести к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Используйте интерполяцию HTML только с доверенным кодом, и <strong>никогда</strong> не подставляйте туда контент, созданный пользователем.</p>
+<p class="tip">Динамическая отрисовка произвольного HTML-кода на вашем сайте крайне опасен, так как может легко привести к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Используйте интерполяцию HTML только с доверенным кодом, и <strong>никогда</strong> не подставляйте туда контент, созданный пользователем.</p>
 
 <h3 id="Атрибуты"><a href="#Атрибуты" class="headerlink" title="Атрибуты"></a>Атрибуты</h3><p>Синтаксис двойных фигурных скобок не работает с HTML-атрибутами. Используйте вместо него <a href="../api/#v-bind">директиву v-bind</a>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"dynamicId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>В случае использования булевых атрибутов, когда их наличие подразумевает <code>true</code>, <code>v-bind</code> работает несколько иначе. В этом примере:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:disabled</span>=<span class="string">"isButtonDisabled"</span>&gt;</span>Кнопка<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Если <code>isButtonDisabled</code> будет иметь значение <code>null</code>, <code>undefined</code> или <code>false</code>, то атрибут <code>disabled</code> не будет отрендерен в элементе <code>&lt;button&gt;</code>.</p>
+<p>Если <code>isButtonDisabled</code> будет иметь значение <code>null</code>, <code>undefined</code> или <code>false</code>, то атрибут <code>disabled</code> не будет отрисован в элементе <code>&lt;button&gt;</code>.</p>
 <h3 id="Использование-выражений-JavaScript"><a href="#Использование-выражений-JavaScript" class="headerlink" title="Использование выражений JavaScript"></a>Использование выражений JavaScript</h3><p>До сих пор мы связывали данные со свойствами в шаблонах только по простым ключам. Но на самом деле при связывании данных Vue поддерживает всю мощь выражений JavaScript:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; number + 1 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; ok ? 'YES' : 'NO' &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"'list-' + id"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Эти выражения будут вычислены как JavaScript-код в области видимости соответствующего экземпляра Vue. Единственным ограничением является то, что допускается только <strong>одно выражение</strong>, так что код ниже <strong>НЕ</strong> сработает:</p>

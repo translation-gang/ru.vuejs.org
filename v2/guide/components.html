@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1271,7 +1271,7 @@ new Vue({
 <h2 id="Особенности-парсинга-DOM-шаблона"><a href="#Особенности-парсинга-DOM-шаблона" class="headerlink" title="Особенности парсинга DOM-шаблона"></a>Особенности парсинга DOM-шаблона</h2><p>Некоторые HTML-элементы, такие как <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code> и <code>&lt;select&gt;</code> имеют ограничения на то, какие элементы могут отображаться внутри них, или например элементы, такие как <code>&lt;li&gt;</code>, <code>&lt;tr&gt;</code> и <code>&lt;option&gt;</code> могут появляться только внутри других определённых элементов.</p>
 <p>Это приведёт к проблемам при использовании компонентов с элементами, которые имеют такие ограничения. Например:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">blog-post-row</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Пользовательский компонент <code>&lt;blog-post-row&gt;</code> будет поднят выше, так как считается недопустимым содержимым, вызывая ошибки в итоговом рендеринге. К счастью, специальный атрибут <code>is</code> предоставляет решение этой проблемы:</p>
+<p>Пользовательский компонент <code>&lt;blog-post-row&gt;</code> будет поднят выше, так как считается недопустимым содержимым, вызывая ошибки в итоговой отрисовке. К счастью, специальный атрибут <code>is</code> предоставляет решение этой проблемы:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"blog-post-row"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Следует отметить, что <strong>этого ограничения <em>не будет</em> если вы используете строковые шаблоны из одного из следующих источников</strong>:</p>
 <ul>

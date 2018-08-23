@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Условный рендеринг — Vue.js</title>
+        <title>Условная отрисовка — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,12 +17,12 @@
         <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/conditional.html">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Условный рендеринг — Vue.js">
+        <meta property="og:title" content="Условная отрисовка — Vue.js">
         <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Условный рендеринг — Vue.js">
+        <meta name="twitter:title" content="Условная отрисовка — Vue.js">
         <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link current">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link current">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1001,7 +1001,7 @@
       
     
     
-      <h1>Условный рендеринг</h1>
+      <h1>Условная отрисовка</h1>
     
     
       <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a><code>v-if</code></h2><p>В строковых шаблонизаторах, например в Handlebars, мы бы определили условно отображаемый блок так:</p>
@@ -1010,7 +1010,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>Да<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Также можно добавить “блок иначе”, используя <code>v-else</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>Да<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-else</span>&gt;</span>Нет<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Условные-группы-с-использованием-v-if-и-lt-template-gt"><a href="#Условные-группы-с-использованием-v-if-и-lt-template-gt" class="headerlink" title="Условные группы с использованием v-if и &lt;template&gt;"></a>Условные группы с использованием <code>v-if</code> и <code>&lt;template&gt;</code></h3><p>Поскольку <code>v-if</code> — это директива, она должна быть указана в одном конкретном теге. А что если мы хотим управлять отображением сразу нескольких элементов? В этом случае мы можем применить <code>v-if</code> к псевдоэлементу <code>&lt;template&gt;</code>, который служит невидимой обёрткой и сам в результатах рендеринга не появляется.</p>
+<h3 id="Условные-группы-с-использованием-v-if-и-lt-template-gt"><a href="#Условные-группы-с-использованием-v-if-и-lt-template-gt" class="headerlink" title="Условные группы с использованием v-if и &lt;template&gt;"></a>Условные группы с использованием <code>v-if</code> и <code>&lt;template&gt;</code></h3><p>Поскольку <code>v-if</code> — это директива, она должна быть указана в одном конкретном теге. А что если мы хотим управлять отображением сразу нескольких элементов? В этом случае мы можем применить <code>v-if</code> к псевдоэлементу <code>&lt;template&gt;</code>, который служит невидимой обёрткой и сам в результатах отрисовки не появляется.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Заголовок<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Абзац 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Абзац 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a><code>v-else</code></h3><p>Для указания блока “иначе” для <code>v-if</code> можно использовать директиву <code>v-else</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"Math.random() &gt; 0.5"</span>&gt;</span></span><br><span class="line">  Сейчас меня видно</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  А теперь — нет</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1021,7 +1021,7 @@
 <p>Как следует из названия, <code>v-else-if</code> служит в качестве “блока else if” для директивы <code>v-if</code>. Можно объединять эти директивы в длинные цепочки:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"type === 'A'"</span>&gt;</span></span><br><span class="line">  A</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'B'"</span>&gt;</span></span><br><span class="line">  B</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else-if</span>=<span class="string">"type === 'C'"</span>&gt;</span></span><br><span class="line">  C</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  Не A/B/C</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Подобно <code>v-else</code>, <code>v-else-if</code> должен непосредственно следовать за элементом с <code>v-if</code> или <code>v-else-if</code>.</p>
-<h3 id="Управление-повторным-использованием-элементов-при-помощи-key"><a href="#Управление-повторным-использованием-элементов-при-помощи-key" class="headerlink" title="Управление повторным использованием элементов при помощи key"></a>Управление повторным использованием элементов при помощи <code>key</code></h3><p>Vue старается рендерить элементы DOM настолько эффективно, насколько это возможно, зачастую переиспользуя их вместо того чтобы создавать заново. Помимо улучшения производительности, в этом подходе можно обнаружить и иные преимущества. Например, если вы позволяете пользователю переключаться между несколькими возможными типами логина:</p>
+<h3 id="Управление-повторным-использованием-элементов-при-помощи-key"><a href="#Управление-повторным-использованием-элементов-при-помощи-key" class="headerlink" title="Управление повторным использованием элементов при помощи key"></a>Управление повторным использованием элементов при помощи <code>key</code></h3><p>Vue старается отрисовывать элементы DOM настолько эффективно, насколько это возможно, зачастую переиспользуя их вместо того чтобы создавать заново. Помимо улучшения производительности, в этом подходе можно обнаружить и иные преимущества. Например, если вы позволяете пользователю переключаться между несколькими возможными типами логина:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"loginType === 'username'"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Имя пользователя<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Введите имя пользователя"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Введите адрес email"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Переключение <code>loginType</code> в коде выше не сотрёт то, что пользователь уже ввёл. Оба шаблона используют одни и те же элементы, поэтому <code>&lt;input&gt;</code> не заменяется — только его <code>placeholder</code>.</p>
 <p>Попробуйте сами, сначала введя что-нибудь в поле ввода, а затем нажав на кнопку переключения:</p>
@@ -1055,7 +1055,7 @@ new Vue({
 
 <p>Такое поведение не всегда желательно, поэтому Vue позволяет явно сказать: “эти элементы должны быть полностью независимы: не надо их переиспользовать”. Для этого нужно всего лишь указать уникальное значение ключа <code>key</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"loginType === 'username'"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Имя пользователя<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Введите имя пользователя"</span> <span class="attr">key</span>=<span class="string">"username-input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Введите адрес email"</span> <span class="attr">key</span>=<span class="string">"email-input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Теперь эти поля ввода будут рендериться заново при каждом переключении. Смотрите сами:</p>
+<p>Теперь эти поля ввода будут отрисовываться заново при каждом переключении. Смотрите сами:</p>
 
 <div id="key-example" class="demo">
   <div>
@@ -1090,11 +1090,11 @@ new Vue({
 <p>Разница состоит в том, что элемент с <code>v-show</code> будет всегда оставаться в DOM, а изменяться будет лишь свойство <code>display</code> в его параметрах CSS.</p>
 <p class="tip">Обратите внимание, что <code>v-show</code> не поддерживает использование элемента <code>&lt;template&gt;</code> и не работает с <code>v-else</code>.</p>
 
-<h2 id="v-if-в-сравнении-с-v-show"><a href="#v-if-в-сравнении-с-v-show" class="headerlink" title="v-if в сравнении с v-show"></a><code>v-if</code> в сравнении с <code>v-show</code></h2><p><code>v-if</code> производит “настоящий” условный рендеринг, удостоверяясь что подписчики событий и дочерние компоненты внутри блока должным образом уничтожаются и воссоздаются при изменении истинности управляющего условия.</p>
-<p><code>v-if</code> также <strong>ленив</strong>: если условие ложно на момент первоначального рендеринга, он не произведёт никаких действий — условный блок не будет отображён, пока условие впервые не станет истинным.</p>
+<h2 id="v-if-в-сравнении-с-v-show"><a href="#v-if-в-сравнении-с-v-show" class="headerlink" title="v-if в сравнении с v-show"></a><code>v-if</code> в сравнении с <code>v-show</code></h2><p><code>v-if</code> производит “настоящий” условная отрисовка, удостоверяясь что подписчики событий и дочерние компоненты внутри блока должным образом уничтожаются и воссоздаются при изменении истинности управляющего условия.</p>
+<p><code>v-if</code> также <strong>ленив</strong>: если условие ложно на момент первоначальной отрисовки, он не произведёт никаких действий — условный блок не будет отображён, пока условие впервые не станет истинным.</p>
 <p><code>v-show</code>, напротив, куда проще: элемент всегда присутствует в DOM, и только CSS-свойство переключается в зависимости от значения выражения.</p>
-<p>В целом у <code>v-if</code> выше затраты на переключения, а у <code>v-show</code> более высокие затраты на первичный рендеринг. Так что если вы предполагаете, что переключения будут частыми, используйте <code>v-show</code>, если же редкими или вовсе маловероятными — <code>v-if</code>.</p>
-<h2 id="v-if-вместе-с-v-for"><a href="#v-if-вместе-с-v-for" class="headerlink" title="v-if вместе с v-for"></a><code>v-if</code> вместе с <code>v-for</code></h2><p>При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="list.html#v-for-и-v-if">рендеринга списков</a>.</p>
+<p>В целом у <code>v-if</code> выше затраты на переключения, а у <code>v-show</code> более высокие затраты на первичную отрисовку. Так что если вы предполагаете, что переключения будут частыми, используйте <code>v-show</code>, если же редкими или вовсе маловероятными — <code>v-if</code>.</p>
+<h2 id="v-if-вместе-с-v-for"><a href="#v-if-вместе-с-v-for" class="headerlink" title="v-if вместе с v-for"></a><code>v-if</code> вместе с <code>v-for</code></h2><p>При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="list.html#v-for-и-v-if">отрисовки списков</a>.</p>
 
     
     
@@ -1105,7 +1105,7 @@ new Vue({
         
         
         
-          <span style="float: right;"><a href="/v2/guide/list.html">Рендеринг списков</a> →</span>
+          <span style="float: right;"><a href="/v2/guide/list.html">Отрисовка списков</a> →</span>
         
       </div>
     

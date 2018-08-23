@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1403,7 +1403,7 @@ new Vue({
 </div>
 
 <h3 id="dispatch-and-broadcast-заменён"><a href="#dispatch-and-broadcast-заменён" class="headerlink" title="$dispatch and $broadcast заменён"></a><code>$dispatch</code> and <code>$broadcast</code> <sup>заменён</sup></h3><p><code>$dispatch</code> and <code>$broadcast</code> have been removed in favor of more explicitly cross-component communication and more maintainable state management solutions, such as <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>.</p>
-<p>The problem is event flows that depend on a component’s tree structure can be hard to reason about and very brittle when the tree becomes large. It doesn’t scale well and we don’t want to set you up for pain later. <code>$dispatch</code> and <code>$broadcast</code> also do not solve communication between sibling components.</p>
+<p>The problem is event flows that depend on a component’s tree structure can be hard to reason about and are very brittle when the tree becomes large. They don’t scale well and only set you up for pain later. <code>$dispatch</code> and <code>$broadcast</code> also do not solve communication between sibling components.</p>
 <p>One of the most common uses for these methods is to communicate between a parent and its direct children. In these cases, you can actually <a href="components.html#Form-Input-Components-using-Custom-Events">listen to an <code>$emit</code> from a child with <code>v-on</code></a>. This allows you to keep the convenience of events with added explicitness.</p>
 <p>However, when communicating between distant descendants/ancestors, <code>$emit</code> won’t help you. Instead, the simplest possible upgrade would be to use a centralized event hub. This has the added benefit of allowing you to communicate between components no matter where they are in the component tree - even between siblings! Because Vue instances implement an event emitter interface, you can actually use an empty Vue instance for this purpose.</p>
 <p>For example, let’s say we have a todo app structured like this:</p>

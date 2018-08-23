@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1188,7 +1188,7 @@ new Vue({
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- синхронизируется после "change", а не "input" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"msg"</span> &gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Если вы хотите автоматически приводить то, что ввёл пользователь, к числу, добавьте модификатор <code>number</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Зачастую это оказывается полезным, так как даже при указанном атрибуте <code>type=&quot;number&quot;</code> значением поля ввода всегда является строка.</p>
+<p>Зачастую это оказывается полезным, так как даже при указанном атрибуте <code>type=&quot;number&quot;</code> значением поля ввода всегда является строка. Если значение не удаётся распарсить с помощью <code>parseFloat()</code>, то возвращается оригинальное значение.</p>
 <h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a><code>.trim</code></h3><p>Если вы хотите автоматически обрезать пробелы в начале и в конце введённой строки, используйте модификатор <code>trim</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.trim</span>=<span class="string">"msg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="Использование-v-model-с-компонентами"><a href="#Использование-v-model-с-компонентами" class="headerlink" title="Использование v-model с компонентами"></a>Использование <code>v-model</code> с компонентами</h2><blockquote>

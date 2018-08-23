@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1143,13 +1143,13 @@
 <li><code>injections</code>: (2.3.0+) Если используется опция <a href="../api/#provide-inject"><code>inject</code></a>, будет содержать все разрешённые инъекции.</li>
 </ul>
 <p>После указания <code>functional: true</code>, обновление <code>render</code>-функции нашего компонента для заголовков потребует только добавления параметра <code>context</code>, обновления <code>this.$slots.default</code> на <code>context.children</code> и замены <code>this.level</code> на <code>context.props.level</code>.</p>
-<p>Поскольку функциональные компоненты — это просто функции, их рендеринг обходится значительно дешевле. Однако отсутствие постоянного экземпляра означает, что они не будут отображаться в дереве компонентов во <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a>.</p>
+<p>Поскольку функциональные компоненты — это просто функции, их отрисовка обходится значительно дешевле. Однако отсутствие постоянного экземпляра означает, что они не будут отображаться в дереве компонентов во <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a>.</p>
 <p>Кроме того, они очень удобны в качестве обёрток. Например, если вам нужно:</p>
 <ul>
-<li>Выбрать один из компонентов для последующего рендеринга в данной точке</li>
+<li>Выбрать один из компонентов для последующей отрисовки в данной точке</li>
 <li>Произвести манипуляции над дочерними элементами, входными параметрами или данными, перед тем как передать их в дочерний компонент</li>
 </ul>
-<p>Вот пример компонента <code>smart-list</code>, делегирующего рендеринг к более специализированным компонентам, в зависимости от переданных в него данных:</p>
+<p>Вот пример компонента <code>smart-list</code>, делегирующего отрисовку к более специализированным компонентам, в зависимости от переданных в него данных:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> EmptyList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> TableList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> OrderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> UnorderedList = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'smart-list'</span>, &#123;</span><br><span class="line">  functional: <span class="literal">true</span>,</span><br><span class="line">  props: &#123;</span><br><span class="line">    items: &#123;</span><br><span class="line">      type: <span class="built_in">Array</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    isOrdered: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">createElement, context</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">appropriateListComponent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> items = context.props.items</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (items.length === <span class="number">0</span>)           <span class="keyword">return</span> EmptyList</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> items[<span class="number">0</span>] === <span class="string">'object'</span>) <span class="keyword">return</span> TableList</span><br><span class="line">      <span class="keyword">if</span> (context.props.isOrdered)      <span class="keyword">return</span> OrderedList</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> UnorderedList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> createElement(</span><br><span class="line">      appropriateListComponent(),</span><br><span class="line">      context.data,</span><br><span class="line">      context.children</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="Передача-атрибутов-и-событий-дочерним-элементам-компонентам"><a href="#Передача-атрибутов-и-событий-дочерним-элементам-компонентам" class="headerlink" title="Передача атрибутов и событий дочерним элементам/компонентам"></a>Передача атрибутов и событий дочерним элементам/компонентам</h3><p>В обычных компонентах, атрибуты не определённые как входные параметры, автоматически добавляются к корневому элементу компонента, заменяя или <a href="class-and-style.html">правильно объединяя</a> любые существующие атрибуты с тем же именем.</p>
 <p>Однако функциональные компоненты требуют явного определения этого поведения:</p>

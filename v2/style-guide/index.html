@@ -453,7 +453,7 @@
 
 <p>Представим, что у нас есть список различных todo:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    todos: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        text: <span class="string">'Изучить, как использовать v-for'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        text: <span class="string">'Изучить, как использовать key'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Затем вы сортируете их по алфавиту. При обновлении DOM, Vue будет оптимизировать рендеринг для выполнения самых дешёвых изменений DOM. Это может означать удаление первого элемента списка, а затем добавление его снова в конце списка.</p>
+<p>Затем вы сортируете их по алфавиту. При обновлении DOM, Vue будет оптимизировать отрисовку для выполнения самых дешёвых изменений DOM. Это может означать удаление первого элемента списка, а затем добавление его снова в конце списка.</p>
 <p>Проблема в том, что бывают случаи, когда важно не удалять элементы, которые останутся в DOM. Например, вы можете использовать <code>&lt;transition-group&gt;</code> для анимации сортировки списка, или удержании фокуса, если отображаемый элемент является <code>&lt;input&gt;</code>. В этих случаях добавление уникального ключа для каждого элемента (например, <code>:key=&quot;todo.id&quot;</code>) подскажет Vue, как вести себя более предсказуемо.</p>
 <p>По нашему опыту, лучше <em>всегда</em> добавлять уникальный ключ, чтобы вам и вашей команде никогда не приходилось беспокоиться об этих крайних случаях. Затем в редких критически зависимых от производительности случаях, когда консистентность объекта не требуется — вы можете сделать сознательное исключение.</p>
 </details>
@@ -482,14 +482,14 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in users"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-if</span>=<span class="string">"user.isActive"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Будет аналогичен подобному:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.users.map(<span class="function"><span class="keyword">function</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (user.isActive) &#123;</span><br><span class="line">    <span class="keyword">return</span> user.name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>Таким образом, даже если мы показываем элементы только для небольшой части пользователей, мы должны перебирать весь список при каждом повторном рендеринге, независимо от того, изменился ли набор активных пользователей.</p>
+<p>Таким образом, даже если мы показываем элементы только для небольшой части пользователей, мы должны перебирать весь список при каждом повторной отрисовке, независимо от того, изменился ли набор активных пользователей.</p>
 <p>Заменив это отображением вычисляемого свойства, подобным такому:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  activeUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> user.isActive</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"user in activeUsers"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:key</span>=<span class="string">"user.id"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Мы получаем следующие преимущества:</p>
 <ul>
 <li>Отфильтрованный список будет вычисляться повторно <em>только</em> при изменениях в массиве <code>users</code>, что делает фильтрацию более эффективной.</li>
-<li>Используя <code>v-for=&quot;user in activeUsers&quot;</code>, на этапе рендеринга мы итерируем <em>только</em> активных пользователей, что сделает рендеринг намного более эффективным.</li>
+<li>Используя <code>v-for=&quot;user in activeUsers&quot;</code>, на этапе отрисовки мы итерируем <em>только</em> активных пользователей, что сделает отрисовку намного более эффективным.</li>
 <li>Логика теперь отделена от уровня представления, что значительно упростит дальнейшую поддержку кода (изменение/расширение логики).</li>
 </ul>
 <p>Мы получаем такие же преимущества обновив подобное:</p>
@@ -893,7 +893,7 @@
 <li><code>methods</code></li>
 </ul>
 </li>
-<li><p><strong>Рендеринг</strong> (декларативное описание вывода компонента)</p>
+<li><p><strong>Отрисовка</strong> (декларативное описание вывода компонента)</p>
 <ul>
 <li><code>template</code>/<code>render</code></li>
 <li><code>renderError</code></li>
@@ -913,7 +913,7 @@
 <li><code>v-for</code></li>
 </ul>
 </li>
-<li><p><strong>Условия</strong> (указывается рендерится/отображается ли элемент)</p>
+<li><p><strong>Условия</strong> (указывается отрисовывается/отображается ли элемент)</p>
 <ul>
 <li><code>v-if</code></li>
 <li><code>v-else-if</code></li>
@@ -922,7 +922,7 @@
 <li><code>v-cloak</code></li>
 </ul>
 </li>
-<li><p><strong>Модификаторы рендеринга</strong> (изменяют способ рендеринга элемента)</p>
+<li><p><strong>Модификаторы отрисовки</strong> (изменяют способ отрисовки элемента)</p>
 <ul>
 <li><code>v-pre</code></li>
 <li><code>v-once</code></li>

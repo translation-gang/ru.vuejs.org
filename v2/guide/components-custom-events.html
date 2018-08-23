@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1037,7 +1037,7 @@
 <p>Добавлено в версии 2.3.0+</p>
 </blockquote>
 <p>В некоторых случаях нам может понадобиться “двусторонняя привязка” для входных параметров. К сожалению, настоящая двусторонняя привязка может создавать проблемы с поддержкой, поскольку дочерние компоненты смогут мутировать состояние родителя без источника, который является очевидным как у родителя, так и у потомков.</p>
-<p>Поэтому вместо этого, мы рекомендуем генерировать события с определённым шаблоном имени <code>update:my-prop-name</code>. Например, в гипотетическом компоненте с входным параметром <code>title</code>, мы можем сообщить о намерении присвоить новое значение:</p>
+<p>Поэтому вместо этого, мы рекомендуем генерировать события с определённым шаблоном имени <code>update:myPropName</code>. Например, в гипотетическом компоненте с входным параметром <code>title</code>, мы можем сообщить о намерении присвоить новое значение:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:title'</span>, newTitle)</span><br></pre></td></tr></table></figure>
 <p>Затем, родитель может прослушать это событие и обновить локальное свойство, если захочет. Например:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"doc.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:title</span>=<span class="string">"doc.title = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>

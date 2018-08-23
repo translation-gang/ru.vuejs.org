@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1019,7 +1019,7 @@
 <h3 id="Доступ-к-экземпляру-родительского-компонента"><a href="#Доступ-к-экземпляру-родительского-компонента" class="headerlink" title="Доступ к экземпляру родительского компонента"></a>Доступ к экземпляру родительского компонента</h3><p>Подобно <code>$root</code>, свойство <code>$parent</code> можно использовать для доступа к родительскому экземпляру из дочернего. Это может быть заманчивым для использования в качестве ленивой альтернативы передачи данных с помощью входных параметров.</p>
 <p class="tip">В большинстве случаев обращение к родительскому компоненту делает ваше приложение более проблематичным в отладке и поддержке, особенно если вы изменяете данные в родителе. Когда вы вернётесь к этому компоненту позднее, будет очень сложно выяснить, откуда происходит изменение данных.</p>
 
-<p>Однако есть случаи, в частности библиотек общих компонентов, когда это <em>может быть</em> подходящим. Например, в абстрактных компонентах, которые взаимодействуют через JavaScript с API вместо рендеринга HTML, как например эти гипотетические компоненты Google Maps:</p>
+<p>Однако есть случаи, в частности библиотек общих компонентов, когда это <em>может быть</em> подходящим. Например, в абстрактных компонентах, которые взаимодействуют через JavaScript с API вместо отрисовки HTML, как например эти гипотетические компоненты Google Maps:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Компонент <code>&lt;google-map&gt;</code> может определять свойство <code>map</code>, к которому должны иметь доступ все подкомпоненты. В этом случае <code>&lt;google-map-markers&gt;</code> может получить доступ к карте с помощью <code>this.$parent.getMap</code>, чтобы добавить на карту набор маркеров. Вы можете увидеть этот шаблон <a href="https://jsfiddle.net/chrisvfritz/ttzutdxh/" target="_blank" rel="noopener">в действии здесь</a>.</p>
 <p>Однако помните, что компоненты, построенные с использованием этого шаблона являются хрупкими. Например, представьте, что мы добавляем новый компонент <code>&lt;google-map-region&gt;</code> и когда в нём появляется <code>&lt;google-map-markers&gt;</code>, то он должен отображать только маркеры, попадающие в регион:</p>
@@ -1038,7 +1038,7 @@
 <p>Таким образом мы позволим родительскому компоненту добавлять фокус на input внутри <code>&lt;base-input&gt;</code> с помощью:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.usernameInput.focus()</span><br></pre></td></tr></table></figure>
 <p>Когда <code>ref</code> используется вместе с <code>v-for</code>, то ref будет массивом, содержащим дочерние компоненты, отображаемых от источника данных.</p>
-<p class="tip"><code>$refs</code> заполняются только после того, как компонент был отрендерен, и они не реактивны. Это подразумевается только как обходной путь для прямого манипулирования потомками — вам следует избегать доступа к <code>$refs</code> из шаблонов или вычисляемых свойств.</p>
+<p class="tip"><code>$refs</code> заполняются только после того, как компонент был отрисован, и они не реактивны. Это подразумевается только как обходной путь для прямого манипулирования потомками — вам следует избегать доступа к <code>$refs</code> из шаблонов или вычисляемых свойств.</p>
 
 <h3 id="Внедрение-зависимостей"><a href="#Внедрение-зависимостей" class="headerlink" title="Внедрение зависимостей"></a>Внедрение зависимостей</h3><p>Ранее, когда мы обсуждали <a href="#Доступ-к-экземпляру-родительского-компонента">доступ к экземпляру родительского компонента</a>, мы показали пример:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-region</span> <span class="attr">v-bind:shape</span>=<span class="string">"cityBoundaries"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">google-map-region</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1088,7 +1088,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tree-folder-contents</span> <span class="attr">:children</span>=<span class="string">"folder.children"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Затем компонент <code>tree-folder-contents</code> с этим шаблоном:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"child in children"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tree-folder</span> <span class="attr">v-if</span>=<span class="string">"child.children"</span> <span class="attr">:folder</span>=<span class="string">"child"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Когда вы присмотритесь, вы увидите, что эти компоненты фактически будут потомком _и_ предком в дереве рендеринга — парадокс! При регистрации компонентов глобально с помощью <code>Vue.component</code> этот парадокс разрешается автоматически за вас. Если это вы, можете не читать дальше.</p>
+<p>Когда вы присмотритесь, вы увидите, что эти компоненты фактически будут потомком _и_ предком в дереве отрисовки — парадокс! При регистрации компонентов глобально с помощью <code>Vue.component</code> этот парадокс разрешается автоматически за вас. Если это вы, можете не читать дальше.</p>
 <p>Однако, если вы используете require/import для компонентов с помощью <strong>модульной системы</strong>, например через Webpack или Browserify, вы получите сообщение об ошибке:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Failed to mount component: template or render function not defined.</span><br></pre></td></tr></table></figure>
 <p>Чтобы объяснить, что здесь происходит, давайте назовём наши компоненты A и B. Система модулей видит, что ей нужен A, но сначала A нуждается в B, но B нуждается в A, но A нуждается в B, и т.д. Она застревает в цикле не зная как полностью разрешить любой компонент без предварительного разрешения другого. Чтобы исправить это, нам нужно дать модульной системе точку, в которой она может сказать “A нуждается в B <em>иногда</em>, но нет необходимости разрешать B сначала.”</p>
@@ -1111,9 +1111,9 @@
 
 <p>Возможно, вы не учли предостережения об обнаружении изменений <a href="list.html#Предостережения">в массивах</a> или <a href="list.html#Предостережения-об-изменениях-объектов">в объектах</a>, или вы можете полагаться на состояние, которое не отслеживается системой реактивности Vue, например с помощью <code>data</code>.</p>
 <p>Однако, если вы исключили вышеизложенные варианты и оказались в крайне редкой ситуации, связанной с необходимостью принудительного обновления вручную, то вы можете сделать это с помощью <a href="../api/#vm-forceUpdate"><code>$forceUpdate</code></a>.</p>
-<h3 id="“Дешёвые”-статические-компоненты-с-помощью-v-once"><a href="#“Дешёвые”-статические-компоненты-с-помощью-v-once" class="headerlink" title="“Дешёвые” статические компоненты с помощью v-once"></a>“Дешёвые” статические компоненты с помощью <code>v-once</code></h3><p>Рендеринг простых элементов HTML во Vue происходит очень быстро, но иногда встречаются компоненты, в которых <strong>очень много</strong> статического контента. В таких случаях, вы можете убедиться что он будет выполнен один раз и затем закэширован, добавив директиву <code>v-once</code> на корневой элемент, например:</p>
+<h3 id="“Дешёвые”-статические-компоненты-с-помощью-v-once"><a href="#“Дешёвые”-статические-компоненты-с-помощью-v-once" class="headerlink" title="“Дешёвые” статические компоненты с помощью v-once"></a>“Дешёвые” статические компоненты с помощью <code>v-once</code></h3><p>Отрисовка простых элементов HTML во Vue происходит очень быстро, но иногда встречаются компоненты, в которых <strong>очень много</strong> статического контента. В таких случаях, вы можете убедиться что он будет выполнен один раз и затем закэширован, добавив директиву <code>v-once</code> на корневой элемент, например:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'terms-of-service'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div v-once&gt;</span></span><br><span class="line"><span class="string">      &lt;h1&gt;Terms of Service&lt;/h1&gt;</span></span><br><span class="line"><span class="string">      ... много-много статического контента ...</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p class="tip">Ещё раз, попробуйте не злоупотреблять этим шаблоном. Хотя это удобно в тех редких случаях, когда вам необходимо отображать много статического контента, это просто не нужно пока вы не заметите замедление в рендеринге — плюс, это может вызвать много путаницы позднее. Например, представьте себе другого разработчика, который не знаком с директивой <code>v-once</code> или просто пропустил её наличие в шаблоне. Могут уйти часы, пока удастся выяснить, почему шаблон не обновляется правильно.</p>
+<p class="tip">Ещё раз, попробуйте не злоупотреблять этим шаблоном. Хотя это удобно в тех редких случаях, когда вам необходимо отображать много статического контента, это просто не нужно пока вы не заметите замедление при отрисовке — плюс, это может вызвать много путаницы позднее. Например, представьте себе другого разработчика, который не знаком с директивой <code>v-once</code> или просто пропустил её наличие в шаблоне. Могут уйти часы, пока удастся выяснить, почему шаблон не обновляется правильно.</p>
 
     
     

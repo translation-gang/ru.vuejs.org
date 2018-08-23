@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1009,7 +1009,7 @@
 </blockquote>
 <h2 id="keep-alive-с-динамическими-компонентами"><a href="#keep-alive-с-динамическими-компонентами" class="headerlink" title="keep-alive с динамическими компонентами"></a><code>keep-alive</code> с динамическими компонентами</h2><p>Ранее мы использовали атрибут <code>is</code> для переключения компонентов в интерфейсе вкладок:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentTabComponent"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Но иногда, при переключении между компонентами, вы хотите сохранить их состояния или избежать повторного рендеринга по соображениям производительности. Например, когда немного доработаем наш интерфейс с вкладками:</p>
+<p>Но иногда, при переключении между компонентами, вы хотите сохранить их состояния или избежать повторной отрисовки по соображениям производительности. Например, когда немного доработаем наш интерфейс с вкладками:</p>
 
 <div id="dynamic-component-demo" class="demo">
   <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]" v-on:click="currentTab = tab">{{ tab }}</button>

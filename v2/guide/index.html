@@ -436,7 +436,7 @@
             
         
         <li>
-            <a href="/v2/guide/conditional.html" class="sidebar-link">Условный рендеринг</a>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
         </li>
     
         
@@ -452,7 +452,7 @@
             
         
         <li>
-            <a href="/v2/guide/list.html" class="sidebar-link">Рендеринг списков</a>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
         </li>
     
         
@@ -830,7 +830,7 @@
             
         
         <li>
-            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Рендеринг на стороне сервера</a>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
         </li>
     
         
@@ -1015,7 +1015,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- production-версия, оптимизированная для размера и скорости--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Документация по <a href="installation.html">установке</a> описывает другие варианты установки Vue. Обратите внимание: мы <strong>не рекомендуем</strong> новичкам начинать с <code>vue-cli</code>, особенно если у них нет опыта работы с инструментами сборки Node.js.</p>
 <p>Если вы предпочитаете что-то более интерактивное, вы также можете пройти <a href="https://scrimba.com/playlist/pXKqta" target="_blank" rel="noopener">эту серию уроков на Scrimba</a>, которая предоставляет вам сочетание скринкастов и песочницы для проверки примеров кода, где вы можете остановиться и продолжить изучать в любое время.</p>
-<h2 id="Декларативный-рендеринг"><a href="#Декларативный-рендеринг" class="headerlink" title="Декларативный рендеринг"></a>Декларативный рендеринг</h2><div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank">Пройдите этот урок на Scrimba</a></div>
+<h2 id="Декларативная-отрисовка"><a href="#Декларативная-отрисовка" class="headerlink" title="Декларативная отрисовка"></a>Декларативная отрисовка</h2><div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank">Пройдите этот урок на Scrimba</a></div>
 
 <p>В ядре Vue.js находится система, которая позволяет декларативно отображать данные в DOM, используя простые шаблоны:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1033,7 +1033,7 @@ var app = new Vue({
 })
 </script>
 
-<p>Вот мы и создали наше первое Vue-приложение! Выглядит похоже на простой рендеринг шаблона, но “под капотом” Vue выполнил немало работы. Данные и DOM теперь <strong>реактивно</strong> связаны. Как это проверить? Просто откройте консоль JavaScript в своём браузере (прямо здесь, на этой странице) и задайте свойству <code>app.message</code> другое значение. Вы тут же увидите соответствующее изменение в окне браузера.</p>
+<p>Вот мы и создали наше первое Vue-приложение! Выглядит похоже на простую отрисовку шаблона, но “под капотом” Vue выполнил немало работы. Данные и DOM теперь <strong>реактивно</strong> связаны. Как это проверить? Просто откройте консоль JavaScript в своём браузере (прямо здесь, на этой странице) и задайте свойству <code>app.message</code> другое значение. Вы тут же увидите соответствующее изменение в окне браузера.</p>
 <p>В дополнение к интерполяции текста, мы можем также связывать атрибуты элементов:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">    Наведи курсор на меня пару секунд,</span><br><span class="line">    чтобы увидеть динамически связанное значение title!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> app2 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Вы загрузили эту страницу в: '</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
