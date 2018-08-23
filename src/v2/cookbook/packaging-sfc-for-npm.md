@@ -137,25 +137,25 @@ import component from './my-component.vue';
 
 // Объявление функции установки, выполняемой Vue.use()
 export function install(Vue) {
-	if (install.installed) return;
-	install.installed = true;
-	Vue.component('MyComponent', component);
+  if (install.installed) return;
+  install.installed = true;
+  Vue.component('MyComponent', component);
 }
 
 // Создание значения модуля для Vue.use()
 const plugin = {
-	install
+  install
 };
 
 // Автоматическая установка, когда vue найден (например в браузере с помощью тега <script>)
 let GlobalVue = null;
 if (typeof window !== 'undefined') {
-	GlobalVue = window.Vue;
+  GlobalVue = window.Vue;
 } else if (typeof global !== 'undefined') {
-	GlobalVue = global.Vue;
+  GlobalVue = global.Vue;
 }
 if (GlobalVue) {
-	GlobalVue.use(plugin);
+  GlobalVue.use(plugin);
 }
 
 // Экспорт компонента, для использования в качестве модуля (npm/webpack/etc.)
@@ -172,18 +172,18 @@ export default component;
 import vue from 'rollup-plugin-vue'; // Обработка однофайловых компонентов .vue
 import buble from 'rollup-plugin-buble'; // Транспиляция/Полифилизация для умеренной поддержки браузеров
 export default {
-    input: 'build/wrapper.js', // Путь до относительного package.json
-    output: {
-        name: 'MyComponent',
-        exports: 'named'
-    },
-    plugins: [
-        vue({
-            css: true, // Динамически внедряем CSS в тег <style>
-            compileTemplate: true, // Явное преобразование шаблона в рендер-функцию
-        }),
-        buble() // Транспиляция в ES5
-    ],
+  input: 'build/wrapper.js', // Путь до относительного package.json
+  output: {
+    name: 'MyComponent',
+    exports: 'named'
+  },
+  plugins: [
+    vue({
+        css: true, // Динамически внедряем CSS в тег <style>
+        compileTemplate: true, // Явное преобразование шаблона в рендер-функцию
+    }),
+    buble() // Транспиляция в ES5
+  ],
 };
 ```
 
