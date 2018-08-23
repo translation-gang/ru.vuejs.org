@@ -2146,7 +2146,7 @@ type: api
 
 - **Модификаторы:**
   - [`.lazy`](../guide/forms.html#lazy) — подписаться на события `change`, а не `input`
-  - [`.number`](../guide/forms.html#number) — приводить введённую строку к числу
+  - [`.number`](../guide/forms.html#number) — приводить корректную введённую строку к числу
   - [`.trim`](../guide/forms.html#trim) — удалять пробелы в начале и в конце введённой строки
 
 - **Использование:**
