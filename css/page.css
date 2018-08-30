@@ -808,10 +808,10 @@ ul.demo li {
   display: block;
 }
 .main-sponsor .logo:first-child {
-  margin-top: 12px;
+  margin-top: 18px;
 }
 .main-sponsor .logo:last-child {
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 .main-sponsor img,
 .main-sponsor a {
