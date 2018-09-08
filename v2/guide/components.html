@@ -1005,8 +1005,8 @@
     
     
       <h2 id="Базовый-пример"><a href="#Базовый-пример" class="headerlink" title="Базовый пример"></a>Базовый пример</h2><p>Вот пример компонента Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Определяем новый компонент, названный button-counter</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;You clicked me &#123;&#123; count &#125;&#125; times.&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>Компоненты — это переиспользуемые экземпляры Vue со своим именем: в данном случае, <code>&lt;button-counter&gt;</code>. Мы можем использовать этот компонент как пользовательский тег внутри корневого экземпляра Vue, созданного с помощью <code>new Vue</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Определяем новый компонент, названный button-counter</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;Счётчик кликов — &#123;&#123; count &#125;&#125;&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Компоненты — это переиспользуемые экземпляры Vue со своим именем. В примере выше это <code>&lt;button-counter&gt;</code>. Его можно использовать как пользовательский тег внутри корневого экземпляра Vue, созданного с помощью <code>new Vue</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123; <span class="attr">el</span>: <span class="string">'#components-demo'</span> &#125;)</span><br></pre></td></tr></table></figure>
 
@@ -1020,13 +1020,13 @@ Vue.component('button-counter', {
       count: 0
     }
   },
-  template: '<button v-on:click="count += 1">You clicked me {{ count }} times.</button>'
+  template: '<button v-on:click="count += 1">Счётчик кликов — {{ count }}</button>'
 })
 new Vue({ el: '#components-demo' })
 </script>
 
-<p>Поскольку компоненты это переиспользуемые экземпляры Vue, они принимают те же опции что и <code>new Vue</code>, такие как <code>data</code>, <code>computed</code>, <code>watch</code>, <code>methods</code>, и хуки жизненного цикла. Единственными исключениями являются несколько специфичных для корневого экземпляра опций, например <code>el</code>.</p>
-<h2 id="Переиспользование-компонентов"><a href="#Переиспользование-компонентов" class="headerlink" title="Переиспользование компонентов"></a>Переиспользование компонентов</h2><p>Компоненты можно переиспользовать столько раз, сколько вы захотите:</p>
+<p>Так как компоненты это переиспользуемые экземпляры Vue, то они принимают те же опции что и <code>new Vue</code>, такие как <code>data</code>, <code>computed</code>, <code>watch</code>, <code>methods</code>, хуки жизненного цикла. Единственными исключениями будут несколько специфичных для корневого экземпляра опций, например <code>el</code>.</p>
+<h2 id="Переиспользование-компонентов"><a href="#Переиспользование-компонентов" class="headerlink" title="Переиспользование компонентов"></a>Переиспользование компонентов</h2><p>Компоненты можно переиспользовать столько раз, сколько захотите:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <div id="components-demo2" class="demo">
@@ -1038,12 +1038,12 @@ new Vue({ el: '#components-demo' })
 new Vue({ el: '#components-demo2' })
 </script>
 
-<p>Обратите внимание, что при нажатиях на кнопки каждая из них будет изменять свой собственный, отдельный <code>count</code>. Это потому, что каждый раз когда вы используете компонент будет создан его новый <strong>экземпляр</strong>.</p>
-<h3 id="Свойство-data-должно-быть-функцией"><a href="#Свойство-data-должно-быть-функцией" class="headerlink" title="Свойство data должно быть функцией"></a>Свойство <code>data</code> должно быть функцией</h3><p>Когда мы определяли компонент <code>&lt;button-counter&gt;</code> вы могли заметить, что <code>data</code> не была представлена в виде объекта, как например здесь:</p>
+<p>Обратите внимание, при нажатиях на кнопки, каждая изменяет свой собственный, отдельный <code>count</code>. Это потому, что каждый раз когда вы используете компонент будет создан его новый <strong>экземпляр</strong>.</p>
+<h3 id="Свойство-data-должно-быть-функцией"><a href="#Свойство-data-должно-быть-функцией" class="headerlink" title="Свойство data должно быть функцией"></a>Свойство <code>data</code> должно быть функцией</h3><p>При определении компонента <code>&lt;button-counter&gt;</code> вы могли заметить, что <code>data</code> не была представлена в виде объекта, например так:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  count: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Вместо этого <strong>у компонента свойство <code>data</code> должно быть функцией</strong>, чтобы каждый экземпляр компонента мог управлять собственной независимой копией возвращаемого объекта данных:</p>
+<p>Вместо этого <strong>свойство <code>data</code> у компонентов должно быть функцией</strong>, чтобы каждый экземпляр компонента управлял собственной независимой копией возвращаемого объекта данных:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Если бы у Vue не было этого правила, нажатие на одну кнопку повлияло бы на данные <em>всех других экземпляров</em>, как например тут:</p>
+<p>Если бы не было этого правила, нажатие на одну кнопку повлияло бы на данные <em>всех других экземпляров</em>, как например тут:</p>
 
 <div id="components-demo3" class="demo">
   <button-counter2></button-counter2>
@@ -1058,7 +1058,7 @@ Vue.component('button-counter2', {
   data: function () {
     return buttonCounter2Data
   },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+  template: '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>'
 })
 new Vue({ el: '#components-demo3' })
 </script>
