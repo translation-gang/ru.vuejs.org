@@ -1474,6 +1474,12 @@ ul.demo li {
   padding-left: 1.5em;
   position: inherit;
 }
+.content ul ul,
+.content ol ul,
+.content ul ol,
+.content ol ol {
+  margin: 0;
+}
 .content a {
   color: #42b983;
   font-weight: 600;
