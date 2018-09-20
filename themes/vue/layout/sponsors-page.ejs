@@ -90,6 +90,15 @@ window.addEventListener('hashchange', function () {
 <%_ } _%>
 </p>
 
+<h3>Платиновые OpenCollective</h3>
+<p class="open-collective-sponsors sponsor-section">
+<%_ for (let i = 0; i < 10; i++) {_%>
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/<%- i %>/website" target="_blank">
+    <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/<%- i %>/avatar.svg">
+  </a>
+<%_ } _%>
+</p>
+
 <h3>Специальные спонсоры (Китай)</h3>
 
 <p class="platinum">
@@ -126,6 +135,15 @@ window.addEventListener('hashchange', function () {
 <%_ for (const sponsor of theme.silver_sponsors) {_%>
   <a href="<%- sponsor.url %>" target="_blank">
     <img src="<%- url_for(`/images/${sponsor.img}`) %>">
+  </a>
+<%_ } _%>
+</p>
+
+<h3>Серебряные OpenCollective</h3>
+<p class="open-collective-sponsors sponsor-section">
+<%_ for (let i = 0; i < 5; i++) {_%>
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/<%- i %>/website" target="_blank">
+    <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/<%- i %>/avatar.svg">
   </a>
 <%_ } _%>
 </p>
