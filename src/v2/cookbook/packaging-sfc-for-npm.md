@@ -172,7 +172,7 @@ export default component;
 import vue from 'rollup-plugin-vue'; // Обработка однофайловых компонентов .vue
 import buble from 'rollup-plugin-buble'; // Транспиляция/Полифилизация для умеренной поддержки браузеров
 export default {
-  input: 'build/wrapper.js', // Путь до относительного package.json
+  input: 'src/wrapper.js', // Путь до относительного package.json
   output: {
     name: 'MyComponent',
     exports: 'named'
