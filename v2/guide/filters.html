@@ -1037,7 +1037,7 @@
 <p>Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра <code>capitalize</code> получит значение <code>message</code> в качестве аргумента.</p>
 <p>Фильтры можно объединять в цепочки:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>В этом случае <code>filterA</code>, определённый с одним аргументом, получит значение <code>message</code>, а затем функция <code>filterB</code> будет вызвана с результатом <code>filterA</code>, переданным единственным аргументов в <code>filterB</code>.</p>
+<p>В этом случае <code>filterA</code>, определённый с одним аргументом, получит значение <code>message</code>, а затем функция <code>filterB</code> будет вызвана с результатом <code>filterA</code>, переданным единственным аргументом в <code>filterB</code>.</p>
 <p>Фильтры являются JavaScript-функциями, и потому могут принимать параметры:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; message | filterA('arg1', arg2) &#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>В данном случае <code>filterA</code> определяется как функция с тремя аргументами. Значение <code>message</code> будет передано первым аргументом. Простая строка <code>&#39;arg1&#39;</code> будет передана в <code>filterA</code> вторым аргументом, а значение выражения <code>arg2</code> — третьим.</p>
