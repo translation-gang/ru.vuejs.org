@@ -10,9 +10,9 @@ order: 802
 
 ## Ресурсы
 
-### Code of Conduct
+### Кодекс поведения
 
-Our [Code of Conduct](/coc) is a guide to make it easier to enrich all of us and the technical communities in which we participate.
+Наш [кодекс поведения](/coc) — это руководство, как сделать лучше всех нас и технические сообщества, в которых мы участвуем.
 
 ### Получить поддержку
 
