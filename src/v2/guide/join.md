@@ -8,7 +8,11 @@ order: 802
 
 Ниже мы расскажем, что сообщество может сделать для вас, и что вы можете сделать для сообщества.
 
-## Ресурсы, которые вам понравятся
+## Ресурсы
+
+### Code of Conduct
+
+Our [Code of Conduct](/coc) is a guide to make it easier to enrich all of us and the technical communities in which we participate.
 
 ### Получить поддержку
 
