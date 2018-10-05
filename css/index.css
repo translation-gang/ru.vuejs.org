@@ -239,7 +239,8 @@ em {
 p {
   word-spacing: 0.05em;
 }
-a.button {
+a.button,
+input.button {
   padding: 0.75em 2em;
   border-radius: 2em;
   display: inline-block;
@@ -249,21 +250,25 @@ a.button {
   box-sizing: border-box;
   border: 1px solid #4fc08d;
 }
-a.button.has-icon {
+a.button.has-icon,
+input.button.has-icon {
   position: relative;
   text-indent: 1.4em;
 }
-a.button.has-icon > svg {
+a.button.has-icon > svg,
+input.button.has-icon > svg {
   position: absolute;
   left: 0.4em;
   top: 0.4em;
   width: 2em;
 }
-a.button.white {
+a.button.white,
+input.button.white {
   background-color: #fff;
   color: #42b983;
 }
-a.button.gray {
+a.button.gray,
+input.button.gray {
   background-color: #f6f6f6;
   color: #7f8c8d;
   border-color: #f6f6f6;
@@ -815,44 +820,54 @@ body {
 #mobile-bar.top .logo {
   display: none;
 }
-#hero {
+#hero,
+#news {
   padding: 40px 40px 30px;
   background-color: #fff;
 }
-#hero .inner {
+#hero .inner,
+#news .inner {
   max-width: 1260px;
   margin: 0 auto;
 }
 #hero .left,
-#hero .right {
+#news .left,
+#hero .right,
+#news .right {
   display: inline-block;
   vertical-align: top;
 }
-#hero .left {
+#hero .left,
+#news .left {
   width: 39%;
 }
-#hero .right {
+#hero .right,
+#news .right {
   width: 61%;
 }
-#hero .hero-logo {
+#hero .hero-logo,
+#news .hero-logo {
   width: 215px;
   height: 215px;
   float: right;
   margin-right: 60px;
 }
-#hero h1 {
+#hero h1,
+#news h1 {
   font-weight: 300;
   margin: 0;
   font-size: 3.2em;
 }
-#hero h2 {
+#hero h2,
+#news h2 {
   font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
   font-size: 2.4em;
   margin: 0 0 10px;
   display: none;
 }
-#hero .button {
+#hero .button,
+#news .button {
   margin: 1em 0;
   font-size: 1.05em;
   font-weight: 600;
@@ -860,17 +875,57 @@ body {
   min-width: 8em;
   text-align: center;
 }
-#hero .button:not(:last-child) {
+#hero .button:not(:last-child),
+#news .button:not(:last-child) {
   margin-right: 1%;
 }
-#hero .social-buttons {
+#hero .social-buttons,
+#news .social-buttons {
   list-style-type: none;
   padding: 0;
 }
-#hero .social-buttons li {
+#hero .social-buttons li,
+#news .social-buttons li {
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
+}
+#news {
+  padding: 40px 20px 70px;
+  text-align: center;
+}
+#news p {
+  margin-top: 10px;
+}
+#news a {
+  color: #42b983;
+}
+#news .newsletter-form {
+  position: relative;
+  max-width: 550px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+#news .newsletter-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 80px 10px 20px;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+#news .newsletter-input:focus {
+  outline: none;
+  border-color: #42b983;
+}
+#news .newsletter-button.button {
+  position: absolute;
+  padding: 4px 20px;
+  margin: 0;
+  height: calc(100% - 8px);
+  right: 4px;
+  top: 4px;
 }
 #special-sponsor {
   background-color: #fff;
