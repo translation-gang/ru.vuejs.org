@@ -118,3 +118,17 @@ Vue.component('example', {
   }
 })
 ```
+
+Поскольку `$nextTick()` возвращает promise, вы можете достичь того же используя новый синтаксис [ES7 async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function):
+ ```js
+  // ...
+  methods: {
+    async updateMessage: function () {
+      this.message = 'обновлено'
+      console.log(this.$el.textContent) // => 'не обновлено'
+      await this.$nextTick()
+      console.log(this.$el.textContent) // => 'обновлено'
+    }
+  }
+  // ...
+```
