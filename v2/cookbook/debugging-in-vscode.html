@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <title>Отладка в VS Code и Chrome — Vue.js</title>
+        <title>Отладка в VS Code — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,12 +17,12 @@
         <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Отладка в VS Code и Chrome — Vue.js">
+        <meta property="og:title" content="Отладка в VS Code — Vue.js">
         <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Отладка в VS Code и Chrome — Vue.js">
+        <meta name="twitter:title" content="Отладка в VS Code — Vue.js">
         <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -363,7 +363,7 @@
         
         
         <li>
-            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link current">Отладка в VS Code и Chrome</a>
+            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link current">Отладка в VS Code</a>
         </li>
     
         
@@ -446,21 +446,27 @@
       
     
     
-      <h1>Отладка в VS Code и Chrome</h1>
+      <h1>Отладка в VS Code</h1>
     
     
-      <p>Каждое приложение достигает отметки, когда становится необходимо разбираться в ошибках, от больших до малых. В этом рецепте мы исследуем несколько возможностей для пользователей VS Code, кто использует Chrome для тестирования.</p>
-<p>Этот рецепт покажет как использовать расширение <a href="https://github.com/Microsoft/VSCode-chrome-debug" target="_blank" rel="noopener">Debugger for Chrome</a> в паре с VS Code для отладки приложений Vue.js, сгенерированных с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI</a>.</p>
-<h2 id="Подготовка"><a href="#Подготовка" class="headerlink" title="Подготовка"></a>Подготовка</h2><p>У вас должен быть установлен Chrome и VS Code. Убедитесь, что установили последнюю версию расширения <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank" rel="noopener">Debugger for Chrome</a> в VS Code.</p>
-<p>Установите и создайте проект с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, руководствуясь инструкциям по установке, указанным в readme проекта. Перейдите в каталог новосозданного приложения и откройте VS Code.</p>
-<h3 id="Отображение-исходного-кода-в-инструментах-разработчика-Chrome"><a href="#Отображение-исходного-кода-в-инструментах-разработчика-Chrome" class="headerlink" title="Отображение исходного кода в инструментах разработчика Chrome"></a>Отображение исходного кода в инструментах разработчика Chrome</h3><p>Перед тем, как вы сможете отлаживать ваши компоненты Vue из VS Code, вам необходимо обновить сгенерированную конфигурацию Webpack для генерации sourcemaps. Мы делаем это, чтобы отладчик имел возможность сопоставлять код в сжатых файлов со строками в оригинальных. Это гарантирует, что вы можете отлаживать приложения даже после того, как все ваши ресурсы были оптимизированы с помощью Webpack.</p>
-<p>Откройте <code>config/index.js</code> и найдите свойство <code>devtool</code>. Обновите до указанного:</p>
+      <p>Каждое приложение достигает отметки, когда становится необходимо разбираться в ошибках, от больших до малых. В этом рецепте мы исследуем несколько возможностей для пользователей VS Code, кто хочет отлаживать приложения в браузере.</p>
+<p>Этот рецепт покажет как отлаживать приложения <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI</a> в паре с VS Code при их запуске в браузере.</p>
+<p class="tip">Примечание: Этот рецепт охватывает Chrome и Firefox. Если знаете как настроить отладку VS Code с другими браузерами, поделитесь своими знаниями (см. в конце страницы).</p>
+
+<h2 id="Подготовка"><a href="#Подготовка" class="headerlink" title="Подготовка"></a>Подготовка</h2><p>Убедитесь что у вас установлен VS Code и выбранный браузер, а также установлена последняя версия соответствующего расширения отладчика:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank" rel="noopener">Debugger для Chrome</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug" target="_blank" rel="noopener">Debugger для Firefox</a></li>
+</ul>
+<p>Установите и создайте проект с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, следуя инструкциям по установке в <a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">руководстве Vue CLI</a>. Перейдите в каталог новосозданного приложения и откройте VS Code.</p>
+<h3 id="Отображение-исходного-кода-в-браузере"><a href="#Отображение-исходного-кода-в-браузере" class="headerlink" title="Отображение исходного кода в браузере"></a>Отображение исходного кода в браузере</h3><p>Перед тем, как вы сможете отлаживать ваши компоненты Vue из VS Code, вам необходимо обновить сгенерированную конфигурацию Webpack для генерации sourcemaps. Мы делаем это, чтобы отладчик имел возможность сопоставлять код в сжатых файлов со строками в оригинальных. Это гарантирует, что вы можете отлаживать приложения даже после того, как все ваши ресурсы были оптимизированы с помощью Webpack.</p>
+<p>Если вы используете Vue CLI 2, установите или обновите свойство <code>devtool</code> в файле <code>config/index.js</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">devtool: <span class="string">'source-map'</span>,</span><br></pre></td></tr></table></figure>
-<p>При использовании Vue CLI 3 вам необходимо установить свойство <code>devtool</code> в файле <code>vue.config.js</code>:</p>
+<p>Если вы используете Vue CLI 3, установите или обновите свойство <code>devtool</code> в файле <code>vue.config.js</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    devtool: <span class="string">'source-map'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление “Отладка”, затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome</strong> для окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
+<h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление “Отладка”, затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome/Firefox: Launch</strong> в качестве окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
 <p><img src="/images/config_add.png" alt="Добавление конфигурации Chrome"></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: chrome"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"breakOnLoad"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: chrome"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"breakOnLoad"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"firefox"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: firefox"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"pathMappings"</span>: [&#123; <span class="attr">"url"</span>: <span class="string">"webpack:///src/"</span>, <span class="attr">"path"</span>: <span class="string">"$&#123;webRoot&#125;/"</span> &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Установка-точки-останова"><a href="#Установка-точки-останова" class="headerlink" title="Установка точки останова"></a>Установка точки останова</h2><ol>
 <li><p>Установите точку останова в файле <strong>src/components/HelloWorld.vue</strong> на <code>строке 90</code> где функция <code>data</code> возвращает строку.</p>
 <p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
@@ -468,13 +474,13 @@
 <li><p>Откройте свою любимую консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome’</strong>, затем нажмите F5 или зелёную кнопку для старта.</p>
+<li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome/firefox’</strong>, затем нажмите F5 или зелёную кнопку для старта.</p>
 </li>
-<li><p>Ваша точка останова должна быть достигнута, когда новый экземпляр Chrome откроет <code>http://localhost:8080</code>.</p>
+<li><p>Ваша точка останова должна быть достигнута, когда новый экземпляр браузера откроет <code>http://localhost:8080</code>.</p>
 <p><img src="/images/breakpoint_hit.png" alt="Breakpoint Hit"></p>
 </li>
 </ol>
-<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">vue-devtools</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
+<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — использовать Vue.js devtools <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">для Chrome</a> и <a href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/" target="_blank" rel="noopener">для Firefox</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
 <p><img src="/images/devtools-timetravel.gif" alt="Devtools Timetravel Debugger"></p>
 <p class="tip">Обратите внимание, если на странице используется production/минифицированная сборка Vue.js (как например, стандартная ссылка на CDN), то проверка инструментов разработки по умолчанию отключена и поэтому панель Vue не будет отображаться в инструментах разработчика. Если вы переключитесь на неминифицированную версию, вам может потребоваться обновить страницу, чтобы увидеть изменения.</p>
 
