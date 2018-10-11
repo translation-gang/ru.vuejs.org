@@ -19,7 +19,7 @@ order: 402
 
 Вот простой пример файла, который мы назовём `Hello.vue`:
 
-<a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank"><img src="/images/vue-component.png" alt="Пример однофайловых компонентов" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component.png" alt="Пример однофайловых компонентов" style="display: block; margin: 30px auto;"></a>
 
 Мы получили:
 
@@ -29,7 +29,7 @@ order: 402
 
 Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.
 
-<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank"><img src="/images/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a>
 
 Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
 
