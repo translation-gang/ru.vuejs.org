@@ -157,6 +157,8 @@ this.$emit('update:title', newTitle)
 <text-document v-bind:title.sync="doc.title"></text-document>
 ```
 
+<p class="tip">Обратите внимание, что <code>v-bind</code> с модификатором <code>.sync</code> <strong>не работает</strong> с выражениями (например, <code>v-bind:title.sync="doc.title + '!'"</code> не будет работать). Вместо этого нужно указывать только имя свойства, которое хотите привязать, аналогично <code>v-model</code>.</p>
+
 Модификатор `.sync` также может использовать вместе с `v-bind` при использовании объектной записи, чтобы устанавливать сразу значения нескольких входных параметров:
 
 ```html
