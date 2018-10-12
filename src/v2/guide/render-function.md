@@ -228,7 +228,10 @@ createElement(
   slot: 'name-of-slot',
   // Прочие специальные свойства верхнего уровня
   key: 'myKey',
-  ref: 'myRef'
+  ref: 'myRef',
+  // Если указываете одно имя в ref к нескольким элементам
+  // в render-функции — это сделает `$refs.myRef` массивом
+  refInFor: true
 }
 ```
 
