@@ -1035,12 +1035,12 @@ var app = new Vue({
 
 <p>Вот мы и создали наше первое Vue-приложение! Выглядит как простая отрисовка шаблона, но «под капотом» Vue выполнил немало работы. Данные и DOM теперь <strong>реактивно</strong> связаны. Как это проверить? Просто откройте консоль JavaScript в браузере (прямо здесь, на этой странице) и задайте свойству <code>app.message</code> новое значение. Вы тут же увидите соответствующее изменение в браузере.</p>
 <p>Кроме интерполяции текста, можно также связывать атрибуты элементов:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">    Наведи курсор на меня пару секунд,</span><br><span class="line">    чтобы увидеть динамически связанное значение title!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-bind:title</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">    Наведи на меня курсор на пару секунд,</span><br><span class="line">    чтобы увидеть динамически связанное значение title!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> app2 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Вы загрузили эту страницу: '</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <div id="app-2" class="demo">
   <span v-bind:title="message">
-    Наведи курсор на меня пару секунд, чтобы увидеть динамически связанное значение title!
+    Наведи на меня курсор на пару секунд, чтобы увидеть динамически связанное значение title!
   </span>
 </div>
 <script>
