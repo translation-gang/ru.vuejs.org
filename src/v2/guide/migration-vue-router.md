@@ -430,7 +430,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `root` <sup>переименовано</sup>
 
-Переименовано в `base` для соответствия [HTML-эелементу `<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base).
+Переименовано в `base` для соответствия [HTML-элементу `<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base).
 
 {% raw %}
 <div class="upgrade-path">
