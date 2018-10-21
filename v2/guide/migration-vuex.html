@@ -1013,13 +1013,13 @@
 <li>будут поддерживаться в обозримом будущем</li>
 </ul>
 <p>Однако, они имеют различные целевые аудитории.</p>
-<p><strong>Vuex 2.0</strong> радикально переписан и имеет упрощенный API, для тех, кто начинает новые проекты или хочет быть на острие прогресса в области управления состоянием фронтенд-приложений. <strong>Он не покрывается данной инструкцией по миграции</strong>, поэтому если вы хотите узнать о нём больше — обратитесь к <a href="https://vuex.vuejs.org/ru/index.html" target="_blank" rel="noopener">документации Vuex 2.0</a>.</p>
+<p><strong>Vuex 2.0</strong> радикально переписан и имеет упрощённый API, для тех, кто начинает новые проекты или хочет быть на острие прогресса в области управления состоянием фронтенд-приложений. <strong>Он не покрывается данной инструкцией по миграции</strong>, поэтому если вы хотите узнать о нём больше — обратитесь к <a href="https://vuex.vuejs.org/ru/index.html" target="_blank" rel="noopener">документации Vuex 2.0</a>.</p>
 <p><strong>Vuex 1.0</strong> в основном обратно совместим, поэтому требует внесения довольно незначительных изменений при обновлении. Рекомендуется для тех, кто уже имеет дело с большими проектами, либо для тех, кто просто хочет постепенно обновиться до Vue 2.0. Данное руководство призвано содействовать этому процессу, но включает в себя только заметки по миграции. Для изучения полного руководство по использованию обратитесь к <a href="https://github.com/vuejs/vuex/tree/1.0/docs/en" target="_blank" rel="noopener">документации Vuex 1.0</a>.</p>
 <h2 id="store-watch-со-строковым-параметром-заменено"><a href="#store-watch-со-строковым-параметром-заменено" class="headerlink" title="store.watch со строковым параметром заменено"></a><code>store.watch</code> со строковым параметром <sup>заменено</sup></h2><p><code>store.watch</code> теперь принимает в качестве аргумента только функции. Например, вы должны заменить:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">store.watch(<span class="string">'user.notifications'</span>, callback)</span><br></pre></td></tr></table></figure>
 <p>на:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">store.watch(</span><br><span class="line">  <span class="comment">// Когда возвращаемый результат изменится...</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">state</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state.user.notifications</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Запустится коллбэк</span></span><br><span class="line">  callback</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>Это дает более полный контроль над отслеживанием реактивных свойств.</p>
+<p>Это даёт более полный контроль над отслеживанием реактивных свойств.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>

@@ -1081,7 +1081,7 @@
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещенные в свойство `meta`.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещённые в свойство `meta`.</p>
 </div>
 
 <h2 id="Сопоставление-путей"><a href="#Сопоставление-путей" class="headerlink" title="Сопоставление путей"></a>Сопоставление путей</h2><p>Сопоставление путей теперь использует <a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener">path-to-regexp</a> под капотом, что делает его гораздо более гибким, чем было ранее.</p>
@@ -1107,14 +1107,14 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-link-active</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"'/about'"</span>&gt;</span>О нас<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>на:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">tag</span>=<span class="string">"li"</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span>&gt;</span>О нас<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Тег <code>&lt;a&gt;</code> будет фактически ссылкой (с правильным атрибутом <code>href</code>), но активный класс будет применен к родительскому тегу <code>&lt;li&gt;</code>.</p>
+<p>Тег <code>&lt;a&gt;</code> будет фактически ссылкой (с правильным атрибутом <code>href</code>), но активный класс будет применён к родительскому тегу <code>&lt;li&gt;</code>.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link-active</code>.</p>
 </div>
 
-<h2 id="Программная-навигация"><a href="#Программная-навигация" class="headerlink" title="Программная навигация"></a>Программная навигация</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/API/History_API" target="_blank" rel="noopener">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="noopener">навигации вперед/назад</a>, в то время как <a href="https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="noopener"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
+<h2 id="Программная-навигация"><a href="#Программная-навигация" class="headerlink" title="Программная навигация"></a>Программная навигация</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/API/History_API" target="_blank" rel="noopener">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="noopener">навигации вперёд/назад</a>, в то время как <a href="https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="noopener"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1158,7 +1158,7 @@
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>saveScrollPosition: true</code>.</p>
 </div>
 
-<h3 id="root-переименовано"><a href="#root-переименовано" class="headerlink" title="root переименовано"></a><code>root</code> <sup>переименовано</sup></h3><p>Переименовано в <code>base</code> для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/base" target="_blank" rel="noopener">HTML-эелементу <code>&lt;base&gt;</code></a>.</p>
+<h3 id="root-переименовано"><a href="#root-переименовано" class="headerlink" title="root переименовано"></a><code>root</code> <sup>переименовано</sup></h3><p>Переименовано в <code>base</code> для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/base" target="_blank" rel="noopener">HTML-элементу <code>&lt;base&gt;</code></a>.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
