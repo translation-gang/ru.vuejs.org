@@ -256,7 +256,7 @@ if (route.meta.requiresAuth) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещенные в свойство `meta`.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещённые в свойство `meta`.</p>
 </div>
 {% endraw %}
 
@@ -318,7 +318,7 @@ if (route.meta.requiresAuth) {
 </router-link>
 ```
 
-Тег `<a>` будет фактически ссылкой (с правильным атрибутом `href`), но активный класс будет применен к родительскому тегу `<li>`.
+Тег `<a>` будет фактически ссылкой (с правильным атрибутом `href`), но активный класс будет применён к родительскому тегу `<li>`.
 
 {% raw %}
 <div class="upgrade-path">
@@ -331,7 +331,7 @@ if (route.meta.requiresAuth) {
 
 ### `router.go` <sup>изменено</sup>
 
-Для соответствия [HTML5 History API](https://developer.mozilla.org/ru/docs/Web/API/History_API), `router.go` теперь используется только для [навигации вперед/назад](https://router.vuejs.org/ru/essentials/navigation.html#routergon), в то время как [`router.push`](https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation) используется для перехода на конкретную страницу.
+Для соответствия [HTML5 History API](https://developer.mozilla.org/ru/docs/Web/API/History_API), `router.go` теперь используется только для [навигации вперёд/назад](https://router.vuejs.org/ru/essentials/navigation.html#routergon), в то время как [`router.push`](https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation) используется для перехода на конкретную страницу.
 
 {% raw %}
 <div class="upgrade-path">
@@ -430,7 +430,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 ### `root` <sup>переименовано</sup>
 
-Переименовано в `base` для соответствия [HTML-эелементу `<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base).
+Переименовано в `base` для соответствия [HTML-элементу `<base>`](https://developer.mozilla.org/ru/docs/Web/HTML/Element/base).
 
 {% raw %}
 <div class="upgrade-path">
