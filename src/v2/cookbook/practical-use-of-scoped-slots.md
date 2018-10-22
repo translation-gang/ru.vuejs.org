@@ -36,12 +36,12 @@ Let’s first establish our `GoogleMapLoader.vue` template:
 Now, our script needs to pass some props to the component which allows us to set the [Google Maps API](https://developers.google.com/maps/documentation/javascript/reference/) and [Map object](https://developers.google.com/maps/documentation/javascript/reference/map#Map):
 
 ```js
-import GoogleMapsApiLoader from "google-maps-api-loader"
+import GoogleMapsApiLoader from 'google-maps-api-loader'
 
 export default {
   props: {
     mapConfig: Object,
-    apiKey: String,
+    apiKey: String
   },
 
   data() {
@@ -61,7 +61,7 @@ export default {
 
   methods: {
     initializeMap() {
-      const mapContainer = this.$refs.googleMap)
+      const mapContainer = this.$refs.googleMap
       this.map = new this.google.maps.Map(
         mapContainer, this.mapConfig
       )
@@ -96,13 +96,13 @@ Next up, our script needs to receive props from the parent component which will 
 - [apiKey](https://developers.google.com/maps/documentation/javascript/get-api-key): Our personal api key required by Google Maps
 
 ```js
-import GoogleMapsApiLoader from "google-maps-api-loader"
+import GoogleMapsApiLoader from 'google-maps-api-loader'
 
 export default {
   props: {
     mapConfig: Object,
-    apiKey: String,
-  },
+    apiKey: String
+  }
 ```
 Then, we set the initial values of google and map to null:
 
@@ -112,7 +112,7 @@ Then, we set the initial values of google and map to null:
       google: null,
       map: null
     }
-  },
+  }
 ```
 
 On `mounted` hook we instantiate a `googleMapApi` and `Map` objects from the `GoogleMapsApi` and we set the values of `google` and `map` to the created instances:
@@ -174,8 +174,8 @@ export default {
         ...mapSettings,
         center: { lat: 0, lng: 0 }
       }
-    },
-  },
+    }
+  }
 }
 </script>
 ```
@@ -237,7 +237,7 @@ Now when we have our map ready we will create two factory components that will b
 `GoogleMapMarker.vue`
 
 ```js
-import { POINT_MARKER_ICON_CONFIG } from "@/constants/mapSettings"
+import { POINT_MARKER_ICON_CONFIG } from '@/constants/mapSettings'
 
 export default {
   props: {
@@ -269,7 +269,7 @@ export default {
 `GoogleMapLine.vue`
 
 ```js
-import { LINE_PATH_CONFIG } from "@/constants/mapSettings"
+import { LINE_PATH_CONFIG } from '@/constants/mapSettings'
 
 export default {
   props: {
@@ -340,9 +340,7 @@ Here we go, integrating the data points directly into the template:
 We need to import the required factory components in our script and set the data that will be passed to the markers and lines:
 
 ```js
-import {
-  mapSettings
-} from '@/constants/mapSettings'
+import { mapSettings } from '@/constants/mapSettings'
 
 export default {
   components: {
@@ -354,9 +352,9 @@ export default {
   data () {
     return {
       markers: [
-      { id: "a", position: { lat: 3, lng: 101 } },
-      { id: "b", position: { lat: 5, lng: 99 } },
-      { id: "c", position: { lat: 6, lng: 97 } },
+        { id: 'a', position: { lat: 3, lng: 101 } },
+        { id: 'b', position: { lat: 5, lng: 99 } },
+        { id: 'c', position: { lat: 6, lng: 97 } },
       ],
       lines: [
         { id: '1', path: [{ lat: 3, lng: 101 }, { lat: 5, lng: 99 }] },
@@ -376,7 +374,7 @@ export default {
     mapCenter () {
       return this.markers[1].position
     }
-  },
+  }
 }
 ```
 
