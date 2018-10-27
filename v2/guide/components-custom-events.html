@@ -1045,10 +1045,10 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:title.sync</span>=<span class="string">"doc.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p class="tip">Обратите внимание, что <code>v-bind</code> с модификатором <code>.sync</code> <strong>не работает</strong> с выражениями (например, <code>v-bind:title.sync=”doc.title + ‘!’”</code> не будет работать). Вместо этого нужно указывать только имя свойства, которое хотите привязать, аналогично <code>v-model</code>.</p>
 
-<p>Модификатор <code>.sync</code> также может использовать вместе с <code>v-bind</code> при использовании объектной записи, чтобы устанавливать сразу значения нескольких входных параметров:</p>
+<p>Модификатор <code>.sync</code> также может использоваться вместе с <code>v-bind</code> при использовании объектной записи, чтобы сразу устанавливать значения нескольких входных параметров:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind.sync</span>=<span class="string">"doc"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Это передаёт каждое свойство в объекте <code>doc</code> (например, <code>title</code>) в качестве индивидуальных входных параметров, а затем добавляет слушатели событий <code>v-on</code> для каждого из них.</p>
-<p class="tip">Используя <code>v-bind.sync</code> с литеральным объектом, например таким как <code>v-bind.sync=”{ title: doc.title }”</code>, не будет работать, потому что слишком много различных граничных случаев необходимо учитывать при анализе подобного сложного выражения</p>
+<p class="tip">Использование <code>v-bind.sync</code> с литеральным объектом, например таким как <code>v-bind.sync=”{ title: doc.title }”</code>, не будет работать, потому что необходимо будет учитывать слишком много различных пограничных случаев при анализе подобного сложного выражения.</p>
 
     
     

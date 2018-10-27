@@ -1004,7 +1004,7 @@
       <h1>Условная отрисовка</h1>
     
     
-      <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a><code>v-if</code></h2><p>В строковых шаблонизаторах, например в Handlebars, мы бы определили блок отображаемый по условию так:</p>
+      <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a><code>v-if</code></h2><p>В строковых шаблонизаторах, например в <a href="https://handlebarsjs.com/" target="_blank" rel="noopener">Handlebars</a>, мы бы определили блок отображаемый по условию так:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- шаблон Handlebars --&gt;</span></span><br><span class="line">&#123;&#123;#if ok&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Да<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&#123;&#123;/if&#125;&#125;</span><br></pre></td></tr></table></figure>
 <p>Во Vue для этих целей существует директива <code>v-if</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>Да<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
