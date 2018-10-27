@@ -173,48 +173,48 @@ mounted: function () {
 
 ## `v-for`
 
-### `v-for` Argument Order for Arrays <sup>changed</sup>
+### Очерёдность аргументов для массивов в `v-for` <sup>изменено</sup>
 
-When including an `index`, the argument order for arrays used to be `(index, value)`. It is now `(value, index)` to be more consistent with JavaScript's native array methods such as `forEach` and `map`.
+При использовании `index` очерёдность аргументов для массивов выглядела так `(index, value)`. Теперь она имеет вид `(value, index)`, чтобы не противоречить нативным методам массивов JavaScript, таким как `forEach` и `map`.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the obsolete argument order. Note that if you name your index arguments something unusual like <code>position</code> or <code>num</code>, the helper will not flag them.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали нестандартное наименование индексу аргументов как  <code>position</code> или <code>num</code>, помощник не выделит их.</p>
 </div>
 {% endraw %}
 
-### `v-for` Argument Order for Objects <sup>changed</sup>
+### Очерёдность аргументов для объектов в `v-for` <sup>изменено</sup>
 
-When including a `key`, the argument order for objects used to be `(key, value)`. It is now `(value, key)` to be more consistent with common object iterators such as lodash's.
+При использовании `key` очерёдность аргументов для объектов выглядела так `(key, value)`. Теперь она имеет вид `(value, key)`, чтобы не противоречить распространённым итераторам объекта, таким как lodash.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the obsolete argument order. Note that if you name your key arguments something like <code>name</code> or <code>property</code>, the helper will not flag them.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали название ключу аргументов как <code>name</code> или <code>property</code>, помощник не выделит их.</p>
 </div>
 {% endraw %}
 
-### `$index` and `$key` <sup>удалён</sup>
+### `$index` и `$key` <sup>удалены</sup>
 
-The implicitly assigned `$index` and `$key` variables have been removed in favor of explicitly defining them in `v-for`. This makes the code easier to read for developers less experienced with Vue and also results in much clearer behavior when dealing with nested loops.
+Неявно определённые переменные `$index` и `$key` были заменены на явно определённые в `v-for`. Это позволяет коду быть легко читаемым для разработчиков, которые менее опытны во Vue, и к тому же как результат приводит к более понятному поведению при работе с вложенными циклами.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of these removed variables. If you miss any, you should also see <strong>console errors</strong> such as: <code>Uncaught ReferenceError: $index is not defined</code></p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры этих удалённых переменных. Если вы пропустили какую-то, то следует также проверить <strong>ошибки консоли</strong>, такие как: <code>Uncaught ReferenceError: $index is not defined</code></p>
 </div>
 {% endraw %}
 
 ### `track-by` <sup>заменён</sup>
 
-`track-by` has been replaced with `key`, which works like any other attribute: without the `v-bind:` or `:` prefix, it is treated as a literal string. In most cases, you'd want to use a dynamic binding which expects a full expression instead of a key. For example, in place of:
+`track-by` был заменён на `key`, который работает как любой другой атрибут: без директивы `v-bind:` или префикса `:` он воспринимался как буквенная строка. В большинстве же случаев вам захочется использовать динамичную привязку, которая требует написания полного выражения, а не просто ключа. Например, вместо:
 
 ``` html
 <div v-for="item in items" track-by="id">
 ```
 
-You would now write:
+Вы теперь напишете:
 
 ``` html
 <div v-for="item in items" v-bind:key="item.id">
@@ -223,18 +223,18 @@ You would now write:
 {% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>track-by</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры использования <code>track-by</code>.</p>
 </div>
 {% endraw %}
 
-### `v-for` Range Values <sup>changed</sup>
+### Диапазон значений  в `v-for` <sup>изменено</sup>
 
-Previously, `v-for="number in 10"` would have `number` starting at 0 and ending at 9. Now it starts at 1 and ends at 10.
+Раньше в `v-for="number in 10"` мы имели значение `number`, начиная от 0 и заканчивая 9. Теперь это значение начинается с 1 и заканчивается 10.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Search your codebase for the regex <code>/\w+ in \d+/</code>. Wherever it appears in a <code>v-for</code>, check to see if you may be affected.</p>
+  <p>Сделайте поиск в вашем коде на регулярное выражение <code>/\w+ in \d+/</code>. Везде, где найдётся <code>v-for</code>, проверьте, затронуло ли это ваш проект.</p>
 </div>
 {% endraw %}
 
