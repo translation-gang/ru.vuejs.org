@@ -1097,42 +1097,42 @@
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
-<h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a><code>v-for</code></h2><h3 id="v-for-Argument-Order-for-Arrays-changed"><a href="#v-for-Argument-Order-for-Arrays-changed" class="headerlink" title="v-for Argument Order for Arrays changed"></a><code>v-for</code> Argument Order for Arrays <sup>changed</sup></h3><p>When including an <code>index</code>, the argument order for arrays used to be <code>(index, value)</code>. It is now <code>(value, index)</code> to be more consistent with JavaScript’s native array methods such as <code>forEach</code> and <code>map</code>.</p>
+<h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a><code>v-for</code></h2><h3 id="Очерёдность-аргументов-для-массивов-в-v-for-изменено"><a href="#Очерёдность-аргументов-для-массивов-в-v-for-изменено" class="headerlink" title="Очерёдность аргументов для массивов в v-for изменено"></a>Очерёдность аргументов для массивов в <code>v-for</code> <sup>изменено</sup></h3><p>При использовании <code>index</code> очерёдность аргументов для массивов выглядела так <code>(index, value)</code>. Теперь она имеет вид <code>(value, index)</code>, чтобы не противоречить нативным методам массивов JavaScript, таким как <code>forEach</code> и <code>map</code>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete argument order. Note that if you name your index arguments something unusual like <code>position</code> or <code>num</code>, the helper will not flag them.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали нестандартное наименование индексу аргументов как  <code>position</code> или <code>num</code>, помощник не выделит их.</p>
 </div>
 
-<h3 id="v-for-Argument-Order-for-Objects-changed"><a href="#v-for-Argument-Order-for-Objects-changed" class="headerlink" title="v-for Argument Order for Objects changed"></a><code>v-for</code> Argument Order for Objects <sup>changed</sup></h3><p>When including a <code>key</code>, the argument order for objects used to be <code>(key, value)</code>. It is now <code>(value, key)</code> to be more consistent with common object iterators such as lodash’s.</p>
+<h3 id="Очерёдность-аргументов-для-объектов-в-v-for-изменено"><a href="#Очерёдность-аргументов-для-объектов-в-v-for-изменено" class="headerlink" title="Очерёдность аргументов для объектов в v-for изменено"></a>Очерёдность аргументов для объектов в <code>v-for</code> <sup>изменено</sup></h3><p>При использовании <code>key</code> очерёдность аргументов для объектов выглядела так <code>(key, value)</code>. Теперь она имеет вид <code>(value, key)</code>, чтобы не противоречить распространённым итераторам объекта, таким как lodash.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete argument order. Note that if you name your key arguments something like <code>name</code> or <code>property</code>, the helper will not flag them.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали название ключу аргументов как <code>name</code> или <code>property</code>, помощник не выделит их.</p>
 </div>
 
-<h3 id="index-and-key-удалён"><a href="#index-and-key-удалён" class="headerlink" title="$index and $key удалён"></a><code>$index</code> and <code>$key</code> <sup>удалён</sup></h3><p>The implicitly assigned <code>$index</code> and <code>$key</code> variables have been removed in favor of explicitly defining them in <code>v-for</code>. This makes the code easier to read for developers less experienced with Vue and also results in much clearer behavior when dealing with nested loops.</p>
+<h3 id="index-и-key-удалены"><a href="#index-и-key-удалены" class="headerlink" title="$index и $key удалены"></a><code>$index</code> и <code>$key</code> <sup>удалены</sup></h3><p>Неявно определённые переменные <code>$index</code> и <code>$key</code> были заменены на явно определённые в <code>v-for</code>. Это позволяет коду быть легко читаемым для разработчиков, которые менее опытны во Vue, и к тому же как результат приводит к более понятному поведению при работе с вложенными циклами.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of these removed variables. If you miss any, you should also see <strong>console errors</strong> such as: <code>Uncaught ReferenceError: $index is not defined</code></p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры этих удалённых переменных. Если вы пропустили какую-то, то следует также проверить <strong>ошибки консоли</strong>, такие как: <code>Uncaught ReferenceError: $index is not defined</code></p>
 </div>
 
-<h3 id="track-by-заменён"><a href="#track-by-заменён" class="headerlink" title="track-by заменён"></a><code>track-by</code> <sup>заменён</sup></h3><p><code>track-by</code> has been replaced with <code>key</code>, which works like any other attribute: without the <code>v-bind:</code> or <code>:</code> prefix, it is treated as a literal string. In most cases, you’d want to use a dynamic binding which expects a full expression instead of a key. For example, in place of:</p>
+<h3 id="track-by-заменён"><a href="#track-by-заменён" class="headerlink" title="track-by заменён"></a><code>track-by</code> <sup>заменён</sup></h3><p><code>track-by</code> был заменён на <code>key</code>, который работает как любой другой атрибут: без директивы <code>v-bind:</code> или префикса <code>:</code> он воспринимался как буквенная строка. В большинстве же случаев вам захочется использовать динамичную привязку, которая требует написания полного выражения, а не просто ключа. Например, вместо:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>You would now write:</p>
+<p>Вы теперь напишете:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">v-bind:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>track-by</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры использования <code>track-by</code>.</p>
 </div>
 
-<h3 id="v-for-Range-Values-changed"><a href="#v-for-Range-Values-changed" class="headerlink" title="v-for Range Values changed"></a><code>v-for</code> Range Values <sup>changed</sup></h3><p>Previously, <code>v-for=&quot;number in 10&quot;</code> would have <code>number</code> starting at 0 and ending at 9. Now it starts at 1 and ends at 10.</p>
+<h3 id="Диапазон-значений-в-v-for-изменено"><a href="#Диапазон-значений-в-v-for-изменено" class="headerlink" title="Диапазон значений  в v-for изменено"></a>Диапазон значений  в <code>v-for</code> <sup>изменено</sup></h3><p>Раньше в <code>v-for=&quot;number in 10&quot;</code> мы имели значение <code>number</code>, начиная от 0 и заканчивая 9. Теперь это значение начинается с 1 и заканчивается 10.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Search your codebase for the regex <code>/\w+ in \d+/</code>. Wherever it appears in a <code>v-for</code>, check to see if you may be affected.</p>
+  <p>Сделайте поиск в вашем коде на регулярное выражение <code>/\w+ in \d+/</code>. Везде, где найдётся <code>v-for</code>, проверьте, затронуло ли это ваш проект.</p>
 </div>
 
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="coerce-Prop-Option-удалён"><a href="#coerce-Prop-Option-удалён" class="headerlink" title="coerce Prop Option удалён"></a><code>coerce</code> Prop Option <sup>удалён</sup></h3><p>If you want to coerce a prop, setup a local computed value based on it instead. For example, instead of:</p>
