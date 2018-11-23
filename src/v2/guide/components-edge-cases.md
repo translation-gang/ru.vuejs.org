@@ -331,7 +331,7 @@ components: {
 </my-component>
 ```
 
-<p class="tip">Тем не менее, <code>inline-template</code> усложняют понимание области видимости вашего шаблона. В качестве наилучше практики рекомендуется определять шаблоны внутри компонента с помощью опции <code>template</code> или в теге <code>&lt;template&gt;</code> в файле <code>.vue</code>.</p>
+<p class="tip">Тем не менее, <code>inline-template</code> усложняют понимание области видимости вашего шаблона. В качестве наилучшей практики рекомендуется определять шаблоны внутри компонента с помощью опции <code>template</code> или в теге <code>&lt;template&gt;</code> в файле <code>.vue</code>.</p>
 
 ### X-Templates
 
