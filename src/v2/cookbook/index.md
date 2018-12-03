@@ -1,89 +1,89 @@
 ---
-title: Introduction
+title: Вступление
 type: cookbook
 order: 0
 ---
 
-## The Cookbook vs the Guide
+## Книга рецептов vs Руководство
 
-How is the cookbook different from the guide? Why is this necessary?
+Чем книга рецептов отличается от раздела "Руководство"? Для чего нужна книга рецептов?
 
-* **Greater Focus**: In the guide, we're essentially telling a story. Each section builds on and assumes knowledge from each previous section. In the cookbook, each recipe can and should stand on its own. This means recipes can focus on one specific aspect of Vue, rather than having to give a general overview.
+* **Детальный фокус**: В руководстве мы, по сути, рассказываем историю. Каждая секция основывается на знаниях из предыдущей секции. В данной книге, каждый рецепт может и должен быть независимым. Это означает, что рецепты могут сосредоточиться на одном конкретном аспекте Vue, а не на том, чтобы дать общий обзор.
 
-* **Greater Depth**: To avoid making the guide too long, we try to include only the simplest possible examples to help you understand each feature. Then we move on. In the cookbook, we can include more complex examples, combining features in interesting ways. Each recipe can also be as long and detailed as it needs to be, in order to fully explore its niche.
+* **Большее углубление**: Чтобы не делать руководство слишком большим, мы постарались включить только самые простые примеры, которые помогут вам разобрать каждый аспект. Затем мы пошли дальше. В книге рецептов мы можем описывать более сложные примеры, сочетая вместе разные особенности. Каждый рецепт может быть таким же длинным и подробным, каким он должен быть, чтобы вы могли глубоко изучить каждый аспект.
 
-* **Teaching JavaScript**: In the guide, we assume at least intermediate familiarity with ES5 JavaScript. For example, we won't explain how `Array.prototype.filter` works in a computed property that filters a list. In the cookbook however, essential JavaScript features (including ES6/2015+) can be explored and explained in the context of how they help us build better Vue applications.
+* **Обучение JavaScript**: В руководстве мы предполагаем, что вы владеете промежуточными знаниями ES5 JavaScript. Например, мы не будем объяснять, как `Array.prototype.filter` работает в вычисляемом свойстве, которое фильтрует список. Однако, в книге рецептов основные возможности JavaScript (включая ES6 / 2015 +) можно изучить и объяснить в контексте того, как они помогают нам создавать лучшие приложения Vue.
 
-* **Exploring the Ecosystem**: For advanced features, we assume some ecosystem knowledge. For example, if you want to use single-file components in Webpack, we don't explain how to configure the non-Vue parts of the Webpack config. In the cookbook, we have the space to explore these ecosystem libraries in more depth - at least to the extent that is universally useful for Vue developers.
+* **Изучение экосистемы**: Для продвинутых функций, мы предполагаем, что вы имеете некоторые знания об экосистеме. Например, если вы хотите использовать однофайловые компоненты в Webpack, мы не объясняем, как настроить Webpack. В книге рецептов у нас есть пространство для изучения этих экосистемных библиотек более подробно - по крайней мере, в той мере, в какой это универсально полезно для разработчиков Vue.
 
-## Cookbook Contributions
+## Вклад в книгу рецептов
 
-### What we're looking for
+### Что мы ищем
 
-The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.
+Книга рецептов показывает разработчикам примеры работы или интересные варианты использования рецептов, а также постепенно объясняет более сложные детали. Наша цель - выйти за рамки простого вводного примера и продемонстрировать концепции, которые более широко применимы, а также некоторые недостатки того или иного подхода.
 
-If you're interested in contributing, please initiate collaboration by filing an issue under the tag **cookbook idea** with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.
+Если вы заинтересованы в содействие, создавайте issue с тегом **cookbook idea** с вашей идеей, чтобы мы могли обсудить с вами детали для успешного pull request. После того, как ваша идея будет одобрена, пожалуйста, следуйте нижеприведенному шаблону. Некоторые разделы необходимы, а некоторые нет. Настоятельно советуется, выполнять действия по порядку, но это не обязательно.
 
-Recipes should generally:
+Рецепт должен:
 
-> * Solve a specific, common problem
-> * Start with the simplest possible example
-> * Introduce complexities one at a time
-> * Link to other docs, rather than re-explaining concepts
-> * Describe the problem, rather than assuming familiarity
-> * Explain the process, rather than just the end result
-> * Explain the pros and cons of your strategy, including when it is and isn't appropriate
-> * Mention alternative solutions, if relevant, but leave in-depth explorations to a separate recipe
+> * Решать конкретную распространённую проблему
+> * Начинаться с простого примера
+> * Постепенно увеличивать сложность
+> * Ссылаться на другие документы, а не на повторное объяснение
+> * Чётко описывать проблему, а не рассчитывать на осведомленность
+> * Объяснять процесс, а не конечный результат
+> * Описывать плюсы и минусы вашего подхода, в том числе ситуации, когда он не уместен
+> * Указать альтернативные решения, если они есть, но описывать подробности в отдельном рецепте
 
-We request that you follow the template below. We understand, however, that there are times when you may necessarily need to deviate for clarity or flow. Either way, all recipes should at some point discuss the nuance of the choice made using this pattern, preferably in the form of the alternative patterns section.
+Мы просим вас следовать приведенному ниже шаблону. Однако мы понимаем, что бывают моменты, когда вам может потребоваться отклонение для большей ясности.
 
-### Base Example
+### Базовый пример
 
-_required_
+_обязательно_
 
-1.  Articulate the problem in a sentence or two.
-2.  Explain the simplest possible solution in a sentence or two.
-3.  Show a small code sample.
-4.  Explain what this accomplishes in a sentence.
+1.  Опишите проблему в 1-2 предложениях.
+2.  Объясните простое доступное решение.
+3.  Покажите небольшой кусок кода.
+4.  Объясните, что выполняет данный код.
 
-### Details about the Value
+### Подробная информация
 
-_required_
+_обязательно_
 
-1.  Address common questions that one might have while looking at the example. (Blockquotes are great for this)
-2.  Show examples of common missteps and how they can be avoided.
-3.  Show very simple code samples of good and bad patterns.
-4.  Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.
+1. Обращайтесь к общим вопросам, которые могут возникнуть при просмотре примера. (Blockquotes отлично подходит для этого)
+2. Покажите общие примеры ошибок и как их можно избежать.
+3. Покажите примеры хорошего и плохого шаблона.
+4. Обсудите, почему это может быть подходящим шаблоном. Ссылки для справки не требуются, но поощряются.
 
-### Real-World Example
+### Реальный пример
 
-_required_
+_обязательно_
 
-Demonstrate the code that would power a common or interesting use case, either by:
+Продемонстрируйте код, который будет использовать общий или интересный подход, либо путем:
 
-1.  Walking through a few terse examples of setup, or
-2.  Embedding a codepen/jsfiddle example
+1. Описание кратких примеров настройки 
+2. Внедрение примера codepen / jsfiddle
 
-If you choose to do the latter, you should still talk through what it is and does.
+Если вы решите сделать последнее, вы все равно должны описать, что это и как это работает.
 
-### Additional Context
+### Дополенительно
 
-_optional_
+_необязательно_
 
-It's extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.
+Очень полезным будет небольшое описание этого шаблона, где еще он может использоваться, за счет чего он хорошо работает. Также вы можете оставить здесь дополнительные материалы для чтения.
 
-### When To Avoid This Pattern
+### Когда шаблон использовать не стоит
 
-_optional_
+_необязательно_
 
-This section is not required, but heavily recommended. It won't make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it's vital. The answer to most questions about development is ["It depends!"](https://codepen.io/rachsmith/pen/YweZbG), this section embraces that. Here, we'll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.
+Этот раздел необязательный, но настоятельно рекомендуется. Нет смысла писать его для чего-то очень простого, например, для переключения классов, основанных на изменении состояния, но для более продвинутых шаблонов, таких как mixins, это жизненно необходимо. Ответ на большинство вопросов разработки - [«Это зависит от!»] (Https://codepen.io/rachsmith/pen/YweZbG), этот раздел охватывает это. Здесь мы будем честно смотреть, когда шаблон полезен и когда его следует избегать, или когда что-то еще имеет смысл.
 
-### Alternative Patterns
+### Альтернативные шаблоны
 
-_required_
+_обязательно_
 
-This section is required when you've provided the section above about avoidance. It's important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.
+Этот раздел необходим, если вы описали раздел выше об избегании. Важно изучить другие подходы, чтобы люди, которые скажут: "что-то является антипаттерном в определенных ситуациях", вас не удивляли. При этом не забывайте, что многие люди имеют разную структуру кода и решают разные цели. Является ли приложение большим или маленьким? Они интегрируют Vue в существующий проект или строят с нуля? Их пользователи пытаются достичь одной цели или многих? Много ли асинхронных данных? Все эти проблемы будут влиять на альтернативные решения. Хороший рецепт книги рецептов дает разработчикам ответы на все вопросы.
 
-## Thank you
+## Спасибо
 
-It takes time to contribute to documentation, and if you spend the time to submit a PR to this section of our docs, you do so with our gratitude.
+Требуется время, чтобы внести свой вклад в документацию, и если вы тратите время на отправку PR в этот раздел нашей документации, мы вам очень благодарны.
