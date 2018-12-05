@@ -21,9 +21,10 @@ order: 6
 Таким образом можно управлять несколькими классами, добавляя в объект другие поля. Кроме того, `v-bind:class` можно использовать совместно с обычным атрибутом `class`:
 
 ``` html
-<div class="static"
-     v-bind:class="{ active: isActive, 'text-danger': hasError }">
-</div>
+<div
+  class="static"
+  v-bind:class="{ active: isActive, 'text-danger': hasError }"
+></div>
 ```
 
 При использовании таких данных:
