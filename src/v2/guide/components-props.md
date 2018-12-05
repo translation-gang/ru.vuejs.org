@@ -62,7 +62,9 @@ props: {
 <blog-post v-bind:title="post.title"></blog-post>
 
 <!-- Динамически присваиваем значение комплексного выражения -->
-<blog-post v-bind:title="post.title + ' написанный ' + post.author.name"></blog-post>
+<blog-post
+  v-bind:title="post.title + ' написанный ' + post.author.name"
+></blog-post>
 ```
 
 В этих двух примерах мы передаём строковые значения, но могут передаваться значения _любого типа_ во входной параметр.
@@ -108,7 +110,9 @@ props: {
 ```html
 <!-- Несмотря на то, что указан статический объект, нам нужен v-bind, -->
 <!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  -->
-<blog-post v-bind:author="{ name: 'Veronica', company: 'Veridian Dynamics' }"></blog-post>
+<blog-post
+  v-bind:author="{ name: 'Veronica', company: 'Veridian Dynamics' }"
+></blog-post>
 
 <!-- Динамическое присвоение значения переменной. -->
 <blog-post v-bind:author="post.author"></blog-post>
