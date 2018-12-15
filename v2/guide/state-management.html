@@ -732,22 +732,6 @@
             
         
         <li>
-            <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание на production</a>
-        </li>
-    
-        
-        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        
-        <li>
             <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
         </li>
     
@@ -781,6 +765,22 @@
         
         <li>
             <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Развёртывание на production</a>
         </li>
     
         
@@ -1005,6 +1005,8 @@
     
     
       <h2 id="Официальная-Flux-подобная-библиотека"><a href="#Официальная-Flux-подобная-библиотека" class="headerlink" title="Официальная Flux-подобная библиотека"></a>Официальная Flux-подобная библиотека</h2><p>Сложность больших приложений нередко возрастает из-за распределения кусочков состояния по многим компонентам и связям между ними. Для решения этой проблемы, Vue предлагает <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>: нашу собственную библиотеку управления состоянием, вдохновлённую языком Elm. Она даже интегрируется с <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue-devtools</a>, из коробки давая доступ к функциональности <a href="https://raw.githubusercontent.com/vuejs/vue-devtools/master/media/demo.gif" target="_blank" rel="noopener">“машины времени”</a>.</p>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/mastering-vuex/intro-to-vuex/" target="_blank" rel="noopener" title="Изучение Vuex">Посмотрите объясняющее видео на Vue Mastery</a></div>
+
 <h3 id="Информация-для-React-разработчиков"><a href="#Информация-для-React-разработчиков" class="headerlink" title="Информация для React-разработчиков"></a>Информация для React-разработчиков</h3><p>Если вы переходите на Vue с React, может быть интересно, как связаны Vuex и <a href="https://github.com/reactjs/redux" target="_blank" rel="noopener">Redux</a>, являющийся наиболее популярной имплементацией Flux в React-экосистеме. Redux агностичен по отношению к слою представления, так что его можно напрямую использовать с Vue, применив <a href="https://yarnpkg.com/en/packages?q=redux%20vue&amp;p=1" target="_blank" rel="noopener">простые байндинги</a>. Vuex же <em>знает</em>, что работает с приложением Vue, что позволяет достичь лучшей интеграции, использовать более интуитивно-понятный API и в результате делает разработку приятнее.</p>
 <h2 id="Простой-контейнер-состояния-с-нуля"><a href="#Простой-контейнер-состояния-с-нуля" class="headerlink" title="Простой контейнер состояния с нуля"></a>Простой контейнер состояния с нуля</h2><p>Часто упускается из виду тот факт, что “источником истины” во Vue-приложениях является исходный объект <code>data</code> — экземпляры Vue всего лишь проксируют доступ к нему. Поэтому состояние, которым должны совместно владеть несколько экземпляров, можно просто передать по ссылке:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceOfTruth = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmA = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vmB = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: sourceOfTruth</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>

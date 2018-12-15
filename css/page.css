@@ -1306,7 +1306,7 @@ ul.demo li {
   box-sizing: border-box;
   display: none;
   position: fixed;
-  width: 80%;
+  width: 75%;
   height: auto;
   padding: 0.5em;
   background-color: #f9f9f9;
@@ -1318,6 +1318,14 @@ ul.demo li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.modal-text {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+.modal-text > a {
+  color: #42b983;
+  font-weight: 600;
 }
 .overlay {
   position: fixed;
@@ -1361,6 +1369,42 @@ ul.demo li {
   background-color: #73abfe;
 }
 .scrimba a:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  top: 5px;
+  left: 8px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #fff;
+}
+.vue-mastery {
+  background-color: #e7ecf3;
+  padding: 1em 1.25em;
+  border-radius: 2px;
+  color: #486491;
+  position: relative;
+  margin-top: 1em;
+}
+.vue-mastery a {
+  color: #486491 !important;
+  position: relative;
+  padding-left: 36px;
+}
+.vue-mastery a:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  top: -5px;
+  left: -4px;
+  border-radius: 50%;
+  background-color: #73abfe;
+}
+.vue-mastery a:after {
   content: '';
   position: absolute;
   display: block;
