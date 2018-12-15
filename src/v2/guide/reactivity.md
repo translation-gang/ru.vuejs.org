@@ -6,6 +6,8 @@ order: 601
 
 Мы уже разобрали большую часть основ, так что пришло время нырнуть поглубже! Одна из наиболее примечательных возможностей Vue — это ненавязчивая реактивность. Модели представляют собой простые JavaScript-объекты. По мере их изменения обновляется и представление данных, благодаря чему управление состоянием приложения становится простым и очевидным. Тем не менее, у механизма реактивности есть ряд особенностей, знакомство с которыми позволит избежать распространённых ошибок. В этом разделе руководства мы подробно рассмотрим низкоуровневую реализацию системы реактивности Vue.
 
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="noopener" title="Реактивность Vue">Посмотрите объясняющее видео на Vue Mastery</a></div>
+
 ## Как отслеживаются изменения
 
 Когда простой JavaScript-объект передаётся в экземпляр Vue в качестве опции `data`, Vue обходит все его поля и превращает их в пары [геттер/сеттер](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters#%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B3%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%BE%D0%B2_%D0%B8_%D1%81%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%BE%D0%B2), используя [Object.defineProperty](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty). Эта возможность появилась в JavaScript только начиная с версии ES5, и в более ранних версиях её эмулировать не получится — по этой-то причине Vue и не поддерживает IE8 и ниже.
