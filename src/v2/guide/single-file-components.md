@@ -68,4 +68,4 @@ order: 401
 
 CLI позаботится о большинстве настроек конфигурации сборки для вас, но при необходимости позволяет настроить любые детали через [опции конфигурации](https://cli.vuejs.org/ru/config/).
 
-Если вы предпочитаете создавать конфигурацию сборки с нуля, то необходимо вручную настроить webpack для работы с [vue-loader](hhttps://vue-loader.vuejs.org/ru/). Чтобы узнать больше о webpack, обратитесь к [его официальной документации](https://webpack.js.org/configuration/) и [Webpack Academy](https://webpack.academy/p/the-core-concepts).
+Если вы предпочитаете создавать конфигурацию сборки с нуля, то необходимо вручную настроить webpack для работы с [vue-loader](https://vue-loader.vuejs.org/ru/). Чтобы узнать больше о webpack, обратитесь к [его официальной документации](https://webpack.js.org/configuration/) и [Webpack Academy](https://webpack.academy/p/the-core-concepts).
