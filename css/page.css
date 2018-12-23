@@ -1188,6 +1188,9 @@ ul.demo li {
 #team-members .vuer .profile .social a.twitter {
   color: #1da1f3;
 }
+#team-members .vuer .profile .social a.linkedin {
+  color: #0077b5;
+}
 #team-members .vuer .profile .social i {
   vertical-align: text-bottom;
   font-size: 1.3em;
