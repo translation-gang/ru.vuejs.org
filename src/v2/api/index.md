@@ -647,8 +647,12 @@ type: api
         immediate: true
       },
       e: [
-        function handle1 (val, oldVal) { /* ... */ },
-        function handle2 (val, oldVal) { /* ... */ }
+        'handle1',
+        function handle2 (val, oldVal) { /* ... */ },
+        {
+          handler: function handle3 (val, oldVal) { /* ... */ },
+          /* ... */
+        }
       ],
       // отслеживание значения `vm.e.f`: {g: 5}
       'e.f': function (val, oldVal) { /* ... */ }
