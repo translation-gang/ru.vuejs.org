@@ -4,7 +4,7 @@ type: guide
 order: 402
 ---
 
-> [Vue CLI](https://cli.vuejs.org/ru/) предоставляет опции для модульного тестирования с помощью [Jest](https://github.com/facebook/jest) или [Mocha](https://mochajs.org/), которые работают из коробки. У нас также есть официальный пакет [vue-test-utils](https://vue-test-utils.vuejs.org/ru/), который предоставляет более подробное руководство для пользовательских конфигураций.
+> [Vue CLI](https://cli.vuejs.org/ru/) предоставляет опции для модульного тестирования с помощью [Jest](https://github.com/facebook/jest) или [Mocha](https://mochajs.org/), которые работают из коробки. У нас также есть официальный пакет [Vue Test Utils](https://vue-test-utils.vuejs.org/ru/), который предоставляет более подробное руководство для пользовательских конфигураций.
 
 ## Простые операторы контроля
 
