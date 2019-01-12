@@ -45,7 +45,7 @@ export default {
 
 ```js
 import { shallowMount } from '@vue/test-utils'
-import Hello from './Hello'
+import Hello from './Hello.vue'
 
 test('Hello', () => {
   // отрисовываем компонент в изоляции
@@ -145,7 +145,7 @@ export default {
 
 ```js
 import { shallowMount } from '@vue/test-utils'
-import Foo from './Foo'
+import Foo from './Foo.vue'
 
 describe('Foo', () => {
   it('отрисовывает сообщение и правильно реагирует на пользовательский ввод', () => {
@@ -184,7 +184,7 @@ describe('Foo', () => {
 *Обновлённый тест*:
 ```js
 import { shallowMount } from '@vue/test-utils'
-import Foo from './Foo'
+import Foo from './Foo.vue'
 
 const factory = (values = {}) => {
   return shallowMount(Foo, {
