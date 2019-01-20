@@ -11,7 +11,7 @@ order: 13
 Начнём с создания `Dockerfile` в корневом каталоге нашего проекта:
 
 ```docker
-FROM node:9.11.1-alpine
+FROM node:lts-alpine
 
 # устанавливаем простой HTTP-сервер для статики
 RUN npm install -g http-server
@@ -63,7 +63,7 @@ docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/doc
 
  ```docker
 # этап сборки (build stage)
-FROM node:9.11.1-alpine as build-stage
+FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -71,7 +71,7 @@ COPY . .
 RUN npm run build
 
 # этап production (production-stage)
-FROM nginx:1.13.12-alpine as production-stage
+FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
