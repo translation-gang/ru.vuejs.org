@@ -479,7 +479,7 @@ createElement(
 </anchored-heading>
 ```
 
-Поэтому есть [плагин для Babel](https://github.com/vuejs/babel-plugin-transform-vue-jsx), позволяющий использовать JSX во Vue, и применять синтаксис, похожий на шаблоны:
+Поэтому есть [плагин для Babel](https://github.com/vuejs/jsx), позволяющий использовать JSX во Vue, и применять синтаксис, похожий на шаблоны:
 
 ``` js
 import AnchoredHeading from './AnchoredHeading.vue'
@@ -498,7 +498,7 @@ new Vue({
 
 <p class="tip">Сокращение `createElement` до `h` — распространённое соглашение в экосистеме Vue и обязательное для использования JSX. В случае отсутствия `h` в области видимости, приложение выбросит ошибку.</p>
 
-Подробную информацию о преобразовании JSX в JavaScript можно найти в [документации плагина](https://github.com/vuejs/babel-plugin-transform-vue-jsx#usage).
+Подробную информацию о преобразовании JSX в JavaScript можно найти в [документации плагина](https://github.com/vuejs/jsx#installation).
 
 ## Функциональные компоненты
 
