@@ -167,7 +167,7 @@ order: 803
     </h2>
 
     <p>
-      Здесь мы чтим некоторых уже не активных участников основной команды, которые внесли ценный вклад в прошлом.
+      Здесь мы чтим некоторых уже неактивных участников основной команды, которые внесли ценный вклад в прошлом.
     </p>
 
     <vuer-profile
@@ -600,7 +600,22 @@ order: 803
       languages: ['pl', 'en'],
       github: 'gustojs',
       twitter: 'gustojs'
-    }
+    },
+    {
+      name: 'Phan An',
+      title: 'Backend Designer & Process Poet',
+      city: 'Munich, Germany',
+      languages: ['vi', 'en'],
+      github: 'phanan',
+      twitter: 'notphanan',
+      reposPersonal: [
+        'vuequery', 'vue-google-signin-button'
+      ],
+      links: [
+        'https://vi.vuejs.org',
+        'https://phanan.net/'
+      ]
+    },
   ]))
 
   var emeriti = shuffle([
@@ -645,17 +660,6 @@ order: 803
       github: 'fnlctrl',
       reposOfficial: [
         'vue-router'
-      ]
-    },
-    {
-      name: 'Phan An',
-      title: 'Backend Designer & Process Poet',
-      city: 'Munich, Germany',
-      languages: ['vi', 'en'],
-      github: 'phanan',
-      twitter: 'notphanan',
-      links: [
-        'https://phanan.net/'
       ]
     },
     {
@@ -1131,21 +1135,6 @@ order: 803
       twitter: 'blakenewman',
       links: [
         'https://vuejs.london'
-      ]
-    },
-    {
-      name: 'Phan An',
-      title: 'Backend Designer & Process Poet',
-      city: 'Munich, Germany',
-      languages: ['vi', 'en'],
-      github: 'phanan',
-      twitter: 'notphanan',
-      reposPersonal: [
-        'vuequery', 'vue-google-signin-button'
-      ],
-      links: [
-        'https://vi.vuejs.org',
-        'https://phanan.net/'
       ]
     },
   ]
