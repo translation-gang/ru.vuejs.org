@@ -67,12 +67,12 @@ Vue.js предоставляет [официальный инструмента
 
 В [папке `dist/` NPM-пакета](https://cdn.jsdelivr.net/npm/vue/dist/) можно найти много разных сборок Vue.js. Вот краткий обзор отличий между ними:
 
-| | UMD | CommonJS | ES Module |
-| --- | --- | --- | --- |
-| **Полная** | vue.js | vue.common.js | vue.esm.js |
-| **Runtime-only** | vue.runtime.js | vue.runtime.common.js | vue.runtime.esm.js |
-| **Полная (production)** | vue.min.js | - | - |
-| **Runtime-only (production)** | vue.runtime.min.js | - | - |
+|                               | UMD                | CommonJS              | ES Module          |
+| ---                           | ---                | ---                   | ---                |
+| **Полная**                    | vue.js             | vue.common.js         | vue.esm.js         |
+| **Runtime-only**              | vue.runtime.js     | vue.runtime.common.js | vue.runtime.esm.js |
+| **Полная (production)**       | vue.min.js         | -                     | -                  |
+| **Runtime-only (production)** | vue.runtime.min.js | -                     | -                  |
 
 ### Термины
 
