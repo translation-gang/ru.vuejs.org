@@ -454,7 +454,7 @@ order: 803
       github: 'LinusBorg',
       twitter: 'Linus_Borg',
       reposOfficial: [
-        'vuejs/*', 'vuejs-templates/*', 'vue-touch'
+        'vuejs/*'
       ],
       reposPersonal: [
         'portal-vue'
@@ -608,6 +608,9 @@ order: 803
       languages: ['vi', 'en'],
       github: 'phanan',
       twitter: 'notphanan',
+      reposOfficial: [
+        'vuejs.org'
+      ],
       reposPersonal: [
         'vuequery', 'vue-google-signin-button'
       ],
@@ -1135,6 +1138,25 @@ order: 803
       twitter: 'blakenewman',
       links: [
         'https://vuejs.london'
+      ]
+    },
+    {
+      name: 'Filip Rakowski',
+      title: 'eCommerce & PWA mastah',
+      city: 'Wrocław, Poland',
+      languages: ['pl', 'en'],
+      github: 'filrak',
+      twitter: 'filrakowski',
+      work: {
+        role: 'FED & Vue Storefront Co-founder',
+        org: 'Divante',
+        orgUrl: 'https://divante.co/'
+      },
+      reposPersonal: [
+        'DivanteLtd/vue-storefront', 'filrak/vue-offline'
+      ],
+      links: [
+        'https://vuestorefront.io'
       ]
     },
   ]
