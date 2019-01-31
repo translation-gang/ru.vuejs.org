@@ -310,7 +310,7 @@ Vue.component('my-component', {
 
 ```js
 {
-  class: 'username-input',
+  required: true,
   placeholder: 'Введите имя пользователя'
 }
 ```
@@ -334,12 +334,14 @@ Vue.component('base-input', {
 })
 ```
 
+<p class="tip">Обратите внимание, что опция `inheritAttrs: false` **не влияет** на биндинги `style` и `class`.</p>
+
 Этот шаблон позволяет вам использовать базовые компоненты больше как обычные HTML-элементы, не беспокоясь о том, какой элемент будет у него корневым:
 
 ```html
 <base-input
   v-model="username"
-  class="username-input"
+  required
   placeholder="Введите имя пользователя"
 ></base-input>
 ```
