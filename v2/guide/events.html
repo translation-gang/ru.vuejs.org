@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Обработка событий — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1002,8 +1006,16 @@
     
       <h2 id="Подписка-на-события"><a href="#Подписка-на-события" class="headerlink" title="Подписка на события"></a>Подписка на события</h2><p>Для подписки на события DOM и выполнения JavaScript-кода по их наступлении используйте директиву <code>v-on</code>.</p>
 <p>Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"counter += 1"</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Кнопка выше была нажата &#123;&#123; counter &#125;&#125; раз<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    counter: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"counter += 1"</span>&gt;</span>+1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Кнопка выше была нажата &#123;&#123; counter &#125;&#125; раз<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> example1 = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example-1'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">counter</span>: <span class="hljs-number">0</span>
+  &#125;
+&#125;)</code></pre>
 <p>Результат:</p>
 
 <div id="example-1" class="demo">
@@ -1021,8 +1033,30 @@ var example1 = new Vue({
 
 <h2 id="Обработчики-событий"><a href="#Обработчики-событий" class="headerlink" title="Обработчики событий"></a>Обработчики событий</h2><p>Логика обработчика события может быть довольно сложной, поэтому оставлять JavaScript-код в значении атрибута <code>v-on</code> не всегда возможно. В этом случае <code>v-on</code> может принять и название метода, который необходимо вызвать.</p>
 <p>Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- `greet` — это название метода, определённого ниже --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"greet"</span>&gt;</span>Поприветствовать<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example2 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    name: <span class="string">'Vue.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// определяйте методы в объекте `methods`</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    greet: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// `this` внутри методов указывает на экземпляр Vue</span></span><br><span class="line">      alert(<span class="string">'Привет, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>)</span><br><span class="line">      <span class="comment">// `event` — нативное событие DOM</span></span><br><span class="line">      <span class="keyword">if</span> (event) &#123;</span><br><span class="line">        alert(event.target.tagName)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// вызывать методы можно и императивно</span></span><br><span class="line">example2.greet() <span class="comment">// =&gt; 'Привет, Vue.js!'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-2"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- `greet` — это название метода, определённого ниже --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"greet"</span>&gt;</span>Поприветствовать<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> example2 = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example-2'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Vue.js'</span>
+  &#125;,
+  <span class="hljs-comment">// определяйте методы в объекте `methods`</span>
+  methods: &#123;
+    <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
+      <span class="hljs-comment">// `this` внутри методов указывает на экземпляр Vue</span>
+      alert(<span class="hljs-string">'Привет, '</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">'!'</span>)
+      <span class="hljs-comment">// `event` — нативное событие DOM</span>
+      <span class="hljs-keyword">if</span> (event) &#123;
+        alert(event.target.tagName)
+      &#125;
+    &#125;
+  &#125;
+&#125;)
+
+<span class="hljs-comment">// вызывать методы можно и императивно</span>
+example2.greet() <span class="hljs-comment">// =&gt; 'Привет, Vue.js!'</span></code></pre>
 <p>Результат:</p>
 
 <div id="example-2" class="demo">
@@ -1046,8 +1080,18 @@ var example2 = new Vue({
 </script>
 
 <h2 id="Методы-и-inline-обработчики"><a href="#Методы-и-inline-обработчики" class="headerlink" title="Методы и inline-обработчики"></a>Методы и inline-обработчики</h2><p>Кроме указания имени метода, можно использовать и JavaScript-выражения:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"say('hi')"</span>&gt;</span>Скажи hi<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"say('what')"</span>&gt;</span>Скажи what<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-3'</span>,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    say: <span class="function"><span class="keyword">function</span> (<span class="params">message</span>) </span>&#123;</span><br><span class="line">      alert(message)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-3"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"say('hi')"</span>&gt;</span>Скажи hi<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"say('what')"</span>&gt;</span>Скажи what<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example-3'</span>,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">say</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message</span>) </span>&#123;
+      alert(message)
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Результат:</p>
 
 <div id="example-3" class="demo">
@@ -1066,8 +1110,17 @@ new Vue({
 </script>
 
 <p>Иногда в inline-обработчиках необходим доступ к оригинальному событию DOM. Его можно передать в метод, используя специальную переменную <code>$event</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"warn('Форма не может быть отправлена.', $event)"</span>&gt;</span></span><br><span class="line">  Отправить</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  warn: <span class="function"><span class="keyword">function</span> (<span class="params">message, event</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// теперь у нас есть доступ к нативному событию</span></span><br><span class="line">    <span class="keyword">if</span> (event) event.preventDefault()</span><br><span class="line">    alert(message)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"warn('Форма не может быть отправлена.', $event)"</span>&gt;</span>
+  Отправить
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// ...</span>
+methods: &#123;
+  <span class="hljs-attr">warn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message, event</span>) </span>&#123;
+    <span class="hljs-comment">// теперь у нас есть доступ к нативному событию</span>
+    <span class="hljs-keyword">if</span> (event) event.preventDefault()
+    alert(message)
+  &#125;
+&#125;</code></pre>
 <h2 id="Модификаторы-событий"><a href="#Модификаторы-событий" class="headerlink" title="Модификаторы событий"></a>Модификаторы событий</h2><p>Очень часто возникает необходимость вызывать <code>event.preventDefault()</code> или <code>event.stopPropagation()</code> в обработчике события. Несмотря на то, что это легко сделать внутри метода, лучше сохранять чистоту логики и абстрагироваться от деталей реализации событий DOM.</p>
 <p>Для решения этой задачи Vue предоставляет <strong>модификаторы событий</strong> для <code>v-on</code>, которые указываются как постфиксы и отделяются точкой:</p>
 <ul>
@@ -1078,27 +1131,55 @@ new Vue({
 <li><code>.once</code></li>
 <li><code>.passive</code></li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- событие click не будет всплывать дальше --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- событие submit больше не будет перезагружать страницу --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- модификаторы можно объединять в цепочки --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop.prevent</span>=<span class="string">"doThat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- и использовать без указания метода-обработчика --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- можно отслеживать события в режиме capture, т.е. событие, нацеленное --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- на внутренний элемент, обрабатывается здесь до обработки этим элементом --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.capture</span>=<span class="string">"doThis"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- вызов обработчика только в случае наступления события непосредственно --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- на данном элементе (то есть не на дочернем компоненте) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.self</span>=<span class="string">"doThat"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- событие click не будет всплывать дальше --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click.stop</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- событие submit больше не будет перезагружать страницу --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">"onSubmit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- модификаторы можно объединять в цепочки --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click.stop.prevent</span>=<span class="hljs-string">"doThat"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- и использовать без указания метода-обработчика --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- можно отслеживать события в режиме capture, т.е. событие, нацеленное --&gt;</span>
+<span class="hljs-comment">&lt;!-- на внутренний элемент, обрабатывается здесь до обработки этим элементом --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-on:click.capture</span>=<span class="hljs-string">"doThis"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- вызов обработчика только в случае наступления события непосредственно --&gt;</span>
+<span class="hljs-comment">&lt;!-- на данном элементе (то есть не на дочернем компоненте) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-on:click.self</span>=<span class="hljs-string">"doThat"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p class="tip">При использовании модификаторов порядок имеет значение, потому что код генерируется в том же порядке. Поэтому <code>v-on:click.prevent.self</code> будет предотвращать <strong>все клики</strong>, в то время как <code>v-on:click.self.prevent</code> будет предотвращать клики только на самом элементе.</p>
 
 <blockquote>
 <p>Добавлено в версии 2.1.4+</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Событие click сработает только 1 раз --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.once</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Событие click сработает только 1 раз --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click.once</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>В отличие от остальных модификаторов, которые поддерживают только нативные события DOM, модификатор <code>.once</code> может использоваться и в <a href="components.html#Отправка-сообщений-родителям-с-помощью-событий">пользовательских событиях компонентов</a>. Если вы ещё не читали о компонентах, не беспокойтесь об этом сейчас.</p>
 <blockquote>
 <p>Добавлено в версии 2.3.0+</p>
 </blockquote>
 <p>Vue также предоставляет модификатор <code>.passive</code>, соответствующий опции <a href="https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener#Syntax" target="_blank" rel="noopener"><code>passive</code> в <code>addEventListener</code></a>.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- по умолчанию событие scroll (при прокрутке) произойдёт --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- незамедлительно, вместо ожидания окончания `onScroll`  --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- на случай, если там будет `event.preventDefault()`     --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:scroll.passive</span>=<span class="string">"onScroll"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- по умолчанию событие scroll (при прокрутке) произойдёт --&gt;</span>
+<span class="hljs-comment">&lt;!-- незамедлительно, вместо ожидания окончания `onScroll`  --&gt;</span>
+<span class="hljs-comment">&lt;!-- на случай, если там будет `event.preventDefault()`     --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-on:scroll.passive</span>=<span class="hljs-string">"onScroll"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Модификатор <code>.passive</code> особенно полезен для повышения производительности на мобильных устройствах.</p>
 <p class="tip">Не используйте вместе <code>.passive</code> и <code>.prevent</code>, потому что <code>.prevent</code> будет проигнорирован и браузер возможно покажет предупреждение. Помните, что <code>.passive</code> сообщает браузеру, что вы <em>не хотите</em> предотвращать поведение по умолчанию для события.</p>
 
-<h2 id="Модификаторы-клавиш"><a href="#Модификаторы-клавиш" class="headerlink" title="Модификаторы клавиш"></a>Модификаторы клавиш</h2><p>При обработке событий клавиатуры нас часто интересуют распространённые коды клавиш. Vue позволяет добавить модификаторы клавиш при использовании <code>v-on</code> для отслеживания событий от клавиатуры:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- вызвать `vm.submit()` только если `keyCode` равен 13 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.13</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Запоминать все коды клавиш — неблагодарное дело, поэтому Vue предоставляет псевдонимы для наиболее используемых:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- аналогично примеру выше --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- работает также и в сокращённой записи --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Вот полный список поддерживаемых псевдонимов:</p>
+<h2 id="Модификаторы-клавиш"><a href="#Модификаторы-клавиш" class="headerlink" title="Модификаторы клавиш"></a>Модификаторы клавиш</h2><p>При обработке событий клавиатуры нас часто интересуют конкретные клавиши. Vue позволяет использовать модификаторы клавиш при использовании <code>v-on</code> для отслеживания событий от клавиатуры:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- вызвать `vm.submit()` только если `key` будет `Enter` --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup.enter</span>=<span class="hljs-string">"submit"</span>&gt;</span></code></pre>
+<p>Можно также использовать любые допустимые имена клавиш, предоставляемые через <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values" target="_blank" rel="noopener"><code>KeyboardEvent.key</code></a> в качестве модификаторов, именуя их в kebab-case.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup.page-down</span>=<span class="hljs-string">"onPageDown"</span>&gt;</span></code></pre>
+<p>В примере выше обработчик будет вызываться только если <code>$event.key</code> будет <code>&#39;PageDown&#39;</code>.</p>
+<h3 id="Коды-клавиш"><a href="#Коды-клавиш" class="headerlink" title="Коды клавиш"></a>Коды клавиш</h3><p class="tip">Использование значения <code>keyCode</code> событий — <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode" target="_blank" rel="noopener">устаревшая практика</a> и может не поддерживаться в новых браузерах.</p>
+
+<p>Использование значений <code>keyCode</code> также разрешено:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup.13</span>=<span class="hljs-string">"submit"</span>&gt;</span></code></pre>
+<p>Vue предоставляет псевдонимы для наиболее часто используемых клавиш, когда это необходимо для поддержки устаревших браузеров:</p>
 <ul>
 <li><code>.enter</code></li>
 <li><code>.tab</code></li>
@@ -1110,16 +1191,11 @@ new Vue({
 <li><code>.left</code></li>
 <li><code>.right</code></li>
 </ul>
-<p>Можно также <a href="../api/#keyCodes">определить пользовательские псевдонимы клавиш</a> через глобальную опцию <code>config.keyCodes</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// позволит использовать `v-on:keyup.f1`</span></span><br><span class="line">Vue.config.keyCodes.f1 = <span class="number">112</span></span><br></pre></td></tr></table></figure>
-<h3 id="Автоматические-модификаторы-клавиш"><a href="#Автоматические-модификаторы-клавиш" class="headerlink" title="Автоматические модификаторы клавиш"></a>Автоматические модификаторы клавиш</h3><blockquote>
-<p>Добавлено в версии 2.5.0+</p>
-</blockquote>
-<p>Можно также использовать любые допустимые имена клавиш, предоставляемые через <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values" target="_blank" rel="noopener"><code>KeyboardEvent.key</code></a> в качестве модификаторов, именуя их в kebab-case:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.page-down</span>=<span class="string">"onPageDown"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Тогда обработчик будет вызван только в случае, если <code>$event.key === &#39;PageDown&#39;</code>.</p>
 <p class="tip">Некоторые клавиши (<code>.esc</code> и все клавиши со стрелками) имеют несогласованные значения в IE9, поэтому их встроенные псевдонимы должны быть предпочтительными, если необходимо поддерживать IE9.</p>
 
+<p>Можно также <a href="../api/#keyCodes">определить пользовательские псевдонимы клавиш</a> через глобальную опцию <code>config.keyCodes</code>:</p>
+<pre><code class="hljs js"><span class="hljs-comment">// позволит использовать `v-on:keyup.f1`</span>
+Vue.config.keyCodes.f1 = <span class="hljs-number">112</span></code></pre>
 <h2 id="Системные-модификаторы-клавиш"><a href="#Системные-модификаторы-клавиш" class="headerlink" title="Системные модификаторы клавиш"></a>Системные модификаторы клавиш</h2><blockquote>
 <p>Добавлено в версии 2.1.0+</p>
 </blockquote>
@@ -1134,14 +1210,25 @@ new Vue({
 <p>Примечание: На клавиатурах Apple клавиша meta отмечена знаком ⌘. На клавиатурах Windows клавиша meta отмечена знаком ⊞. На клавиатурах Sun Microsystems клавиша meta отмечена символом ромба ◆. На некоторых клавиатурах, особенно MIT и Lisp machine и их преемников, таких как Knight или space-cadet клавиатуры, клавиша meta отмечена словом «META». На клавиатурах Symbolics, клавиша meta отмечена словом «META» или «Meta».</p>
 </blockquote>
 <p>Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Alt + C --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.alt.67</span>=<span class="string">"clear"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Ctrl + Click --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click.ctrl</span>=<span class="string">"doSomething"</span>&gt;</span>Сделать что-нибудь<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Alt + C --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> @<span class="hljs-attr">keyup.alt.67</span>=<span class="hljs-string">"clear"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Ctrl + Click --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> @<span class="hljs-attr">click.ctrl</span>=<span class="hljs-string">"doSomething"</span>&gt;</span>Сделать что-нибудь<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p class="tip">Обратите внимание, клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <code>keyup</code> они должны быть нажаты, когда событие генерируется. Другими словами, <code>keyup.ctrl</code> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <code>ctrl</code>. Это не сработает, если вы отпустите только клавишу <code>ctrl</code>. Если вы хотите такое поведение, используйте <code>keyCode</code> для <code>ctrl</code> вместо <code>keyup.17</code>.</p>
 
 <h3 id="Модификатор-exact"><a href="#Модификатор-exact" class="headerlink" title="Модификатор .exact"></a>Модификатор <code>.exact</code></h3><blockquote>
 <p>Добавлено в версии 2.5.0+</p>
 </blockquote>
 <p>Модификатор <code>.exact</code> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- сработает, даже если Alt или Shift также нажаты --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- сработает, только когда не нажаты никакие системные модификаторы --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.exact</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- сработает, даже если Alt или Shift также нажаты --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.ctrl</span>=<span class="hljs-string">"onClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.ctrl.exact</span>=<span class="hljs-string">"onCtrlClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- сработает, только когда не нажаты никакие системные модификаторы --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.exact</span>=<span class="hljs-string">"onClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <h3 id="Модификаторы-клавиш-мыши"><a href="#Модификаторы-клавиш-мыши" class="headerlink" title="Модификаторы клавиш мыши"></a>Модификаторы клавиш мыши</h3><blockquote>
 <p>Добавлено в версии 2.2.0+</p>
 </blockquote>
@@ -1206,7 +1293,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Announcing vue-cli — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -325,7 +325,11 @@
 </div>
 <div class="content with-sidebar blog post">
   <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -334,7 +338,12 @@
   <p>Recently there has been a lot of <a href="https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4#.chg95e5p6" target="_blank" rel="noopener">discussion around the tooling hurdle</a> when you start a React project. Luckily for Vue.js, all you need to do to start with a quick prototype is including it from a CDN via a <code>&lt;script&gt;</code> tag, so we’ve got that part covered. However, that’s not how you’d build a real world application. In real world applications we inevitably need a certain amount of tooling to give us modularization, transpilers, pre-processors, hot-reload, linting and testing. These tools are necessary for the long-term maintainability and productivity of large projects, but the initial setup can be a big pain. This is why we are announcing <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, a simple CLI tool to help you quickly scaffold Vue.js projects with opinionated, battery-included build setups.</p>
 <a id="more"></a>
 <h3 id="Just-The-Scaffolding"><a href="#Just-The-Scaffolding" class="headerlink" title="Just The Scaffolding"></a>Just The Scaffolding</h3><p>The usage looks like this:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g vue-cli</span><br><span class="line">vue init webpack my-project</span><br><span class="line"><span class="comment"># answer prompts</span></span><br><span class="line"><span class="built_in">cd</span> my-project</span><br><span class="line">npm install</span><br><span class="line">npm run dev <span class="comment"># tada!</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">npm install -g vue-cli
+vue init webpack my-project
+<span class="hljs-comment"># answer prompts</span>
+<span class="hljs-built_in">cd</span> my-project
+npm install
+npm run dev <span class="hljs-comment"># tada!</span></code></pre>
 <p>All the CLI does is pulling down templates from the <a href="https://github.com/vuejs-templates" target="_blank" rel="noopener">vuejs-templates</a> organization on GitHub. Dependencies are handled via NPM, and build tasks are simply NPM scripts.</p>
 <h3 id="Official-Templates"><a href="#Official-Templates" class="headerlink" title="Official Templates"></a>Official Templates</h3><p>The purpose of official Vue project templates is providing opinionated, battery-included development tooling setups so that users can get started with actual app code as fast as possible. However, these templates are un-opinionated in terms of how you structure your app code and what libraries you use in addition to Vue.js.</p>
 <p>All official project templates are repos in the <a href="https://github.com/vuejs-templates" target="_blank" rel="noopener">vuejs-templates organization</a>. When a new template is added to the organization, you will be able to run <code>vue init &lt;template-name&gt; &lt;project-name&gt;</code> to use that template. You can also run <code>vue list</code> to see all available official templates.</p>
@@ -350,7 +359,7 @@
 </li>
 </ul>
 <h3 id="Bring-Your-Own-Setup"><a href="#Bring-Your-Own-Setup" class="headerlink" title="Bring Your Own Setup"></a>Bring Your Own Setup</h3><p>If you are not happy with the official templates, you can fork these templates, modify them to fit your specific needs (or even create your own from scratch), and use them via <code>vue-cli</code> too, because <code>vue-cli</code> can work directly on GitHub repos:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue init username/repo my-project</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">vue init username/repo my-project</code></pre>
 <h3 id="Vue-Components-Everywhere"><a href="#Vue-Components-Everywhere" class="headerlink" title="Vue Components Everywhere"></a>Vue Components Everywhere</h3><p>There are different templates for different purposes: simple setups for quick prototyping, and full-featured setups for ambitious applications. A common feature among these templates though, is that they all support <code>*.vue</code> single file components. This means any third party Vue components written as valid <code>*.vue</code> files can be shared among projects using these setups, and simply be distributed over NPM - let’s create more reusable components!</p>
 
 </div>
@@ -365,7 +374,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

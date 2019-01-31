@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Развёртывание на production — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1007,24 +1011,72 @@
 <h3 id="Без-использования-систем-сборки"><a href="#Без-использования-систем-сборки" class="headerlink" title="Без использования систем сборки"></a>Без использования систем сборки</h3><p>Если вы используете полную сборку, т.е. напрямую подключаете Vue через тег <code>&lt;script&gt;</code> без использования каких-либо систем сборки, удостоверьтесь что используете минифицированную версию (<code>vue.min.js</code>) для production. Обе версии можно найти <a href="installation.html#Подключение-через-lt-script-gt">на странице установки</a>.</p>
 <h3 id="С-использованием-систем-сборки"><a href="#С-использованием-систем-сборки" class="headerlink" title="С использованием систем сборки"></a>С использованием систем сборки</h3><p>При использовании систем сборки, таких как Webpack или Browserify, режим production определяется по значению <code>process.env.NODE_ENV</code> внутри исходного кода Vue. По умолчанию используется режим для разработки. Обе системы сборки предоставляют возможности для переопределения этой переменной — для включения режима production во Vue и удаления всех проверок и предупреждений на этапе сборки. Все шаблоны <code>vue-cli</code> уже настроены для вас, но было бы полезно знать, как это делается:</p>
 <h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><p>С версии Webpack 4+ вы можете использовать опцию <code>mode</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'production'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">'production'</span>
+&#125;</code></pre>
 <p>Но в версиях Webpack 3 и более ранних вам необходимо использовать <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>)
+
+<span class="hljs-built_in">module</span>.exports = &#123;
+  <span class="hljs-comment">// ...</span>
+  plugins: [
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-keyword">new</span> webpack.DefinePlugin(&#123;
+      <span class="hljs-string">'process.env.NODE_ENV'</span>: <span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-string">'production'</span>)
+    &#125;)
+  ]
+&#125;</code></pre>
 <h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><ul>
 <li><p>Запустите сборку, указав в команде переменную <code>NODE_ENV</code> со значением <code>&quot;production&quot;</code>. Это позволит <code>vueify</code> исключить код для горячей замены модулей, а также код, относящийся к разработке.</p>
 </li>
 <li><p>Примените глобальное преобразование <a href="https://github.com/hughsk/envify" target="_blank" rel="noopener">envify</a> к вашей сборке. Это позволит минификатору удалить все предупреждения из исходного кода Vue, обёрнутые в условия проверки переменной окружения. Например:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m &gt; build.js</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m &gt; build.js</code></pre>
 </li>
 <li><p>Или используйте <a href="https://github.com/hughsk/envify" target="_blank" rel="noopener">envify</a> вместе с Gulp:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Используйте пользовательский модуль envify для указания переменных окружения</span></span><br><span class="line"><span class="keyword">var</span> envify = <span class="built_in">require</span>(<span class="string">'envify/custom'</span>)</span><br><span class="line"></span><br><span class="line">browserify(browserifyOptions)</span><br><span class="line">  .transform(vueify)</span><br><span class="line">  .transform(</span><br><span class="line">    <span class="comment">// Порядок необходим для обработки файлов node_modules</span></span><br><span class="line">    &#123; <span class="attr">global</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">    envify(&#123; <span class="attr">NODE_ENV</span>: <span class="string">'production'</span> &#125;)</span><br><span class="line">  )</span><br><span class="line">  .bundle()</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Используйте пользовательский модуль envify для указания переменных окружения</span>
+<span class="hljs-keyword">var</span> envify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'envify/custom'</span>)
+
+browserify(browserifyOptions)
+  .transform(vueify)
+  .transform(
+    <span class="hljs-comment">// Порядок необходим для обработки файлов node_modules</span>
+    &#123; <span class="hljs-attr">global</span>: <span class="hljs-literal">true</span> &#125;,
+    envify(&#123; <span class="hljs-attr">NODE_ENV</span>: <span class="hljs-string">'production'</span> &#125;)
+  )
+  .bundle()</code></pre>
 </li>
 <li><p>Или используя <a href="https://github.com/hughsk/envify" target="_blank" rel="noopener">envify</a> вместе с Grunt и <a href="https://github.com/jmreidy/grunt-browserify" target="_blank" rel="noopener">grunt-browserify</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Используйте пользовательский модуль envify для указания переменных окружения</span></span><br><span class="line"><span class="keyword">var</span> envify = <span class="built_in">require</span>(<span class="string">'envify/custom'</span>)</span><br><span class="line"></span><br><span class="line">browserify: &#123;</span><br><span class="line">  dist: &#123;</span><br><span class="line">    options: &#123;</span><br><span class="line">      <span class="comment">// Функция для изменения порядка по умолчанию у grunt-browserify</span></span><br><span class="line">      configure: <span class="function"><span class="params">b</span> =&gt;</span> b</span><br><span class="line">        .transform(<span class="string">'vueify'</span>)</span><br><span class="line">        .transform(</span><br><span class="line">          <span class="comment">// Порядок необходим для обработки файлов node_modules</span></span><br><span class="line">          &#123; <span class="attr">global</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">          envify(&#123; <span class="attr">NODE_ENV</span>: <span class="string">'production'</span> &#125;)</span><br><span class="line">        )</span><br><span class="line">        .bundle()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Используйте пользовательский модуль envify для указания переменных окружения</span>
+<span class="hljs-keyword">var</span> envify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'envify/custom'</span>)
+
+browserify: &#123;
+  <span class="hljs-attr">dist</span>: &#123;
+    <span class="hljs-attr">options</span>: &#123;
+      <span class="hljs-comment">// Функция для изменения порядка по умолчанию у grunt-browserify</span>
+      configure: <span class="hljs-function"><span class="hljs-params">b</span> =&gt;</span> b
+        .transform(<span class="hljs-string">'vueify'</span>)
+        .transform(
+          <span class="hljs-comment">// Порядок необходим для обработки файлов node_modules</span>
+          &#123; <span class="hljs-attr">global</span>: <span class="hljs-literal">true</span> &#125;,
+          envify(&#123; <span class="hljs-attr">NODE_ENV</span>: <span class="hljs-string">'production'</span> &#125;)
+        )
+        .bundle()
+    &#125;
+  &#125;
+&#125;</code></pre>
 </li>
 </ul>
 <h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><p>Используйте <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="noopener">rollup-plugin-replace</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</span><br><span class="line"></span><br><span class="line">rollup(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    replace(&#123;</span><br><span class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify( <span class="string">'production'</span> )</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;).then(...)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> replace = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rollup-plugin-replace'</span>)
+
+rollup(&#123;
+  <span class="hljs-comment">// ...</span>
+  plugins: [
+    replace(&#123;
+      <span class="hljs-string">'process.env.NODE_ENV'</span>: <span class="hljs-built_in">JSON</span>.stringify( <span class="hljs-string">'production'</span> )
+    &#125;)
+  ]
+&#125;).then(...)</code></pre>
 <h2 id="Прекомпиляция-шаблонов"><a href="#Прекомпиляция-шаблонов" class="headerlink" title="Прекомпиляция шаблонов"></a>Прекомпиляция шаблонов</h2><p>При использовании DOM в качестве шаблона или строковых шаблонов в JavaScript, компиляция в <code>render</code>-функцию будет выполняться на лету. Это достаточно быстро для большинства случаев, но если ваше приложение нуждается в максимальной производительности стоит этого избегать.</p>
 <p>Самый простой способ предварительной компиляции шаблонов — использовать <a href="single-file-components.html">однофайловые компоненты</a>. На этапе сборки проекта будет выполнена предварительная компиляция, поэтому результирующий код будет содержать только <code>render</code>-функции вместо необработанных строковых шаблонов.</p>
 <p>Если вы используете Webpack и предпочитаете разделять JavaScript и файлы шаблонов, вы можете воспользоваться <a href="https://github.com/ktsn/vue-template-loader" target="_blank" rel="noopener">vue-template-loader</a>, который также преобразует файлы шаблонов в <code>render</code>-функции на JavaScript на этапе сборки.</p>
@@ -1082,7 +1134,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

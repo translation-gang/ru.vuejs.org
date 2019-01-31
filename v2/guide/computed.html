@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Вычисляемые свойства и слежение — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1001,11 +1005,28 @@
     
     
       <h2 id="Вычисляемые-свойства"><a href="#Вычисляемые-свойства" class="headerlink" title="Вычисляемые свойства"></a>Вычисляемые свойства</h2><p>Встраиваемые в шаблоны выражения удобны, но могут предназначаться только для простых операций. При усложнении логики их труднее поддерживать:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  &#123;&#123; message.split('').reverse().join('') &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>
+  &#123;&#123; message.split('').reverse().join('') &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Такой шаблон уже не выглядит простым и декларативным. С первого взгляда и не скажешь, что он всего лишь отображает <code>message</code> задом наперёд. Ситуация станет ещё хуже, если эту логику потребуется использовать в нескольких местах шаблона.</p>
 <p>На помощь здесь приходят <strong>вычисляемые свойства</strong>.</p>
-<h3 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Изначальное сообщение: "&#123;&#123; message &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Сообщение задом наперёд: "&#123;&#123; reversedMessage &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Привет'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="comment">// геттер вычисляемого значения</span></span><br><span class="line">    reversedMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// `this` указывает на экземпляр vm</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Изначальное сообщение: "&#123;&#123; message &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: "&#123;&#123; reversedMessage &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет'</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-comment">// геттер вычисляемого значения</span>
+    reversedMessage: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-comment">// `this` указывает на экземпляр vm</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Результат:</p>
 
 <div id="example" class="demo">
@@ -1027,30 +1048,135 @@ var vm = new Vue({
 </script>
 
 <p>Мы определили вычисляемое свойство <code>reversedMessage</code>. Написанная нами функция будет использоваться как геттер свойства <code>vm.reversedMessage</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(vm.reversedMessage) <span class="comment">// =&gt; 'тевирП'</span></span><br><span class="line">vm.message = <span class="string">'Пока'</span></span><br><span class="line"><span class="built_in">console</span>.log(vm.reversedMessage) <span class="comment">// =&gt; 'акоП'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(vm.reversedMessage) <span class="hljs-comment">// =&gt; 'тевирП'</span>
+vm.message = <span class="hljs-string">'Пока'</span>
+<span class="hljs-built_in">console</span>.log(vm.reversedMessage) <span class="hljs-comment">// =&gt; 'акоП'</span></code></pre>
 <p>Вы можете открыть консоль и поиграться с примером самостоятельно. Значение <code>vm.reversedMessage</code> всегда зависит от значения <code>vm.message</code>.</p>
 <p>В шаблонах можно обращаться к вычисляемым свойствам как и к обычным. Vue знает, что <code>vm.reversedMessage</code> зависит от <code>vm.message</code>, поэтому при обновлении <code>vm.message</code> обновятся и все зависящие от него элементы, в нашем случае обновится <code>vm.reversedMessage</code>. Самое важное — эту зависимость теперь мы указали декларативно: геттер вычисляемого свойства не имеет побочных эффектов, что упрощает понимание кода и его тестирование.</p>
 <h3 id="Кеширование-вычисляемых-свойств"><a href="#Кеширование-вычисляемых-свойств" class="headerlink" title="Кеширование вычисляемых свойств"></a>Кеширование вычисляемых свойств</h3><p>Можно заметить, что такого же результата можно достичь и с помощью метода:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Сообщение задом наперёд: "&#123;&#123; reverseMessage() &#125;&#125;"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// в компоненте</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  reverseMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: "&#123;&#123; reverseMessage() &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// в компоненте</span>
+methods: &#123;
+  <span class="hljs-attr">reverseMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
+  &#125;
+&#125;</code></pre>
 <p>Вместо вычисляемого свойства, можно использовать ту же самую функцию в качестве метода. С точки зрения конечного результата, оба подхода делают одно и то же. Но есть важное отличие: <strong>вычисляемые свойства кешируются, основываясь на своих зависимостях</strong>. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его зависимостей. Поэтому, пока <code>message</code> остаётся неизменным, многократное обращение к <code>reversedMessage</code> будет каждый раз возвращать единожды вычисленное значение, не запуская функцию вновь.</p>
 <p>Обратите внимание, что следующее вычисляемое свойство никогда не обновится, поскольку <code>Date.now()</code> не является реактивной зависимостью:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  now: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Date</span>.now()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">now</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now()
+  &#125;
+&#125;</code></pre>
 <p>Использование метода, напротив, будет запускать функцию <strong>всегда, при каждом обращении к нему</strong>.</p>
 <p>Зачем нужно кеширование? Представьте, есть «дорогое» вычисляемое свойство <strong>A</strong>, требующее цикла по огромному массиву и выполняющее множество вычислений. И пусть ещё будут другие вычисляемые свойства, в свою очередь, зависящие от <strong>A</strong>. Без кеширования геттер <strong>A</strong> будет запускаться куда чаще необходимого! В тех же случаях, когда кеширования нужно избежать — используйте методы.</p>
 <h3 id="Вычисляемые-свойства-и-слежение"><a href="#Вычисляемые-свойства-и-слежение" class="headerlink" title="Вычисляемые свойства и слежение"></a>Вычисляемые свойства и слежение</h3><p>Vue предоставляет и более общий способ наблюдения и реагирования на изменения данных в экземпляре: <strong>слежение за свойствами</strong>. Когда есть данные, которые необходимо обновлять при изменении других данных, возникает соблазн избыточно использовать только этот подход, особенно если привыкли к Angular. Но, как правило, лучше использовать вычисляемые свойства, а не императивный коллбэк в <code>watch</code>. Рассмотрим пример:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span>,</span><br><span class="line">    fullName: <span class="string">'Foo Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    firstName: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.fullName = val + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    lastName: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.firstName + <span class="string">' '</span> + val</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span>&gt;</span>&#123;&#123; fullName &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Foo'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Bar'</span>,
+    <span class="hljs-attr">fullName</span>: <span class="hljs-string">'Foo Bar'</span>
+  &#125;,
+  <span class="hljs-attr">watch</span>: &#123;
+    <span class="hljs-attr">firstName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.fullName = val + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
+    &#125;,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.fullName = <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + val
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Код выше — императивный и избыточный. Сравните с версией с использованием вычисляемого свойства:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Foo'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Bar'</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">fullName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Так гораздо лучше, не правда ли?</p>
 <h3 id="Сеттеры-вычисляемых-свойств"><a href="#Сеттеры-вычисляемых-свойств" class="headerlink" title="Сеттеры вычисляемых свойств"></a>Сеттеры вычисляемых свойств</h3><p>По умолчанию вычисляемые свойства работают только на чтение, но при необходимости можно также указать и сеттер:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  fullName: &#123;</span><br><span class="line">    <span class="comment">// геттер:</span></span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// сеттер:</span></span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> names = newValue.split(<span class="string">' '</span>)</span><br><span class="line">      <span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">      <span class="keyword">this</span>.lastName = names[names.length - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// ...</span>
+computed: &#123;
+  <span class="hljs-attr">fullName</span>: &#123;
+    <span class="hljs-comment">// геттер:</span>
+    get: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
+    &#125;,
+    <span class="hljs-comment">// сеттер:</span>
+    set: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue</span>) </span>&#123;
+      <span class="hljs-keyword">var</span> names = newValue.split(<span class="hljs-string">' '</span>)
+      <span class="hljs-keyword">this</span>.firstName = names[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">this</span>.lastName = names[names.length - <span class="hljs-number">1</span>]
+    &#125;
+  &#125;
+&#125;
+<span class="hljs-comment">// ...</span></code></pre>
 <p>Теперь запись <code>vm.fullName = &#39;Иван Иванов&#39;</code> вызовет сеттер, и <code>vm.firstName</code> и <code>vm.lastName</code> будут соответствующим образом обновлены.</p>
 <h2 id="Методы-наблюдатели"><a href="#Методы-наблюдатели" class="headerlink" title="Методы-наблюдатели"></a>Методы-наблюдатели</h2><p>Хотя в большинстве случаев лучше использовать вычисляемые свойства, иногда необходимы пользовательские методы-наблюдатели. Поэтому Vue предоставляет более общий способ реагирования на изменения в данных через опцию <code>watch</code>. Эта возможность полезна для «дорогих» или асинхронных операций, выполняемых в ответ на изменение данных.</p>
 <p>Рассмотрим пример:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"watch-example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    Задайте вопрос, на который можно ответить "да" или "нет":</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"question"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Поскольку уже существует обширная экосистема ajax-библиотек --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- и библиотек функций общего назначения, ядро Vue может       --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- оставаться маленьким и не изобретать их заново. Кроме того, --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- это позволяет вам использовать только знакомые инструменты. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> watchExampleVM = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  el: <span class="string">'#watch-example'</span>,</span></span><br><span class="line"><span class="undefined">  data: &#123;</span></span><br><span class="line"><span class="javascript">    question: <span class="string">''</span>,</span></span><br><span class="line"><span class="javascript">    answer: <span class="string">'Пока вы не зададите вопрос, я не могу ответить!'</span></span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  watch: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// эта функция запускается при любом изменении вопроса</span></span></span><br><span class="line"><span class="javascript">    question: <span class="function"><span class="keyword">function</span> (<span class="params">newQuestion, oldQuestion</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.answer = <span class="string">'Ожидаю, когда вы закончите печатать...'</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.debouncedGetAnswer()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="javascript">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// _.debounce — это функция lodash, позволяющая ограничить то,</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// насколько часто может выполняться определённая операция.</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// В данном случае мы ограничиваем частоту обращений к yesno.wtf/api,</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// дожидаясь завершения печати вопроса перед отправкой ajax-запроса.</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// Узнать больше о функции _.debounce (и её родственнице _.throttle),</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// можно в документации: https://lodash.com/docs#debounce</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">this</span>.debouncedGetAnswer = _.debounce(<span class="keyword">this</span>.getAnswer, <span class="number">500</span>)</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  methods: &#123;</span></span><br><span class="line"><span class="javascript">    getAnswer: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="keyword">this</span>.question.indexOf(<span class="string">'?'</span>) === <span class="number">-1</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.answer = <span class="string">'Вопросы обычно заканчиваются вопросительным знаком. ;-)'</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.answer = <span class="string">'Думаю...'</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span></span><br><span class="line"><span class="javascript">      axios.get(<span class="string">'https://yesno.wtf/api'</span>)</span></span><br><span class="line"><span class="javascript">        .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">          vm.answer = _.capitalize(response.data.answer)</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="javascript">        .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          vm.answer = <span class="string">'Ошибка! Не могу связаться с API. '</span> + error</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"watch-example"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Задайте вопрос, на который можно ответить "да" или "нет":
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"question"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Поскольку уже существует обширная экосистема ajax-библиотек --&gt;</span>
+<span class="hljs-comment">&lt;!-- и библиотек функций общего назначения, ядро Vue может       --&gt;</span>
+<span class="hljs-comment">&lt;!-- оставаться маленьким и не изобретать их заново. Кроме того, --&gt;</span>
+<span class="hljs-comment">&lt;!-- это позволяет вам использовать только знакомые инструменты. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">var</span> watchExampleVM = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#watch-example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">question</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">answer</span>: <span class="hljs-string">'Пока вы не зададите вопрос, я не могу ответить!'</span>
+  &#125;,
+  <span class="hljs-attr">watch</span>: &#123;
+    <span class="hljs-comment">// эта функция запускается при любом изменении вопроса</span>
+    question: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newQuestion, oldQuestion</span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">'Ожидаю, когда вы закончите печатать...'</span>
+      <span class="hljs-keyword">this</span>.debouncedGetAnswer()
+    &#125;
+  &#125;,
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// _.debounce — это функция lodash, позволяющая ограничить то,</span>
+    <span class="hljs-comment">// насколько часто может выполняться определённая операция.</span>
+    <span class="hljs-comment">// В данном случае мы ограничиваем частоту обращений к yesno.wtf/api,</span>
+    <span class="hljs-comment">// дожидаясь завершения печати вопроса перед отправкой ajax-запроса.</span>
+    <span class="hljs-comment">// Узнать больше о функции _.debounce (и её родственнице _.throttle),</span>
+    <span class="hljs-comment">// можно в документации: https://lodash.com/docs#debounce</span>
+    <span class="hljs-keyword">this</span>.debouncedGetAnswer = _.debounce(<span class="hljs-keyword">this</span>.getAnswer, <span class="hljs-number">500</span>)
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">getAnswer</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.question.indexOf(<span class="hljs-string">'?'</span>) === <span class="hljs-number">-1</span>) &#123;
+        <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">'Вопросы обычно заканчиваются вопросительным знаком. ;-)'</span>
+        <span class="hljs-keyword">return</span>
+      &#125;
+      <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">'Думаю...'</span>
+      <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>
+      axios.get(<span class="hljs-string">'https://yesno.wtf/api'</span>)
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>&#123;
+          vm.answer = _.capitalize(response.data.answer)
+        &#125;)
+        .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>&#123;
+          vm.answer = <span class="hljs-string">'Ошибка! Не могу связаться с API. '</span> + error
+        &#125;)
+    &#125;
+  &#125;
+&#125;)
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Результат:</p>
 
 <div id="watch-example" class="demo">
@@ -1146,7 +1272,7 @@ var watchExampleVM = new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

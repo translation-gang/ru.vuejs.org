@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Миграция с Vuex 0.6.x на 1.0 — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1012,9 +1016,16 @@
 <p><strong>Vuex 2.0</strong> радикально переписан и имеет упрощённый API, для тех, кто начинает новые проекты или хочет быть на острие прогресса в области управления состоянием фронтенд-приложений. <strong>Он не покрывается данной инструкцией по миграции</strong>, поэтому если вы хотите узнать о нём больше — обратитесь к <a href="https://vuex.vuejs.org/ru/index.html" target="_blank" rel="noopener">документации Vuex 2.0</a>.</p>
 <p><strong>Vuex 1.0</strong> в основном обратно совместим, поэтому требует внесения довольно незначительных изменений при обновлении. Рекомендуется для тех, кто уже имеет дело с большими проектами, либо для тех, кто просто хочет постепенно обновиться до Vue 2.0. Данное руководство призвано содействовать этому процессу, но включает в себя только заметки по миграции. Для изучения полного руководство по использованию обратитесь к <a href="https://github.com/vuejs/vuex/tree/1.0/docs/en" target="_blank" rel="noopener">документации Vuex 1.0</a>.</p>
 <h2 id="store-watch-со-строковым-параметром-заменено"><a href="#store-watch-со-строковым-параметром-заменено" class="headerlink" title="store.watch со строковым параметром заменено"></a><code>store.watch</code> со строковым параметром <sup>заменено</sup></h2><p><code>store.watch</code> теперь принимает в качестве аргумента только функции. Например, вы должны заменить:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">store.watch(<span class="string">'user.notifications'</span>, callback)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">store.watch(<span class="hljs-string">'user.notifications'</span>, callback)</code></pre>
 <p>на:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">store.watch(</span><br><span class="line">  <span class="comment">// Когда возвращаемый результат изменится...</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">state</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state.user.notifications</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Запустится коллбэк</span></span><br><span class="line">  callback</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">store.watch(
+  <span class="hljs-comment">// Когда возвращаемый результат изменится...</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">state</span>) </span>&#123;
+    <span class="hljs-keyword">return</span> state.user.notifications
+  &#125;,
+  <span class="hljs-comment">// Запустится коллбэк</span>
+  callback
+)</code></pre>
 <p>Это даёт более полный контроль над отслеживанием реактивных свойств.</p>
 
 <div class="upgrade-path">
@@ -1024,7 +1035,11 @@
 
 <h2 id="Вызов-событий-из-хранилища-удалено"><a href="#Вызов-событий-из-хранилища-удалено" class="headerlink" title="Вызов событий из хранилища удалено"></a>Вызов событий из хранилища <sup>удалено</sup></h2><p>Экземпляр хранилища больше не предоставляет интерфейс вызова событий (<code>on</code>,<code>off</code>, <code>emit</code>). Если вы ранее использовали хранилище в качестве глобальной шины событий - <a href="migration.html#dispatch-and-broadcast-removed">см. этот раздел</a> инструкций по миграции.</p>
 <p>Вместо того чтобы использовать этот интерфейс для отслеживания событий, пробрасываемых самим хранилищем (например, <code>store.on(&#39;mutation&#39;, callback)</code>), представлен новый метод - <code>store.subscribe</code>. Типичное использование в плагине выглядит как:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myPlugin = <span class="function"><span class="params">store</span> =&gt;</span> &#123;</span><br><span class="line">  store.subscribe(<span class="function"><span class="keyword">function</span> (<span class="params">mutation, state</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Дальнейшие действия...</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> myPlugin = <span class="hljs-function"><span class="hljs-params">store</span> =&gt;</span> &#123;
+  store.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">mutation, state</span>) </span>&#123;
+    <span class="hljs-comment">// Дальнейшие действия...</span>
+  &#125;)
+&#125;</code></pre>
 <p>Обратитесь к <a href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md" target="_blank" rel="noopener">документации по плагинам</a> для большей информации.</p>
 
 <div class="upgrade-path">
@@ -1033,7 +1048,11 @@
 </div>
 
 <h2 id="Прослойки-заменено"><a href="#Прослойки-заменено" class="headerlink" title="Прослойки заменено"></a>Прослойки <sup>заменено</sup></h2><p>Прослойки заменены плагинами. Плагин представляет собой обычную функцию, которая получает хранилище в качестве единственного аргумента и может слушать событие мутации в хранилище:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> myPlugins = <span class="function"><span class="params">store</span> =&gt;</span> &#123;</span><br><span class="line">  store.subscribe(<span class="string">'mutation'</span>, (mutation, state) =&gt; &#123;</span><br><span class="line">    <span class="comment">// Дальнейшие действия...</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> myPlugins = <span class="hljs-function"><span class="hljs-params">store</span> =&gt;</span> &#123;
+  store.subscribe(<span class="hljs-string">'mutation'</span>, (mutation, state) =&gt; &#123;
+    <span class="hljs-comment">// Дальнейшие действия...</span>
+  &#125;)
+&#125;</code></pre>
 <p>Для более детального изучения см. <a href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md" target="_blank" rel="noopener">документацию по плагинам</a>.</p>
 
 <div class="upgrade-path">
@@ -1087,7 +1106,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Интегрируем Docker в приложение Vue.js — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -441,7 +441,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -453,12 +457,33 @@
     
       <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Итак, вы создали своё первое приложение на Vue.js, используя потрясающий <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">шаблон Vue для webpack</a>, и теперь вы хотите похвастаться своим коллегам, показав им, что можно также запустить его в Docker-контейнере.</p>
 <p>Начнём с создания <code>Dockerfile</code> в корневом каталоге нашего проекта:</p>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:lts-alpine</span><br><span class="line"></span><br><span class="line"><span class="comment"># устанавливаем простой HTTP-сервер для статики</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> npm install -g http-server</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># делаем каталог 'app' текущим рабочим каталогом</span></span></span><br><span class="line"><span class="bash">WORKDIR /app</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># копируем оба 'package.json' и 'package-lock.json' (если есть)</span></span></span><br><span class="line"><span class="bash">COPY package*.json ./</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># устанавливаем зависимости проекта</span></span></span><br><span class="line"><span class="bash">RUN npm install</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')</span></span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># собираем приложение для production с минификацией</span></span></span><br><span class="line"><span class="bash">RUN npm run build</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">EXPOSE 8080</span></span><br><span class="line"><span class="bash">CMD [ <span class="string">"http-server"</span>, <span class="string">"dist"</span> ]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs docker"><span class="hljs-keyword">FROM</span> node:lts-alpine
+
+<span class="hljs-comment"># устанавливаем простой HTTP-сервер для статики</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install -g http-server
+</span>
+<span class="hljs-comment"># делаем каталог 'app' текущим рабочим каталогом</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span>
+<span class="hljs-comment"># копируем оба 'package.json' и 'package-lock.json' (если есть)</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./
+</span>
+<span class="hljs-comment"># устанавливаем зависимости проекта</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install
+</span>
+<span class="hljs-comment"># копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . .
+</span>
+<span class="hljs-comment"># собираем приложение для production с минификацией</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm run build
+</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span>
+<span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"http-server"</span>, <span class="hljs-string">"dist"</span> ]</span></code></pre>
 <p>Может показаться лишним сначала копировать <code>package.json</code> и <code>package-lock.json</code>, а затем все файлы и каталоги проекта в два отдельных шага, но на самом деле есть <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">одна очень веская причина для этого</a> (спойлер: это позволяет нам использовать кешированные слои Docker).</p>
 <p>Теперь давайте соберём образ Docker для нашего приложения на Vue.js:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t vuejs-cookbook/dockerize-vuejs-app .</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">docker build -t vuejs-cookbook/dockerize-vuejs-app .</code></pre>
 <p>Наконец, запустим наше приложение Vue.js в контейнере Docker:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</code></pre>
 <p>У нас есть доступ к нашему Vue.js-приложению по адресу <code>localhost: 8080</code>.</p>
 <h2 id="Пример-из-реальной-жизни"><a href="#Пример-из-реальной-жизни" class="headerlink" title="Пример из реальной жизни"></a>Пример из реальной жизни</h2><p>В предыдущем примере мы использовали простой, не требующий конфигурации <a href="https://github.com/indexzero/http-server" target="_blank" rel="noopener">HTTP-сервер</a>, работающий из командной строки, для обслуживания нашего приложения на Vue.js, который отлично подходит для быстрого прототипирования и <em>может быть</em> даже для простых сценариев в production. В конце концов, в документации говорится:</p>
 <blockquote>
@@ -466,7 +491,19 @@
 </blockquote>
 <p>Тем не менее, для реально сложных случаев использования в production может быть разумнее использовать широко известные решения, такие как <a href="https://www.nginx.com/" target="_blank" rel="noopener">NGINX</a> или <a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a>, и это именно то, что мы собираемся сделать дальше: мы собираемся использовать NGINX для обслуживания нашего приложения на Vue.js, потому что данный сервер считается одним из наиболее эффективных и проверенных на практике решений.</p>
 <p>Давайте доработаем наш <code>Dockerfile</code> для использования NGINX:</p>
- <figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="comment"># этап сборки (build stage)</span></span><br><span class="line"><span class="keyword">FROM</span> node:lts-alpine as build-stage</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="bash">COPY package*.json ./</span></span><br><span class="line"><span class="bash">RUN npm install</span></span><br><span class="line"><span class="bash">COPY . .</span></span><br><span class="line"><span class="bash">RUN npm run build</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># этап production (production-stage)</span></span></span><br><span class="line"><span class="bash">FROM nginx:stable-alpine as production-stage</span></span><br><span class="line"><span class="bash">COPY --from=build-stage /app/dist /usr/share/nginx/html</span></span><br><span class="line"><span class="bash">EXPOSE 80</span></span><br><span class="line"><span class="bash">CMD [<span class="string">"nginx"</span>, <span class="string">"-g"</span>, <span class="string">"daemon off;"</span>]</span></span><br></pre></td></tr></table></figure>
+ <pre><code class="hljs docker"><span class="hljs-comment"># этап сборки (build stage)</span>
+<span class="hljs-keyword">FROM</span> node:lts-alpine as build-stage
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
+</span><span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./
+</span><span class="hljs-keyword">RUN</span><span class="bash"> npm install
+</span><span class="hljs-keyword">COPY</span><span class="bash"> . .
+</span><span class="hljs-keyword">RUN</span><span class="bash"> npm run build
+</span>
+<span class="hljs-comment"># этап production (production-stage)</span>
+<span class="hljs-keyword">FROM</span> nginx:stable-alpine as production-stage
+<span class="hljs-keyword">COPY</span><span class="bash"> --from=build-stage /app/dist /usr/share/nginx/html
+</span><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+<span class="hljs-keyword">CMD</span><span class="bash"> [<span class="hljs-string">"nginx"</span>, <span class="hljs-string">"-g"</span>, <span class="hljs-string">"daemon off;"</span>]</span></code></pre>
 <p>ОК, разберёмся что здесь происходит</p>
 <ul>
 <li>мы разделили наш оригинальный файл <code>Dockerfile</code> на несколько этапов с помощью <a href="https://docs.docker.com/develop/develop-images/multistage-build/" target="_blank" rel="noopener">многоступенчатых сборок Docker</a>;</li>
@@ -474,9 +511,9 @@
 <li>второй этап отвечает за обслуживание такого артефакта с использованием NGINX.</li>
 </ul>
 <p>Теперь собираем Docker-образ нашего приложения на Vue.js:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t vuejs-cookbook/dockerize-vuejs-app .</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">docker build -t vuejs-cookbook/dockerize-vuejs-app .</code></pre>
 <p>Наконец, запустим наше приложение Vue.js в контейнере Docker:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</code></pre>
 <p>Получить доступ к Vue.js приложению теперь можно по адресу <code>localhost: 8080</code>.</p>
 <h2 id="Дополнительный-контекст"><a href="#Дополнительный-контекст" class="headerlink" title="Дополнительный контекст"></a>Дополнительный контекст</h2><p>Если вы читаете этот рецепт, то скорее всего знаете, зачем вам необходимо использовать Docker в приложении на Vue.js. Но если вы просто пришли на данную страницу, нажав кнопку «Мне повезёт» с Google, позвольте мне поделиться с вами несколькими вескими основаниями для этого.</p>
 <p>Сегодняшняя современная тенденция заключается в создании приложений с использованием подхода <a href="https://pivotal.io/cloud-native" target="_blank" rel="noopener">Cloud-Native</a>, который тесно связан со следующими ключевыми концепциями:</p>
@@ -533,7 +570,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

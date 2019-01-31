@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Vue.js 1.0.0 Released — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -325,7 +325,11 @@
 </div>
 <div class="content with-sidebar blog post">
   <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -337,9 +341,17 @@
 <p>After 300+ commits, 8 alphas, 4 betas and 2 release candidates, today I am very proud to announce the release of <a href="https://github.com/vuejs/vue/releases/tag/1.0.0" target="_blank" rel="noopener">Vue.js 1.0.0 Evangelion</a>! Many thanks to all those who participated in the API re-design process - it would not have been possible without all the input from the community.</p>
 <a id="more"></a>
 <h3 id="Improved-Template-Syntax"><a href="#Improved-Template-Syntax" class="headerlink" title="Improved Template Syntax"></a>Improved Template Syntax</h3><p>The 1.0 template syntax resolves a lot of subtle consistency issues and makes Vue templates more concise and more readable in general. The most notable new feature is the shorthand syntax for <code>v-on</code> and <code>v-bind</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- short for v-bind:href --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"someURL"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- short for v-on:click --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"onClick"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- short for v-bind:href --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:href</span>=<span class="hljs-string">"someURL"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- short for v-on:click --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"onClick"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>When used on a child component, <code>v-on</code> listens for custom events and <code>v-bind</code> can be used to bind props. The shorthands using child components very succinct:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item-list</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:items</span>=<span class="string">"items"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">ready</span>=<span class="string">"onItemsReady"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">update</span>=<span class="string">"onItemsUpdate"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">item-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">item-list</span>
+  <span class="hljs-attr">:items</span>=<span class="hljs-string">"items"</span>
+  @<span class="hljs-attr">ready</span>=<span class="hljs-string">"onItemsReady"</span>
+  @<span class="hljs-attr">update</span>=<span class="hljs-string">"onItemsUpdate"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">item-list</span>&gt;</span></code></pre>
 <h3 id="API-Cleanup"><a href="#API-Cleanup" class="headerlink" title="API Cleanup"></a>API Cleanup</h3><p>The overall goal for Vue.js 1.0 is to make it suitable for larger projects. This is why there are many API deprecations. Except for ones that are barely used, the most common reason for a deprecation is that the feature leads to patterns that damages maintainability. Specifically, we are deprecating features that make it hard to maintain and refactor a component in isolation without affecting the rest of the project.</p>
 <p>For example, the default asset resolution in 0.12 has implicit fallbacks to parents in the component tree. This makes the assets available to a component non-deterministic and subject how it is used at runtime. In 1.0, all assets are now resolved in strict mode and there are no longer implicit fallbacks to parent. The <code>inherit</code> option is also removed, because it too often leads to tightly coupled components that are hard to refactor.</p>
 <h3 id="Faster-Initial-Rendering"><a href="#Faster-Initial-Rendering" class="headerlink" title="Faster Initial Rendering"></a>Faster Initial Rendering</h3><p>1.0 replaces the old <code>v-repeat</code> directive with <code>v-for</code>. In addition to providing the same functionality and more intuitive scoping, <code>v-for</code> provides up to <strong>100%</strong> initial render performance boost when rendering large lists and tables!</p>
@@ -375,7 +387,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

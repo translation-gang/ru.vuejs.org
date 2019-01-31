@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Экземпляр Vue — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1001,27 +1005,95 @@
     
     
       <h2 id="Создание-экземпляра-Vue"><a href="#Создание-экземпляра-Vue" class="headerlink" title="Создание экземпляра Vue"></a>Создание экземпляра Vue</h2><p>Каждое приложение начинается с создания нового <strong>экземпляра Vue</strong> с помощью функции <code>Vue</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// опции</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-comment">// опции</span>
+&#125;)</code></pre>
 <p>Хоть Vue и не реализует <a href="https://ru.wikipedia.org/wiki/Model-View-ViewModel" target="_blank" rel="noopener">паттерн MVVM</a> в полной мере, архитектура фреймворка им во многом вдохновлена. Поэтому переменную с экземпляром Vue традиционно именуют <code>vm</code> (сокращённо от ViewModel).</p>
 <p>При создании экземпляра Vue необходимо передать <strong>объект опций</strong>. Большая часть этого руководства посвящена описанию, как можно использовать эти опции для достижения желаемого поведения. Полный список опций можно посмотреть в <a href="../api/#Опции-—-данные">справочнике API</a>.</p>
 <p>Приложение Vue состоит из <strong>корневого экземпляра Vue</strong>, создаваемого с помощью <code>new Vue</code>, опционально организованного в дерево вложенных, повторно используемых компонентов. Например, дерево компонентов для приложения TODO-списка может выглядеть так:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Корневой экземпляр</span><br><span class="line">└─ TodoList</span><br><span class="line">   ├─ TodoItem</span><br><span class="line">   │  ├─ DeleteTodoButton</span><br><span class="line">   │  └─ EditTodoButton</span><br><span class="line">   └─ TodoListFooter</span><br><span class="line">      ├─ ClearTodosButton</span><br><span class="line">      └─ TodoListStatistics</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs undefined">Корневой экземпляр
+└─ TodoList
+   ├─ TodoItem
+   │  ├─ DeleteTodoButton
+   │  └─ EditTodoButton
+   └─ TodoListFooter
+      ├─ ClearTodosButton
+      └─ TodoListStatistics</code></pre>
 <p>Подробнее о <a href="components.html">системе компонентов</a> мы поговорим позднее. А сейчас запомните, что все компоненты Vue также являются экземплярами Vue и поэтому принимают такой же объект опций (за исключением нескольких специфичных для корневого).</p>
 <h2 id="Данные-и-методы"><a href="#Данные-и-методы" class="headerlink" title="Данные и методы"></a>Данные и методы</h2><p>Когда экземпляр Vue создан, он добавляет все свойства, найденные в опции <code>data</code>, в <strong>систему реактивности</strong> Vue. Поэтому представление будет «реагировать» на их изменения, обновляясь в соответствии с новыми значениями.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Наш объект data</span></span><br><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Объект добавляется в экземпляр Vue</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Получение свойства из экземпляра</span></span><br><span class="line"><span class="comment">// возвращает то же значение из исходных данных</span></span><br><span class="line">vm.a === data.a <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Изменение свойства экземпляра</span></span><br><span class="line"><span class="comment">// влияет на оригинальные данные</span></span><br><span class="line">vm.a = <span class="number">2</span></span><br><span class="line">data.a <span class="comment">// =&gt; 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ... и наоборот</span></span><br><span class="line">data.a = <span class="number">3</span></span><br><span class="line">vm.a <span class="comment">// =&gt; 3</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Наш объект data</span>
+<span class="hljs-keyword">var</span> data = &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;
+
+<span class="hljs-comment">// Объект добавляется в экземпляр Vue</span>
+<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: data
+&#125;)
+
+<span class="hljs-comment">// Получение свойства из экземпляра</span>
+<span class="hljs-comment">// возвращает то же значение из исходных данных</span>
+vm.a === data.a <span class="hljs-comment">// =&gt; true</span>
+
+<span class="hljs-comment">// Изменение свойства экземпляра</span>
+<span class="hljs-comment">// влияет на оригинальные данные</span>
+vm.a = <span class="hljs-number">2</span>
+data.a <span class="hljs-comment">// =&gt; 2</span>
+
+<span class="hljs-comment">// ... и наоборот</span>
+data.a = <span class="hljs-number">3</span>
+vm.a <span class="hljs-comment">// =&gt; 3</span></code></pre>
 <p>Когда значения изменяются, представление будет переотрисовано. Но обратите внимание, свойства в <code>data</code> будут <strong>реактивными</strong>, только если они существовали при создании экземпляра. Это значит, если добавить новое свойство, например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.b = <span class="string">'hi'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">vm.b = <span class="hljs-string">'hi'</span></code></pre>
 <p>То изменения в <code>b</code> не будут вызывать никаких обновлений. Если вы знаете, что свойство вам понадобится позже, но изначально оно пустое или несуществующее, нужно просто установить начальное значение. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  newTodoText: <span class="string">''</span>,</span><br><span class="line">  visitCount: <span class="number">0</span>,</span><br><span class="line">  hideCompletedTodos: <span class="literal">false</span>,</span><br><span class="line">  todos: [],</span><br><span class="line">  error: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">data: &#123;
+  <span class="hljs-attr">newTodoText</span>: <span class="hljs-string">''</span>,
+  <span class="hljs-attr">visitCount</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">hideCompletedTodos</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">todos</span>: [],
+  <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>
+&#125;</code></pre>
 <p>Единственным исключением здесь является использование <code>Object.freeze()</code>, который предотвращает изменение существующих свойств, что также означает невозможность <em>отслеживать</em> изменения системой реактивности.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  foo: <span class="string">'bar'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: obj</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; foo &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- мы теперь не можем обновить `foo`! --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"foo = 'baz'"</span>&gt;</span>Изменить<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = &#123;
+  <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span>
+&#125;
+
+<span class="hljs-built_in">Object</span>.freeze(obj)
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: obj
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; foo &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- мы теперь не можем обновить `foo`! --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"foo = 'baz'"</span>&gt;</span>Изменить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Кроме свойств объекта <code>data</code>, экземпляры Vue предоставляют ряд служебных свойств и методов экземпляра. Их имена начинаются с префикса <code>$</code>, чтобы отличаться от пользовательских свойств. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span>,</span><br><span class="line">  data: data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">vm.$data === data <span class="comment">// =&gt; true</span></span><br><span class="line">vm.$el === <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>) <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// $watch — это метод экземпляра</span></span><br><span class="line">vm.$watch(<span class="string">'a'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">newValue, oldValue</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Этот коллбэк будет вызван, когда изменится `vm.a`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> data = &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;
+<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
+  <span class="hljs-attr">data</span>: data
+&#125;)
+
+vm.$data === data <span class="hljs-comment">// =&gt; true</span>
+vm.$el === <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'example'</span>) <span class="hljs-comment">// =&gt; true</span>
+
+<span class="hljs-comment">// $watch — это метод экземпляра</span>
+vm.$watch(<span class="hljs-string">'a'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue, oldValue</span>) </span>&#123;
+  <span class="hljs-comment">// Этот коллбэк будет вызван, когда изменится `vm.a`</span>
+&#125;)</code></pre>
 <p>С полным списком свойств и методов экземпляра Vue можно ознакомиться в <a href="../api/#Свойства-экземпляра">справочнике API</a>.</p>
 <h2 id="Хуки-жизненного-цикла-экземпляра"><a href="#Хуки-жизненного-цикла-экземпляра" class="headerlink" title="Хуки жизненного цикла экземпляра"></a>Хуки жизненного цикла экземпляра</h2><p>Каждый экземпляр Vue при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые <strong>хуками жизненного цикла</strong>, с помощью которых можно выполнять свой код на определённых этапах.</p>
 <p>Например, хук <a href="../api/#created"><code>created</code></a> можно использовать для выполнения кода после создания экземпляра:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// `this` указывает на экземпляр vm</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Значение a: '</span> + <span class="keyword">this</span>.a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// =&gt; "Значение a: 1"</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
+  &#125;,
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// `this` указывает на экземпляр vm</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Значение a: '</span> + <span class="hljs-keyword">this</span>.a)
+  &#125;
+&#125;)
+<span class="hljs-comment">// =&gt; "Значение a: 1"</span></code></pre>
 <p>Существуют и другие хуки, вызываемые на различных стадиях жизненного цикла экземпляра, например <a href="../api/#mounted"><code>mounted</code></a>, <a href="../api/#updated"><code>updated</code></a> и <a href="../api/#destroyed"><code>destroyed</code></a>. Все хуки вызываются с контекстной переменной <code>this</code>, ссылающейся на вызывающий экземпляр Vue.</p>
 <p class="tip">Не используйте <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">стрелочные функции</a> в свойствах экземпляра и в коллбэках, например <code>created: () =&gt; console.log(this.a)</code> или <code>vm.$watch(&#39;a&#39;, newVal =&gt; this.myMethod())</code>. Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> не будет указывать на экземпляр Vue, часто приводя к таким ошибкам, как <code>Uncaught TypeError: Cannot read property of undefined</code> или <code>Uncaught TypeError: this.myMethod is not a function</code>.</p>
 
@@ -1073,7 +1145,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

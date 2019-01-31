@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Сравнение с другими фреймворками — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1042,7 +1046,13 @@
 <h4 id="Модульный-компонентный-CSS"><a href="#Модульный-компонентный-CSS" class="headerlink" title="Модульный (компонентный) CSS"></a>Модульный (компонентный) CSS</h4><p>За исключением случаев разделения компонентов на несколько файлов (например, посредством <a href="https://github.com/gajus/react-css-modules" target="_blank" rel="noopener">CSS-модулей</a>), для ограничения области видимости CSS в React обычно используется подход CSS-in-JS (например, <a href="https://github.com/styled-components/styled-components" target="_blank" rel="noopener">styled-components</a>, <a href="https://github.com/paypal/glamorous" target="_blank" rel="noopener">glamorous</a> и <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">emotion</a>). Это представляет собой новый компонентно-ориентированный подход к стилизации, который отличается от обычного процесса разработки CSS. Кроме того, несмотря на поддержку извлечения CSS в отдельный файл стилей на этапе сборки, по-прежнему может быть необходимо, чтобы во время выполнения были подключены в сборку для корректной работы стилизации. В то время, как вы получаете доступ к динамичности JavaScript при создании ваших стилей, этот компромисс зачастую увеличивает размер сборки и время исполнения.</p>
 <p>Если вы поклонник подхода CSS-in-JS — многие популярные библиотеки поддерживают Vue (например, <a href="https://github.com/styled-components/vue-styled-components" target="_blank" rel="noopener">styled-components-vue</a> и <a href="https://github.com/egoist/vue-emotion" target="_blank" rel="noopener">vue-emotion</a>). Главным отличием между React и Vue здесь будет то, что по умолчанию стилизация Vue выполняется через знакомые теги <code>style</code> в <a href="single-file-components.html">однофайловых компонентах</a>.</p>
 <p><a href="single-file-components.html">Однофайловые компоненты</a> предоставляют вам полный доступ к CSS в том же файле, что и остальная часть кода вашего компонента.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  @<span class="keyword">media</span> (min-width: <span class="number">250px</span>) &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.list-container</span><span class="selector-pseudo">:hover</span> &#123;</span></span><br><span class="line"><span class="undefined">      background: orange;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+  @<span class="hljs-keyword">media</span> (min-width: <span class="hljs-number">250px</span>) &#123;
+    <span class="hljs-selector-class">.list-container</span><span class="hljs-selector-pseudo">:hover</span> &#123;
+      <span class="hljs-attribute">background</span>: orange;
+    &#125;
+  &#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
 <p>Опциональный атрибут <code>scoped</code> автоматически ограничивает область видимости CSS текущим компонентом, добавляя элементам уникальные атрибуты (такие как <code>data-v-1-21e5b78</code>), и компилируя <code>.list-container:hover</code> во что-нибудь вроде <code>.list-container[data-v-1-21e5b78]:hover</code>.</p>
 <p>Наконец, стилизация в однофайловых компонентах Vue очень гибка. С помощью <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="noopener">vue-loader</a>, вы можете использовать любой препроцессор, постпроцессор и даже глубокую интеграцию с <a href="https://vue-loader.vuejs.org/ru/features/css-modules.html" target="_blank" rel="noopener">CSS-модулями</a> — всё в элементе <code>&lt;style&gt;</code>.</p>
 <h3 id="Масштабирование"><a href="#Масштабирование" class="headerlink" title="Масштабирование"></a>Масштабирование</h3><h4 id="Масштабирование-вверх"><a href="#Масштабирование-вверх" class="headerlink" title="Масштабирование вверх"></a>Масштабирование вверх</h4><p>Для крупных приложений, как Vue так и React предоставляют надёжные решения для роутинга. Сообщество React также породило весьма инновационные решения в области управления состоянием приложения (см. Flux/Redux). Эти подходы, и <a href="https://yarnpkg.com/en/packages?q=redux%20vue&amp;p=1" target="_blank" rel="noopener">даже сам Redux</a> легко интегрируются в приложения на Vue. В действительности, Vue сделал следующий шаг, создав <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> — вдохновлённую Elm реализацию паттерна управления состоянием приложения. Vuex глубоко интегрирован с Vue, что, на наш взгляд, изрядно облегчает жизнь разработчикам.</p>
@@ -1056,7 +1066,7 @@
 <p>Важно заметить, что многие из этих ограничений — следствия сознательно принятых решений команды create-react-app, и в них есть и свои плюсы. Например, коль скоро ваш проект не требует пользовательской настройки процесса сборки, её можно будет обновлять как зависимость. Прочитать больше об этом подходе <a href="https://github.com/facebookincubator/create-react-app#philosophy" target="_blank" rel="noopener">можно здесь</a>.</p>
 <h4 id="Масштабирование-вниз"><a href="#Масштабирование-вниз" class="headerlink" title="Масштабирование вниз"></a>Масштабирование вниз</h4><p>React известен своей довольно крутой кривой изучения. До того момента, когда новичок сможет что-то написать, ему придётся узнать о JSX, а вероятно — и о ES2015+, поскольку многие примеры используют синтаксис ES2015-классов. Кроме того придётся разобраться с системами сборки, поскольку, хотя технически и существует возможность использовать Babel самостоятельно для live-компиляции кода, для production этот подход в любом случае не годится.</p>
 <p>Vue масштабируется вверх ничуть не хуже, чем React, и в то же время его можно масштабировать и вниз — вплоть до варианта использования вместе с jQuery. Именно так — для старта в простейшем случае достаточно просто добавить тег скрипта на HMTL-страницу.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Начиная с этого момента можно писать код на Vue, и даже использовать production-версию, не мучаясь угрызениями совести и волнениями насчёт производительности.</p>
 <p>Поскольку знания JSX, ES2015 и систем сборки не требуется для начала работы с Vue, в среднем у новых разработчиков уходит не больше дня на чтение <a href="./">руководства</a>, позволяющего узнать достаточно для построения нетривиальных приложений.</p>
 <h3 id="Нативная-отрисовка"><a href="#Нативная-отрисовка" class="headerlink" title="Нативная отрисовка"></a>Нативная отрисовка</h3><p>React Native позволяет писать нативные приложения для iOS и Android, используя ту же самую модель компонентов React’а. Это — прекрасно, так как позволяет разработчикам применить знание одного и того же фреймворка на различных платформах. В этой области, Vue официально поддерживает проект <a href="https://weex.apache.org/" target="_blank" rel="noopener">Weex</a> — кроссплатформенный UI-фреймворк, созданный Alibaba Group и инкубированный Apache Software Foundation (ASF). Weex позволяет использовать тот же синтаксис Vue для создания компонентов, которые не только могут отображаться в браузере, но и также нативными элементами в iOS и Android!</p>
@@ -1149,7 +1159,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

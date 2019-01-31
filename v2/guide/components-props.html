@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Входные параметры — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1004,45 +1008,136 @@
 <p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
 </blockquote>
 <h2 id="Стиль-именования-входных-параметров-camelCase-в-сравнении-с-kebab-case"><a href="#Стиль-именования-входных-параметров-camelCase-в-сравнении-с-kebab-case" class="headerlink" title="Стиль именования входных параметров (camelCase в сравнении с kebab-case)"></a>Стиль именования входных параметров (camelCase в сравнении с kebab-case)</h2><p>Имена HTML-атрибутов являются регистро-независимыми, поэтому браузеры интерпретируют любые прописные символы как строчные. Это означает, что при использовании шаблонов в DOM, входные параметры в camelCase стиле должны использовать свои эквиваленты в стиле kebab-case (разделённые дефисами):</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</span><br><span class="line">  <span class="comment">// camelCase в JavaScript</span></span><br><span class="line">  props: [<span class="string">'postTitle'</span>],</span><br><span class="line">  template: <span class="string">'&lt;h3&gt;&#123;&#123; postTitle &#125;&#125;&lt;/h3&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- kebab-case в HTML --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">post-title</span>=<span class="string">"hello!"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-comment">// camelCase в JavaScript</span>
+  props: [<span class="hljs-string">'postTitle'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;h3&gt;&#123;&#123; postTitle &#125;&#125;&lt;/h3&gt;'</span>
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- kebab-case в HTML --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">post-title</span>=<span class="hljs-string">"hello!"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Опять же, если вы используете строковые шаблоны, то это ограничение не применяется.</p>
 <h2 id="Указание-типа-входных-параметров"><a href="#Указание-типа-входных-параметров" class="headerlink" title="Указание типа входных параметров"></a>Указание типа входных параметров</h2><p>До сих пор мы видели только входные параметры, перечисленные в виде массива строк:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: [<span class="string">'title'</span>, <span class="string">'likes'</span>, <span class="string">'isPublished'</span>, <span class="string">'commentIds'</span>, <span class="string">'author'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">props: [<span class="hljs-string">'title'</span>, <span class="hljs-string">'likes'</span>, <span class="hljs-string">'isPublished'</span>, <span class="hljs-string">'commentIds'</span>, <span class="hljs-string">'author'</span>]</code></pre>
 <p>Однако лучше, когда каждый входной параметр будет определённого типа. В этих случаях вы можете перечислить входные параметры объектом, где свойство и значение будут содержать информацию об имени входного параметра и его типе, соответственно:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  title: <span class="built_in">String</span>,</span><br><span class="line">  likes: <span class="built_in">Number</span>,</span><br><span class="line">  isPublished: <span class="built_in">Boolean</span>,</span><br><span class="line">  commentIds: <span class="built_in">Array</span>,</span><br><span class="line">  author: <span class="built_in">Object</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">props: &#123;
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">String</span>,
+  <span class="hljs-attr">likes</span>: <span class="hljs-built_in">Number</span>,
+  <span class="hljs-attr">isPublished</span>: <span class="hljs-built_in">Boolean</span>,
+  <span class="hljs-attr">commentIds</span>: <span class="hljs-built_in">Array</span>,
+  <span class="hljs-attr">author</span>: <span class="hljs-built_in">Object</span>
+&#125;</code></pre>
 <p>Это не только документирует ваш компонент, но также предупреждает пользователей в консоли JavaScript браузера, если они передают неправильный тип. Вы узнаете гораздо больше о <a href="#Валидация-входных-параметров">проверках типов и других валидациях входных параметров</a> дальше на этой странице.</p>
 <h2 id="Передача-статических-и-динамических-входных-параметров"><a href="#Передача-статических-и-динамических-входных-параметров" class="headerlink" title="Передача статических и динамических входных параметров"></a>Передача статических и динамических входных параметров</h2><p>До сих пор вы встречали, что во входные параметры передавались статические значения, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">title</span>=<span class="string">"My journey with Vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"My journey with Vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Вы также встречали входные параметры, присваивающие динамическое значение с помощью <code>v-bind</code>, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Динамически присваиваем значение переменной --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:title</span>=<span class="string">"post.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Динамически присваиваем значение комплексного выражения --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"post.title + ' написанный ' + post.author.name"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Динамически присваиваем значение переменной --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамически присваиваем значение комплексного выражения --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title + ' написанный ' + post.author.name"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>В этих двух примерах мы передаём строковые значения, но могут передаваться значения <em>любого типа</em> во входной параметр.</p>
-<h3 id="Передача-чисел"><a href="#Передача-чисел" class="headerlink" title="Передача чисел"></a>Передача чисел</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Несмотря на то, что `42` статическое значение, нам нужен v-bind, --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:likes</span>=<span class="string">"42"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:likes</span>=<span class="string">"post.likes"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Передача-булевых-значений"><a href="#Передача-булевых-значений" class="headerlink" title="Передача булевых значений"></a>Передача булевых значений</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Указание входного параметра без значения будет означать `true`. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">is-published</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Несмотря на то, что `false` статическое значение, нам нужен v-bind --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.     --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:is-published</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:is-published</span>=<span class="string">"post.currentUserFavorited"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Передача-массивов"><a href="#Передача-массивов" class="headerlink" title="Передача массивов"></a>Передача массивов</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Несмотря на то, что указан статический массив, нам нужен v-bind, --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:comment-ids</span>=<span class="string">"[234, 266, 273]"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:comment-ids</span>=<span class="string">"post.commentIds"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Передача-объектов"><a href="#Передача-объектов" class="headerlink" title="Передача объектов"></a>Передача объектов</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Несмотря на то, что указан статический объект, нам нужен v-bind, --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:author</span>=<span class="string">"&#123; name: 'Veronica', company: 'Veridian Dynamics' &#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:author</span>=<span class="string">"post.author"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Передача-чисел"><a href="#Передача-чисел" class="headerlink" title="Передача чисел"></a>Передача чисел</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Несмотря на то, что `42` статическое значение, нам нужен v-bind, --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:likes</span>=<span class="hljs-string">"42"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:likes</span>=<span class="hljs-string">"post.likes"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-булевых-значений"><a href="#Передача-булевых-значений" class="headerlink" title="Передача булевых значений"></a>Передача булевых значений</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Указание входного параметра без значения будет означать `true`. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">is-published</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Несмотря на то, что `false` статическое значение, нам нужен v-bind --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.     --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:is-published</span>=<span class="hljs-string">"false"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:is-published</span>=<span class="hljs-string">"post.currentUserFavorited"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-массивов"><a href="#Передача-массивов" class="headerlink" title="Передача массивов"></a>Передача массивов</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Несмотря на то, что указан статический массив, нам нужен v-bind, --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:comment-ids</span>=<span class="hljs-string">"[234, 266, 273]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:comment-ids</span>=<span class="hljs-string">"post.commentIds"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-объектов"><a href="#Передача-объектов" class="headerlink" title="Передача объектов"></a>Передача объектов</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Несмотря на то, что указан статический объект, нам нужен v-bind, --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.  --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:author</span>=<span class="hljs-string">"&#123; name: 'Veronica', company: 'Veridian Dynamics' &#125;"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:author</span>=<span class="hljs-string">"post.author"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <h3 id="Передача-свойств-объекта"><a href="#Передача-свойств-объекта" class="headerlink" title="Передача свойств объекта"></a>Передача свойств объекта</h3><p>Если вы хотите передать все свойства объекта в качестве входных параметров, вы можете использовать <code>v-bind</code> без аргументов (<code>v-bind</code> вместо <code>v-bind:prop-name</code>). Например, для объекта <code>post</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">post: &#123;</span><br><span class="line">  id: <span class="number">1</span>,</span><br><span class="line">  title: <span class="string">'My Journey with Vue'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">post: &#123;
+  <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'My Journey with Vue'</span>
+&#125;</code></pre>
 <p>Следующий шаблон:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind</span>=<span class="string">"post"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">"post"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Будет аналогичен:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:id</span>=<span class="string">"post.id"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"post.title"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"post.id"</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <h2 id="Однонаправленный-поток-данных"><a href="#Однонаправленный-поток-данных" class="headerlink" title="Однонаправленный поток данных"></a>Однонаправленный поток данных</h2><p>Все входные параметры образуют <strong>одностороннюю привязку</strong> между дочерним свойством и родительским: когда родительское свойство обновляется — оно будет передаваться дочернему, но не наоборот. Это предотвращает случайное изменение дочерними компонентами родительского состояния, что может затруднить понимание потока данных вашего приложения.</p>
 <p>Кроме того, каждый раз, когда обновляется родительский компонент, все входные параметры дочернего компонента будут обновлены актуальными значениями. Это означает, что вы <strong>не должны</strong> пытаться изменять входной параметр внутри дочернего компонента. Если вы это сделаете, Vue отобразит предупреждение в консоли.</p>
 <p>Обычно встречаются два случая, когда возникает соблазн изменять входной параметр:</p>
 <ol>
 <li><p><strong>Входной параметр используется для передачи начального значения; дочерний компонент хочет использовать его как локальное свойство данных в дальнейшем.</strong> В этом случае лучше всего определить локальное свойство в данных, которое использует значение входного параметра в качестве начального:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: [<span class="string">'initialCounter'</span>],</span><br><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    counter: <span class="keyword">this</span>.initialCounter</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">props: [<span class="hljs-string">'initialCounter'</span>],
+<span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">counter</span>: <span class="hljs-keyword">this</span>.initialCounter
+  &#125;
+&#125;</code></pre>
 </li>
 <li><p><strong>Входной параметр передаётся как необработанное значение, которое необходимо преобразовать.</strong> В этом случае лучше всего определить вычисляемое свойство с использованием входного параметра:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: [<span class="string">'size'</span>],</span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedSize: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size.trim().toLowerCase()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">props: [<span class="hljs-string">'size'</span>],
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">normalizedSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size.trim().toLowerCase()
+  &#125;
+&#125;</code></pre>
 </li>
 </ol>
 <p class="tip">Обратите внимание, что объекты и массивы в JavaScript передаются по ссылке, поэтому если входной параметр является массивом или объектом, то изменение объекта или массива внутри дочернего компонента <strong>будет влиять</strong> на состояние родителя.</p>
 
 <h2 id="Валидация-входных-параметров"><a href="#Валидация-входных-параметров" class="headerlink" title="Валидация входных параметров"></a>Валидация входных параметров</h2><p>Компоненты могут указывать требования к своим входным параметрам, такие как определение типа, которые вы уже видели. Если эти требования не выполнены — Vue предупредит вас сообщением в JavaScript-консоли браузера. Это особенно полезно при разработке компонента, который предназначен для использования другими.</p>
 <p>Чтобы указать валидации входного параметра, вы можете предоставить в <code>props</code> объект с валидациями для проверки значения, вместо массива строк. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    <span class="comment">// Просто проверка типа (`null` означает любой тип)</span></span><br><span class="line">    propA: <span class="built_in">Number</span>,</span><br><span class="line">    <span class="comment">// Несколько допустимых типов</span></span><br><span class="line">    propB: [<span class="built_in">String</span>, <span class="built_in">Number</span>],</span><br><span class="line">    <span class="comment">// Обязательное значение строкового типа</span></span><br><span class="line">    propC: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Число со значением по умолчанию</span></span><br><span class="line">    propD: &#123;</span><br><span class="line">      type: <span class="built_in">Number</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">100</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Объект со значением по умолчанию</span></span><br><span class="line">    propE: &#123;</span><br><span class="line">      type: <span class="built_in">Object</span>,</span><br><span class="line">      <span class="comment">// Для объектов или массивов значения по умолчанию</span></span><br><span class="line">      <span class="comment">// должны возвращаться из функции</span></span><br><span class="line">      <span class="keyword">default</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">message</span>: <span class="string">'hello'</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// Пользовательская функция для валидации</span></span><br><span class="line">    propF: &#123;</span><br><span class="line">      validator: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// Значение должно соответствовать одной из этих строк</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="string">'success'</span>, <span class="string">'warning'</span>, <span class="string">'danger'</span>].indexOf(value) !== <span class="number">-1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-comment">// Просто проверка типа (`null` означает любой тип)</span>
+    propA: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-comment">// Несколько допустимых типов</span>
+    propB: [<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Number</span>],
+    <span class="hljs-comment">// Обязательное значение строкового типа</span>
+    propC: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+    &#125;,
+    <span class="hljs-comment">// Число со значением по умолчанию</span>
+    propD: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-number">100</span>
+    &#125;,
+    <span class="hljs-comment">// Объект со значением по умолчанию</span>
+    propE: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
+      <span class="hljs-comment">// Для объектов или массивов значения по умолчанию</span>
+      <span class="hljs-comment">// должны возвращаться из функции</span>
+      <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'hello'</span> &#125;
+      &#125;
+    &#125;,
+    <span class="hljs-comment">// Пользовательская функция для валидации</span>
+    propF: &#123;
+      <span class="hljs-attr">validator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+        <span class="hljs-comment">// Значение должно соответствовать одной из этих строк</span>
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">'success'</span>, <span class="hljs-string">'warning'</span>, <span class="hljs-string">'danger'</span>].indexOf(value) !== <span class="hljs-number">-1</span>
+      &#125;
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Когда валидация входного параметра заканчивается ошибкой — Vue выдаст предупреждение в консоли (если используется сборка для разработки).</p>
 <p class="tip">Обратите внимание, что входные параметры валидируются <strong>перед</strong> созданием экземпляра компонента, поэтому свойства экземпляра (например, <code>data</code>, <code>computed</code> и т.д.) не будут доступны внутри <code>default</code> или функций <code>validator</code>.</p>
 
@@ -1058,19 +1153,29 @@
 <li>Symbol</li>
 </ul>
 <p>Кроме того, <code>type</code> также может быть пользовательской функцией-конструктором и валидация будет выполняться проверкой с помощью <code>instanceof</code>. Например, если существует следующая функция-конструктор:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">firstName, lastName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = firstName</span><br><span class="line">  <span class="keyword">this</span>.lastName = lastName</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span> (<span class="hljs-params">firstName, lastName</span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.firstName = firstName
+  <span class="hljs-keyword">this</span>.lastName = lastName
+&#125;</code></pre>
 <p>Вы можете использовать:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    author: Person</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">author</span>: Person
+  &#125;
+&#125;)</code></pre>
 <p>чтобы проверить, что значение входного параметра <code>author</code> было создано с помощью <code>new Person</code>.</p>
 <h2 id="Передача-обычных-атрибутов"><a href="#Передача-обычных-атрибутов" class="headerlink" title="Передача обычных атрибутов"></a>Передача обычных атрибутов</h2><p>Обычные атрибуты — это атрибуты, передаваемые в компонент, но не имеющие определения соответствующего входного параметра в компоненте.</p>
 <p>Хотя явно определённые свойства предпочтительны для передачи информации дочернему компоненту, авторы библиотек компонентов не всегда могут предвидеть все контексты, в которых будут использованы их компоненты. Вот почему компоненты могут принимать произвольные атрибуты, которые добавляются в корневой элемент компонента.</p>
 <p>Например, представьте, что мы используем сторонний компонент <code>bootstrap-date-input</code> с плагином Bootstrap, который требует указания атрибута <code>data-date-picker</code> на элементе <code>input</code>. Мы можем добавить этот атрибут к нашему экземпляру компонента:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bootstrap-date-input</span> <span class="attr">data-date-picker</span>=<span class="string">"activated"</span>&gt;</span><span class="tag">&lt;/<span class="name">bootstrap-date-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-date-input</span> <span class="hljs-attr">data-date-picker</span>=<span class="hljs-string">"activated"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-date-input</span>&gt;</span></code></pre>
 <p>И атрибут <code>data-date-picker=&quot;activated&quot;</code> будет автоматически добавлен в корневой элемент <code>bootstrap-date-input</code>.</p>
 <h3 id="Замена-Объединение-существующих-атрибутов"><a href="#Замена-Объединение-существующих-атрибутов" class="headerlink" title="Замена/Объединение существующих атрибутов"></a>Замена/Объединение существующих атрибутов</h3><p>Представьте, что это шаблон для <code>bootstrap-date-input</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">class</span>=<span class="string">"form-control"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"date"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>&gt;</span></code></pre>
 <p>Чтобы добавить тему для нашего плагина выбора даты, нам может понадобиться добавить определённый класс, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bootstrap-date-input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-date-picker</span>=<span class="string">"activated"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"date-picker-theme-dark"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">bootstrap-date-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-date-input</span>
+  <span class="hljs-attr">data-date-picker</span>=<span class="hljs-string">"activated"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"date-picker-theme-dark"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-date-input</span>&gt;</span></code></pre>
 <p>В этом случае определены два разных значения для <code>class</code>:</p>
 <ul>
 <li><code>form-control</code>, который задаётся компонентом в его шаблоне</li>
@@ -1078,13 +1183,38 @@
 </ul>
 <p>Для большинства атрибутов значение, предоставляемое компоненту, будет заменять значение, заданное компонентом. Например, передача <code>type=&quot;text&quot;</code> будет заменять <code>type=&quot;date&quot;</code> и, вероятно, ломать всё! К счастью, работа с атрибутами <code>class</code> и <code>style</code> немного умнее, поэтому оба значения будут объединены в итоговое: <code>form-control date-picker-theme-dark</code>.</p>
 <h3 id="Отключение-наследования-атрибутов"><a href="#Отключение-наследования-атрибутов" class="headerlink" title="Отключение наследования атрибутов"></a>Отключение наследования атрибутов</h3><p>Если вы <strong>не хотите</strong>, чтобы корневой элемент компонента наследовал атрибуты, вы можете установить <code>inheritAttrs: false</code> в опциях компонента. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
 <p>Это может быть особенно полезно в сочетании со свойством экземпляра <code>$attrs</code>, которое содержит имена атрибутов и значения, переданные компоненту, например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  class: 'username-input',</span><br><span class="line">  placeholder: <span class="string">'Введите имя пользователя'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">placeholder</span>: <span class="hljs-string">'Введите имя пользователя'</span>
+&#125;</code></pre>
 <p>С помощью <code>inheritAttrs: false</code> и <code>$attrs</code> вы можете вручную определять к какому элементу должны применяться атрибуты, что часто требуется для <a href="../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется">базовых компонентов</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-input'</span>, &#123;</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  props: [<span class="string">'label'</span>, <span class="string">'value'</span>],</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;label&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; label &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;input</span></span><br><span class="line"><span class="string">        v-bind="$attrs"</span></span><br><span class="line"><span class="string">        v-bind:value="value"</span></span><br><span class="line"><span class="string">        v-on:input="$emit('input', $event.target.value)"</span></span><br><span class="line"><span class="string">      &gt;</span></span><br><span class="line"><span class="string">    &lt;/label&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-input'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'label'</span>, <span class="hljs-string">'value'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;label&gt;
+      &#123;&#123; label &#125;&#125;
+      &lt;input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      &gt;
+    &lt;/label&gt;
+  `</span>
+&#125;)</code></pre>
+<p class="tip">Обратите внимание, что опция <code>inheritAttrs: false</code> <strong>не влияет</strong> на биндинги <code>style</code> и <code>class</code>.</p>
+
 <p>Этот шаблон позволяет вам использовать базовые компоненты больше как обычные HTML-элементы, не беспокоясь о том, какой элемент будет у него корневым:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-model</span>=<span class="string">"username"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"username-input"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">placeholder</span>=<span class="string">"Введите имя пользователя"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span>
+  <span class="hljs-attr">v-model</span>=<span class="hljs-string">"username"</span>
+  <span class="hljs-attr">required</span>
+  <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Введите имя пользователя"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
 
     
     
@@ -1131,7 +1261,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

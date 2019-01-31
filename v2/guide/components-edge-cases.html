@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Обработка крайних случаев — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1007,42 +1011,82 @@
 
 <h2 id="Доступ-к-элементу-и-компоненту"><a href="#Доступ-к-элементу-и-компоненту" class="headerlink" title="Доступ к элементу и компоненту"></a>Доступ к элементу и компоненту</h2><p>В большинстве случаев лучше избегать связи с другими экземплярами компонентов или вручную манипулировать элементами DOM. Однако есть случаи, когда это может быть уместно.</p>
 <h3 id="Доступ-к-корневому-экземпляру"><a href="#Доступ-к-корневому-экземпляру" class="headerlink" title="Доступ к корневому экземпляру"></a>Доступ к корневому экземпляру</h3><p>В каждом дочернем компоненте экземпляра <code>new Vue</code>, к этому корневому экземпляру можно получить доступ через свойство <code>$root</code>. Например, для этого корневого экземпляра:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Корневой экземпляр Vue</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    foo: <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    bar: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    baz: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Корневой экземпляр Vue</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-number">1</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">bar</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">baz</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Теперь все дочерние компоненты смогут получить доступ к этому экземпляру и использовать его в качестве глобального хранилища:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Получение данных из корневого экземпляра</span></span><br><span class="line"><span class="keyword">this</span>.$root.foo</span><br><span class="line"></span><br><span class="line"><span class="comment">// Установка данных в корневом экземпляре</span></span><br><span class="line"><span class="keyword">this</span>.$root.foo = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Использование вычисляемых свойств корневого экземпляра</span></span><br><span class="line"><span class="keyword">this</span>.$root.bar</span><br><span class="line"></span><br><span class="line"><span class="comment">// Вызов методов корневого экземпляра</span></span><br><span class="line"><span class="keyword">this</span>.$root.baz()</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Получение данных из корневого экземпляра</span>
+<span class="hljs-keyword">this</span>.$root.foo
+
+<span class="hljs-comment">// Установка данных в корневом экземпляре</span>
+<span class="hljs-keyword">this</span>.$root.foo = <span class="hljs-number">2</span>
+
+<span class="hljs-comment">// Использование вычисляемых свойств корневого экземпляра</span>
+<span class="hljs-keyword">this</span>.$root.bar
+
+<span class="hljs-comment">// Вызов методов корневого экземпляра</span>
+<span class="hljs-keyword">this</span>.$root.baz()</code></pre>
 <p class="tip">Это может быть удобно для демонстраций или очень маленьких приложений с несколькими компонентами. Однако этот паттерн плохо масштабируется для средних или крупных приложений, поэтому мы настоятельно рекомендуем использовать <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> для управления состоянием в большинстве случаев.</p>
 
 <h3 id="Доступ-к-экземпляру-родительского-компонента"><a href="#Доступ-к-экземпляру-родительского-компонента" class="headerlink" title="Доступ к экземпляру родительского компонента"></a>Доступ к экземпляру родительского компонента</h3><p>Подобно <code>$root</code>, свойство <code>$parent</code> можно использовать для доступа к родительскому экземпляру из дочернего. Это может быть заманчивым для использования в качестве ленивой альтернативы передачи данных с помощью входных параметров.</p>
 <p class="tip">В большинстве случаев обращение к родительскому компоненту делает ваше приложение более проблематичным в отладке и поддержке, особенно если вы изменяете данные в родителе. Когда вы вернётесь к этому компоненту позднее, будет очень сложно выяснить, откуда происходит изменение данных.</p>
 
 <p>Однако есть случаи, в частности библиотек общих компонентов, когда это <em>может быть</em> подходящим. Например, в абстрактных компонентах, которые взаимодействуют через JavaScript с API вместо отрисовки HTML, как например эти гипотетические компоненты Google Maps:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
 <p>Компонент <code>&lt;google-map&gt;</code> может определять свойство <code>map</code>, к которому должны иметь доступ все подкомпоненты. В этом случае <code>&lt;google-map-markers&gt;</code> может получить доступ к карте с помощью <code>this.$parent.getMap</code>, чтобы добавить на карту набор маркеров. Вы можете увидеть этот шаблон <a href="https://jsfiddle.net/chrisvfritz/ttzutdxh/" target="_blank" rel="noopener">в действии здесь</a>.</p>
 <p>Однако помните, что компоненты, построенные с использованием этого шаблона являются хрупкими. Например, представьте, что мы добавляем новый компонент <code>&lt;google-map-region&gt;</code> и когда в нём появляется <code>&lt;google-map-markers&gt;</code>, то он должен отображать только маркеры, попадающие в регион:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-region</span> <span class="attr">v-bind:shape</span>=<span class="string">"cityBoundaries"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">google-map-region</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-region</span> <span class="hljs-attr">v-bind:shape</span>=<span class="hljs-string">"cityBoundaries"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">google-map-region</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
 <p>Затем внутри <code>&lt;google-map-markers&gt;</code> вы можете застать себя за созданием хаков наподобие такого:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">this</span>.$parent.map || <span class="keyword">this</span>.$parent.$parent.map</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">this</span>.$parent.map || <span class="hljs-keyword">this</span>.$parent.$parent.map</code></pre>
 <p>Это может быстро выйти из-под контроля. Поэтому, чтобы предоставлять контекстную информацию для компонентов-потомков на любую глубину вложенности, мы вместо этого рекомендуем <a href="#Внедрение-зависимостей">инъекцию зависимостей</a>.</p>
 <h3 id="Доступ-к-экземплярам-дочерних-компонентов-и-элементов"><a href="#Доступ-к-экземплярам-дочерних-компонентов-и-элементов" class="headerlink" title="Доступ к экземплярам дочерних компонентов и элементов"></a>Доступ к экземплярам дочерних компонентов и элементов</h3><p>Несмотря на наличие входных параметров и событий, иногда вам может потребоваться прямой доступ к дочернему компоненту в JavaScript. Для этого вы можете назначить ссылочный ID дочернему компоненту с помощью атрибута <code>ref</code>. Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">ref</span>=<span class="string">"usernameInput"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"usernameInput"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
 <p>Теперь в компоненте, где вы определили этот <code>ref</code>, вы можете использовать:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.usernameInput</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$refs.usernameInput</code></pre>
 <p>для доступа к экземпляру <code>&lt;base-input&gt;</code>. Это может быть полезно, если вы хотите например, программно добавить фокус на поле из родителя. В этом случае компонент <code>&lt;base-input&gt;</code> может аналогичным образом использовать <code>ref</code> чтобы обеспечить доступ к определённым элементам внутри него, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">"input"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"input"</span>&gt;</span></code></pre>
 <p>И даже определить методы для использования родителем:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  <span class="comment">// Используется родителем для фокуса на input</span></span><br><span class="line">  focus: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$refs.input.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-comment">// Используется родителем для фокуса на input</span>
+  focus: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.$refs.input.focus()
+  &#125;
+&#125;</code></pre>
 <p>Таким образом мы позволим родительскому компоненту добавлять фокус на input внутри <code>&lt;base-input&gt;</code> с помощью:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.usernameInput.focus()</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$refs.usernameInput.focus()</code></pre>
 <p>Когда <code>ref</code> используется вместе с <code>v-for</code>, то ref будет массивом, содержащим дочерние компоненты, отображаемых от источника данных.</p>
 <p class="tip"><code>$refs</code> заполняются только после того, как компонент был отрисован, и они не реактивны. Это подразумевается только как обходной путь для прямого манипулирования потомками — вам следует избегать доступа к <code>$refs</code> из шаблонов или вычисляемых свойств.</p>
 
 <h3 id="Внедрение-зависимостей"><a href="#Внедрение-зависимостей" class="headerlink" title="Внедрение зависимостей"></a>Внедрение зависимостей</h3><p>Ранее, когда мы обсуждали <a href="#Доступ-к-экземпляру-родительского-компонента">доступ к экземпляру родительского компонента</a>, мы показали пример:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">google-map</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">google-map-region</span> <span class="attr">v-bind:shape</span>=<span class="string">"cityBoundaries"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">google-map-markers</span> <span class="attr">v-bind:places</span>=<span class="string">"iceCreamShops"</span>&gt;</span><span class="tag">&lt;/<span class="name">google-map-markers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">google-map-region</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">google-map</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-region</span> <span class="hljs-attr">v-bind:shape</span>=<span class="hljs-string">"cityBoundaries"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">google-map-region</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
 <p>В этом компоненте все потомки <code>&lt;google-map&gt;</code> нуждались в доступе к методу <code>getMap</code>, чтобы узнать с какой картой им взаимодействовать. К сожалению, использование свойства <code>$parent</code> плохо масштабируется для более глубоко вложенных компонентов. Вот где внедрение зависимостей может быть полезным, используя два новых свойства экземпляра: <code>provide</code> и <code>inject</code>.</p>
 <p>Опция <code>provide</code> позволяет нам указать данные/методы, которые мы хотим <strong>предоставить</strong> всем компонентам-потомкам. В этом случае, это метод <code>getMap</code> внутри <code>&lt;google-map&gt;</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">provide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getMap: <span class="keyword">this</span>.getMap</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">provide: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">getMap</span>: <span class="hljs-keyword">this</span>.getMap
+  &#125;
+&#125;</code></pre>
 <p>Затем в любых потомках мы можем воспользоваться свойством <code>inject</code> для получения специальных свойств, которые мы хотели бы добавить к этому экземпляру:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">inject: [<span class="string">'getMap'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">inject: [<span class="hljs-string">'getMap'</span>]</code></pre>
 <p>Вы можете увидеть <a href="https://jsfiddle.net/chrisvfritz/tdv8dt3s/" target="_blank" rel="noopener">полный пример здесь</a>. Преимуществом использования в отличие от <code>$parent</code> в том, что мы можем получить доступ к <code>getMap</code> <em>в любом</em> компоненте-потомке, без раскрытия всего экземпляра <code>&lt;google-map&gt;</code>. Это позволяет нам безопаснее продолжать разработку этого компонента, не опасаясь, что мы можем изменить/удалить что-то, на что полагается дочерний компонент. Интерфейс между этими компонентами остаётся чётко определённым, как и с <code>props</code>.</p>
 <p>Фактически, мы можете думать о внедрении зависимостей как о входных параметрах “дальнего действия”, за исключением:</p>
 <ul>
@@ -1059,47 +1103,108 @@
 <li>Прекратить прослушивание события с помощью <code>$off(eventName, eventHandler)</code></li>
 </ul>
 <p>Обычно вам не придётся использовать их, но они доступны для случаев, когда вам необходимо вручную прослушивать события на экземпляре компонента. Они также могут быть полезны в качестве инструмента организации кода. Например, вы часто можете увидеть этот шаблон для интеграции сторонней библиотеки:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Добавляем datepicker на input</span></span><br><span class="line"><span class="comment">// когда он будет примонтирован в DOM.</span></span><br><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Pikaday — сторонняя библиотека для выбора дат</span></span><br><span class="line">  <span class="keyword">this</span>.picker = <span class="keyword">new</span> Pikaday(&#123;</span><br><span class="line">    field: <span class="keyword">this</span>.$refs.input,</span><br><span class="line">    format: <span class="string">'YYYY-MM-DD'</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// Перед уничтожением компонента,</span></span><br><span class="line"><span class="comment">// также уничтожаем и datepicker.</span></span><br><span class="line">beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.picker.destroy()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Добавляем datepicker на input</span>
+<span class="hljs-comment">// когда он будет примонтирован в DOM.</span>
+mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// Pikaday — сторонняя библиотека для выбора дат</span>
+  <span class="hljs-keyword">this</span>.picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+    <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+  &#125;)
+&#125;,
+<span class="hljs-comment">// Перед уничтожением компонента,</span>
+<span class="hljs-comment">// также уничтожаем и datepicker.</span>
+beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.picker.destroy()
+&#125;</code></pre>
 <p>Здесь есть две потенциальных проблемы:</p>
 <ul>
 <li>Это требует сохранения <code>picker</code> в экземпляре компонента, когда возможно потребуется использоваться лишь в хуках жизненного цикла. Это не страшно, но это можно считать беспорядком.</li>
 <li>Наш код установки хранится отдельно от нашего кода очистки, что затрудняет программную очистку всего, что мы установили.</li>
 </ul>
 <p>Вы можете решить обе проблемы с помощью программного прослушивания события:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> picker = <span class="keyword">new</span> Pikaday(&#123;</span><br><span class="line">    field: <span class="keyword">this</span>.$refs.input,</span><br><span class="line">    format: <span class="string">'YYYY-MM-DD'</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.$once(<span class="string">'hook:beforeDestroy'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    picker.destroy()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">var</span> picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+    <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+  &#125;)
+
+  <span class="hljs-keyword">this</span>.$once(<span class="hljs-string">'hook:beforeDestroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    picker.destroy()
+  &#125;)
+&#125;</code></pre>
 <p>Используя эту стратегию, мы могли бы даже использовать Pikaday с несколькими элементами ввода, причём каждый новый экземпляр автоматически очищался после себя:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.attachDatepicker(<span class="string">'startDateInput'</span>)</span><br><span class="line">  <span class="keyword">this</span>.attachDatepicker(<span class="string">'endDateInput'</span>)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  attachDatepicker: <span class="function"><span class="keyword">function</span> (<span class="params">refName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> picker = <span class="keyword">new</span> Pikaday(&#123;</span><br><span class="line">      field: <span class="keyword">this</span>.$refs[refName],</span><br><span class="line">      format: <span class="string">'YYYY-MM-DD'</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.$once(<span class="string">'hook:beforeDestroy'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      picker.destroy()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.attachDatepicker(<span class="hljs-string">'startDateInput'</span>)
+  <span class="hljs-keyword">this</span>.attachDatepicker(<span class="hljs-string">'endDateInput'</span>)
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">attachDatepicker</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">refName</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+      <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs[refName],
+      <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+    &#125;)
+
+    <span class="hljs-keyword">this</span>.$once(<span class="hljs-string">'hook:beforeDestroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      picker.destroy()
+    &#125;)
+  &#125;
+&#125;</code></pre>
 <p>Посмотрите <a href="https://jsfiddle.net/chrisvfritz/1Leb7up8/" target="_blank" rel="noopener">этот fiddle</a> для полного кода. Обратите внимание, что если вам приходится делать много установок и очисток в рамках одного компонента, то лучшим решением будет, как правило, создание более модульных компонентов. В этом случае мы рекомендуем создать переиспользуемый компонент <code>&lt;input-datepicker&gt;</code>.</p>
 <p>Чтобы узнать больше о программных прослушивателях событий, ознакомьтесь на странице API с разделом <a href="../api/#Методы-экземпляра-—-события">Методы экземпляра — события</a>.</p>
 <p class="tip">Обратите внимание, что система событий Vue отличается от браузерного <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank" rel="noopener">EventTarget API</a>. Хотя они работают аналогично, <code>$emit</code>, <code>$on</code>, и <code>$off</code> <strong>не являются</strong> псевдонимами для <code>dispatchEvent</code>, <code>addEventListener</code>, и <code>removeEventListener</code>.</p>
 
 <h2 id="Циклические-ссылки"><a href="#Циклические-ссылки" class="headerlink" title="Циклические ссылки"></a>Циклические ссылки</h2><h3 id="Рекурсивные-компоненты"><a href="#Рекурсивные-компоненты" class="headerlink" title="Рекурсивные компоненты"></a>Рекурсивные компоненты</h3><p>Компоненты могут рекурсивно вызывать себя в своём собственном шаблоне. Однако, они могут делать это только с помощью опции <code>name</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name: <span class="string">'unique-name-of-my-component'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">name: <span class="hljs-string">'unique-name-of-my-component'</span></code></pre>
 <p>Когда вы регистрируете компонент глобально с помощью <code>Vue.component</code>, глобальный ID будет автоматически устанавливаться как параметр опции <code>name</code> компонента.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'unique-name-of-my-component'</span>, &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'unique-name-of-my-component'</span>, &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
 <p>Если вы не будете осторожны, рекурсивные компоненты также могут привести к бесконечным циклам:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name: <span class="string">'stack-overflow'</span>,</span><br><span class="line">template: <span class="string">'&lt;div&gt;&lt;stack-overflow&gt;&lt;/stack-overflow&gt;&lt;/div&gt;'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">name: <span class="hljs-string">'stack-overflow'</span>,
+<span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&lt;stack-overflow&gt;&lt;/stack-overflow&gt;&lt;/div&gt;'</span></code></pre>
 <p>Компонент, указанный выше, приведёт к ошибке “max stack size exceeded”, поэтому убедитесь, что рекурсивный вызов определяется по условию (т.е. использует <code>v-if</code>, который в конечном итоге будет <code>false</code>).</p>
 <h3 id="Циклические-ссылки-между-компонентами"><a href="#Циклические-ссылки-между-компонентами" class="headerlink" title="Циклические ссылки между компонентами"></a>Циклические ссылки между компонентами</h3><p>Предположим, что вы создаёте дерево каталога файлов, как например в Finder или File Explorer. У вас может быть компонент <code>tree-folder</code> с таким шаблоном:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tree-folder-contents</span> <span class="attr">:children</span>=<span class="string">"folder.children"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tree-folder-contents</span> <span class="hljs-attr">:children</span>=<span class="hljs-string">"folder.children"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Затем компонент <code>tree-folder-contents</code> с этим шаблоном:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"child in children"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tree-folder</span> <span class="attr">v-if</span>=<span class="string">"child.children"</span> <span class="attr">:folder</span>=<span class="string">"child"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"child in children"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tree-folder</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"child.children"</span> <span class="hljs-attr">:folder</span>=<span class="hljs-string">"child"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>Когда вы присмотритесь, вы увидите, что эти компоненты фактически будут потомком _и_ предком в дереве отрисовки — парадокс! При регистрации компонентов глобально с помощью <code>Vue.component</code> этот парадокс разрешается автоматически за вас. Если это вы, можете не читать дальше.</p>
 <p>Однако, если вы используете require/import для компонентов с помощью <strong>модульной системы</strong>, например через Webpack или Browserify, вы получите сообщение об ошибке:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Failed to mount component: template or render function not defined.</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs undefined">Failed to mount component: template or render function not defined.</code></pre>
 <p>Чтобы объяснить, что здесь происходит, давайте назовём наши компоненты A и B. Система модулей видит, что ей нужен A, но сначала A нуждается в B, но B нуждается в A, но A нуждается в B, и т.д. Она застревает в цикле не зная как полностью разрешить любой компонент без предварительного разрешения другого. Чтобы исправить это, нам нужно дать модульной системе точку, в которой она может сказать “A нуждается в B <em>иногда</em>, но нет необходимости разрешать B сначала.”</p>
 <p>В нашем случае давайте сделаем эту точку компонентом <code>tree-folder</code>. Мы знаем, что потомок, создающий парадокс, является компонентом <code>tree-folder-contents</code>, поэтому мы подождём, пока не будет вызван хук жизненного цикла <code>beforeCreate</code> для его регистрации:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$options.components.TreeFolderContents = <span class="built_in">require</span>(<span class="string">'./tree-folder-contents.vue'</span>).default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">beforeCreate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$options.components.TreeFolderContents = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./tree-folder-contents.vue'</span>).default
+&#125;</code></pre>
 <p>Или вы можете использовать асинхронный <code>import</code> Webpack при локальной регистрации компонента:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">components: &#123;</span><br><span class="line">  TreeFolderContents: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./tree-folder-contents.vue'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">components: &#123;
+  <span class="hljs-attr">TreeFolderContents</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./tree-folder-contents.vue'</span>)
+&#125;</code></pre>
 <p>Проблема решена!</p>
 <h2 id="Альтернативные-определения-шаблонов"><a href="#Альтернативные-определения-шаблонов" class="headerlink" title="Альтернативные определения шаблонов"></a>Альтернативные определения шаблонов</h2><h3 id="Inline-шаблоны"><a href="#Inline-шаблоны" class="headerlink" title="Inline-шаблоны"></a>Inline-шаблоны</h3><p>Если у компонента-потомка присутствует специальный атрибут <code>inline-template</code>, то содержимое элемента будет использовано не для распределения контента, а в качестве шаблона этого компонента. Это позволяет более гибко использовать шаблоны.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">inline-template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Этот шаблон будет скомпилирован в области видимости компонента-потомка.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Доступа к данным родителя нет.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">inline-template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Этот шаблон будет скомпилирован в области видимости компонента-потомка.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Доступа к данным родителя нет.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
 <p class="tip">Тем не менее, <code>inline-template</code> усложняют понимание области видимости вашего шаблона. В качестве наилучшей практики рекомендуется определять шаблоны внутри компонента с помощью опции <code>template</code> или в теге <code>&lt;template&gt;</code> в файле <code>.vue</code>.</p>
 
 <h3 id="X-Templates"><a href="#X-Templates" class="headerlink" title="X-Templates"></a>X-Templates</h3><p>Другой способ определения шаблонов — указывать их внутри тега script с типом <code>text/x-template</code>, а затем ссылаться на шаблон по id. Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/x-template"</span> <span class="attr">id</span>=<span class="string">"hello-world-template"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello hello hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'hello-world'</span>, &#123;</span><br><span class="line">  template: <span class="string">'#hello-world-template'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/x-template"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hello-world-template"</span>&gt;</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello hello hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'hello-world'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'#hello-world-template'</span>
+&#125;)</code></pre>
 <p class="tip">Это может быть полезным для демонстраций с большими шаблонами или в очень маленьких приложениях, но в остальных случаях их следует избегать, поскольку они отделяют шаблоны от остального определения компонента.</p>
 
 <h2 id="Контролирование-обновлений"><a href="#Контролирование-обновлений" class="headerlink" title="Контролирование обновлений"></a>Контролирование обновлений</h2><p>Благодаря системе реактивности Vue, она всегда знает, когда нужно выполнять обновления (если вы используете её правильно). Однако есть крайние случаи, когда вам может потребоваться принудительное обновление, несмотря на то, что никаких реактивных данных не изменилось. Также есть другие случаи, когда вы можете предотвратить ненужные обновления.</p>
@@ -1108,7 +1213,14 @@
 <p>Возможно, вы не учли предостережения об обнаружении изменений <a href="list.html#Предостережения">в массивах</a> или <a href="list.html#Предостережения-об-изменениях-объектов">в объектах</a>, или вы можете полагаться на состояние, которое не отслеживается системой реактивности Vue, например с помощью <code>data</code>.</p>
 <p>Однако, если вы исключили вышеизложенные варианты и оказались в крайне редкой ситуации, связанной с необходимостью принудительного обновления вручную, то вы можете сделать это с помощью <a href="../api/#vm-forceUpdate"><code>$forceUpdate</code></a>.</p>
 <h3 id="“Дешёвые”-статические-компоненты-с-помощью-v-once"><a href="#“Дешёвые”-статические-компоненты-с-помощью-v-once" class="headerlink" title="“Дешёвые” статические компоненты с помощью v-once"></a>“Дешёвые” статические компоненты с помощью <code>v-once</code></h3><p>Отрисовка простых элементов HTML во Vue происходит очень быстро, но иногда встречаются компоненты, в которых <strong>очень много</strong> статического контента. В таких случаях, вы можете убедиться что он будет выполнен один раз и затем закэширован, добавив директиву <code>v-once</code> на корневой элемент, например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'terms-of-service'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div v-once&gt;</span></span><br><span class="line"><span class="string">      &lt;h1&gt;Terms of Service&lt;/h1&gt;</span></span><br><span class="line"><span class="string">      ... много-много статического контента ...</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'terms-of-service'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;div v-once&gt;
+      &lt;h1&gt;Terms of Service&lt;/h1&gt;
+      ... много-много статического контента ...
+    &lt;/div&gt;
+  `</span>
+&#125;)</code></pre>
 <p class="tip">Ещё раз, попробуйте не злоупотреблять этим шаблоном. Хотя это удобно в тех редких случаях, когда вам необходимо отображать много статического контента, это просто не нужно пока вы не заметите замедление при отрисовке — плюс, это может вызвать много путаницы позднее. Например, представьте себе другого разработчика, который не знаком с директивой <code>v-once</code> или просто пропустил её наличие в шаблоне. Могут уйти часы, пока удастся выяснить, почему шаблон не обновляется правильно.</p>
 
     
@@ -1156,7 +1268,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

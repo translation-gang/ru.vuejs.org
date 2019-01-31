@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Подробно о реактивности — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1008,26 +1012,76 @@
 <p>К каждому экземпляру компонента приставлен связанный с ним <strong>экземпляр наблюдателя</strong>, который помечает все поля, затронутые при отрисовке компонента, как зависимости. В дальнейшем, когда вызывается сеттер поля, помеченного как зависимость, этот сеттер уведомляет наблюдателя, который, в свою очередь, инициирует повторную отрисовку компонента.</p>
 <p><img src="/images/data.png" alt="Цикл реактивности"></p>
 <h2 id="Особенности-отслеживания-изменений"><a href="#Особенности-отслеживания-изменений" class="headerlink" title="Особенности отслеживания изменений"></a>Особенности отслеживания изменений</h2><p>В силу ограничений современного JavaScript (и отказа от <code>Object.observe</code>), Vue <strong>не может отследить добавление или удаление свойства объекта</strong>. Чтобы поле стало реактивным, Vue превращает его в пару геттер/сеттер в ходе инициализации экземпляра. Поэтому все поля должны изначально быть заданы в объекте <code>data</code>. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// теперь `vm.a` — реактивное поле</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// `vm.b` НЕ реактивно</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
+  &#125;
+&#125;)
+<span class="hljs-comment">// теперь `vm.a` — реактивное поле</span>
+
+vm.b = <span class="hljs-number">2</span>
+<span class="hljs-comment">// `vm.b` НЕ реактивно</span></code></pre>
 <p>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code>Vue.set(object, key, value)</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.set(vm.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.set(vm.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
 <p>Также можно использовать метод экземпляра <code>vm.$set</code>, который представляет собой псевдоним к глобальному <code>Vue.set</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$set(<span class="hljs-keyword">this</span>.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
 <p>Иногда нужно добавить несколько свойств в существующий объект, например, с помощью <code>Object.assign()</code> или <code>_.extend()</code>. Если так поступить, добавленные свойства не станут реактивными. Для решения этой задачи придётся создать новый объект, содержащий поля как оригинального объекта, так и объекта-примеси:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// вместо `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span></span><br><span class="line"><span class="keyword">this</span>.someObject = <span class="built_in">Object</span>.assign(&#123;&#125;, <span class="keyword">this</span>.someObject, &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// вместо `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span>
+<span class="hljs-keyword">this</span>.someObject = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, <span class="hljs-keyword">this</span>.someObject, &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> &#125;)</code></pre>
 <p>Существует также несколько ограничений, связанных с массивами. Их мы рассмотрели ранее в <a href="list.html#Предостережения">разделе об отображении списков</a>.</p>
 <h2 id="Объявление-реактивных-свойств"><a href="#Объявление-реактивных-свойств" class="headerlink" title="Объявление реактивных свойств"></a>Объявление реактивных свойств</h2><p>Поскольку Vue не позволяет динамически добавлять корневые реактивные свойства, это означает, что все корневые поля необходимо инициализировать изначально, хотя бы пустыми значениями:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    <span class="comment">// объявляем поле message, содержащее пустую строку</span></span><br><span class="line">    message: <span class="string">''</span></span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// впоследствии задаём значение `message`</span></span><br><span class="line">vm.message = <span class="string">'Привет!'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-comment">// объявляем поле message, содержащее пустую строку</span>
+    message: <span class="hljs-string">''</span>
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;'</span>
+&#125;)
+<span class="hljs-comment">// впоследствии задаём значение `message`</span>
+vm.message = <span class="hljs-string">'Привет!'</span></code></pre>
 <p>Если не задать поле <code>message</code> в опции data, Vue выведет предупреждение, что функция отрисовки пытается получить доступ к несуществующему свойству.</p>
 <p>Существуют технические причины для этого ограничения: оно позволяет исключить целый класс граничных случаев в системе учёта зависимостей, а также упростить взаимодействие Vue с системами проверки типов. Но более важно то, что с этим ограничением становится проще поддерживать код, так как теперь объект <code>data</code> можно рассматривать как схему состояния компонента. Код, в котором реактивные свойства компонента перечислены заранее, намного проще для понимания.</p>
 <h2 id="Асинхронная-очередь-обновлений"><a href="#Асинхронная-очередь-обновлений" class="headerlink" title="Асинхронная очередь обновлений"></a>Асинхронная очередь обновлений</h2><p>На всякий случай напомним, что во Vue обновление DOM выполняется <strong>асинхронно</strong>. Каждый раз, когда обнаруживается изменение в данных, создаётся очередь, которая используется в качестве буфера для этого и последующих изменений, происходящих в текущей итерации (“tick”) цикла событий. Если один и тот же наблюдатель срабатывает несколько раз, в очередь он попадёт всё равно лишь единожды. Благодаря использованию буфера и устранению дубликатов, вычисления и манипуляции DOM сводятся к минимуму. В следующей итерации цикла событий Vue разбирает очередь и выполняет актуальные (уже не содержащие дубликатов) обновления. На низком уровне для асинхронной постановки задач в очередь используются <code>Promise.then</code> и <code>MessageChannel</code>, а если они недоступны, то <code>setTimeout(fn, 0)</code>.</p>
 <p>Итак, если выполнить код <code>vm.someData = &#39;новое значение&#39;</code>, компонент не будет отрисован сразу же. Он обновится в следующей итерации при разборе очереди. Чаще всего эту особенность можно не принимать в расчёт, но иногда бывает нужно дождаться состояния, в которое DOM перейдёт после обновления данных. Хотя прямая манипуляция DOM нежелательна, а системы в целом предпочтительнее проектировать так, чтобы в них были первичные данные, иногда всё же её не избежать. Чтобы выполнить какой-нибудь код только после того, как завершится обновление DOM, можно передать коллбэк в метод <code>Vue.nextTick(callback)</code> после изменения данных. Он будет вызван после обновления DOM. Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'123'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.message = <span class="string">'новое сообщение'</span> <span class="comment">// изменяем данные</span></span><br><span class="line">vm.$el.textContent === <span class="string">'новое сообщение'</span> <span class="comment">// false</span></span><br><span class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  vm.$el.textContent === <span class="string">'новое сообщение'</span> <span class="comment">// true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'123'</span>
+  &#125;
+&#125;)
+vm.message = <span class="hljs-string">'новое сообщение'</span> <span class="hljs-comment">// изменяем данные</span>
+vm.$el.textContent === <span class="hljs-string">'новое сообщение'</span> <span class="hljs-comment">// false</span>
+Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  vm.$el.textContent === <span class="hljs-string">'новое сообщение'</span> <span class="hljs-comment">// true</span>
+&#125;)</code></pre>
 <p>Существует также метод экземпляра <code>vm.$nextTick()</code>, особенно подходящий для использования внутри компонентов, поскольку он не требует обращения к глобальной переменной <code>Vue</code>, а также автоматически связывает контекст <code>this</code> коллбэка с текущим экземпляром Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'example'</span>, &#123;</span><br><span class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'не обновлено'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    updateMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.message = <span class="string">'обновлено'</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'не обновлено'</span></span><br><span class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'обновлено'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'example'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">message</span>: <span class="hljs-string">'не обновлено'</span>
+    &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">updateMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'обновлено'</span>
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'не обновлено'</span>
+      <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'обновлено'</span>
+      &#125;)
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Поскольку <code>$nextTick()</code> возвращает промис, вы можете достичь того же, используя новый синтаксис <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async/await из ES2016</a>:</p>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  updateMessage: <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.message = <span class="string">'обновлено'</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'не обновлено'</span></span><br><span class="line">    <span class="keyword">await</span> <span class="keyword">this</span>.$nextTick()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$el.textContent) <span class="comment">// =&gt; 'обновлено'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">updateMessage</span>: <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'обновлено'</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'не обновлено'</span>
+    <span class="hljs-keyword">await</span> <span class="hljs-keyword">this</span>.$nextTick()
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'обновлено'</span>
+  &#125;
+&#125;</code></pre>
 
     
     
@@ -1074,7 +1128,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

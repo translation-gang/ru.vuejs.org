@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Работа с формами — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1001,11 +1005,12 @@
     
     
       <h2 id="Типичное-использование"><a href="#Типичное-использование" class="headerlink" title="Типичное использование"></a>Типичное использование</h2><p>Можно использовать директиву <code>v-model</code> для двунаправленного связывания данных с элементами форм input, textarea и select. Способ обновления элемента выбирается автоматически в зависимости от типа элемента. Хотя <code>v-model</code> и выглядит как нечто волшебное, в действительности это лишь синтаксический сахар для обновления данных в элементах ввода, с некоторыми поправками для исключительных случаев.</p>
-<p class="tip"><code>v-model</code> игнорирует атрибуты <code>value</code>, <code>checked</code> или <code>selected</code> на любых элементах форм. Данные экземпляра Vue всегда считаются источником истины. Начальное значение необходимо объявить на стороне JavaScript, внутри опции <code>data</code> компонента.</p>
+<p class="tip"><code>v-model</code> игнорирует начальное значение атрибутов <code>value</code>, <code>checked</code> или <code>selected</code> на любых элементах форм. Данные экземпляра Vue всегда считаются источником истины. Начальное значение необходимо объявить на стороне JavaScript, внутри опции <code>data</code> компонента.</p>
 
 <p class="tip" id="vmodel-ime-tip">В языках, требующих <a href="https://ru.wikipedia.org/wiki/IME" target="_blank" rel="noopener">IME</a> (китайский, японский, корейский и т.д.), можно заметить, что <code>v-model</code> не обновляется по мере IME-композиции. Если вы хотите обрабатывать и эти обновления, используйте события <code>input</code>.</p>
 
-<h3 id="Текст"><a href="#Текст" class="headerlink" title="Текст"></a>Текст</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"отредактируй меня"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Введённое сообщение: &#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Текст"><a href="#Текст" class="headerlink" title="Текст"></a>Текст</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"отредактируй меня"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Введённое сообщение: &#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 <div id="example-1" class="demo">
   <input v-model="message" placeholder="отредактируй меня">
@@ -1020,7 +1025,10 @@ new Vue({
 })
 </script>
 
-<h3 id="Многострочный-текст"><a href="#Многострочный-текст" class="headerlink" title="Многострочный текст"></a>Многострочный текст</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Введённое многострочное сообщение:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"white-space: pre-line;"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">v-model</span>=<span class="string">"message"</span> <span class="attr">placeholder</span>=<span class="string">"введите несколько строчек"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Многострочный-текст"><a href="#Многострочный-текст" class="headerlink" title="Многострочный текст"></a>Многострочный текст</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Введённое многострочное сообщение:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"white-space: pre-line;"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"введите несколько строчек"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span></code></pre>
 
 <div id="example-textarea" class="demo">
   <span>Введённое многострочное сообщение:</span>
@@ -1040,7 +1048,8 @@ new Vue({
 <p class="tip">Интерполяция внутри textarea (<code>&lt;textarea&gt;{{text}}&lt;/textarea&gt;</code>) не будет работать. Используйте вместо неё директиву <code>v-model</code></p>
 
 <h3 id="Чекбоксы"><a href="#Чекбоксы" class="headerlink" title="Чекбоксы"></a>Чекбоксы</h3><p>Один чекбокс, привязанный к булевому значению:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"checked"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"checkbox"</span>&gt;</span>&#123;&#123; checked &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checked"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"checkbox"</span>&gt;</span>&#123;&#123; checked &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></code></pre>
 
 <div id="example-2" class="demo">
   <input type="checkbox" id="checkbox" v-model="checked">
@@ -1056,8 +1065,22 @@ new Vue({
 </script>
 
 <p>Список чекбоксов, привязанных к одному массиву:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example-3"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"jack"</span> <span class="attr">value</span>=<span class="string">"Джек"</span> <span class="attr">v-model</span>=<span class="string">"checkedNames"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"jack"</span>&gt;</span>Джек<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"john"</span> <span class="attr">value</span>=<span class="string">"Джон"</span> <span class="attr">v-model</span>=<span class="string">"checkedNames"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"john"</span>&gt;</span>Джон<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"mike"</span> <span class="attr">value</span>=<span class="string">"Майк"</span> <span class="attr">v-model</span>=<span class="string">"checkedNames"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"mike"</span>&gt;</span>Майк<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Отмеченные имена: &#123;&#123; checkedNames &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-3'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    checkedNames: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jack"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Джек"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checkedNames"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"jack"</span>&gt;</span>Джек<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"john"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Джон"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checkedNames"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"john"</span>&gt;</span>Джон<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mike"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Майк"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"checkedNames"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"mike"</span>&gt;</span>Майк<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Отмеченные имена: &#123;&#123; checkedNames &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example-3'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">checkedNames</span>: []
+  &#125;
+&#125;)</code></pre>
 
 <div id="example-3" class="demo">
   <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
@@ -1078,7 +1101,13 @@ new Vue({
 })
 </script>
 
-<h3 id="Радиокнопки"><a href="#Радиокнопки" class="headerlink" title="Радиокнопки"></a>Радиокнопки</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">value</span>=<span class="string">"Один"</span> <span class="attr">v-model</span>=<span class="string">"picked"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"one"</span>&gt;</span>Один<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"two"</span> <span class="attr">value</span>=<span class="string">"Два"</span> <span class="attr">v-model</span>=<span class="string">"picked"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"two"</span>&gt;</span>Два<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Выбрано: &#123;&#123; picked &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Радиокнопки"><a href="#Радиокнопки" class="headerlink" title="Радиокнопки"></a>Радиокнопки</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"one"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Один"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"picked"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"one"</span>&gt;</span>Один<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"two"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Два"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"picked"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"two"</span>&gt;</span>Два<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Выбрано: &#123;&#123; picked &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
 
 <div id="example-4" class="demo">
   <input type="radio" id="one" value="Один" v-model="picked">
@@ -1099,8 +1128,19 @@ new Vue({
 </script>
 
 <h3 id="Выпадающие-списки"><a href="#Выпадающие-списки" class="headerlink" title="Выпадающие списки"></a>Выпадающие списки</h3><p>Выбор одного варианта из списка:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">disabled</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>Выберите один из вариантов<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>А<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>Б<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>В<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Выбрано: &#123;&#123; selected &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'...'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    selected: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"selected"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>Выберите один из вариантов<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>А<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Б<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>В<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Выбрано: &#123;&#123; selected &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'...'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">selected</span>: <span class="hljs-string">''</span>
+  &#125;
+&#125;)</code></pre>
 
 <div id="example-5" class="demo">
   <select v-model="selected">
@@ -1123,7 +1163,13 @@ new Vue({
 <p class="tip">Если начальное значение выражения <code>v-model</code> не соответствует ни одному из вариантов списка, элемент <code>&lt;select&gt;</code> будет отображаться в «невыбранном» состоянии. В iOS это приведёт к тому, что пользователь не сможет выбрать первый элемент, потому что iOS не сгенерирует событие change в этом случае. Поэтому рекомендуется предоставлять отключённый вариант выбора с пустым значением value, как показано в примере выше.</p>
 
 <p>Выбор нескольких вариантов из списка (с привязкой к массиву):</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span> <span class="attr">multiple</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>А<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>Б<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>В<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Выбрано: &#123;&#123; selected &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"selected"</span> <span class="hljs-attr">multiple</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>А<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Б<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>В<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Выбрано: &#123;&#123; selected &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
 
 <div id="example-6" class="demo">
   <select v-model="selected" multiple style="width: 50px;">
@@ -1144,8 +1190,23 @@ new Vue({
 </script>
 
 <p>Динамическое отображение списка опций с помощью <code>v-for</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"option in options"</span> <span class="attr">v-bind:value</span>=<span class="string">"option.value"</span>&gt;</span></span><br><span class="line">    &#123;&#123; option.text &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>Выбрано: &#123;&#123; selected &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'...'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    selected: <span class="string">'А'</span>,</span><br><span class="line">    options: [</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">'Один'</span>, <span class="attr">value</span>: <span class="string">'А'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">'Два'</span>, <span class="attr">value</span>: <span class="string">'Б'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">text</span>: <span class="string">'Три'</span>, <span class="attr">value</span>: <span class="string">'В'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"selected"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"option in options"</span> <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"option.value"</span>&gt;</span>
+    &#123;&#123; option.text &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Выбрано: &#123;&#123; selected &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'...'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">selected</span>: <span class="hljs-string">'А'</span>,
+    <span class="hljs-attr">options</span>: [
+      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Один'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'А'</span> &#125;,
+      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Два'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'Б'</span> &#125;,
+      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Три'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'В'</span> &#125;
+    ]
+  &#125;
+&#125;)</code></pre>
 
 <div id="example-7" class="demo">
   <select v-model="selected">
@@ -1170,23 +1231,47 @@ new Vue({
 </script>
 
 <h2 id="Связывание-значений"><a href="#Связывание-значений" class="headerlink" title="Связывание значений"></a>Связывание значений</h2><p>Для радиокнопок, чекбоксов и выпадающих списков в качестве <code>v-model</code> обычно используются статические строки (для чекбоксов — булевые значения):</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- `picked` получает строковое значение "a" при клике --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">v-model</span>=<span class="string">"picked"</span> <span class="attr">value</span>=<span class="string">"a"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- `toggle` может иметь значение true или false --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"toggle"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- `selected` при выборе первого пункта становится равным строке "abc" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"abc"</span>&gt;</span>ABC<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- `picked` получает строковое значение "a" при клике --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"picked"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"a"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- `toggle` может иметь значение true или false --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"toggle"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- `selected` при выборе первого пункта становится равным строке "abc" --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"selected"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"abc"</span>&gt;</span>ABC<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></code></pre>
 <p>Иногда необходимо связать значение с динамическим свойством экземпляра Vue. Для этого можно использовать <code>v-bind</code>. Кроме того, использование <code>v-bind</code> позволяет связывать поле ввода с нестроковыми значениями.</p>
-<h3 id="Чекбокс"><a href="#Чекбокс" class="headerlink" title="Чекбокс"></a>Чекбокс</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">type</span>=<span class="string">"checkbox"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-model</span>=<span class="string">"toggle"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">true-value</span>=<span class="string">"да"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">false-value</span>=<span class="string">"нет"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// если чекбокс выбран:</span></span><br><span class="line">vm.toggle === <span class="string">'да'</span></span><br><span class="line"><span class="comment">// если чекбокс сброшен:</span></span><br><span class="line">vm.toggle === <span class="string">'нет'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Чекбокс"><a href="#Чекбокс" class="headerlink" title="Чекбокс"></a>Чекбокс</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>
+  <span class="hljs-attr">v-model</span>=<span class="hljs-string">"toggle"</span>
+  <span class="hljs-attr">true-value</span>=<span class="hljs-string">"да"</span>
+  <span class="hljs-attr">false-value</span>=<span class="hljs-string">"нет"</span>
+&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// если чекбокс выбран:</span>
+vm.toggle === <span class="hljs-string">'да'</span>
+<span class="hljs-comment">// если чекбокс сброшен:</span>
+vm.toggle === <span class="hljs-string">'нет'</span></code></pre>
 <p class="tip">Атрибуты <code>true-value</code> и <code>false-value</code> не влияют на атрибут <code>value</code> тега input, потому что браузеры пропускают невыбранные чекбоксы при отправке форм. Чтобы гарантированно отправлять одно из двух значений с формой (например, «да» или «нет») используйте радиокнопки.</p>
 
-<h3 id="Радиокнопки-1"><a href="#Радиокнопки-1" class="headerlink" title="Радиокнопки"></a>Радиокнопки</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">v-model</span>=<span class="string">"pick"</span> <span class="attr">v-bind:value</span>=<span class="string">"a"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// если отмечено:</span></span><br><span class="line">vm.pick === vm.a</span><br></pre></td></tr></table></figure>
-<h3 id="Списки-выбора"><a href="#Списки-выбора" class="headerlink" title="Списки выбора"></a>Списки выбора</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"selected"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- инлайновый объект с данными --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-bind:value</span>=<span class="string">"&#123; number: 123 &#125;"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// когда выбрано:</span></span><br><span class="line"><span class="keyword">typeof</span> vm.selected <span class="comment">// =&gt; 'object'</span></span><br><span class="line">vm.selected.number <span class="comment">// =&gt; 123</span></span><br></pre></td></tr></table></figure>
+<h3 id="Радиокнопки-1"><a href="#Радиокнопки-1" class="headerlink" title="Радиокнопки"></a>Радиокнопки</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"pick"</span> <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"a"</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// если отмечено:</span>
+vm.pick === vm.a</code></pre>
+<h3 id="Списки-выбора"><a href="#Списки-выбора" class="headerlink" title="Списки выбора"></a>Списки выбора</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"selected"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- инлайновый объект с данными --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"&#123; number: 123 &#125;"</span>&gt;</span>123<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// когда выбрано:</span>
+<span class="hljs-keyword">typeof</span> vm.selected <span class="hljs-comment">// =&gt; 'object'</span>
+vm.selected.number <span class="hljs-comment">// =&gt; 123</span></code></pre>
 <h2 id="Модификаторы"><a href="#Модификаторы" class="headerlink" title="Модификаторы"></a>Модификаторы</h2><h3 id="lazy"><a href="#lazy" class="headerlink" title=".lazy"></a><code>.lazy</code></h3><p>По умолчанию <code>v-model</code> синхронизирует ввод с данными по событию <code>input</code> (за исключением <a href="#vmodel-ime-tip">вышеупомянутых</a> событий IME). Можно указать модификатор <code>lazy</code>, чтобы использовать для синхронизации событие <code>change</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- синхронизируется по событию "change", а не "input" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"msg"</span> &gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- синхронизируется по событию "change", а не "input" --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">"msg"</span> &gt;</span></code></pre>
 <h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Для автоматического приведения введённого пользователем к числу, добавьте модификатор <code>number</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span></code></pre>
 <p>Зачастую это полезно, потому что даже при указанном атрибуте <code>type=&quot;number&quot;</code> значением поля ввода всегда будет строка. Если значение не удаётся распарсить с помощью <code>parseFloat()</code>, то возвращается оригинальное значение.</p>
 <h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a><code>.trim</code></h3><p>Если необходимо, чтобы автоматически обрезались пробелы в начале и в конце строки, используйте модификатор <code>trim</code> для полей ввода, обрабатываемых через <code>v-model</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.trim</span>=<span class="string">"msg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.trim</span>=<span class="hljs-string">"msg"</span>&gt;</span></code></pre>
 <h2 id="Использование-v-model-с-компонентами"><a href="#Использование-v-model-с-компонентами" class="headerlink" title="Использование v-model с компонентами"></a>Использование <code>v-model</code> с компонентами</h2><blockquote>
 <p>Если вы ещё не знакомы с компонентами Vue, пока просто пропустите эту секцию</p>
 </blockquote>
@@ -1237,7 +1322,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

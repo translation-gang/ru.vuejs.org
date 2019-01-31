@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Поддержка TypeScript — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1005,28 +1009,124 @@
 </blockquote>
 <h2 id="Официальные-файлы-объявлений-в-NPM-пакетах"><a href="#Официальные-файлы-объявлений-в-NPM-пакетах" class="headerlink" title="Официальные файлы объявлений в NPM-пакетах"></a>Официальные файлы объявлений в NPM-пакетах</h2><p>Статическая типизация может предотвратить много потенциальных ошибок времени выполнения, особенно при разрастании приложений. По этой причине Vue поставляется с <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="noopener">официальными файлами объявлений</a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a>, причём не только для ядра Vue, но также для <a href="https://github.com/vuejs/vue-router/tree/dev/types" target="_blank" rel="noopener">Vue Router</a> и <a href="https://github.com/vuejs/vuex/tree/dev/types" target="_blank" rel="noopener">Vuex</a>.</p>
 <p>Так как всё это уже <a href="https://cdn.jsdelivr.net/npm/vue/types/" target="_blank" rel="noopener">опубликовано на NPM</a>, то вам даже не понадобится использовать внешние инструменты, такие как <code>Typings</code>, потому что объявления типов автоматически импортируются вместе с Vue.</p>
-<h2 id="Рекомендуемая-конфигурация"><a href="#Рекомендуемая-конфигурация" class="headerlink" title="Рекомендуемая конфигурация"></a>Рекомендуемая конфигурация</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// tsconfig.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="comment">// это соответствует поддержке браузеров у Vue</span></span><br><span class="line">    <span class="string">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">    <span class="comment">// это обеспечивает более строгий вывод для свойств данных в `this`</span></span><br><span class="line">    <span class="string">"strict"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// при использовании webpack 2+ или rollup, добавить поддержку tree-shaking:</span></span><br><span class="line">    <span class="string">"module"</span>: <span class="string">"es2015"</span>,</span><br><span class="line">    <span class="string">"moduleResolution"</span>: <span class="string">"node"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Рекомендуемая-конфигурация"><a href="#Рекомендуемая-конфигурация" class="headerlink" title="Рекомендуемая конфигурация"></a>Рекомендуемая конфигурация</h2><pre><code class="hljs js"><span class="hljs-comment">// tsconfig.json</span>
+&#123;
+  <span class="hljs-string">"compilerOptions"</span>: &#123;
+    <span class="hljs-comment">// это соответствует поддержке браузеров у Vue</span>
+    <span class="hljs-string">"target"</span>: <span class="hljs-string">"es5"</span>,
+    <span class="hljs-comment">// это обеспечивает более строгий вывод для свойств данных в `this`</span>
+    <span class="hljs-string">"strict"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-comment">// при использовании webpack 2+ или rollup, добавить поддержку tree-shaking:</span>
+    <span class="hljs-string">"module"</span>: <span class="hljs-string">"es2015"</span>,
+    <span class="hljs-string">"moduleResolution"</span>: <span class="hljs-string">"node"</span>
+  &#125;
+&#125;</code></pre>
 <p>Обратите внимание, вы должны включить <code>strict: true</code> (или, по крайней мере, <code>noImplicitThis: true</code>, которая является частью флага <code>strict</code>), чтобы использовать проверку типов у <code>this</code> в методах компонентов, иначе он всегда будет рассматриваться как тип <code>any</code>.</p>
 <p>Смотрите также <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener">документацию по настройке компилятора TypeScript</a>.</p>
 <h2 id="Инструменты-разработки"><a href="#Инструменты-разработки" class="headerlink" title="Инструменты разработки"></a>Инструменты разработки</h2><h3 id="Создание-проекта"><a href="#Создание-проекта" class="headerlink" title="Создание проекта"></a>Создание проекта</h3><p><a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI 3</a> позволяет генерировать новые проекты, которые используют TypeScript. Чтобы начать:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. Установите Vue CLI, если она ещё не установлена</span></span><br><span class="line">npm install --global @vue/cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Создайте новый проект, затем выберите опцию "Manually select features"</span></span><br><span class="line">vue create my-project-name</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash"><span class="hljs-comment"># 1. Установите Vue CLI, если она ещё не установлена</span>
+npm install --global @vue/cli
+
+<span class="hljs-comment"># 2. Создайте новый проект, затем выберите опцию "Manually select features"</span>
+vue create my-project-name</code></pre>
 <h3 id="Поддержка-редакторов"><a href="#Поддержка-редакторов" class="headerlink" title="Поддержка редакторов"></a>Поддержка редакторов</h3><p>Для разработки приложений Vue с использованием TypeScript мы настоятельно рекомендуем использовать <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>, которая предоставляет отличную встроенную поддержку для TypeScript. Если вы используете <a href="./single-file-components.html">однофайловые компоненты</a>, воспользуйтесь отличным <a href="https://github.com/vuejs/vetur" target="_blank" rel="noopener">расширением Vetur</a>, которое обеспечивает вывод TypeScript внутри однофайловых компонентов и многие другие возможности.</p>
 <p><a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="noopener">WebStorm</a> также предоставляет встроенную поддержку для TypeScript и Vue.</p>
 <h2 id="Использование"><a href="#Использование" class="headerlink" title="Использование"></a>Использование</h2><p>Чтобы позволить TypeScript правильно выводить типы внутри опций компонента Vue, вам необходимо определять компоненты с помощью <code>Vue.component</code> или <code>Vue.extend</code>:</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Component = Vue.extend(&#123;</span><br><span class="line">  <span class="comment">// вывод типов включён</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Component = &#123;</span><br><span class="line">  <span class="comment">// это НЕ БУДЕТ работать,</span></span><br><span class="line">  <span class="comment">// потому что TypeScript не может определить, что это опции компонента Vue.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-keyword">const</span> Component = Vue.extend(&#123;
+  <span class="hljs-comment">// вывод типов включён</span>
+&#125;)
+
+<span class="hljs-keyword">const</span> Component = &#123;
+  <span class="hljs-comment">// это НЕ БУДЕТ работать,</span>
+  <span class="hljs-comment">// потому что TypeScript не может определить, что это опции компонента Vue.</span>
+&#125;</code></pre>
 <h2 id="Компоненты-Vue-на-основе-классов"><a href="#Компоненты-Vue-на-основе-классов" class="headerlink" title="Компоненты Vue на основе классов"></a>Компоненты Vue на основе классов</h2><p>Если вы предпочитаете API на основе классов при объявлении компонентов, вы можете использовать официально поддерживаемый декоратор <a href="https://github.com/vuejs/vue-class-component" target="_blank" rel="noopener">vue-class-component</a>:</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Component <span class="keyword">from</span> <span class="string">'vue-class-component'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// декоратор @Component указывает, что класс — это компонент Vue</span></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  <span class="comment">// здесь можно использовать все опции компонента</span></span><br><span class="line">  template: <span class="string">'&lt;button @click="onClick"&gt;Click!&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> MyComponent <span class="keyword">extends</span> Vue &#123;</span><br><span class="line">  <span class="comment">// Данные инициализации могут быть объявлены как свойства экземпляра</span></span><br><span class="line">  message: <span class="built_in">string</span> = <span class="string">'Hello!'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Методы компонента могут быть объявлены как методы экземпляра</span></span><br><span class="line">  onClick (): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.alert(<span class="keyword">this</span>.message)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> Component <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-class-component'</span>
+
+<span class="hljs-comment">// декоратор @Component указывает, что класс — это компонент Vue</span>
+<span class="hljs-meta">@Component</span>(&#123;
+  <span class="hljs-comment">// здесь можно использовать все опции компонента</span>
+  template: <span class="hljs-string">'&lt;button @click="onClick"&gt;Click!&lt;/button&gt;'</span>
+&#125;)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> MyComponent <span class="hljs-keyword">extends</span> Vue &#123;
+  <span class="hljs-comment">// Данные инициализации могут быть объявлены как свойства экземпляра</span>
+  message: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Hello!'</span>
+
+  <span class="hljs-comment">// Методы компонента могут быть объявлены как методы экземпляра</span>
+  onClick (): <span class="hljs-built_in">void</span> &#123;
+    <span class="hljs-built_in">window</span>.alert(<span class="hljs-keyword">this</span>.message)
+  &#125;
+&#125;</code></pre>
 <h2 id="Расширение-типов-для-использования-с-плагинами"><a href="#Расширение-типов-для-использования-с-плагинами" class="headerlink" title="Расширение типов для использования с плагинами"></a>Расширение типов для использования с плагинами</h2><p>Плагины могут добавлять во Vue новые глобальные свойства, свойства экземпляра и параметры компонента. В этих случаях необходимы объявления типов для возможности плагина компилироваться в TypeScript. К счастью, есть функция TypeScript для расширения существующих типов, называемая <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation" target="_blank" rel="noopener">расширением модуля (module augmentation)</a>.</p>
 <p>Например, чтобы объявить свойство экземпляра <code>$myProperty</code> с типом <code>string</code>:</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. Обязательно импортируйте Vue перед объявлением расширенных типов</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. Укажите файл с типами, которые вы хотите расширить</span></span><br><span class="line"><span class="comment">//    Vue имеет тип конструктора в types/vue.d.ts</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">module</span> 'vue/types/vue' &#123;</span><br><span class="line">  <span class="comment">// 3. Объявите расширение для Vue</span></span><br><span class="line">  <span class="keyword">interface</span> Vue &#123;</span><br><span class="line">    $myProperty: <span class="built_in">string</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-comment">// 1. Обязательно импортируйте Vue перед объявлением расширенных типов</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-comment">// 2. Укажите файл с типами, которые вы хотите расширить</span>
+<span class="hljs-comment">//    Vue имеет тип конструктора в types/vue.d.ts</span>
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">module</span> 'vue/types/vue' &#123;
+  <span class="hljs-comment">// 3. Объявите расширение для Vue</span>
+  <span class="hljs-keyword">interface</span> Vue &#123;
+    $myProperty: <span class="hljs-built_in">string</span>
+  &#125;
+&#125;</code></pre>
 <p>После включения указанного выше кода в файл объявлений (например, <code>my-property.d.ts</code>) в вашем проекте, вы можете использовать <code>$myProperty</code> в экземпляре Vue.</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue()</span><br><span class="line"><span class="built_in">console</span>.log(vm.$myProperty) <span class="comment">// Это скомпилируется без ошибок</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue()
+<span class="hljs-built_in">console</span>.log(vm.$myProperty) <span class="hljs-comment">// Это скомпилируется без ошибок</span></code></pre>
 <p>Вы также можете объявить дополнительные глобальные свойства и параметры компонента:</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">module</span> 'vue/types/vue' &#123;</span><br><span class="line">  <span class="comment">// Глобальные свойства можно объявлять</span></span><br><span class="line">  <span class="comment">// на интерфейсе `VueConstructor`</span></span><br><span class="line">  <span class="keyword">interface</span> VueConstructor &#123;</span><br><span class="line">    $myGlobal: <span class="built_in">string</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ComponentOptions объявляется в types/options.d.ts</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">module</span> 'vue/types/options' &#123;</span><br><span class="line">  <span class="keyword">interface</span> ComponentOptions&lt;V <span class="keyword">extends</span> Vue&gt; &#123;</span><br><span class="line">    myOption?: <span class="built_in">string</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">module</span> 'vue/types/vue' &#123;
+  <span class="hljs-comment">// Глобальные свойства можно объявлять</span>
+  <span class="hljs-comment">// на интерфейсе `VueConstructor`</span>
+  <span class="hljs-keyword">interface</span> VueConstructor &#123;
+    $myGlobal: <span class="hljs-built_in">string</span>
+  &#125;
+&#125;
+
+<span class="hljs-comment">// ComponentOptions объявляется в types/options.d.ts</span>
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">module</span> 'vue/types/options' &#123;
+  <span class="hljs-keyword">interface</span> ComponentOptions&lt;V <span class="hljs-keyword">extends</span> Vue&gt; &#123;
+    myOption?: <span class="hljs-built_in">string</span>
+  &#125;
+&#125;</code></pre>
 <p>Указанные выше объявления позволяют скомпилировать следующий код:</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Глобальное свойство</span></span><br><span class="line"><span class="built_in">console</span>.log(Vue.$myGlobal)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Дополнительный параметр компонента</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  myOption: <span class="string">'Привет'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-comment">// Глобальное свойство</span>
+<span class="hljs-built_in">console</span>.log(Vue.$myGlobal)
+
+<span class="hljs-comment">// Дополнительный параметр компонента</span>
+<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  myOption: <span class="hljs-string">'Привет'</span>
+&#125;)</code></pre>
 <h2 id="Аннотации-возвращаемых-типов"><a href="#Аннотации-возвращаемых-типов" class="headerlink" title="Аннотации возвращаемых типов"></a>Аннотации возвращаемых типов</h2><p>Из-за циклической природы файлов объявлений Vue, TypeScript может столкнуться с трудностями при определении типов определённых методов. По этой причине вам может потребоваться аннотировать возвращаемый тип для методов, таких как <code>render</code> и тех, которые находятся в <code>computed</code>.</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue, &#123; VNode &#125; <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Component = Vue.extend(&#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      msg: <span class="string">'Привет'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="comment">// необходима аннотация из-за `this` в возвращаемом типе</span></span><br><span class="line">    greet (): <span class="built_in">string</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.msg + <span class="string">', мир'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="comment">// необходима аннотация</span></span><br><span class="line">    greeting (): <span class="built_in">string</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.greet() + <span class="string">'!'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// `createElement` выводится, но `render` нуждается в возвращаемом типе</span></span><br><span class="line">  render (createElement): VNode &#123;</span><br><span class="line">    <span class="keyword">return</span> createElement(<span class="string">'div'</span>, <span class="keyword">this</span>.greeting)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs ts"><span class="hljs-keyword">import</span> Vue, &#123; VNode &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-keyword">const</span> Component = Vue.extend(&#123;
+  data () &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      msg: <span class="hljs-string">'Привет'</span>
+    &#125;
+  &#125;,
+  methods: &#123;
+    <span class="hljs-comment">// необходима аннотация из-за `this` в возвращаемом типе</span>
+    greet (): <span class="hljs-built_in">string</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.msg + <span class="hljs-string">', мир'</span>
+    &#125;
+  &#125;,
+  computed: &#123;
+    <span class="hljs-comment">// необходима аннотация</span>
+    greeting (): <span class="hljs-built_in">string</span> &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.greet() + <span class="hljs-string">'!'</span>
+    &#125;
+  &#125;,
+  <span class="hljs-comment">// `createElement` выводится, но `render` нуждается в возвращаемом типе</span>
+  render (createElement): VNode &#123;
+    <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>, <span class="hljs-keyword">this</span>.greeting)
+  &#125;
+&#125;)</code></pre>
 <p>Если вы обнаружите, что вывод типа или автодополнение не работают, аннотация некоторых методов может помочь решить эти проблемы. Использование опции <code>--noImplicitAny</code> поможет найти многие из этих методов без аннотаций.</p>
 
     
@@ -1074,7 +1174,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

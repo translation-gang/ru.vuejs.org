@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Пользовательские директивы — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1017,11 +1021,25 @@ new Vue({
 </script>
 
 <p>После загрузки страницы этот элемент получает фокус ввода (примечание: <code>autofocus</code> не работает на мобильном Safari). Если вы никуда не кликнули с момента открытия этой главы руководства, фокус ввода и сейчас должен быть на этом элементе. Рассмотрим директиву подробнее:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Регистрируем глобальную пользовательскую директиву `v-focus`</span></span><br><span class="line">Vue.directive(<span class="string">'focus'</span>, &#123;</span><br><span class="line">  <span class="comment">// Когда привязанный элемент вставлен в DOM...</span></span><br><span class="line">  inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Переключаем фокус на элемент</span></span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Регистрируем глобальную пользовательскую директиву `v-focus`</span>
+Vue.directive(<span class="hljs-string">'focus'</span>, &#123;
+  <span class="hljs-comment">// Когда привязанный элемент вставлен в DOM...</span>
+  inserted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+    <span class="hljs-comment">// Переключаем фокус на элемент</span>
+    el.focus()
+  &#125;
+&#125;)</code></pre>
 <p>Чтобы зарегистрировать директиву локально, можно передать опцию <code>directives</code> при определении компонента:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">  focus: &#123;</span><br><span class="line">    <span class="comment">// определение директивы</span></span><br><span class="line">    inserted: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</span><br><span class="line">      el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">directives: &#123;
+  <span class="hljs-attr">focus</span>: &#123;
+    <span class="hljs-comment">// определение директивы</span>
+    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+      el.focus()
+    &#125;
+  &#125;
+&#125;</code></pre>
 <p>Теперь в шаблонах можно использовать новый атрибут <code>v-focus</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-focus</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-focus</span>&gt;</span></code></pre>
 <h2 id="Хуки"><a href="#Хуки" class="headerlink" title="Хуки"></a>Хуки</h2><p>Для жизненного цикла директивы можно указать следующие хуки (все они опциональны):</p>
 <ul>
 <li><p><code>bind</code>: вызывается однократно, при первичном связывании директивы с элементом. Здесь можно поместить код инициализации.</p>
@@ -1058,8 +1076,26 @@ new Vue({
 <p class="tip">Все аргументы, кроме <code>el</code>, следует понимать как только для чтения и никогда не изменять их. В случае необходимости передать информацию между хуками рекомендуем воспользоваться <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="noopener">dataset</a>.</p>
 
 <p>Пример пользовательской директивы, использующей некоторые из описанных возможностей:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hook-arguments-example"</span> <span class="attr">v-demo:foo.a.b</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.directive(<span class="string">'demo'</span>, &#123;</span><br><span class="line">  bind: <span class="function"><span class="keyword">function</span> (<span class="params">el, binding, vnode</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="built_in">JSON</span>.stringify</span><br><span class="line">    el.innerHTML =</span><br><span class="line">      <span class="string">'name: '</span>       + s(binding.name) + <span class="string">'&lt;br&gt;'</span> +</span><br><span class="line">      <span class="string">'value: '</span>      + s(binding.value) + <span class="string">'&lt;br&gt;'</span> +</span><br><span class="line">      <span class="string">'expression: '</span> + s(binding.expression) + <span class="string">'&lt;br&gt;'</span> +</span><br><span class="line">      <span class="string">'argument: '</span>   + s(binding.arg) + <span class="string">'&lt;br&gt;'</span> +</span><br><span class="line">      <span class="string">'modifiers: '</span>  + s(binding.modifiers) + <span class="string">'&lt;br&gt;'</span> +</span><br><span class="line">      <span class="string">'vnode keys: '</span> + <span class="built_in">Object</span>.keys(vnode).join(<span class="string">', '</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#hook-arguments-example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'привет!'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hook-arguments-example"</span> <span class="hljs-attr">v-demo:foo.a.b</span>=<span class="hljs-string">"message"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'demo'</span>, &#123;
+  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> s = <span class="hljs-built_in">JSON</span>.stringify
+    el.innerHTML =
+      <span class="hljs-string">'name: '</span>       + s(binding.name) + <span class="hljs-string">'&lt;br&gt;'</span> +
+      <span class="hljs-string">'value: '</span>      + s(binding.value) + <span class="hljs-string">'&lt;br&gt;'</span> +
+      <span class="hljs-string">'expression: '</span> + s(binding.expression) + <span class="hljs-string">'&lt;br&gt;'</span> +
+      <span class="hljs-string">'argument: '</span>   + s(binding.arg) + <span class="hljs-string">'&lt;br&gt;'</span> +
+      <span class="hljs-string">'modifiers: '</span>  + s(binding.modifiers) + <span class="hljs-string">'&lt;br&gt;'</span> +
+      <span class="hljs-string">'vnode keys: '</span> + <span class="hljs-built_in">Object</span>.keys(vnode).join(<span class="hljs-string">', '</span>)
+  &#125;
+&#125;)
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#hook-arguments-example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'привет!'</span>
+  &#125;
+&#125;)</code></pre>
 
 <div id="hook-arguments-example" v-demo:foo.a.b="message" class="demo"></div>
 <script>
@@ -1084,10 +1120,15 @@ new Vue({
 </script>
 
 <h2 id="Сокращённая-запись"><a href="#Сокращённая-запись" class="headerlink" title="Сокращённая запись"></a>Сокращённая запись</h2><p>Часто нам может потребоваться одинаковое поведение на <code>bind</code> и <code>update</code>, а остальные хуки не нужны. В таком случае можно использовать сокращённую запись:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.directive(<span class="string">'color-swatch'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">el, binding</span>) </span>&#123;</span><br><span class="line">  el.style.backgroundColor = binding.value</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'color-swatch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
+  el.style.backgroundColor = binding.value
+&#125;)</code></pre>
 <h2 id="Передача-объекта-данных-в-директиву"><a href="#Передача-объекта-данных-в-директиву" class="headerlink" title="Передача объекта данных в директиву"></a>Передача объекта данных в директиву</h2><p>В случае, если директива должна принимать несколько параметров, можно указать объект JavaScript — годится любое валидное выражение, помните?</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-demo</span>=<span class="string">"&#123; color: 'белый', text: 'привет!' &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.directive(<span class="string">'demo'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">el, binding</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(binding.value.color) <span class="comment">// =&gt; "белый"</span></span><br><span class="line">  <span class="built_in">console</span>.log(binding.value.text)  <span class="comment">// =&gt; "привет!"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-demo</span>=<span class="hljs-string">"&#123; color: 'белый', text: 'привет!' &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'demo'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(binding.value.color) <span class="hljs-comment">// =&gt; "белый"</span>
+  <span class="hljs-built_in">console</span>.log(binding.value.text)  <span class="hljs-comment">// =&gt; "привет!"</span>
+&#125;)</code></pre>
 
     
     
@@ -1134,7 +1175,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

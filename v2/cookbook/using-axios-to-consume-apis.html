@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Используем Axios для доступа к API — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -441,7 +441,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -454,21 +458,52 @@
       <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Неоднократно при создании веб-приложения вам может понадобиться получать и отображать данные из API. Существует несколько способов сделать это, но наиболее популярным решением является использование <a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>, основанного на промисах HTTP-клиента.</p>
 <p>В этом упражнении мы будет использовать <a href="https://www.coindesk.com/api/" target="_blank" rel="noopener">CoinDesk API</a> для отображения цен на Биткоин, обновляемых каждую минуту. Прежде всего, подключим axios с помощью npm, yarn или ссылки на CDN.</p>
 <p>Существует множество вариантов, как мы можем запрашивать информацию из API, но прежде необходимо узнать, в каком виде предоставляются данные, чтобы понимать, как их отображать. Для этого сделаем запрос к конечной точке (endpoint) API и выведем результат. Как можно убедиться из документации API CoinDesk, для получения данных мы будет делать запрос на <code>https://api.coindesk.com/v1/bpi/currentprice.json</code>. Изначально необходимо создать свойство в <code>data</code> для хранения нашей информации, далее извлечём и сохраним данные, используя хук жизненного цикла <code>mounted</code>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      info: <span class="literal">null</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    axios</span><br><span class="line">      .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  &#123;&#123; info &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  data() &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">info</span>: <span class="hljs-literal">null</span>
+    &#125;;
+  &#125;,
+  mounted() &#123;
+    axios
+      .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+      .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response));
+  &#125;
+&#125;);</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  &#123;&#123; info &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>И вот что мы получаем:</p>
 <p></p><p data-height="350" data-theme-id="32763" data-slug-hash="80043dfdb7b90f138f5585ade1a5286f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="First Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/80043dfdb7b90f138f5585ade1a5286f/" target="_blank" rel="noopener">First Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <p>Отлично! Мы получили какие-то данные. Но сейчас они выглядят достаточно грязно, так что давайте отобразим их должным образом и добавим обработку ошибок на случай, если что-то пойдёт не так, либо когда для получения информации потребовалось больше времени.</p>
 <h2 id="Пример-из-жизни-работа-с-данными"><a href="#Пример-из-жизни-работа-с-данными" class="headerlink" title="Пример из жизни: работа с данными"></a>Пример из жизни: работа с данными</h2><h3 id="Отображение-данных-из-API"><a href="#Отображение-данных-из-API" class="headerlink" title="Отображение данных из API"></a>Отображение данных из API</h3><p>Типичная ситуация, когда необходимая информация находится внутри ответа сервера и нам необходимо знать структуру данных для получения доступа. В нашем случае, нужная информация о цене находится в <code>response.data.bpi</code>. Если мы используем это, то запрос будет выглядеть следующим образом.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios</span><br><span class="line">  .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response.data.bpi));</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">axios
+  .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response.data.bpi));</code></pre>
 <p></p><p data-height="200" data-theme-id="32763" data-slug-hash="6100b10f1b4ac2961208643560ba7d11" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Second Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/6100b10f1b4ac2961208643560ba7d11/" target="_blank" rel="noopener">Second Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <p>Такие данные намного проще отображать, так что мы можем сейчас обновить HTML-разметку для отображения только нужной информации из полученных данных. Создадим <a href="../api/#Vue-filter">фильтр</a>, чтобы десятичные значения всегда отображались как нужно.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bitcoin Price Index<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-for</span>=<span class="string">"currency in info"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">class</span>=<span class="string">"currency"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    &#123;&#123; currency.description &#125;&#125;:</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"lighten"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"currency.symbol"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">  currencydecimal (value) &#123;</span><br><span class="line">    <span class="keyword">return</span> value.toFixed(<span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Bitcoin Price Index<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">v-for</span>=<span class="hljs-string">"currency in info"</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"currency"</span>
+  &gt;</span>
+    &#123;&#123; currency.description &#125;&#125;:
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lighten"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"currency.symbol"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js">filters: &#123;
+  currencydecimal (value) &#123;
+    <span class="hljs-keyword">return</span> value.toFixed(<span class="hljs-number">2</span>)
+  &#125;
+&#125;</code></pre>
 <p></p><p data-height="300" data-theme-id="32763" data-slug-hash="9d59319c09eaccfaf35d9e9f11990f0f" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Third Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/9d59319c09eaccfaf35d9e9f11990f0f/" target="_blank" rel="noopener">Third Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
@@ -479,10 +514,61 @@
 <li>API не предоставил данные в ожидаемом нами формате.</li>
 </ul>
 <p>При выполнении этого запроса мы должны проверять такие обстоятельства и предоставлять информацию в каждом случае, чтобы мы знали, как справиться с этой проблемой. В вызове axios мы сделаем это, используя <code>catch</code>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios</span><br><span class="line">  .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> (<span class="keyword">this</span>.info = response.data.bpi))</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error));</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">axios
+  .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+  .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> (<span class="hljs-keyword">this</span>.info = response.data.bpi))
+  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(error));</code></pre>
 <p>Так мы узнаем, если что-то пойдёт не так во время запроса к API. Но что если данные повреждены или API не был доступен? Сейчас пользователь просто ничего не увидит. Мы могли бы использовать индикатор загрузки для этого случая и сообщать пользователю, что не можем получить данные.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      info: <span class="literal">null</span>,</span><br><span class="line">      loading: <span class="literal">true</span>,</span><br><span class="line">      errored: <span class="literal">false</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    currencydecimal(value) &#123;</span><br><span class="line">      <span class="keyword">return</span> value.toFixed(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    axios</span><br><span class="line">      .get(<span class="string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.info = response.data.bpi;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error);</span><br><span class="line">        <span class="keyword">this</span>.errored = <span class="literal">true</span>;</span><br><span class="line">      &#125;)</span><br><span class="line">      .finally(<span class="function"><span class="params">()</span> =&gt;</span> (<span class="keyword">this</span>.loading = <span class="literal">false</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Bitcoin Price Index<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">v-if</span>=<span class="string">"errored"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We're sorry, we're not able to retrieve this information at the moment, please try back later<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"loading"</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"currency in info"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"currency"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; currency.description &#125;&#125;:</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"lighten"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"currency.symbol"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  data() &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">info</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">loading</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">errored</span>: <span class="hljs-literal">false</span>
+    &#125;;
+  &#125;,
+  <span class="hljs-attr">filters</span>: &#123;
+    currencydecimal(value) &#123;
+      <span class="hljs-keyword">return</span> value.toFixed(<span class="hljs-number">2</span>);
+    &#125;
+  &#125;,
+  mounted() &#123;
+    axios
+      .get(<span class="hljs-string">'https://api.coindesk.com/v1/bpi/currentprice.json'</span>)
+      .then(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">this</span>.info = response.data.bpi;
+      &#125;)
+      .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(error);
+        <span class="hljs-keyword">this</span>.errored = <span class="hljs-literal">true</span>;
+      &#125;)
+      .finally(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (<span class="hljs-keyword">this</span>.loading = <span class="hljs-literal">false</span>));
+  &#125;
+&#125;);</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Bitcoin Price Index<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errored"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>We're sorry, we're not able to retrieve this information at the moment, please try back later<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">v-else</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"loading"</span>&gt;</span>Loading...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+      <span class="hljs-attr">v-else</span>
+      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"currency in info"</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">"currency"</span>
+    &gt;</span>
+      &#123;&#123; currency.description &#125;&#125;:
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lighten"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"currency.symbol"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>&#123;&#123; currency.rate_float | currencydecimal &#125;&#125;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Вы можете нажимать на кнопку перезапуска (находится в правом нижнем углу во вкладке Result), чтобы увидеть индикатор загрузки во время получения данных из API.</p>
 <p></p><p data-height="300" data-theme-id="32763" data-slug-hash="6c01922c9af3883890fd7393e8147ec4" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Fourth Step Axios and Vue" class="codepen">Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/6c01922c9af3883890fd7393e8147ec4/" target="_blank" rel="noopener">Fourth Step Axios and Vue</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -526,7 +612,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

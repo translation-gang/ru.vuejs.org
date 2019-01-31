@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Миграция с Vue 1.x — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1035,9 +1039,13 @@
 <p>Только Vue Router 2 совместим с Vue 2, так что да, вам также придётся следовать по пути <a href="migration-vue-router.html">миграции для Vue Router</a>. К счастью, в большинстве приложений не так много кода маршрутизатора, поэтому это, скорее всего, не займёт больше часа.</p>
 <p>Что касается Vuex, то даже версия 0.8 совместима с Vue 2, поэтому вы не должны обновляться. Единственная причина, по которой вы, возможно, захотите немедленно обновиться - воспользоваться новыми функциями Vuex 2, такими как модули и уменьшенный шаблон.</p>
 <h2 id="Шаблоны"><a href="#Шаблоны" class="headerlink" title="Шаблоны"></a>Шаблоны</h2><h3 id="Фрагментированные-экземпляры-удалены"><a href="#Фрагментированные-экземпляры-удалены" class="headerlink" title="Фрагментированные экземпляры удалены"></a>Фрагментированные экземпляры <sup>удалены</sup></h3><p>Каждый компонент должен содержать только один корневой элемент. Фрагментированные экземпляры больше не используются. Если ваш шаблон выглядит следующим образом:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Рекомендовано заменить код, просто обернув всё содержимое в новый элемент, например, вот так:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1059,9 +1067,15 @@
 </div>
 
 <h3 id="attached-удалён"><a href="#attached-удалён" class="headerlink" title="attached удалён"></a><code>attached</code> <sup>удалён</sup></h3><p>Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">attached: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  doSomething()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">attached: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  doSomething()
+&#125;</code></pre>
 <p>Вы можете использовать:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    doSomething()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    doSomething()
+  &#125;)
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1069,9 +1083,15 @@
 </div>
 
 <h3 id="detached-удалён"><a href="#detached-удалён" class="headerlink" title="detached удалён"></a><code>detached</code> <sup>удалён</sup></h3><p>Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">detached: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  doSomething()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">detached: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  doSomething()
+&#125;</code></pre>
 <p>Вы можете использовать:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    doSomething()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">destroyed: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    doSomething()
+  &#125;)
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1086,7 +1106,11 @@
 </div>
 
 <h3 id="ready-заменён"><a href="#ready-заменён" class="headerlink" title="ready заменён"></a><code>ready</code> <sup>заменён</sup></h3><p>Вместо этого используйте новый хук <code>mounted</code>. Однако, следует отметить, что использование хука <code>mounted</code> не даёт гарантии существования в документе. Для этого также используйте <code>Vue.nextTick</code>/<code>vm.$nextTick</code>. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// код, уже предполагающий наличие this.$el в документе</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// код, уже предполагающий наличие this.$el в документе</span>
+  &#125;)
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1115,9 +1139,9 @@
 </div>
 
 <h3 id="track-by-заменён"><a href="#track-by-заменён" class="headerlink" title="track-by заменён"></a><code>track-by</code> <sup>заменён</sup></h3><p><code>track-by</code> был заменён на <code>key</code>, который работает как любой другой атрибут: без директивы <code>v-bind:</code> или префикса <code>:</code> он воспринимался как буквенная строка. В большинстве же случаев вам захочется использовать динамичную привязку, которая требует написания полного выражения, а не просто ключа. Например, вместо:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">track-by</span>=<span class="hljs-string">"id"</span>&gt;</span></code></pre>
 <p>Вы теперь напишете:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">v-bind:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1132,9 +1156,27 @@
 </div>
 
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="coerce-Prop-Option-удалён"><a href="#coerce-Prop-Option-удалён" class="headerlink" title="coerce Prop Option удалён"></a><code>coerce</code> Prop Option <sup>удалён</sup></h3><p>If you want to coerce a prop, setup a local computed value based on it instead. For example, instead of:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  username: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    coerce: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> value</span><br><span class="line">        .toLowerCase()</span><br><span class="line">        .replace(<span class="regexp">/\s+/</span>, <span class="string">'-'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">props: &#123;
+  <span class="hljs-attr">username</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+    <span class="hljs-attr">coerce</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> value
+        .toLowerCase()
+        .replace(<span class="hljs-regexp">/\s+/</span>, <span class="hljs-string">'-'</span>)
+    &#125;
+  &#125;
+&#125;</code></pre>
 <p>You could write:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  username: <span class="built_in">String</span>,</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedUsername: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.username</span><br><span class="line">      .toLowerCase()</span><br><span class="line">      .replace(<span class="regexp">/\s+/</span>, <span class="string">'-'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">props: &#123;
+  <span class="hljs-attr">username</span>: <span class="hljs-built_in">String</span>,
+&#125;,
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">normalizedUsername</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.username
+      .toLowerCase()
+      .replace(<span class="hljs-regexp">/\s+/</span>, <span class="hljs-string">'-'</span>)
+  &#125;
+&#125;</code></pre>
 <p>There are a few advantages:</p>
 <ul>
 <li>You still have access to the original value of the prop.</li>
@@ -1191,9 +1233,22 @@
 
 <h2 id="Computed-properties"><a href="#Computed-properties" class="headerlink" title="Computed properties"></a>Computed properties</h2><h3 id="cache-false-deprecated"><a href="#cache-false-deprecated" class="headerlink" title="cache: false deprecated"></a><code>cache: false</code> <sup>deprecated</sup></h3><p>Caching invalidation of computed properties will be removed in future major versions of Vue. Replace any uncached computed properties with methods, which will have the same result.</p>
 <p>For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">template: <span class="string">'&lt;p&gt;message: &#123;&#123; timeMessage &#125;&#125;&lt;/p&gt;'</span>,</span><br><span class="line">computed: &#123;</span><br><span class="line">  timeMessage: &#123;</span><br><span class="line">    cache: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.message</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">template: <span class="hljs-string">'&lt;p&gt;message: &#123;&#123; timeMessage &#125;&#125;&lt;/p&gt;'</span>,
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">timeMessage</span>: &#123;
+    <span class="hljs-attr">cache</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now() + <span class="hljs-keyword">this</span>.message
+    &#125;
+  &#125;
+&#125;</code></pre>
 <p>Or with component methods:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">template: <span class="string">'&lt;p&gt;message: &#123;&#123; getTimeMessage() &#125;&#125;&lt;/p&gt;'</span>,</span><br><span class="line">methods: &#123;</span><br><span class="line">  getTimeMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.message</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">template: <span class="hljs-string">'&lt;p&gt;message: &#123;&#123; getTimeMessage() &#125;&#125;&lt;/p&gt;'</span>,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">getTimeMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now() + <span class="hljs-keyword">this</span>.message
+  &#125;
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1211,16 +1266,16 @@
 </div>
 
 <h3 id="Listening-for-Native-Events-on-Components-with-v-on-changed"><a href="#Listening-for-Native-Events-on-Components-with-v-on-changed" class="headerlink" title="Listening for Native Events on Components with v-on changed"></a>Listening for Native Events on Components with <code>v-on</code> <sup>changed</sup></h3><p>When used on a component, <code>v-on</code> now only listens to custom events <code>$emit</code>ted by that component. To listen for a native DOM event on the root element, you can use the <code>.native</code> modifier. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:click.native</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:click.native</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Run your end-to-end test suite, if you have one. The <strong>failed tests</strong> should alert to you to any parts of your app that may be affected by this change.</p>
 </div>
-
+{% endraw %}
 <h3 id="debounce-Param-Attribute-for-v-model-удалён"><a href="#debounce-Param-Attribute-for-v-model-удалён" class="headerlink" title="debounce Param Attribute for v-model удалён"></a><code>debounce</code> Param Attribute for <code>v-model</code> <sup>удалён</sup></h3><p>Debouncing is used to limit how often we execute Ajax requests and other expensive operations. Vue’s <code>debounce</code> attribute parameter for <code>v-model</code> made this easy for very simple cases, but it actually debounced <strong>state updates</strong> rather than the expensive operations themselves. It’s a subtle difference, but it comes with limitations as an application grows.</p>
 <p>These limitations become apparent when designing a search indicator, like this one for example:</p>
-
+{% raw %}
 <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"></script>
 <div id="debounce-search-demo" class="demo">
   <input v-model="searchQuery" placeholder="Type something">
@@ -1262,10 +1317,54 @@ new Vue({
   }
 })
 </script>
-
+{% endraw %}
 <p>Using the <code>debounce</code> attribute, there’d be no way to detect the “Typing” state, because we lose access to the input’s real-time state. By decoupling the debounce function from Vue however, we’re able to debounce only the operation we want to limit, removing the limits on features we can develop:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">By using the debounce function from lodash or another dedicated</span></span><br><span class="line"><span class="comment">utility library, we know the specific debounce implementation we</span></span><br><span class="line"><span class="comment">use will be best-in-class - and we can use it ANYWHERE. Not only</span></span><br><span class="line"><span class="comment">in our template.</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"debounce-search-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"searchQuery"</span> <span class="attr">placeholder</span>=<span class="string">"Type something"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123; searchIndicator &#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#debounce-search-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    searchQuery: <span class="string">''</span>,</span><br><span class="line">    searchQueryIsDirty: <span class="literal">false</span>,</span><br><span class="line">    isCalculating: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    searchIndicator: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.isCalculating) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'⟳ Fetching new results'</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.searchQueryIsDirty) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'... Typing'</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'✓ Done'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    searchQuery: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.searchQueryIsDirty = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">this</span>.expensiveOperation()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="comment">// This is where the debounce actually belongs.</span></span><br><span class="line">    expensiveOperation: _.debounce(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.isCalculating = <span class="literal">true</span></span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.isCalculating = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">this</span>.searchQueryIsDirty = <span class="literal">false</span></span><br><span class="line">      &#125;.bind(<span class="keyword">this</span>), <span class="number">1000</span>)</span><br><span class="line">    &#125;, <span class="number">500</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!--
+By using the debounce function from lodash or another dedicated
+utility library, we know the specific debounce implementation we
+use will be best-in-class - and we can use it ANYWHERE. Not only
+in our template.
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"debounce-search-demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"searchQuery"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Type something"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; searchIndicator &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#debounce-search-demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">searchQuery</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">searchQueryIsDirty</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">isCalculating</span>: <span class="hljs-literal">false</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">searchIndicator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isCalculating) &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'⟳ Fetching new results'</span>
+      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.searchQueryIsDirty) &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'... Typing'</span>
+      &#125; <span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'✓ Done'</span>
+      &#125;
+    &#125;
+  &#125;,
+  <span class="hljs-attr">watch</span>: &#123;
+    <span class="hljs-attr">searchQuery</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.searchQueryIsDirty = <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">this</span>.expensiveOperation()
+    &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-comment">// This is where the debounce actually belongs.</span>
+    expensiveOperation: _.debounce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.isCalculating = <span class="hljs-literal">true</span>
+      setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">this</span>.isCalculating = <span class="hljs-literal">false</span>
+        <span class="hljs-keyword">this</span>.searchQueryIsDirty = <span class="hljs-literal">false</span>
+      &#125;.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">1000</span>)
+    &#125;, <span class="hljs-number">500</span>)
+  &#125;
+&#125;)</code></pre>
 <p>Another advantage of this approach is there will be times when debouncing isn’t quite the right wrapper function. For example, when hitting an API for search suggestions, waiting to offer suggestions until after the user has stopped typing for a period of time isn’t an ideal experience. What you probably want instead is a <strong>throttling</strong> function. Now since you’re already using a utility library like lodash, refactoring to use its <code>throttle</code> function instead takes only a few seconds.</p>
 
 <div class="upgrade-path">
@@ -1274,9 +1373,11 @@ new Vue({
 </div>
 
 <h3 id="lazy-or-number-Param-Attributes-for-v-model-заменён"><a href="#lazy-or-number-Param-Attributes-for-v-model-заменён" class="headerlink" title="lazy or number Param Attributes for v-model заменён"></a><code>lazy</code> or <code>number</code> Param Attributes for <code>v-model</code> <sup>заменён</sup></h3><p>The <code>lazy</code> and <code>number</code> param attributes are now modifiers, to make it more clear what That means instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"name"</span> <span class="attr">lazy</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">number</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">lazy</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">number</span>&gt;</span></code></pre>
 <p>You would use:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.lazy</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model.number</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"number"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">"name"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1285,11 +1386,15 @@ new Vue({
 
 <h3 id="value-Attribute-with-v-model-удалён"><a href="#value-Attribute-with-v-model-удалён" class="headerlink" title="value Attribute with v-model удалён"></a><code>value</code> Attribute with <code>v-model</code> <sup>удалён</sup></h3><p><code>v-model</code> no longer cares about the initial value of an inline <code>value</code> attribute. For predictability, it will instead always treat the Vue instance data as the source of truth.</p>
 <p>That means this element:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"foo"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"foo"</span>&gt;</span></code></pre>
 <p>backed by this data:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  text: <span class="string">'bar'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">data: &#123;
+  <span class="hljs-attr">text</span>: <span class="hljs-string">'bar'</span>
+&#125;</code></pre>
 <p>will render with a value of “bar” instead of “foo”. The same goes for a <code>&lt;textarea&gt;</code> with existing content. Instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">v-model</span>=<span class="string">"text"</span>&gt;</span></span><br><span class="line">  hello world</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"text"</span>&gt;</span>
+  hello world
+<span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span></code></pre>
 <p>You should ensure your initial value for <code>text</code> is “hello world”.</p>
 
 <div class="upgrade-path">
@@ -1298,45 +1403,49 @@ new Vue({
 </div>
 
 <h3 id="v-model-with-v-for-Iterated-Primitive-Values-удалён"><a href="#v-model-with-v-for-Iterated-Primitive-Values-удалён" class="headerlink" title="v-model with v-for Iterated Primitive Values удалён"></a><code>v-model</code> with <code>v-for</code> Iterated Primitive Values <sup>удалён</sup></h3><p>Cases like this no longer work:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-for</span>=<span class="string">"str in strings"</span> <span class="attr">v-model</span>=<span class="string">"str"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"str in strings"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"str"</span>&gt;</span></code></pre>
 <p>The reason is this is the equivalent JavaScript that the <code>&lt;input&gt;</code> would compile to:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">strings.map(<span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createElement(<span class="string">'input'</span>, ...)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">strings.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'input'</span>, ...)
+&#125;)</code></pre>
 <p>As you can see, <code>v-model</code>‘s two-way binding doesn’t make sense here. Setting <code>str</code> to another value in the iterator function will do nothing because it’s only a local variable in the function scope.</p>
 <p>Instead, you should use an array of <strong>objects</strong> so that <code>v-model</code> can update the field on the object. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-for</span>=<span class="string">"obj in objects"</span> <span class="attr">v-model</span>=<span class="string">"obj.str"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"obj in objects"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"obj.str"</span>&gt;</span></code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Run your test suite, if you have one. The <strong>failed tests</strong> should alert to you to any parts of your app that may be affected by this change.</p>
 </div>
-
+{% endraw %}
 <h3 id="v-bind-style-with-Object-Syntax-and-important-удалён"><a href="#v-bind-style-with-Object-Syntax-and-important-удалён" class="headerlink" title="v-bind:style with Object Syntax and !important удалён"></a><code>v-bind:style</code> with Object Syntax and <code>!important</code> <sup>удалён</sup></h3><p>This will no longer work:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123; color: myColor + ' !important' &#125;"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"&#123; color: myColor + ' !important' &#125;"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>If you really need to override another <code>!important</code>, you must use the string syntax:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:style</span>=<span class="string">"'color: ' + myColor + ' !important'"</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"'color: ' + myColor + ' !important'"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of style bindings with <code>!important</code> in objects.</p>
 </div>
-
+{% endraw %}
 <h3 id="v-el-and-v-ref-заменён"><a href="#v-el-and-v-ref-заменён" class="headerlink" title="v-el and v-ref заменён"></a><code>v-el</code> and <code>v-ref</code> <sup>заменён</sup></h3><p>For simplicity, <code>v-el</code> and <code>v-ref</code> have been merged into the <code>ref</code> attribute, accessible on a component instance via <code>$refs</code>. That means <code>v-el:my-element</code> would become <code>ref=&quot;myElement&quot;</code> and <code>v-ref:my-component</code> would become <code>ref=&quot;myComponent&quot;</code>. When used on a normal element, the <code>ref</code> will be the DOM element, and when used on a component, the <code>ref</code> will be the component instance.</p>
 <p>Since <code>v-ref</code> is no longer a directive, but a special attribute, it can also be dynamically defined. This is especially useful in combination with <code>v-for</code>. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">v-bind:ref</span>=<span class="string">"'item' + item.id"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:ref</span>=<span class="hljs-string">"'item' + item.id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Previously, <code>v-el</code>/<code>v-ref</code> combined with <code>v-for</code> would produce an array of elements/components, because there was no way to give each item a unique name. You can still achieve this behavior by given each item the same <code>ref</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">ref</span>=<span class="string">"items"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Unlike in 1.x, these <code>$refs</code> are not reactive, because they’re registered/updated during the render process itself. Making them reactive would require duplicate renders for every change.</p>
 <p>On the other hand, <code>$refs</code> are designed primarily for programmatic access in JavaScript - it is not recommended to rely on them in templates, because that would mean referring to state that does not belong to the instance itself. This would violate Vue’s data-driven view model.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>v-el</code> and <code>v-ref</code>.</p>
 </div>
-
+{% endraw %}
 <h3 id="v-else-with-v-show-удалён"><a href="#v-else-with-v-show-удалён" class="headerlink" title="v-else with v-show удалён"></a><code>v-else</code> with <code>v-show</code> <sup>удалён</sup></h3><p><code>v-else</code> no longer works with <code>v-show</code>. Use <code>v-if</code> with a negation expression instead. For example, instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"foo"</span>&gt;</span>Foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span> <span class="attr">v-show</span>=<span class="string">"bar"</span>&gt;</span>Not foo, but bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"foo"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"bar"</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>You can use:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"foo"</span>&gt;</span>Foo<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">"!foo &amp;&amp; bar"</span>&gt;</span>Not foo, but bar<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"foo"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!foo &amp;&amp; bar"</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1359,9 +1468,9 @@ new Vue({
 
 <h3 id="Directive-literal-Modifier-удалён"><a href="#Directive-literal-Modifier-удалён" class="headerlink" title="Directive .literal Modifier удалён"></a>Directive <code>.literal</code> Modifier <sup>удалён</sup></h3><p>The <code>.literal</code> modifier has been removed, as the same can be easily achieved by providing a string literal as the value.</p>
 <p>For example, you can update:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;p v-my-directive.literal=<span class="string">"foo bar baz"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&lt;p v-my-directive.literal=<span class="hljs-string">"foo bar baz"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre>
 <p>to:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-my-directive</span>=<span class="string">"'foo bar baz'"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive</span>=<span class="hljs-string">"'foo bar baz'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1391,7 +1500,8 @@ new Vue({
 
 <h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><h3 id="events-option-удалён"><a href="#events-option-удалён" class="headerlink" title="events option удалён"></a><code>events</code> option <sup>удалён</sup></h3><p>The <code>events</code> option has been removed. Event handlers should now be registered in the <code>created</code> hook instead. Check out the <a href="#dispatch-and-broadcast-replaced"><code>$dispatch</code> and <code>$broadcast</code> migration guide</a> for a detailed example.</p>
 <h3 id="Vue-directive-39-on-39-keyCodes-заменён"><a href="#Vue-directive-39-on-39-keyCodes-заменён" class="headerlink" title="Vue.directive(&#39;on&#39;).keyCodes заменён"></a><code>Vue.directive(&#39;on&#39;).keyCodes</code> <sup>заменён</sup></h3><p>The new, more concise way to configure <code>keyCodes</code> is through <code>Vue.config.keyCodes</code>. For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// enable v-on:keyup.f1</span></span><br><span class="line">Vue.config.keyCodes.f1 = <span class="number">112</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// enable v-on:keyup.f1</span>
+Vue.config.keyCodes.f1 = <span class="hljs-number">112</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1403,13 +1513,52 @@ new Vue({
 <p>One of the most common uses for these methods is to communicate between a parent and its direct children. In these cases, you can actually <a href="components.html#Form-Input-Components-using-Custom-Events">listen to an <code>$emit</code> from a child with <code>v-on</code></a>. This allows you to keep the convenience of events with added explicitness.</p>
 <p>However, when communicating between distant descendants/ancestors, <code>$emit</code> won’t help you. Instead, the simplest possible upgrade would be to use a centralized event hub. This has the added benefit of allowing you to communicate between components no matter where they are in the component tree - even between siblings! Because Vue instances implement an event emitter interface, you can actually use an empty Vue instance for this purpose.</p>
 <p>For example, let’s say we have a todo app structured like this:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Todos</span><br><span class="line">├─ NewTodoInput</span><br><span class="line">└─ Todo</span><br><span class="line">   └─ DeleteTodoButton</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs undefined">Todos
+├─ NewTodoInput
+└─ Todo
+   └─ DeleteTodoButton</code></pre>
 <p>We could manage communication between components with this single event hub:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// This is the event hub we'll use in every</span></span><br><span class="line"><span class="comment">// component to communicate between them.</span></span><br><span class="line"><span class="keyword">var</span> eventHub = <span class="keyword">new</span> Vue()</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// This is the event hub we'll use in every</span>
+<span class="hljs-comment">// component to communicate between them.</span>
+<span class="hljs-keyword">var</span> eventHub = <span class="hljs-keyword">new</span> Vue()</code></pre>
 <p>Then in our components, we can use <code>$emit</code>, <code>$on</code>, <code>$off</code> to emit events, listen for events, and clean up event listeners, respectively:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// NewTodoInput</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  addTodo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    eventHub.$emit(<span class="string">'add-todo'</span>, &#123; <span class="attr">text</span>: <span class="keyword">this</span>.newTodoText &#125;)</span><br><span class="line">    <span class="keyword">this</span>.newTodoText = <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// DeleteTodoButton</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  deleteTodo: <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">    eventHub.$emit(<span class="string">'delete-todo'</span>, id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Todos</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  eventHub.$on(<span class="string">'add-todo'</span>, <span class="keyword">this</span>.addTodo)</span><br><span class="line">  eventHub.$on(<span class="string">'delete-todo'</span>, <span class="keyword">this</span>.deleteTodo)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// It's good to clean up event listeners before</span></span><br><span class="line"><span class="comment">// a component is destroyed.</span></span><br><span class="line">beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  eventHub.$off(<span class="string">'add-todo'</span>, <span class="keyword">this</span>.addTodo)</span><br><span class="line">  eventHub.$off(<span class="string">'delete-todo'</span>, <span class="keyword">this</span>.deleteTodo)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  addTodo: <span class="function"><span class="keyword">function</span> (<span class="params">newTodo</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.todos.push(newTodo)</span><br><span class="line">  &#125;,</span><br><span class="line">  deleteTodo: <span class="function"><span class="keyword">function</span> (<span class="params">todoId</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.todos = <span class="keyword">this</span>.todos.filter(<span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> todo.id !== todoId</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// NewTodoInput</span>
+<span class="hljs-comment">// ...</span>
+methods: &#123;
+  <span class="hljs-attr">addTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    eventHub.$emit(<span class="hljs-string">'add-todo'</span>, &#123; <span class="hljs-attr">text</span>: <span class="hljs-keyword">this</span>.newTodoText &#125;)
+    <span class="hljs-keyword">this</span>.newTodoText = <span class="hljs-string">''</span>
+  &#125;
+&#125;</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// DeleteTodoButton</span>
+<span class="hljs-comment">// ...</span>
+methods: &#123;
+  <span class="hljs-attr">deleteTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>&#123;
+    eventHub.$emit(<span class="hljs-string">'delete-todo'</span>, id)
+  &#125;
+&#125;</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// Todos</span>
+<span class="hljs-comment">// ...</span>
+created: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  eventHub.$on(<span class="hljs-string">'add-todo'</span>, <span class="hljs-keyword">this</span>.addTodo)
+  eventHub.$on(<span class="hljs-string">'delete-todo'</span>, <span class="hljs-keyword">this</span>.deleteTodo)
+&#125;,
+<span class="hljs-comment">// It's good to clean up event listeners before</span>
+<span class="hljs-comment">// a component is destroyed.</span>
+beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  eventHub.$off(<span class="hljs-string">'add-todo'</span>, <span class="hljs-keyword">this</span>.addTodo)
+  eventHub.$off(<span class="hljs-string">'delete-todo'</span>, <span class="hljs-keyword">this</span>.deleteTodo)
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">addTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newTodo</span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.todos.push(newTodo)
+  &#125;,
+  <span class="hljs-attr">deleteTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">todoId</span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.todos = <span class="hljs-keyword">this</span>.todos.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">todo</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> todo.id !== todoId
+    &#125;)
+  &#125;
+&#125;</code></pre>
 <p>This pattern can serve as a replacement for <code>$dispatch</code> and <code>$broadcast</code> in simple scenarios, but for more complex cases, it’s recommended to use a dedicated state management layer such as <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>.</p>
 
 <div class="upgrade-path">
@@ -1420,64 +1569,102 @@ new Vue({
 <h2 id="Filters"><a href="#Filters" class="headerlink" title="Filters"></a>Filters</h2><h3 id="Filters-Outside-Text-Interpolations-удалён"><a href="#Filters-Outside-Text-Interpolations-удалён" class="headerlink" title="Filters Outside Text Interpolations удалён"></a>Filters Outside Text Interpolations <sup>удалён</sup></h3><p>Filters can now only be used inside text interpolations (<code>{{ }}</code> tags). In the past we’ve found using filters within directives such as <code>v-model</code>, <code>v-on</code>, etc led to more complexity than convenience. For list filtering on <code>v-for</code>, it’s also better to move that logic into JavaScript as computed properties, so that it can be reused throughout your component.</p>
 <p>In general, whenever something can be achieved in plain JavaScript, we want to avoid introducing a special syntax like filters to take care of the same concern. Here’s how you can replace Vue’s built-in directive filters:</p>
 <h4 id="Replacing-the-debounce-Filter"><a href="#Replacing-the-debounce-Filter" class="headerlink" title="Replacing the debounce Filter"></a>Replacing the <code>debounce</code> Filter</h4><p>Instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup</span>=<span class="string">"doStuff | debounce 500"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  doStuff: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup</span>=<span class="hljs-string">"doStuff | debounce 500"</span>&gt;</span></code></pre>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">doStuff</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;
+&#125;</code></pre>
 <p>Use <a href="https://lodash.com/docs/4.15.0#debounce" target="_blank" rel="noopener">lodash’s <code>debounce</code></a> (or possibly <a href="https://lodash.com/docs/4.15.0#throttle" target="_blank" rel="noopener"><code>throttle</code></a>) to directly limit calling the expensive method. You can achieve the same as above like this:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup</span>=<span class="string">"doStuff"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  doStuff: _.debounce(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup</span>=<span class="hljs-string">"doStuff"</span>&gt;</span></code></pre>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">doStuff</span>: _.debounce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;, <span class="hljs-number">500</span>)
+&#125;</code></pre>
 <p>For more on the advantages of this strategy, see <a href="#debounce-Param-Attribute-for-v-model-removed">the example here with <code>v-model</code></a>.</p>
 <h4 id="Replacing-the-limitBy-Filter"><a href="#Replacing-the-limitBy-Filter" class="headerlink" title="Replacing the limitBy Filter"></a>Replacing the <code>limitBy</code> Filter</h4><p>Instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"item in items | limitBy 10"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items | limitBy 10"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Use JavaScript’s built-in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Examples" target="_blank" rel="noopener"><code>.slice</code> method</a> in a computed property:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"item in filteredItems"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  filteredItems: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.items.slice(<span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in filteredItems"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">filteredItems</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items.slice(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+  &#125;
+&#125;</code></pre>
 <h4 id="Replacing-the-filterBy-Filter"><a href="#Replacing-the-filterBy-Filter" class="headerlink" title="Replacing the filterBy Filter"></a>Replacing the <code>filterBy</code> Filter</h4><p>Instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"user in users | filterBy searchQuery in 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in users | filterBy searchQuery in 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Use JavaScript’s built-in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#Examples" target="_blank" rel="noopener"><code>.filter</code> method</a> in a computed property:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"user in filteredUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  filteredUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">return</span> self.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> user.name.indexOf(self.searchQuery) !== <span class="number">-1</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in filteredUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">filteredUsers</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">return</span> self.users.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> user.name.indexOf(self.searchQuery) !== <span class="hljs-number">-1</span>
+    &#125;)
+  &#125;
+&#125;</code></pre>
 <p>JavaScript’s native <code>.filter</code> can also manage much more complex filtering operations, because you have access to the full power of JavaScript within computed properties. For example, if you wanted to find all active users and case-insensitively match against both their name and email:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">self.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> searchRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(self.searchQuery, <span class="string">'i'</span>)</span><br><span class="line">  <span class="keyword">return</span> user.isActive &amp;&amp; (</span><br><span class="line">    searchRegex.test(user.name) ||</span><br><span class="line">    searchRegex.test(user.email)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+self.users.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>&#123;
+  <span class="hljs-keyword">var</span> searchRegex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(self.searchQuery, <span class="hljs-string">'i'</span>)
+  <span class="hljs-keyword">return</span> user.isActive &amp;&amp; (
+    searchRegex.test(user.name) ||
+    searchRegex.test(user.email)
+  )
+&#125;)</code></pre>
 <h4 id="Replacing-the-orderBy-Filter"><a href="#Replacing-the-orderBy-Filter" class="headerlink" title="Replacing the orderBy Filter"></a>Replacing the <code>orderBy</code> Filter</h4><p>Instead of:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"user in users | orderBy 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in users | orderBy 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Use <a href="https://lodash.com/docs/4.15.0#orderBy" target="_blank" rel="noopener">lodash’s <code>orderBy</code></a> (or possibly <a href="https://lodash.com/docs/4.15.0#sortBy" target="_blank" rel="noopener"><code>sortBy</code></a>) in a computed property:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">"user in orderedUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  orderedUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _.orderBy(<span class="keyword">this</span>.users, <span class="string">'name'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in orderedUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">orderedUsers</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> _.orderBy(<span class="hljs-keyword">this</span>.users, <span class="hljs-string">'name'</span>)
+  &#125;
+&#125;</code></pre>
 <p>You can even order by multiple columns:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">_.orderBy(<span class="keyword">this</span>.users, [<span class="string">'name'</span>, <span class="string">'last_login'</span>], [<span class="string">'asc'</span>, <span class="string">'desc'</span>])</span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs js">_.orderBy(<span class="hljs-keyword">this</span>.users, [<span class="hljs-string">'name'</span>, <span class="hljs-string">'last_login'</span>], [<span class="hljs-string">'asc'</span>, <span class="hljs-string">'desc'</span>])</code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of filters being used inside directives. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h3 id="Filter-Argument-Syntax-changed"><a href="#Filter-Argument-Syntax-changed" class="headerlink" title="Filter Argument Syntax changed"></a>Filter Argument Syntax <sup>changed</sup></h3><p>Filters’ syntax for arguments now better aligns with JavaScript function invocation. So instead of taking space-delimited arguments:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; date | formatDate 'YY-MM-DD' timeZone &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate 'YY-MM-DD' timeZone &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>We surround the arguments with parentheses and delimit the arguments with commas:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; date | formatDate('YY-MM-DD', timeZone) &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate('YY-MM-DD', timeZone) &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the old filter syntax. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h3 id="Built-In-Text-Filters-удалён"><a href="#Built-In-Text-Filters-удалён" class="headerlink" title="Built-In Text Filters удалён"></a>Built-In Text Filters <sup>удалён</sup></h3><p>Although filters within text interpolations are still allowed, all of the filters have been removed. Instead, it’s recommended to use more specialized libraries for solving problems in each domain (e.g. <a href="https://date-fns.org/" target="_blank" rel="noopener"><code>date-fns</code></a> to format dates and <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener"><code>accounting</code></a> for currencies).</p>
 <p>For each of Vue’s built-in text filters, we go through how you can replace them below. The example code could exist in custom helper functions, methods, or computed properties.</p>
 <h4 id="Replacing-the-json-Filter"><a href="#Replacing-the-json-Filter" class="headerlink" title="Replacing the json Filter"></a>Replacing the <code>json</code> Filter</h4><p>You actually don’t need to for debugging anymore, as Vue will nicely format output for you automatically, whether it’s a string, number, array, or plain object. If you want the exact same functionality as JavaScript’s <code>JSON.stringify</code> though, then you can use that in a method or computed property.</p>
-<h4 id="Replacing-the-capitalize-Filter"><a href="#Replacing-the-capitalize-Filter" class="headerlink" title="Replacing the capitalize Filter"></a>Replacing the <code>capitalize</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">text[<span class="number">0</span>].toUpperCase() + text.slice(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="Replacing-the-uppercase-Filter"><a href="#Replacing-the-uppercase-Filter" class="headerlink" title="Replacing the uppercase Filter"></a>Replacing the <code>uppercase</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">text.toUpperCase()</span><br></pre></td></tr></table></figure>
-<h4 id="Replacing-the-lowercase-Filter"><a href="#Replacing-the-lowercase-Filter" class="headerlink" title="Replacing the lowercase Filter"></a>Replacing the <code>lowercase</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">text.toLowerCase()</span><br></pre></td></tr></table></figure>
+<h4 id="Replacing-the-capitalize-Filter"><a href="#Replacing-the-capitalize-Filter" class="headerlink" title="Replacing the capitalize Filter"></a>Replacing the <code>capitalize</code> Filter</h4><pre><code class="hljs js">text[<span class="hljs-number">0</span>].toUpperCase() + text.slice(<span class="hljs-number">1</span>)</code></pre>
+<h4 id="Replacing-the-uppercase-Filter"><a href="#Replacing-the-uppercase-Filter" class="headerlink" title="Replacing the uppercase Filter"></a>Replacing the <code>uppercase</code> Filter</h4><pre><code class="hljs js">text.toUpperCase()</code></pre>
+<h4 id="Replacing-the-lowercase-Filter"><a href="#Replacing-the-lowercase-Filter" class="headerlink" title="Replacing the lowercase Filter"></a>Replacing the <code>lowercase</code> Filter</h4><pre><code class="hljs js">text.toLowerCase()</code></pre>
 <h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a href="https://www.npmjs.com/package/pluralize" target="_blank" rel="noopener">pluralize</a> package on NPM serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pluralizeKnife</span> (<span class="params">count</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (count === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'no knives'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (count === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'1 knife'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> count + <span class="string">'knives'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pluralizeKnife</span> (<span class="hljs-params">count</span>) </span>&#123;
+  <span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) &#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'no knives'</span>
+  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (count === <span class="hljs-number">1</span>) &#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'1 knife'</span>
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-keyword">return</span> count + <span class="hljs-string">'knives'</span>
+  &#125;
+&#125;</code></pre>
 <h4 id="Replacing-the-currency-Filter"><a href="#Replacing-the-currency-Filter" class="headerlink" title="Replacing the currency Filter"></a>Replacing the <code>currency</code> Filter</h4><p>For a very naive implementation, you could do something like this:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">'$'</span> + price.toFixed(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-string">'$'</span> + price.toFixed(<span class="hljs-number">2</span>)</code></pre>
 <p>In many cases though, you’ll still run into strange behavior (e.g. <code>0.035.toFixed(2)</code> rounds up to <code>0.04</code>, but <code>0.045</code> rounds down to <code>0.04</code>). To work around these issues, you can use the <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener"><code>accounting</code></a> library to more reliably format currencies.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete text filters. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h3 id="Two-Way-Filters-заменён"><a href="#Two-Way-Filters-заменён" class="headerlink" title="Two-Way Filters заменён"></a>Two-Way Filters <sup>заменён</sup></h3><p>Some users have enjoyed using two-way filters with <code>v-model</code> to create interesting inputs with very little code. While <em>seemingly</em> simple however, two-way filters can also hide a great deal of complexity - and even encourage poor UX by delaying state updates. Instead, components wrapping an input are recommended as a more explicit and feature-rich way of creating custom inputs.</p>
 <p>As an example, we’ll now walk the migration of a two-way currency filter:</p>
 <iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/6744xnjk/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -1504,34 +1691,43 @@ new Vue({
 <li>We can now use <code>v-model</code> directly on our custom inputs, which is not only more consistent with normal inputs, but also means our component is Vuex-friendly.</li>
 <li>Since we’re no longer using filter options that require a value to be returned, our currency work could actually be done asynchronously. That means if we had a lot of apps that had to work with currencies, we could easily refactor this logic into a shared microservice.</li>
 </ul>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of filters used in directives like <code>v-model</code>. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h2 id="Slots"><a href="#Slots" class="headerlink" title="Slots"></a>Slots</h2><h3 id="Duplicate-Slots-удалён"><a href="#Duplicate-Slots-удалён" class="headerlink" title="Duplicate Slots удалён"></a>Duplicate Slots <sup>удалён</sup></h3><p>It is no longer supported to have <code>&lt;slot&gt;</code>s with the same name in the same template. When a slot is rendered it is “used up” and cannot be rendered elsewhere in the same render tree. If you must render the same content in multiple places, pass that content as a prop.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Run your end-to-end test suite or app after upgrading and look for <strong>console warnings</strong> about duplicate slots <code>v-model</code>.</p>
 </div>
-
+{% endraw %}
 <h3 id="slot-Attribute-Styling-удалён"><a href="#slot-Attribute-Styling-удалён" class="headerlink" title="slot Attribute Styling удалён"></a><code>slot</code> Attribute Styling <sup>удалён</sup></h3><p>Content inserted via named <code>&lt;slot&gt;</code> no longer preserves the <code>slot</code> attribute. Use a wrapper element to style them, or for advanced use cases, modify the inserted content programmatically using <a href="render-function.html">render functions</a>.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find CSS selectors targeting named slots (e.g. <code>[slot="my-slot-name"]</code>).</p>
 </div>
-
+{% endraw %}
 <h2 id="Special-Attributes"><a href="#Special-Attributes" class="headerlink" title="Special Attributes"></a>Special Attributes</h2><h3 id="keep-alive-Attribute-заменён"><a href="#keep-alive-Attribute-заменён" class="headerlink" title="keep-alive Attribute заменён"></a><code>keep-alive</code> Attribute <sup>заменён</sup></h3><p><code>keep-alive</code> is no longer a special attribute, but rather a wrapper component, similar to <code>&lt;transition&gt;</code>. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
 <p>This makes it possible to use <code>&lt;keep-alive&gt;</code> on multiple conditional children:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">todo-list</span> <span class="attr">v-if</span>=<span class="string">"todos.length &gt; 0"</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">no-todos-gif</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">no-todos-gif</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"todos.length &gt; 0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">no-todos-gif</span> <span class="hljs-attr">v-else</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">no-todos-gif</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
 <p class="tip">When <code>&lt;keep-alive&gt;</code> has multiple children, they should eventually evaluate to a single child. Any child other than the first one will be ignored.</p>
 
 <p>When used together with <code>&lt;transition&gt;</code>, make sure to nest it inside:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1539,12 +1735,16 @@ new Vue({
 </div>
 
 <h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><h3 id="Interpolation-within-Attributes-удалён"><a href="#Interpolation-within-Attributes-удалён" class="headerlink" title="Interpolation within Attributes удалён"></a>Interpolation within Attributes <sup>удалён</sup></h3><p>Interpolation within attributes is no longer valid. For example:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-&#123;&#123; size &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-&#123;&#123; size &#125;&#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>Should either be updated to use an inline expression:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:class</span>=<span class="string">"'btn btn-' + size"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"'btn btn-' + size"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>Or a data/computed property:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:class</span>=<span class="string">"buttonClasses"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  buttonClasses: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'btn btn-'</span> + size</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"buttonClasses"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">buttonClasses</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'btn btn-'</span> + size
+  &#125;
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1595,9 +1795,18 @@ new Vue({
 </div>
 
 <h3 id="Array-prototype-remove-удалён"><a href="#Array-prototype-remove-удалён" class="headerlink" title="Array.prototype.$remove удалён"></a><code>Array.prototype.$remove</code> <sup>удалён</sup></h3><p>Use <code>Array.prototype.splice</code> instead. For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  removeTodo: <span class="function"><span class="keyword">function</span> (<span class="params">todo</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> index = <span class="keyword">this</span>.todos.indexOf(todo)</span><br><span class="line">    <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">removeTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">todo</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>.todos.indexOf(todo)
+    <span class="hljs-keyword">this</span>.todos.splice(index, <span class="hljs-number">1</span>)
+  &#125;
+&#125;</code></pre>
 <p>Or better yet, pass removal methods an index:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  removeTodo: <span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.todos.splice(index, <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">removeTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">index</span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.todos.splice(index, <span class="hljs-number">1</span>)
+  &#125;
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1626,15 +1835,15 @@ new Vue({
 </div>
 
 <h2 id="DOM-Focused-Instance-Methods"><a href="#DOM-Focused-Instance-Methods" class="headerlink" title="DOM-Focused Instance Methods"></a>DOM-Focused Instance Methods</h2><h3 id="vm-appendTo-удалён"><a href="#vm-appendTo-удалён" class="headerlink" title="vm.$appendTo удалён"></a><code>vm.$appendTo</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myElement.appendChild(vm.$el)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs js">myElement.appendChild(vm.$el)</code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$appendTo</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h3 id="vm-before-удалён"><a href="#vm-before-удалён" class="headerlink" title="vm.$before удалён"></a><code>vm.$before</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myElement.parentNode.insertBefore(vm.$el, myElement)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">myElement.parentNode.insertBefore(vm.$el, myElement)</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1642,9 +1851,9 @@ new Vue({
 </div>
 
 <h3 id="vm-after-удалён"><a href="#vm-after-удалён" class="headerlink" title="vm.$after удалён"></a><code>vm.$after</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myElement.parentNode.insertBefore(vm.$el, myElement.nextSibling)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">myElement.parentNode.insertBefore(vm.$el, myElement.nextSibling)</code></pre>
 <p>Or if <code>myElement</code> is the last child:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">myElement.parentNode.appendChild(vm.$el)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">myElement.parentNode.appendChild(vm.$el)</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1652,38 +1861,50 @@ new Vue({
 </div>
 
 <h3 id="vm-remove-удалён"><a href="#vm-remove-удалён" class="headerlink" title="vm.$remove удалён"></a><code>vm.$remove</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$el.remove()</span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs js">vm.$el.remove()</code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$remove</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h2 id="Meta-Instance-Methods"><a href="#Meta-Instance-Methods" class="headerlink" title="Meta Instance Methods"></a>Meta Instance Methods</h2><h3 id="vm-eval-удалён"><a href="#vm-eval-удалён" class="headerlink" title="vm.$eval удалён"></a><code>vm.$eval</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">the forum</a> for ideas.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$eval</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h3 id="vm-interpolate-удалён"><a href="#vm-interpolate-удалён" class="headerlink" title="vm.$interpolate удалён"></a><code>vm.$interpolate</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">the forum</a> for ideas.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$interpolate</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h3 id="vm-log-удалён"><a href="#vm-log-удалён" class="headerlink" title="vm.$log удалён"></a><code>vm.$log</code> <sup>удалён</sup></h3><p>Use the <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a> for the optimal debugging experience.</p>
-
+{% raw %}
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$log</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-
+{% endraw %}
 <h2 id="Instance-DOM-Options"><a href="#Instance-DOM-Options" class="headerlink" title="Instance DOM Options"></a>Instance DOM Options</h2><h3 id="replace-false-удалён"><a href="#replace-false-удалён" class="headerlink" title="replace: false удалён"></a><code>replace: false</code> <sup>удалён</sup></h3><p>Components now always replace the element they’re bound to. To simulate the behavior of <code>replace: false</code>, you can wrap your root component with an element similar to the one you’re replacing. For example:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  template: <span class="string">'&lt;div id="app"&gt; ... &lt;/div&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div id="app"&gt; ... &lt;/div&gt;'</span>
+&#125;)</code></pre>
 <p>Or with a render function:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span> (<span class="params">h</span>) </span>&#123;</span><br><span class="line">    h(<span class="string">'div'</span>, &#123;</span><br><span class="line">      attrs: &#123;</span><br><span class="line">        id: <span class="string">'app'</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="comment">/* ... */</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">h</span>) </span>&#123;
+    h(<span class="hljs-string">'div'</span>, &#123;
+      <span class="hljs-attr">attrs</span>: &#123;
+        <span class="hljs-attr">id</span>: <span class="hljs-string">'app'</span>,
+      &#125;
+    &#125;, <span class="hljs-comment">/* ... */</span>)
+  &#125;
+&#125;)</code></pre>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1787,7 +2008,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

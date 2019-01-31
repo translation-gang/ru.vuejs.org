@@ -16,93 +16,123 @@
   font-weight: 600;
   src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url("/fonts/SourceSansPro-Semibold.otf.woff") format('woff');
 }
-.gutter pre {
-  color: #999;
-}
 pre {
+  border-radius: 2px;
+  position: relative;
+}
+pre code {
+  overflow-x: auto;
   color: #525252;
+  white-space: pre;
+  padding: 1.2em 1.4em;
+  line-height: 1.5em;
+  font-size: 1em;
+  display: block;
 }
-pre .function .keyword,
-pre .constant {
-  color: #0092db;
-}
-pre .keyword,
-pre .attribute {
-  color: #e96900;
-}
-pre .number,
-pre .literal {
-  color: #ae81ff;
-}
-pre .tag,
-pre .tag .title,
-pre .change,
-pre .winutils,
-pre .flow,
-pre .lisp .title,
-pre .clojure .built_in,
-pre .nginx .title,
-pre .tex .special {
+pre code .hljs-tag,
+pre code .hljs-tag pre code .hljs-title,
+pre code .hljs-change,
+pre code .hljs-winutils,
+pre code .hljs-flow,
+pre code .hljs-tex pre code .hljs-special {
   color: #2973b7;
 }
-pre .class .title {
+pre code .hljs-symbol,
+pre code .hljs-symbol pre code .hljs-string,
+pre code .hljs-value,
+pre code .hljs-regexp,
+pre code .hljs-string,
+pre code .hljs-subst,
+pre code .hljs-haskell pre code .hljs-type,
+pre code .hljs-preprocessor,
+pre code .hljs-ruby pre code .hljs-class pre code .hljs-parent,
+pre code .hljs-built_in,
+pre code .hljs-sql pre code .hljs-aggregate,
+pre code .hljs-django pre code .hljs-template_tag,
+pre code .hljs-django pre code .hljs-variable,
+pre code .hljs-smalltalk pre code .hljs-class,
+pre code .hljs-javadoc,
+pre code .hljs-django pre code .hljs-filter pre code .hljs-argument,
+pre code .hljs-smalltalk pre code .hljs-localvars,
+pre code .hljs-smalltalk pre code .hljs-array,
+pre code .hljs-attr_selector,
+pre code .hljs-pseudo,
+pre code .hljs-addition,
+pre code .hljs-stream,
+pre code .hljs-envvar,
+pre code .hljs-apache pre code .hljs-tag,
+pre code .hljs-apache pre code .hljs-cbracket,
+pre code .hljs-tex pre code .hljs-command,
+pre code .hljs-prompt {
+  color: #42b983;
+}
+pre code .hljs-function pre code .hljs-keyword,
+pre code .hljs-constant {
+  color: #0092db;
+}
+pre code .hljs-keyword,
+pre code .hljs-attribute {
+  color: #e96900;
+}
+pre code .hljs-number,
+pre code .hljs-literal {
+  color: #ae81ff;
+}
+pre code .hljs-class pre code .hljs-title {
   color: #fff;
 }
-pre .symbol,
-pre .symbol .string,
-pre .value,
-pre .regexp {
-  color: #42b983;
-}
-pre .title {
+pre code .hljs-title {
   color: #a6e22e;
 }
-pre .tag .value,
-pre .string,
-pre .subst,
-pre .haskell .type,
-pre .preprocessor,
-pre .ruby .class .parent,
-pre .built_in,
-pre .sql .aggregate,
-pre .django .template_tag,
-pre .django .variable,
-pre .smalltalk .class,
-pre .javadoc,
-pre .django .filter .argument,
-pre .smalltalk .localvars,
-pre .smalltalk .array,
-pre .attr_selector,
-pre .pseudo,
-pre .addition,
-pre .stream,
-pre .envvar,
-pre .apache .tag,
-pre .apache .cbracket,
-pre .tex .command,
-pre .prompt {
-  color: #42b983;
-}
-pre .comment,
-pre .java .annotation,
-pre .python .decorator,
-pre .template_comment,
-pre .pi,
-pre .doctype,
-pre .deletion,
-pre .shebang,
-pre .apache .sqbracket,
-pre .tex .formula {
+pre code .hljs-tag pre code .hljs-value,
+pre code .hljs-comment,
+pre code .hljs-java pre code .hljs-annotation,
+pre code .hljs-python pre code .hljs-decorator,
+pre code .hljs-template_comment,
+pre code .hljs-pi,
+pre code .hljs-doctype,
+pre code .hljs-deletion,
+pre code .hljs-shebang,
+pre code .hljs-apache pre code .hljs-sqbracket,
+pre code .hljs-tex pre code .hljs-formula {
   color: #b3b3b3;
 }
-pre .coffeescript .javascript,
-pre .javascript .xml,
-pre .tex .formula,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .xml .css,
-pre .xml .cdata {
+pre code .hljs-coffeescript pre code .hljs-javascript,
+pre code .hljs-javascript pre code .hljs-xml,
+pre code .hljs-tex pre code .hljs-formula,
+pre code .hljs-xml pre code .hljs-javascript,
+pre code .hljs-xml pre code .hljs-vbscript,
+pre code .hljs-xml pre code .hljs-css,
+pre code .hljs-xml pre code .hljs-cdata {
   opacity: 0.5;
+}
+pre code.hljs.html::before,
+pre code.hljs.js::before,
+pre code.hljs.bash::before,
+pre code.hljs.css::before {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ccc;
+  text-align: right;
+  font-size: 0.9em;
+  padding: 5px 10px 0;
+  line-height: 15px;
+  height: 15px;
+  font-weight: 600;
+}
+pre code.hljs.html::before {
+  content: "HTML";
+}
+pre code.hljs.js::before {
+  content: "JS";
+}
+pre code.hljs.bash::before {
+  content: "Shell";
+}
+pre code.hljs.css::before {
+  content: "CSS";
 }
 #ad {
   width: 125px;
@@ -272,60 +302,6 @@ input.button.gray {
   background-color: #f6f6f6;
   color: #7f8c8d;
   border-color: #f6f6f6;
-}
-.highlight {
-  overflow-x: auto;
-  background-color: #f8f8f8;
-  padding: 0.4em 0 0;
-  line-height: 1.1em;
-  border-radius: 2px;
-  position: relative;
-}
-.highlight table,
-.highlight tr,
-.highlight td {
-  width: 100%;
-  border-collapse: collapse;
-  padding: 0;
-  margin: 0;
-}
-.highlight .gutter {
-  width: 1.5em;
-}
-.highlight .code pre {
-  padding: 1.2em 1.4em;
-  line-height: 1.5em;
-  margin: 0;
-}
-.highlight .code .line {
-  min-height: 1.5em;
-}
-.highlight.html .code:before,
-.highlight.js .code:before,
-.highlight.bash .code:before,
-.highlight.css .code:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: #ccc;
-  text-align: right;
-  font-size: 0.75em;
-  padding: 5px 10px 0;
-  line-height: 15px;
-  height: 15px;
-  font-weight: 600;
-}
-.highlight.html .code:before {
-  content: "HTML";
-}
-.highlight.js .code:before {
-  content: "JS";
-}
-.highlight.bash .code:before {
-  content: "Shell";
-}
-.highlight.css .code:before {
-  content: "CSS";
 }
 #main {
   position: relative;

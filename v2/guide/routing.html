@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Роутинг — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1002,7 +1006,27 @@
     
       <h2 id="Официальный-роутер"><a href="#Официальный-роутер" class="headerlink" title="Официальный роутер"></a>Официальный роутер</h2><p>Для большинства одностраничных приложений (SPA) рекомендуется использовать официально поддерживаемую <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">библиотеку Vue-router</a>. Подробная информация по её использованию содержится в <a href="https://router.vuejs.org/ru/" target="_blank" rel="noopener">документации библиотеки</a>.</p>
 <h2 id="Простой-роутер-с-нуля"><a href="#Простой-роутер-с-нуля" class="headerlink" title="Простой роутер с нуля"></a>Простой роутер с нуля</h2><p>Если вам достаточно простейшего роутера и вы не хотите задействовать полновесную внешнюю библиотеку, может оказаться достаточно просто динамической отрисовки компонента уровня страницы:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> NotFound = &#123; <span class="attr">template</span>: <span class="string">'&lt;p&gt;Страница не найдена&lt;/p&gt;'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> Home = &#123; <span class="attr">template</span>: <span class="string">'&lt;p&gt;главная&lt;/p&gt;'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> About = &#123; <span class="attr">template</span>: <span class="string">'&lt;p&gt;о нас&lt;/p&gt;'</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = &#123;</span><br><span class="line">  <span class="string">'/'</span>: Home,</span><br><span class="line">  <span class="string">'/about'</span>: About</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    currentRoute: <span class="built_in">window</span>.location.pathname</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    ViewComponent () &#123;</span><br><span class="line">      <span class="keyword">return</span> routes[<span class="keyword">this</span>.currentRoute] || NotFound</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  render (h) &#123; <span class="keyword">return</span> h(<span class="keyword">this</span>.ViewComponent) &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> NotFound = &#123; <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;Страница не найдена&lt;/p&gt;'</span> &#125;
+<span class="hljs-keyword">const</span> Home = &#123; <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;главная&lt;/p&gt;'</span> &#125;
+<span class="hljs-keyword">const</span> About = &#123; <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;о нас&lt;/p&gt;'</span> &#125;
+
+<span class="hljs-keyword">const</span> routes = &#123;
+  <span class="hljs-string">'/'</span>: Home,
+  <span class="hljs-string">'/about'</span>: About
+&#125;
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">currentRoute</span>: <span class="hljs-built_in">window</span>.location.pathname
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    ViewComponent () &#123;
+      <span class="hljs-keyword">return</span> routes[<span class="hljs-keyword">this</span>.currentRoute] || NotFound
+    &#125;
+  &#125;,
+  render (h) &#123; <span class="hljs-keyword">return</span> h(<span class="hljs-keyword">this</span>.ViewComponent) &#125;
+&#125;)</code></pre>
 <p>В сочетании с HTML5 History API, вы можете создать простейший, но вполне рабочий клиентский роутер. Для практического примера, смотрите <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example" target="_blank" rel="noopener">это демонстрационное приложение</a>.</p>
 <h2 id="Интеграция-сторонних-роутеров"><a href="#Интеграция-сторонних-роутеров" class="headerlink" title="Интеграция сторонних роутеров"></a>Интеграция сторонних роутеров</h2><p>Если вы предпочитаете использовать сторонний роутер, как например <a href="https://github.com/visionmedia/page.js" target="_blank" rel="noopener">Page.js</a> или <a href="https://github.com/flatiron/director" target="_blank" rel="noopener">Director</a>, интеграция <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/compare/master...pagejs" target="_blank" rel="noopener">тоже довольна проста</a>. Вот <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs" target="_blank" rel="noopener">полный пример</a> для Page.js.</p>
 
@@ -1051,7 +1075,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

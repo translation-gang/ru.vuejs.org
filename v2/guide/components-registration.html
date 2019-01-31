@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Регистрация компонентов — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1004,31 +1008,63 @@
 <p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
 </blockquote>
 <h2 id="Именование-компонентов"><a href="#Именование-компонентов" class="headerlink" title="Именование компонентов"></a>Именование компонентов</h2><p>При регистрации компонента у него всегда будет имя. Например, при глобальной регистрации, которую мы видели до сих пор:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component-name'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component-name'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)</code></pre>
 <p>Именем компонента будет первый аргумент <code>Vue.component</code>.</p>
 <p>Имя, которое вы даёте компоненту, может зависеть от того, где вы собираетесь его использовать. При использовании компонента непосредственно в DOM (в отличие от строковых шаблонов или <a href="single-file-components.html">однофайловых компонентов</a>), мы настоятельно рекомендуем следовать <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name" target="_blank" rel="noopener">правилам W3C</a> для именования пользовательских тегов (все символы в нижнем регистре, должен содержать дефис). Это позволит избежать конфликтов с текущими и будущими HTML-элементами.</p>
 <p>Вы можете изучить другие рекомендации по именованию компонентов в разделе <a href="../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется">Рекомендаций</a>.</p>
 <h3 id="Стиль-именования"><a href="#Стиль-именования" class="headerlink" title="Стиль именования"></a>Стиль именования</h3><p>У вас есть два способа указания имён компонентов:</p>
-<h4 id="В-стиле-kebab-case"><a href="#В-стиле-kebab-case" class="headerlink" title="В стиле kebab-case"></a>В стиле kebab-case</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component-name'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="В-стиле-kebab-case"><a href="#В-стиле-kebab-case" class="headerlink" title="В стиле kebab-case"></a>В стиле kebab-case</h4><pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component-name'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)</code></pre>
 <p>При определении компонента в стиле kebab-case, вы также должны использовать kebab-case при обращении к пользовательскому элементу, например так <code>&lt;my-component-name&gt;</code>.</p>
-<h4 id="В-стиле-PascalCase"><a href="#В-стиле-PascalCase" class="headerlink" title="В стиле PascalCase"></a>В стиле PascalCase</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'MyComponentName'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="В-стиле-PascalCase"><a href="#В-стиле-PascalCase" class="headerlink" title="В стиле PascalCase"></a>В стиле PascalCase</h4><pre><code class="hljs js">Vue.component(<span class="hljs-string">'MyComponentName'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)</code></pre>
 <p>При определении компонента в стиле PascalCase, вы можете использовать любой стиль именования при обращении к пользовательскому элементу. Это означает, что <code>&lt;my-component-name&gt;</code> и <code>&lt;MyComponentName&gt;</code> являются приемлемыми вариантами. Однако, обратите внимание, что только имена в kebab-case являются валидными при использовании непосредственно в DOM (т.е. не строковые шаблоны).</p>
 <h2 id="Глобальная-регистрация"><a href="#Глобальная-регистрация" class="headerlink" title="Глобальная регистрация"></a>Глобальная регистрация</h2><p>До сих пор мы создавали компоненты с помощью <code>Vue.component</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component-name'</span>, &#123;</span><br><span class="line">  <span class="comment">// ... опции ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component-name'</span>, &#123;
+  <span class="hljs-comment">// ... опции ...</span>
+&#125;)</code></pre>
 <p>Такие компоненты <strong>регистрируются глобально</strong>. Это означает, что они могут использоваться в шаблоне любого корневого экземпляра (<code>new Vue</code>), созданного после регистрации. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'component-a'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br><span class="line">Vue.component(<span class="string">'component-b'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br><span class="line">Vue.component(<span class="string">'component-c'</span>, &#123; <span class="comment">/* ... */</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123; <span class="attr">el</span>: <span class="string">'#app'</span> &#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-a</span>&gt;</span><span class="tag">&lt;/<span class="name">component-a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-b</span>&gt;</span><span class="tag">&lt;/<span class="name">component-b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-c</span>&gt;</span><span class="tag">&lt;/<span class="name">component-c</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'component-a'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)
+Vue.component(<span class="hljs-string">'component-b'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)
+Vue.component(<span class="hljs-string">'component-c'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)
+
+<span class="hljs-keyword">new</span> Vue(&#123; <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span> &#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component-a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component-a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component-b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component-b</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component-c</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component-c</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Это относится также ко всем дочерним компонентам и означает что все три из этих компонентов также будут доступны <em>внутри каждого из них</em>.</p>
 <h2 id="Локальная-регистрация"><a href="#Локальная-регистрация" class="headerlink" title="Локальная регистрация"></a>Локальная регистрация</h2><p>Глобальная регистрация часто не идеальна. Например, если вы используете систему сборки, такую как Webpack, глобальная регистрация всех компонентов означает, что даже если вы прекратите использовать компонент, то он всё равно будет включён в вашу сборку приложения. Это излишне увеличит количество JavaScript, который должны будут загрузить ваши пользователи.</p>
 <p>В таких случаях вы можете определить свои компоненты как обычные объекты JavaScript:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ComponentA = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> ComponentB = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"><span class="keyword">var</span> ComponentC = &#123; <span class="comment">/* ... */</span> &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> ComponentA = &#123; <span class="hljs-comment">/* ... */</span> &#125;
+<span class="hljs-keyword">var</span> ComponentB = &#123; <span class="hljs-comment">/* ... */</span> &#125;
+<span class="hljs-keyword">var</span> ComponentC = &#123; <span class="hljs-comment">/* ... */</span> &#125;</code></pre>
 <p>Затем укажите компоненты которые вы хотите использовать в опции <code>components</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  components: &#123;</span><br><span class="line">    <span class="string">'component-a'</span>: ComponentA,</span><br><span class="line">    <span class="string">'component-b'</span>: ComponentB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">components</span>: &#123;
+    <span class="hljs-string">'component-a'</span>: ComponentA,
+    <span class="hljs-string">'component-b'</span>: ComponentB
+  &#125;
+&#125;)</code></pre>
 <p>Для каждого свойства в объекте <code>components</code>, ключ будет именем пользовательского элемента, в то время как значение будет объектом, содержащим опции компонента.</p>
 <p>Обратите внимание, что <strong>локально зарегистрированные компоненты <em>не будут</em> доступны в дочерних компонентах</strong>. Например, если вы хотите, чтобы <code>ComponentA</code> был доступен в <code>ComponentB</code>, вам нужно будет использовать:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ComponentA = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ComponentB = &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    <span class="string">'component-a'</span>: ComponentA</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> ComponentA = &#123; <span class="hljs-comment">/* ... */</span> &#125;
+
+<span class="hljs-keyword">var</span> ComponentB = &#123;
+  <span class="hljs-attr">components</span>: &#123;
+    <span class="hljs-string">'component-a'</span>: ComponentA
+  &#125;,
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
 <p>Или если вы используете модули ES2015, например, через Babel и Webpack, это может выглядеть так:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> ComponentA <span class="keyword">from</span> <span class="string">'./ComponentA.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    ComponentA</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> ComponentA <span class="hljs-keyword">from</span> <span class="hljs-string">'./ComponentA.vue'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">components</span>: &#123;
+    ComponentA
+  &#125;,
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
 <p>Обратите внимание, что в ES2015+ указание имени переменной, такой как <code>ComponentA</code> внутри объекта, является сокращением для <code>ComponentA: ComponentA</code>, что означает имя переменной будет:</p>
 <ul>
 <li>именем пользовательского элемента для использования в шаблоне, и</li>
@@ -1037,15 +1073,73 @@
 <h2 id="Модульные-системы"><a href="#Модульные-системы" class="headerlink" title="Модульные системы"></a>Модульные системы</h2><p>Если вы не используете модульную систему с <code>import</code>/<code>require</code>, вы можете пропустить этот раздел сейчас. Если используете — у нас есть для вас специальные инструкции и советы.</p>
 <h3 id="Локальная-регистрация-в-модульной-системе"><a href="#Локальная-регистрация-в-модульной-системе" class="headerlink" title="Локальная регистрация в модульной системе"></a>Локальная регистрация в модульной системе</h3><p>Если вы ещё здесь, вероятно вы используете модульную систему, такую как Babel и Webpack. В этих случаях мы рекомендуем создать каталог <code>components</code>, с каждым компонентом в его собственном файле.</p>
 <p>Затем вам нужно будет импортировать каждый компонент, который вы хотите использовать, прежде чем регистрировать его локально. Например, в гипотетическом файле <code>ComponentB.js</code> или <code>ComponentB.vue</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> ComponentA <span class="keyword">from</span> <span class="string">'./ComponentA'</span></span><br><span class="line"><span class="keyword">import</span> ComponentC <span class="keyword">from</span> <span class="string">'./ComponentC'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    ComponentA,</span><br><span class="line">    ComponentC</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> ComponentA <span class="hljs-keyword">from</span> <span class="hljs-string">'./ComponentA'</span>
+<span class="hljs-keyword">import</span> ComponentC <span class="hljs-keyword">from</span> <span class="hljs-string">'./ComponentC'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">components</span>: &#123;
+    ComponentA,
+    ComponentC
+  &#125;,
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
 <p>Теперь оба компонента <code>ComponentA</code> и <code>ComponentC</code> могут быть использованы в шаблоне <code>ComponentB</code>.</p>
 <h3 id="Автоматическая-глобальная-регистрация-базовых-компонентов"><a href="#Автоматическая-глобальная-регистрация-базовых-компонентов" class="headerlink" title="Автоматическая глобальная регистрация базовых компонентов"></a>Автоматическая глобальная регистрация базовых компонентов</h3><p>Многие из ваших компонентов будут относительно общими, возможно только оборачивая элемент, например input или button. Мы иногда ссылаемся на них, как на <a href="../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется">базовые компоненты</a> и они, как правило, очень часто используются в ваших компонентах.</p>
 <p>В результате многие компоненты будут содержать в себе длинные списки базовых компонентов:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> BaseButton <span class="keyword">from</span> <span class="string">'./BaseButton.vue'</span></span><br><span class="line"><span class="keyword">import</span> BaseIcon <span class="keyword">from</span> <span class="string">'./BaseIcon.vue'</span></span><br><span class="line"><span class="keyword">import</span> BaseInput <span class="keyword">from</span> <span class="string">'./BaseInput.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    BaseButton,</span><br><span class="line">    BaseIcon,</span><br><span class="line">    BaseInput</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> BaseButton <span class="hljs-keyword">from</span> <span class="hljs-string">'./BaseButton.vue'</span>
+<span class="hljs-keyword">import</span> BaseIcon <span class="hljs-keyword">from</span> <span class="hljs-string">'./BaseIcon.vue'</span>
+<span class="hljs-keyword">import</span> BaseInput <span class="hljs-keyword">from</span> <span class="hljs-string">'./BaseInput.vue'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">components</span>: &#123;
+    BaseButton,
+    BaseIcon,
+    BaseInput
+  &#125;
+&#125;</code></pre>
 <p>Только для поддержки относительно небольшой разметки в шаблоне:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">BaseInput</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-model</span>=<span class="string">"searchText"</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.enter</span>=<span class="string">"search"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">BaseButton</span> @<span class="attr">click</span>=<span class="string">"search"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">BaseIcon</span> <span class="attr">name</span>=<span class="string">"search"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">BaseButton</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">BaseInput</span>
+  <span class="hljs-attr">v-model</span>=<span class="hljs-string">"searchText"</span>
+  @<span class="hljs-attr">keydown.enter</span>=<span class="hljs-string">"search"</span>
+/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">BaseButton</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"search"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">BaseIcon</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"search"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">BaseButton</span>&gt;</span></code></pre>
 <p>К счастью, если вы используете Webpack (или <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI 3+</a>, которая использует Webpack внутри), вы можете использовать <code>require.context</code> для глобальной регистрации только таких, очень общих базовых компонентов. Ниже приведён пример кода, который можно использовать для глобального импорта базовых компонентов в файле точки старта вашего приложения (например, <code>src/main.js</code>):</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> upperFirst <span class="keyword">from</span> <span class="string">'lodash/upperFirst'</span></span><br><span class="line"><span class="keyword">import</span> camelCase <span class="keyword">from</span> <span class="string">'lodash/camelCase'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> requireComponent = <span class="built_in">require</span>.context(</span><br><span class="line">  <span class="comment">// Относительный путь до каталога компонентов</span></span><br><span class="line">  <span class="string">'./components'</span>,</span><br><span class="line">  <span class="comment">// Обрабатывать или нет подкаталоги</span></span><br><span class="line">  <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// Регулярное выражение для определения файлов базовых компонентов</span></span><br><span class="line">  /Base[A-Z]\w+\.(vue|js)$/</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="params">fileName</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Получение конфигурации компонента</span></span><br><span class="line">  <span class="keyword">const</span> componentConfig = requireComponent(fileName)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Получение имени компонента в PascalCase</span></span><br><span class="line">  <span class="keyword">const</span> componentName = upperFirst(</span><br><span class="line">    camelCase(</span><br><span class="line">      <span class="comment">// Удаление из начала `./` и расширения из имени файла</span></span><br><span class="line">      fileName.replace(<span class="regexp">/^\.\/(.*)\.\w+$/</span>, <span class="string">'$1'</span>)</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Глобальная регистрация компонента</span></span><br><span class="line">  Vue.component(</span><br><span class="line">    componentName,</span><br><span class="line">    <span class="comment">// Поиск опций компонента в `.default`, который будет существовать,</span></span><br><span class="line">    <span class="comment">// если компонент экспортирован с помощью `export default`,</span></span><br><span class="line">    <span class="comment">// иначе будет использован корневой уровень модуля.</span></span><br><span class="line">    componentConfig.default || componentConfig</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> upperFirst <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash/upperFirst'</span>
+<span class="hljs-keyword">import</span> camelCase <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash/camelCase'</span>
+
+<span class="hljs-keyword">const</span> requireComponent = <span class="hljs-built_in">require</span>.context(
+  <span class="hljs-comment">// Относительный путь до каталога компонентов</span>
+  <span class="hljs-string">'./components'</span>,
+  <span class="hljs-comment">// Обрабатывать или нет подкаталоги</span>
+  <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// Регулярное выражение для определения файлов базовых компонентов</span>
+  /Base[A-Z]\w+\.(vue|js)$/
+)
+
+requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-params">fileName</span> =&gt;</span> &#123;
+  <span class="hljs-comment">// Получение конфигурации компонента</span>
+  <span class="hljs-keyword">const</span> componentConfig = requireComponent(fileName)
+
+  <span class="hljs-comment">// Получение имени компонента в PascalCase</span>
+  <span class="hljs-keyword">const</span> componentName = upperFirst(
+    camelCase(
+      <span class="hljs-comment">// Удаление из начала `./` и расширения из имени файла</span>
+      fileName.replace(<span class="hljs-regexp">/^\.\/(.*)\.\w+$/</span>, <span class="hljs-string">'$1'</span>)
+    )
+  )
+
+  <span class="hljs-comment">// Глобальная регистрация компонента</span>
+  Vue.component(
+    componentName,
+    <span class="hljs-comment">// Поиск опций компонента в `.default`, который будет существовать,</span>
+    <span class="hljs-comment">// если компонент экспортирован с помощью `export default`,</span>
+    <span class="hljs-comment">// иначе будет использован корневой уровень модуля.</span>
+    componentConfig.default || componentConfig
+  )
+&#125;)</code></pre>
 <p>Запомните, что <strong>глобальная регистрация должна происходить до создания корневого экземпляра Vue (с помощью <code>new Vue</code>)</strong>. <a href="https://github.com/chrisvfritz/vue-enterprise-boilerplate/blob/master/src/components/_globals.js" target="_blank" rel="noopener">Вот пример</a> этого шаблона в реальном контексте проекта.</p>
 
     
@@ -1093,7 +1187,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

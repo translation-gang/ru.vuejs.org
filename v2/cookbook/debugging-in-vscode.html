@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Отладка в VS Code — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -441,7 +441,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -463,18 +467,45 @@
 <p>Установите и создайте проект с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, следуя инструкциям по установке в <a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">руководстве Vue CLI</a>. Перейдите в каталог новосозданного приложения и откройте VS Code.</p>
 <h3 id="Отображение-исходного-кода-в-браузере"><a href="#Отображение-исходного-кода-в-браузере" class="headerlink" title="Отображение исходного кода в браузере"></a>Отображение исходного кода в браузере</h3><p>Перед тем, как вы сможете отлаживать ваши компоненты Vue из VS Code, вам необходимо обновить сгенерированную конфигурацию Webpack для генерации sourcemaps. Мы делаем это, чтобы отладчик имел возможность сопоставлять код в сжатых файлов со строками в оригинальных. Это гарантирует, что вы можете отлаживать приложения даже после того, как все ваши ресурсы были оптимизированы с помощью Webpack.</p>
 <p>Если вы используете Vue CLI 2, установите или обновите свойство <code>devtool</code> в файле <code>config/index.js</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">devtool: <span class="string">'source-map'</span>,</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">devtool: <span class="hljs-string">'source-map'</span>,</code></pre>
 <p>Если вы используете Vue CLI 3, установите или обновите свойство <code>devtool</code> в файле <code>vue.config.js</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    devtool: <span class="string">'source-map'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
+  <span class="hljs-attr">configureWebpack</span>: &#123;
+    <span class="hljs-attr">devtool</span>: <span class="hljs-string">'source-map'</span>
+  &#125;
+&#125;</code></pre>
 <h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление “Отладка”, затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome/Firefox: Launch</strong> в качестве окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
 <p><img src="/images/config_add.png" alt="Добавление конфигурации Chrome"></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"chrome"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: chrome"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"breakOnLoad"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"sourceMapPathOverrides"</span>: &#123;</span><br><span class="line">        <span class="attr">"webpack:///src/*"</span>: <span class="string">"$&#123;webRoot&#125;/*"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"firefox"</span>,</span><br><span class="line">      <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"vuejs: firefox"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"http://localhost:8080"</span>,</span><br><span class="line">      <span class="attr">"webRoot"</span>: <span class="string">"$&#123;workspaceFolder&#125;/src"</span>,</span><br><span class="line">      <span class="attr">"pathMappings"</span>: [&#123; <span class="attr">"url"</span>: <span class="string">"webpack:///src/"</span>, <span class="attr">"path"</span>: <span class="string">"$&#123;webRoot&#125;/"</span> &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs json">&#123;
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,
+  <span class="hljs-attr">"configurations"</span>: [
+    &#123;
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"chrome"</span>,
+      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"vuejs: chrome"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://localhost:8080"</span>,
+      <span class="hljs-attr">"webRoot"</span>: <span class="hljs-string">"$&#123;workspaceFolder&#125;/src"</span>,
+      <span class="hljs-attr">"breakOnLoad"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"sourceMapPathOverrides"</span>: &#123;
+        <span class="hljs-attr">"webpack:///src/*"</span>: <span class="hljs-string">"$&#123;webRoot&#125;/*"</span>
+      &#125;
+    &#125;,
+    &#123;
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"firefox"</span>,
+      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"vuejs: firefox"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://localhost:8080"</span>,
+      <span class="hljs-attr">"webRoot"</span>: <span class="hljs-string">"$&#123;workspaceFolder&#125;/src"</span>,
+      <span class="hljs-attr">"pathMappings"</span>: [&#123; <span class="hljs-attr">"url"</span>: <span class="hljs-string">"webpack:///src/"</span>, <span class="hljs-attr">"path"</span>: <span class="hljs-string">"$&#123;webRoot&#125;/"</span> &#125;]
+    &#125;
+  ]
+&#125;</code></pre>
 <h2 id="Установка-точки-останова"><a href="#Установка-точки-останова" class="headerlink" title="Установка точки останова"></a>Установка точки останова</h2><ol>
 <li><p>Установите точку останова в файле <strong>src/components/HelloWorld.vue</strong> на <code>строке 90</code> где функция <code>data</code> возвращает строку.</p>
 <p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
 </li>
 <li><p>Откройте свою любимую консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs undefined">npm start</code></pre>
 </li>
 <li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome/firefox’</strong>, затем нажмите F5 или зелёную кнопку для старта.</p>
 </li>
@@ -487,7 +518,20 @@
 <p class="tip">Обратите внимание, если на странице используется production/минифицированная сборка Vue.js (как например, стандартная ссылка на CDN), то проверка инструментов разработки по умолчанию отключена и поэтому панель Vue не будет отображаться в инструментах разработчика. Если вы переключитесь на неминифицированную версию, вам может потребоваться обновить страницу, чтобы увидеть изменения.</p>
 
 <h3 id="Использование-выражения-Debugger"><a href="#Использование-выражения-Debugger" class="headerlink" title="Использование выражения Debugger"></a>Использование выражения Debugger</h3><p>Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger" target="_blank" rel="noopener">нативное выражение debugger</a> прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти выражения после окончания отладки.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">  data() &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      message: <span class="string">''</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;,</span></span><br><span class="line"><span class="undefined">  mounted() &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> hello = <span class="string">'Hello World!'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">debugger</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">this</span>.message = hello</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  data() &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">message</span>: <span class="hljs-string">''</span>
+    &#125;
+  &#125;,
+  mounted() &#123;
+    <span class="hljs-keyword">const</span> hello = <span class="hljs-string">'Hello World!'</span>
+    <span class="hljs-keyword">debugger</span>
+    <span class="hljs-keyword">this</span>.message = hello
+  &#125;
+&#125;;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт был основан на примере <a href="https://twitter.com/auchenberg" target="_blank" rel="noopener">Kenneth Auchenberg</a>, который <a href="https://github.com/Microsoft/VSCode-recipes/tree/master/vuejs-cli" target="_blank" rel="noopener">доступен здесь</a>.</p>
 
     
@@ -524,7 +568,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

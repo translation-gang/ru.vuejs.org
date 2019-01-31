@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Создание блога, управляемого CMS — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -441,7 +441,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -455,28 +459,158 @@
 <p>Мы собираемся быстро создать блог на основе CMS с помощью Vue.js. Мы будем использовать <a href="https://buttercms.com/" target="_blank" rel="noopener">ButterCMS</a>, CMS в первую очередь ориентированную на API, которая позволяет управлять контентом с помощью панели управления ButterCMS и интегрировать API для получения контента в ваше приложение Vue.js. Вы можете использовать ButterCMS для новых или уже существующих проектов Vue.js.</p>
 <p><img src="https://user-images.githubusercontent.com/160873/36677285-648798e4-1ad3-11e8-9454-d22fca8280b7.png" alt="Панель управления Butter" title="Butter Dashboard"></p>
 <h2 id="Установка"><a href="#Установка" class="headerlink" title="Установка"></a>Установка</h2><p>Выполните в командной строке:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install buttercms --save</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs bash">npm install buttercms --save</code></pre>
 <p>Butter также можно подключить с помощью CDN:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <h2 id="Быстрый-старт"><a href="#Быстрый-старт" class="headerlink" title="Быстрый старт"></a>Быстрый старт</h2><p>Установите ваш токен API:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> butter = <span class="built_in">require</span>(<span class="string">'buttercms'</span>)(<span class="string">'your_api_token'</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> butter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'buttercms'</span>)(<span class="hljs-string">'your_api_token'</span>);</code></pre>
 <p>С использованием ES6:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Butter <span class="keyword">from</span> <span class="string">'buttercms'</span>;</span><br><span class="line"><span class="keyword">const</span> butter = Butter(<span class="string">'your_api_token'</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> Butter <span class="hljs-keyword">from</span> <span class="hljs-string">'buttercms'</span>;
+<span class="hljs-keyword">const</span> butter = Butter(<span class="hljs-string">'your_api_token'</span>);</code></pre>
 <p>С использованием CDN:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> butter = Butter(<span class="string">'your_api_token'</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.buttercms.com/buttercms-1.1.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">var</span> butter = Butter(<span class="hljs-string">'your_api_token'</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Импортируйте этот файл в любой компонент, где вы хотите использовать ButterCMS. Затем выполните в консоли команду:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">butter.post.list(&#123;<span class="attr">page</span>: <span class="number">1</span>, <span class="attr">page_size</span>: <span class="number">10</span>&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs javascript">butter.post.list(&#123;<span class="hljs-attr">page</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">page_size</span>: <span class="hljs-number">10</span>&#125;).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(response)
+&#125;)</code></pre>
 <p>Запрос к API получит ваши записи блога. В вашей учётной записи уже будет одна запись в качестве примера, которую вы и увидите в ответе сервера.</p>
 <h2 id="Отображение-записей"><a href="#Отображение-записей" class="headerlink" title="Отображение записей"></a>Отображение записей</h2><p>Для отображения записей мы создадим маршрут <code>/blog</code> (используя Vue Router) в нашем приложении и будем получать записи блога через Butter API, аналогично будет работать маршрут <code>/blog/:slug</code> для работы с конкретными записями блога.</p>
 <p>Обратитесь к <a href="https://buttercms.com/docs/api/?javascript#blog-posts" target="_blank" rel="noopener">справочнику API</a> ButterCMS для получения информации по  дополнительным опциям, таким как фильтрация по категориям или автору. Ответ сервера также включает некоторые метаданные, которые мы будем использовать для пагинации.</p>
 <p><code>router/index.js:</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> BlogHome <span class="keyword">from</span> <span class="string">'@/components/BlogHome'</span></span><br><span class="line"><span class="keyword">import</span> BlogPost <span class="keyword">from</span> <span class="string">'@/components/BlogPost'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/blog/'</span>,</span><br><span class="line">      name: <span class="string">'blog-home'</span>,</span><br><span class="line">      component: BlogHome</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/blog/:slug'</span>,</span><br><span class="line">      name: <span class="string">'blog-post'</span>,</span><br><span class="line">      component: BlogPost</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-router'</span>
+<span class="hljs-keyword">import</span> BlogHome <span class="hljs-keyword">from</span> <span class="hljs-string">'@/components/BlogHome'</span>
+<span class="hljs-keyword">import</span> BlogPost <span class="hljs-keyword">from</span> <span class="hljs-string">'@/components/BlogPost'</span>
+
+Vue.use(Router)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router(&#123;
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">'history'</span>,
+  <span class="hljs-attr">routes</span>: [
+    &#123;
+      <span class="hljs-attr">path</span>: <span class="hljs-string">'/blog/'</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'blog-home'</span>,
+      <span class="hljs-attr">component</span>: BlogHome
+    &#125;,
+    &#123;
+      <span class="hljs-attr">path</span>: <span class="hljs-string">'/blog/:slug'</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'blog-post'</span>,
+      <span class="hljs-attr">component</span>: BlogPost
+    &#125;
+  ]
+&#125;)</code></pre>
 <p>Затем создадим <code>components/BlogHome.vue</code>, который будет страницей вашего блога со списком последних записей.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> &#123; butter &#125; <span class="keyword">from</span> <span class="string">'@/buttercms'</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name: <span class="string">'blog-home'</span>,</span></span><br><span class="line"><span class="undefined">    data() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">        page_title: <span class="string">'Blog'</span>,</span></span><br><span class="line"><span class="undefined">        posts: []</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    methods: &#123;</span></span><br><span class="line"><span class="undefined">      getPosts() &#123;</span></span><br><span class="line"><span class="undefined">        butter.post.list(&#123;</span></span><br><span class="line"><span class="undefined">          page: 1,</span></span><br><span class="line"><span class="undefined">          page_size: 10</span></span><br><span class="line"><span class="javascript">        &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">this</span>.posts = res.data.data</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    created() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.getPosts()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"blog-home"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; page_title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Создаём `v-for` и добавляем `key` для Vue. --&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- Для этого используем комбинацию slug и index --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">        <span class="attr">v-for</span>=<span class="string">"(post,index) in posts"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">:key</span>=<span class="string">"post.slug + '_' + index"</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"'/blog/' + post.slug"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"media"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- Привязываем результаты с помощью `:` --&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- Используем `v-if`/`else` для отображения картинки записи блога (`featured_image`) --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-if</span>=<span class="string">"post.featured_image"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:src</span>=<span class="string">"post.featured_image"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">alt</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">              &gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">img</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">                <span class="attr">src</span>=<span class="string">"http://via.placeholder.com/250x250"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">alt</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">              &gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123; post.title &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; post.summary &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> &#123; butter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/buttercms'</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'blog-home'</span>,
+    data() &#123;
+      <span class="hljs-keyword">return</span> &#123;
+        <span class="hljs-attr">page_title</span>: <span class="hljs-string">'Blog'</span>,
+        <span class="hljs-attr">posts</span>: []
+      &#125;
+    &#125;,
+    <span class="hljs-attr">methods</span>: &#123;
+      getPosts() &#123;
+        butter.post.list(&#123;
+          <span class="hljs-attr">page</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-attr">page_size</span>: <span class="hljs-number">10</span>
+        &#125;).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+          <span class="hljs-keyword">this</span>.posts = res.data.data
+        &#125;)
+      &#125;
+    &#125;,
+    created() &#123;
+      <span class="hljs-keyword">this</span>.getPosts()
+    &#125;
+  &#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"blog-home"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;&#123; page_title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-comment">&lt;!-- Создаём `v-for` и добавляем `key` для Vue. --&gt;</span>
+      <span class="hljs-comment">&lt;!-- Для этого используем комбинацию slug и index --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(post,index) in posts"</span>
+        <span class="hljs-attr">:key</span>=<span class="hljs-string">"post.slug + '_' + index"</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">:to</span>=<span class="hljs-string">"'/blog/' + post.slug"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">figure</span>&gt;</span>
+              <span class="hljs-comment">&lt;!-- Привязываем результаты с помощью `:` --&gt;</span>
+              <span class="hljs-comment">&lt;!-- Используем `v-if`/`else` для отображения картинки записи блога (`featured_image`) --&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">img</span>
+                <span class="hljs-attr">v-if</span>=<span class="hljs-string">"post.featured_image"</span>
+                <span class="hljs-attr">:src</span>=<span class="hljs-string">"post.featured_image"</span>
+                <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>
+              &gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">img</span>
+                <span class="hljs-attr">v-else</span>
+                <span class="hljs-attr">src</span>=<span class="hljs-string">"http://via.placeholder.com/250x250"</span>
+                <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>
+              &gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&#123;&#123; post.title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; post.summary &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 <p>Вот как это выглядит (обратите внимание, что мы добавили CSS из <a href="https://bulma.io/" target="_blank" rel="noopener">https://bulma.io/</a> для быстрой стилизации):</p>
 <p><img src="https://user-images.githubusercontent.com/160873/36868500-1b22e374-1d5e-11e8-82a0-20c8dc312716.png" alt="buttercms-bloglist"></p>
 <p>Теперь создадим <code>components/BlogPost.vue</code> который будет страницей записи блога с данными по каждой из записей.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> &#123; butter &#125; <span class="keyword">from</span> <span class="string">'@/buttercms'</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name: <span class="string">'blog-post'</span>,</span></span><br><span class="line"><span class="undefined">    data() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="undefined">        post: &#123;&#125;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    methods: &#123;</span></span><br><span class="line"><span class="undefined">      getPost() &#123;</span></span><br><span class="line"><span class="javascript">        butter.post.retrieve(<span class="keyword">this</span>.$route.params.slug)</span></span><br><span class="line"><span class="javascript">          .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.post = res.data</span></span><br><span class="line"><span class="javascript">          &#125;).catch(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(res)</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    created() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.getPost()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"blog-post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; post.data.title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>&#123;&#123; post.data.author.first_name &#125;&#125; &#123;&#123; post.data.author.last_name &#125;&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"post.data.body"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-if</span>=<span class="string">"post.meta.previous_post"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:to</span>=<span class="string">"/blog/ + post.meta.previous_post.slug"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"button"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; post.meta.previous_post.title &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-if</span>=<span class="string">"post.meta.next_post"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:to</span>=<span class="string">"/blog/ + post.meta.next_post.slug"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"button"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &#123;&#123; post.meta.next_post.title &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> &#123; butter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/buttercms'</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'blog-post'</span>,
+    data() &#123;
+      <span class="hljs-keyword">return</span> &#123;
+        <span class="hljs-attr">post</span>: &#123;&#125;
+      &#125;
+    &#125;,
+    <span class="hljs-attr">methods</span>: &#123;
+      getPost() &#123;
+        butter.post.retrieve(<span class="hljs-keyword">this</span>.$route.params.slug)
+          .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+            <span class="hljs-keyword">this</span>.post = res.data
+          &#125;).catch(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+            <span class="hljs-built_in">console</span>.log(res)
+          &#125;)
+      &#125;
+    &#125;,
+    created() &#123;
+      <span class="hljs-keyword">this</span>.getPost()
+    &#125;
+  &#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"blog-post"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;&#123; post.data.title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>&#123;&#123; post.data.author.first_name &#125;&#125; &#123;&#123; post.data.author.last_name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"post.data.body"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span>
+      <span class="hljs-attr">v-if</span>=<span class="hljs-string">"post.meta.previous_post"</span>
+      <span class="hljs-attr">:to</span>=<span class="hljs-string">"/blog/ + post.meta.previous_post.slug"</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>
+    &gt;</span>
+      &#123;&#123; post.meta.previous_post.title &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span>
+      <span class="hljs-attr">v-if</span>=<span class="hljs-string">"post.meta.next_post"</span>
+      <span class="hljs-attr">:to</span>=<span class="hljs-string">"/blog/ + post.meta.next_post.slug"</span>
+      <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>
+    &gt;</span>
+      &#123;&#123; post.meta.next_post.title &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 <p>Вот так это будет выглядеть:</p>
 <p><img src="https://user-images.githubusercontent.com/160873/36868506-218c86b6-1d5e-11e8-8691-0409d91366d6.png" alt="buttercms-blogdetail"></p>
 <p>Теперь наше приложение загружает все записи и мы можем переходить к чтению конкретной записи блога. Однако, наши кнопки следующей/предыдущей записи ещё не работают.</p>
@@ -485,7 +619,36 @@
 
 <p>Чтобы исправить это, нам необходимо отслеживать объект <code>$route</code> и вызывать <code>getPost()</code> при изменении маршрута.</p>
 <p>Обновлённая секция <code>&lt;script&gt;</code> в файле <code>components/BlogPost.vue</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> &#123; butter &#125; <span class="keyword">from</span> <span class="string">'@/buttercms'</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    name: <span class="string">'blog-post'</span>,</span></span><br><span class="line"><span class="undefined">    data() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">        post: <span class="literal">null</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    methods: &#123;</span></span><br><span class="line"><span class="undefined">      getPost() &#123;</span></span><br><span class="line"><span class="javascript">        butter.post.retrieve(<span class="keyword">this</span>.$route.params.slug)</span></span><br><span class="line"><span class="javascript">          .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">// console.log(res.data)</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.post = res.data</span></span><br><span class="line"><span class="javascript">          &#125;).catch(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(res)</span></span><br><span class="line"><span class="undefined">          &#125;)</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    watch: &#123;</span></span><br><span class="line"><span class="javascript">      $route(to, <span class="keyword">from</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.getPost()</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    created() &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.getPost()</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> &#123; butter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/buttercms'</span>
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'blog-post'</span>,
+    data() &#123;
+      <span class="hljs-keyword">return</span> &#123;
+        <span class="hljs-attr">post</span>: <span class="hljs-literal">null</span>
+      &#125;
+    &#125;,
+    <span class="hljs-attr">methods</span>: &#123;
+      getPost() &#123;
+        butter.post.retrieve(<span class="hljs-keyword">this</span>.$route.params.slug)
+          .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+            <span class="hljs-comment">// console.log(res.data)</span>
+            <span class="hljs-keyword">this</span>.post = res.data
+          &#125;).catch(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+            <span class="hljs-built_in">console</span>.log(res)
+          &#125;)
+      &#125;
+    &#125;,
+    <span class="hljs-attr">watch</span>: &#123;
+      $route(to, <span class="hljs-keyword">from</span>) &#123;
+        <span class="hljs-keyword">this</span>.getPost()
+      &#125;
+    &#125;,
+    created() &#123;
+      <span class="hljs-keyword">this</span>.getPost()
+    &#125;
+  &#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Теперь у нашего приложения есть рабочий блог, который можно легко обновлять через панель инструментов ButterCMS.</p>
 <h2 id="Категории-теги-и-авторы"><a href="#Категории-теги-и-авторы" class="headerlink" title="Категории, теги и авторы"></a>Категории, теги и авторы</h2><p>Используйте API Butter для категорий, тегов и авторов, чтобы показывать и фильтровать контент в нашем блоге.</p>
 <p>Изучите справочник API к ButterCMS для получения дополнительной информации об этих объектах:</p>
@@ -495,7 +658,30 @@
 <li><a href="https://buttercms.com/docs/api/?ruby#authors" target="_blank" rel="noopener">Авторы</a></li>
 </ul>
 <p>Вот пример перечисления всех категорий и получения записей по категории. Вызовите эти методы в хуке жизненного цикла <code>created()</code>:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  getCategories() &#123;</span><br><span class="line">    butter.category.list()</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Список категорий:'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(res.data.data)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  getPostsByCategory() &#123;</span><br><span class="line">    butter.category.retrieve(<span class="string">'example-category'</span>, &#123;</span><br><span class="line">        include: <span class="string">'recent_posts'</span></span><br><span class="line">      &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Записи в определённой категории:'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">created() &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">this</span>.getCategories()</span><br><span class="line">  <span class="keyword">this</span>.getPostsByCategory()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs javascript">methods: &#123;
+  <span class="hljs-comment">// ...</span>
+  getCategories() &#123;
+    butter.category.list()
+      .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Список категорий:'</span>)
+        <span class="hljs-built_in">console</span>.log(res.data.data)
+      &#125;)
+  &#125;,
+  getPostsByCategory() &#123;
+    butter.category.retrieve(<span class="hljs-string">'example-category'</span>, &#123;
+        <span class="hljs-attr">include</span>: <span class="hljs-string">'recent_posts'</span>
+      &#125;)
+      .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Записи в определённой категории:'</span>)
+        <span class="hljs-built_in">console</span>.log(res)
+      &#125;)
+  &#125;
+&#125;,
+created() &#123;
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-keyword">this</span>.getCategories()
+  <span class="hljs-keyword">this</span>.getPostsByCategory()
+&#125;</code></pre>
 <h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>Альтернативным вариантом для рассмотрения, особенно если вы предпочитаете писать только в Markdown, будет использование что-то наподобие <a href="https://nuxtent.now.sh/guide/writing#async-components" target="_blank" rel="noopener">Nuxtent</a>. Nuxtent позволяет вам использовать <code>Vue Component</code> внутри файлов Markdown. Этот подход будет похоже на подход статических сайтов (например, Jekyll), где вы создаёте свои записи блога в файлах Markdown. Nuxtent добавляет приятную интеграцию между Vue.js и Markdown, позволяя вам полностью быть в мире Vue.js.</p>
 <h2 id="Итоги"><a href="#Итоги" class="headerlink" title="Итоги"></a>Итоги</h2><p>И это всё! Теперь у вас есть полностью функциональный блог, управляемый CMS, работающий в вашем приложении. Мы надеемся, что это руководство было полезным и сделало ваш опыт разработки на Vue.js ещё приятнее :)</p>
 
@@ -533,7 +719,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

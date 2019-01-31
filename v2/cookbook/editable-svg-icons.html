@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Редактируемая система SVG-иконок — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -441,7 +441,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -466,19 +470,114 @@
 <p>Вот репозиторий с примером для начала работы, где вы увидите готовую настройку: <a href="https://github.com/sdras/vue-sample-svg-icons/" target="_blank" rel="noopener">https://github.com/sdras/vue-sample-svg-icons/</a></p>
 <p><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/screendocs.jpg" alt="Сайт документации" title="Пример документации"></p>
 <p>Мы создадим компонент базовой иконки (<code>IconBase.vue</code>), который использует слот.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:width</span>=<span class="string">"width"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:height</span>=<span class="string">"height"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">viewBox</span>=<span class="string">"0 0 18 18"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:aria-labelledby</span>=<span class="string">"iconName"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">role</span>=<span class="string">"presentation"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:id</span>=<span class="string">"iconName"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">lang</span>=<span class="string">"en"</span></span></span><br><span class="line"><span class="tag">    &gt;</span>&#123;&#123;iconName&#125;&#125; icon<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">:fill</span>=<span class="string">"iconColor"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span>
+    <span class="hljs-attr">:width</span>=<span class="hljs-string">"width"</span>
+    <span class="hljs-attr">:height</span>=<span class="hljs-string">"height"</span>
+    <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 18 18"</span>
+    <span class="hljs-attr">:aria-labelledby</span>=<span class="hljs-string">"iconName"</span>
+    <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>
+      <span class="hljs-attr">:id</span>=<span class="hljs-string">"iconName"</span>
+      <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>
+    &gt;</span>&#123;&#123;iconName&#125;&#125; icon<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">:fill</span>=<span class="hljs-string">"iconColor"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 <p>Вы можете использовать эту базовую иконку как есть, однако вам нужно обновить <code>viewBox</code> в зависимости от <code>viewBox</code> ваших иконок. В базовом компоненте мы устанавливаем <code>width</code>, <code>height</code>, <code>iconColor</code> и имя иконки как входные данные так, что он может динамически обновляться. Имя используется как для содержимого <code>&lt;title&gt;</code>, так и для его <code>id</code> для лучшей доступности.</p>
 <p>Наш скрипт будет выглядеть следующим образом: у нас будут некоторые значения по умолчанию, поэтому иконка будет отрисовываться всегда одинаково, пока мы не изменим её:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    iconName: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">'box'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    width: &#123;</span><br><span class="line">      type: [<span class="built_in">Number</span>, <span class="built_in">String</span>],</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">18</span></span><br><span class="line">    &#125;,</span><br><span class="line">    height: &#123;</span><br><span class="line">      type: [<span class="built_in">Number</span>, <span class="built_in">String</span>],</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">18</span></span><br><span class="line">    &#125;,</span><br><span class="line">    iconColor: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">'currentColor'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">iconName</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-string">'box'</span>
+    &#125;,
+    <span class="hljs-attr">width</span>: &#123;
+      <span class="hljs-attr">type</span>: [<span class="hljs-built_in">Number</span>, <span class="hljs-built_in">String</span>],
+      <span class="hljs-attr">default</span>: <span class="hljs-number">18</span>
+    &#125;,
+    <span class="hljs-attr">height</span>: &#123;
+      <span class="hljs-attr">type</span>: [<span class="hljs-built_in">Number</span>, <span class="hljs-built_in">String</span>],
+      <span class="hljs-attr">default</span>: <span class="hljs-number">18</span>
+    &#125;,
+    <span class="hljs-attr">iconColor</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-string">'currentColor'</span>
+    &#125;
+  &#125;
+&#125;</code></pre>
 <p>Свойство <code>currentColor</code>, заданное по умолчанию используется для цвета иконки, заставит иконку наследовать цвет любого окружающего текста. Мы также можем передать другой цвет во входные данные, если захотим.</p>
 <p>Мы можем использовать его следующим образом, с единственным содержимым <code>IconWrite.vue</code>, содержащим пути внутри иконок:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">icon-base</span> <span class="attr">icon-name</span>=<span class="string">"write"</span>&gt;</span><span class="tag">&lt;<span class="name">icon-write</span> /&gt;</span><span class="tag">&lt;/<span class="name">icon-base</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">icon-base</span> <span class="hljs-attr">icon-name</span>=<span class="hljs-string">"write"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">icon-write</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">icon-base</span>&gt;</span></code></pre>
 <p>Теперь, если мы захотим несколько иконок с различными размерами, это сделать довольно просто:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- вы можете передать меньшую `width` и `height` во входные данные --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon-base</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">"12"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">"12"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">icon-name</span>=<span class="string">"write"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;<span class="name">icon-write</span> /&gt;</span><span class="tag">&lt;/<span class="name">icon-base</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- или вы можете использовать значение по умолчанию, которое равно 18 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon-base</span> <span class="attr">icon-name</span>=<span class="string">"write"</span>&gt;</span><span class="tag">&lt;<span class="name">icon-write</span> /&gt;</span><span class="tag">&lt;/<span class="name">icon-base</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- или также сделать её немного больше :) --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon-base</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">"30"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">"30"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">icon-name</span>=<span class="string">"write"</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;<span class="name">icon-write</span> /&gt;</span><span class="tag">&lt;/<span class="name">icon-base</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- вы можете передать меньшую `width` и `height` во входные данные --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">icon-base</span>
+    <span class="hljs-attr">width</span>=<span class="hljs-string">"12"</span>
+    <span class="hljs-attr">height</span>=<span class="hljs-string">"12"</span>
+    <span class="hljs-attr">icon-name</span>=<span class="hljs-string">"write"</span>
+  &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">icon-write</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">icon-base</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- или вы можете использовать значение по умолчанию, которое равно 18 --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">icon-base</span> <span class="hljs-attr">icon-name</span>=<span class="hljs-string">"write"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">icon-write</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">icon-base</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- или также сделать её немного больше :) --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">icon-base</span>
+    <span class="hljs-attr">width</span>=<span class="hljs-string">"30"</span>
+    <span class="hljs-attr">height</span>=<span class="hljs-string">"30"</span>
+    <span class="hljs-attr">icon-name</span>=<span class="hljs-string">"write"</span>
+  &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">icon-write</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">icon-base</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/Screen%20Shot%202018-01-01%20at%204.51.40%20PM.png" width="450"></p>
 <h2 id="Анимируемые-иконки"><a href="#Анимируемые-иконки" class="headerlink" title="Анимируемые иконки"></a>Анимируемые иконки</h2><p>Хранение иконок в компонентах очень удобно, когда вы хотите их анимировать, особенно при взаимодействии. Встроенные SVG-иконки имеют самую высокую поддержку для какого-либо взаимодействия. Ниже очень простой пример иконки, которая анимируется при клике:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">svg</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">click</span>=<span class="string">"startScissors"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">viewBox</span>=<span class="string">"0 0 100 100"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">aria-labelledby</span>=<span class="string">"scissors"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">role</span>=<span class="string">"presentation"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"scissors"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">lang</span>=<span class="string">"en"</span></span></span><br><span class="line"><span class="tag">    &gt;</span>Анимированная иконка с ножницами<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"bk"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">fill</span>=<span class="string">"#fff"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">d</span>=<span class="string">"M0 0h100v100H0z"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">ref</span>=<span class="string">"leftscissor"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M..."</span>/&gt;</span></span><br><span class="line">      ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">g</span> <span class="attr">ref</span>=<span class="string">"rightscissor"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M..."</span>/&gt;</span></span><br><span class="line">      ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">g</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; TweenMax, Sine &#125; <span class="keyword">from</span> <span class="string">'gsap'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    startScissors() &#123;</span><br><span class="line">      <span class="keyword">this</span>.scissorAnim(<span class="keyword">this</span>.$refs.rightscissor, <span class="number">30</span>)</span><br><span class="line">      <span class="keyword">this</span>.scissorAnim(<span class="keyword">this</span>.$refs.leftscissor, <span class="number">-30</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    scissorAnim(el, rot) &#123;</span><br><span class="line">      TweenMax.to(el, <span class="number">0.25</span>, &#123;</span><br><span class="line">        rotation: rot,</span><br><span class="line">        repeat: <span class="number">3</span>,</span><br><span class="line">        yoyo: <span class="literal">true</span>,</span><br><span class="line">        svgOrigin: <span class="string">'50 45'</span>,</span><br><span class="line">        ease: Sine.easeInOut</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
+    @<span class="hljs-attr">click</span>=<span class="hljs-string">"startScissors"</span>
+    <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span>
+    <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 100 100"</span>
+    <span class="hljs-attr">width</span>=<span class="hljs-string">"100"</span>
+    <span class="hljs-attr">height</span>=<span class="hljs-string">"100"</span>
+    <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"scissors"</span>
+    <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"scissors"</span>
+      <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>
+    &gt;</span>Анимированная иконка с ножницами<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"bk"</span>
+      <span class="hljs-attr">fill</span>=<span class="hljs-string">"#fff"</span>
+      <span class="hljs-attr">d</span>=<span class="hljs-string">"M0 0h100v100H0z"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"leftscissor"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M..."</span>/&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"rightscissor"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M..."</span>/&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; TweenMax, Sine &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'gsap'</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+  <span class="hljs-attr">methods</span>: &#123;
+    startScissors() &#123;
+      <span class="hljs-keyword">this</span>.scissorAnim(<span class="hljs-keyword">this</span>.$refs.rightscissor, <span class="hljs-number">30</span>)
+      <span class="hljs-keyword">this</span>.scissorAnim(<span class="hljs-keyword">this</span>.$refs.leftscissor, <span class="hljs-number">-30</span>)
+    &#125;,
+    scissorAnim(el, rot) &#123;
+      TweenMax.to(el, <span class="hljs-number">0.25</span>, &#123;
+        <span class="hljs-attr">rotation</span>: rot,
+        <span class="hljs-attr">repeat</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">yoyo</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">svgOrigin</span>: <span class="hljs-string">'50 45'</span>,
+        <span class="hljs-attr">ease</span>: Sine.easeInOut
+      &#125;)
+    &#125;
+  &#125;
+&#125;</code></pre>
 <p>Мы применяем <code>refs</code> для группы путей, которые нам нужно переместить, и по мере того, как обе стороны ножниц должны перемещаться вместе, мы создаём функцию, которую повторно используем при обращении к <code>refs</code>. Использование GreenSock помогает разрешить поддержку анимации и проблемы с <code>transform-origin</code> во всех браузерах.</p>
 <p data-height="300" data-theme-id="0" data-slug-hash="dJRpgY" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Editable SVG Icon System: Animated icon" class="codepen">Смотрите Pen <a href="https://codepen.io/team/Vue/pen/dJRpgY/" target="_blank" rel="noopener">Editable SVG Icon System: Animated icon</a> by Vue (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на сайте <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script><br><br><p style="margin-top:-30px">Довольно легко сделано! И легко обновлять “на лету”.</p>
 
@@ -526,7 +625,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

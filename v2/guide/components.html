@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Основы компонентов — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1001,11 +1005,21 @@
     
     
       <h2 id="Базовый-пример"><a href="#Базовый-пример" class="headerlink" title="Базовый пример"></a>Базовый пример</h2><p>Вот пример компонента Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Определяем новый компонент, названный button-counter</span></span><br><span class="line">Vue.component(<span class="string">'button-counter'</span>, &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">'&lt;button v-on:click="count++"&gt;Счётчик кликов — &#123;&#123; count &#125;&#125;&lt;/button&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Определяем новый компонент, названный button-counter</span>
+Vue.component(<span class="hljs-string">'button-counter'</span>, &#123;
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>
+    &#125;
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;button v-on:click="count++"&gt;Счётчик кликов — &#123;&#123; count &#125;&#125;&lt;/button&gt;'</span>
+&#125;)</code></pre>
 <p>Компоненты — это переиспользуемые экземпляры Vue со своим именем. В примере выше это <code>&lt;button-counter&gt;</code>. Его можно использовать как пользовательский тег внутри корневого экземпляра Vue, созданного с помощью <code>new Vue</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123; <span class="attr">el</span>: <span class="string">'#components-demo'</span> &#125;)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"components-demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123; <span class="hljs-attr">el</span>: <span class="hljs-string">'#components-demo'</span> &#125;)</code></pre>
+{% raw %}
 <div id="components-demo" class="demo">
   <button-counter></button-counter>
 </div>
@@ -1020,10 +1034,14 @@ Vue.component('button-counter', {
 })
 new Vue({ el: '#components-demo' })
 </script>
-
+{% endraw %}
 <p>Так как компоненты это переиспользуемые экземпляры Vue, то они принимают те же опции что и <code>new Vue</code>, такие как <code>data</code>, <code>computed</code>, <code>watch</code>, <code>methods</code>, хуки жизненного цикла. Единственными исключениями будут несколько специфичных для корневого экземпляра опций, например <code>el</code>.</p>
 <h2 id="Переиспользование-компонентов"><a href="#Переиспользование-компонентов" class="headerlink" title="Переиспользование компонентов"></a>Переиспользование компонентов</h2><p>Компоненты можно переиспользовать столько раз, сколько захотите:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"components-demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 <div id="components-demo2" class="demo">
   <button-counter></button-counter>
@@ -1036,9 +1054,15 @@ new Vue({ el: '#components-demo2' })
 
 <p>Обратите внимание, при нажатиях на кнопки, каждая изменяет свой собственный, отдельный <code>count</code>. Это потому, что каждый раз когда вы используете компонент будет создан его новый <strong>экземпляр</strong>.</p>
 <h3 id="Свойство-data-должно-быть-функцией"><a href="#Свойство-data-должно-быть-функцией" class="headerlink" title="Свойство data должно быть функцией"></a>Свойство <code>data</code> должно быть функцией</h3><p>При определении компонента <code>&lt;button-counter&gt;</code> вы могли заметить, что <code>data</code> не была представлена в виде объекта, например так:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  count: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">data: &#123;
+  <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>
+&#125;</code></pre>
 <p>Вместо этого <strong>свойство <code>data</code> у компонентов должно быть функцией</strong>, чтобы каждый экземпляр компонента управлял собственной независимой копией возвращаемого объекта данных:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">data: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>
+  &#125;
+&#125;</code></pre>
 <p>Если бы не было этого правила, нажатие на одну кнопку повлияло бы на данные <em>всех других экземпляров</em>, как например тут:</p>
 
 <div id="components-demo3" class="demo">
@@ -1063,15 +1087,22 @@ new Vue({ el: '#components-demo3' })
 <p><img src="/images/components.png" alt="Component Tree"></p>
 <p>Например, у вас могут быть компоненты для заголовка, боковой панели, зоны контента, каждый из которых может содержать другие компоненты для навигационных ссылок, постов блога и т.д.</p>
 <p>Чтобы использовать эти компоненты в шаблонах, они должны быть зарегистрированы, чтобы Vue узнал о них. Есть два типа регистрации компонентов: <strong>глобальная</strong> и <strong>локальная</strong>. До сих пор мы регистрировали компоненты только глобально, используя <code>Vue.component</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'my-component-name'</span>, &#123;</span><br><span class="line">  <span class="comment">// ... опции ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component-name'</span>, &#123;
+  <span class="hljs-comment">// ... опции ...</span>
+&#125;)</code></pre>
 <p>Компоненты, зарегистрированные глобально, могут использоваться в шаблоне любого корневого экземпляра Vue (<code>new Vue</code>) созданного впоследствии — и даже внутри всех компонентов, расположенных в дереве компонентов этого экземпляра Vue.</p>
 <p>На данный момент это всё, что вам нужно знать о регистрации компонентов. Но когда вы закончите изучение этой страницы и разберётесь со всей информацией представленной здесь — мы рекомендуем вернуться позднее и прочитать полное руководство по <a href="components-registration.html">регистрации компонентов</a>.</p>
 <h2 id="Передача-данных-в-дочерние-компоненты-через-входные-параметры"><a href="#Передача-данных-в-дочерние-компоненты-через-входные-параметры" class="headerlink" title="Передача данных в дочерние компоненты через входные параметры"></a>Передача данных в дочерние компоненты через входные параметры</h2><p>Ранее мы создавали компонент для записи блога. Проблема в том, что этот компонент бесполезен, если не будет возможности передавать ему данные, такие как заголовок и содержимое записи блога, которую мы хотим показать. Вот для чего нужны входные параметры.</p>
 <p>Входные параметры — это пользовательские атрибуты, которые вы можете установить на компоненте. Когда значение передаётся в атрибут входного параметра, оно становится свойством экземпляра компонента. Чтобы передать заголовок в компонент нашей записи блога, мы можем включить его в список входных параметров, которые принимает компонент, с помощью опции <code>props</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</span><br><span class="line">  props: [<span class="string">'title'</span>],</span><br><span class="line">  template: <span class="string">'&lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'title'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;'</span>
+&#125;)</code></pre>
 <p>Компонент может принимать столько входных параметров, сколько захотите, и по умолчанию любое значение может быть передано в любой входной параметр. В шаблоне выше вы увидите, что мы можем получить доступ к этому значению в экземпляре компонента, как и к любому свойству <code>data</code>.</p>
 <p>После объявления входного параметра вы можете передавать данные в него через пользовательский атрибут, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">title</span>=<span class="string">"My journey with Vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">title</span>=<span class="string">"Blogging with Vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">title</span>=<span class="string">"Why Vue is so fun"</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"My journey with Vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Blogging with Vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Why Vue is so fun"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 
 <div id="blog-post-demo" class="demo">
   <blog-post1 title="My journey with Vue"></blog-post1>
@@ -1087,38 +1118,106 @@ new Vue({ el: '#blog-post-demo' })
 </script>
 
 <p>Однако, в типичном приложении у вас наверняка будет массив записей в <code>data</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#blog-post-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    posts: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">'My journey with Vue'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">'Blogging with Vue'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">title</span>: <span class="string">'Why Vue is so fun'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#blog-post-demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">posts</span>: [
+      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">'My journey with Vue'</span> &#125;,
+      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">'Blogging with Vue'</span> &#125;,
+      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">'Why Vue is so fun'</span> &#125;
+    ]
+  &#125;
+&#125;)</code></pre>
 <p>Тогда нужно отобразить компонент для каждой записи:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"post in posts"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"post.id"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"post.title"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-for</span>=<span class="hljs-string">"post in posts"</span>
+  <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"post.id"</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Как мы видим выше, можно использовать <code>v-bind</code> для динамической передачи данных во входные параметры. Это особенно полезно, когда вы не знаете заранее точного содержимого, которое потребуется отобразить, например после <a href="https://jsfiddle.net/chrisvfritz/sbLgr0ad" target="_blank" rel="noopener">загрузки записей блога из API</a>.</p>
 <p>На данный момент это всё, что вам нужно знать о входных параметрах. Но когда вы закончите изучение этой страницы и разберётесь со всей информацией представленной здесь — мы рекомендуем вернуться позднее и прочитать полное руководство по <a href="components-props.html">входным параметрам</a>.</p>
 <h2 id="Один-корневой-элемент"><a href="#Один-корневой-элемент" class="headerlink" title="Один корневой элемент"></a>Один корневой элемент</h2><p>При создании компонента <code>&lt;blog-post&gt;</code>, ваш шаблон в конечном итоге будет содержать не только название:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></code></pre>
 <p>По крайней мере, вы захотите отобразить и содержимое записи в блог:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Однако, если вы попробуете сделать это в шаблоне, Vue покажет ошибку с пояснением что <strong>каждый компонент должен иметь один корневой элемент</strong>. Вы можете исправить эту ошибку, обернув шаблон в родительский элемент, например так:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"blog-post"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-html</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blog-post"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>По мере роста нашего компонента, вероятно, нам может понадобиться не только заголовок и содержание поста блога, но и дата публикации, комментарии и так далее. Определять входной параметр для каждой связанной части информации может стать очень раздражающим:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"post in posts"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"post.id"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"post.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:content</span>=<span class="string">"post.content"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:publishedAt</span>=<span class="string">"post.publishedAt"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:comments</span>=<span class="string">"post.comments"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-for</span>=<span class="hljs-string">"post in posts"</span>
+  <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"post.id"</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>
+  <span class="hljs-attr">v-bind:content</span>=<span class="hljs-string">"post.content"</span>
+  <span class="hljs-attr">v-bind:publishedAt</span>=<span class="hljs-string">"post.publishedAt"</span>
+  <span class="hljs-attr">v-bind:comments</span>=<span class="hljs-string">"post.comments"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Это подходящее время для рефакторинга компонента <code>&lt;blog-post&gt;</code>, чтобы вместо длинного списка принимать лишь один входной параметр <code>post</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"post in posts"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"post.id"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:post</span>=<span class="string">"post"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</span><br><span class="line">  props: [<span class="string">'post'</span>],</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div class="blog-post"&gt;</span></span><br><span class="line"><span class="string">      &lt;h3&gt;&#123;&#123; post.title &#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">      &lt;div v-html="post.content"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-for</span>=<span class="hljs-string">"post in posts"</span>
+  <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"post.id"</span>
+  <span class="hljs-attr">v-bind:post</span>=<span class="hljs-string">"post"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'post'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;div class="blog-post"&gt;
+      &lt;h3&gt;&#123;&#123; post.title &#125;&#125;&lt;/h3&gt;
+      &lt;div v-html="post.content"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  `</span>
+&#125;)</code></pre>
 <p class="tip">Приведённый выше пример и некоторые далее используют <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener">шаблонные строки</a> JavaScript, чтобы сделать многострочные шаблоны более читаемыми. Эта возможность не поддерживается Internet Explorer (IE), поэтому если вам нужна поддержка IE и нет возможности использовать транспиляцию (например с помощью Babel или TypeScript), то используйте <a href="https://css-tricks.com/snippets/javascript/multiline-string-variables-in-javascript/" target="_blank" rel="noopener">запись с обратными слэшами для многострочных шаблонов</a> вместо них.</p>
 
 <p>Теперь, когда добавляется новое свойство в объект <code>post</code>, оно будет автоматически доступно внутри <code>&lt;blog-post&gt;</code>.</p>
 <h2 id="Прослушивание-событий-в-дочерних-компонентах"><a href="#Прослушивание-событий-в-дочерних-компонентах" class="headerlink" title="Прослушивание событий в дочерних компонентах"></a>Прослушивание событий в дочерних компонентах</h2><p>По мере разработки нашего компонента <code>&lt;blog-post&gt;</code> для некоторых возможностей может потребоваться передавать данные обратно в родительский компонент. Например, мы можем решить включить функцию для доступности, чтобы увеличивать размер текста в записях блога, оставив остальную часть страницы с размером текста по умолчанию.</p>
 <p>В родительском компоненте мы можем добавить свойство <code>postFontSize</code> для этой возможности:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#blog-posts-events-demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    posts: [<span class="comment">/* ... */</span>],</span><br><span class="line">    postFontSize: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#blog-posts-events-demo'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">posts</span>: [<span class="hljs-comment">/* ... */</span>],
+    <span class="hljs-attr">postFontSize</span>: <span class="hljs-number">1</span>
+  &#125;
+&#125;)</code></pre>
 <p>Которое будет использоваться в шаблоне для управления размером шрифта для всех записей блога:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"blog-posts-events-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">:style</span>=<span class="string">"&#123; fontSize: postFontSize + 'em' &#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"post in posts"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">"post.id"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:post</span>=<span class="string">"post"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"blog-posts-events-demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">"&#123; fontSize: postFontSize + 'em' &#125;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"post in posts"</span>
+      <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"post.id"</span>
+      <span class="hljs-attr">v-bind:post</span>=<span class="hljs-string">"post"</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Теперь давайте добавим кнопку для увеличения текста прямо перед содержимым каждой записи блога:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'blog-post'</span>, &#123;</span><br><span class="line">  props: [<span class="string">'post'</span>],</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div class="blog-post"&gt;</span></span><br><span class="line"><span class="string">      &lt;h3&gt;&#123;&#123; post.title &#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">      &lt;button&gt;</span></span><br><span class="line"><span class="string">        Увеличить размер текста</span></span><br><span class="line"><span class="string">      &lt;/button&gt;</span></span><br><span class="line"><span class="string">      &lt;div v-html="post.content"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'post'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;div class="blog-post"&gt;
+      &lt;h3&gt;&#123;&#123; post.title &#125;&#125;&lt;/h3&gt;
+      &lt;button&gt;
+        Увеличить размер текста
+      &lt;/button&gt;
+      &lt;div v-html="post.content"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  `</span>
+&#125;)</code></pre>
 <p>Проблема в том, что эта кнопка ничего не делает:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span></span><br><span class="line">  Увеличить размер текста</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+  Увеличить размер текста
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>Когда мы нажимаем на кнопку, нужно сообщить родительскому компоненту, что ему необходимо увеличить размер текста для всех записей блога. К счастью, экземпляры Vue предоставляют собственную систему событий для решения этой проблемы. Родительский компонент может прослушивать любые события на экземпляре дочернего компонента с помощью <code>v-on</code>, как мы это делаем с нативными событиями DOM:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">...</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:enlarge-text</span>=<span class="string">"postFontSize += 0.1"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">...</span>
+  <span class="hljs-attr">v-on:enlarge-text</span>=<span class="hljs-string">"postFontSize += 0.1"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Затем дочерний компонент может сгенерировать событие с помощью встроенного <a href="../api/#vm-emit">метода <strong><code>$emit</code></strong></a>, передавая ему имя события:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"$emit('enlarge-text')"</span>&gt;</span></span><br><span class="line">  Увеличить размер текста</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"$emit('enlarge-text')"</span>&gt;</span>
+  Увеличить размер текста
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>Благодаря прослушиванию события <code>v-on:enlarge-text=&quot;postFontSize += 0.1&quot;</code>, родительский компонент отследит событие и обновит значение <code>postFontSize</code>.</p>
 
 <div id="blog-posts-events-demo" class="demo">
@@ -1153,31 +1252,59 @@ new Vue({
 </script>
 
 <h3 id="Передача-данных-вместе-с-событием"><a href="#Передача-данных-вместе-с-событием" class="headerlink" title="Передача данных вместе с событием"></a>Передача данных вместе с событием</h3><p>Иногда бывает полезно отправить определённые данные вместе с событием. Например, если захотим, чтобы компонент <code>&lt;blog-post&gt;</code> отвечал за то, насколько нужно увеличивать текст. В таком случае, мы можем использовать второй параметр <code>$emit</code> для предоставления этого значения:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"$emit('enlarge-text', 0.1)"</span>&gt;</span></span><br><span class="line">  Увеличить размер текста</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"$emit('enlarge-text', 0.1)"</span>&gt;</span>
+  Увеличить размер текста
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <p>Затем, когда мы прослушиваем событие в родителе, мы можем получить доступ к данным, переданным с событием, через <code>$event</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">...</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:enlarge-text</span>=<span class="string">"postFontSize += $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">...</span>
+  <span class="hljs-attr">v-on:enlarge-text</span>=<span class="hljs-string">"postFontSize += $event"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Или, если обработчик события будет методом:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">...</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:enlarge-text</span>=<span class="string">"onEnlargeText"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">...</span>
+  <span class="hljs-attr">v-on:enlarge-text</span>=<span class="hljs-string">"onEnlargeText"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
 <p>Тогда значение будет передано первым аргументом:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  onEnlargeText: <span class="function"><span class="keyword">function</span> (<span class="params">enlargeAmount</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.postFontSize += enlargeAmount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-attr">onEnlargeText</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">enlargeAmount</span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.postFontSize += enlargeAmount
+  &#125;
+&#125;</code></pre>
 <h3 id="Использование-v-model-на-компонентах"><a href="#Использование-v-model-на-компонентах" class="headerlink" title="Использование v-model на компонентах"></a>Использование <code>v-model</code> на компонентах</h3><p>Пользовательские события также могут использоваться для создания нестандартных элементов ввода, которые работают через <code>v-model</code>. Не забывайте, что:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"searchText"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"searchText"</span>&gt;</span></code></pre>
 <p>делает то же самое, что и:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:value</span>=<span class="string">"searchText"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:input</span>=<span class="string">"searchText = $event.target.value"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+  <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"searchText"</span>
+  <span class="hljs-attr">v-on:input</span>=<span class="hljs-string">"searchText = $event.target.value"</span>
+&gt;</span></code></pre>
 <p>При использовании на компоненте, <code>v-model</code> вместо этого делает следующее:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">custom-input</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:value</span>=<span class="string">"searchText"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:input</span>=<span class="string">"searchText = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">custom-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">custom-input</span>
+  <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"searchText"</span>
+  <span class="hljs-attr">v-on:input</span>=<span class="hljs-string">"searchText = $event"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">custom-input</span>&gt;</span></code></pre>
 <p>Чтобы это действительно работало, элемент <code>&lt;input&gt;</code> внутри компонента должен:</p>
 <ul>
 <li>Привязывать значение атрибута <code>value</code> к входному параметру <code>value</code></li>
 <li>По событию <code>input</code> генерировать собственное пользовательское событие <code>input</code> с новым значением</li>
 </ul>
 <p>Вот это в действии:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'custom-input'</span>, &#123;</span><br><span class="line">  props: [<span class="string">'value'</span>],</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      v-bind:value="value"</span></span><br><span class="line"><span class="string">      v-on:input="$emit('input', $event.target.value)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'custom-input'</span>, &#123;
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'value'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    &gt;
+  `</span>
+&#125;)</code></pre>
 <p>Теперь <code>v-model</code> будет прекрасно работать с этим компонентом:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">custom-input</span> <span class="attr">v-model</span>=<span class="string">"searchText"</span>&gt;</span><span class="tag">&lt;/<span class="name">custom-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">custom-input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"searchText"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">custom-input</span>&gt;</span></code></pre>
 <p>На данный момент это всё, что вам нужно знать о пользовательских событиях. Но когда вы закончите изучение этой страницы и разберётесь со всей информацией представленной здесь — мы рекомендуем вернуться позднее и прочитать полное руководство по <a href="components-custom-events.html">пользовательским событиям</a>.</p>
 <h2 id="Распределение-контента-слотами"><a href="#Распределение-контента-слотами" class="headerlink" title="Распределение контента слотами"></a>Распределение контента слотами</h2><p>Как и с обычными HTML-элементами, часто бывает полезным передать компоненту содержимое, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">alert-box</span>&gt;</span></span><br><span class="line">  Произошло что-то плохое.</span><br><span class="line"><span class="tag">&lt;/<span class="name">alert-box</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">alert-box</span>&gt;</span>
+  Произошло что-то плохое.
+<span class="hljs-tag">&lt;/<span class="hljs-name">alert-box</span>&gt;</span></code></pre>
 <p>Что может выглядеть примерно так:</p>
 
 <div id="slots-demo" class="demo">
@@ -1205,7 +1332,14 @@ new Vue({ el: '#slots-demo' })
 </style>
 
 <p>К счастью, эта задача легко решается с помощью пользовательского элемента <code>&lt;slot&gt;</code> у Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'alert-box'</span>, &#123;</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div class="demo-alert-box"&gt;</span></span><br><span class="line"><span class="string">      &lt;strong&gt;Ошибка!&lt;/strong&gt;</span></span><br><span class="line"><span class="string">      &lt;slot&gt;&lt;/slot&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'alert-box'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;div class="demo-alert-box"&gt;
+      &lt;strong&gt;Ошибка!&lt;/strong&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+  `</span>
+&#125;)</code></pre>
 <p>Как вы видите выше, мы просто добавляем слот там, куда хотим подставлять контент — и это всё. Готово!</p>
 <p>На данный момент это всё, что вам нужно знать о слотах. Но когда вы закончите изучение этой страницы и разберётесь со всей информацией представленной здесь — мы рекомендуем вернуться позднее и прочитать полное руководство по <a href="components-slots.html">слотам</a>.</p>
 <h2 id="Динамическое-переключение-компонентов"><a href="#Динамическое-переключение-компонентов" class="headerlink" title="Динамическое переключение компонентов"></a>Динамическое переключение компонентов</h2><p>Иногда бывает полезно динамически переключаться между компонентами, например в интерфейсе с вкладками:</p>
@@ -1257,7 +1391,8 @@ new Vue({
 </style>
 
 <p>Показанное выше стало возможным с помощью элемента Vue <code>&lt;component&gt;</code> со специальным атрибутом <code>is</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Компонент меняется при изменении currentTabComponent --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentTabComponent"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Компонент меняется при изменении currentTabComponent --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
 <p>В примере выше <code>currentTabComponent</code> может содержать:</p>
 <ul>
 <li>имя зарегистрированного компонента, или</li>
@@ -1267,9 +1402,13 @@ new Vue({
 <p>На данный момент это всё, что вам нужно знать о динамических компонентах. Но когда вы закончите изучение этой страницы и разберётесь со всей информацией представленной здесь — мы рекомендуем вернуться позднее и прочитать полное руководство по <a href="components-dynamic-async.html">динамическим и асинхронным компонентам</a>.</p>
 <h2 id="Особенности-парсинга-DOM-шаблона"><a href="#Особенности-парсинга-DOM-шаблона" class="headerlink" title="Особенности парсинга DOM-шаблона"></a>Особенности парсинга DOM-шаблона</h2><p>Некоторые HTML-элементы, такие как <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;table&gt;</code> и <code>&lt;select&gt;</code> имеют ограничения на то, какие элементы могут отображаться внутри них, или например элементы, такие как <code>&lt;li&gt;</code>, <code>&lt;tr&gt;</code> и <code>&lt;option&gt;</code> могут появляться только внутри других определённых элементов.</p>
 <p>Это приведёт к проблемам при использовании компонентов с элементами, которые имеют такие ограничения. Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">blog-post-row</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post-row</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">blog-post-row</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post-row</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
 <p>Пользовательский компонент <code>&lt;blog-post-row&gt;</code> будет поднят выше, так как считается недопустимым содержимым, вызывая ошибки в итоговой отрисовке. К счастью, специальный атрибут <code>is</code> предоставляет решение этой проблемы:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span> <span class="attr">is</span>=<span class="string">"blog-post-row"</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">is</span>=<span class="hljs-string">"blog-post-row"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
 <p>Следует отметить, что <strong>этого ограничения <em>не будет</em> если вы используете строковые шаблоны из одного из следующих источников</strong>:</p>
 <ul>
 <li>Строковые шаблоны (например, <code>template: &#39;...&#39;</code>)</li>
@@ -1324,7 +1463,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

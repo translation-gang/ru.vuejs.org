@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Модульное тестирование — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1004,15 +1008,100 @@
 <p><a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">Vue CLI</a> предоставляет опции для модульного тестирования с помощью <a href="https://github.com/facebook/jest" target="_blank" rel="noopener">Jest</a> или <a href="https://mochajs.org/" target="_blank" rel="noopener">Mocha</a>, которые работают из коробки. У нас также есть официальный пакет <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a>, который предоставляет более подробное руководство для пользовательских конфигураций.</p>
 </blockquote>
 <h2 id="Простые-операторы-контроля"><a href="#Простые-операторы-контроля" class="headerlink" title="Простые операторы контроля"></a>Простые операторы контроля</h2><p>Для того, чтобы компоненты были пригодны для тестирования, нет необходимости делать что-то особенное. Просто экспортируйте объект опций:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">    data () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">        message: <span class="string">'hello!'</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;,</span></span><br><span class="line"><span class="undefined">    created () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">this</span>.message = <span class="string">'bye!'</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+    data () &#123;
+      <span class="hljs-keyword">return</span> &#123;
+        <span class="hljs-attr">message</span>: <span class="hljs-string">'hello!'</span>
+      &#125;
+    &#125;,
+    created () &#123;
+      <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'bye!'</span>
+    &#125;
+  &#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Для тестирования компонента нужно просто импортировать его вместе с Vue, и использовать обыкновенные операторы контроля (здесь в качестве примера мы используем операторы контроля <code>expect</code> в стиле Jasmine/Jest):</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Импортируем Vue и тестируемый компонент</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">'path/to/MyComponent.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Здесь используются тесты Jasmine 2.0, но вы можете</span></span><br><span class="line"><span class="comment">// взять любой тест-раннер и библиотеку для сравнения</span></span><br><span class="line">describe(<span class="string">'MyComponent'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// Проверка опций компонента</span></span><br><span class="line">  it(<span class="string">'has a created hook'</span>, () =&gt; &#123;</span><br><span class="line">    expect(<span class="keyword">typeof</span> MyComponent.created).toBe(<span class="string">'function'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Оценка результатов методов в опциях</span></span><br><span class="line">  it(<span class="string">'sets the correct default data'</span>, () =&gt; &#123;</span><br><span class="line">    expect(<span class="keyword">typeof</span> MyComponent.data).toBe(<span class="string">'function'</span>)</span><br><span class="line">    <span class="keyword">const</span> defaultData = MyComponent.data()</span><br><span class="line">    expect(defaultData.message).toBe(<span class="string">'hello!'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Анализ экземпляра компонента при монтировании</span></span><br><span class="line">  it(<span class="string">'correctly sets the message when created'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(MyComponent).$mount()</span><br><span class="line">    expect(vm.message).toBe(<span class="string">'bye!'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Монтирование экземпляра и оценка вывода отрисовки</span></span><br><span class="line">  it(<span class="string">'renders the correct message'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> Constructor = Vue.extend(MyComponent)</span><br><span class="line">    <span class="keyword">const</span> vm = <span class="keyword">new</span> Constructor().$mount()</span><br><span class="line">    expect(vm.$el.textContent).toBe(<span class="string">'bye!'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Импортируем Vue и тестируемый компонент</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'path/to/MyComponent.vue'</span>
+
+<span class="hljs-comment">// Здесь используются тесты Jasmine 2.0, но вы можете</span>
+<span class="hljs-comment">// взять любой тест-раннер и библиотеку для сравнения</span>
+describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
+  <span class="hljs-comment">// Проверка опций компонента</span>
+  it(<span class="hljs-string">'has a created hook'</span>, () =&gt; &#123;
+    expect(<span class="hljs-keyword">typeof</span> MyComponent.created).toBe(<span class="hljs-string">'function'</span>)
+  &#125;)
+
+  <span class="hljs-comment">// Оценка результатов методов в опциях</span>
+  it(<span class="hljs-string">'sets the correct default data'</span>, () =&gt; &#123;
+    expect(<span class="hljs-keyword">typeof</span> MyComponent.data).toBe(<span class="hljs-string">'function'</span>)
+    <span class="hljs-keyword">const</span> defaultData = MyComponent.data()
+    expect(defaultData.message).toBe(<span class="hljs-string">'hello!'</span>)
+  &#125;)
+
+  <span class="hljs-comment">// Анализ экземпляра компонента при монтировании</span>
+  it(<span class="hljs-string">'correctly sets the message when created'</span>, () =&gt; &#123;
+    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(MyComponent).$mount()
+    expect(vm.message).toBe(<span class="hljs-string">'bye!'</span>)
+  &#125;)
+
+  <span class="hljs-comment">// Монтирование экземпляра и оценка вывода отрисовки</span>
+  it(<span class="hljs-string">'renders the correct message'</span>, () =&gt; &#123;
+    <span class="hljs-keyword">const</span> Constructor = Vue.extend(MyComponent)
+    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Constructor().$mount()
+    expect(vm.$el.textContent).toBe(<span class="hljs-string">'bye!'</span>)
+  &#125;)
+&#125;)</code></pre>
 <h2 id="Создание-тестируемых-компонентов"><a href="#Создание-тестируемых-компонентов" class="headerlink" title="Создание тестируемых компонентов"></a>Создание тестируемых компонентов</h2><p>Результат отрисовки компонента по большей части определяется входными параметрами, которые он принимает. В действительности, если вывод отрисовки зависит только от входных параметров компонента, тестирование становится крайне прямолинейным и похожим на контроль возвращаемого значения чистой функции в зависимости от разных аргументов. Рассмотрим надуманный пример:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">    props: [<span class="string">'msg'</span>]</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+    <span class="hljs-attr">props</span>: [<span class="hljs-string">'msg'</span>]
+  &#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Можно проконтролировать вывод отрисовки в зависимости от разных значений входных параметров, используя опцию <code>propsData</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> MyComponent <span class="keyword">from</span> <span class="string">'./MyComponent.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// вспомогательная функция, выполняющая монтирование и</span></span><br><span class="line"><span class="comment">// возвращающая строку с результатами отрисовки</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRenderedText</span> (<span class="params">Component, propsData</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> Constructor = Vue.extend(Component)</span><br><span class="line">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Constructor(&#123; <span class="attr">propsData</span>: propsData &#125;).$mount()</span><br><span class="line">  <span class="keyword">return</span> vm.$el.textContent</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'MyComponent'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'render correctly with different props'</span>, () =&gt; &#123;</span><br><span class="line">    expect(getRenderedText(MyComponent, &#123;</span><br><span class="line">      msg: <span class="string">'Hello'</span></span><br><span class="line">    &#125;)).toBe(<span class="string">'Hello'</span>)</span><br><span class="line"></span><br><span class="line">    expect(getRenderedText(MyComponent, &#123;</span><br><span class="line">      msg: <span class="string">'Bye'</span></span><br><span class="line">    &#125;)).toBe(<span class="string">'Bye'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'./MyComponent.vue'</span>
+
+<span class="hljs-comment">// вспомогательная функция, выполняющая монтирование и</span>
+<span class="hljs-comment">// возвращающая строку с результатами отрисовки</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRenderedText</span> (<span class="hljs-params">Component, propsData</span>) </span>&#123;
+  <span class="hljs-keyword">const</span> Constructor = Vue.extend(Component)
+  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Constructor(&#123; <span class="hljs-attr">propsData</span>: propsData &#125;).$mount()
+  <span class="hljs-keyword">return</span> vm.$el.textContent
+&#125;
+
+describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
+  it(<span class="hljs-string">'render correctly with different props'</span>, () =&gt; &#123;
+    expect(getRenderedText(MyComponent, &#123;
+      <span class="hljs-attr">msg</span>: <span class="hljs-string">'Hello'</span>
+    &#125;)).toBe(<span class="hljs-string">'Hello'</span>)
+
+    expect(getRenderedText(MyComponent, &#123;
+      <span class="hljs-attr">msg</span>: <span class="hljs-string">'Bye'</span>
+    &#125;)).toBe(<span class="hljs-string">'Bye'</span>)
+  &#125;)
+&#125;)</code></pre>
 <h2 id="Контроль-асинхронных-обновлений"><a href="#Контроль-асинхронных-обновлений" class="headerlink" title="Контроль асинхронных обновлений"></a>Контроль асинхронных обновлений</h2><p>Поскольку Vue <a href="reactivity.html#Асинхронная-очередь-обновлений">выполняет обновления DOM асинхронно</a>, контроль результатов обновления DOM в зависимости от изменений состояния компонента должен выполняться в переданном в <code>Vue.nextTick</code> коллбэке:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Оценить созданный HTML после обновления состояния компонента</span></span><br><span class="line">it(<span class="string">'updates the rendered message when vm.message updates'</span>, done =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(MyComponent).$mount()</span><br><span class="line">  vm.message = <span class="string">'foo'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// дождаться следующего "тика" перед оценкой состояния DOM</span></span><br><span class="line">  Vue.nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    expect(vm.$el.textContent).toBe(<span class="string">'foo'</span>)</span><br><span class="line">    done()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Оценить созданный HTML после обновления состояния компонента</span>
+it(<span class="hljs-string">'updates the rendered message when vm.message updates'</span>, done =&gt; &#123;
+  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(MyComponent).$mount()
+  vm.message = <span class="hljs-string">'foo'</span>
+
+  <span class="hljs-comment">// дождаться следующего "тика" перед оценкой состояния DOM</span>
+  Vue.nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+    expect(vm.$el.textContent).toBe(<span class="hljs-string">'foo'</span>)
+    done()
+  &#125;)
+&#125;)</code></pre>
 <p>Подробнее о модульном тестировании во Vue, вы можете изучить на <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a> и на странице нашей книги рецептов <a href="https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html" target="_blank" rel="noopener">о модульном тестировании компонентов Vue</a>.</p>
 
     
@@ -1060,7 +1149,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

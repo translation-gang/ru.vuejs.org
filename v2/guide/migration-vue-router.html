@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Миграция с Vue Router 0.7.x — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1004,11 +1008,21 @@
 <p>Только Vue Router 2 совместим с Vue 2, поэтому если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации <a href="https://router.vuejs.org/ru/" target="_blank" rel="noopener">Vue Router</a>.</p>
 </blockquote>
 <h2 id="Инициализация-роутера"><a href="#Инициализация-роутера" class="headerlink" title="Инициализация роутера"></a>Инициализация роутера</h2><h3 id="router-start-заменено"><a href="#router-start-заменено" class="headerlink" title="router.start заменено"></a><code>router.start</code> <sup>заменено</sup></h3><p>Больше нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.start(&#123;</span><br><span class="line">  template: <span class="string">'&lt;router-view&gt;&lt;/router-view&gt;'</span></span><br><span class="line">&#125;, <span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">router.start(&#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;router-view&gt;&lt;/router-view&gt;'</span>
+&#125;, <span class="hljs-string">'#app'</span>)</code></pre>
 <p>вы должны передать роутер как свойство в экземпляр Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router: router,</span><br><span class="line">  template: <span class="string">'&lt;router-view&gt;&lt;/router-view&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">router</span>: router,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;router-view&gt;&lt;/router-view&gt;'</span>
+&#125;)</code></pre>
 <p>или, если вы используете runtime-сборку Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router: router,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(<span class="string">'router-view'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">router</span>: router,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(<span class="hljs-string">'router-view'</span>)
+&#125;)</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1016,9 +1030,21 @@
 </div>
 
 <h2 id="Объявление-путей"><a href="#Объявление-путей" class="headerlink" title="Объявление путей"></a>Объявление путей</h2><h3 id="router-map-заменено"><a href="#router-map-заменено" class="headerlink" title="router.map заменено"></a><code>router.map</code> <sup>заменено</sup></h3><p>Теперь пути объявляются как массив в <a href="https://router.vuejs.org/ru/essentials/getting-started.html#javascript" target="_blank" rel="noopener">свойстве <code>routes</code></a> при установке роутера. Например, эти пути:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.map(&#123;</span><br><span class="line">  <span class="string">'/foo'</span>: &#123;</span><br><span class="line">    component: Foo</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'/bar'</span>: &#123;</span><br><span class="line">    component: Bar</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">router.map(&#123;
+  <span class="hljs-string">'/foo'</span>: &#123;
+    <span class="hljs-attr">component</span>: Foo
+  &#125;,
+  <span class="hljs-string">'/bar'</span>: &#123;
+    <span class="hljs-attr">component</span>: Bar
+  &#125;
+&#125;)</code></pre>
 <p>будут объявлены как:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/foo'</span>, <span class="attr">component</span>: Foo &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/bar'</span>, <span class="attr">component</span>: Bar &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">routes</span>: [
+    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/foo'</span>, <span class="hljs-attr">component</span>: Foo &#125;,
+    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/bar'</span>, <span class="hljs-attr">component</span>: Bar &#125;
+  ]
+&#125;)</code></pre>
 <p>Синтаксис массива позволяет сделать согласование путей более предсказуемым, так как итерация по объекту не гарантирует использование одинакового порядка ключей во всех браузерах.</p>
 
 <div class="upgrade-path">
@@ -1027,9 +1053,34 @@
 </div>
 
 <h3 id="router-on-удалено"><a href="#router-on-удалено" class="headerlink" title="router.on удалено"></a><code>router.on</code> <sup>удалено</sup></h3><p>Если вам нужно программно генерировать пути при запуске приложения, вы можете сделать это, динамически добавляя определения путей в массив. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Базовый массив путей</span></span><br><span class="line"><span class="keyword">var</span> routes = [</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// Динамически генерируемые пути</span></span><br><span class="line">marketingPages.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">page</span>) </span>&#123;</span><br><span class="line">  routes.push(&#123;</span><br><span class="line">    path: <span class="string">'/marketing/'</span> + page.slug</span><br><span class="line">    component: &#123;</span><br><span class="line">      extends: MarketingComponent</span><br><span class="line">      data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">page</span>: page &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: routes</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Базовый массив путей</span>
+<span class="hljs-keyword">var</span> routes = [
+  <span class="hljs-comment">// ...</span>
+]
+
+<span class="hljs-comment">// Динамически генерируемые пути</span>
+marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">page</span>) </span>&#123;
+  routes.push(&#123;
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/marketing/'</span> + page.slug
+    component: &#123;
+      <span class="hljs-attr">extends</span>: MarketingComponent
+      data: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">page</span>: page &#125;
+      &#125;
+    &#125;
+  &#125;)
+&#125;)
+
+<span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> Router(&#123;
+  <span class="hljs-attr">routes</span>: routes
+&#125;)</code></pre>
 <p>Если вам нужно добавить новые пути после того, как был создан экземпляр роутера, вы можете заменить свойство <code>match</code> новым, включающим в себя путь, который вы хотите добавить:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.match = createMatcher(</span><br><span class="line">  [&#123;</span><br><span class="line">    path: <span class="string">'/my/new/path'</span>,</span><br><span class="line">    component: MyComponent</span><br><span class="line">  &#125;].concat(router.options.routes)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">router.match = createMatcher(
+  [&#123;
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/my/new/path'</span>,
+    <span class="hljs-attr">component</span>: MyComponent
+  &#125;].concat(router.options.routes)
+)</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1037,8 +1088,20 @@
 </div>
 
 <h3 id="router-beforeEach-изменён"><a href="#router-beforeEach-изменён" class="headerlink" title="router.beforeEach изменён"></a><code>router.beforeEach</code> <sup>изменён</sup></h3><p><code>router.beforeEach</code> теперь работает асинхронно и принимает функцию <code>next</code> третьим аргументом.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.beforeEach(<span class="function"><span class="keyword">function</span> (<span class="params">transition</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (transition.to.path === <span class="string">'/forbidden'</span>) &#123;</span><br><span class="line">    transition.abort()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    transition.next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.beforeEach(<span class="function"><span class="keyword">function</span> (<span class="params">to, from, next</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/forbidden'</span>) &#123;</span><br><span class="line">    next(<span class="literal">false</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">router.beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">transition</span>) </span>&#123;
+  <span class="hljs-keyword">if</span> (transition.to.path === <span class="hljs-string">'/forbidden'</span>) &#123;
+    transition.abort()
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    transition.next()
+  &#125;
+&#125;)</code></pre>
+<pre><code class="hljs js">router.beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">to, from, next</span>) </span>&#123;
+  <span class="hljs-keyword">if</span> (to.path === <span class="hljs-string">'/forbidden'</span>) &#123;
+    next(<span class="hljs-literal">false</span>)
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    next()
+  &#125;
+&#125;)</code></pre>
 <h3 id="subRoutes-переименовано"><a href="#subRoutes-переименовано" class="headerlink" title="subRoutes переименовано"></a><code>subRoutes</code> <sup>переименовано</sup></h3><p><a href="https://router.vuejs.org/ru/essentials/nested-routes.html" target="_blank" rel="noopener">Переименовано в <code>children</code></a> для соответствия Vue другим библиотекам маршрутизации.</p>
 
 <div class="upgrade-path">
@@ -1047,9 +1110,14 @@
 </div>
 
 <h3 id="router-redirect-заменено"><a href="#router-redirect-заменено" class="headerlink" title="router.redirect заменено"></a><code>router.redirect</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>. Например, вам нужно заменить:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.redirect(&#123;</span><br><span class="line">  <span class="string">'/tos'</span>: <span class="string">'/terms-of-service'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">router.redirect(&#123;
+  <span class="hljs-string">'/tos'</span>: <span class="hljs-string">'/terms-of-service'</span>
+&#125;)</code></pre>
 <p>в вашей конфигурации <code>routes</code> на объявление, показанное ниже:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/tos'</span>,</span><br><span class="line">  redirect: <span class="string">'/terms-of-service'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/tos'</span>,
+  <span class="hljs-attr">redirect</span>: <span class="hljs-string">'/terms-of-service'</span>
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1057,23 +1125,40 @@
 </div>
 
 <h3 id="router-alias-заменено"><a href="#router-alias-заменено" class="headerlink" title="router.alias заменено"></a><code>router.alias</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>, которой вы присваиваете псевдоним. Например, вам нужно заменить:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.alias(&#123;</span><br><span class="line">  <span class="string">'/manage'</span>: <span class="string">'/admin'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">router.alias(&#123;
+  <span class="hljs-string">'/manage'</span>: <span class="hljs-string">'/admin'</span>
+&#125;)</code></pre>
 <p>в вашей конфигурации <code>routes</code> на объявление, показанное ниже:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/admin'</span>,</span><br><span class="line">  component: AdminPanel,</span><br><span class="line">  alias: <span class="string">'/manage'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/admin'</span>,
+  <span class="hljs-attr">component</span>: AdminPanel,
+  <span class="hljs-attr">alias</span>: <span class="hljs-string">'/manage'</span>
+&#125;</code></pre>
 <p>Если вам нужно несколько псевдонимов, вы можете также использовать синтаксис массива:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">alias: [<span class="string">'/manage'</span>, <span class="string">'/administer'</span>, <span class="string">'/administrate'</span>]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="hljs js">alias: [<span class="hljs-string">'/manage'</span>, <span class="hljs-string">'/administer'</span>, <span class="hljs-string">'/administrate'</span>]</code></pre>
+{% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.alias</code>.</p>
 </div>
-
+{% endraw %}
 <h3 id="Произвольные-свойства-пути-заменено"><a href="#Произвольные-свойства-пути-заменено" class="headerlink" title="Произвольные свойства пути заменено"></a>Произвольные свойства пути <sup>заменено</sup></h3><p>Произвольные свойства пути теперь должны быть помещены в новое свойство <code>meta</code>, чтобы избежать конфликтов с будущей функциональностью. Например, если вы определили:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">'/admin'</span>: &#123;</span><br><span class="line">  component: AdminPanel,</span><br><span class="line">  requiresAuth: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-string">'/admin'</span>: &#123;
+  <span class="hljs-attr">component</span>: AdminPanel,
+  <span class="hljs-attr">requiresAuth</span>: <span class="hljs-literal">true</span>
+&#125;</code></pre>
 <p>вы должны заменить это на:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/admin'</span>,</span><br><span class="line">  component: AdminPanel,</span><br><span class="line">  meta: &#123;</span><br><span class="line">    requiresAuth: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/admin'</span>,
+  <span class="hljs-attr">component</span>: AdminPanel,
+  <span class="hljs-attr">meta</span>: &#123;
+    <span class="hljs-attr">requiresAuth</span>: <span class="hljs-literal">true</span>
+  &#125;
+&#125;</code></pre>
 <p>Затем, для дальнейшего доступа к этому свойству пути, вы должны пройти через свойство <code>meta</code>, например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (route.meta.requiresAuth) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">if</span> (route.meta.requiresAuth) &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1089,9 +1174,9 @@
 </div>
 
 <h2 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h2><h3 id="v-link-заменено"><a href="#v-link-заменено" class="headerlink" title="v-link заменено"></a><code>v-link</code> <sup>заменено</sup></h3><p>Директива <code>v-link</code> заменена на новый <a href="https://router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компонент <code>&lt;router-link&gt;</code></a>, так как за данный тип работ теперь отвечают только компоненты во Vue 2. Это означает, что всякий раз, когда у вас есть ссылка, как эта:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"'/about'"</span>&gt;</span>О нас<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-link</span>=<span class="hljs-string">"'/about'"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Вам необходимо изменить её следующим образом:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span>О нас<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/about"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></code></pre>
 <p>Запомните, что <code>target=&quot;_blank&quot;</code> больше не поддерживается в <code>&lt;router-link&gt;</code>, поэтому, если вам нужно открыть ссылку в новой вкладке, вы должны использовать тег <code>&lt;a&gt;</code>.</p>
 
 <div class="upgrade-path">
@@ -1100,9 +1185,13 @@
 </div>
 
 <h3 id="v-link-active-заменено"><a href="#v-link-active-заменено" class="headerlink" title="v-link-active заменено"></a><code>v-link-active</code> <sup>заменено</sup></h3><p>Директива <code>v-link-active</code> также была заменена на атрибут <code>tag</code> в <a href="https://router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компоненте <code>&lt;router-link&gt;</code></a>. Например, вам нужно заменить это:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-link-active</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"'/about'"</span>&gt;</span>О нас<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-link-active</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-link</span>=<span class="hljs-string">"'/about'"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
 <p>на:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">tag</span>=<span class="string">"li"</span> <span class="attr">to</span>=<span class="string">"/about"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span>&gt;</span>О нас<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">tag</span>=<span class="hljs-string">"li"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/about"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></code></pre>
 <p>Тег <code>&lt;a&gt;</code> будет фактически ссылкой (с правильным атрибутом <code>href</code>), но активный класс будет применён к родительскому тегу <code>&lt;li&gt;</code>.</p>
 
 <div class="upgrade-path">
@@ -1125,9 +1214,13 @@
 </div>
 
 <h3 id="history-true-заменено"><a href="#history-true-заменено" class="headerlink" title="history: true заменено"></a><code>history: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  history: <span class="string">'true'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">history</span>: <span class="hljs-string">'true'</span>
+&#125;)</code></pre>
 <p>на:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  mode: <span class="string">'history'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">'history'</span>
+&#125;)</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1135,9 +1228,13 @@
 </div>
 
 <h3 id="abstract-true-заменено"><a href="#abstract-true-заменено" class="headerlink" title="abstract: true заменено"></a><code>abstract: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  abstract: <span class="string">'true'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">abstract</span>: <span class="hljs-string">'true'</span>
+&#125;)</code></pre>
 <p>на:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  mode: <span class="string">'abstract'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">'abstract'</span>
+&#125;)</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1145,9 +1242,11 @@
 </div>
 
 <h2 id="Опции-роутера-разное"><a href="#Опции-роутера-разное" class="headerlink" title="Опции роутера: разное"></a>Опции роутера: разное</h2><h3 id="saveScrollPosition-заменено"><a href="#saveScrollPosition-заменено" class="headerlink" title="saveScrollPosition заменено"></a><code>saveScrollPosition</code> <sup>заменено</sup></h3><p>Было заменено на <a href="https://router.vuejs.org/ru/advanced/scroll-behavior.html" target="_blank" rel="noopener">опцию <code>scrollBehavior</code></a> которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, но для возврата старого поведения:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">saveScrollPosition: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">saveScrollPosition: <span class="hljs-literal">true</span></code></pre>
 <p>Вы можете заменить это на:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">scrollBehavior: <span class="function"><span class="keyword">function</span> (<span class="params">to, from, savedPosition</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> savedPosition || &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">scrollBehavior: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">to, from, savedPosition</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> savedPosition || &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">0</span> &#125;
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1211,7 +1310,14 @@
 </div>
 
 <h3 id="data-заменено"><a href="#data-заменено" class="headerlink" title="data заменено"></a><code>data</code> <sup>заменено</sup></h3><p>Свойство <code>$route</code> теперь реактивно, поэтому вы можете просто использовать метод-наблюдатель для отслеживания изменения пути, например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  <span class="string">'$route'</span>: <span class="string">'fetchData'</span></span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  fetchData: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">watch: &#123;
+  <span class="hljs-string">'$route'</span>: <span class="hljs-string">'fetchData'</span>
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">fetchData</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1219,7 +1325,34 @@
 </div>
 
 <h3 id="loadingRouteData-удалено"><a href="#loadingRouteData-удалено" class="headerlink" title="$loadingRouteData удалено"></a><code>$loadingRouteData</code> <sup>удалено</sup></h3><p>Определите ваше свойство (например, <code>isLoading</code>), затем обновите состояние загрузки с помощью опции <code>watch</code> на пути. Например, при предварительном получении данных с использованием <a href="https://github.com/mzabriskie/axios" target="_blank" rel="noopener">axios</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    posts: [],</span><br><span class="line">    isLoading: <span class="literal">false</span>,</span><br><span class="line">    fetchError: <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">watch: &#123;</span><br><span class="line">  <span class="string">'$route'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">    self.isLoading = <span class="literal">true</span></span><br><span class="line">    self.fetchData().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      self.isLoading = <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  fetchData: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">return</span> axios.get(<span class="string">'/api/posts'</span>)</span><br><span class="line">      .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">        self.posts = response.data.posts</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">        self.fetchError = error</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">data: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">posts</span>: [],
+    <span class="hljs-attr">isLoading</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">fetchError</span>: <span class="hljs-literal">null</span>
+  &#125;
+&#125;,
+<span class="hljs-attr">watch</span>: &#123;
+  <span class="hljs-string">'$route'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+    self.isLoading = <span class="hljs-literal">true</span>
+    self.fetchData().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      self.isLoading = <span class="hljs-literal">false</span>
+    &#125;)
+  &#125;
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">fetchData</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">return</span> axios.get(<span class="hljs-string">'/api/posts'</span>)
+      .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>&#123;
+        self.posts = response.data.posts
+      &#125;)
+      .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>&#123;
+        self.fetchError = error
+      &#125;)
+  &#125;
+&#125;</code></pre>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1272,7 +1405,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

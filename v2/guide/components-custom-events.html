@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Пользовательские события — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1004,45 +1008,104 @@
 <p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
 </blockquote>
 <h2 id="Стиль-именования-событий"><a href="#Стиль-именования-событий" class="headerlink" title="Стиль именования событий"></a>Стиль именования событий</h2><p>В отличие от компонентов и входных параметров, имена событий не предоставляют никакой автоматической трансформации стиля именования события. Вместо этого, имя генерируемого события должно точно соответствовать имени, используемому при прослушивании события. К примеру, если генерируем событие с именем в camelCase:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'myEvent'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'myEvent'</span>)</code></pre>
 <p>Прослушивание kebab-cased версии этого имени не будет иметь никакого эффекта:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-on:my-event</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:my-event</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
 <p>В отличие от компонентов и входных параметров, имена событий никогда не будут использоваться в качестве имён переменных или имён свойств в JavaScript, поэтому нет причин использовать camelCase или PascalCase. Кроме того, директивы прослушивания событий <code>v-on</code> внутри DOM-шаблонов автоматически преобразуются в нижний регистр (из-за нечувствительности HTML к регистру), поэтому <code>v-on:myEvent</code> станет <code>v-on:myevent</code> — что делает прослушивание события <code>myEvent</code> невозможным.</p>
 <p>По этим причинам мы рекомендуем <strong>всегда использовать kebab-case для имён событий</strong>.</p>
 <h2 id="Настройка-v-model-у-компонента"><a href="#Настройка-v-model-у-компонента" class="headerlink" title="Настройка v-model у компонента"></a>Настройка <code>v-model</code> у компонента</h2><blockquote>
 <p>Добавлено в версии 2.2.0+</p>
 </blockquote>
 <p>По умолчанию <code>v-model</code> на компоненте использует входной параметр <code>value</code> и событие <code>input</code>. Но некоторые типы полей, такие как чекбоксы или радиокнопки, могут использовать атрибут <code>value</code> для <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value" target="_blank" rel="noopener">других целей</a>. Использование опции <code>model</code> позволит избежать конфликта в таких случаях:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-checkbox'</span>, &#123;</span><br><span class="line">  model: &#123;</span><br><span class="line">    prop: <span class="string">'checked'</span>,</span><br><span class="line">    event: <span class="string">'change'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    checked: <span class="built_in">Boolean</span></span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;input</span></span><br><span class="line"><span class="string">      type="checkbox"</span></span><br><span class="line"><span class="string">      v-bind:checked="checked"</span></span><br><span class="line"><span class="string">      v-on:change="$emit('change', $event.target.checked)"</span></span><br><span class="line"><span class="string">    &gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-checkbox'</span>, &#123;
+  <span class="hljs-attr">model</span>: &#123;
+    <span class="hljs-attr">prop</span>: <span class="hljs-string">'checked'</span>,
+    <span class="hljs-attr">event</span>: <span class="hljs-string">'change'</span>
+  &#125;,
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">checked</span>: <span class="hljs-built_in">Boolean</span>
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;input
+      type="checkbox"
+      v-bind:checked="checked"
+      v-on:change="$emit('change', $event.target.checked)"
+    &gt;
+  `</span>
+&#125;)</code></pre>
 <p>Теперь, когда используем <code>v-model</code> на этом компоненте:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-checkbox</span> <span class="attr">v-model</span>=<span class="string">"lovingVue"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-checkbox</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"lovingVue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-checkbox</span>&gt;</span></code></pre>
 <p>значение <code>lovingVue</code> будет передано во входном параметре <code>checked</code>. А обновляться свойство <code>lovingVue</code> будет когда <code>&lt;base-checkbox&gt;</code> сгенерирует событие <code>change</code> с новым значением.</p>
 <p class="tip">Обратите внимание, что вам всё равно нужно объявлять входной параметр <code>checked</code> в опции <code>props</code> компонента.</p>
 
 <h2 id="Подписка-на-нативные-события-в-компонентах"><a href="#Подписка-на-нативные-события-в-компонентах" class="headerlink" title="Подписка на нативные события в компонентах"></a>Подписка на нативные события в компонентах</h2><p>Иногда нужно подписаться на нативные события браузера на корневом элементе компонента. В таких случаях можно применять модификатор <code>.native</code> для <code>v-on</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">base-input</span> <span class="attr">v-on:focus.native</span>=<span class="string">"onFocus"</span>&gt;</span><span class="tag">&lt;/<span class="name">base-input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span> <span class="hljs-attr">v-on:focus.native</span>=<span class="hljs-string">"onFocus"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
 <p>Иногда это может быть полезно, но это не очень хорошая идея, когда вы пытаетесь прослушивать очень специфичный элемент, к примеру <code>&lt;input&gt;</code>. Например, компонент <code>&lt;base-input&gt;</code> можно переделать так, чтобы корневой элемент был фактически элементом <code>&lt;label&gt;</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">  &#123;&#123; label &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind</span>=<span class="string">"$attrs"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-bind:value</span>=<span class="string">"value"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-on:input</span>=<span class="string">"$emit('input', $event.target.value)"</span></span></span><br><span class="line"><span class="tag">  &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  &#123;&#123; label &#125;&#125;
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+    <span class="hljs-attr">v-bind</span>=<span class="hljs-string">"$attrs"</span>
+    <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"value"</span>
+    <span class="hljs-attr">v-on:input</span>=<span class="hljs-string">"$emit('input', $event.target.value)"</span>
+  &gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></code></pre>
 <p>В этом случае слушатель <code>.native</code> в родителе просто тихо перестанет работать. Ошибок не будет, но обработчик <code>onFocus</code> не будет вызываться, когда мы этого ожидаем.</p>
 <p>Для решения этой проблемы Vue предоставляет свойство <code>$listeners</code>, содержащее объект всех слушателей, которые используются на компоненте. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  focus: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line">  input: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123; <span class="comment">/* ... */</span> &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">focus</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  input: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+&#125;</code></pre>
 <p>Используя свойство <code>$listeners</code>, вы можете передать все слушатели событий на компоненте на определённый дочерний элемент с помощью <code>v-on=&quot;$listeners&quot;</code>. Для таких элементов как <code>&lt;input&gt;</code>, вы также можете захотеть работоспособности с <code>v-model</code>, для чего бывает полезно создать новое вычисляемое свойство для слушателей, например <code>inputListeners</code> указанный ниже:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'base-input'</span>, &#123;</span><br><span class="line">  inheritAttrs: <span class="literal">false</span>,</span><br><span class="line">  props: [<span class="string">'label'</span>, <span class="string">'value'</span>],</span><br><span class="line">  computed: &#123;</span><br><span class="line">    inputListeners: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> vm = <span class="keyword">this</span></span><br><span class="line">      <span class="comment">// `Object.assign` объединяет объекты вместе, чтобы получить новый объект</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;,</span><br><span class="line">        <span class="comment">// Мы добавляем все слушатели из родителя</span></span><br><span class="line">        <span class="keyword">this</span>.$listeners,</span><br><span class="line">        <span class="comment">// Затем мы можем добавить собственные слушатели или</span></span><br><span class="line">        <span class="comment">// перезаписать поведение некоторых существующих.</span></span><br><span class="line">        &#123;</span><br><span class="line">          <span class="comment">// Это обеспечит, что будет работать v-model на компоненте</span></span><br><span class="line">          input: <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">            vm.$emit(<span class="string">'input'</span>, event.target.value)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;label&gt;</span></span><br><span class="line"><span class="string">      &#123;&#123; label &#125;&#125;</span></span><br><span class="line"><span class="string">      &lt;input</span></span><br><span class="line"><span class="string">        v-bind="$attrs"</span></span><br><span class="line"><span class="string">        v-bind:value="value"</span></span><br><span class="line"><span class="string">        v-on="inputListeners"</span></span><br><span class="line"><span class="string">      &gt;</span></span><br><span class="line"><span class="string">    &lt;/label&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-input'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'label'</span>, <span class="hljs-string">'value'</span>],
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">inputListeners</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>
+      <span class="hljs-comment">// `Object.assign` объединяет объекты вместе, чтобы получить новый объект</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.assign(&#123;&#125;,
+        <span class="hljs-comment">// Мы добавляем все слушатели из родителя</span>
+        <span class="hljs-keyword">this</span>.$listeners,
+        <span class="hljs-comment">// Затем мы можем добавить собственные слушатели или</span>
+        <span class="hljs-comment">// перезаписать поведение некоторых существующих.</span>
+        &#123;
+          <span class="hljs-comment">// Это обеспечит, что будет работать v-model на компоненте</span>
+          input: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
+            vm.$emit(<span class="hljs-string">'input'</span>, event.target.value)
+          &#125;
+        &#125;
+      )
+    &#125;
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;label&gt;
+      &#123;&#123; label &#125;&#125;
+      &lt;input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on="inputListeners"
+      &gt;
+    &lt;/label&gt;
+  `</span>
+&#125;)</code></pre>
 <p>Теперь компонент <code>&lt;base-input&gt;</code> стал <strong>полностью прозрачной обёрткой</strong>, что означает, что его можно использовать точно также, как и обычный элемент <code>&lt;input&gt;</code>: все те же атрибуты и слушатели будут работать без указания модификатора <code>.native</code>.</p>
 <h2 id="Модификатор-sync"><a href="#Модификатор-sync" class="headerlink" title="Модификатор .sync"></a>Модификатор <code>.sync</code></h2><blockquote>
 <p>Добавлено в версии 2.3.0+</p>
 </blockquote>
 <p>В некоторых случаях нам может понадобиться “двусторонняя привязка” для входных параметров. К сожалению, настоящая двусторонняя привязка может создавать проблемы с поддержкой, поскольку дочерние компоненты смогут мутировать состояние родителя без источника, который является очевидным как у родителя, так и у потомков.</p>
 <p>Поэтому вместо этого, мы рекомендуем генерировать события с определённым шаблоном имени <code>update:myPropName</code>. Например, в гипотетическом компоненте с входным параметром <code>title</code>, мы можем сообщить о намерении присвоить новое значение:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'update:title'</span>, newTitle)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'update:title'</span>, newTitle)</code></pre>
 <p>Затем, родитель может прослушать это событие и обновить локальное свойство, если захочет. Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:title</span>=<span class="string">"doc.title"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-on:update:title</span>=<span class="string">"doc.title = $event"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">text-document</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"doc.title"</span>
+  <span class="hljs-attr">v-on:update:title</span>=<span class="hljs-string">"doc.title = $event"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">text-document</span>&gt;</span></code></pre>
 <p>Для удобства мы предлагаем краткую запись для этого шаблона с помощью модификатора <code>.sync</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind:title.sync</span>=<span class="string">"doc.title"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">text-document</span> <span class="hljs-attr">v-bind:title.sync</span>=<span class="hljs-string">"doc.title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">text-document</span>&gt;</span></code></pre>
 <p class="tip">Обратите внимание, что <code>v-bind</code> с модификатором <code>.sync</code> <strong>не работает</strong> с выражениями (например, <code>v-bind:title.sync=”doc.title + ‘!’”</code> не будет работать). Вместо этого нужно указывать только имя свойства, которое хотите привязать, аналогично <code>v-model</code>.</p>
 
 <p>Модификатор <code>.sync</code> также может использоваться вместе с <code>v-bind</code> при использовании объектной записи, чтобы сразу устанавливать значения нескольких входных параметров:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text-document</span> <span class="attr">v-bind.sync</span>=<span class="string">"doc"</span>&gt;</span><span class="tag">&lt;/<span class="name">text-document</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">text-document</span> <span class="hljs-attr">v-bind.sync</span>=<span class="hljs-string">"doc"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">text-document</span>&gt;</span></code></pre>
 <p>Это передаёт каждое свойство в объекте <code>doc</code> (например, <code>title</code>) в качестве индивидуальных входных параметров, а затем добавляет слушатели событий <code>v-on</code> для каждого из них.</p>
 <p class="tip">Использование <code>v-bind.sync</code> с литеральным объектом, например таким как <code>v-bind.sync=”{ title: doc.title }”</code>, не будет работать, потому что необходимо будет учитывать слишком много различных пограничных случаев при анализе подобного сложного выражения.</p>
 
@@ -1091,7 +1154,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

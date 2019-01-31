@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Добавление свойств экземпляра — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -441,7 +441,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -452,9 +456,13 @@
     
     
       <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Могут быть данные/утилиты, которые планируете использовать во многих компонентах, но не хотите при этом <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md" target="_blank" rel="noopener">загрязнять глобальную область видимости</a>. В этих случаях вы можете сделать их доступными для каждого экземпляра Vue, указав их в прототипе:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype.$appName = <span class="string">'Моё приложение'</span>;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.prototype.$appName = <span class="hljs-string">'Моё приложение'</span>;</code></pre>
 <p>Теперь <code>$appName</code> доступно во всех экземплярах Vue, даже до создания. Если мы запустим:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$appName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">beforeCreate</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$appName);
+  &#125;
+&#125;);</code></pre>
 <p>Тогда <code>&quot;Моё приложение&quot;</code> будет выведено в консоль!</p>
 <h2 id="Важность-именования-свойств-экземпляра"><a href="#Важность-именования-свойств-экземпляра" class="headerlink" title="Важность именования свойств экземпляра"></a>Важность именования свойств экземпляра</h2><p>Вам может быть интересно:</p>
 <blockquote>
@@ -465,36 +473,108 @@
 <p>“Конфликты? Что вы имеете ввиду?”</p>
 </blockquote>
 <p>Ещё один хороший вопрос! Допустим, если вы установили:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype.appName = <span class="string">'Моё приложение'</span>;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.prototype.appName = <span class="hljs-string">'Моё приложение'</span>;</code></pre>
 <p>Тогда что вы ожидаете будет выведено в консоль в примере ниже?</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    <span class="comment">// Ох ах - appName *случайно* совпало с именем</span></span><br><span class="line">    <span class="comment">// свойства экземпляра, которое мы определили!</span></span><br><span class="line">    appName: <span class="string">'Название какого-то другого приложения'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.appName);</span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.appName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-comment">// Ох ах - appName *случайно* совпало с именем</span>
+    <span class="hljs-comment">// свойства экземпляра, которое мы определили!</span>
+    appName: <span class="hljs-string">'Название какого-то другого приложения'</span>
+  &#125;,
+  <span class="hljs-attr">beforeCreate</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.appName);
+  &#125;,
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.appName);
+  &#125;
+&#125;);</code></pre>
 <p>Будет выведено <code>&quot;Моё приложение&quot;</code>, а затем <code>&quot;Название какого-то другого приложения&quot;</code>, потому что <code>this.appName</code> (<a href="https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md" target="_blank" rel="noopener">в каком-то роде</a>) будет перезаписан свойством <code>data</code> после создания экземпляра. Мы именуем свойства экземпляра с <code>$</code> чтобы избежать такого. Вы даже можете использовать своё собственное соглашение по именованию, если хотите, например <code>$_appName</code> или <code>ΩappName</code>, для предотвращения конфликтов с плагинами или будущими функциями.</p>
 <h2 id="Пример-из-жизни-замена-Vue-Resource-на-Axios"><a href="#Пример-из-жизни-замена-Vue-Resource-на-Axios" class="headerlink" title="Пример из жизни: замена Vue Resource на Axios"></a>Пример из жизни: замена Vue Resource на Axios</h2><p>Предположим, вы заменяете <a href="https://medium.com/the-vue-point/retiring-vue-resource-871a82880af4" target="_blank" rel="noopener">ушедший на пенсию Vue Resource</a>. Но вам очень понравился доступ к методам запросов через <code>this.$http</code> и вы хотите получить аналогичное с axios.</p>
 <p>Всё, что вам нужно сделать — это добавить axios в ваш проект:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"user in users"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in users"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>И связать <code>axios</code> со свойством <code>Vue.prototype.$http</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype.$http = axios;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.prototype.$http = axios;</code></pre>
 <p>Теперь вы можете использовать такие методы как <code>this.$http.get</code> в любом экземпляре Vue:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    users: []</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    <span class="keyword">var</span> vm = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.$http</span><br><span class="line">      .get(<span class="string">'https://jsonplaceholder.typicode.com/users'</span>)</span><br><span class="line">      .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">        vm.users = response.data;</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">users</span>: []
+  &#125;,
+  created() &#123;
+    <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">this</span>.$http
+      .get(<span class="hljs-string">'https://jsonplaceholder.typicode.com/users'</span>)
+      .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>&#123;
+        vm.users = response.data;
+      &#125;);
+  &#125;
+&#125;);</code></pre>
 <h2 id="Контекст-методов-прототипа"><a href="#Контекст-методов-прототипа" class="headerlink" title="Контекст методов прототипа"></a>Контекст методов прототипа</h2><p>Если вы не знаете, то методы, добавленные в прототип, в JavaScript получают контекст экземпляра. Это означает, что они могут использовать <code>this</code> для доступа к свойствам data, вычисляемым свойствам, методам, или чему-либо ещё, объявленному в экземпляре.</p>
 <p>Воспользуемся этой возможностью в методе <code>$reverseText</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype.$reverseText = <span class="function"><span class="keyword">function</span> (<span class="params">propertyName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>[propertyName] = <span class="keyword">this</span>[propertyName]</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reverse()</span><br><span class="line">    .join(<span class="string">''</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Привет'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.message); <span class="comment">// =&gt; "Привет"</span></span><br><span class="line">    <span class="keyword">this</span>.$reverseText(<span class="string">'message'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.message); <span class="comment">// =&gt; "тевирП"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.prototype.$reverseText = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">propertyName</span>) </span>&#123;
+  <span class="hljs-keyword">this</span>[propertyName] = <span class="hljs-keyword">this</span>[propertyName]
+    .split(<span class="hljs-string">''</span>)
+    .reverse()
+    .join(<span class="hljs-string">''</span>);
+&#125;;
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет'</span>
+  &#125;,
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.message); <span class="hljs-comment">// =&gt; "Привет"</span>
+    <span class="hljs-keyword">this</span>.$reverseText(<span class="hljs-string">'message'</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.message); <span class="hljs-comment">// =&gt; "тевирП"</span>
+  &#125;
+&#125;);</code></pre>
 <p>Обратите внимание, что привязка к контексту <strong>не будет работать</strong>, если вы используете стрелочные функции ES6/2015, поскольку они неявно связываются с родительской областью видимости. Это означает, что вариант со стрелочной функцией:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.prototype.$reverseText = <span class="function"><span class="params">propertyName</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>[propertyName] = <span class="keyword">this</span>[propertyName]</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reverse()</span><br><span class="line">    .join(<span class="string">''</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.prototype.$reverseText = <span class="hljs-function"><span class="hljs-params">propertyName</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">this</span>[propertyName] = <span class="hljs-keyword">this</span>[propertyName]
+    .split(<span class="hljs-string">''</span>)
+    .reverse()
+    .join(<span class="hljs-string">''</span>);
+&#125;;</code></pre>
 <p>Закончится ошибкой:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Uncaught TypeError: Cannot read property &apos;split&apos; of undefined</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs log">Uncaught TypeError: Cannot read property &apos;split&apos; of undefined</code></pre>
 <h2 id="Когда-избегать-этого-паттерна"><a href="#Когда-избегать-этого-паттерна" class="headerlink" title="Когда избегать этого паттерна"></a>Когда избегать этого паттерна</h2><p>Пока вы внимательно следите за контекстом свойств прототипа, использование этого паттерна вполне безопасно и не добавит никаких багов.</p>
 <p>Однако, иногда это может привести к путанице с другими разработчиками. Например, они могут увидеть <code>this.$http</code> и подумать “О, я и не знал об этой возможности Vue!”. Затем они переходят на другой проект и не понимают, почему <code>this.$http</code> будет undefined. Или, может быть они хотят найти в Google как сделать что-либо, но ничего не могут найти, потому что не понимают, что на самом деле это всего лишь псевдоним для axios.</p>
 <p><strong>Удобство приходит за счёт очевидности.</strong> При просмотре компонента невозможно сказать откуда появился <code>$http</code>. Возможность Vue? Плагин? Добавил коллега?</p>
 <p>Итак, какие есть альтернативы?</p>
 <h2 id="Альтернативы"><a href="#Альтернативы" class="headerlink" title="Альтернативы"></a>Альтернативы</h2><h3 id="Если-не-используем-модульную-систему"><a href="#Если-не-используем-модульную-систему" class="headerlink" title="Если не используем модульную систему"></a>Если не используем модульную систему</h3><p>В приложениях <strong>без</strong> модульной системы (такой как Webpack или Browserify), существует паттерн, который часто используется <em>в любом</em> случае расширения фронтенда на JavaScript: глобальный объект <code>App</code>.</p>
 <p>Если то, что вы хотите добавить, не имеет ничего общего с Vue, это может стать хорошим местом для расположения подобной логики. Вот пример:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> App = <span class="built_in">Object</span>.freeze(&#123;</span><br><span class="line">  name: <span class="string">'Моё приложение'</span>,</span><br><span class="line">  version: <span class="string">'2.1.4'</span>,</span><br><span class="line">  helpers: &#123;</span><br><span class="line">    <span class="comment">// Это чистая функциональная версия</span></span><br><span class="line">    <span class="comment">// метода $reverseText, который мы видели ранее</span></span><br><span class="line">    reverseText: <span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> text</span><br><span class="line">        .split(<span class="string">''</span>)</span><br><span class="line">        .reverse()</span><br><span class="line">        .join(<span class="string">''</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> App = <span class="hljs-built_in">Object</span>.freeze(&#123;
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Моё приложение'</span>,
+  <span class="hljs-attr">version</span>: <span class="hljs-string">'2.1.4'</span>,
+  <span class="hljs-attr">helpers</span>: &#123;
+    <span class="hljs-comment">// Это чистая функциональная версия</span>
+    <span class="hljs-comment">// метода $reverseText, который мы видели ранее</span>
+    reverseText: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> text
+        .split(<span class="hljs-string">''</span>)
+        .reverse()
+        .join(<span class="hljs-string">''</span>);
+    &#125;
+  &#125;
+&#125;);</code></pre>
 <p class="tip">Если вас удивило использование <code>Object.freeze</code>, то он предотвращает изменение объекта в будущем. Это по сути делает все свойства объекта константами, защищая вас от появления ошибок изменения состояния.</p>
 
 <p>Теперь источник этих общих свойств можно увидеть явно: есть объект <code>App</code>, объявленный где-то в приложении. Найти его разработчики смогут поиском по проекту.</p>
 <p>Другим преимуществом будет то, что <code>App</code> теперь можно использовать <em>где угодно</em> в вашем коде, независимо от того относится ли он к Vue или нет. Это включает привязку значений напрямую к свойствам экземпляра, вместо того, чтобы вводить функцию для доступа к свойствам в <code>this</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    appVersion: App.version</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    reverseText: App.helpers.reverseText</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">appVersion</span>: App.version
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">reverseText</span>: App.helpers.reverseText
+  &#125;
+&#125;);</code></pre>
 <h3 id="Если-используем-модульную-систему"><a href="#Если-используем-модульную-систему" class="headerlink" title="Если используем модульную систему"></a>Если используем модульную систему</h3><p>Когда вы используете модульную систему, вы можете легко организовывать общий код в отдельные модули, а затем подключать их через <code>require</code>/<code>import</code> там где они нужны. В таком варианте больше ясности, потому что в каждом файле вы получаете список зависимостей. Вы знаете <em>наверняка</em> откуда что используется.</p>
 <p>Хотя этот подход несколько многословнее, но он наиболее удобен для поддержки, особенно при работе с другими разработчиками и/или создании больших приложений.</p>
 
@@ -532,7 +612,7 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

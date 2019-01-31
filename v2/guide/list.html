@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Отрисовка списков — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1001,8 +1005,20 @@
     
     
       <h2 id="Отображение-массива-элементов-с-помощью-v-for"><a href="#Отображение-массива-элементов-с-помощью-v-for" class="headerlink" title="Отображение массива элементов с помощью v-for"></a>Отображение массива элементов с помощью <code>v-for</code></h2><p>Используйте директиву <code>v-for</code> для отрисовки списка элементов на основе массива данных. У директивы <code>v-for</code> особый синтаксис записи: <code>item in items</code>, где <code>items</code> — исходный массив, а <code>item</code> — <strong>ссылка</strong> на текущий элемент массива:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example1 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-1'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-1"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span>&gt;</span>
+    &#123;&#123; item.message &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> example1 = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example-1'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">items</span>: [
+      &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'Foo'</span> &#125;,
+      &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'Bar'</span> &#125;
+    ]
+  &#125;
+&#125;)</code></pre>
 <p>Результат:</p>
 
 <ul id="example-1" class="demo">
@@ -1028,8 +1044,21 @@ var example1 = new Vue({
 </script>
 
 <p>Внутри блока <code>v-for</code> нам доступны свойства из области видимости родителя. У <code>v-for</code> также есть второй опциональный параметр с индексом текущего элемента.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"example-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span></span><br><span class="line">    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> example2 = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example-2'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    parentMessage: <span class="string">'Родитель'</span>,</span><br><span class="line">    items: [</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Foo'</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">message</span>: <span class="string">'Bar'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-2"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in items"</span>&gt;</span>
+    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> example2 = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example-2'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">parentMessage</span>: <span class="hljs-string">'Родитель'</span>,
+    <span class="hljs-attr">items</span>: [
+      &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'Foo'</span> &#125;,
+      &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'Bar'</span> &#125;
+    ]
+  &#125;
+&#125;)</code></pre>
 <p>Результат:</p>
 
 <ul id="example-2" class="demo">
@@ -1056,10 +1085,23 @@ var example2 = new Vue({
 </script>
 
 <p>Вместо <code>in</code> разделителем можно использовать <code>of</code>, как в итераторах JavaScript:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item of items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item of items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <h3 id="v-for-для-объекта"><a href="#v-for-для-объекта" class="headerlink" title="v-for для объекта"></a><code>v-for</code> для объекта</h3><p><code>v-for</code> можно также использовать для итерирования по свойствам объекта:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"v-for-object"</span> <span class="attr">class</span>=<span class="string">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"value in object"</span>&gt;</span></span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#v-for-object'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    object: &#123;</span><br><span class="line">      firstName: <span class="string">'Иван'</span>,</span><br><span class="line">      lastName: <span class="string">'Петров'</span>,</span><br><span class="line">      age: <span class="number">30</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"v-for-object"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"value in object"</span>&gt;</span>
+    &#123;&#123; value &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#v-for-object'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">object</span>: &#123;
+      <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Иван'</span>,
+      <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Петров'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Результат:</p>
 
 <ul id="v-for-object" class="demo">
@@ -1081,7 +1123,9 @@ new Vue({
 </script>
 
 <p>Можно использовать второй аргумент для получения ключей объекта:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key) in object"</span>&gt;</span></span><br><span class="line">  &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, key) in object"</span>&gt;</span>
+  &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 <div id="v-for-object-value-key" class="demo">
   <div v-for="(value, key) in object">
@@ -1102,7 +1146,9 @@ new Vue({
 </script>
 
 <p>И третий — для индексов:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(value, key, index) in object"</span>&gt;</span></span><br><span class="line">  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, key, index) in object"</span>&gt;</span>
+  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
 <div id="v-for-object-value-key-index" class="demo">
   <div v-for="(value, key, index) in object">
@@ -1127,7 +1173,9 @@ new Vue({
 <h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>При обновлении Vue списка элементов, отображаемого директивой <code>v-for</code>, по умолчанию используется стратегия обновления «на месте». Если порядок элементов массива или объекта изменился, Vue не станет перемещать элементы DOM, а просто обновит каждый элемент «на месте», чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
 <p>Режим по умолчанию эффективен, но применим только в случаях, <strong>когда результат отрисовки вашего списка не полагается на состояние дочерних компонентов или временные состояния DOM (например, значения полей форм)</strong>.</p>
 <p>Чтобы подсказать Vue, как отслеживать идентичность каждого элемента, что позволит переиспользовать и перемещать существующие элементы, укажите уникальный атрибут <code>key</code> для каждого элемента. Идеальным значением <code>key</code> будет уникальный id сущности. Этот специальный атрибут отчасти похож на <code>track-by</code> из Vue 1.x, но работает как и все остальные атрибуты, а значит нужно использовать <code>v-bind</code> для связывания с динамическими значениями (в примере ниже используется сокращение):</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- содержимое --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- содержимое --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Рекомендуем всегда указывать <code>key</code> с <code>v-for</code>, кроме случаев когда итерируемый контент DOM прост, или вы сознательно используете стратегию обновления по умолчанию для улучшения производительности.</p>
 <p>Поскольку этот механизм является общим для идентификации элементов во Vue, имеются и другие варианты применения <code>key</code>, не связанные явно с <code>v-for</code>, как мы увидим далее в руководстве.</p>
 <p class="tip">Не указывайте в качестве ключей <code>v-for</code> непримитивные значения. Вместо этого используйте строковые или числовые значения.</p>
@@ -1144,7 +1192,9 @@ new Vue({
 </ul>
 <p>Можете открыть консоль и поиграться с массивом <code>items</code> из предыдущего примера, вызывая его методы внесения изменений, например: <code>example1.items.push({ message: &#39;Baz&#39; })</code>.</p>
 <h3 id="Замены-в-массиве"><a href="#Замены-в-массиве" class="headerlink" title="Замены в массиве"></a>Замены в массиве</h3><p>Методы внесения изменений, как следует из их названия, изменяют оригинальный массив, на котором они вызываются. Существуют и неизменяющие методы, такие как <code>filter()</code>, <code>concat()</code> и <code>slice()</code>, они не вносят изменений в изначальный массив, а <strong>всегда возвращают новый массив</strong>. При работе с неизменяющими методами можно просто заменять старый массив на новый:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">example1.items = example1.items.filter(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> item.message.match(<span class="regexp">/Foo/</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">example1.items = example1.items.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> item.message.match(<span class="hljs-regexp">/Foo/</span>)
+&#125;)</code></pre>
 <p>Можно предположить, что Vue придётся выбросить существующий DOM и заново отрисовать список целиком, но, к счастью, это не так. Во Vue есть умные эвристики для максимизации переиспользования элементов DOM, поэтому замена одного массива другим, в случае совпадения части элементов этих массивов, будет очень эффективной операцией.</p>
 <h3 id="Предостережения"><a href="#Предостережения" class="headerlink" title="Предостережения"></a>Предостережения</h3><p>Из-за ограничений JavaScript, Vue <strong>не способен</strong> отследить следующие изменения в массиве:</p>
 <ol>
@@ -1152,35 +1202,83 @@ new Vue({
 <li>Явное изменение длины массива: <code>vm.items.length = newLength</code></li>
 </ol>
 <p>Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    items: [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">vm.items[<span class="number">1</span>] = <span class="string">'x'</span> <span class="comment">// НЕ РЕАКТИВНО</span></span><br><span class="line">vm.items.length = <span class="number">2</span> <span class="comment">// НЕ РЕАКТИВНО</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">items</span>: [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]
+  &#125;
+&#125;)
+vm.items[<span class="hljs-number">1</span>] = <span class="hljs-string">'x'</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span>
+vm.items.length = <span class="hljs-number">2</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span></code></pre>
 <p>Решить первую проблему можно двумя способами, оба дадут эффект аналогичный <code>vm.items[indexOfItem] = newValue</code>, плюс запустят реактивные обновления состояния приложения:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Использовать Vue.set</span></span><br><span class="line">Vue.set(vm.items, indexOfItem, newValue)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Использовать Array.prototype.splice</span></span><br><span class="line">vm.items.splice(indexOfItem, <span class="number">1</span>, newValue)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-comment">// Использовать Vue.set</span>
+Vue.set(vm.items, indexOfItem, newValue)</code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// Использовать Array.prototype.splice</span>
+vm.items.splice(indexOfItem, <span class="hljs-number">1</span>, newValue)</code></pre>
 <p>Можно использовать метод экземпляра <a href="https://ru.vuejs.org/v2/api/#vm-set" target="_blank" rel="noopener"><code>vm.$set</code></a>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$set(vm.items, indexOfItem, newValue)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">vm.$set(vm.items, indexOfItem, newValue)</code></pre>
 <p>Для решения второй проблемы используйте <code>splice</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.items.splice(newLength)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">vm.items.splice(newLength)</code></pre>
 <h2 id="Предостережения-об-изменениях-объектов"><a href="#Предостережения-об-изменениях-объектов" class="headerlink" title="Предостережения об изменениях объектов"></a>Предостережения об изменениях объектов</h2><p>Опять же, из-за ограничений JavaScript, <strong>Vue не может обнаружить добавление или удаление свойств</strong>. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// свойство `vm.a` реактивно</span></span><br><span class="line"></span><br><span class="line">vm.b = <span class="number">2</span></span><br><span class="line"><span class="comment">// свойство `vm.b` НЕ реактивно</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
+  &#125;
+&#125;)
+<span class="hljs-comment">// свойство `vm.a` реактивно</span>
+
+vm.b = <span class="hljs-number">2</span>
+<span class="hljs-comment">// свойство `vm.b` НЕ реактивно</span></code></pre>
 <p>Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода <code>Vue.set(object, key, value)</code>. Например, для следующего:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    userProfile: &#123;</span><br><span class="line">      name: <span class="string">'Anika'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">userProfile</span>: &#123;
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Anika'</span>
+    &#125;
+  &#125;
+&#125;)</code></pre>
 <p>Можно добавить новое свойство <code>age</code> для вложенного объекта <code>userProfile</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.set(vm.userProfile, <span class="hljs-string">'age'</span>, <span class="hljs-number">27</span>)</code></pre>
 <p>Также можно использовать метод экземпляра <code>vm.$set</code>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.$set(vm.userProfile, <span class="string">'age'</span>, <span class="number">27</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">vm.$set(vm.userProfile, <span class="hljs-string">'age'</span>, <span class="hljs-number">27</span>)</code></pre>
 <p>Иногда может потребоваться добавить ряд новых свойств существующему объекту, например, используя <code>Object.assign()</code> или <code>_.extend()</code>. В таких случаях, нужно создать новый объект со свойствами обоих объектов. Поэтому вместо:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(vm.userProfile, &#123;</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">'Vue Green'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-built_in">Object</span>.assign(vm.userProfile, &#123;
+  <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
+  <span class="hljs-attr">favoriteColor</span>: <span class="hljs-string">'Vue Green'</span>
+&#125;)</code></pre>
 <p>Следует добавлять новые реактивные свойства таким образом:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">vm.userProfile = <span class="built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;</span><br><span class="line">  age: <span class="number">27</span>,</span><br><span class="line">  favoriteColor: <span class="string">'Vue Green'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">vm.userProfile = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;
+  <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
+  <span class="hljs-attr">favoriteColor</span>: <span class="hljs-string">'Vue Green'</span>
+&#125;)</code></pre>
 <h2 id="Отображение-отфильтрованных-отсортированных-результатов"><a href="#Отображение-отфильтрованных-отсортированных-результатов" class="headerlink" title="Отображение отфильтрованных/отсортированных результатов"></a>Отображение отфильтрованных/отсортированных результатов</h2><p>Иногда хочется отобразить отфильтрованную или отсортированную версию массива, не изменяя оригинальные данные. В таком случае создайте вычисляемое свойство, возвращающее отфильтрованный или отсортированный массив.</p>
 <p>Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in evenNumbers"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  evenNumbers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"n in evenNumbers"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
+<pre><code class="hljs js">data: &#123;
+  <span class="hljs-attr">numbers</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ]
+&#125;,
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">evenNumbers</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>
+    &#125;)
+  &#125;
+&#125;</code></pre>
 <p>В ситуациях, когда вычисляемые свойства невозможно использовать (например, внутри вложенных циклов <code>v-for</code>), просто используйте метод:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  numbers: [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  even: <span class="function"><span class="keyword">function</span> (<span class="params">numbers</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> numbers.filter(<span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> number % <span class="number">2</span> === <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
+<pre><code class="hljs js">data: &#123;
+  <span class="hljs-attr">numbers</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ]
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">even</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>&#123;
+    <span class="hljs-keyword">return</span> numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>
+    &#125;)
+  &#125;
+&#125;</code></pre>
 <h3 id="v-for-и-диапазоны"><a href="#v-for-и-диапазоны" class="headerlink" title="v-for и диапазоны"></a><code>v-for</code> и диапазоны</h3><p>В <code>v-for</code> можно передать целое число. В этом случае шаблон будет повторён указанное число раз.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"n in 10"</span>&gt;</span>&#123;&#123; n &#125;&#125; <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"n in 10"</span>&gt;</span>&#123;&#123; n &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Результат:</p>
 
 <div id="range" class="demo">
@@ -1191,28 +1289,102 @@ new Vue({
 </script>
 
 <h3 id="v-for-и-тег-template"><a href="#v-for-и-тег-template" class="headerlink" title="v-for и тег template"></a><code>v-for</code> и тег <code>template</code></h3><p>Подобно использованию с <code>v-if</code>, также можно использовать тег <code>&lt;template&gt;</code> с директивой <code>v-for</code> для отображения блока из нескольких элементов. Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; item.msg &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"divider"</span> <span class="attr">role</span>=<span class="string">"presentation"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; item.msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <h3 id="v-for-и-v-if"><a href="#v-for-и-v-if" class="headerlink" title="v-for и v-if"></a><code>v-for</code> и <code>v-if</code></h3><p>Когда присутствуют вместе на одном элементе, <code>v-for</code> имеет больший приоритет, чем <code>v-if</code>. Поэтому <code>v-if</code> будет выполняться для каждой итерации цикла. Это полезно, когда нужно отобразить только <em>некоторые</em> элементы списка, например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span> <span class="attr">v-if</span>=<span class="string">"!todo.isComplete"</span>&gt;</span></span><br><span class="line">  &#123;&#123; todo &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in todos"</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!todo.isComplete"</span>&gt;</span>
+  &#123;&#123; todo &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
 <p>В результате будут отображены только задачи, которые ещё не выполнены.</p>
 <p>Если необходимо по условию пропускать выполнение всего цикла, переместите <code>v-if</code> на внешний элемент (или на <a href="conditional.html#Условные-группы-с-использованием-v-if-и-lt-template-gt"><code>&lt;template&gt;</code></a>). Например:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-if</span>=<span class="string">"shouldRenderTodos"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"todo in todos"</span>&gt;</span></span><br><span class="line">    &#123;&#123; todo &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"shouldRenderTodos"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in todos"</span>&gt;</span>
+    &#123;&#123; todo &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <h3 id="Компоненты-и-v-for"><a href="#Компоненты-и-v-for" class="headerlink" title="Компоненты и v-for"></a>Компоненты и <code>v-for</code></h3><blockquote>
 <p>Эта секция подразумевает, что вы уже знакомы с <a href="components.html">компонентами</a>. Не стесняйтесь пропустить её сейчас и вернуться потом.</p>
 </blockquote>
 <p>Можно использовать <code>v-for</code> на компонентах, как и на обычных элементах:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
 <blockquote>
 <p>В версиях 2.2.0+, при использовании <code>v-for</code> на компонентах теперь обязательно требуется указывать <a href="list.html#key"><code>key</code></a>.</p>
 </blockquote>
 <p>Однако, в компонент никакие данные не передаются автоматически, поскольку у компонентов изолированные области видимости. Для передачи итерируемых данных в компонент необходимо явно использовать входные параметры:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:item</span>=<span class="string">"item"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:index</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-bind:key</span>=<span class="string">"item.id"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>
+  <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in items"</span>
+  <span class="hljs-attr">v-bind:item</span>=<span class="hljs-string">"item"</span>
+  <span class="hljs-attr">v-bind:index</span>=<span class="hljs-string">"index"</span>
+  <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"item.id"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
 <p>Причина, почему <code>item</code> не передаётся в компонент автоматически, в том, что это сделает компонент жёстко связанным с логикой работы <code>v-for</code>. Но если указывать источник данных явно, компонент можно будет использовать и в других ситуациях.</p>
 <p>Ниже приведён полный пример простого списка задач:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"todo-list-example"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"addNewTodo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"new-todo"</span>&gt;</span>Добавить задачу<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-model</span>=<span class="string">"newTodoText"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">id</span>=<span class="string">"new-todo"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">placeholder</span>=<span class="string">"Например, покормить кота"</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>Добавить<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span></span></span><br><span class="line"><span class="tag">      <span class="attr">is</span>=<span class="string">"todo-item"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-for</span>=<span class="string">"(todo, index) in todos"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:key</span>=<span class="string">"todo.id"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-bind:title</span>=<span class="string">"todo.title"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">v-on:remove</span>=<span class="string">"todos.splice(index, 1)"</span></span></span><br><span class="line"><span class="tag">    &gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"todo-list-example"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">"addNewTodo"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"new-todo"</span>&gt;</span>Добавить задачу<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"newTodoText"</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"new-todo"</span>
+      <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Например, покормить кота"</span>
+    &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Добавить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
+      <span class="hljs-attr">is</span>=<span class="hljs-string">"todo-item"</span>
+      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(todo, index) in todos"</span>
+      <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"todo.id"</span>
+      <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"todo.title"</span>
+      <span class="hljs-attr">v-on:remove</span>=<span class="hljs-string">"todos.splice(index, 1)"</span>
+    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p class="tip">Обратите внимание на атрибут <code>is=&quot;todo-item&quot;</code>. Это необходимо в DOM-шаблонах, потому что только элементы <code>&lt;li&gt;</code> разрешены внутри <code>&lt;ul&gt;</code>. Результат будет таким же, как использование <code>&lt;todo-item&gt;</code>, но позволяет обойти ошибки парсинга браузером. Чтобы узнать больше, изучите <a href="components.html#Особенности-парсинга-DOM-шаблона">особенности парсинга DOM-шаблона</a>.</p>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</span><br><span class="line">  template: <span class="string">'\</span></span><br><span class="line"><span class="string">    &lt;li&gt;\</span></span><br><span class="line"><span class="string">      &#123;&#123; title &#125;&#125;\</span></span><br><span class="line"><span class="string">      &lt;button v-on:click="$emit(\'remove\')"&gt;Удалить&lt;/button&gt;\</span></span><br><span class="line"><span class="string">    &lt;/li&gt;\</span></span><br><span class="line"><span class="string">  '</span>,</span><br><span class="line">  props: [<span class="string">'title'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#todo-list-example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    newTodoText: <span class="string">''</span>,</span><br><span class="line">    todos: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">1</span>,</span><br><span class="line">        title: <span class="string">'Помыть посуду'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">2</span>,</span><br><span class="line">        title: <span class="string">'Вынести мусор'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: <span class="number">3</span>,</span><br><span class="line">        title: <span class="string">'Подстричь газон'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    nextTodoId: <span class="number">4</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addNewTodo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.todos.push(&#123;</span><br><span class="line">        id: <span class="keyword">this</span>.nextTodoId++,</span><br><span class="line">        title: <span class="keyword">this</span>.newTodoText</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'\
+    &lt;li&gt;\
+      &#123;&#123; title &#125;&#125;\
+      &lt;button v-on:click="$emit(\'remove\')"&gt;Удалить&lt;/button&gt;\
+    &lt;/li&gt;\
+  '</span>,
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'title'</span>]
+&#125;)
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#todo-list-example'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">newTodoText</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">todos</span>: [
+      &#123;
+        <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">'Помыть посуду'</span>
+      &#125;,
+      &#123;
+        <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">'Вынести мусор'</span>
+      &#125;,
+      &#123;
+        <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">'Подстричь газон'</span>
+      &#125;
+    ],
+    <span class="hljs-attr">nextTodoId</span>: <span class="hljs-number">4</span>
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">addNewTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.todos.push(&#123;
+        <span class="hljs-attr">id</span>: <span class="hljs-keyword">this</span>.nextTodoId++,
+        <span class="hljs-attr">title</span>: <span class="hljs-keyword">this</span>.newTodoText
+      &#125;)
+      <span class="hljs-keyword">this</span>.newTodoText = <span class="hljs-string">''</span>
+    &#125;
+  &#125;
+&#125;)</code></pre>
 
 <div id="todo-list-example" class="demo">
   <form v-on:submit.prevent="addNewTodo">
@@ -1312,7 +1484,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>

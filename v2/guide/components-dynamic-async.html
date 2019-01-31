@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Динамические и асинхронные компоненты — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -35,7 +35,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -48,8 +48,8 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'>
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -78,7 +78,7 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -990,7 +990,11 @@
     
       
         <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+  <script
+    async
+    type="text/javascript"
+    src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg"
+    id="_carbonads_js">
   </script>
 </div>
 
@@ -1004,9 +1008,9 @@
 <p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
 </blockquote>
 <h2 id="keep-alive-с-динамическими-компонентами"><a href="#keep-alive-с-динамическими-компонентами" class="headerlink" title="keep-alive с динамическими компонентами"></a><code>keep-alive</code> с динамическими компонентами</h2><p>Ранее мы использовали атрибут <code>is</code> для переключения компонентов в интерфейсе вкладок:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentTabComponent"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
 <p>Но иногда, при переключении между компонентами, вы хотите сохранить их состояния или избежать повторной отрисовки по соображениям производительности. Например, когда немного доработаем наш интерфейс с вкладками:</p>
-
+{% raw %}
 <div id="dynamic-component-demo" class="demo">
   <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]" v-on:click="currentTab = tab">{{ tab }}</button>
   <component v-bind:is="currentTabComponent" class="dynamic-component-demo-tab"></component>
@@ -1129,10 +1133,13 @@ new Vue({
   padding-top: 0 !important;
 }
 </style>
-
+{% endraw %}
 <p>Вы можете заметить, что если выбрать запись, переключиться на вкладку <em>Archive</em>, затем переключиться обратно на <em>Posts</em>, то больше не будет показываться выбранная запись. Это связано с тем, что каждый раз, когда вы переключаетесь на новую вкладку, Vue создаёт новый экземпляр <code>currentTabComponent</code>.</p>
 <p>Пересоздание динамических компонентов обычно является полезным поведением, но в нашем случае, мы хотим чтобы экземпляры компонентов вкладок кэшировались после их создания в первый раз. Для решения этой проблемы мы можем обернуть наш динамический компонент в элемент <code>&lt;keep-alive&gt;</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Неактивные компоненты будут закэшированы! --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">v-bind:is</span>=<span class="string">"currentTabComponent"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Неактивные компоненты будут закэшированы! --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
 <p>Посмотрите на результат ниже:</p>
 
 <div id="dynamic-component-keep-alive-demo" class="demo">
@@ -1161,20 +1168,53 @@ new Vue({
 
 <p>Подробнее с элементом <code>&lt;keep-alive&gt;</code> можно ознакомиться <a href="../api/#keep-alive">на странице API</a>.</p>
 <h2 id="Асинхронные-компоненты"><a href="#Асинхронные-компоненты" class="headerlink" title="Асинхронные компоненты"></a>Асинхронные компоненты</h2><p>Иногда бывает удобно разделить крупное приложение на части и подгружать компоненты с сервера только тогда, когда в них возникнет потребность. Для этого Vue позволяет определить компонент как функцию-фабрику, асинхронно возвращающую определение компонента. Vue вызовет фабричную функцию только тогда, когда компонент действительно понадобится, и закэширует результат для дальнейшего использования. Например:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'async-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Передаём определение компонента в коллбэк resolve</span></span><br><span class="line">    resolve(&#123;</span><br><span class="line">      template: <span class="string">'&lt;div&gt;Я — асинхронный!&lt;/div&gt;'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'async-example'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>&#123;
+  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// Передаём определение компонента в коллбэк resolve</span>
+    resolve(&#123;
+      <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;Я — асинхронный!&lt;/div&gt;'</span>
+    &#125;)
+  &#125;, <span class="hljs-number">1000</span>)
+&#125;)</code></pre>
 <p>Функция-фабрика принимает параметр <code>resolve</code> — коллбэк, который вызывается после того, как определение компонента получено от сервера. Кроме того, можно вызвать <code>reject(reason)</code>, если загрузка по какой-либо причине не удалась. Мы используем <code>setTimeout</code> исключительно в демонстрационных целях; как именно получать компонент в реальной ситуации — решать только вам самим. Один из удачных подходов — это использовать асинхронные компоненты в связке с <a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">функциями Webpack по разделению кода</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(<span class="string">'async-webpack-example'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Специальный синтаксис require укажет Webpack</span></span><br><span class="line">  <span class="comment">// автоматически разделить сборку на части</span></span><br><span class="line">  <span class="comment">// для последующей асинхронной загрузки</span></span><br><span class="line">  <span class="built_in">require</span>([<span class="string">'./my-async-component'</span>], resolve)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'async-webpack-example'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) </span>&#123;
+  <span class="hljs-comment">// Специальный синтаксис require укажет Webpack</span>
+  <span class="hljs-comment">// автоматически разделить сборку на части</span>
+  <span class="hljs-comment">// для последующей асинхронной загрузки</span>
+  <span class="hljs-built_in">require</span>([<span class="hljs-string">'./my-async-component'</span>], resolve)
+&#125;)</code></pre>
 <p>Вы также можете вернуть <code>Promise</code> в функции-фабрике, так что с Webpack 2 и синтаксисом ES2015 можно сделать так:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.component(</span><br><span class="line">  <span class="string">'async-webpack-example'</span>,</span><br><span class="line">  <span class="comment">// Функция `import` возвращает Promise.</span></span><br><span class="line">  () =&gt; <span class="keyword">import</span>(<span class="string">'./my-async-component'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js">Vue.component(
+  <span class="hljs-string">'async-webpack-example'</span>,
+  <span class="hljs-comment">// Функция `import` возвращает Promise.</span>
+  () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">'./my-async-component'</span>)
+)</code></pre>
 <p>При использовании <a href="components-registration.html#Локальная-регистрация">локальной регистрации компонентов</a>, вы также можете непосредственно указывать функцию, которая возвращает <code>Promise</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  components: &#123;</span><br><span class="line">    <span class="string">'my-component'</span>: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./my-async-component'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-comment">// ...</span>
+  components: &#123;
+    <span class="hljs-string">'my-component'</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./my-async-component'</span>)
+  &#125;
+&#125;)</code></pre>
 <p class="tip">Если вы используете <strong>Browserify</strong> и также хотите реализовать асинхронную загрузку компонентов, нам, к сожалению, придётся вас огорчить. Сам создатель Browserify <a href="https://github.com/substack/node-browserify/issues/58#issuecomment-21978224" target="_blank" rel="noopener">прояснил</a>, что асинхронная загрузка “не является функцией, которую Browserify когда-либо будет поддерживать”. По крайней мере, официально. Сообщество Browserify обнаружило возможные <a href="https://github.com/vuejs/vuejs.org/issues/620" target="_blank" rel="noopener">обходные пути</a>, которые могут быть полезны в уже существующих сложных приложениях. Но в целом мы советуем использовать Webpack, обладающий полноценной встроенной поддержкой асинхронной загрузки частей сборки.</p>
 
 <h3 id="Управление-состоянием-загрузки"><a href="#Управление-состоянием-загрузки" class="headerlink" title="Управление состоянием загрузки"></a>Управление состоянием загрузки</h3><blockquote>
 <p>Добавлено в версии 2.3.0+</p>
 </blockquote>
 <p>Фабрика асинхронного компонента также может возвращать объект следующего формата:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> AsyncComponent = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  <span class="comment">// Загружаемый компонент. Значение должно быть Promise</span></span><br><span class="line">  component: <span class="keyword">import</span>(<span class="string">'./MyComponent.vue'</span>),</span><br><span class="line">  <span class="comment">// Компонент загрузки, используемый пока загружается асинхронный компонент</span></span><br><span class="line">  loading: LoadingComponent,</span><br><span class="line">  <span class="comment">// Компонент ошибки, используемый при неудачной загрузке</span></span><br><span class="line">  error: ErrorComponent,</span><br><span class="line">  <span class="comment">// Задержка перед показом компонента загрузки. По умолчанию: 200 мс.</span></span><br><span class="line">  delay: <span class="number">200</span>,</span><br><span class="line">  <span class="comment">// Компонент ошибки будет отображаться, если таймаут</span></span><br><span class="line">  <span class="comment">// был указан и время ожидания превышено. По умолчанию: Infinity.</span></span><br><span class="line">  timeout: <span class="number">3000</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> AsyncComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (&#123;
+  <span class="hljs-comment">// Загружаемый компонент. Значение должно быть Promise</span>
+  component: <span class="hljs-keyword">import</span>(<span class="hljs-string">'./MyComponent.vue'</span>),
+  <span class="hljs-comment">// Компонент загрузки, используемый пока загружается асинхронный компонент</span>
+  loading: LoadingComponent,
+  <span class="hljs-comment">// Компонент ошибки, используемый при неудачной загрузке</span>
+  error: ErrorComponent,
+  <span class="hljs-comment">// Задержка перед показом компонента загрузки. По умолчанию: 200 мс.</span>
+  delay: <span class="hljs-number">200</span>,
+  <span class="hljs-comment">// Компонент ошибки будет отображаться, если таймаут</span>
+  <span class="hljs-comment">// был указан и время ожидания превышено. По умолчанию: Infinity.</span>
+  timeout: <span class="hljs-number">3000</span>
+&#125;)</code></pre>
 <blockquote>
 <p>Обратите внимание, что вы должны использовать <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">Vue Router</a> версии 2.4.0+ если вы хотите использовать указанный выше синтаксис для компонентов маршрута.</p>
 </blockquote>
@@ -1224,7 +1264,7 @@ new Vue({
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/css/search.css">
         <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
