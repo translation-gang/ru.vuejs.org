@@ -3,8 +3,6 @@ google_analytics: UA-46852172-1
 root_domain: ru.vuejs.org
 vue_version: 2.5.22
 platinum_sponsors_china:
-  - url: 'https://e.coding.net/?utm_source=vue.js'
-    img: coding.png
   - url: 'http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci='
     img: dcloud.gif
 special_sponsors:
@@ -88,12 +86,18 @@ gold_sponsors:
   - url: 'https://github.com/marcus-hiles'
     img: marcus_hiles.png
     name: Marcus Hiles
+  - url: 'https://intygrate.com/'
+    img: intygrate.png
+    name: Intygrate
   - url: 'https://isleofcode.com/'
     img: isle_of_code.png
     name: Isle of Code
   - url: 'https://yakaz.com/'
     img: yakaz.png
     name: Yakaz
+  - url: 'https://www.bacancytechnology.com'
+    img: bacancy_technology.png
+    name: Bacancy Technology
 silver_sponsors:
   - url: 'https://dopamine.bg/'
     img: dopamine.png
