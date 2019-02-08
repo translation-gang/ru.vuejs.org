@@ -321,7 +321,7 @@ function (slotProps) {
 }
 ```
 
-Это значит, что значение `v-slot` может принимать любое допустимое выражение JavaScript, которое может появиться в позиции аргумента определения функции. Поэтому в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), можно также использовать [деструктурирование ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) чтобы извлекать определённые входные параметры слотов, например вот так:
+Это значит, что значение `v-slot` может принимать любое допустимое выражение JavaScript, которое может появиться в позиции аргумента определения функции. Поэтому в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), можно также использовать [деструктурирование ES2015](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2) чтобы извлекать определённые входные параметры слотов, например вот так:
 
 ``` html
 <current-user v-slot="{ user }">
