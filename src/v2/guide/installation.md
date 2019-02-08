@@ -2,8 +2,8 @@
 title: Установка
 type: guide
 order: 1
-vue_version: 2.5.22
-gz_size: "30.93"
+vue_version: 2.6.3
+gz_size: "32.88"
 ---
 
 ### Предупреждение о совместимости
@@ -43,14 +43,14 @@ Vue **не поддерживает** IE8 и ниже, так как испол�
 Для production, мы рекомендуем указывать конкретную версию и сборку, чтобы избежать неожиданных поломок при выходе новых версий:
 
 ``` html
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.3/dist/vue.js"></script>
 ```
 
 Если используете нативные ES-модули, также существует и совместимая с ES-модулями сборка:
 
 ``` html
 <script type="module">
-  import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.esm.browser.js'
+  import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.3/dist/vue.esm.browser.js'
 </script>
 ```
 
