@@ -1,7 +1,7 @@
 site_description: Vue.js — Прогрессивный JavaScript-фреймворк
 google_analytics: UA-46852172-1
 root_domain: ru.vuejs.org
-vue_version: 2.6.3
+vue_version: 2.6.4
 platinum_sponsors_china:
   - url: 'http://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci='
     img: dcloud.gif
