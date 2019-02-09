@@ -1005,7 +1005,7 @@
     
     
       <h2 id="Основы"><a href="#Основы" class="headerlink" title="Основы"></a>Основы</h2><p>В большинстве случаев для формирования HTML с помощью Vue рекомендуется использовать шаблоны. Впрочем, иногда возникает необходимость в использовании всех алгоритмических возможностей JavaScript. В таких случаях можно применить <strong><code>render</code>-функции</strong> — более низкоуровневую альтернативу шаблонам.</p>
-<p>Давайте разберём простой пример, в котором использование <code>render</code>-функции будет целесообразным. Предположим, вы хотите сгенерировать заголовки с “якорями”:</p>
+<p>Давайте разберём простой пример, в котором использование <code>render</code>-функции будет целесообразным. Предположим, вы хотите сгенерировать заголовки с «якорями»:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hello-world"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#hello-world"</span>&gt;</span>
     Hello world!
@@ -1400,7 +1400,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 <p class="tip">Сокращение <code>createElement</code> до <code>h</code> — распространённое соглашение в экосистеме Vue и обязательное для использования JSX. Начиная с <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#h-auto-injection" target="_blank" rel="noopener">версии 3.4.0</a> плагина Babel для Vue, мы автоматически внедряем <code>const h = this.$createElement</code> в любой метод и геттер (не функциях или стрелочных функциях), объявленных в синтаксисе ES2015 с JSX, поэтому можно удалить параметр <code>(h)</code>. В предыдущих версиях плагина, ваше приложение будет выкидывать ошибку, если <code>h</code> недоступен в области видимости.</p>
 
 <p>Подробную информацию о преобразовании JSX в JavaScript можно найти в <a href="https://github.com/vuejs/jsx#installation" target="_blank" rel="noopener">документации плагина</a>.</p>
-<h2 id="Функциональные-компоненты"><a href="#Функциональные-компоненты" class="headerlink" title="Функциональные компоненты"></a>Функциональные компоненты</h2><p>Компонент для заголовков с “якорями”, который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути это всего лишь функция с параметром.</p>
+<h2 id="Функциональные-компоненты"><a href="#Функциональные-компоненты" class="headerlink" title="Функциональные компоненты"></a>Функциональные компоненты</h2><p>Компонент для заголовков с «якорями», который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути это всего лишь функция с параметром.</p>
 <p>В подобных случаях мы можем пометить компоненты как функциональные (опция <code>functional</code>), что означает отсутствие у них состояния (нет <a href="../api/#Опции-—-данные">реактивных данных</a>) и экземпляра (нет переменной контекста <code>this</code>). <strong>Функциональный компонент</strong> выглядит так:</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
   <span class="hljs-attr">functional</span>: <span class="hljs-literal">true</span>,

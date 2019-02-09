@@ -1096,13 +1096,13 @@ it(<span class="hljs-string">'updates the rendered message when vm.message updat
   <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(MyComponent).$mount()
   vm.message = <span class="hljs-string">'foo'</span>
 
-  <span class="hljs-comment">// дождаться следующего "тика" перед оценкой состояния DOM</span>
+  <span class="hljs-comment">// дождаться следующего «тика» перед оценкой состояния DOM</span>
   Vue.nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
     expect(vm.$el.textContent).toBe(<span class="hljs-string">'foo'</span>)
     done()
   &#125;)
 &#125;)</code></pre>
-<p>Подробнее о модульном тестировании во Vue, вы можете изучить на <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a> и на странице нашей книги рецептов <a href="https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html" target="_blank" rel="noopener">о модульном тестировании компонентов Vue</a>.</p>
+<p>Подробнее о модульном тестировании во Vue, вы можете изучить на <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a> и на странице нашей книги рецептов <a href="../cookbook/unit-testing-vue-components.html">о модульном тестировании компонентов Vue</a>.</p>
 
     
     

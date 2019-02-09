@@ -1011,8 +1011,8 @@
 <p>Такой шаблон уже не выглядит простым и декларативным. С первого взгляда и не скажешь, что он всего лишь отображает <code>message</code> задом наперёд. Ситуация станет ещё хуже, если эту логику потребуется использовать в нескольких местах шаблона.</p>
 <p>На помощь здесь приходят <strong>вычисляемые свойства</strong>.</p>
 <h3 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h3><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Изначальное сообщение: "&#123;&#123; message &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: "&#123;&#123; reversedMessage &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Изначальное сообщение: «&#123;&#123; message &#125;&#125;»<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: «&#123;&#123; reversedMessage &#125;&#125;»<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
@@ -1030,8 +1030,8 @@
 <p>Результат:</p>
 
 <div id="example" class="demo">
-  <p>Изначальное сообщение: "{{ message }}"</p>
-  <p>Сообщение задом наперёд: "{{ reversedMessage }}"</p>
+  <p>Изначальное сообщение: «{{ message }}»</p>
+  <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
 </div>
 <script>
 var vm = new Vue({
@@ -1054,7 +1054,7 @@ vm.message = <span class="hljs-string">'Пока'</span>
 <p>Вы можете открыть консоль и поиграться с примером самостоятельно. Значение <code>vm.reversedMessage</code> всегда зависит от значения <code>vm.message</code>.</p>
 <p>В шаблонах можно обращаться к вычисляемым свойствам как и к обычным. Vue знает, что <code>vm.reversedMessage</code> зависит от <code>vm.message</code>, поэтому при обновлении <code>vm.message</code> обновятся и все зависящие от него элементы, в нашем случае обновится <code>vm.reversedMessage</code>. Самое важное — эту зависимость теперь мы указали декларативно: геттер вычисляемого свойства не имеет побочных эффектов, что упрощает понимание кода и его тестирование.</p>
 <h3 id="Кеширование-вычисляемых-свойств"><a href="#Кеширование-вычисляемых-свойств" class="headerlink" title="Кеширование вычисляемых свойств"></a>Кеширование вычисляемых свойств</h3><p>Можно заметить, что такого же результата можно достичь и с помощью метода:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: "&#123;&#123; reverseMessage() &#125;&#125;"<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: «&#123;&#123; reverseMessage() &#125;&#125;»<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// в компоненте</span>
 methods: &#123;
   <span class="hljs-attr">reverseMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
@@ -1124,7 +1124,7 @@ computed: &#123;
 <p>Рассмотрим пример:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"watch-example"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    Задайте вопрос, на который можно ответить "да" или "нет":
+    Задайте вопрос, на который можно ответить «да» или «нет»:
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"question"</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; answer &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -1181,7 +1181,7 @@ computed: &#123;
 
 <div id="watch-example" class="demo">
   <p>
-    Задайте вопрос, на который можно ответить "да" или "нет":
+    Задайте вопрос, на который можно ответить «да» или «нет»:
     <input v-model="question">
   </p>
   <p>{{ answer }}</p>
