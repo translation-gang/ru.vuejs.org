@@ -17,7 +17,7 @@ order: 202
 
 Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием [GreenSock](https://greensock.com/):
 
-``` html
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 
 <div id="animated-number-demo">
@@ -26,7 +26,7 @@ order: 202
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#animated-number-demo',
   data: {
@@ -75,7 +75,7 @@ new Vue({
 
 Когда вы изменяете число, это изменение в элементе под полем ввода анимируется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например, таких, как CSS-цвета? Используя [Tween.js](https://github.com/tweenjs/tween.js) и [Color.js](https://github.com/brehaut/color-js), мы можем решить эту задачу:
 
-``` html
+```html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 <script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
 
@@ -95,7 +95,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 var Color = net.brehaut.Color
 
 new Vue({
@@ -147,7 +147,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .example-7-color-preview {
   display: inline-block;
   width: 50px;
@@ -372,7 +372,7 @@ function generatePoints (stats) {
 
 Управление множеством переходов может быстро переусложнить экземпляр или компонент. К счастью, многие анимации могут быть выделены в специализированные дочерние компоненты. Давайте проделаем эту операцию с анимированным числом из одного из предыдущих примеров:
 
-``` html
+```html
 <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
 
 <div id="example-8">
@@ -387,7 +387,7 @@ function generatePoints (stats) {
 </div>
 ```
 
-``` js
+```js
 // Эта логика перехода может быть отныне повторно использована
 // с любыми целыми числами, которые мы бы хотели анимировать в приложении.
 // Кроме того, компоненты предоставляют удобный интерфейс для конфигурирования

@@ -14,7 +14,7 @@ order: 403
 
 ## Рекомендуемая конфигурация
 
-``` js
+```js
 // tsconfig.json
 {
   "compilerOptions": {
@@ -57,7 +57,7 @@ vue create my-project-name
 
 Чтобы позволить TypeScript правильно выводить типы внутри опций компонента Vue, вам необходимо определять компоненты с помощью `Vue.component` или `Vue.extend`:
 
-``` ts
+```ts
 import Vue from 'vue'
 
 const Component = Vue.extend({
@@ -74,7 +74,7 @@ const Component = {
 
 Если вы предпочитаете API на основе классов при объявлении компонентов, вы можете использовать официально поддерживаемый декоратор [vue-class-component](https://github.com/vuejs/vue-class-component):
 
-``` ts
+```ts
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
@@ -100,7 +100,7 @@ export default class MyComponent extends Vue {
 
 Например, чтобы объявить свойство экземпляра `$myProperty` с типом `string`:
 
-``` ts
+```ts
 // 1. Обязательно импортируйте Vue перед объявлением расширенных типов
 import Vue from 'vue'
 

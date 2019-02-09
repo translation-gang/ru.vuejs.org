@@ -26,7 +26,7 @@ new Vue({
 
 После загрузки страницы этот элемент получает фокус ввода (примечание: `autofocus` не работает на мобильном Safari). Если вы никуда не кликнули с момента открытия этой главы руководства, фокус ввода и сейчас должен быть на этом элементе. Рассмотрим директиву подробнее:
 
-``` js
+```js
 // Регистрируем глобальную пользовательскую директиву `v-focus`
 Vue.directive('focus', {
   // Когда привязанный элемент вставлен в DOM...
@@ -39,7 +39,7 @@ Vue.directive('focus', {
 
 Чтобы зарегистрировать директиву локально, можно передать опцию `directives` при определении компонента:
 
-``` js
+```js
 directives: {
   focus: {
     // определение директивы
@@ -52,7 +52,7 @@ directives: {
 
 Теперь в шаблонах можно использовать новый атрибут `v-focus`:
 
-``` html
+```html
 <input v-focus>
 ```
 
@@ -93,11 +93,11 @@ directives: {
 
 Пример пользовательской директивы, использующей некоторые из описанных возможностей:
 
-``` html
+```html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
 ```
 
-``` js
+```js
 Vue.directive('demo', {
   bind: function (el, binding, vnode) {
     var s = JSON.stringify
@@ -147,7 +147,7 @@ new Vue({
 
 Часто нам может потребоваться одинаковое поведение на `bind` и `update`, а остальные хуки не нужны. В таком случае можно использовать сокращённую запись:
 
-``` js
+```js
 Vue.directive('color-swatch', function (el, binding) {
   el.style.backgroundColor = binding.value
 })
@@ -157,11 +157,11 @@ Vue.directive('color-swatch', function (el, binding) {
 
 В случае, если директива должна принимать несколько параметров, можно указать объект JavaScript — годится любое валидное выражение, помните?
 
-``` html
+```html
 <div v-demo="{ color: 'белый', text: 'привет!' }"></div>
 ```
 
-``` js
+```js
 Vue.directive('demo', function (el, binding) {
   console.log(binding.value.color) // => "белый"
   console.log(binding.value.text)  // => "привет!"

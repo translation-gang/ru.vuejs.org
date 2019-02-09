@@ -12,7 +12,7 @@ order: 6
 
 Для динамической установки или удаления CSS-классов можно передавать объект в директиву `v-bind:class`:
 
-``` html
+```html
 <div v-bind:class="{ active: isActive }"></div>
 ```
 
@@ -20,7 +20,7 @@ order: 6
 
 Таким образом можно управлять несколькими классами, добавляя в объект другие поля. Кроме того, `v-bind:class` можно использовать совместно с обычным атрибутом `class`:
 
-``` html
+```html
 <div
   class="static"
   v-bind:class="{ active: isActive, 'text-danger': hasError }"
@@ -29,7 +29,7 @@ order: 6
 
 При использовании таких данных:
 
-``` js
+```js
 data: {
   isActive: true,
   hasError: false
@@ -38,7 +38,7 @@ data: {
 
 В результате получится:
 
-``` html
+```html
 <div class="static active"></div>
 ```
 
@@ -46,10 +46,10 @@ data: {
 
 Используемый объект необязательно указывать прямо в шаблоне:
 
-``` html
+```html
 <div v-bind:class="classObject"></div>
 ```
-``` js
+```js
 data: {
   classObject: {
     active: true,
@@ -60,10 +60,10 @@ data: {
 
 Результат будет таким же. Можно также использовать и [вычисляемые свойства](computed.html), которые возвращают объект — это очень распространённый и мощный приём:
 
-``` html
+```html
 <div v-bind:class="classObject"></div>
 ```
-``` js
+```js
 data: {
   isActive: true,
   error: null
@@ -82,10 +82,10 @@ computed: {
 
 В `v-bind:class` можно передать и массив:
 
-``` html
+```html
 <div v-bind:class="[activeClass, errorClass]"></div>
 ```
-``` js
+```js
 data: {
   activeClass: 'active',
   errorClass: 'text-danger'
@@ -94,13 +94,13 @@ data: {
 
 В результате получим:
 
-``` html
+```html
 <div class="active text-danger"></div>
 ```
 
 Для переключения классов в массиве, в зависимости от некоторого условия, можно использовать тернарный оператор:
 
-``` html
+```html
 <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
@@ -108,7 +108,7 @@ data: {
 
 Однако, такая запись становится слегка громоздкой, особенно если есть несколько классов, задаваемых по условию. Но можно использовать и смешанный синтаксис:
 
-``` html
+```html
 <div v-bind:class="[{ active: isActive }, errorClass]"></div>
 ```
 
@@ -120,7 +120,7 @@ data: {
 
 Возьмём, к примеру, такой компонент:
 
-``` js
+```js
 Vue.component('my-component', {
   template: '<p class="foo bar">Привет</p>'
 })
@@ -128,25 +128,25 @@ Vue.component('my-component', {
 
 Если указать дополнительные классы на компоненте:
 
-``` html
+```html
 <my-component class="baz boo"></my-component>
 ```
 
 В результате отрисовки получим:
 
-``` html
+```html
 <p class="foo bar baz boo">Привет</p>
 ```
 
 То же самое справедливо для связывания классов с данными:
 
-``` html
+```html
 <my-component v-bind:class="{ active: isActive }"></my-component>
 ```
 
 Если `isActive` истинно, результирующий HTML будет:
 
-``` html
+```html
 <p class="foo bar active">Привет</p>
 ```
 
@@ -156,10 +156,10 @@ Vue.component('my-component', {
 
 Объектная запись для `v-bind:style` выглядит почти как CSS, хотя, на самом деле, это объект JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case (не забывайте про кавычки при использовании kebab-case):
 
-``` html
+```html
 <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
-``` js
+```js
 data: {
   activeColor: 'red',
   fontSize: 30
@@ -168,10 +168,10 @@ data: {
 
 Можно выносить объект стилей из шаблона, чтобы сделать код чище:
 
-``` html
+```html
 <div v-bind:style="styleObject"></div>
 ```
-``` js
+```js
 data: {
   styleObject: {
     color: 'red',
@@ -186,7 +186,7 @@ data: {
 
 Запись `v-bind:style` с массивом позволяет применить несколько объектов стилей к одному и тому же элементу:
 
-``` html
+```html
 <div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
 
@@ -200,7 +200,7 @@ data: {
 
 Начиная с версии 2.3.0+ можно предоставить массив из нескольких (префиксных) значений для свойства style, например:
 
-``` html
+```html
 <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 ```
 

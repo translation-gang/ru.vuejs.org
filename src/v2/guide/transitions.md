@@ -26,7 +26,7 @@ Vue располагает компонентом-обёрткой `transition`,
 
 Рассмотрим в действии простой пример:
 
-``` html
+```html
 <div id="demo">
   <button v-on:click="show = !show">
     Переключить
@@ -37,7 +37,7 @@ Vue располагает компонентом-обёрткой `transition`,
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#demo',
   data: {
@@ -46,7 +46,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
@@ -116,7 +116,7 @@ new Vue({
 
 Одни из самых распространённых типов анимации — это CSS-переходы. Вот небольшой пример:
 
-``` html
+```html
 <div id="example-1">
   <button @click="show = !show">
     Переключить отрисовку
@@ -127,7 +127,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#example-1',
   data: {
@@ -136,7 +136,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 /* Анимации появления и исчезновения могут иметь */
 /* различные продолжительности и динамику.       */
 .slide-fade-enter-active {
@@ -189,7 +189,7 @@ CSS-анимации применяются таким же образом, ка
 
 В этом примере браузерные CSS-префиксы опущены для краткости:
 
-``` html
+```html
 <div id="example-2">
   <button @click="show = !show">Переключить отображение</button>
   <transition name="bounce">
@@ -198,7 +198,7 @@ CSS-анимации применяются таким же образом, ка
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#example-2',
   data: {
@@ -207,7 +207,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .bounce-enter-active {
   animation: bounce-in .5s;
 }
@@ -298,7 +298,7 @@ new Vue({
 
 Вот пример:
 
-``` html
+```html
 <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 
 <div id="example-3">
@@ -315,7 +315,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#example-3',
   data: {
@@ -362,13 +362,13 @@ new Vue({
 
 В таких случаях вы можете явно указать продолжительность перехода (в миллисекундах) с помощью опции `duration` на компоненте `<transition>`:
 
-``` html
+```html
 <transition :duration="1000">...</transition>
 ```
 
 Можно также указать отдельные значения продолжительностей начала и окончания перехода:
 
-``` html
+```html
 <transition :duration="{ enter: 500, leave: 800 }">...</transition>
 ```
 
@@ -376,7 +376,7 @@ new Vue({
 
 Можно также указывать JavaScript-хуки:
 
-``` html
+```html
 <transition
   v-on:before-enter="beforeEnter"
   v-on:enter="enter"
@@ -392,7 +392,7 @@ new Vue({
 </transition>
 ```
 
-``` js
+```js
 // ...
 methods: {
   // --------
@@ -446,7 +446,7 @@ methods: {
 
 Теперь давайте разберём пример. Возьмём простой JavaScript-переход, использующий Velocity.js:
 
-``` html
+```html
 <!--
 Velocity работает примерно так же, как и jQuery.animate,
 и весьма удобен для создания JavaScript-анимаций
@@ -470,7 +470,7 @@ Velocity работает примерно так же, как и jQuery.animate
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#example-4',
   data: {
@@ -548,7 +548,7 @@ new Vue({
 
 Если вы хотите, чтобы пользователь увидел анимацию перехода и при изначальной отрисовке, добавьте атрибут `appear`:
 
-``` html
+```html
 <transition appear>
   <!-- ... -->
 </transition>
@@ -556,7 +556,7 @@ new Vue({
 
 По умолчанию будут задействованы переходы, указанные для появления и исчезновения. Можно, впрочем, указать и отдельные:
 
-``` html
+```html
 <transition
   appear
   appear-class="custom-appear-class"
@@ -569,7 +569,7 @@ new Vue({
 
 То же справедливо и для хуков:
 
-``` html
+```html
 <transition
   appear
   v-on:before-appear="customBeforeAppearHook"
@@ -585,7 +585,7 @@ new Vue({
 
 Подробно [переходы между компонентами](#Переходы-между-компонентами) мы обсудим позднее, а сейчас поговорим о переходах с помощью `v-if`/`v-else`. Один из наиболее частых случаев — переход от списка к сообщению, что список пуст:
 
-``` html
+```html
 <transition>
   <table v-if="items.length > 0">
     <!-- ... -->
@@ -600,7 +600,7 @@ new Vue({
 
 Например:
 
-``` html
+```html
 <transition>
   <button v-if="isEditing" key="save">
     Сохранить
@@ -613,7 +613,7 @@ new Vue({
 
 В этом случае вы можете использовать атрибут `key` для перехода между разными состояниями элемента. Вместо использования `v-if` и `v-else`, можно переписать пример выше вот так:
 
-``` html
+```html
 <transition>
   <button v-bind:key="isEditing">
     {{ isEditing ? 'Сохранить' : 'Редактировать' }}
@@ -623,7 +623,7 @@ new Vue({
 
 В действительности можно не ограничиваться двумя вариантами, и организовать переходы между любым количеством элементов, либо многократно используя `v-if`, либо привязывая единственный элемент к динамическому свойству. Например:
 
-``` html
+```html
 <transition>
   <button v-if="docState === 'saved'" key="saved">
     Редактировать
@@ -639,7 +639,7 @@ new Vue({
 
 Что можно также записать в таком виде:
 
-``` html
+```html
 <transition>
   <button v-bind:key="docState">
     {{ buttonMessage }}
@@ -647,7 +647,7 @@ new Vue({
 </transition>
 ```
 
-``` js
+```js
 // ...
 computed: {
   buttonMessage: function () {
@@ -789,7 +789,7 @@ new Vue({
 
 Давайте теперь изменим переход для наших on/off кнопок, используя `out-in`:
 
-``` html
+```html
 <transition name="fade" mode="out-in">
   <!-- ... кнопки ... -->
 </transition>
@@ -878,13 +878,13 @@ new Vue({
 
 Переходы между компонентами — ещё проще, нам даже не нужен атрибут `key`. Всё, что нужно — завернуть [динамический компонент](components.html#Динамическое-переключение-компонентов) в `<transition>`:
 
-``` html
+```html
 <transition name="component-fade" mode="out-in">
   <component v-bind:is="view"></component>
 </transition>
 ```
 
-``` js
+```js
 new Vue({
   el: '#transition-components-demo',
   data: {
@@ -901,7 +901,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .component-fade-enter-active, .component-fade-leave-active {
   transition: opacity .3s ease;
 }
@@ -962,7 +962,7 @@ new Vue({
 
 Давайте теперь разберём несложный пример анимации перехода вставки и удаления, использующий те же CSS-классы, что мы рассматривали ранее:
 
-``` html
+```html
 <div id="list-demo">
   <button v-on:click="add">Добавить</button>
   <button v-on:click="remove">Удалить</button>
@@ -974,7 +974,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#list-demo',
   data: {
@@ -995,7 +995,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .list-item {
   display: inline-block;
   margin-right: 10px;
@@ -1062,7 +1062,7 @@ new Vue({
 
 Этим классом удобнее всего указывать продолжительность и тайминги перехода:
 
-``` html
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 
 <div id="flip-list-demo" class="demo">
@@ -1075,7 +1075,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#flip-list-demo',
   data: {
@@ -1089,7 +1089,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .flip-list-move {
   transition: transform 1s;
 }
@@ -1129,7 +1129,7 @@ new Vue({
 
 Теперь мы можем совместить эту технику с нашим предыдущим примером, чтобы анимировать все возможные изменения нашего списка!
 
-``` html
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
 
 <div id="list-complete-demo" class="demo">
@@ -1148,7 +1148,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#list-complete-demo',
   data: {
@@ -1172,7 +1172,7 @@ new Vue({
 })
 ```
 
-``` css
+```css
 .list-complete-item {
   transition: all 1s;
   display: inline-block;
@@ -1308,7 +1308,7 @@ new Vue({
 
 Настраивая JavaScript-переходы через data-атрибуты возможно также организовать упругую анимацию списка:
 
-``` html
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="staggered-list-demo">
@@ -1330,7 +1330,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#staggered-list-demo',
   data: {
@@ -1456,7 +1456,7 @@ new Vue({
 
 Пример с использованием компонента со строковым шаблоном:
 
-``` js
+```js
 Vue.component('my-special-transition', {
   template: '\
     <transition\
@@ -1481,7 +1481,7 @@ Vue.component('my-special-transition', {
 
 Особенно хорошо для этих целей подходят [функциональные компоненты](render-function.html#Функциональные-компоненты):
 
-``` js
+```js
 Vue.component('my-special-transition', {
   functional: true,
   render: function (createElement, context) {
@@ -1518,7 +1518,7 @@ Vue.component('my-special-transition', {
 
 На самом деле, любой атрибут может быть динамически связан. И речь не только об атрибутах. Поскольку хуки — это просто методы, у них есть доступ ко всем данным в текущем контексте, а значит и JavaScript-анимации могут зависеть от состояния компонента.
 
-``` html
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 
 <div id="dynamic-fade-demo" class="demo">
@@ -1543,7 +1543,7 @@ Vue.component('my-special-transition', {
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#dynamic-fade-demo',
   data: {

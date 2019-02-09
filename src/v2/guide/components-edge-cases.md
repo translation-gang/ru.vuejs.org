@@ -245,13 +245,13 @@ methods: {
 
 Компоненты могут рекурсивно вызывать себя в своём собственном шаблоне. Однако, они могут делать это только с помощью опции `name`:
 
-``` js
+```js
 name: 'unique-name-of-my-component'
 ```
 
 Когда вы регистрируете компонент глобально с помощью `Vue.component`, глобальный ID будет автоматически устанавливаться как параметр опции `name` компонента.
 
-``` js
+```js
 Vue.component('unique-name-of-my-component', {
   // ...
 })
@@ -259,7 +259,7 @@ Vue.component('unique-name-of-my-component', {
 
 Если вы не будете осторожны, рекурсивные компоненты также могут привести к бесконечным циклам:
 
-``` js
+```js
 name: 'stack-overflow',
 template: '<div><stack-overflow></stack-overflow></div>'
 ```
@@ -270,7 +270,7 @@ template: '<div><stack-overflow></stack-overflow></div>'
 
 Предположим, что вы создаёте дерево каталога файлов, как например в Finder или File Explorer. У вас может быть компонент `tree-folder` с таким шаблоном:
 
-``` html
+```html
 <p>
   <span>{{ folder.name }}</span>
   <tree-folder-contents :children="folder.children"/>
@@ -279,7 +279,7 @@ template: '<div><stack-overflow></stack-overflow></div>'
 
 Затем компонент `tree-folder-contents` с этим шаблоном:
 
-``` html
+```html
 <ul>
   <li v-for="child in children">
     <tree-folder v-if="child.children" :folder="child"/>
@@ -300,7 +300,7 @@ Failed to mount component: template or render function not defined.
 
 В нашем случае давайте сделаем эту точку компонентом `tree-folder`. Мы знаем, что потомок, создающий парадокс, является компонентом `tree-folder-contents`, поэтому мы подождём, пока не будет вызван хук жизненного цикла `beforeCreate` для его регистрации:
 
-``` js
+```js
 beforeCreate: function () {
   this.$options.components.TreeFolderContents = require('./tree-folder-contents.vue').default
 }
@@ -308,7 +308,7 @@ beforeCreate: function () {
 
 Или вы можете использовать асинхронный `import` Webpack при локальной регистрации компонента:
 
-``` js
+```js
 components: {
   TreeFolderContents: () => import('./tree-folder-contents.vue')
 }
@@ -322,7 +322,7 @@ components: {
 
 Если у компонента-потомка присутствует специальный атрибут `inline-template`, то содержимое элемента будет использовано не для распределения контента, а в качестве шаблона этого компонента. Это позволяет более гибко использовать шаблоны.
 
-``` html
+```html
 <my-component inline-template>
   <div>
     <p>Этот шаблон будет скомпилирован в области видимости компонента-потомка.</p>
@@ -337,13 +337,13 @@ components: {
 
 Другой способ определения шаблонов — указывать их внутри тега script с типом `text/x-template`, а затем ссылаться на шаблон по id. Например:
 
-``` html
+```html
 <script type="text/x-template" id="hello-world-template">
   <p>Hello hello hello</p>
 </script>
 ```
 
-``` js
+```js
 Vue.component('hello-world', {
   template: '#hello-world-template'
 })
@@ -367,7 +367,7 @@ Vue.component('hello-world', {
 
 Отрисовка простых элементов HTML во Vue происходит очень быстро, но иногда встречаются компоненты, в которых **очень много** статического контента. В таких случаях, вы можете убедиться что он будет выполнен один раз и затем закэширован, добавив директиву `v-once` на корневой элемент, например:
 
-``` js
+```js
 Vue.component('terms-of-service', {
   template: `
     <div v-once>

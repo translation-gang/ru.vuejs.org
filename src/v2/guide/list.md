@@ -8,7 +8,7 @@ order: 8
 
 Используйте директиву `v-for` для отрисовки списка элементов на основе массива данных. У директивы `v-for` особый синтаксис записи: `item in items`, где `items` — исходный массив, а `item` — **ссылка** на текущий элемент массива:
 
-``` html
+```html
 <ul id="example-1">
   <li v-for="item in items">
     {{ item.message }}
@@ -16,7 +16,7 @@ order: 8
 </ul>
 ```
 
-``` js
+```js
 var example1 = new Vue({
   el: '#example-1',
   data: {
@@ -56,7 +56,7 @@ var example1 = new Vue({
 
 Внутри блока `v-for` нам доступны свойства из области видимости родителя. У `v-for` также есть второй опциональный параметр с индексом текущего элемента.
 
-``` html
+```html
 <ul id="example-2">
   <li v-for="(item, index) in items">
     {{ parentMessage }} - {{ index }} - {{ item.message }}
@@ -64,7 +64,7 @@ var example1 = new Vue({
 </ul>
 ```
 
-``` js
+```js
 var example2 = new Vue({
   el: '#example-2',
   data: {
@@ -106,7 +106,7 @@ var example2 = new Vue({
 
 Вместо `in` разделителем можно использовать `of`, как в итераторах JavaScript:
 
-``` html
+```html
 <div v-for="item of items"></div>
 ```
 
@@ -114,7 +114,7 @@ var example2 = new Vue({
 
 `v-for` можно также использовать для итерирования по свойствам объекта:
 
-``` html
+```html
 <ul id="v-for-object" class="demo">
   <li v-for="value in object">
     {{ value }}
@@ -122,7 +122,7 @@ var example2 = new Vue({
 </ul>
 ```
 
-``` js
+```js
 new Vue({
   el: '#v-for-object',
   data: {
@@ -159,7 +159,7 @@ new Vue({
 
 Можно использовать второй аргумент для получения ключей объекта:
 
-``` html
+```html
 <div v-for="(value, key) in object">
   {{ key }}: {{ value }}
 </div>
@@ -187,7 +187,7 @@ new Vue({
 
 И третий — для индексов:
 
-``` html
+```html
 <div v-for="(value, key, index) in object">
   {{ index }}. {{ key }}: {{ value }}
 </div>
@@ -223,7 +223,7 @@ new Vue({
 
 Чтобы подсказать Vue, как отслеживать идентичность каждого элемента, что позволит переиспользовать и перемещать существующие элементы, укажите уникальный атрибут `key` для каждого элемента. Идеальным значением `key` будет уникальный id сущности. Этот специальный атрибут отчасти похож на `track-by` из Vue 1.x, но работает как и все остальные атрибуты, а значит нужно использовать `v-bind` для связывания с динамическими значениями (в примере ниже используется сокращение):
 
-``` html
+```html
 <div v-for="item in items" :key="item.id">
   <!-- содержимое -->
 </div>
@@ -255,7 +255,7 @@ Vue оборачивает у наблюдаемого массива метод
 
 Методы внесения изменений, как следует из их названия, изменяют оригинальный массив, на котором они вызываются. Существуют и неизменяющие методы, такие как `filter()`, `concat()` и `slice()`, они не вносят изменений в изначальный массив, а **всегда возвращают новый массив**. При работе с неизменяющими методами можно просто заменять старый массив на новый:
 
-``` js
+```js
 example1.items = example1.items.filter(function (item) {
   return item.message.match(/Foo/)
 })
@@ -272,7 +272,7 @@ example1.items = example1.items.filter(function (item) {
 
 Например:
 
-``` js
+```js
 var vm = new Vue({
   data: {
     items: ['a', 'b', 'c']
@@ -284,24 +284,24 @@ vm.items.length = 2 // НЕ РЕАКТИВНО
 
 Решить первую проблему можно двумя способами, оба дадут эффект аналогичный `vm.items[indexOfItem] = newValue`, плюс запустят реактивные обновления состояния приложения:
 
-``` js
+```js
 // Использовать Vue.set
 Vue.set(vm.items, indexOfItem, newValue)
 ```
-``` js
+```js
 // Использовать Array.prototype.splice
 vm.items.splice(indexOfItem, 1, newValue)
 ```
 
 Можно использовать метод экземпляра [`vm.$set`](https://ru.vuejs.org/v2/api/#vm-set), который является псевдонимом для глобального `Vue.set`:
 
-``` js
+```js
 vm.$set(vm.items, indexOfItem, newValue)
 ```
 
 Для решения второй проблемы используйте `splice`:
 
-``` js
+```js
 vm.items.splice(newLength)
 ```
 
@@ -309,7 +309,7 @@ vm.items.splice(newLength)
 
 Опять же, из-за ограничений JavaScript, **Vue не может обнаружить добавление или удаление свойств**. Например:
 
-``` js
+```js
 var vm = new Vue({
   data: {
     a: 1
@@ -323,7 +323,7 @@ vm.b = 2
 
 Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода `Vue.set(object, key, value)`. Например, для следующего:
 
-``` js
+```js
 var vm = new Vue({
   data: {
     userProfile: {
@@ -335,19 +335,19 @@ var vm = new Vue({
 
 Можно добавить новое свойство `age` для вложенного объекта `userProfile`:
 
-``` js
+```js
 Vue.set(vm.userProfile, 'age', 27)
 ```
 
 Также можно использовать метод экземпляра `vm.$set`, который является псевдонимом для глобального `Vue.set`:
 
-``` js
+```js
 vm.$set(vm.userProfile, 'age', 27)
 ```
 
 Иногда может потребоваться добавить ряд новых свойств существующему объекту, например, используя `Object.assign()` или `_.extend()`. В таких случаях, нужно создать новый объект со свойствами обоих объектов. Поэтому вместо:
 
-``` js
+```js
 Object.assign(vm.userProfile, {
   age: 27,
   favoriteColor: 'Vue Green'
@@ -356,7 +356,7 @@ Object.assign(vm.userProfile, {
 
 Следует добавлять новые реактивные свойства таким образом:
 
-``` js
+```js
 vm.userProfile = Object.assign({}, vm.userProfile, {
   age: 27,
   favoriteColor: 'Vue Green'
@@ -369,11 +369,11 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
 
 Например:
 
-``` html
+```html
 <li v-for="n in evenNumbers">{{ n }}</li>
 ```
 
-``` js
+```js
 data: {
   numbers: [ 1, 2, 3, 4, 5 ]
 },
@@ -388,11 +388,11 @@ computed: {
 
 В ситуациях, когда вычисляемые свойства невозможно использовать (например, внутри вложенных циклов `v-for`), просто используйте метод:
 
-``` html
+```html
 <li v-for="n in even(numbers)">{{ n }}</li>
 ```
 
-``` js
+```js
 data: {
   numbers: [ 1, 2, 3, 4, 5 ]
 },
@@ -409,7 +409,7 @@ methods: {
 
 В `v-for` можно передать целое число. В этом случае шаблон будет повторён указанное число раз.
 
-``` html
+```html
 <div>
   <span v-for="n in 10">{{ n }} </span>
 </div>
@@ -430,7 +430,7 @@ methods: {
 
 Подобно использованию с `v-if`, также можно использовать тег `<template>` с директивой `v-for` для отображения блока из нескольких элементов. Например:
 
-``` html
+```html
 <ul>
   <template v-for="item in items">
     <li>{{ item.msg }}</li>
@@ -443,7 +443,7 @@ methods: {
 
 Когда присутствуют вместе на одном элементе, `v-for` имеет больший приоритет, чем `v-if`. Поэтому `v-if` будет выполняться для каждой итерации цикла. Это полезно, когда нужно отобразить только _некоторые_ элементы списка, например:
 
-``` html
+```html
 <li v-for="todo in todos" v-if="!todo.isComplete">
   {{ todo }}
 </li>
@@ -453,7 +453,7 @@ methods: {
 
 Если необходимо по условию пропускать выполнение всего цикла, переместите `v-if` на внешний элемент (или на [`<template>`](conditional.html#Условные-группы-с-использованием-v-if-и-lt-template-gt)). Например:
 
-``` html
+```html
 <ul v-if="shouldRenderTodos">
   <li v-for="todo in todos">
     {{ todo }}
@@ -467,7 +467,7 @@ methods: {
 
 Можно использовать `v-for` на компонентах, как и на обычных элементах:
 
-``` html
+```html
 <my-component v-for="item in items" :key="item.id"></my-component>
 ```
 
@@ -475,7 +475,7 @@ methods: {
 
 Однако, в компонент никакие данные не передаются автоматически, поскольку у компонентов изолированные области видимости. Для передачи итерируемых данных в компонент необходимо явно использовать входные параметры:
 
-``` html
+```html
 <my-component
   v-for="(item, index) in items"
   v-bind:item="item"
@@ -488,7 +488,7 @@ methods: {
 
 Ниже приведён полный пример простого списка задач:
 
-``` html
+```html
 <div id="todo-list-example">
   <form v-on:submit.prevent="addNewTodo">
     <label for="new-todo">Добавить задачу</label>
@@ -513,7 +513,7 @@ methods: {
 
 <p class="tip">Обратите внимание на атрибут `is="todo-item"`. Это необходимо в DOM-шаблонах, потому что только элементы `<li>` разрешены внутри `<ul>`. Результат будет таким же, как использование `<todo-item>`, но позволяет обойти ошибки парсинга браузером. Чтобы узнать больше, изучите [особенности парсинга DOM-шаблона](components.html#Особенности-парсинга-DOM-шаблона).</p>
 
-``` js
+```js
 Vue.component('todo-item', {
   template: '\
     <li>\

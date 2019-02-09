@@ -12,7 +12,7 @@ order: 702
 
 Больше нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:
 
-``` js
+```js
 router.start({
   template: '<router-view></router-view>'
 }, '#app')
@@ -20,7 +20,7 @@ router.start({
 
 вы должны передать роутер как свойство в экземпляр Vue:
 
-``` js
+```js
 new Vue({
   el: '#app',
   router: router,
@@ -30,7 +30,7 @@ new Vue({
 
 или, если вы используете runtime-сборку Vue:
 
-``` js
+```js
 new Vue({
   el: '#app',
   router: router,
@@ -51,7 +51,7 @@ new Vue({
 
 Теперь пути объявляются как массив в [свойстве `routes`](https://router.vuejs.org/ru/essentials/getting-started.html#javascript) при установке роутера. Например, эти пути:
 
-``` js
+```js
 router.map({
   '/foo': {
     component: Foo
@@ -64,7 +64,7 @@ router.map({
 
 будут объявлены как:
 
-``` js
+```js
 var router = new VueRouter({
   routes: [
     { path: '/foo', component: Foo },
@@ -86,7 +86,7 @@ var router = new VueRouter({
 
 Если вам нужно программно генерировать пути при запуске приложения, вы можете сделать это, динамически добавляя определения путей в массив. Например:
 
-``` js
+```js
 // Базовый массив путей
 var routes = [
   // ...
@@ -112,7 +112,7 @@ var router = new Router({
 
 Если вам нужно добавить новые пути после того, как был создан экземпляр роутера, вы можете заменить свойство `match` новым, включающим в себя путь, который вы хотите добавить:
 
-``` js
+```js
 router.match = createMatcher(
   [{
     path: '/my/new/path',
@@ -132,7 +132,7 @@ router.match = createMatcher(
 
 `router.beforeEach` теперь работает асинхронно и принимает функцию `next` третьим аргументом.
 
-``` js
+```js
 router.beforeEach(function (transition) {
   if (transition.to.path === '/forbidden') {
     transition.abort()
@@ -142,7 +142,7 @@ router.beforeEach(function (transition) {
 })
 ```
 
-``` js
+```js
 router.beforeEach(function (to, from, next) {
   if (to.path === '/forbidden') {
     next(false)
@@ -167,7 +167,7 @@ router.beforeEach(function (to, from, next) {
 
 Теперь это [опция при объявлении роутера](https://router.vuejs.org/ru/essentials/redirect-and-alias.html). Например, вам нужно заменить:
 
-``` js
+```js
 router.redirect({
   '/tos': '/terms-of-service'
 })
@@ -175,7 +175,7 @@ router.redirect({
 
 в вашей конфигурации `routes` на объявление, показанное ниже:
 
-``` js
+```js
 {
   path: '/tos',
   redirect: '/terms-of-service'
@@ -193,7 +193,7 @@ router.redirect({
 
 Теперь это [опция при объявлении роутера](https://router.vuejs.org/ru/essentials/redirect-and-alias.html), которой вы присваиваете псевдоним. Например, вам нужно заменить:
 
-``` js
+```js
 router.alias({
   '/manage': '/admin'
 })
@@ -201,7 +201,7 @@ router.alias({
 
 в вашей конфигурации `routes` на объявление, показанное ниже:
 
-``` js
+```js
 {
   path: '/admin',
   component: AdminPanel,
@@ -211,7 +211,7 @@ router.alias({
 
 Если вам нужно несколько псевдонимов, вы можете также использовать синтаксис массива:
 
-``` js
+```js
 alias: ['/manage', '/administer', '/administrate']
 ```
 
@@ -226,7 +226,7 @@ alias: ['/manage', '/administer', '/administrate']
 
 Произвольные свойства пути теперь должны быть помещены в новое свойство `meta`, чтобы избежать конфликтов с будущей функциональностью. Например, если вы определили:
 
-``` js
+```js
 '/admin': {
   component: AdminPanel,
   requiresAuth: true
@@ -235,7 +235,7 @@ alias: ['/manage', '/administer', '/administrate']
 
 вы должны заменить это на:
 
-``` js
+```js
 {
   path: '/admin',
   component: AdminPanel,
@@ -247,7 +247,7 @@ alias: ['/manage', '/administer', '/administrate']
 
 Затем, для дальнейшего доступа к этому свойству пути, вы должны пройти через свойство `meta`, например:
 
-``` js
+```js
 if (route.meta.requiresAuth) {
   // ...
 }
@@ -281,13 +281,13 @@ if (route.meta.requiresAuth) {
 
 Директива `v-link` заменена на новый [компонент `<router-link>`](https://router.vuejs.org/ru/api/router-link.html), так как за данный тип работ теперь отвечают только компоненты во Vue 2. Это означает, что всякий раз, когда у вас есть ссылка, как эта:
 
-``` html
+```html
 <a v-link="'/about'">О нас</a>
 ```
 
 Вам необходимо изменить её следующим образом:
 
-``` html
+```html
 <router-link to="/about">О нас</router-link>
 ```
 
@@ -304,7 +304,7 @@ if (route.meta.requiresAuth) {
 
 Директива `v-link-active` также была заменена на атрибут `tag` в [компоненте `<router-link>`](https://router.vuejs.org/ru/api/router-link.html). Например, вам нужно заменить это:
 
-``` html
+```html
 <li v-link-active>
   <a v-link="'/about'">О нас</a>
 </li>
@@ -312,7 +312,7 @@ if (route.meta.requiresAuth) {
 
 на:
 
-``` html
+```html
 <router-link tag="li" to="/about">
   <a>О нас</a>
 </router-link>
@@ -357,7 +357,7 @@ if (route.meta.requiresAuth) {
 
 Все параметры режима роутера были объединены в [опцию `mode`](https://router.vuejs.org/ru/api/options.html#mode). Обновите:
 
-``` js
+```js
 var router = new VueRouter({
   history: 'true'
 })
@@ -365,7 +365,7 @@ var router = new VueRouter({
 
 на:
 
-``` js
+```js
 var router = new VueRouter({
   mode: 'history'
 })
@@ -382,7 +382,7 @@ var router = new VueRouter({
 
 Все параметры режима роутера были объединены в [опцию `mode`](https://router.vuejs.org/ru/api/options.html#mode). Обновите:
 
-``` js
+```js
 var router = new VueRouter({
   abstract: 'true'
 })
@@ -390,7 +390,7 @@ var router = new VueRouter({
 
 на:
 
-``` js
+```js
 var router = new VueRouter({
   mode: 'abstract'
 })
@@ -409,13 +409,13 @@ var router = new VueRouter({
 
 Было заменено на [опцию `scrollBehavior`](https://router.vuejs.org/ru/advanced/scroll-behavior.html) которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, но для возврата старого поведения:
 
-``` js
+```js
 saveScrollPosition: true
 ```
 
 Вы можете заменить это на:
 
-``` js
+```js
 scrollBehavior: function (to, from, savedPosition) {
   return savedPosition || { x: 0, y: 0 }
 }
@@ -522,7 +522,7 @@ scrollBehavior: function (to, from, savedPosition) {
 
 Свойство `$route` теперь реактивно, поэтому вы можете просто использовать метод-наблюдатель для отслеживания изменения пути, например:
 
-``` js
+```js
 watch: {
   '$route': 'fetchData'
 },
@@ -544,7 +544,7 @@ methods: {
 
 Определите ваше свойство (например, `isLoading`), затем обновите состояние загрузки с помощью опции `watch` на пути. Например, при предварительном получении данных с использованием [axios](https://github.com/mzabriskie/axios):
 
-``` js
+```js
 data: function () {
   return {
     posts: [],

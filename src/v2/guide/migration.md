@@ -42,14 +42,14 @@ order: 701
 
 Каждый компонент должен содержать только один корневой элемент. Фрагментированные экземпляры больше не используются. Если ваш шаблон выглядит следующим образом:
 
-``` html
+```html
 <p>foo</p>
 <p>bar</p>
 ```
 
 Рекомендовано заменить код, просто обернув всё содержимое в новый элемент, например, вот так:
 
-``` html
+```html
 <div>
   <p>foo</p>
   <p>bar</p>
@@ -91,7 +91,7 @@ order: 701
 
 Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:
 
-``` js
+```js
 attached: function () {
   doSomething()
 }
@@ -99,7 +99,7 @@ attached: function () {
 
 Вы можете использовать:
 
-``` js
+```js
 mounted: function () {
   this.$nextTick(function () {
     doSomething()
@@ -118,7 +118,7 @@ mounted: function () {
 
 Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:
 
-``` js
+```js
 detached: function () {
   doSomething()
 }
@@ -126,7 +126,7 @@ detached: function () {
 
 Вы можете использовать:
 
-``` js
+```js
 destroyed: function () {
   this.$nextTick(function () {
     doSomething()
@@ -156,7 +156,7 @@ destroyed: function () {
 
 Вместо этого используйте новый хук `mounted`. Однако, следует отметить, что использование хука `mounted` не даёт гарантии существования в документе. Для этого также используйте `Vue.nextTick`/`vm.$nextTick`. Например:
 
-``` js
+```js
 mounted: function () {
   this.$nextTick(function () {
     // код, уже предполагающий наличие this.$el в документе
@@ -210,13 +210,13 @@ mounted: function () {
 
 `track-by` был заменён на `key`, который работает как любой другой атрибут: без директивы `v-bind:` или префикса `:` он воспринимался как буквенная строка. В большинстве же случаев вам захочется использовать динамичную привязку, которая требует написания полного выражения, а не просто ключа. Например, вместо:
 
-``` html
+```html
 <div v-for="item in items" track-by="id">
 ```
 
 Вы теперь напишете:
 
-``` html
+```html
 <div v-for="item in items" v-bind:key="item.id">
 ```
 
@@ -244,7 +244,7 @@ mounted: function () {
 
 If you want to coerce a prop, setup a local computed value based on it instead. For example, instead of:
 
-``` js
+```js
 props: {
   username: {
     type: String,
@@ -259,7 +259,7 @@ props: {
 
 You could write:
 
-``` js
+```js
 props: {
   username: String,
 },
@@ -349,7 +349,7 @@ Caching invalidation of computed properties will be removed in future major vers
 
 For example:
 
-``` js
+```js
 template: '<p>message: {{ timeMessage }}</p>',
 computed: {
   timeMessage: {
@@ -363,7 +363,7 @@ computed: {
 
 Or with component methods:
 
-``` js
+```js
 template: '<p>message: {{ getTimeMessage() }}</p>',
 methods: {
   getTimeMessage: function () {
@@ -400,7 +400,7 @@ For enumerated attributes, in addition to the falsy values above, the string `"f
 
 When used on a component, `v-on` now only listens to custom events `$emit`ted by that component. To listen for a native DOM event on the root element, you can use the `.native` modifier. For example:
 
-``` html
+```html
 <my-component v-on:click.native="doSomething"></my-component>
 ```
 
@@ -463,7 +463,7 @@ new Vue({
 
 Using the `debounce` attribute, there'd be no way to detect the "Typing" state, because we lose access to the input's real-time state. By decoupling the debounce function from Vue however, we're able to debounce only the operation we want to limit, removing the limits on features we can develop:
 
-``` html
+```html
 <!--
 By using the debounce function from lodash or another dedicated
 utility library, we know the specific debounce implementation we
@@ -477,7 +477,7 @@ in our template.
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#debounce-search-demo',
   data: {
@@ -528,14 +528,14 @@ Another advantage of this approach is there will be times when debouncing isn't 
 
 The `lazy` and `number` param attributes are now modifiers, to make it more clear what That means instead of:
 
-``` html
+```html
 <input v-model="name" lazy>
 <input v-model="age" type="number" number>
 ```
 
 You would use:
 
-``` html
+```html
 <input v-model.lazy="name">
 <input v-model.number="age" type="number">
 ```
@@ -553,13 +553,13 @@ You would use:
 
 That means this element:
 
-``` html
+```html
 <input v-model="text" value="foo">
 ```
 
 backed by this data:
 
-``` js
+```js
 data: {
   text: 'bar'
 }
@@ -567,7 +567,7 @@ data: {
 
 will render with a value of "bar" instead of "foo". The same goes for a `<textarea>` with existing content. Instead of:
 
-``` html
+```html
 <textarea v-model="text">
   hello world
 </textarea>
@@ -586,13 +586,13 @@ You should ensure your initial value for `text` is "hello world".
 
 Cases like this no longer work:
 
-``` html
+```html
 <input v-for="str in strings" v-model="str">
 ```
 
 The reason is this is the equivalent JavaScript that the `<input>` would compile to:
 
-``` js
+```js
 strings.map(function (str) {
   return createElement('input', ...)
 })
@@ -602,7 +602,7 @@ As you can see, `v-model`'s two-way binding doesn't make sense here. Setting `st
 
 Instead, you should use an array of __objects__ so that `v-model` can update the field on the object. For example:
 
-``` html
+```html
 <input v-for="obj in objects" v-model="obj.str">
 ```
 
@@ -617,13 +617,13 @@ Instead, you should use an array of __objects__ so that `v-model` can update the
 
 This will no longer work:
 
-``` html
+```html
 <p v-bind:style="{ color: myColor + ' !important' }">hello</p>
 ```
 
 If you really need to override another `!important`, you must use the string syntax:
 
-``` html
+```html
 <p v-bind:style="'color: ' + myColor + ' !important'">hello</p>
 ```
 
@@ -640,13 +640,13 @@ For simplicity, `v-el` and `v-ref` have been merged into the `ref` attribute, ac
 
 Since `v-ref` is no longer a directive, but a special attribute, it can also be dynamically defined. This is especially useful in combination with `v-for`. For example:
 
-``` html
+```html
 <p v-for="item in items" v-bind:ref="'item' + item.id"></p>
 ```
 
 Previously, `v-el`/`v-ref` combined with `v-for` would produce an array of elements/components, because there was no way to give each item a unique name. You can still achieve this behavior by given each item the same `ref`:
 
-``` html
+```html
 <p v-for="item in items" ref="items"></p>
 ```
 
@@ -665,14 +665,14 @@ On the other hand, `$refs` are designed primarily for programmatic access in Jav
 
 `v-else` no longer works with `v-show`. Use `v-if` with a negation expression instead. For example, instead of:
 
-``` html
+```html
 <p v-if="foo">Foo</p>
 <p v-else v-show="bar">Not foo, but bar</p>
 ```
 
 You can use:
 
-``` html
+```html
 <p v-if="foo">Foo</p>
 <p v-if="!foo && bar">Not foo, but bar</p>
 ```
@@ -709,13 +709,13 @@ The `.literal` modifier has been removed, as the same can be easily achieved by 
 
 For example, you can update:
 
-``` js
+```js
 <p v-my-directive.literal="foo bar baz"></p>
 ```
 
 to:
 
-``` html
+```html
 <p v-my-directive="'foo bar baz'"></p>
 ```
 
@@ -771,7 +771,7 @@ The `events` option has been removed. Event handlers should now be registered in
 
 The new, more concise way to configure `keyCodes` is through `Vue.config.keyCodes`. For example:
 
-``` js
+```js
 // enable v-on:keyup.f1
 Vue.config.keyCodes.f1 = 112
 ```
@@ -803,7 +803,7 @@ Todos
 
 We could manage communication between components with this single event hub:
 
-``` js
+```js
 // This is the event hub we'll use in every
 // component to communicate between them.
 var eventHub = new Vue()
@@ -811,7 +811,7 @@ var eventHub = new Vue()
 
 Then in our components, we can use `$emit`, `$on`, `$off` to emit events, listen for events, and clean up event listeners, respectively:
 
-``` js
+```js
 // NewTodoInput
 // ...
 methods: {
@@ -822,7 +822,7 @@ methods: {
 }
 ```
 
-``` js
+```js
 // DeleteTodoButton
 // ...
 methods: {
@@ -832,7 +832,7 @@ methods: {
 }
 ```
 
-``` js
+```js
 // Todos
 // ...
 created: function () {
@@ -878,11 +878,11 @@ In general, whenever something can be achieved in plain JavaScript, we want to a
 
 Instead of:
 
-``` html
+```html
 <input v-on:keyup="doStuff | debounce 500">
 ```
 
-``` js
+```js
 methods: {
   doStuff: function () {
     // ...
@@ -892,11 +892,11 @@ methods: {
 
 Use [lodash's `debounce`](https://lodash.com/docs/4.15.0#debounce) (or possibly [`throttle`](https://lodash.com/docs/4.15.0#throttle)) to directly limit calling the expensive method. You can achieve the same as above like this:
 
-``` html
+```html
 <input v-on:keyup="doStuff">
 ```
 
-``` js
+```js
 methods: {
   doStuff: _.debounce(function () {
     // ...
@@ -910,17 +910,17 @@ For more on the advantages of this strategy, see [the example here with `v-model
 
 Instead of:
 
-``` html
+```html
 <p v-for="item in items | limitBy 10">{{ item }}</p>
 ```
 
 Use JavaScript's built-in [`.slice` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Examples) in a computed property:
 
-``` html
+```html
 <p v-for="item in filteredItems">{{ item }}</p>
 ```
 
-``` js
+```js
 computed: {
   filteredItems: function () {
     return this.items.slice(0, 10)
@@ -932,17 +932,17 @@ computed: {
 
 Instead of:
 
-``` html
+```html
 <p v-for="user in users | filterBy searchQuery in 'name'">{{ user.name }}</p>
 ```
 
 Use JavaScript's built-in [`.filter` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#Examples) in a computed property:
 
-``` html
+```html
 <p v-for="user in filteredUsers">{{ user.name }}</p>
 ```
 
-``` js
+```js
 computed: {
   filteredUsers: function () {
     var self = this
@@ -955,7 +955,7 @@ computed: {
 
 JavaScript's native `.filter` can also manage much more complex filtering operations, because you have access to the full power of JavaScript within computed properties. For example, if you wanted to find all active users and case-insensitively match against both their name and email:
 
-``` js
+```js
 var self = this
 self.users.filter(function (user) {
   var searchRegex = new RegExp(self.searchQuery, 'i')
@@ -970,17 +970,17 @@ self.users.filter(function (user) {
 
 Instead of:
 
-``` html
+```html
 <p v-for="user in users | orderBy 'name'">{{ user.name }}</p>
 ```
 
 Use [lodash's `orderBy`](https://lodash.com/docs/4.15.0#orderBy) (or possibly [`sortBy`](https://lodash.com/docs/4.15.0#sortBy)) in a computed property:
 
-``` html
+```html
 <p v-for="user in orderedUsers">{{ user.name }}</p>
 ```
 
-``` js
+```js
 computed: {
   orderedUsers: function () {
     return _.orderBy(this.users, 'name')
@@ -990,7 +990,7 @@ computed: {
 
 You can even order by multiple columns:
 
-``` js
+```js
 _.orderBy(this.users, ['name', 'last_login'], ['asc', 'desc'])
 ```
 
@@ -1005,13 +1005,13 @@ _.orderBy(this.users, ['name', 'last_login'], ['asc', 'desc'])
 
 Filters' syntax for arguments now better aligns with JavaScript function invocation. So instead of taking space-delimited arguments:
 
-``` html
+```html
 <p>{{ date | formatDate 'YY-MM-DD' timeZone }}</p>
 ```
 
 We surround the arguments with parentheses and delimit the arguments with commas:
 
-``` html
+```html
 <p>{{ date | formatDate('YY-MM-DD', timeZone) }}</p>
 ```
 
@@ -1034,19 +1034,19 @@ You actually don't need to for debugging anymore, as Vue will nicely format outp
 
 #### Replacing the `capitalize` Filter
 
-``` js
+```js
 text[0].toUpperCase() + text.slice(1)
 ```
 
 #### Replacing the `uppercase` Filter
 
-``` js
+```js
 text.toUpperCase()
 ```
 
 #### Replacing the `lowercase` Filter
 
-``` js
+```js
 text.toLowerCase()
 ```
 
@@ -1054,7 +1054,7 @@ text.toLowerCase()
 
 The [pluralize](https://www.npmjs.com/package/pluralize) package on NPM serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like `0`, then you can also easily define your own pluralize functions. For example:
 
-``` js
+```js
 function pluralizeKnife (count) {
   if (count === 0) {
     return 'no knives'
@@ -1070,7 +1070,7 @@ function pluralizeKnife (count) {
 
 For a very naive implementation, you could do something like this:
 
-``` js
+```js
 '$' + price.toFixed(2)
 ```
 
@@ -1155,7 +1155,7 @@ Content inserted via named `<slot>` no longer preserves the `slot` attribute. Us
 
 `keep-alive` is no longer a special attribute, but rather a wrapper component, similar to `<transition>`. For example:
 
-``` html
+```html
 <keep-alive>
   <component v-bind:is="view"></component>
 </keep-alive>
@@ -1163,7 +1163,7 @@ Content inserted via named `<slot>` no longer preserves the `slot` attribute. Us
 
 This makes it possible to use `<keep-alive>` on multiple conditional children:
 
-``` html
+```html
 <keep-alive>
   <todo-list v-if="todos.length > 0"></todo-list>
   <no-todos-gif v-else></no-todos-gif>
@@ -1174,7 +1174,7 @@ This makes it possible to use `<keep-alive>` on multiple conditional children:
 
 When used together with `<transition>`, make sure to nest it inside:
 
-``` html
+```html
 <transition>
   <keep-alive>
     <component v-bind:is="view"></component>
@@ -1195,23 +1195,23 @@ When used together with `<transition>`, make sure to nest it inside:
 
 Interpolation within attributes is no longer valid. For example:
 
-``` html
+```html
 <button class="btn btn-{{ size }}"></button>
 ```
 
 Should either be updated to use an inline expression:
 
-``` html
+```html
 <button v-bind:class="'btn btn-' + size"></button>
 ```
 
 Or a data/computed property:
 
-``` html
+```html
 <button v-bind:class="buttonClasses"></button>
 ```
 
-``` js
+```js
 computed: {
   buttonClasses: function () {
     return 'btn btn-' + size
@@ -1300,7 +1300,7 @@ Use `Vue.set` instead.
 
 Use `Array.prototype.splice` instead. For example:
 
-``` js
+```js
 methods: {
   removeTodo: function (todo) {
     var index = this.todos.indexOf(todo)
@@ -1311,7 +1311,7 @@ methods: {
 
 Or better yet, pass removal methods an index:
 
-``` js
+```js
 methods: {
   removeTodo: function (index) {
     this.todos.splice(index, 1)
@@ -1365,7 +1365,7 @@ Instead, retrieve reactive data directly.
 
 Use the native DOM API:
 
-``` js
+```js
 myElement.appendChild(vm.$el)
 ```
 
@@ -1380,7 +1380,7 @@ myElement.appendChild(vm.$el)
 
 Use the native DOM API:
 
-``` js
+```js
 myElement.parentNode.insertBefore(vm.$el, myElement)
 ```
 
@@ -1395,13 +1395,13 @@ myElement.parentNode.insertBefore(vm.$el, myElement)
 
 Use the native DOM API:
 
-``` js
+```js
 myElement.parentNode.insertBefore(vm.$el, myElement.nextSibling)
 ```
 
 Or if `myElement` is the last child:
 
-``` js
+```js
 myElement.parentNode.appendChild(vm.$el)
 ```
 
@@ -1416,7 +1416,7 @@ myElement.parentNode.appendChild(vm.$el)
 
 Use the native DOM API:
 
-``` js
+```js
 vm.$el.remove()
 ```
 
@@ -1468,7 +1468,7 @@ Use the [Vue Devtools](https://github.com/vuejs/vue-devtools) for the optimal de
 
 Components now always replace the element they're bound to. To simulate the behavior of `replace: false`, you can wrap your root component with an element similar to the one you're replacing. For example:
 
-``` js
+```js
 new Vue({
   el: '#app',
   template: '<div id="app"> ... </div>'
@@ -1477,7 +1477,7 @@ new Vue({
 
 Or with a render function:
 
-``` js
+```js
 new Vue({
   el: '#app',
   render: function (h) {

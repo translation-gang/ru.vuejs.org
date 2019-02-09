@@ -14,7 +14,7 @@ Vue реализует API распределения контента, вдох
 
 Например, это позволит составлять такие компоненты:
 
-``` html
+```html
 <navigation-link url="/profile">
   Ваш профиль
 </navigation-link>
@@ -22,7 +22,7 @@ Vue реализует API распределения контента, вдох
 
 Для этого шаблон `<navigation-link>` должен быть например таким:
 
-``` html
+```html
 <a
   v-bind:href="url"
   class="nav-link"
@@ -33,7 +33,7 @@ Vue реализует API распределения контента, вдох
 
 При отрисовке компонента `<slot></slot>` будет заменён на «Ваш профиль». Слоты могут содержать любой код шаблона, в том числе HTML:
 
-``` html
+```html
 <navigation-link url="/profile">
   <!-- Добавляем иконку из набора Font Awesome -->
   <span class="fa fa-user"></span>
@@ -43,7 +43,7 @@ Vue реализует API распределения контента, вдох
 
 Или даже другие компоненты:
 
-``` html
+```html
 <navigation-link url="/profile">
   <!-- Используем компонент для добавления иконки -->
   <font-awesome-icon name="user"></font-awesome-icon>
@@ -57,7 +57,7 @@ Vue реализует API распределения контента, вдох
 
 Если необходимо использовать данные внутри слота, например:
 
-``` html
+```html
 <navigation-link url="/profile">
   Вы вошли как {{ user.name }}
 </navigation-link>
@@ -65,7 +65,7 @@ Vue реализует API распределения контента, вдох
 
 То этот слот имеет доступ к тем же свойствам экземпляра (т.е. к той же «области видимости»), что и остальная часть шаблона. Слот **не имеет доступа** к области видимости `<navigation-link>`. Поэтому попытка получить `url` не сработает:
 
-``` html
+```html
 <navigation-link url="/profile">
   Кликните для перехода сюда: {{ url }}
   <!--
@@ -134,7 +134,7 @@ Vue реализует API распределения контента, вдох
 
 Зачастую удобно иметь несколько слотов. К примеру, для компонента `<base-layout>` со следующим шаблоном:
 
-``` html
+```html
 <div class="container">
   <header>
     <!-- Мы хотим отобразить контент заголовка здесь -->
@@ -150,7 +150,7 @@ Vue реализует API распределения контента, вдох
 
 В таких случаев элементу `<slot>` можно указать специальный атрибут `name`, который используется для определения дополнительных слотов:
 
-``` html
+```html
 <div class="container">
   <header>
     <slot name="header"></slot>
@@ -206,7 +206,7 @@ Vue реализует API распределения контента, вдох
 
 В обоих случаях, итоговый HTML будет таким:
 
-``` html
+```html
 <div class="container">
   <header>
     <h1>Здесь мог быть заголовок страницы</h1>
@@ -237,7 +237,7 @@ Vue реализует API распределения контента, вдох
 
 Может потребоваться заменить это содержимое по умолчанию, например, чтобы отобразить имя пользователя, а не фамилию:
 
-``` html
+```html
 <current-user>
   {{ user.firstName }}
 </current-user>
@@ -247,7 +247,7 @@ Vue реализует API распределения контента, вдох
 
 Чтобы сделать `user` доступным для содержимого слота в родительском компоненте, необходимо добавить привязку `user` в качестве атрибута на элементе `<slot>`:
 
-``` html
+```html
 <span>
   <slot v-bind:user="user">
     {{ user.lastName }}
@@ -257,7 +257,7 @@ Vue реализует API распределения контента, вдох
 
 Атрибуты, привязанные к элементу `<slot>`, называются **входными параметрами слота**. Теперь, в родительской области видимости, можно использовать `v-slot` со значением, чтобы указать имя для предоставленных слоту входных параметров:
 
-``` html
+```html
 <current-user>
   <template v-slot:default="slotProps">
     {{ slotProps.user.firstName }}
@@ -271,7 +271,7 @@ Vue реализует API распределения контента, вдох
 
 В случаях, когда _только слоту по умолчанию_ предоставляется содержимое, тег компонента можно использовать в качестве шаблона слота. Это позволяет использовать `v-slot` непосредственно на компоненте:
 
-``` html
+```html
 <current-user v-slot:default="slotProps">
   {{ slotProps.user.firstName }}
 </current-user>
@@ -279,7 +279,7 @@ Vue реализует API распределения контента, вдох
 
 Запись можно сократить ещё сильнее. Как предполагается, что неуказанное явно содержимое относится к слоту по умолчанию, так и `v-slot` без аргумента означает слот по умолчанию:
 
-``` html
+```html
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
 </current-user>
@@ -287,7 +287,7 @@ Vue реализует API распределения контента, вдох
 
 Обратите внимание, что такой сокращённый синтаксис для слота по умолчанию **нельзя смешивать** с именованными слотами, потому что это приведёт к неоднозначности области видимости:
 
-``` html
+```html
 <!-- НЕПРАВИЛЬНО, будет выкидывать предупреждение -->
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
@@ -299,7 +299,7 @@ Vue реализует API распределения контента, вдох
 
 При наличии нескольких слотов лучше используйте полный синтаксис на основе `<template>` для _всех_ слотов:
 
-``` html
+```html
 <current-user>
   <template v-slot:default="slotProps">
     {{ slotProps.user.firstName }}
@@ -323,7 +323,7 @@ function (slotProps) {
 
 Это значит, что значение `v-slot` может принимать любое допустимое выражение JavaScript, которое может появиться в позиции аргумента определения функции. Поэтому в поддерживаемых окружениях ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), можно также использовать [деструктурирование ES2015](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2) чтобы извлекать определённые входные параметры слотов, например вот так:
 
-``` html
+```html
 <current-user v-slot="{ user }">
   {{ user.firstName }}
 </current-user>
@@ -331,7 +331,7 @@ function (slotProps) {
 
 Такой подход сделает шаблон намного чище, особенно когда слот предоставляет множество входных параметров. Это также открывает другие возможности, такие как переименование входных параметров, например `user` в `person`:
 
-``` html
+```html
 <current-user v-slot="{ user: person }">>
   {{ person.firstName }}
 </current-user>
@@ -339,7 +339,7 @@ function (slotProps) {
 
 Можно даже определять значения по умолчанию, которые будут использоваться в случае, если входной параметр слота неопределён:
 
-``` html
+```html
 <current-user v-slot="{ user = { firstName: 'Guest' } }">>
   {{ user.firstName }}
 </current-user>
@@ -351,7 +351,7 @@ function (slotProps) {
 
 [Динамические аргументы директивы](syntax.html#Динамические-аргументы) также работают с `v-slot`, что позволяет указать динамическое имя слота:
 
-``` html
+```html
 <base-layout>
   <template v-slot:[dynamicSlotName]>
     ...
@@ -382,7 +382,7 @@ function (slotProps) {
 
 Однако, как и в случае с другими директивами, сокращение доступно только при наличии аргумента. Это означает, что следующий синтаксис недопустим:
 
-``` html
+```html
 <!-- Это выкинет предупреждение -->
 <current-user #="{ user }">
   {{ user.firstName }}
@@ -391,7 +391,7 @@ function (slotProps) {
 
 Необходимо всегда указывать имя слота, если хотите использовать сокращение:
 
-``` html
+```html
 <current-user #default="{ user }">
   {{ user.firstName }}
 </current-user>
@@ -474,7 +474,7 @@ function (slotProps) {
 
 Также атрибут `slot` можно использовать непосредственно на обычном элементе:
 
-``` html
+```html
 <base-layout>
   <h1 slot="header">Здесь мог быть заголовок страницы</h1>
 
@@ -487,7 +487,7 @@ function (slotProps) {
 
 Может быть только один слот без имени, который является **слотом по умолчанию** и служит для отображения оставшегося содержимого. В обоих случаях итоговый HTML будет таким:
 
-``` html
+```html
 <div class="container">
   <header>
     <h1>Здесь мог быть заголовок страницы</h1>
@@ -508,7 +508,7 @@ function (slotProps) {
 
 Для получения входных параметров, переданных в слот, родительский компонент может использовать `<template>` с атрибутом `slot-scope` (в качестве примера используется `<slot-example>`, описанный [выше](#Слоты-с-ограниченной-областью-видимости)):
 
-``` html
+```html
 <slot-example>
   <template slot="default" slot-scope="slotProps">
     {{ slotProps.msg }}
@@ -520,7 +520,7 @@ function (slotProps) {
 
 В примере `slot="default"` можно опустить, так как это подразумевается:
 
-``` html
+```html
 <slot-example>
   <template slot-scope="slotProps">
     {{ slotProps.msg }}
@@ -530,7 +530,7 @@ function (slotProps) {
 
 Атрибут `slot-scope` также можно использовать непосредственно не только на элементах `<template>` (включая компоненты):
 
-``` html
+```html
 <slot-example>
   <span slot-scope="slotProps">
     {{ slotProps.msg }}
@@ -540,7 +540,7 @@ function (slotProps) {
 
 Значение `slot-scope` может принимать любое допустимое выражение JavaScript, которое может использоваться в позиции аргумента определения функции. Это означает, что в поддерживаемых средах ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) также можно использовать [деструктурирование ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) в выражении, например так:
 
-``` html
+```html
 <slot-example>
   <span slot-scope="{ msg }">
     {{ msg }}
@@ -550,7 +550,7 @@ function (slotProps) {
 
 Используя `<todo-list>` описанный [выше](#Другие-примеры) в качестве примера, вот эквивалентная запись с использованием `slot-scope`:
 
-``` html
+```html
 <todo-list v-bind:todos="todos">
   <template slot="todo" slot-scope="{ todo }">
     <span v-if="todo.isComplete">✓</span>

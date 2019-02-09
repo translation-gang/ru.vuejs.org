@@ -6,7 +6,7 @@ order: 305
 
 Для распространённых задач форматирования текста во Vue используются фильтры. Они находят своё применение в двух местах: **в mustache-интерполяциях и в выражениях `v-bind`** (последнее поддерживается в 2.1.0+). Фильтры добавляются в конце выражения JavaScript и отделяются вертикальной чертой:
 
-``` html
+```html
 <!-- mustache -->
 {{ message | capitalize }}
 
@@ -16,7 +16,7 @@ order: 305
 
 Вы можете определить локальные фильтры в опциях компонента:
 
-``` js
+```js
 filters: {
   capitalize: function (value) {
     if (!value) return ''
@@ -28,7 +28,7 @@ filters: {
 
 или определить фильтр глобально перед созданием экземпляра Vue:
 
-``` js
+```js
 Vue.filter('capitalize', function (value) {
   if (!value) return ''
   value = value.toString()
@@ -70,7 +70,7 @@ new Vue({
 
 Фильтры можно объединять в цепочки:
 
-``` html
+```html
 {{ message | filterA | filterB }}
 ```
 
@@ -78,7 +78,7 @@ new Vue({
 
 Фильтры являются JavaScript-функциями, и потому могут принимать параметры:
 
-``` html
+```html
 {{ message | filterA('arg1', arg2) }}
 ```
 

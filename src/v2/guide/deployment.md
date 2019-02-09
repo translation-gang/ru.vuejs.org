@@ -22,7 +22,7 @@ order: 404
 
 С версии Webpack 4+ вы можете использовать опцию `mode`:
 
-``` js
+```js
 module.exports = {
   mode: 'production'
 }
@@ -30,7 +30,7 @@ module.exports = {
 
 Но в версиях Webpack 3 и более ранних вам необходимо использовать [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
-``` js
+```js
 var webpack = require('webpack')
 
 module.exports = {
@@ -50,13 +50,13 @@ module.exports = {
 
 - Примените глобальное преобразование [envify](https://github.com/hughsk/envify) к вашей сборке. Это позволит минификатору удалить все предупреждения из исходного кода Vue, обёрнутые в условия проверки переменной окружения. Например:
 
-  ``` bash
+  ```bash
   NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
   ```
 
 - Или используйте [envify](https://github.com/hughsk/envify) вместе с Gulp:
 
-  ``` js
+  ```js
   // Используйте пользовательский модуль envify для указания переменных окружения
   var envify = require('envify/custom')
 
@@ -72,7 +72,7 @@ module.exports = {
 
 - Или используя [envify](https://github.com/hughsk/envify) вместе с Grunt и [grunt-browserify](https://github.com/jmreidy/grunt-browserify):
 
-  ``` js
+  ```js
   // Используйте пользовательский модуль envify для указания переменных окружения
   var envify = require('envify/custom')
 
@@ -97,7 +97,7 @@ module.exports = {
 
 Используйте [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
 
-``` js
+```js
 const replace = require('rollup-plugin-replace')
 
 rollup({

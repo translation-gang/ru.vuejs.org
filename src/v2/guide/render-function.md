@@ -10,7 +10,7 @@ order: 303
 
 Давайте разберём простой пример, в котором использование `render`-функции будет целесообразным. Предположим, вы хотите сгенерировать заголовки с "якорями":
 
-``` html
+```html
 <h1>
   <a name="hello-world" href="#hello-world">
     Hello world!
@@ -20,13 +20,13 @@ order: 303
 
 Для генерации представленного выше HTML вы решаете использовать такой интерфейс компонента:
 
-``` html
+```html
 <anchored-heading :level="1">Hello world!</anchored-heading>
 ```
 
 При использовании шаблонов для реализации интерфейса который генерирует только заголовок, основанный на свойстве `level`, вы быстро столкнётесь со следующей ситуацией:
 
-``` html
+```html
 <script type="text/x-template" id="anchored-heading-template">
   <h1 v-if="level === 1">
     <slot></slot>
@@ -49,7 +49,7 @@ order: 303
 </script>
 ```
 
-``` js
+```js
 Vue.component('anchored-heading', {
   template: '#anchored-heading-template',
   props: {
@@ -65,7 +65,7 @@ Vue.component('anchored-heading', {
 
 Шаблоны хорошо подходят для большинства компонентов, но рассматриваемый сейчас — явно не один из них. Давайте попробуем переписать компонент, используя `render`-функцию:
 
-``` js
+```js
 Vue.component('anchored-heading', {
   render: function (createElement) {
     return createElement(
@@ -112,7 +112,7 @@ Vue.component('anchored-heading', {
 
 Или render-функцию:
 
-``` js
+```js
 render: function (createElement) {
   return createElement('h1', this.blogTitle)
 }
@@ -124,7 +124,7 @@ render: function (createElement) {
 
 Vue реализует это созданием **виртуального DOM**, чтобы отслеживать изменения, которые ему требуется внести в реальный DOM. Рассмотрим подробнее следующую строку:
 
-``` js
+```js
 return createElement('h1', this.blogTitle)
 ```
 
@@ -134,7 +134,7 @@ return createElement('h1', this.blogTitle)
 
 Следующий момент, с которым необходимо познакомиться, это синтаксис использования возможностей шаблонизации функцией `createElement`. Вот аргументы, которые принимает `createElement`:
 
-``` js
+```js
 // @returns {VNode}
 createElement(
   // {String | Object | Function}
@@ -168,7 +168,7 @@ createElement(
 
 Заметьте: особым образом рассматриваемые в шаблонах атрибуты `v-bind:class` и `v-bind:style`, и в объектах данных VNode'ов имеют собственные поля на верхнем уровне объектов данных. Этот объект также позволяет вам связывать обычные атрибуты HTML, а также свойства DOM, такие как `innerHTML` (это заменит директиву `v-html`):
 
-``` js
+```js
 {
   // То же API, что и у `v-bind:class`, принимающий
   // строку, объект, массив строк или массив объектов
@@ -239,7 +239,7 @@ createElement(
 
 Узнав всё это, мы теперь можем завершить начатый ранее компонент:
 
-``` js
+```js
 var getChildrenTextContent = function (children) {
   return children.map(function (node) {
     return node.children
@@ -283,7 +283,7 @@ Vue.component('anchored-heading', {
 
 Все VNode'ы в компоненте должны быть уникальными. Это значит, что `render`-функция ниже — не валидна:
 
-``` js
+```js
 render: function (createElement) {
   var myParagraphVNode = createElement('p', 'hi')
   return createElement('div', [
@@ -295,7 +295,7 @@ render: function (createElement) {
 
 Если вы действительно хотите многократно использовать один и тот же элемент/компонент, примените функцию-фабрику. Например, следующая `render`-функция полностью валидный способ для отображения 20 идентичных абзацев:
 
-``` js
+```js
 render: function (createElement) {
   return createElement('div',
     Array.apply(null, { length: 20 }).map(function () {
@@ -312,7 +312,7 @@ render: function (createElement) {
 Функциональность, легко реализуемая в JavaScript, не требует от Vue какой-либо проприетарной альтернативы. Например, используемые в шаблонах `v-if` и `v-for`:
 
 
-``` html
+```html
 <ul v-if="items.length">
   <li v-for="item in items">{{ item.name }}</li>
 </ul>
@@ -321,7 +321,7 @@ render: function (createElement) {
 
 При использовании `render`-функции это можно легко переписать с помощью `if`/`else` и `map`:
 
-``` js
+```js
 props: ['items'],
 render: function (createElement) {
   if (this.items.length) {
@@ -338,7 +338,7 @@ render: function (createElement) {
 
 В `render`-функции нет прямого аналога `v-model` — вы должны реализовать эту логику самостоятельно:
 
-``` js
+```js
 props: ['value'],
 render: function (createElement) {
   var self = this
@@ -415,7 +415,7 @@ on: {
 
 Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode используя [`this.$slots`](../api/#vm-slots):
 
-``` js
+```js
 render: function (createElement) {
   // `<div><slot></slot></div>`
   return createElement('div', this.$slots.default)
@@ -424,7 +424,7 @@ render: function (createElement) {
 
 И получить доступ к слотам со своей областью видимости как к функциям, возвращающим VNode, используя [`this.$scopedSlots`](../api/#vm-scopedSlots):
 
-``` js
+```js
 props: ['message'],
 render: function (createElement) {
   // `<div><slot :text="message"></slot></div>`
@@ -438,7 +438,7 @@ render: function (createElement) {
 
 Чтобы передать слоты со своей областью видимости в дочерний компонент используя `render`-функцию, применяйте свойство `scopedSlots` в данных VNode:
 
-``` js
+```js
 render: function (createElement) {
   return createElement('div', [
     createElement('child', {
@@ -458,7 +458,7 @@ render: function (createElement) {
 
 Если приходится писать много `render`-функций, то такой код может утомлять:
 
-``` js
+```js
 createElement(
   'anchored-heading', {
     props: {
@@ -473,7 +473,7 @@ createElement(
 
 Особенно в сравнении с кодом аналогичного шаблона:
 
-``` html
+```html
 <anchored-heading :level="1">
   <span>Hello</span> world!
 </anchored-heading>
@@ -481,7 +481,7 @@ createElement(
 
 Поэтому есть [плагин для Babel](https://github.com/vuejs/jsx), позволяющий использовать JSX во Vue, и применять синтаксис, похожий на шаблоны:
 
-``` js
+```js
 import AnchoredHeading from './AnchoredHeading.vue'
 
 new Vue({
@@ -506,7 +506,7 @@ new Vue({
 
 В подобных случаях мы можем пометить компоненты как функциональные (опция `functional`), что означает отсутствие у них состояния (нет [реактивных данных](../api/#Опции-—-данные)) и экземпляра (нет переменной контекста `this`). **Функциональный компонент** выглядит так:
 
-``` js
+```js
 Vue.component('my-component', {
   functional: true,
   // входные параметры опциональны
@@ -525,7 +525,7 @@ Vue.component('my-component', {
 
 С версии 2.5.0+, если вы используете [однофайловые компоненты](single-file-components.html), вы можете объявить функциональные компоненты основанные на шаблоне таким образом:
 
-``` html
+```html
 <template functional>
 </template>
 ```
@@ -552,7 +552,7 @@ Vue.component('my-component', {
 
 Вот пример компонента `smart-list`, делегирующего отрисовку к более специализированным компонентам, в зависимости от переданных в него данных:
 
-``` js
+```js
 var EmptyList = { /* ... */ }
 var TableList = { /* ... */ }
 var OrderedList = { /* ... */ }
@@ -623,7 +623,7 @@ Vue.component('my-functional-button', {
 
 Вы можете задаться вопросом зачем нужны `slots()` и `children` одновременно. Разве не будет `slots().default` возвращать тот же результат, что и `children`? В некоторых случаях — да, но что если у нашего функционального компонента будут следующие дочерние элементы?
 
-``` html
+```html
 <my-functional-component>
   <p slot="foo">
     первый

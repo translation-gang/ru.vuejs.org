@@ -14,7 +14,7 @@ order: 10
 
 ### Текст
 
-``` html
+```html
 <input v-model="message" placeholder="отредактируй меня">
 <p>Введённое сообщение: {{ message }}</p>
 ```
@@ -36,7 +36,7 @@ new Vue({
 
 ### Многострочный текст
 
-``` html
+```html
 <span>Введённое многострочное сообщение:</span>
 <p style="white-space: pre-line;">{{ message }}</p>
 <br>
@@ -67,7 +67,7 @@ new Vue({
 
 Один чекбокс, привязанный к булевому значению:
 
-``` html
+```html
 <input type="checkbox" id="checkbox" v-model="checked">
 <label for="checkbox">{{ checked }}</label>
 ```
@@ -88,7 +88,7 @@ new Vue({
 
 Список чекбоксов, привязанных к одному массиву:
 
-``` html
+```html
 <div id="example-3" class="demo">
   <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
   <label for="jack">Джек</label>
@@ -101,7 +101,7 @@ new Vue({
 </div>
 ```
 
-``` js
+```js
 new Vue({
   el: '#example-3',
   data: {
@@ -133,7 +133,7 @@ new Vue({
 
 ### Радиокнопки
 
-``` html
+```html
 <input type="radio" id="one" value="Один" v-model="picked">
 <label for="one">Один</label>
 <br>
@@ -166,7 +166,7 @@ new Vue({
 
 Выбор одного варианта из списка:
 
-``` html
+```html
 <select v-model="selected">
   <option disabled value="">Выберите один из вариантов</option>
   <option>А</option>
@@ -175,7 +175,7 @@ new Vue({
 </select>
 <span>Выбрано: {{ selected }}</span>
 ```
-``` js
+```js
 new Vue({
   el: '...',
   data: {
@@ -207,7 +207,7 @@ new Vue({
 
 Выбор нескольких вариантов из списка (с привязкой к массиву):
 
-``` html
+```html
 <select v-model="selected" multiple>
   <option>А</option>
   <option>Б</option>
@@ -238,7 +238,7 @@ new Vue({
 
 Динамическое отображение списка опций с помощью `v-for`:
 
-``` html
+```html
 <select v-model="selected">
   <option v-for="option in options" v-bind:value="option.value">
     {{ option.text }}
@@ -246,7 +246,7 @@ new Vue({
 </select>
 <span>Выбрано: {{ selected }}</span>
 ```
-``` js
+```js
 new Vue({
   el: '...',
   data: {
@@ -287,7 +287,7 @@ new Vue({
 
 Для радиокнопок, чекбоксов и выпадающих списков в качестве `v-model` обычно используются статические строки (для чекбоксов — булевые значения):
 
-``` html
+```html
 <!-- `picked` получает строковое значение "a" при клике -->
 <input type="radio" v-model="picked" value="a">
 
@@ -304,7 +304,7 @@ new Vue({
 
 ### Чекбокс
 
-``` html
+```html
 <input
   type="checkbox"
   v-model="toggle"
@@ -313,7 +313,7 @@ new Vue({
 >
 ```
 
-``` js
+```js
 // если чекбокс выбран:
 vm.toggle === 'да'
 // если чекбокс сброшен:
@@ -324,25 +324,25 @@ vm.toggle === 'нет'
 
 ### Радиокнопки
 
-``` html
+```html
 <input type="radio" v-model="pick" v-bind:value="a">
 ```
 
-``` js
+```js
 // если отмечено:
 vm.pick === vm.a
 ```
 
 ### Списки выбора
 
-``` html
+```html
 <select v-model="selected">
   <!-- инлайновый объект с данными -->
   <option v-bind:value="{ number: 123 }">123</option>
 </select>
 ```
 
-``` js
+```js
 // когда выбрано:
 typeof vm.selected // => 'object'
 vm.selected.number // => 123
@@ -354,7 +354,7 @@ vm.selected.number // => 123
 
 По умолчанию `v-model` синхронизирует ввод с данными по событию `input` (за исключением [вышеупомянутых](#vmodel-ime-tip) событий IME). Можно указать модификатор `lazy`, чтобы использовать для синхронизации событие `change`:
 
-``` html
+```html
 <!-- синхронизируется по событию "change", а не "input" -->
 <input v-model.lazy="msg" >
 ```
@@ -363,7 +363,7 @@ vm.selected.number // => 123
 
 Для автоматического приведения введённого пользователем к числу, добавьте модификатор `number`:
 
-``` html
+```html
 <input v-model.number="age" type="number">
 ```
 

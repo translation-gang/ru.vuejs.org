@@ -12,7 +12,7 @@ order: 301
 
 Пример:
 
-``` js
+```js
 // определяем объект примеси
 var myMixin = {
   created: function () {
@@ -39,7 +39,7 @@ var component = new Component() // => "привет из примеси!"
 
 Например, объект `data` претерпевает рекурсивное слияние с объектом `data` компонента, который имеет приоритет в случаях конфликтов.
 
-``` js
+```js
 var mixin = {
   data: function () {
     return {
@@ -66,7 +66,7 @@ new Vue({
 
 Функции хуков с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться **перед** собственными хуками компонента.
 
-``` js
+```js
 var mixin = {
   created: function () {
     console.log('вызван хук примеси')
@@ -86,7 +86,7 @@ new Vue({
 
 Опции, ожидающие значения в форме объектов, такие как `methods`, `components` и `directives` будут объединены. В случае конфликта, приоритет имеют опции компонента:
 
-``` js
+```js
 var mixin = {
   methods: {
     foo: function () {
@@ -121,7 +121,7 @@ vm.conflicting() // => "из самого компонента"
 
 Примесь может быть применена и глобально. Но используйте данную возможность осторожно! После применения, примесь окажет влияние на **все** экземпляры Vue, создаваемые в дальнейшем. При правильном использовании это можно использовать для вставки логики обработки пользовательских опций:
 
-``` js
+```js
 // добавляем обработчик для пользовательской опции `myOption`
 Vue.mixin({
   created: function () {
@@ -144,7 +144,7 @@ new Vue({
 
 При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в `Vue.config.optionMergeStrategies`:
 
-``` js
+```js
 Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
   // return mergedVal
 }
@@ -152,14 +152,14 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 
 Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции `methods`:
 
-``` js
+```js
 var strategies = Vue.config.optionMergeStrategies
 strategies.myOption = strategies.methods
 ```
 
 Более сложным примером может послужить стратегия слияния из [Vuex](https://github.com/vuejs/vuex) 1.x:
 
-``` js
+```js
 const merge = Vue.config.optionMergeStrategies.computed
 Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
   if (!toVal) return fromVal

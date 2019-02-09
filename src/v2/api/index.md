@@ -15,7 +15,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   Vue.config.silent = true
   ```
 
@@ -29,7 +29,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   Vue.config.optionMergeStrategies._my_option = function (parent, child, vm) {
     return child + 1
   }
@@ -56,7 +56,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   // убедитесь, что устанавливаете свойство синхронно сразу после загрузки Vue
   Vue.config.devtools = true
   ```
@@ -71,7 +71,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   Vue.config.errorHandler = function (err, vm, info) {
     // Обработка ошибки. В `info` подробности Vue-специфичной ошибки,
     // например, в каком хуке жизненного цикла произошла ошибка.
@@ -99,7 +99,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   Vue.config.warnHandler = function (msg, vm, trace) {
     // `trace` — это трассировка иерархии компонентов
   }
@@ -115,7 +115,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   Vue.config.ignoredElements = [
     'my-custom-web-component',
     'another-web-component',
@@ -135,7 +135,7 @@ type: api
 
 - **Использование:**
 
-  ``` js
+  ```js
   Vue.config.keyCodes = {
     v: 86,
     f1: 112,
@@ -190,11 +190,11 @@ type: api
 
   Внимание: у объекта, передаваемого в `Vue.extend()`, свойство `data` должно быть функцией.
 
-  ``` html
+  ```html
   <div id="mount-point"></div>
   ```
 
-  ``` js
+  ```js
   // Создание конструктора
   var Profile = Vue.extend({
     template: '<p>{{firstName}} {{lastName}}, также известный как {{alias}}</p>',
@@ -212,7 +212,7 @@ type: api
 
   Результатом будет:
 
-  ``` html
+  ```html
   <p>Уолтер Уайт, также известный как Гейзенберг</p>
   ```
 
@@ -228,7 +228,7 @@ type: api
 
   Вызов функции `callback` при следующем цикле обновления DOM. Используйте для работы с обновлённым DOM после изменения данных.
 
-  ``` js
+  ```js
   // изменение данных
   vm.msg = 'Привет'
   // DOM ещё не обновлён
@@ -290,7 +290,7 @@ type: api
 
   Регистрирует новую глобальную директиву или возвращает уже зарегистрированную.
 
-  ``` js
+  ```js
   // регистрируем директиву-объект:
   Vue.directive('my-directive', {
     bind: function () {},
@@ -321,7 +321,7 @@ type: api
 
   Регистрирует новый глобальный фильтр или возвращает уже зарегистрированный.
 
-  ``` js
+  ```js
   // регистрируем фильтр:
   Vue.filter('my-filter', function (value) {
     // возвращаем обработанное значение
@@ -343,7 +343,7 @@ type: api
 
   Регистрирует глобальный компонент или возвращает уже зарегистрированный. Регистрация автоматически устанавливает переданный `id` в `name` компонента.
 
-  ``` js
+  ```js
   // регистрируем конструктор, полученный из `Vue.extend`:
   Vue.component('my-component', Vue.extend({ /* ... */ }))
 
@@ -392,7 +392,7 @@ type: api
 
   Компилирует строковый шаблон в `render`-функцию. **Доступно только в полной сборке.**
 
-  ``` js
+  ```js
   var res = Vue.compile('<div><span>{{ msg }}</span></div>')
 
   new Vue({
@@ -419,7 +419,7 @@ type: api
 
   Возвращаемый объект можно использовать внутри [render-функций](../guide/render-function.html) и [вычисляемых свойств](../guide/computed.html), а при его изменениях будут вызываться соответствующие обновления. Также его можно воспользоваться как небольшое межкомпонентное хранилище для простых сценариев:
 
-  ``` js
+  ```js
   const state = Vue.observable({ count: 0 })
    const Demo = {
     render(h) {
@@ -476,7 +476,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   var data = { a: 1 }
 
   // создаём экземпляр напрямую:
@@ -512,7 +512,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   // простая форма записи:
   Vue.component('props-demo-simple', {
     props: ['size', 'myMessage']
@@ -550,7 +550,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   var Comp = Vue.extend({
     props: ['msg'],
     template: '<div>{{ msg }}</div>'
@@ -647,7 +647,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   var vm = new Vue({
     data: {
       a: 1,
@@ -765,7 +765,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   new Vue({
     render (h) {
       throw new Error('oops')
@@ -826,7 +826,7 @@ type: api
 
   Обратите внимание, что `mounted` **не гарантирует** что все дочерние компоненты будут уже примонтированы. Если необходимо подождать пока не будут отрисованы все дочерние, можно воспользоваться [vm.$nextTick](#vm-nextTick) внутри `mounted`:
 
-  ``` js
+  ```js
   mounted: function () {
     this.$nextTick(function () {
       // Код, который будет запущен только после
@@ -863,7 +863,7 @@ type: api
 
   Обратите внимание, что `updated` **не гарантирует** что все дочерние компоненты будут уже переотрисованы. Если необходимо подождать пока все не будут повторно отрисованы, можно воспользоваться [vm.$nextTick](#vm-nextTick) внутри `updated`:
 
-  ``` js
+  ```js
   updated: function () {
     this.$nextTick(function () {
       // Код, который будет запущен только после
@@ -1006,7 +1006,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   var mixin = {
     created: function () { console.log(1) }
   }
@@ -1032,7 +1032,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   var CompA = { ... }
 
   // наследуем от CompA, не вызывая `Vue.extend`:
@@ -1070,7 +1070,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   // родительский компонент предоставляет доступ к 'foo'
   var Provider = {
     provide: {
@@ -1091,7 +1091,7 @@ type: api
 
   С помощью ES2015 Symbols, функция `provide` и объект `inject`:
 
-  ``` js
+  ```js
   const s = Symbol()
 
   const Provider = {
@@ -1138,7 +1138,7 @@ type: api
 
   > С версии 2.5.0+ инъекции могут быть необязательными со значением по умолчанию:
 
-  ``` js
+  ```js
   const Child = {
     inject: {
       foo: { default: 'foo' }
@@ -1148,7 +1148,7 @@ type: api
 
   Если потребуется внедрить значение из свойства с другим именем, используйте `from` для обозначения свойства-источника:
 
-  ``` js
+  ```js
   const Child = {
     inject: {
       foo: {
@@ -1161,7 +1161,7 @@ type: api
 
   Аналогично значениям по умолчанию входных параметров, вам нужно использовать функцию фабрику для не-примитивных значений:
 
-  ``` js
+  ```js
   const Child = {
     inject: {
       foo: {
@@ -1200,7 +1200,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   new Vue({
     delimiters: ['${', '}']
   })
@@ -1230,7 +1230,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   Vue.component('my-checkbox', {
     model: {
       prop: 'checked',
@@ -1249,13 +1249,13 @@ type: api
   })
   ```
 
-  ``` html
+  ```html
   <my-checkbox v-model="foo" value="some value"></my-checkbox>
   ```
 
   Указанное выше эквивалентно:
 
-  ``` html
+  ```html
   <my-checkbox
     :checked="foo"
     @change="val => { foo = val }"
@@ -1333,7 +1333,7 @@ type: api
 
   Опции, переданные в конструктор экземпляра Vue. Полезно, если вы хотите передавать туда собственные опции:
 
-  ``` js
+  ```js
   new Vue({
     customOption: 'что-нибудь',
     created: function () {
@@ -1517,7 +1517,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   // следим за переменной, указанной путём:
   vm.$watch('a.b.c', function (newVal, oldVal) {
     // переменная изменилась, сделайте что-нибудь
@@ -1539,7 +1539,7 @@ type: api
 
   `vm.$watch` возвращает функцию unwatch, которая останавливает слежение:
 
-  ``` js
+  ```js
   var unwatch = vm.$watch('a', cb)
   // позднее, останавливаем слежение:
   unwatch()
@@ -1549,7 +1549,7 @@ type: api
 
   Чтобы слежение реагировало на изменения во вложенных объектах, передайте `deep: true` в объекте параметров. Обратите внимание, что для наблюдения за изменениями массивов этого не требуется.
 
-  ``` js
+  ```js
   vm.$watch('someObject', callback, {
     deep: true
   })
@@ -1561,7 +1561,7 @@ type: api
 
   Если передано `immediate: true`, коллбэк будет вызван сразу же после начала наблюдения с текущим значением выражения:
 
-  ``` js
+  ```js
   vm.$watch('a', callback, {
     immediate: true
   })
@@ -1609,7 +1609,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   vm.$on('test', function (msg) {
     console.log(msg)
   })
@@ -1796,7 +1796,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   var MyComponent = Vue.extend({
     template: '<div>Привет!</div>'
   })
@@ -1835,7 +1835,7 @@ type: api
 
 - **Пример:**
 
-  ``` js
+  ```js
   new Vue({
     // ...
     methods: {
@@ -1996,7 +1996,7 @@ type: api
 
   Многократно отрисовывает элемент или блок шаблона, основываясь на переданных данных. Значение директивы должно следовать синтаксису `alias in expression` — в `alias` будет элемент текущей итерации:
 
-  ``` html
+  ```html
   <div v-for="item in items">
     {{ item.text }}
   </div>
@@ -2004,7 +2004,7 @@ type: api
 
    Кроме того, вы можете указать название для индекса (или ключа, если вы работаете с объектом):
 
-  ``` html
+  ```html
   <div v-for="(item, index) in items"></div>
   <div v-for="(val, key) in object"></div>
   <div v-for="(val, key, index) in object"></div>
@@ -2012,7 +2012,7 @@ type: api
 
   По умолчанию `v-for` будет пытаться обновить элементы "на месте", не перемещая их. Если вам нужно, чтобы элементы перемещались, сохраняя явную упорядоченность, укажите атрибут `key`:
 
-  ``` html
+  ```html
   <div v-for="item in items" :key="item.id">
     {{ item.text }}
   </div>
@@ -2186,7 +2186,7 @@ type: api
 
   Модификатор `.camel` позволяет перевод имени атрибута `v-bind` в camelCase при использовании DOM-шаблонов, например для атрибута `viewBox` SVG:
 
-  ``` html
+  ```html
   <svg :view-box.camel="viewBox"></svg>
   ```
 
@@ -2354,7 +2354,7 @@ type: api
 
   Как правило, используется в связке с `v-for`:
 
-  ``` html
+  ```html
   <ul>
     <li v-for="item in items" :key="item.id">...</li>
   </ul>
@@ -2367,7 +2367,7 @@ type: api
 
   Например:
 
-  ``` html
+  ```html
   <transition>
     <span :key="text">{{ text }}</span>
   </transition>
@@ -2381,7 +2381,7 @@ type: api
 
   Название элемента или компонента для регистрации ссылки на него. В объекте `$refs` появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или экземпляром компонента, если атрибут стоял на пользовательском компоненте:
 
-  ``` html
+  ```html
   <!-- vm.$refs.p будет DOM-элементом -->
 
   <p ref="p">hello</p>
@@ -2404,7 +2404,7 @@ type: api
 
   Например:
 
-  ``` html
+  ```html
   <!-- используемый компонент меняется при изменениях currentView -->
   <component v-bind:is="currentView"></component>
 
@@ -2535,7 +2535,7 @@ type: api
   </div>
   ```
 
-  ``` js
+  ```js
   new Vue({
     ...
     methods: {
@@ -2622,7 +2622,7 @@ type: api
 
   Входные параметры `include` и `exclude` позволяют организовать условное кеширование компонентов. Оба параметра можно указать в виде строки со списком имён компонентов через запятую, регулярным выражением или массивом:
 
-  ``` html
+  ```html
   <!-- строка с именами через запятую -->
   <keep-alive include="a,b">
     <component :is="view"></component>
@@ -2647,7 +2647,7 @@ type: api
 
   Максимальное количество экземпляров для кеширования. По достижению этого лимита, экземпляр закешированного компонента, который дольше всего не использовался будет уничтожен перед созданием нового экземпляра.
 
-  ``` html
+  ```html
   <keep-alive :max="10">
     <component :is="view"></component>
   </keep-alive>

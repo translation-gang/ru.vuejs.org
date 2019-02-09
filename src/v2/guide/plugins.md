@@ -20,7 +20,7 @@ order: 304
 
 Для использования плагина необходимо вызвать глобальный метод `Vue.use()`. Его нужно вызывать перед `new Vue()`:
 
-``` js
+```js
 // вызывает `MyPlugin.install(Vue)`
 Vue.use(MyPlugin)
 
@@ -31,7 +31,7 @@ new Vue({
 
 Можно передавать дополнительные параметры в плагин:
 
-``` js
+```js
 Vue.use(MyPlugin, { someOption: true })
 ```
 
@@ -39,7 +39,7 @@ Vue.use(MyPlugin, { someOption: true })
 
 Некоторые официальные плагины Vue.js, такие как `vue-router`, автоматически вызывают `Vue.use()`, если обнаружат глобальную переменную `Vue`. Однако при использовании инструментов модульного окружения, например CommonJS, необходимо всегда вызывать `Vue.use()` явно:
 
-``` js
+```js
 // При использовании CommonJS посредством Browserify или Webpack
 var Vue = require('vue')
 var VueRouter = require('vue-router')
@@ -54,7 +54,7 @@ Vue.use(VueRouter)
 
 Плагин Vue.js должен содержать метод `install`. Этот метод будет вызываться с конструктором `Vue` в качестве первого аргумента, и с дополнительными опциями плагина в качестве второго (если передавались):
 
-``` js
+```js
 MyPlugin.install = function (Vue, options) {
   // 1. добавление глобального метода или свойства
   Vue.myGlobalMethod = function () {
