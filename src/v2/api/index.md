@@ -2018,7 +2018,7 @@ type: api
   </div>
   ```
 
-  С версии 2.6.0+, `v-for` также может работать со значениями, реализующими [протокол Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), включая нативные `Map` и `Set`. К сожалению, Vue 2.x в настоящее время не поддерживет реактивность для значений `Map` и `Set` и поэтому не сможет автоматически отслеживать изменения в них.
+  С версии 2.6.0+, `v-for` также может работать со значениями, реализующими [протокол Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol), включая нативные `Map` и `Set`. К сожалению, Vue 2.x в настоящее время не поддерживает реактивность для значений `Map` и `Set` и поэтому не сможет автоматически отслеживать изменения в них.
 
   <p class="tip">При совместном использовании `v-if` и `v-for`, `v-for` имеет более высокий приоритет. Подробности на странице [отрисовки списков](../guide/list.html#v-for-и-v-if").</p>
 
