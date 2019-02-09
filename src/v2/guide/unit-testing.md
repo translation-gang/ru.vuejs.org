@@ -119,7 +119,7 @@ it('updates the rendered message when vm.message updates', done => {
   const vm = new Vue(MyComponent).$mount()
   vm.message = 'foo'
 
-  // дождаться следующего "тика" перед оценкой состояния DOM
+  // дождаться следующего «тика» перед оценкой состояния DOM
   Vue.nextTick(() => {
     expect(vm.$el.textContent).toBe('foo')
     done()
@@ -127,4 +127,4 @@ it('updates the rendered message when vm.message updates', done => {
 })
 ```
 
-Подробнее о модульном тестировании во Vue, вы можете изучить на [Vue Test Utils](https://vue-test-utils.vuejs.org/ru/) и на странице нашей книги рецептов [о модульном тестировании компонентов Vue](https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html).
+Подробнее о модульном тестировании во Vue, вы можете изучить на [Vue Test Utils](https://vue-test-utils.vuejs.org/ru/) и на странице нашей книги рецептов [о модульном тестировании компонентов Vue](../cookbook/unit-testing-vue-components.html).

@@ -43,7 +43,7 @@ order: 403
 # 1. Установите Vue CLI, если она ещё не установлена
 npm install --global @vue/cli
 
-# 2. Создайте новый проект, затем выберите опцию "Manually select features"
+# 2. Создайте новый проект, затем выберите опцию «Manually select features»
 vue create my-project-name
 ```
 

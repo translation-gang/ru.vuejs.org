@@ -8,7 +8,7 @@ order: 4
 
 Существуют множество способов создания системы SVG-иконок (SVG Icon System), но один из методов, который использует возможности Vue, — это создание редактируемых встроенных иконок в виде компонентов. Некоторые из преимуществ такого подхода:
 
-* Их легко редактировать "на лету"
+* Их легко редактировать «на лету»
 * Они анимируются
 * Вы можете использовать обычные входные параметры и значения по умолчанию для сохранения стандартного размера или изменения их, если это нужно
 * Они встраиваемые, поэтому HTTP-запросы не требуются
@@ -165,7 +165,7 @@ export default {
 
 <p data-height="300" data-theme-id="0" data-slug-hash="dJRpgY" data-default-tab="result" data-user="Vue" data-embed-version="2" data-pen-title="Editable SVG Icon System: Animated icon" class="codepen">Смотрите Pen <a href="https://codepen.io/team/Vue/pen/dJRpgY/">Editable SVG Icon System: Animated icon</a> by Vue (<a href="https://codepen.io/Vue">@Vue</a>) на сайте <a href="https://codepen.io">CodePen</a>.</p><script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<p style="margin-top:-30px">Довольно легко сделано! И легко обновлять "на лету".</p>
+<p style="margin-top:-30px">Довольно легко сделано! И легко обновлять «на лету».</p>
 
 Вы можете посмотреть больше анимационных примеров в [репозитории](https://github.com/sdras/vue-sample-svg-icons/)
 

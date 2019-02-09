@@ -22,8 +22,8 @@ order: 5
 
 ```html
 <div id="example">
-  <p>Изначальное сообщение: "{{ message }}"</p>
-  <p>Сообщение задом наперёд: "{{ reversedMessage }}"</p>
+  <p>Изначальное сообщение: «{{ message }}»</p>
+  <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
 </div>
 ```
 
@@ -47,8 +47,8 @@ var vm = new Vue({
 
 {% raw %}
 <div id="example" class="demo">
-  <p>Изначальное сообщение: "{{ message }}"</p>
-  <p>Сообщение задом наперёд: "{{ reversedMessage }}"</p>
+  <p>Изначальное сообщение: «{{ message }}»</p>
+  <p>Сообщение задом наперёд: «{{ reversedMessage }}»</p>
 </div>
 <script>
 var vm = new Vue({
@@ -82,7 +82,7 @@ console.log(vm.reversedMessage) // => 'акоП'
 Можно заметить, что такого же результата можно достичь и с помощью метода:
 
 ```html
-<p>Сообщение задом наперёд: "{{ reverseMessage() }}"</p>
+<p>Сообщение задом наперёд: «{{ reverseMessage() }}»</p>
 ```
 
 ```js
@@ -190,7 +190,7 @@ computed: {
 ```html
 <div id="watch-example">
   <p>
-    Задайте вопрос, на который можно ответить "да" или "нет":
+    Задайте вопрос, на который можно ответить «да» или «нет»:
     <input v-model="question">
   </p>
   <p>{{ answer }}</p>
@@ -253,7 +253,7 @@ var watchExampleVM = new Vue({
 {% raw %}
 <div id="watch-example" class="demo">
   <p>
-    Задайте вопрос, на который можно ответить "да" или "нет":
+    Задайте вопрос, на который можно ответить «да» или «нет»:
     <input v-model="question">
   </p>
   <p>{{ answer }}</p>
