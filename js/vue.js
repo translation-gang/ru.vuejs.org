@@ -1,5 +1,5 @@
 /*!
- * Vue.js v2.6.4
+ * Vue.js v2.6.6
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -2543,8 +2543,14 @@
     } else if (slots._normalized) {
       // fast path 1: child component re-render only, parent did not change
       return slots._normalized
-    } else if (slots.$stable && prevSlots && prevSlots !== emptyObject) {
-      // fast path 2: stable scoped slots, only need to normalize once
+    } else if (
+      slots.$stable &&
+      prevSlots &&
+      prevSlots !== emptyObject &&
+      Object.keys(normalSlots).length === 0
+    ) {
+      // fast path 2: stable scoped slots w/ no normal slots to proxy,
+      // only need to normalize once
       return prevSlots
     } else {
       res = {};
@@ -2570,8 +2576,8 @@
   }
 
   function normalizeScopedSlot(normalSlots, key, fn) {
-    var normalized = function (scope) {
-      var res = fn(scope || {});
+    var normalized = function () {
+      var res = arguments.length ? fn.apply(null, arguments) : fn({});
       res = res && typeof res === 'object' && !Array.isArray(res)
         ? [res] // single vnode
         : normalizeChildren(res);
@@ -5377,7 +5383,7 @@
     value: FunctionalRenderContext
   });
 
-  Vue.version = '2.6.4';
+  Vue.version = '2.6.6';
 
   /*  */
 
@@ -7463,9 +7469,17 @@
       var original = handler;
       handler = original._wrapper = function (e) {
         if (
+          // no bubbling, should always fire.
+          // this is just a safety net in case event.timeStamp is unreliable in
+          // certain weird environments...
+          e.target === e.currentTarget ||
+          // event is fired after handler attachment
           e.timeStamp >= attachedTimestamp ||
+          // #9462 bail for iOS 9 bug: event.timeStamp is 0 after history.pushState
+          e.timeStamp === 0 ||
           // #9448 bail if event is fired in another document in a multi-page
-          // electron/nw.js app
+          // electron/nw.js app, since event.timeStamp will be using a different
+          // starting reference
           e.target.ownerDocument !== document
         ) {
           return original.apply(this, arguments)
@@ -10781,7 +10795,13 @@
   }
 
   function genKeyFilter (keys) {
-    return ("if(('keyCode' in $event)&&" + (keys.map(genFilterCode).join('&&')) + ")return null;")
+    return (
+      // make sure the key filters only apply to KeyboardEvents
+      // #9441: can't use 'keyCode' in $event because Chrome autofill fires fake
+      // key events that do not have keyCode property...
+      "if(!$event.type.indexOf('key')&&" +
+      (keys.map(genFilterCode).join('&&')) + ")return null;"
+    )
   }
 
   function genFilterCode (key) {
@@ -11144,7 +11164,12 @@
     // for example if the slot contains dynamic names, has v-if or v-for on them...
     var needsForceUpdate = Object.keys(slots).some(function (key) {
       var slot = slots[key];
-      return slot.slotTargetDynamic || slot.if || slot.for
+      return (
+        slot.slotTargetDynamic ||
+        slot.if ||
+        slot.for ||
+        containsSlotChild(slot) // is passing down slot from parent which may be dynamic
+      )
     });
     // OR when it is inside another scoped slot (the reactivity is disconnected)
     // #9438
@@ -11162,6 +11187,16 @@
     return ("scopedSlots:_u([" + (Object.keys(slots).map(function (key) {
         return genScopedSlot(slots[key], state)
       }).join(',')) + "]" + (needsForceUpdate ? ",true" : "") + ")")
+  }
+
+  function containsSlotChild (el) {
+    if (el.type === 1) {
+      if (el.tag === 'slot') {
+        return true
+      }
+      return el.children.some(containsSlotChild)
+    }
+    return false
   }
 
   function genScopedSlot (
