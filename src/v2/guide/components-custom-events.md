@@ -17,6 +17,7 @@ this.$emit('myEvent')
 Прослушивание kebab-cased версии этого имени не будет иметь никакого эффекта:
 
 ```html
+<!-- НЕ БУДЕТ РАБОТАТЬ -->
 <my-component v-on:my-event="doSomething"></my-component>
 ```
 
