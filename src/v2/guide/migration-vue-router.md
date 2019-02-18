@@ -211,9 +211,9 @@ router.alias({
 
 Если вам нужно несколько псевдонимов, вы можете также использовать синтаксис массива:
 
-```js
+{% codeblock lang:js %}
 alias: ['/manage', '/administer', '/administrate']
-```
+{% endcodeblock %}
 
 {% raw %}
 <div class="upgrade-path">
