@@ -185,7 +185,7 @@ post: {
 ```js
 Vue.component('my-component', {
   props: {
-    // Просто проверка типа (`null` означает любой тип)
+    // Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)
     propA: Number,
     // Несколько допустимых типов
     propB: [String, Number],
