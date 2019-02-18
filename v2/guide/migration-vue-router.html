@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1136,12 +1140,12 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
 &#125;</code></pre>
 <p>Если вам нужно несколько псевдонимов, вы можете также использовать синтаксис массива:</p>
 <pre><code class="hljs js">alias: [<span class="hljs-string">'/manage'</span>, <span class="hljs-string">'/administer'</span>, <span class="hljs-string">'/administrate'</span>]</code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Обновление</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.alias</code>.</p>
 </div>
-{% endraw %}
+
 <h3 id="Произвольные-свойства-пути-заменено"><a href="#Произвольные-свойства-пути-заменено" class="headerlink" title="Произвольные свойства пути заменено"></a>Произвольные свойства пути <sup>заменено</sup></h3><p>Произвольные свойства пути теперь должны быть помещены в новое свойство <code>meta</code>, чтобы избежать конфликтов с будущей функциональностью. Например, если вы определили:</p>
 <pre><code class="hljs js"><span class="hljs-string">'/admin'</span>: &#123;
   <span class="hljs-attr">component</span>: AdminPanel,

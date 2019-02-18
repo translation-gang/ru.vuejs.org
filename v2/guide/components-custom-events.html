@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1010,7 +1014,8 @@
 <h2 id="Стиль-именования-событий"><a href="#Стиль-именования-событий" class="headerlink" title="Стиль именования событий"></a>Стиль именования событий</h2><p>В отличие от компонентов и входных параметров, имена событий не предоставляют никакой автоматической трансформации стиля именования события. Вместо этого, имя генерируемого события должно точно соответствовать имени, используемому при прослушивании события. К примеру, если генерируем событие с именем в camelCase:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'myEvent'</span>)</code></pre>
 <p>Прослушивание kebab-cased версии этого имени не будет иметь никакого эффекта:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:my-event</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- НЕ БУДЕТ РАБОТАТЬ --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:my-event</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
 <p>В отличие от компонентов и входных параметров, имена событий никогда не будут использоваться в качестве имён переменных или имён свойств в JavaScript, поэтому нет причин использовать camelCase или PascalCase. Кроме того, директивы прослушивания событий <code>v-on</code> внутри DOM-шаблонов автоматически преобразуются в нижний регистр (из-за нечувствительности HTML к регистру), поэтому <code>v-on:myEvent</code> станет <code>v-on:myevent</code> — что делает прослушивание события <code>myEvent</code> невозможным.</p>
 <p>По этим причинам мы рекомендуем <strong>всегда использовать kebab-case для имён событий</strong>.</p>
 <h2 id="Настройка-v-model-у-компонента"><a href="#Настройка-v-model-у-компонента" class="headerlink" title="Настройка v-model у компонента"></a>Настройка <code>v-model</code> у компонента</h2><blockquote>

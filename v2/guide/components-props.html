@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1106,7 +1110,7 @@
 <p>Чтобы указать валидации входного параметра, вы можете предоставить в <code>props</code> объект с валидациями для проверки значения, вместо массива строк. Например:</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
   <span class="hljs-attr">props</span>: &#123;
-    <span class="hljs-comment">// Просто проверка типа (`null` означает любой тип)</span>
+    <span class="hljs-comment">// Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)</span>
     propA: <span class="hljs-built_in">Number</span>,
     <span class="hljs-comment">// Несколько допустимых типов</span>
     propB: [<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Number</span>],

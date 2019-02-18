@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1010,7 +1014,7 @@
 <h2 id="keep-alive-с-динамическими-компонентами"><a href="#keep-alive-с-динамическими-компонентами" class="headerlink" title="keep-alive с динамическими компонентами"></a><code>keep-alive</code> с динамическими компонентами</h2><p>Ранее мы использовали атрибут <code>is</code> для переключения компонентов в интерфейсе вкладок:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
 <p>Но иногда, при переключении между компонентами, вы хотите сохранить их состояния или избежать повторной отрисовки по соображениям производительности. Например, когда немного доработаем наш интерфейс с вкладками:</p>
-{% raw %}
+
 <div id="dynamic-component-demo" class="demo">
   <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]" v-on:click="currentTab = tab">{{ tab }}</button>
   <component v-bind:is="currentTabComponent" class="dynamic-component-demo-tab"></component>
@@ -1133,7 +1137,7 @@ new Vue({
   padding-top: 0 !important;
 }
 </style>
-{% endraw %}
+
 <p>Вы можете заметить, что если выбрать запись, переключиться на вкладку <em>Archive</em>, затем переключиться обратно на <em>Posts</em>, то больше не будет показываться выбранная запись. Это связано с тем, что каждый раз, когда вы переключаетесь на новую вкладку, Vue создаёт новый экземпляр <code>currentTabComponent</code>.</p>
 <p>Пересоздание динамических компонентов обычно является полезным поведением, но в нашем случае, мы хотим чтобы экземпляры компонентов вкладок кэшировались после их создания в первый раз. Для решения этой проблемы мы можем обернуть наш динамический компонент в элемент <code>&lt;keep-alive&gt;</code>:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Неактивные компоненты будут закэшированы! --&gt;</span>

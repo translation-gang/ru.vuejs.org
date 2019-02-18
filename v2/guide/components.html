@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1019,7 +1023,7 @@ Vue.component(<span class="hljs-string">'button-counter'</span>, &#123;
   <span class="hljs-tag">&lt;<span class="hljs-name">button-counter</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button-counter</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123; <span class="hljs-attr">el</span>: <span class="hljs-string">'#components-demo'</span> &#125;)</code></pre>
-{% raw %}
+
 <div id="components-demo" class="demo">
   <button-counter></button-counter>
 </div>
@@ -1034,7 +1038,7 @@ Vue.component('button-counter', {
 })
 new Vue({ el: '#components-demo' })
 </script>
-{% endraw %}
+
 <p>Так как компоненты это переиспользуемые экземпляры Vue, то они принимают те же опции что и <code>new Vue</code>, такие как <code>data</code>, <code>computed</code>, <code>watch</code>, <code>methods</code>, хуки жизненного цикла. Единственными исключениями будут несколько специфичных для корневого экземпляра опций, например <code>el</code>.</p>
 <h2 id="Переиспользование-компонентов"><a href="#Переиспользование-компонентов" class="headerlink" title="Переиспользование компонентов"></a>Переиспользование компонентов</h2><p>Компоненты можно переиспользовать столько раз, сколько захотите:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"components-demo"</span>&gt;</span>

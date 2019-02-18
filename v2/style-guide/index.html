@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1103,20 +1107,20 @@ requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-ke
   <span class="hljs-string">'greeting-text'</span>: <span class="hljs-built_in">String</span>
 &#125;</code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">WelcomeMessage</span> <span class="hljs-attr">greetingText</span>=<span class="hljs-string">"hi"</span>/&gt;</span></code></pre>
-{% raw %}</div>{% endraw %}
-{% raw %}<div class="style-example example-good">{% endraw %}
+</div>
+<div class="style-example example-good">
 <h4 id="Хорошо-17"><a href="#Хорошо-17" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs js">props: &#123;
   <span class="hljs-attr">greetingText</span>: <span class="hljs-built_in">String</span>
 &#125;</code></pre>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">WelcomeMessage</span> <span class="hljs-attr">greeting-text</span>=<span class="hljs-string">"hi"</span>/&gt;</span></code></pre>
-{% raw %}</div>{% endraw %}
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">WelcomeMessage</span> <span class="hljs-attr">greetingText</span>=<span class="hljs-string">"hi"</span>/&gt;</span></code></pre>
+</div>
 <h3 id="Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется"><a href="#Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется" class="headerlink" title="Элементы с несколькими атрибутами настоятельно рекомендуется"></a>Элементы с несколькими атрибутами <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Элементы с несколькими атрибутами должны располагаться на нескольких строках, по одному атрибуту на строку.</strong></p>
 <p>В JavaScript написание объектов с несколькими свойствами в несколько строк считается хорошей практикой, потому что при таком написании её гораздо легче читать. Наши шаблоны и <a href="../guide/render-function.html#JSX">JSX</a> стоит рассматривать также.</p>
-{% raw %}<div class="style-example example-bad">{% endraw %}
+<div class="style-example example-bad">
 <h4 id="Плохо-18"><a href="#Плохо-18" class="headerlink" title="Плохо"></a>Плохо</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://vuejs.org/images/logo.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Vue Logo"</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">MyComponent</span> <span class="hljs-attr">foo</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">bar</span>=<span class="hljs-string">"b"</span> <span class="hljs-attr">baz</span>=<span class="hljs-string">"c"</span>/&gt;</span></code></pre>
-{% raw %}</div>{% endraw %}
-{% raw %}<div class="style-example example-good">{% endraw %}
+</div>
+<div class="style-example example-good">
 <h4 id="Хорошо-18"><a href="#Хорошо-18" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span>
   <span class="hljs-attr">src</span>=<span class="hljs-string">"https://vuejs.org/images/logo.png"</span>
   <span class="hljs-attr">alt</span>=<span class="hljs-string">"Vue Logo"</span>

@@ -113,7 +113,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -133,9 +133,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -209,7 +211,7 @@
     <li><ul>
       <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
       <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://www.vuemeetups.org/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
@@ -229,9 +231,11 @@
     <li><ul>
       <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
       <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
       <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
       <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
@@ -1140,7 +1144,7 @@
 
 <h3 id="track-by-заменён"><a href="#track-by-заменён" class="headerlink" title="track-by заменён"></a><code>track-by</code> <sup>заменён</sup></h3><p><code>track-by</code> был заменён на <code>key</code>, который работает как любой другой атрибут: без директивы <code>v-bind:</code> или префикса <code>:</code> он воспринимался как буквенная строка. В большинстве же случаев вам захочется использовать динамичную привязку, которая требует написания полного выражения, а не просто ключа. Например, вместо:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">track-by</span>=<span class="hljs-string">"id"</span>&gt;</span></code></pre>
-<p>Вы теперь напишете:</p>
+<p>Теперь необходимо писать:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span></code></pre>
 
 <div class="upgrade-path">
@@ -1267,15 +1271,15 @@
 
 <h3 id="Listening-for-Native-Events-on-Components-with-v-on-changed"><a href="#Listening-for-Native-Events-on-Components-with-v-on-changed" class="headerlink" title="Listening for Native Events on Components with v-on changed"></a>Listening for Native Events on Components with <code>v-on</code> <sup>changed</sup></h3><p>When used on a component, <code>v-on</code> now only listens to custom events <code>$emit</code>ted by that component. To listen for a native DOM event on the root element, you can use the <code>.native</code> modifier. For example:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:click.native</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Run your end-to-end test suite, if you have one. The <strong>failed tests</strong> should alert to you to any parts of your app that may be affected by this change.</p>
 </div>
-{% endraw %}
+
 <h3 id="debounce-Param-Attribute-for-v-model-удалён"><a href="#debounce-Param-Attribute-for-v-model-удалён" class="headerlink" title="debounce Param Attribute for v-model удалён"></a><code>debounce</code> Param Attribute for <code>v-model</code> <sup>удалён</sup></h3><p>Debouncing is used to limit how often we execute Ajax requests and other expensive operations. Vue’s <code>debounce</code> attribute parameter for <code>v-model</code> made this easy for very simple cases, but it actually debounced <strong>state updates</strong> rather than the expensive operations themselves. It’s a subtle difference, but it comes with limitations as an application grows.</p>
 <p>These limitations become apparent when designing a search indicator, like this one for example:</p>
-{% raw %}
+
 <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"></script>
 <div id="debounce-search-demo" class="demo">
   <input v-model="searchQuery" placeholder="Type something">
@@ -1317,7 +1321,7 @@ new Vue({
   }
 })
 </script>
-{% endraw %}
+
 <p>Using the <code>debounce</code> attribute, there’d be no way to detect the “Typing” state, because we lose access to the input’s real-time state. By decoupling the debounce function from Vue however, we’re able to debounce only the operation we want to limit, removing the limits on features we can develop:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!--
 By using the debounce function from lodash or another dedicated
@@ -1411,22 +1415,22 @@ in our template.
 <p>As you can see, <code>v-model</code>‘s two-way binding doesn’t make sense here. Setting <code>str</code> to another value in the iterator function will do nothing because it’s only a local variable in the function scope.</p>
 <p>Instead, you should use an array of <strong>objects</strong> so that <code>v-model</code> can update the field on the object. For example:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"obj in objects"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"obj.str"</span>&gt;</span></code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Run your test suite, if you have one. The <strong>failed tests</strong> should alert to you to any parts of your app that may be affected by this change.</p>
 </div>
-{% endraw %}
+
 <h3 id="v-bind-style-with-Object-Syntax-and-important-удалён"><a href="#v-bind-style-with-Object-Syntax-and-important-удалён" class="headerlink" title="v-bind:style with Object Syntax and !important удалён"></a><code>v-bind:style</code> with Object Syntax and <code>!important</code> <sup>удалён</sup></h3><p>This will no longer work:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"&#123; color: myColor + ' !important' &#125;"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>If you really need to override another <code>!important</code>, you must use the string syntax:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"'color: ' + myColor + ' !important'"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of style bindings with <code>!important</code> in objects.</p>
 </div>
-{% endraw %}
+
 <h3 id="v-el-and-v-ref-заменён"><a href="#v-el-and-v-ref-заменён" class="headerlink" title="v-el and v-ref заменён"></a><code>v-el</code> and <code>v-ref</code> <sup>заменён</sup></h3><p>For simplicity, <code>v-el</code> and <code>v-ref</code> have been merged into the <code>ref</code> attribute, accessible on a component instance via <code>$refs</code>. That means <code>v-el:my-element</code> would become <code>ref=&quot;myElement&quot;</code> and <code>v-ref:my-component</code> would become <code>ref=&quot;myComponent&quot;</code>. When used on a normal element, the <code>ref</code> will be the DOM element, and when used on a component, the <code>ref</code> will be the component instance.</p>
 <p>Since <code>v-ref</code> is no longer a directive, but a special attribute, it can also be dynamically defined. This is especially useful in combination with <code>v-for</code>. For example:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:ref</span>=<span class="hljs-string">"'item' + item.id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
@@ -1434,12 +1438,12 @@ in our template.
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>Unlike in 1.x, these <code>$refs</code> are not reactive, because they’re registered/updated during the render process itself. Making them reactive would require duplicate renders for every change.</p>
 <p>On the other hand, <code>$refs</code> are designed primarily for programmatic access in JavaScript - it is not recommended to rely on them in templates, because that would mean referring to state that does not belong to the instance itself. This would violate Vue’s data-driven view model.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>v-el</code> and <code>v-ref</code>.</p>
 </div>
-{% endraw %}
+
 <h3 id="v-else-with-v-show-удалён"><a href="#v-else-with-v-show-удалён" class="headerlink" title="v-else with v-show удалён"></a><code>v-else</code> with <code>v-show</code> <sup>удалён</sup></h3><p><code>v-else</code> no longer works with <code>v-show</code>. Use <code>v-if</code> with a negation expression instead. For example, instead of:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"foo"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"bar"</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
@@ -1468,7 +1472,7 @@ in our template.
 
 <h3 id="Directive-literal-Modifier-удалён"><a href="#Directive-literal-Modifier-удалён" class="headerlink" title="Directive .literal Modifier удалён"></a>Directive <code>.literal</code> Modifier <sup>удалён</sup></h3><p>The <code>.literal</code> modifier has been removed, as the same can be easily achieved by providing a string literal as the value.</p>
 <p>For example, you can update:</p>
-<pre><code class="hljs js">&lt;p v-my-directive.literal=<span class="hljs-string">"foo bar baz"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive.literal</span>=<span class="hljs-string">"foo bar baz"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>to:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive</span>=<span class="hljs-string">"'foo bar baz'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
@@ -1624,22 +1628,22 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 &#125;</code></pre>
 <p>You can even order by multiple columns:</p>
 <pre><code class="hljs js">_.orderBy(<span class="hljs-keyword">this</span>.users, [<span class="hljs-string">'name'</span>, <span class="hljs-string">'last_login'</span>], [<span class="hljs-string">'asc'</span>, <span class="hljs-string">'desc'</span>])</code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of filters being used inside directives. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h3 id="Filter-Argument-Syntax-changed"><a href="#Filter-Argument-Syntax-changed" class="headerlink" title="Filter Argument Syntax changed"></a>Filter Argument Syntax <sup>changed</sup></h3><p>Filters’ syntax for arguments now better aligns with JavaScript function invocation. So instead of taking space-delimited arguments:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate 'YY-MM-DD' timeZone &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>We surround the arguments with parentheses and delimit the arguments with commas:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate('YY-MM-DD', timeZone) &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the old filter syntax. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h3 id="Built-In-Text-Filters-удалён"><a href="#Built-In-Text-Filters-удалён" class="headerlink" title="Built-In Text Filters удалён"></a>Built-In Text Filters <sup>удалён</sup></h3><p>Although filters within text interpolations are still allowed, all of the filters have been removed. Instead, it’s recommended to use more specialized libraries for solving problems in each domain (e.g. <a href="https://date-fns.org/" target="_blank" rel="noopener"><code>date-fns</code></a> to format dates and <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener"><code>accounting</code></a> for currencies).</p>
 <p>For each of Vue’s built-in text filters, we go through how you can replace them below. The example code could exist in custom helper functions, methods, or computed properties.</p>
 <h4 id="Replacing-the-json-Filter"><a href="#Replacing-the-json-Filter" class="headerlink" title="Replacing the json Filter"></a>Replacing the <code>json</code> Filter</h4><p>You actually don’t need to for debugging anymore, as Vue will nicely format output for you automatically, whether it’s a string, number, array, or plain object. If you want the exact same functionality as JavaScript’s <code>JSON.stringify</code> though, then you can use that in a method or computed property.</p>
@@ -1659,12 +1663,12 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 <h4 id="Replacing-the-currency-Filter"><a href="#Replacing-the-currency-Filter" class="headerlink" title="Replacing the currency Filter"></a>Replacing the <code>currency</code> Filter</h4><p>For a very naive implementation, you could do something like this:</p>
 <pre><code class="hljs js"><span class="hljs-string">'$'</span> + price.toFixed(<span class="hljs-number">2</span>)</code></pre>
 <p>In many cases though, you’ll still run into strange behavior (e.g. <code>0.035.toFixed(2)</code> rounds up to <code>0.04</code>, but <code>0.045</code> rounds down to <code>0.04</code>). To work around these issues, you can use the <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener"><code>accounting</code></a> library to more reliably format currencies.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete text filters. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h3 id="Two-Way-Filters-заменён"><a href="#Two-Way-Filters-заменён" class="headerlink" title="Two-Way Filters заменён"></a>Two-Way Filters <sup>заменён</sup></h3><p>Some users have enjoyed using two-way filters with <code>v-model</code> to create interesting inputs with very little code. While <em>seemingly</em> simple however, two-way filters can also hide a great deal of complexity - and even encourage poor UX by delaying state updates. Instead, components wrapping an input are recommended as a more explicit and feature-rich way of creating custom inputs.</p>
 <p>As an example, we’ll now walk the migration of a two-way currency filter:</p>
 <iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/6744xnjk/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -1691,26 +1695,26 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 <li>We can now use <code>v-model</code> directly on our custom inputs, which is not only more consistent with normal inputs, but also means our component is Vuex-friendly.</li>
 <li>Since we’re no longer using filter options that require a value to be returned, our currency work could actually be done asynchronously. That means if we had a lot of apps that had to work with currencies, we could easily refactor this logic into a shared microservice.</li>
 </ul>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of filters used in directives like <code>v-model</code>. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h2 id="Slots"><a href="#Slots" class="headerlink" title="Slots"></a>Slots</h2><h3 id="Duplicate-Slots-удалён"><a href="#Duplicate-Slots-удалён" class="headerlink" title="Duplicate Slots удалён"></a>Duplicate Slots <sup>удалён</sup></h3><p>It is no longer supported to have <code>&lt;slot&gt;</code>s with the same name in the same template. When a slot is rendered it is “used up” and cannot be rendered elsewhere in the same render tree. If you must render the same content in multiple places, pass that content as a prop.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Run your end-to-end test suite or app after upgrading and look for <strong>console warnings</strong> about duplicate slots <code>v-model</code>.</p>
 </div>
-{% endraw %}
+
 <h3 id="slot-Attribute-Styling-удалён"><a href="#slot-Attribute-Styling-удалён" class="headerlink" title="slot Attribute Styling удалён"></a><code>slot</code> Attribute Styling <sup>удалён</sup></h3><p>Content inserted via named <code>&lt;slot&gt;</code> no longer preserves the <code>slot</code> attribute. Use a wrapper element to style them, or for advanced use cases, modify the inserted content programmatically using <a href="render-function.html">render functions</a>.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find CSS selectors targeting named slots (e.g. <code>[slot="my-slot-name"]</code>).</p>
 </div>
-{% endraw %}
+
 <h2 id="Special-Attributes"><a href="#Special-Attributes" class="headerlink" title="Special Attributes"></a>Special Attributes</h2><h3 id="keep-alive-Attribute-заменён"><a href="#keep-alive-Attribute-заменён" class="headerlink" title="keep-alive Attribute заменён"></a><code>keep-alive</code> Attribute <sup>заменён</sup></h3><p><code>keep-alive</code> is no longer a special attribute, but rather a wrapper component, similar to <code>&lt;transition&gt;</code>. For example:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
@@ -1836,12 +1840,12 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <h2 id="DOM-Focused-Instance-Methods"><a href="#DOM-Focused-Instance-Methods" class="headerlink" title="DOM-Focused Instance Methods"></a>DOM-Focused Instance Methods</h2><h3 id="vm-appendTo-удалён"><a href="#vm-appendTo-удалён" class="headerlink" title="vm.$appendTo удалён"></a><code>vm.$appendTo</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
 <pre><code class="hljs js">myElement.appendChild(vm.$el)</code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$appendTo</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h3 id="vm-before-удалён"><a href="#vm-before-удалён" class="headerlink" title="vm.$before удалён"></a><code>vm.$before</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
 <pre><code class="hljs js">myElement.parentNode.insertBefore(vm.$el, myElement)</code></pre>
 
@@ -1862,33 +1866,33 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <h3 id="vm-remove-удалён"><a href="#vm-remove-удалён" class="headerlink" title="vm.$remove удалён"></a><code>vm.$remove</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
 <pre><code class="hljs js">vm.$el.remove()</code></pre>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$remove</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h2 id="Meta-Instance-Methods"><a href="#Meta-Instance-Methods" class="headerlink" title="Meta Instance Methods"></a>Meta Instance Methods</h2><h3 id="vm-eval-удалён"><a href="#vm-eval-удалён" class="headerlink" title="vm.$eval удалён"></a><code>vm.$eval</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">the forum</a> for ideas.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$eval</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h3 id="vm-interpolate-удалён"><a href="#vm-interpolate-удалён" class="headerlink" title="vm.$interpolate удалён"></a><code>vm.$interpolate</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">the forum</a> for ideas.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$interpolate</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h3 id="vm-log-удалён"><a href="#vm-log-удалён" class="headerlink" title="vm.$log удалён"></a><code>vm.$log</code> <sup>удалён</sup></h3><p>Use the <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a> for the optimal debugging experience.</p>
-{% raw %}
+
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$log</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
-{% endraw %}
+
 <h2 id="Instance-DOM-Options"><a href="#Instance-DOM-Options" class="headerlink" title="Instance DOM Options"></a>Instance DOM Options</h2><h3 id="replace-false-удалён"><a href="#replace-false-удалён" class="headerlink" title="replace: false удалён"></a><code>replace: false</code> <sup>удалён</sup></h3><p>Components now always replace the element they’re bound to. To simulate the behavior of <code>replace: false</code>, you can wrap your root component with an element similar to the one you’re replacing. For example:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
