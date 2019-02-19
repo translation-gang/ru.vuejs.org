@@ -1201,7 +1201,6 @@ beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
 <p>Все inline-шаблоны должны быть определены внутри элемента DOM, к которому присоединяется Vue.</p>
-
 <p class="tip">Тем не менее, <code>inline-template</code> усложняют понимание области видимости вашего шаблона. В качестве наилучшей практики рекомендуется определять шаблоны внутри компонента с помощью опции <code>template</code> или в теге <code>&lt;template&gt;</code> в файле <code>.vue</code>.</p>
 
 <h3 id="X-Templates"><a href="#X-Templates" class="headerlink" title="X-Templates"></a>X-Templates</h3><p>Другой способ определения шаблонов — указывать их внутри тега script с типом <code>text/x-template</code>, а затем ссылаться на шаблон по id. Например:</p>
@@ -1212,7 +1211,6 @@ beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</
   <span class="hljs-attr">template</span>: <span class="hljs-string">'#hello-world-template'</span>
 &#125;)</code></pre>
 <p>Все x-template шаблоны должны быть определены вне элемента DOM, к которому присоединяется Vue.</p>
-
 <p class="tip">Это может быть полезным для демонстраций с большими шаблонами или в очень маленьких приложениях, но в остальных случаях их следует избегать, поскольку они отделяют шаблоны от остального определения компонента.</p>
 
 <h2 id="Контролирование-обновлений"><a href="#Контролирование-обновлений" class="headerlink" title="Контролирование обновлений"></a>Контролирование обновлений</h2><p>Благодаря системе реактивности Vue, она всегда знает, когда нужно выполнять обновления (если вы используете её правильно). Однако есть крайние случаи, когда вам может потребоваться принудительное обновление, несмотря на то, что никаких реактивных данных не изменилось. Также есть другие случаи, когда вы можете предотвратить ненужные обновления.</p>
