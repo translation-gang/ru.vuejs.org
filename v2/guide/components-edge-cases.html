@@ -1205,12 +1205,12 @@ beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</
 
 <h3 id="X-Templates"><a href="#X-Templates" class="headerlink" title="X-Templates"></a>X-Templates</h3><p>Другой способ определения шаблонов — указывать их внутри тега script с типом <code>text/x-template</code>, а затем ссылаться на шаблон по id. Например:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/x-template"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hello-world-template"</span>&gt;</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello hello hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Привет, привет, привет<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'hello-world'</span>, &#123;
   <span class="hljs-attr">template</span>: <span class="hljs-string">'#hello-world-template'</span>
 &#125;)</code></pre>
-<p>Все x-template шаблоны должны быть определены вне элемента DOM, к которому присоединяется Vue.</p>
+<p>Все шаблоны x-template должны быть определены вне элемента DOM, к которому присоединяется Vue.</p>
 <p class="tip">Это может быть полезным для демонстраций с большими шаблонами или в очень маленьких приложениях, но в остальных случаях их следует избегать, поскольку они отделяют шаблоны от остального определения компонента.</p>
 
 <h2 id="Контролирование-обновлений"><a href="#Контролирование-обновлений" class="headerlink" title="Контролирование обновлений"></a>Контролирование обновлений</h2><p>Благодаря системе реактивности Vue, она всегда знает, когда нужно выполнять обновления (если вы используете её правильно). Однако есть крайние случаи, когда вам может потребоваться принудительное обновление, несмотря на то, что никаких реактивных данных не изменилось. Также есть другие случаи, когда вы можете предотвратить ненужные обновления.</p>
@@ -1222,7 +1222,7 @@ beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'terms-of-service'</span>, &#123;
   <span class="hljs-attr">template</span>: <span class="hljs-string">`
     &lt;div v-once&gt;
-      &lt;h1&gt;Terms of Service&lt;/h1&gt;
+      &lt;h1&gt;Условия использования&lt;/h1&gt;
       ... много-много статического контента ...
     &lt;/div&gt;
   `</span>
