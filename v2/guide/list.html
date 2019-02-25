@@ -291,6 +291,9 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -966,6 +969,9 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -1299,7 +1305,9 @@ vm.b = <span class="hljs-number">2</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
-<h3 id="v-for-и-v-if"><a href="#v-for-и-v-if" class="headerlink" title="v-for и v-if"></a><code>v-for</code> и <code>v-if</code></h3><p>Когда присутствуют вместе на одном элементе, <code>v-for</code> имеет больший приоритет, чем <code>v-if</code>. Поэтому <code>v-if</code> будет выполняться для каждой итерации цикла. Это полезно, когда нужно отобразить только <em>некоторые</em> элементы списка, например:</p>
+<h3 id="v-for-и-v-if"><a href="#v-for-и-v-if" class="headerlink" title="v-for и v-if"></a><code>v-for</code> и <code>v-if</code></h3><p class="tip">Обратите внимание, что <strong>не рекомендуется</strong> использовать вместе <code>v-if</code> и <code>v-for</code>. Подробнее в разделе <a href="/v2/style-guide/#Избегайте-использования-v-if-с-v-for-важно">рекомендаций</a>.</p>
+
+<p>Когда присутствуют вместе на одном элементе, <code>v-for</code> имеет больший приоритет, чем <code>v-if</code>. Поэтому <code>v-if</code> будет выполняться для каждой итерации цикла. Это полезно, когда нужно отобразить только <em>некоторые</em> элементы списка, например:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in todos"</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!todo.isComplete"</span>&gt;</span>
   &#123;&#123; todo &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>

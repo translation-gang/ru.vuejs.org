@@ -291,6 +291,9 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -966,6 +969,9 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -1130,8 +1136,11 @@ requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-pa
   <span class="hljs-comment">// Получение имени компонента в PascalCase</span>
   <span class="hljs-keyword">const</span> componentName = upperFirst(
     camelCase(
-      <span class="hljs-comment">// Удаление из начала `./` и расширения из имени файла</span>
-      fileName.replace(<span class="hljs-regexp">/^\.\/(.*)\.\w+$/</span>, <span class="hljs-string">'$1'</span>)
+      <span class="hljs-comment">// Получаем имя файла независимо от глубины вложенности</span>
+      fileName
+        .split(<span class="hljs-string">'/'</span>)
+        .pop()
+        .replace(<span class="hljs-regexp">/\.\w+$/</span>, <span class="hljs-string">''</span>)
     )
   )
 

@@ -291,6 +291,9 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -340,6 +343,9 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="/images/modus.png" alt="Modus">
+    </a>
     <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -813,6 +819,13 @@ vm.$data === data <span class="hljs-comment">// =&gt; true</span>
 </li>
 <li><p><strong>Подробности:</strong></p>
 <p>Список или хэш входных параметров, по которым разрешено получение данных из родительского компонента. Можно использовать простой синтаксис в виде массива, или объект, который предоставляет дополнительные возможности: проверку типов, пользовательские валидации и значения по умолчанию.</p>
+<p>При использовании объектного синтаксиса можно указать следующие опции:</p>
+<ul>
+<li><strong>type:</strong> может быть одним из следующих нативных конструкторов: <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Array</code>, <code>Object</code>, <code>Date</code>, <code>Function</code>, <code>Symbol</code>, любой функцией пользовательского конструктора или массивов таких. Проверяет является ли входной параметр указанного типа и выдаёт предупреждение если нет. Подробнее в разделе <a href="../guide/components-props.html#Указание-типа-входных-параметров">указания типов входных параметров</a>.</li>
+<li><strong>default:</strong> <code>any</code><br>Определяет значение по умолчанию для входного параметра. Если входной параметр не был передан, то будет использовано это значение. Для объекта или массива значение по умолчанию нужно указывать фабричной функцией, возвращающей объект или массив.</li>
+<li><strong>required:</strong> <code>Boolean</code><br>Определяет является ли входной параметр обязательным. В не-production окружениях будет выведено предупреждение в консоли, если значение истинно, а входной параметр не передавался.</li>
+<li><strong>validator:</strong> <code>Function</code><br>Пользовательская функция валидации, которая принимает входной параметр в качестве единственного аргумента. В не-production окружениях будет выведено предупреждение в консоли, если эта функция возвращает ложное значение (т.е. валидация не пройдена). Подробнее о валидации входных параметров можно прочитать <a href="../guide/components-props.html#Валидация-входных-параметров">здесь</a>.</li>
+</ul>
 </li>
 <li><p><strong>Пример:</strong></p>
 <pre><code class="hljs js"><span class="hljs-comment">// простая форма записи:</span>
@@ -837,7 +850,7 @@ Vue.component(<span class="hljs-string">'props-demo-advanced'</span>, &#123;
   &#125;
 &#125;)</code></pre>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/components.html#Передача-данных-в-дочерние-компоненты-через-входные-параметры">Входные параметры</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/components-props.html">Входные параметры</a></p>
 </li>
 </ul>
 <h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><ul>
