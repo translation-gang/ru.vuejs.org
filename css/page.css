@@ -518,6 +518,16 @@ body.docs #nav {
   margin-top: -4px;
   left: 8px;
 }
+#nav .nav-dropdown .nav-link.new::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 2px solid #f66;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 8px;
+}
 .nav-link {
   padding-bottom: 3px;
   white-space: nowrap;
@@ -528,6 +538,16 @@ body.docs #nav {
 }
 .nav-link.team {
   margin-left: 10px;
+}
+.nav-link.new::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 2px solid #f66;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: -8px;
 }
 .new-label {
   position: absolute;
@@ -1395,6 +1415,80 @@ ul.demo li {
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 8px solid #fff;
+}
+.themes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.themes-grid .item-preview {
+  width: 290px;
+  margin-bottom: 25px;
+}
+.themes-grid .item-preview-img {
+  transition: 0.15s box-shadow, 0.15s transform;
+  border-radius: 0.5rem;
+  box-shadow: 0 2rem 1.5rem -1.5rem rgba(33,37,41,0.15), 0 0 1.5rem 0.5rem rgba(33,37,41,0.05);
+  overflow: hidden;
+  display: block;
+}
+.themes-grid .item-preview-img:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(33,37,41,0.2), 0 0 1.5rem 0.5rem rgba(33,37,41,0.05);
+}
+.themes-grid img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  border-style: none;
+}
+.themes-grid .item-preview-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.themes-grid h3.item-preview-title {
+  margin-top: 0.7rem;
+  margin-bottom: 0;
+}
+.themes-grid h3.item-preview-title.free::after {
+  content: "FREE";
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #42b983;
+  line-height: 14px;
+  padding: 0 4px;
+  border-radius: 3px;
+  margin-left: 5px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.themes-grid .item-preview-price {
+  margin-top: 0.7rem;
+}
+.themes-grid .item-preview-description {
+  font-size: 0.9rem;
+}
+.themes-grid .see-more-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.themes-grid .see-more-container .see-more-link {
+  color: #42b983;
+}
+@media screen and (max-width: 1300px) {
+  .themes-grid {
+    justify-content: center;
+  }
+  .themes-grid .item-preview {
+    justify-content: center;
+    width: 380px;
+  }
 }
 #header {
   box-shadow: 0 0 1px rgba(0,0,0,0.25);

@@ -1215,11 +1215,11 @@
   &#123;&#123; user.firstName &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
 <p>Такой подход сделает шаблон намного чище, особенно когда слот предоставляет множество входных параметров. Это также открывает другие возможности, такие как переименование входных параметров, например <code>user</code> в <code>person</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user: person &#125;"</span>&gt;</span>&gt;
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user: person &#125;"</span>&gt;</span>
   &#123;&#123; person.firstName &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
 <p>Можно даже определять значения по умолчанию, которые будут использоваться в случае, если входной параметр слота не определён:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user = &#123; firstName: 'Guest' &#125; &#125;"</span>&gt;</span>&gt;
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user = &#123; firstName: 'Guest' &#125; &#125;"</span>&gt;</span>
   &#123;&#123; user.firstName &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
 <h2 id="Динамическое-имя-слота"><a href="#Динамическое-имя-слота" class="headerlink" title="Динамическое имя слота"></a>Динамическое имя слота</h2><blockquote>
