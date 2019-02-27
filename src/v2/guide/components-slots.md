@@ -332,7 +332,7 @@ function (slotProps) {
 Такой подход сделает шаблон намного чище, особенно когда слот предоставляет множество входных параметров. Это также открывает другие возможности, такие как переименование входных параметров, например `user` в `person`:
 
 ```html
-<current-user v-slot="{ user: person }">>
+<current-user v-slot="{ user: person }">
   {{ person.firstName }}
 </current-user>
 ```
@@ -340,7 +340,7 @@ function (slotProps) {
 Можно даже определять значения по умолчанию, которые будут использоваться в случае, если входной параметр слота не определён:
 
 ```html
-<current-user v-slot="{ user = { firstName: 'Guest' } }">>
+<current-user v-slot="{ user = { firstName: 'Guest' } }">
   {{ user.firstName }}
 </current-user>
 ```
