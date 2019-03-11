@@ -1071,7 +1071,7 @@ methods: &#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
   &#125;
 &#125;</code></pre>
-<p>Вместо вычисляемого свойства, можно использовать ту же самую функцию в качестве метода. С точки зрения конечного результата, оба подхода делают одно и то же. Но есть важное отличие: <strong>вычисляемые свойства кешируются, основываясь на своих зависимостях</strong>. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его зависимостей. Поэтому, пока <code>message</code> остаётся неизменным, многократное обращение к <code>reversedMessage</code> будет каждый раз возвращать единожды вычисленное значение, не запуская функцию вновь.</p>
+<p>Вместо вычисляемого свойства, можно использовать ту же самую функцию в качестве метода. С точки зрения конечного результата, оба подхода делают одно и то же. Но есть важное отличие: <strong>вычисляемые свойства кешируются, основываясь на своих реактивных зависимостях</strong>. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его реактивных зависимостей. Поэтому, пока <code>message</code> остаётся неизменным, многократное обращение к <code>reversedMessage</code> будет каждый раз возвращать единожды вычисленное значение, не запуская функцию вновь.</p>
 <p>Обратите внимание, что следующее вычисляемое свойство никогда не обновится, поскольку <code>Date.now()</code> не является реактивной зависимостью:</p>
 <pre><code class="hljs js">computed: &#123;
   <span class="hljs-attr">now</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
@@ -1300,7 +1300,8 @@ var watchExampleVM = new Vue({
             apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
             indexName: 'vuejs_ru',
             inputSelector: selector,
-            algoliaOptions: { facetFilters: ["version:" + version] }
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
           })
         })
         </script>

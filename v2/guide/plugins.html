@@ -1137,7 +1137,8 @@ Vue.use(VueRouter)</code></pre>
             apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
             indexName: 'vuejs_ru',
             inputSelector: selector,
-            algoliaOptions: { facetFilters: ["version:" + version] }
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
           })
         })
         </script>
