@@ -1069,7 +1069,7 @@
     &#125;
   &#125;
 &#125;)</code></pre>
-<p>Так-то лучше, наверное? Код короче, но требует более подробного знакомства со свойствами экземпляра Vue. В данном случае, необходимо знать, что когда дочерние элементы передаются без указания атрибута <code>slot</code>, как например <code>Hello world!</code> внутри <code>anchored-heading</code>, они сохраняются в экземпляре компонента как <code>$slots.default</code>. Если вы этого ещё не сделали, <strong>советуем вам пробежать глазами <a href="../api/#Свойства-экземпляра">API свойств экземпляра</a>, перед тем как углубляться в рассмотрение render-функций.</strong></p>
+<p>Так-то лучше, наверное? Код короче, но требует более подробного знакомства со свойствами экземпляра Vue. В данном случае, необходимо знать, что когда дочерние элементы передаются без указания директивы <code>v-slot</code>, как например <code>Hello world!</code> внутри <code>anchored-heading</code>, они сохраняются в экземпляре компонента как <code>$slots.default</code>. Если вы этого ещё не сделали, <strong>советуем вам пробежать глазами <a href="../api/#Свойства-экземпляра">API свойств экземпляра</a>, перед тем как углубляться в рассмотрение render-функций.</strong></p>
 <h2 id="Узлы-деревья-и-виртуальный-DOM"><a href="#Узлы-деревья-и-виртуальный-DOM" class="headerlink" title="Узлы, деревья, и виртуальный DOM"></a>Узлы, деревья, и виртуальный DOM</h2><p>Прежде чем погрузиться в <code>render</code>-функции, важно знать как работают браузеры. Возьмите этот HTML-код, например:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
@@ -1503,7 +1503,7 @@ Vue.component(<span class="hljs-string">'smart-list'</span>, &#123;
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 <h3 id="slots-vs-children"><a href="#slots-vs-children" class="headerlink" title="slots() vs children"></a><code>slots()</code> vs <code>children</code></h3><p>Вы можете задаться вопросом зачем нужны <code>slots()</code> и <code>children</code> одновременно. Разве не будет <code>slots().default</code> возвращать тот же результат, что и <code>children</code>? В некоторых случаях — да, но что если у нашего функционального компонента будут следующие дочерние элементы?</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-functional-component</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"foo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-slot:foo</span>&gt;</span>
     первый
   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>второй<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>

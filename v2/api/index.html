@@ -1569,20 +1569,21 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; н
 <li><p><strong>Только для чтения</strong></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Используется для доступа к контенту, указанному <a href="../guide/components.html#Распределение-контента-слотами">через слоты</a>. У каждого <a href="../guide/components-slots.html#Именованные-слоты">именованного слота</a> есть соответствующее значение (например, содержимое <code>slot=&quot;foo&quot;</code> попадёт в <code>vm.$slots.foo</code>). Свойство <code>default</code> содержит узлы, не включённые в именованные слоты.</p>
+<p>Используется для доступа к контенту, указанному <a href="../guide/components.html#Распределение-контента-слотами">через слоты</a>. У каждого <a href="../guide/components-slots.html#Именованные-слоты">именованного слота</a> есть соответствующее значение (например, содержимое <code>slot=&quot;foo&quot;</code> попадёт в <code>vm.$slots.foo</code>). Свойство <code>default</code> содержит узлы, не включённые в именованные слоты, либо содержимое <code>v-slot:default</code>.</p>
+<p><strong>Примечание:</strong> <code>v-slot:foo</code> подерживается в версии v2.6+. Для более старых версий вы можете использовать <a href="../guide/components-slots.html#Устаревший-синтаксис">устаревший синтаксис</a>.</p>
 <p>Особенно полезно <code>vm.$slots</code> в компонентах с <a href="../guide/render-function.html">render-функциями</a>.</p>
 </li>
 <li><p><strong>Пример:</strong></p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"header"</span>&gt;</span>
-    Обо мне
-  <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Обо мне<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Этот контент попадёт в vm.$slots.default, потому что он не в именованном слоте.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"footer"</span>&gt;</span>
-    Copyright 2016 Evan You
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Copyright 2016 Evan You<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Этот контент тоже попадёт в vm.$slots.default.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>.
 <span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
@@ -1599,7 +1600,7 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; н
   &#125;
 &#125;)</code></pre>
 <ul>
-<li><a href="#slot-1">Компонент <code>&lt;slot&gt;</code></a></li>
+<li><a href="#slot">Компонент <code>&lt;slot&gt;</code></a></li>
 <li><a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></li>
 <li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
 </ul>
@@ -1626,7 +1627,7 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; н
 </li>
 <li><p><strong>См. также:</strong></p>
 <ul>
-<li><a href="#slot-1"><code>&lt;slot&gt;</code> компонент</a></li>
+<li><a href="#slot"><code>&lt;slot&gt;</code> компонент</a></li>
 <li><a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">Слоты с ограниченной областью видимости</a></li>
 <li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
 </ul>
