@@ -1805,15 +1805,6 @@ computed: {
 </div>
 ```
 
-```html
-<p v-if="error">
-  Ошибка: {{ error }}
-</p>
-<div v-else>
-  {{ results }}
-</div>
-```
-
 {% raw %}</div>{% endraw %}
 
 ### Селекторы элементов при использовании `scoped` <sup data-p="d">используйте с осторожностью</sup>
