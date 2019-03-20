@@ -583,7 +583,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>Будет аналогичен подобному:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">this</span>.users.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>) </span>&#123;
@@ -606,7 +606,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>Мы получаем следующие преимущества:</p>
 <ul>
@@ -622,7 +622,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>до такого:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"shouldShowUsers"</span>&gt;</span>
@@ -631,7 +631,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <p>Перемещая <code>v-if</code> в элемент контейнера, мы больше не проверяем <code>shouldShowUsers</code> для <em>каждого</em> пользователя в списке. Вместо этого мы проверяем его один раз и даже не выполняем <code>v-for</code> если значение <code>shouldShowUsers</code> будет false.</p>
 </details>
@@ -643,7 +643,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
@@ -652,7 +652,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 </div>
 <div class="style-example example-good">
@@ -662,7 +662,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"shouldShowUsers"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
@@ -670,7 +670,7 @@ props: &#123;
     <span class="hljs-attr">:key</span>=<span class="hljs-string">"user.id"</span>
   &gt;</span>
     &#123;&#123; user.name &#125;&#125;
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
 </div>
 <h3 id="Локальные-стили-компонента-важно"><a href="#Локальные-стили-компонента-важно" class="headerlink" title="Локальные стили компонента важно"></a>Локальные стили компонента <sup data-p="a">важно</sup></h3><p><strong>Для приложений стили в корневом компоненте <code>App</code> и в компонентах шаблона могут быть глобальными, но во всех остальных компонентах должны быть локальными.</strong></p>
