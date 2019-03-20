@@ -339,7 +339,7 @@ data: function () {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -374,7 +374,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -394,7 +394,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -407,7 +407,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -427,7 +427,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -439,7 +439,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -456,7 +456,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
@@ -467,7 +467,7 @@ computed: {
     :key="user.id"
   >
     {{ user.name }}
-  <li>
+  </li>
 </ul>
 ```
 
