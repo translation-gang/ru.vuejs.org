@@ -133,10 +133,10 @@ const app = new Vue({
   <p>
     <label for="name">Имя</label>
     <input
-    id="name"
-    v-model="name"
-    type="text"
-    name="name"
+      id="name"
+      v-model="name"
+      type="text"
+      name="name"
     >
   </p>
 
@@ -157,9 +157,9 @@ const app = new Vue({
       v-model="movie"
       name="movie"
     >
-      <option>Star Wars</option>
-      <option>Vanilla Sky</option>
-      <option>Atomic Blonde</option>
+      <option>Звёздные войны</option>
+      <option>Ванильное небо</option>
+      <option>Взрывная блондинка</option>
     </select>
   </p>
 
