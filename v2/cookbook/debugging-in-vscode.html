@@ -484,7 +484,9 @@
     <span class="hljs-attr">devtool</span>: <span class="hljs-string">'source-map'</span>
   &#125;
 &#125;</code></pre>
-<h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление «Отладка», затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome/Firefox: Launch</strong> в качестве окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
+<h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p class="tip">Мы предполагаем, что приложение работает на порту <code>8080</code>. Если это не так (например, если порт <code>8080</code> был уже занят и поэтому Vue CLI автоматически выбирает другой порт), не забудьте изменить соответствующим образом конфигурацию.</p>
+
+<p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление «Отладка», затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome/Firefox: Launch</strong> в качестве окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
 <p><img src="/images/config_add.png" alt="Добавление конфигурации Chrome"></p>
 <pre><code class="hljs json">&#123;
   <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,
@@ -515,7 +517,7 @@
 <p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
 </li>
 <li><p>Откройте свою любимую консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</p>
-<pre><code class="hljs undefined">npm start</code></pre>
+<pre><code class="hljs undefined">npm run serve</code></pre>
 </li>
 <li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome/firefox’</strong>, затем нажмите F5 или зелёную кнопку для старта.</p>
 </li>
