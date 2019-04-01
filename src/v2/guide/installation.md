@@ -100,7 +100,7 @@ Vue.js предоставляет [официальный инструмента
 
 - **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: сборки CommonJS предназначены для использования вместе со старыми инструментами сборки, такими как [Browserify](http://browserify.org/) или [Webpack 1](https://webpack.github.io). По умолчанию для них (`pkg.main`) будет сборка Runtime-only CommonJS (`vue.runtime.common.js`).
 
-- **[ES модули](http://exploringjs.com/es6/ch_modules.html)**: начиная с версии 2.6, Vue предоставляет две сборки ES-модулей (ESM):
+- **[ES-модули](http://exploringjs.com/es6/ch_modules.html)**: начиная с версии 2.6, Vue предоставляет две сборки ES-модулей (ESM):
 
   - ESM для сборщиков: предназначена для использования с современными системами сборки, такими как [webpack 2](https://webpack.js.org) или [Rollup](https://rollupjs.org/). Формат ESM разработан для статического анализа, поэтому сборщики могут воспользоваться преимуществами «tree-shaking» и удалить неиспользуемый код из финальной сборки. Файл по умолчанию для этих сборщиков (`pkg.module`) — это Runtime-only сборка для ES-модулей (`vue.runtime.esm.js`).
 
