@@ -1095,7 +1095,7 @@ $ npm install vue</code></pre>
 </li>
 <li><p><strong><a href="http://wiki.commonjs.org/wiki/Modules/1.1" target="_blank" rel="noopener">CommonJS</a></strong>: сборки CommonJS предназначены для использования вместе со старыми инструментами сборки, такими как <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a> или <a href="https://webpack.github.io" target="_blank" rel="noopener">Webpack 1</a>. По умолчанию для них (<code>pkg.main</code>) будет сборка Runtime-only CommonJS (<code>vue.runtime.common.js</code>).</p>
 </li>
-<li><p><strong><a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="noopener">ES модули</a></strong>: начиная с версии 2.6, Vue предоставляет две сборки ES-модулей (ESM):</p>
+<li><p><strong><a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="noopener">ES-модули</a></strong>: начиная с версии 2.6, Vue предоставляет две сборки ES-модулей (ESM):</p>
 <ul>
 <li><p>ESM для сборщиков: предназначена для использования с современными системами сборки, такими как <a href="https://webpack.js.org" target="_blank" rel="noopener">webpack 2</a> или <a href="https://rollupjs.org/" target="_blank" rel="noopener">Rollup</a>. Формат ESM разработан для статического анализа, поэтому сборщики могут воспользоваться преимуществами «tree-shaking» и удалить неиспользуемый код из финальной сборки. Файл по умолчанию для этих сборщиков (<code>pkg.module</code>) — это Runtime-only сборка для ES-модулей (<code>vue.runtime.esm.js</code>).</p>
 </li>
