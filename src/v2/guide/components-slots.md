@@ -104,7 +104,7 @@ Vue реализует API распределения контента, вдох
 <submit-button></submit-button>
 ```
 
-отобразится содержимое по умолчанию, «Отправить»:
+отобразится содержимое по умолчанию — «Отправить»:
 
 ```html
 <button type="submit">
@@ -277,7 +277,7 @@ Vue реализует API распределения контента, вдох
 </current-user>
 ```
 
-Запись можно сократить ещё сильнее. Как предполагается, что неуказанное явно содержимое относится к слоту по умолчанию, так и `v-slot` без аргумента означает слот по умолчанию:
+Эту запись можно сократить ещё больше. Предполагается, что неуказанное явно содержимое относится к слоту по умолчанию, так и `v-slot` без аргумента означает слот по умолчанию:
 
 ```html
 <current-user v-slot="slotProps">
@@ -340,7 +340,7 @@ function (slotProps) {
 Можно даже определять значения по умолчанию, которые будут использоваться в случае, если входной параметр слота не определён:
 
 ```html
-<current-user v-slot="{ user = { firstName: 'Guest' } }">
+<current-user v-slot="{ user = { firstName: 'Гость' } }">
   {{ user.firstName }}
 </current-user>
 ```
@@ -538,7 +538,7 @@ function (slotProps) {
 </slot-example>
 ```
 
-Значение `slot-scope` может принимать любое допустимое выражение JavaScript, которое может использоваться в позиции аргумента определения функции. Это означает, что в поддерживаемых средах ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) также можно использовать [деструктурирование ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) в выражении, например так:
+Значение `slot-scope` может принимать любое допустимое выражение JavaScript, которое может использоваться в позиции аргумента определения функции. Это означает, что в поддерживаемых средах ([однофайловых компонентах](single-file-components.html) или [современных браузерах](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) также можно использовать [деструктурирование ES2015](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2) в выражении, например так:
 
 ```html
 <slot-example>
