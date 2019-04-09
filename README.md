@@ -66,6 +66,15 @@ Korean translation is maintained by [Vue.js Korean User group](https://github.co
 * Translation Repo - [/vuejs-kr/kr.vuejs.org](https://github.com/vuejs-kr/kr.vuejs.org)
 * Primary maintainer - [ChangJoo Park](https://github.com/ChangJoo-Park)
 
+### Arabic
+
+Arabic translation is maintained by [Interstellar Club](https://github.com/InterstellarClub)
+
+* Translation Repo - [/interstellarClub/ar.vuejs.org](https://github.com/interstellarClub/ar.vuejs.org)
+* Primary Maintainers :
+    * [Ilyes Chouia](https://github.com/celyes)
+    * [Ahmed Aissaoui](https://github.com/Aissaoui-Ahmed)
+
 ### French
 
 French translation is maintained by Vuejs-FR.
