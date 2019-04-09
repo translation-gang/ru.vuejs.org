@@ -650,12 +650,12 @@ Vue.use(Router)
       &#125;
     &#125;,
     <span class="hljs-attr">watch</span>: &#123;
-      $route(to, <span class="hljs-keyword">from</span>) &#123;
-        <span class="hljs-keyword">this</span>.getPost()
+      <span class="hljs-attr">$route</span>: &#123;
+        <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>,
+        handler(to, <span class="hljs-keyword">from</span>) &#123;
+          <span class="hljs-keyword">this</span>.getPost()
+        &#125;
       &#125;
-    &#125;,
-    created() &#123;
-      <span class="hljs-keyword">this</span>.getPost()
     &#125;
   &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
