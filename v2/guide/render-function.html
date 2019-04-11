@@ -1018,12 +1018,12 @@
 <p>Давайте разберём простой пример, в котором использование <code>render</code>-функции будет целесообразным. Предположим, вы хотите сгенерировать заголовки с «якорями»:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hello-world"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#hello-world"</span>&gt;</span>
-    Hello world!
+    Привет, мир!
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre>
 <p>Для генерации представленного выше HTML вы решаете использовать такой интерфейс компонента:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">anchored-heading</span> <span class="hljs-attr">:level</span>=<span class="hljs-string">"1"</span>&gt;</span>Hello world!<span class="hljs-tag">&lt;/<span class="hljs-name">anchored-heading</span>&gt;</span></code></pre>
-<p>При использовании шаблонов для реализации интерфейса который генерирует только заголовок, основанный на свойстве <code>level</code>, вы быстро столкнётесь со следующей ситуацией:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">anchored-heading</span> <span class="hljs-attr">:level</span>=<span class="hljs-string">"1"</span>&gt;</span>Привет, мир!<span class="hljs-tag">&lt;/<span class="hljs-name">anchored-heading</span>&gt;</span></code></pre>
+<p>При использовании шаблонов для реализации интерфейса, который генерирует только заголовок, основанный на свойстве <code>level</code>, вы быстро столкнётесь со следующей ситуацией:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/x-template"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anchored-heading-template"</span>&gt;</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"level === 1"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
@@ -1053,7 +1053,7 @@
     &#125;
   &#125;
 &#125;)</code></pre>
-<p>Смотрится не очень. Шаблон получился не только очень многословным — приходится ещё и <code>&lt;slot&gt;&lt;/slot&gt;</code> повторять для каждого возможного уровня заголовка.</p>
+<p>Выглядит не очень. Шаблон получился не только очень большим — приходится ещё и <code>&lt;slot&gt;&lt;/slot&gt;</code> повторять для каждого возможного уровня заголовка.</p>
 <p>Шаблоны хорошо подходят для большинства компонентов, но рассматриваемый сейчас — явно не один из них. Давайте попробуем переписать компонент, используя <code>render</code>-функцию:</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
@@ -1069,32 +1069,32 @@
     &#125;
   &#125;
 &#125;)</code></pre>
-<p>Так-то лучше, наверное? Код короче, но требует более подробного знакомства со свойствами экземпляра Vue. В данном случае, необходимо знать, что когда дочерние элементы передаются без указания директивы <code>v-slot</code>, как например <code>Hello world!</code> внутри <code>anchored-heading</code>, они сохраняются в экземпляре компонента как <code>$slots.default</code>. Если вы этого ещё не сделали, <strong>советуем вам пробежать глазами <a href="../api/#Свойства-экземпляра">API свойств экземпляра</a>, перед тем как углубляться в рассмотрение render-функций.</strong></p>
-<h2 id="Узлы-деревья-и-виртуальный-DOM"><a href="#Узлы-деревья-и-виртуальный-DOM" class="headerlink" title="Узлы, деревья, и виртуальный DOM"></a>Узлы, деревья, и виртуальный DOM</h2><p>Прежде чем погрузиться в <code>render</code>-функции, важно знать как работают браузеры. Возьмите этот HTML-код, например:</p>
+<p>Так-то лучше, наверное? Код короче, но требует более подробного знакомства со свойствами экземпляра Vue. В данном случае, необходимо знать, что когда дочерние элементы передаются без указания директивы <code>v-slot</code>, как например <code>Привет, мир!</code> внутри <code>anchored-heading</code>, они сохраняются в экземпляре компонента как <code>$slots.default</code>. Если вы этого ещё не сделали, <strong>советуем вам пробежать глазами <a href="../api/#Свойства-экземпляра">API-справочник свойств экземпляра</a>, перед тем как углубляться в рассмотрение render-функций.</strong></p>
+<h2 id="Узлы-деревья-и-виртуальный-DOM"><a href="#Узлы-деревья-и-виртуальный-DOM" class="headerlink" title="Узлы, деревья, и виртуальный DOM"></a>Узлы, деревья, и виртуальный DOM</h2><p>Прежде чем погрузиться в <code>render</code>-функции, необходимо узнать, как работают браузеры. Возьмём, например, этот HTML-код:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>My title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
   Some text content
   <span class="hljs-comment">&lt;!-- <span class="hljs-doctag">TODO:</span> Add tagline --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>Когда браузер читает этот код, он создаёт <a href="https://learn.javascript.ru/dom-nodes" target="_blank" rel="noopener">дерево «узлов DOM»</a>, чтобы облегчить ему отслеживание всего, как, например, вы могли бы построить генеалогическое дерево для отслеживания вашей увеличивающейся семьи.</p>
+<p>Когда браузер обрабатывает этот код, он создаёт <a href="https://learn.javascript.ru/dom-nodes" target="_blank" rel="noopener">дерево «узлов DOM»</a>, чтобы облегчить ему отслеживание всего, как, например, вы могли бы построить генеалогическое дерево для отслеживания вашей увеличивающейся семьи.</p>
 <p>Дерево узлов DOM для HTML из примера выше выглядит следующим образом:</p>
 <p><img src="/images/dom-tree.png" alt="Визуализация дерева DOM"></p>
 <p>Каждый элемент является узлом. Каждый фрагмент текста является узлом. Даже комментарии это узлы! Узел — это всего лишь часть страницы. И так же, как и в генеалогическом дереве, каждый узел может иметь своих потомков (т.е. каждая часть может содержать в себе другие части).</p>
-<p>Обновление всех этих узлов может быть затруднительно, но, к счастью, вам не придётся делать это вручную. Вы просто указываете в шаблоне какой HTML-код вы хотите получить на странице:</p>
+<p>Обновление всех этих узлов может быть затруднительно, но, к счастью, вам не придётся делать это вручную. Вы просто вставляете в шаблон определённый HTML-код, который вы хотите отобразить на странице:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;&#123; blogTitle &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre>
-<p>Или render-функцию:</p>
+<p>Или то же, но с использованием render-функции:</p>
 <pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
   <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'h1'</span>, <span class="hljs-keyword">this</span>.blogTitle)
 &#125;</code></pre>
 <p>В обоих случаях Vue автоматически будет обновлять страницу при изменениях <code>blogTitle</code>.</p>
 <h3 id="Виртуальный-DOM"><a href="#Виртуальный-DOM" class="headerlink" title="Виртуальный DOM"></a>Виртуальный DOM</h3><p>Vue реализует это созданием <strong>виртуального DOM</strong>, чтобы отслеживать изменения, которые ему требуется внести в реальный DOM. Рассмотрим подробнее следующую строку:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'h1'</span>, <span class="hljs-keyword">this</span>.blogTitle)</code></pre>
-<p>Что в действительности возвращает <code>createElement</code>? Это не <em>в точности</em> реальный DOM-элемент. Можно было бы назвать <code>createNodeDescription</code> для точности, так как результат содержит информацию, описывающую Vue какой именно узел должен быть отображён на странице, включая описания любых дочерних узлов. Мы называем это описание узла «виртуальным узлом», обычно сокращая до аббревиатуры <strong>VNode</strong>. «Виртуальный DOM» — это то, что мы называем всем деревом VNodes, созданным из дерева компонентов Vue.</p>
-<h2 id="Аргументы-createElement"><a href="#Аргументы-createElement" class="headerlink" title="Аргументы createElement"></a>Аргументы <code>createElement</code></h2><p>Следующий момент, с которым необходимо познакомиться, это синтаксис использования возможностей шаблонизации функцией <code>createElement</code>. Вот аргументы, которые принимает <code>createElement</code>:</p>
+<p>Что в действительности возвращает <code>createElement</code>? Это не <em>в точности</em> реальный DOM-элемент. Можно было бы назвать <code>createNodeDescription</code>, если быть точным, так как результат содержит информацию, описывающую Vue, какой именно узел должен быть отображён на странице, включая описания любых дочерних узлов. Мы называем это описание узла «виртуальным узлом», обычно сокращая до аббревиатуры <strong>VNode</strong>. «Виртуальный DOM» — это то, что мы называем всем деревом VNodes, созданным из дерева компонентов Vue.</p>
+<h2 id="Аргументы-createElement"><a href="#Аргументы-createElement" class="headerlink" title="Аргументы createElement"></a>Аргументы <code>createElement</code></h2><p>Следующий момент, с которым необходимо познакомиться, — это синтаксис использования возможностей шаблонизации функцией <code>createElement</code>. Вот аргументы, которые принимает <code>createElement</code>:</p>
 <pre><code class="hljs js"><span class="hljs-comment">// @returns &#123;VNode&#125;</span>
 createElement(
   <span class="hljs-comment">// &#123;String | Object | Function&#125;</span>
-  <span class="hljs-comment">// Название тега HTML, опции компонента, или асинхронная функция,</span>
+  <span class="hljs-comment">// Название тега HTML, опции компонента или асинхронная функция,</span>
   <span class="hljs-comment">// возвращающая один из двух них. Обязательный параметр.</span>
   <span class="hljs-string">'div'</span>,
 
@@ -1106,7 +1106,7 @@ createElement(
   &#125;,
 
   <span class="hljs-comment">// &#123;String | Array&#125;</span>
-  <span class="hljs-comment">// Дочерние VNode'ы, создаваемые с помощью `createElement()`</span>
+  <span class="hljs-comment">// Дочерние виртуальные узлы (VNode), создаваемые с помощью `createElement()`</span>
   <span class="hljs-comment">// или просто строки для получения 'текстовых VNode'. Опциональный параметр.</span>
   [
     <span class="hljs-string">'Какой-то текст прежде всех остальных элементов.'</span>,
@@ -1118,7 +1118,7 @@ createElement(
     &#125;)
   ]
 )</code></pre>
-<h3 id="Подробно-об-объекте-данных"><a href="#Подробно-об-объекте-данных" class="headerlink" title="Подробно об объекте данных"></a>Подробно об объекте данных</h3><p>Заметьте: особым образом рассматриваемые в шаблонах атрибуты <code>v-bind:class</code> и <code>v-bind:style</code>, и в объектах данных VNode’ов имеют собственные поля на верхнем уровне объектов данных. Этот объект также позволяет вам связывать обычные атрибуты HTML, а также свойства DOM, такие как <code>innerHTML</code> (это заменит директиву <code>v-html</code>):</p>
+<h3 id="Подробно-об-объекте-данных"><a href="#Подробно-об-объекте-данных" class="headerlink" title="Подробно об объекте данных"></a>Подробно об объекте данных</h3><p>Обратите внимание: особым образом рассматриваемые в шаблонах атрибуты <code>v-bind:class</code> и <code>v-bind:style</code>, и в объектах данных виртуальных узлов имеют собственные поля на верхнем уровне объектов данных. Этот объект также позволяет вам связывать обычные атрибуты HTML, а также свойства DOM, такие как <code>innerHTML</code> (это заменит директиву <code>v-html</code>):</p>
 <pre><code class="hljs js">&#123;
   // То же API, что и у `v-bind:class`, принимающий
   // строку, объект, массив строк или массив объектов
@@ -1219,19 +1219,19 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
     &#125;
   &#125;
 &#125;)</code></pre>
-<h3 id="Ограничения"><a href="#Ограничения" class="headerlink" title="Ограничения"></a>Ограничения</h3><h4 id="VNode’ы-должны-быть-уникальными"><a href="#VNode’ы-должны-быть-уникальными" class="headerlink" title="VNode’ы должны быть уникальными"></a>VNode’ы должны быть уникальными</h4><p>Все VNode’ы в компоненте должны быть уникальными. Это значит, что <code>render</code>-функция ниже — не валидна:</p>
+<h3 id="Ограничения"><a href="#Ограничения" class="headerlink" title="Ограничения"></a>Ограничения</h3><h4 id="Виртуальные-узлы-должны-быть-уникальными"><a href="#Виртуальные-узлы-должны-быть-уникальными" class="headerlink" title="Виртуальные узлы должны быть уникальными"></a>Виртуальные узлы должны быть уникальными</h4><p>Все виртуальные узлы в компоненте должны быть уникальными. Это значит, что <code>render</code>-функция ниже некорректна:</p>
 <pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
   <span class="hljs-keyword">var</span> myParagraphVNode = createElement(<span class="hljs-string">'p'</span>, <span class="hljs-string">'hi'</span>)
   <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>, [
-    <span class="hljs-comment">// Упс — дублирующиеся VNode'ы!</span>
+    <span class="hljs-comment">// Упс — дублирующиеся виртуальные узлы!</span>
     myParagraphVNode, myParagraphVNode
   ])
 &#125;</code></pre>
-<p>Если вы действительно хотите многократно использовать один и тот же элемент/компонент, примените функцию-фабрику. Например, следующая <code>render</code>-функция полностью валидный способ для отображения 20 идентичных абзацев:</p>
+<p>Если вы действительно хотите многократно использовать один и тот же элемент/компонент, примените функцию-фабрику. Например, следующая <code>render</code>-функция полностью корректный способ для отображения 20 одинаковых абзацев:</p>
 <pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
   <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>,
     <span class="hljs-built_in">Array</span>.apply(<span class="hljs-literal">null</span>, &#123; <span class="hljs-attr">length</span>: <span class="hljs-number">20</span> &#125;).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'p'</span>, <span class="hljs-string">'hi'</span>)
+      <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'p'</span>, <span class="hljs-string">'Привет'</span>)
     &#125;)
   )
 &#125;</code></pre>
@@ -1350,7 +1350,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
     <span class="hljs-comment">// ...</span>
   &#125;
 &#125;</code></pre>
-<h3 id="Слоты"><a href="#Слоты" class="headerlink" title="Слоты"></a>Слоты</h3><p>Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode используя <a href="../api/#vm-slots"><code>this.$slots</code></a>:</p>
+<h3 id="Слоты"><a href="#Слоты" class="headerlink" title="Слоты"></a>Слоты</h3><p>Вы можете получить доступ к статическому содержимому слотов в виде массивов VNode, используя <a href="../api/#vm-slots"><code>this.$slots</code></a>:</p>
 <pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
   <span class="hljs-comment">// `&lt;div&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;`</span>
   <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>, <span class="hljs-keyword">this</span>.$slots.default)
@@ -1365,7 +1365,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
     &#125;)
   ])
 &#125;</code></pre>
-<p>Чтобы передать слоты со своей областью видимости в дочерний компонент используя <code>render</code>-функцию, применяйте свойство <code>scopedSlots</code> в данных VNode:</p>
+<p>Чтобы передать слоты со своей областью видимости в дочерний компонент при помощи <code>render</code>-функции, добавьте свойство <code>scopedSlots</code> в данные VNode:</p>
 <pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
   <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>, [
     createElement(<span class="hljs-string">'child'</span>, &#123;
@@ -1386,13 +1386,13 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
       <span class="hljs-attr">level</span>: <span class="hljs-number">1</span>
     &#125;
   &#125;, [
-    createElement(<span class="hljs-string">'span'</span>, <span class="hljs-string">'Hello'</span>),
-    <span class="hljs-string">' world!'</span>
+    createElement(<span class="hljs-string">'span'</span>, <span class="hljs-string">'Привет'</span>),
+    <span class="hljs-string">', мир!'</span>
   ]
 )</code></pre>
 <p>Особенно в сравнении с кодом аналогичного шаблона:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">anchored-heading</span> <span class="hljs-attr">:level</span>=<span class="hljs-string">"1"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> world!
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Привет<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>, мир!
 <span class="hljs-tag">&lt;/<span class="hljs-name">anchored-heading</span>&gt;</span></code></pre>
 <p>Поэтому есть <a href="https://github.com/vuejs/jsx" target="_blank" rel="noopener">плагин для Babel</a>, позволяющий использовать JSX во Vue, и применять синтаксис, похожий на шаблоны:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> AnchoredHeading <span class="hljs-keyword">from</span> <span class="hljs-string">'./AnchoredHeading.vue'</span>
@@ -1402,7 +1402,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">h</span>) </span>&#123;
     <span class="hljs-keyword">return</span> (
       <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">AnchoredHeading</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&#123;1&#125;</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> world!
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Привет<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>, мир!
       <span class="hljs-tag">&lt;/<span class="hljs-name">AnchoredHeading</span>&gt;</span></span>
     )
   &#125;
@@ -1410,7 +1410,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 <p class="tip">Сокращение <code>createElement</code> до <code>h</code> — распространённое соглашение в экосистеме Vue и обязательное для использования JSX. Начиная с <a href="https://github.com/vuejs/babel-plugin-transform-vue-jsx#h-auto-injection" target="_blank" rel="noopener">версии 3.4.0</a> плагина Babel для Vue, мы автоматически внедряем <code>const h = this.$createElement</code> в любой метод и геттер (не функциях или стрелочных функциях), объявленных в синтаксисе ES2015 с JSX, поэтому можно удалить параметр <code>(h)</code>. В предыдущих версиях плагина, ваше приложение будет выкидывать ошибку, если <code>h</code> недоступен в области видимости.</p>
 
 <p>Подробную информацию о преобразовании JSX в JavaScript можно найти в <a href="https://github.com/vuejs/jsx#installation" target="_blank" rel="noopener">документации плагина</a>.</p>
-<h2 id="Функциональные-компоненты"><a href="#Функциональные-компоненты" class="headerlink" title="Функциональные компоненты"></a>Функциональные компоненты</h2><p>Компонент для заголовков с «якорями», который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути это всего лишь функция с параметром.</p>
+<h2 id="Функциональные-компоненты"><a href="#Функциональные-компоненты" class="headerlink" title="Функциональные компоненты"></a>Функциональные компоненты</h2><p>Компонент для заголовков с «якорями», который мы создали выше, довольно прост. У него нет какого-либо состояния, хуков или требующих наблюдения данных. По сути, это всего лишь функция с параметром.</p>
 <p>В подобных случаях мы можем пометить компоненты как функциональные (опция <code>functional</code>), что означает отсутствие у них состояния (нет <a href="../api/#Опции-—-данные">реактивных данных</a>) и экземпляра (нет переменной контекста <code>this</code>). <strong>Функциональный компонент</strong> выглядит так:</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
   <span class="hljs-attr">functional</span>: <span class="hljs-literal">true</span>,
@@ -1425,16 +1425,16 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
   &#125;
 &#125;)</code></pre>
 <blockquote>
-<p>Примечание: в версиях до 2.3.0 опция <code>props</code> необходима, если вы хотите использовать входные параметры в функциональном компоненте. С версии 2.3.0+ вы можете опустить опцию <code>props</code> и все атрибуты, найденные на узле компонента, будут неявно извлечены в качестве входных данных.</p>
+<p>Примечание: в версиях до 2.3.0 опция <code>props</code> необходима, если вы хотите использовать входные параметры в функциональном компоненте. С версии 2.3.0 и выше вы можете опустить опцию <code>props</code> и все атрибуты, найденные на узле компонента, будут неявно извлечены в качестве входных данных.</p>
 </blockquote>
-<p>С версии 2.5.0+, если вы используете <a href="single-file-components.html">однофайловые компоненты</a>, вы можете объявить функциональные компоненты основанные на шаблоне таким образом:</p>
+<p>С версии 2.5.0+, если вы используете <a href="single-file-components.html">однофайловые компоненты</a>, вы можете объявить функциональные компоненты, основанные на шаблоне таким образом:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">functional</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 <p>Всё необходимое компоненту передаётся через <code>context</code> — объект, содержащий следующие поля:</p>
 <ul>
-<li><code>props</code>: Объект, содержащий переданные входные параметры</li>
-<li><code>children</code>: Массив дочерних VNode’ов</li>
-<li><code>slots</code>: Функция, возвращающая объект slots</li>
+<li><code>props</code>: Объект со всеми переданнами входными параметрами</li>
+<li><code>children</code>: Массив дочерних виртуальных узлов</li>
+<li><code>slots</code>: Функция, возвращающая объект со слотами</li>
 <li><code>scopedSlots</code>: (2.6.0+) Объект, содержащий все переданные слоты с ограниченной областью видимости. Также предоставляет доступ к обычным слотам в качестве функций</li>
 <li><code>data</code>: <a href="#Подробно-об-объекте-данных">Объект данных</a> целиком, переданный объекту вторым аргументом <code>createElement</code></li>
 <li><code>parent</code>: Ссылка на родительский компонент</li>
@@ -1442,7 +1442,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 <li><code>injections</code>: (2.3.0+) Если используется опция <a href="../api/#provide-inject"><code>inject</code></a>, будет содержать все разрешённые инъекции.</li>
 </ul>
 <p>После указания <code>functional: true</code>, обновление <code>render</code>-функции нашего компонента для заголовков потребует только добавления параметра <code>context</code>, обновления <code>this.$slots.default</code> на <code>context.children</code> и замены <code>this.level</code> на <code>context.props.level</code>.</p>
-<p>Поскольку функциональные компоненты — это просто функции, их отрисовка обходится значительно дешевле. Однако отсутствие постоянного экземпляра означает, что они не будут отображаться в дереве компонентов во <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a>.</p>
+<p>Поскольку функциональные компоненты — это просто функции, их отрисовка значительно быстрее.</p>
 <p>Кроме того, они очень удобны в качестве обёрток. Например, если вам нужно:</p>
 <ul>
 <li>Выбрать один из компонентов для последующей отрисовки в данной точке</li>
@@ -1486,11 +1486,11 @@ Vue.component(<span class="hljs-string">'smart-list'</span>, &#123;
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-functional-button'</span>, &#123;
   <span class="hljs-attr">functional</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement, context</span>) </span>&#123;
-    <span class="hljs-comment">// Прозрачно передать любые атрибуты, слушатели событий, дочерние элементы и т.д.</span>
+    <span class="hljs-comment">// Явная передача любых атрибутов, слушателей событий, дочерних элементов и т.д.</span>
     <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'button'</span>, context.data, context.children)
   &#125;
 &#125;)</code></pre>
-<p>Передавая <code>context.data</code> вторым аргументом в <code>createElement</code>, мы передаём любые атрибуты или слушатели событий, используемые на <code>my-functional-button</code>. На самом деле это настолько очевидно, что для событий не требуется модификатор <code>.native</code>.</p>
+<p>Передавая <code>context.data</code> вторым аргументом в <code>createElement</code>, мы передаём любые атрибуты или слушатели событий, используемые в <code>my-functional-button</code>. На самом деле это настолько очевидно, что для событий не требуется модификатор <code>.native</code>.</p>
 <p>Если вы используете функциональные компоненты на основе шаблонов, вам также придётся вручную добавлять атрибуты и слушатели. Поскольку у нас есть доступ к индивидуальному содержимому контекста, мы можем использовать <code>data.attrs</code> для передачи любых атрибутов HTML и <code>listeners</code> <em>(псевдоним для <code>data.on</code>)</em> для передачи любых слушателей событий.</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">functional</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
@@ -1508,8 +1508,8 @@ Vue.component(<span class="hljs-string">'smart-list'</span>, &#123;
   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>второй<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-functional-component</span>&gt;</span></code></pre>
-<p>Для этого компонента, <code>children</code> даст вам оба абзаца, <code>slots().default</code> — только второй, а <code>slots().foo</code> — только первый. Таким образом, наличие и <code>children</code>, и <code>slots()</code> позволяет выбрать, знать ли компоненту о системе слотов или просто делегировать это знание потомку через <code>children</code>.</p>
-<h2 id="Компиляция-шаблонов"><a href="#Компиляция-шаблонов" class="headerlink" title="Компиляция шаблонов"></a>Компиляция шаблонов</h2><p>Возможно, вас заинтересует тот факт, что шаблоны Vue в действительности компилируются в <code>render</code>-функцию. Обычно нет необходимости знать подобные детали реализации, но может быть любопытным посмотреть на то, как компилируются те или иные возможности шаблонов. Ниже приведена небольшая демонстрация, с помощью <code>Vue.compile</code> в реальном времени компилирующая строки шаблонов:</p>
+<p>Для этого компонента, <code>children</code> даст вам оба абзаца, <code>slots().default</code> — только второй, а <code>slots().foo</code> — только первый. Таким образом, наличие и <code>children</code>, и <code>slots()</code> позволяет выбрать, знает ли компонент о системе слотов или просто делегировать это другому компоненту, путём передачи <code>children</code>.</p>
+<h2 id="Компиляция-шаблонов"><a href="#Компиляция-шаблонов" class="headerlink" title="Компиляция шаблонов"></a>Компиляция шаблонов</h2><p>Возможно, вам будет интересно узнать, что Vue-шаблоны в действительности компилируются в <code>render</code>-функцию. Обычно нет необходимости знать подобные детали реализации, но может быть любопытным посмотреть на то, как компилируются те или иные возможности шаблонов. Ниже приведена небольшая демонстрация использования метода <code>Vue.compile</code>, который в режиме реального времени компилирует строки шаблонов:</p>
 
 <script async src="https://jsfiddle.net/phanan/5h0wx9np/embed/result,js,html/"></script>
 
