@@ -643,8 +643,6 @@ var myGreatMixin = {
 }
 ```
 
-
-
 {% raw %}</div>{% endraw %}
 
 {% raw %}<div class="style-example example-good">{% endraw %}
@@ -662,7 +660,7 @@ var myGreatMixin = {
 }
 ```
 
-``` js
+```js
 // Ещё лучше!
 var myGreatMixin = {
   // ...
@@ -673,9 +671,11 @@ var myGreatMixin = {
     }
   }
 }
+
 function myPrivateFunction() {
   // ...
 }
+
 export default myGreatMixin
 ```
 
