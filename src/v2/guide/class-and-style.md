@@ -13,7 +13,7 @@ order: 6
 Для динамической установки или удаления CSS-классов можно передавать объект в директиву `v-bind:class`:
 
 ```html
-<div v-bind:class="{ active: isActive }"></div>
+<div v-bind:class="{ 'active': isActive }"></div>
 ```
 
 Запись выше означает, что наличие класса `active` будет определяться [истинностью](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) параметра `isActive`.
@@ -23,7 +23,7 @@ order: 6
 ```html
 <div
   class="static"
-  v-bind:class="{ active: isActive, 'text-danger': hasError }"
+  v-bind:class="{ 'active': isActive, 'text-danger': hasError }"
 ></div>
 ```
 
