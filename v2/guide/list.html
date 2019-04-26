@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1096,9 +1114,9 @@ var example2 = new Vue({
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#v-for-object'</span>,
   <span class="hljs-attr">data</span>: &#123;
     <span class="hljs-attr">object</span>: &#123;
-      <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Иван'</span>,
-      <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Петров'</span>,
-      <span class="hljs-attr">age</span>: <span class="hljs-number">30</span>
+      <span class="hljs-attr">title</span>: <span class="hljs-string">'How to do lists in Vue'</span>,
+      <span class="hljs-attr">author</span>: <span class="hljs-string">'Jane Doe'</span>,
+      <span class="hljs-attr">publishedAt</span>: <span class="hljs-string">'2016-04-10'</span>
     &#125;
   &#125;
 &#125;)</code></pre>
@@ -1114,69 +1132,69 @@ new Vue({
   el: '#v-for-object',
   data: {
     object: {
-      firstName: 'Иван',
-      lastName: 'Петров',
-      age: 30
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
     }
   }
 })
 </script>
 
-<p>Можно использовать второй аргумент для получения ключей объекта:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, key) in object"</span>&gt;</span>
-  &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;
+<p>Можно использовать второй аргумент для получения имени свойства (ключа объекта):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, name) in object"</span>&gt;</span>
+  &#123;&#123; name &#125;&#125;: &#123;&#123; value &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
-<div id="v-for-object-value-key" class="demo">
-  <div v-for="(value, key) in object">
-    {{ key }}: {{ value }}
+<div id="v-for-object-value-name" class="demo">
+  <div v-for="(value, name) in object">
+    {{ name }}: {{ value }}
   </div>
 </div>
 <script>
 new Vue({
-  el: '#v-for-object-value-key',
+  el: '#v-for-object-value-name',
   data: {
     object: {
-      firstName: 'John',
-      lastName: 'Doe',
-      age: 30
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
     }
   }
 })
 </script>
 
 <p>И третий — для индексов:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, key, index) in object"</span>&gt;</span>
-  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, name, index) in object"</span>&gt;</span>
+  &#123;&#123; index &#125;&#125;. &#123;&#123; name &#125;&#125;: &#123;&#123; value &#125;&#125;
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 
-<div id="v-for-object-value-key-index" class="demo">
-  <div v-for="(value, key, index) in object">
-    {{ index }}. {{ key }}: {{ value }}
+<div id="v-for-object-value-name-index" class="demo">
+  <div v-for="(value, name, index) in object">
+    {{ index }}. {{ name }}: {{ value }}
   </div>
 </div>
 <script>
 new Vue({
-  el: '#v-for-object-value-key-index',
+  el: '#v-for-object-value-name-index',
   data: {
     object: {
-      firstName: 'John',
-      lastName: 'Doe',
-      age: 30
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
     }
   }
 })
 </script>
 
-<p class="tip">При итерировании по объекту порядок обхода ключей такой же как и в <code>Object.keys()</code>. Его консистентность <strong>не гарантируется</strong> при использовании различных реализаций движков JavaScript.</p>
+<p class="tip">При итерировании по объекту порядок обхода такой же как и в <code>Object.keys()</code>. Его консистентность <strong>не гарантируется</strong> при использовании различных реализаций движков JavaScript.</p>
 
-<h2 id="key"><a href="#key" class="headerlink" title="key"></a><code>key</code></h2><p>При обновлении Vue списка элементов, отображаемого директивой <code>v-for</code>, по умолчанию используется стратегия обновления «на месте». Если порядок элементов массива или объекта изменился, Vue не станет перемещать элементы DOM, а просто обновит каждый элемент «на месте», чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
-<p>Режим по умолчанию эффективен, но применим только в случаях, <strong>когда результат отрисовки вашего списка не полагается на состояние дочерних компонентов или временные состояния DOM (например, значения полей форм)</strong>.</p>
-<p>Чтобы подсказать Vue, как отслеживать идентичность каждого элемента, что позволит переиспользовать и перемещать существующие элементы, укажите уникальный атрибут <code>key</code> для каждого элемента. Идеальным значением <code>key</code> будет уникальный id сущности. Этот специальный атрибут отчасти похож на <code>track-by</code> из Vue 1.x, но работает как и все остальные атрибуты, а значит нужно использовать <code>v-bind</code> для связывания с динамическими значениями (в примере ниже используется сокращение):</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
+<h2 id="Сохранение-состояния"><a href="#Сохранение-состояния" class="headerlink" title="Сохранение состояния"></a>Сохранение состояния</h2><p>При обновлении Vue списка элементов, отображаемого директивой <code>v-for</code>, по умолчанию используется стратегия обновления «на месте». Если порядок элементов массива или объекта изменился, Vue не станет перемещать элементы DOM, а просто обновит каждый элемент «на месте», чтобы он отображал новые данные по соответствующему индексу. Во Vue версий 1.x подобное поведение достигалось указанием <code>track-by=&quot;$index&quot;</code>.</p>
+<p>Режим по умолчанию эффективен, но <strong>применим только в случаях, когда результат отрисовки вашего списка не полагается на состояние дочерних компонентов или временные состояния DOM (например, значения полей форм)</strong>.</p>
+<p>Чтобы подсказать Vue, как отслеживать идентичность каждого элемента, что позволит переиспользовать и перемещать существующие элементы, укажите уникальный атрибут <code>key</code> для каждого элемента:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
   <span class="hljs-comment">&lt;!-- содержимое --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>Рекомендуем всегда указывать <code>key</code> с <code>v-for</code>, кроме случаев когда итерируемый контент DOM прост, или вы сознательно используете стратегию обновления по умолчанию для улучшения производительности.</p>
+<p>Рекомендуем всегда указывать атрибут <code>key</code> с <code>v-for</code>, кроме случаев когда итерируемый контент DOM прост, или вы сознательно используете стратегию обновления по умолчанию для улучшения производительности.</p>
 <p>Поскольку этот механизм является общим для идентификации элементов во Vue, имеются и другие варианты применения <code>key</code>, не связанные явно с <code>v-for</code>, как мы увидим далее в руководстве.</p>
 <p class="tip">Не указывайте в качестве ключей <code>v-for</code> непримитивные значения. Вместо этого используйте строковые или числовые значения.</p>
 
@@ -1229,7 +1247,7 @@ vm.items.splice(indexOfItem, <span class="hljs-number">1</span>, newValue)</code
 
 vm.b = <span class="hljs-number">2</span>
 <span class="hljs-comment">// свойство `vm.b` НЕ реактивно</span></code></pre>
-<p>Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода <code>Vue.set(object, key, value)</code>. Например, для следующего:</p>
+<p>Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода <code>Vue.set(object, propertyName, value)</code>. Например, для следующего:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">data</span>: &#123;
     <span class="hljs-attr">userProfile</span>: &#123;

@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1134,7 +1152,7 @@
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали нестандартное наименование индексу аргументов как  <code>position</code> или <code>num</code>, помощник не выделит их.</p>
 </div>
 
-<h3 id="Очерёдность-аргументов-для-объектов-в-v-for-изменено"><a href="#Очерёдность-аргументов-для-объектов-в-v-for-изменено" class="headerlink" title="Очерёдность аргументов для объектов в v-for изменено"></a>Очерёдность аргументов для объектов в <code>v-for</code> <sup>изменено</sup></h3><p>При использовании <code>key</code> очерёдность аргументов для объектов выглядела так <code>(key, value)</code>. Теперь она имеет вид <code>(value, key)</code>, чтобы не противоречить распространённым итераторам объекта, таким как lodash.</p>
+<h3 id="Очерёдность-аргументов-для-объектов-в-v-for-изменено"><a href="#Очерёдность-аргументов-для-объектов-в-v-for-изменено" class="headerlink" title="Очерёдность аргументов для объектов в v-for изменено"></a>Очерёдность аргументов для объектов в <code>v-for</code> <sup>изменено</sup></h3><p>При использовании имени свойства/ключа очерёдность аргументов для объектов выглядела так <code>(name, value)</code>. Теперь она имеет вид <code>(value, name)</code>, чтобы не противоречить распространённым итераторам объекта, таким как lodash.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>

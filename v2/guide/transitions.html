@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1480,6 +1498,7 @@ new Vue({
 &gt;</span>
   <span class="hljs-comment">&lt;!-- ... --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
+<p>В примере выше, либо атрибут <code>appear</code>, либо хук <code>v-on:appear</code> вызовут появление перехода.</p>
 <h2 id="Переходы-между-элементами"><a href="#Переходы-между-элементами" class="headerlink" title="Переходы между элементами"></a>Переходы между элементами</h2><p>Подробно <a href="#Переходы-между-компонентами">переходы между компонентами</a> мы обсудим позднее, а сейчас поговорим о переходах с помощью <code>v-if</code>/<code>v-else</code>. Один из наиболее частых случаев — переход от списка к сообщению, что список пуст:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"items.length &gt; 0"</span>&gt;</span>

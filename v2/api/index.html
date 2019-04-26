@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link current">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link current">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link current">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link current">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -588,11 +606,11 @@ Vue.nextTick()
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Асинхронная очередь обновлений</a></p>
 </li>
 </ul>
-<h3 id="Vue-set-target-key-value"><a href="#Vue-set-target-key-value" class="headerlink" title="Vue.set( target, key, value )"></a>Vue.set( target, key, value )</h3><ul>
+<h3 id="Vue-set-target-propertyName-index-value"><a href="#Vue-set-target-propertyName-index-value" class="headerlink" title="Vue.set( target, propertyName/index, value )"></a>Vue.set( target, propertyName/index, value )</h3><ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
 <li><code>{Object | Array} target</code></li>
-<li><code>{string | number} key</code></li>
+<li><code>{string | number} propertyName/index</code></li>
 <li><code>{any} value</code></li>
 </ul>
 </li>
@@ -605,11 +623,11 @@ Vue.nextTick()
 <li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
 </li>
 </ul>
-<h3 id="Vue-delete-target-key"><a href="#Vue-delete-target-key" class="headerlink" title="Vue.delete( target, key )"></a>Vue.delete( target, key )</h3><ul>
+<h3 id="Vue-delete-target-propertyName-index"><a href="#Vue-delete-target-propertyName-index" class="headerlink" title="Vue.delete( target, propertyName/index )"></a>Vue.delete( target, propertyName/index )</h3><ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
 <li><code>{Object| Array} target</code></li>
-<li><code>{string | number} key/index</code></li>
+<li><code>{string | number} propertyName/index</code></li>
 </ul>
 <blockquote>
 <p>Только в версиях 2.2.0+: возможность работы с массивами + индексами.</p>
@@ -959,14 +977,15 @@ vm.a <span class="hljs-comment">// 2</span></code></pre>
     &#125;,
     <span class="hljs-comment">// строка с именем метода:</span>
     b: <span class="hljs-string">'someMethod'</span>,
-    <span class="hljs-comment">// глубокий (рекурсивный) наблюдатель:</span>
+    <span class="hljs-comment">// Коллбэк будет вызываться каждый раз, когда изменяется любое из свойств</span>
+    <span class="hljs-comment">// наблюдаемого объекта, независимо от глубины их вложенности</span>
     c: &#123;
       <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
       <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-comment">// коллбэк будет вызван сразу же после начала наблюдения</span>
     d: &#123;
-      <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+      <span class="hljs-attr">handler</span>: <span class="hljs-string">'someMethod'</span>,
       <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-attr">e</span>: [
@@ -1740,11 +1759,11 @@ vm.someObject.nestedValue = <span class="hljs-number">123</span>
 <span class="hljs-comment">// `callback` вызывается сразу, с текущим значением `a`</span></code></pre>
 </li>
 </ul>
-<h3 id="vm-set-target-key-value"><a href="#vm-set-target-key-value" class="headerlink" title="vm.$set( target, key, value )"></a>vm.$set( target, key, value )</h3><ul>
+<h3 id="vm-set-target-propertyName-index-value"><a href="#vm-set-target-propertyName-index-value" class="headerlink" title="vm.$set( target, propertyName/index, value )"></a>vm.$set( target, propertyName/index, value )</h3><ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
 <li><code>{Object | Array} target</code></li>
-<li><code>{string | number} key</code></li>
+<li><code>{string | number} propertyName/index</code></li>
 <li><code>{any} value</code></li>
 </ul>
 </li>
@@ -1756,11 +1775,11 @@ vm.someObject.nestedValue = <span class="hljs-number">123</span>
 <li><p><strong>См. также:</strong> <a href="#Vue-set">Vue.set</a></p>
 </li>
 </ul>
-<h3 id="vm-delete-target-key"><a href="#vm-delete-target-key" class="headerlink" title="vm.$delete( target, key )"></a>vm.$delete( target, key )</h3><ul>
+<h3 id="vm-delete-target-propertyName-index"><a href="#vm-delete-target-propertyName-index" class="headerlink" title="vm.$delete( target, propertyName/index )"></a>vm.$delete( target, propertyName/index )</h3><ul>
 <li><p><strong>Аргументы:</strong></p>
 <ul>
 <li><code>{Object | Array} target</code></li>
-<li><code>{string | number} key</code></li>
+<li><code>{string | number} propertyName/index</code></li>
 </ul>
 </li>
 <li><p><strong>Использование:</strong></p>
@@ -2123,7 +2142,7 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'п�
 <p> Кроме того, вы можете указать название для индекса (или ключа, если вы работаете с объектом):</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, key) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, key, index) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, name, index) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>По умолчанию <code>v-for</code> будет пытаться обновить элементы «на месте», не перемещая их. Если вам нужно, чтобы элементы перемещались, сохраняя явную упорядоченность, укажите атрибут <code>key</code>:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
   &#123;&#123; item.text &#125;&#125;

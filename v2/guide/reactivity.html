@@ -96,13 +96,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -194,13 +203,22 @@
 <li class="nav-dropdown-container learn">
   <a class="nav-link current">Обучение</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
-      <li><a href="/v2/api/" class="nav-link">API</a></li>
-      <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
-      <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
-      <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
-    </ul></li>
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
+      </ul>
+    </li>
   </ul>
 </li>
 
@@ -1031,7 +1049,7 @@
 
 vm.b = <span class="hljs-number">2</span>
 <span class="hljs-comment">// `vm.b` НЕ реактивно</span></code></pre>
-<p>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code>Vue.set(object, key, value)</code>:</p>
+<p>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code>Vue.set(object, propertyName, value)</code>:</p>
 <pre><code class="hljs js">Vue.set(vm.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
 <p>Также можно использовать метод экземпляра <code>vm.$set</code>, который представляет собой псевдоним к глобальному <code>Vue.set</code>:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">this</span>.$set(<span class="hljs-keyword">this</span>.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
@@ -1051,7 +1069,7 @@ vm.b = <span class="hljs-number">2</span>
 vm.message = <span class="hljs-string">'Привет!'</span></code></pre>
 <p>Если не задать поле <code>message</code> в опции data, Vue выведет предупреждение, что функция отрисовки пытается получить доступ к несуществующему свойству.</p>
 <p>Существуют технические причины для этого ограничения: оно позволяет исключить целый класс граничных случаев в системе учёта зависимостей, а также упростить взаимодействие Vue с системами проверки типов. Но более важно то, что с этим ограничением становится проще поддерживать код, так как теперь объект <code>data</code> можно рассматривать как схему состояния компонента. Код, в котором реактивные свойства компонента перечислены заранее, намного проще для понимания.</p>
-<h2 id="Асинхронная-очередь-обновлений"><a href="#Асинхронная-очередь-обновлений" class="headerlink" title="Асинхронная очередь обновлений"></a>Асинхронная очередь обновлений</h2><p>На всякий случай напомним, что во Vue обновление DOM выполняется <strong>асинхронно</strong>. Каждый раз, когда обнаруживается изменение в данных, создаётся очередь, которая используется в качестве буфера для этого и последующих изменений, происходящих в текущей итерации (“tick”) цикла событий. Если один и тот же наблюдатель срабатывает несколько раз, в очередь он попадёт всё равно лишь единожды. Благодаря использованию буфера и устранению дубликатов, вычисления и манипуляции DOM сводятся к минимуму. В следующей итерации цикла событий Vue разбирает очередь и выполняет актуальные (уже не содержащие дубликатов) обновления. На низком уровне для асинхронной постановки задач в очередь используются <code>Promise.then</code> и <code>MessageChannel</code>, а если они недоступны, то <code>setTimeout(fn, 0)</code>.</p>
+<h2 id="Асинхронная-очередь-обновлений"><a href="#Асинхронная-очередь-обновлений" class="headerlink" title="Асинхронная очередь обновлений"></a>Асинхронная очередь обновлений</h2><p>На всякий случай напомним, что во Vue обновление DOM выполняется <strong>асинхронно</strong>. Каждый раз, когда обнаруживается изменение в данных, создаётся очередь, которая используется в качестве буфера для этого и последующих изменений, происходящих в текущей итерации (“tick”) цикла событий. Если один и тот же наблюдатель срабатывает несколько раз, в очередь он попадёт всё равно лишь единожды. Благодаря использованию буфера и устранению дубликатов, вычисления и манипуляции DOM сводятся к минимуму. В следующей итерации цикла событий Vue разбирает очередь и выполняет актуальные (уже не содержащие дубликатов) обновления. На низком уровне для асинхронной постановки задач в очередь используются <code>Promise.then</code>, <code>MutationObserver</code> и <code>setImmediate</code>, а если они недоступны, то <code>setTimeout(fn, 0)</code>.</p>
 <p>Итак, если выполнить код <code>vm.someData = &#39;новое значение&#39;</code>, компонент не будет отрисован сразу же. Он обновится в следующей итерации при разборе очереди. Чаще всего эту особенность можно не принимать в расчёт, но иногда бывает нужно дождаться состояния, в которое DOM перейдёт после обновления данных. Хотя прямая манипуляция DOM нежелательна, а системы в целом предпочтительнее проектировать так, чтобы в них были первичные данные, иногда всё же её не избежать. Чтобы выполнить какой-нибудь код только после того, как завершится обновление DOM, можно передать коллбэк в метод <code>Vue.nextTick(callback)</code> после изменения данных. Он будет вызван после обновления DOM. Например:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
