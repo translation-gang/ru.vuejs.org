@@ -247,11 +247,11 @@ type: api
 
 - **См. также:** [Асинхронная очередь обновлений](../guide/reactivity.html#Асинхронная-очередь-обновлений)
 
-### Vue.set( target, key, value )
+### Vue.set( target, propertyName/index, value )
 
 - **Аргументы:**
   - `{Object | Array} target`
-  - `{string | number} key`
+  - `{string | number} propertyName/index`
   - `{any} value`
 
 - **Возвращает:** установленное значение.
@@ -264,11 +264,11 @@ type: api
 
 - **См. также:** [Подробно о реактивности](../guide/reactivity.html)
 
-### Vue.delete( target, key )
+### Vue.delete( target, propertyName/index )
 
 - **Аргументы:**
   - `{Object| Array} target`
-  - `{string | number} key/index`
+  - `{string | number} propertyName/index`
 
   > Только в версиях 2.2.0+: возможность работы с массивами + индексами.
 
@@ -1580,11 +1580,11 @@ type: api
   // `callback` вызывается сразу, с текущим значением `a`
   ```
 
-### vm.$set( target, key, value )
+### vm.$set( target, propertyName/index, value )
 
 - **Аргументы:**
   - `{Object | Array} target`
-  - `{string | number} key`
+  - `{string | number} propertyName/index`
   - `{any} value`
 
 - **Возвращает:** установленное значение.
@@ -1595,11 +1595,11 @@ type: api
 
 - **См. также:** [Vue.set](#Vue-set)
 
-### vm.$delete( target, key )
+### vm.$delete( target, propertyName/index )
 
 - **Аргументы:**
   - `{Object | Array} target`
-  - `{string | number} key`
+  - `{string | number} propertyName/index`
 
 - **Использование:**
 
@@ -2019,7 +2019,7 @@ type: api
   ```html
   <div v-for="(item, index) in items"></div>
   <div v-for="(val, key) in object"></div>
-  <div v-for="(val, key, index) in object"></div>
+  <div v-for="(val, name, index) in object"></div>
   ```
 
   По умолчанию `v-for` будет пытаться обновить элементы «на месте», не перемещая их. Если вам нужно, чтобы элементы перемещались, сохраняя явную упорядоченность, укажите атрибут `key`:
