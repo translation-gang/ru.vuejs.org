@@ -20,7 +20,7 @@
   border-color: #ddd;
 }
 .algolia-docsearch-suggestion--content {
-  color: #2c3e50;
+  color: #273849;
 }
 .algolia-docsearch-suggestion--subcategory-column {
   border-color: #ddd;
@@ -38,5 +38,5 @@
   color: #2c815b;
 }
 .aa-cursor .algolia-docsearch-suggestion--content {
-  color: #2c3e50;
+  color: #273849;
 }

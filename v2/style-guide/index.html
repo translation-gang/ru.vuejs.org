@@ -6,7 +6,7 @@
         <title>Рекомендации — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/style-guide/index.html">
         <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/style-guide/index.html">
@@ -1154,7 +1154,7 @@ requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-ke
 <h4 id="Хорошо-17"><a href="#Хорошо-17" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs js">props: &#123;
   <span class="hljs-attr">greetingText</span>: <span class="hljs-built_in">String</span>
 &#125;</code></pre>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">WelcomeMessage</span> <span class="hljs-attr">greetingText</span>=<span class="hljs-string">"hi"</span>/&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">WelcomeMessage</span> <span class="hljs-attr">greeting-text</span>=<span class="hljs-string">"hi"</span>/&gt;</span></code></pre>
 </div>
 <h3 id="Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется"><a href="#Элементы-с-несколькими-атрибутами-настоятельно-рекомендуется" class="headerlink" title="Элементы с несколькими атрибутами настоятельно рекомендуется"></a>Элементы с несколькими атрибутами <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Элементы с несколькими атрибутами должны располагаться на нескольких строках, по одному атрибуту на строку.</strong></p>
 <p>В JavaScript написание объектов с несколькими свойствами в несколько строк считается хорошей практикой, потому что при таком написании её гораздо легче читать. Наши шаблоны и <a href="../guide/render-function.html#JSX">JSX</a> стоит рассматривать также.</p>

@@ -25,8 +25,8 @@ pre code {
   color: #525252;
   white-space: pre;
   padding: 1.2em 1.4em;
-  line-height: 1.5em;
-  font-size: 1em;
+  font-size: 0.9rem;
+  line-height: 1.6rem;
   display: block;
 }
 pre code .hljs-tag,
@@ -72,11 +72,11 @@ pre code .hljs-constant {
 }
 pre code .hljs-keyword,
 pre code .hljs-attribute {
-  color: #e96900;
+  color: #d63200;
 }
 pre code .hljs-number,
 pre code .hljs-literal {
-  color: #ae81ff;
+  color: #a32eff;
 }
 pre code .hljs-class pre code .hljs-title {
   color: #fff;
@@ -95,7 +95,7 @@ pre code .hljs-deletion,
 pre code .hljs-shebang,
 pre code .hljs-apache pre code .hljs-sqbracket,
 pre code .hljs-tex pre code .hljs-formula {
-  color: #b3b3b3;
+  color: #707070;
 }
 pre code .hljs-coffeescript pre code .hljs-javascript,
 pre code .hljs-javascript pre code .hljs-xml,
@@ -147,11 +147,11 @@ pre code.hljs.css::before {
 }
 #ad a {
   display: inline-block;
-  color: #7f8c8d;
+  color: #4f5959;
   font-weight: normal;
 }
 #ad span {
-  color: #7f8c8d;
+  color: #4f5959;
   display: inline-block;
   margin-bottom: 5px;
 }
@@ -163,7 +163,7 @@ pre code.hljs.css::before {
   display: block;
   margin-bottom: 6px;
   font-weight: normal;
-  color: #34495e;
+  color: #304455;
 }
 #ad .carbon-poweredby {
   color: #aaa;
@@ -218,10 +218,10 @@ pre code.hljs.css::before {
 }
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #34495e;
+  color: #304455;
   background-color: #fff;
   margin: 0;
 }
@@ -235,7 +235,7 @@ body.docs {
 }
 a {
   text-decoration: none;
-  color: #34495e;
+  color: #304455;
 }
 img {
   border: none;
@@ -246,25 +246,25 @@ h3,
 h4,
 strong {
   font-weight: 600;
-  color: #2c3e50;
+  color: #273849;
 }
 code,
 pre {
   font-family: "Roboto Mono", Monaco, courier, monospace;
-  font-size: 0.8em;
+  font-size: 0.85rem;
   background-color: #f8f8f8;
   -webkit-font-smoothing: initial;
   -moz-osx-font-smoothing: initial;
 }
 code {
-  color: #e96900;
+  color: #d63200;
   padding: 3px 5px;
   margin: 0 2px;
   border-radius: 2px;
   white-space: nowrap;
 }
 em {
-  color: #7f8c8d;
+  color: #4f5959;
 }
 p {
   word-spacing: 0.05em;
@@ -300,7 +300,7 @@ input.button.white {
 a.button.gray,
 input.button.gray {
   background-color: #f6f6f6;
-  color: #7f8c8d;
+  color: #4f5959;
   border-color: #f6f6f6;
 }
 #main {
@@ -364,8 +364,7 @@ input.button.gray {
   border-top: 1px solid #eee;
 }
 #nav .nav-dropdown a {
-  color: #3a5169;
-  font-size: 0.9em;
+  color: #354c63;
   display: block;
 }
 #nav .nav-dropdown a:hover {
@@ -381,7 +380,7 @@ input.button.gray {
   height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 5px solid #ccc;
+  border-top: 5px solid #4f5959;
 }
 sup.beta.beta {
   font-size: 0.6em;
@@ -569,7 +568,7 @@ body.docs #nav {
   box-sizing: border-box;
   padding: 0 15px 0 30px;
   border: 1px solid #e3e3e3;
-  color: #2c3e50;
+  color: #273849;
   outline: none;
   border-radius: 15px;
   margin-right: 10px;
@@ -585,7 +584,7 @@ body.docs #nav {
   display: inline-block;
   font-size: 1.5em;
   line-height: 40px;
-  color: #2c3e50;
+  color: #273849;
   font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
 }
@@ -638,8 +637,6 @@ body.docs #nav {
   padding: 25px 35px;
   margin-top: 1em;
   margin-bottom: 40px;
-  font-size: 1.2em;
-  line-height: 1.5em;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -680,12 +677,12 @@ body.docs #nav {
 #demo li,
 .demo li,
 .content .demo li {
-  color: #34495e;
+  color: #304455;
 }
 #demo li.done,
 .demo li.done,
 .content .demo li.done {
-  color: #7f8c8d;
+  color: #4f5959;
   text-decoration: line-through;
 }
 #demo p,
@@ -779,7 +776,7 @@ ul.demo li {
 }
 #one-time-donations a {
   margin: 20px;
-  color: #34495e;
+  color: #304455;
 }
 #one-time-donations svg {
   margin-right: 5px;
@@ -798,11 +795,11 @@ ul.demo li {
   margin: 0 0 20px;
 }
 .main-sponsor {
-  color: #7f8c8d;
+  color: #4f5959;
   font-size: 0.85em;
 }
 .main-sponsor .logo {
-  color: #7f8c8d;
+  color: #4f5959;
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
@@ -878,12 +875,12 @@ ul.demo li {
   margin: 0;
 }
 #search-page .search-result .breadcrumb {
-  color: #7f8c8d;
+  color: #4f5959;
 }
 #search-page .search-result .breadcrumb + .breadcrumb::before {
   content: "\203A\A0";
   margin-left: 5px;
-  color: #7f8c8d;
+  color: #4f5959;
 }
 .content.guide[class*="migration"] h2 > sup,
 .content.guide[class*="migration"] h3 > sup {
@@ -928,7 +925,7 @@ ul.demo li {
 }
 .sidebar .sidebar-inner {
   width: 260px;
-  padding: 40px 20px 60px 60px;
+  padding: 70px 0px 60px 20px;
 }
 .sidebar .version-select {
   vertical-align: middle;
@@ -937,11 +934,8 @@ ul.demo li {
 .sidebar .menu-root {
   padding-left: 0;
 }
-.sidebar .menu-sub {
-  font-size: 0.85em;
-}
 .sidebar .sidebar-link {
-  color: #7f8c8d;
+  color: #4f5959;
 }
 .sidebar .sidebar-link.current {
   font-weight: 600;
@@ -1048,7 +1042,7 @@ ul.demo li {
   text-transform: uppercase;
   line-height: 1;
   border: none;
-  background: #34495e;
+  background: #304455;
   color: #fff;
   border-radius: 3px;
   position: relative;
@@ -1497,7 +1491,7 @@ ul.demo li {
 .content {
   position: relative;
   padding: 2.2em 0;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding-left: 50px;
 }
@@ -1528,7 +1522,7 @@ ul.demo li {
   max-width: 100%;
 }
 .content span.light {
-  color: #7f8c8d;
+  color: #4f5959;
 }
 .content span.info {
   font-size: 0.85em;
@@ -1549,7 +1543,7 @@ ul.demo li {
 .content h2 button,
 .content h3 button {
   pointer-events: auto;
-  color: #2c3e50;
+  color: #273849;
 }
 .content h2:before,
 .content h3:before {
@@ -1680,7 +1674,7 @@ ul.demo li {
 }
 .content p.tip em,
 .content p.success em {
-  color: #34495e;
+  color: #304455;
 }
 .content p.tip {
   border-left-color: #f66;
@@ -1702,11 +1696,10 @@ ul.demo li {
   height: 1em;
 }
 .footer {
-  color: #7f8c8d;
+  color: #4f5959;
   margin-top: 2em;
   padding-top: 2em;
   border-top: 1px solid #e5e5e5;
-  font-size: 0.9em;
 }
 #main.fix-sidebar {
   position: static;
