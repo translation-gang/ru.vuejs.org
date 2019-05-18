@@ -314,7 +314,7 @@
     <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
       <img src="/images/modus.png" alt="Modus">
     </a>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
@@ -992,7 +992,7 @@
     <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
       <img src="/images/modus.png" alt="Modus">
     </a>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
@@ -1077,7 +1077,7 @@
 &#125;</code></pre>
 <p>В результате получим:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active text-danger"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>Для переключения классов в массиве, в зависимости от некоторого условия, можно использовать тернарный оператор:</p>
+<p>Для переключения классов в массиве, в зависимости от некоторого условия, можно использовать условный оператор в тернарной форме:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>В этом случае <code>errorClass</code> будет применён к элементу всегда, а <code>activeClass</code> — только в случае истинности <code>isActive</code>.</p>
 <p>Однако, такая запись становится слегка громоздкой, особенно если есть несколько классов, задаваемых по условию. Но можно использовать и смешанный синтаксис:</p>

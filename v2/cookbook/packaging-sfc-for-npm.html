@@ -314,7 +314,7 @@
     <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
       <img src="/images/modus.png" alt="Modus">
     </a>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
@@ -443,7 +443,7 @@
     <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
       <img src="/images/modus.png" alt="Modus">
     </a>
-    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
     <a href="http://tooltwist.com/" target="_blank" class="logo">
@@ -616,7 +616,7 @@ dist/</code></pre>
 <h2 id="Когда-избегать-этого-способа"><a href="#Когда-избегать-этого-способа" class="headerlink" title="Когда избегать этого способа"></a>Когда избегать этого способа</h2><p>Использование данного метода может быть плохой идеей в определённых случаях. В данной статье мы не вдавались в подробности того, как были написаны сами компоненты. Некоторые компоненты могут порождать побочные эффекты, например использовать директивы или расширять сторонние библиотеки дополнительным функционалом. В этих случаях вам нужно будет оценить, слишком ли велики изменения, необходимые для использования этого способа.</p>
 <p>Кроме того, обратите внимание на любые зависимости, которые может иметь ваш компонент. Например, если вы подключаете стороннюю библиотеку для сортировки или для работы с API, Rollup может включить их в итоговый код сборки, если будет неправильно настроен. Чтобы иметь возможность использовать данный способ, вам нужно будет настроить Rollup таким образом, чтобы он исключал эти файлы из финального результата. Затем вам нужно будет обновить документацию, чтобы сообщить своим пользователям о зависимостях.</p>
 <h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>В то время, когда эта статья была написана, Vue CLI 3 был в бета-версии. Эта версия CLI содержит в себе встроенный режим сборки <code>library</code>, который создаёт версии CommonJS и UMD компонента. Этого должно быть достаточно, тем не менее вам нужно будет убедиться, что в вашем файле package.json  правильно указаны значения <code>main</code> и <code>unpkg</code>. К тому же, отсутствует поддержка ES6 <code>module</code>, если только она не будет добавлена до релиза CLI или через плагин.</p>
-<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт является результатом выступления <a href="https://twitter.com/mgdodgeycode" target="_blank" rel="noopener">Mike Dodge</a> на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу <a href="https://www.npmjs.com/package/vue-sfc-rollup" target="_blank" rel="noopener">vue-sfc-rollup</a> из npm. Также, вы можете <a href="https://github.com/team-innovation/vue-sfc-rollup" target="_blank" rel="noopener">склонировать код</a> и отредактировать его.</p>
+<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт является результатом выступления <a href="https://twitter.com/webdevdodge" target="_blank" rel="noopener">Mike Dodge</a> на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу <a href="https://www.npmjs.com/package/vue-sfc-rollup" target="_blank" rel="noopener">vue-sfc-rollup</a> из npm. Также, вы можете <a href="https://github.com/team-innovation/vue-sfc-rollup" target="_blank" rel="noopener">склонировать код</a> и отредактировать его.</p>
 
     
     
