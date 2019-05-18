@@ -213,4 +213,4 @@ vue serve --open src/my-component.vue
 
 ## Благодарности
 
-Этот рецепт является результатом выступления [Mike Dodge](https://twitter.com/mgdodgeycode) на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу [vue-sfc-rollup](https://www.npmjs.com/package/vue-sfc-rollup) из npm. Также, вы можете [склонировать код](https://github.com/team-innovation/vue-sfc-rollup) и отредактировать его.
+Этот рецепт является результатом выступления [Mike Dodge](https://twitter.com/webdevdodge) на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу [vue-sfc-rollup](https://www.npmjs.com/package/vue-sfc-rollup) из npm. Также, вы можете [склонировать код](https://github.com/team-innovation/vue-sfc-rollup) и отредактировать его.
