@@ -1145,29 +1145,50 @@ new Vue({
 })
 </script>
 
-<p>Аргументы директивы могут быть динамическими. Например, в <code>v-mydirective:argument=[dataproperty]</code>, <code>argument</code> — это строковое значение, присвоенное свойству <em>arg</em> в хуке директивы <em>binding</em>, а <code>dataproperty</code> — ссылка на свойство данных в экземпляре компонента, присвоенное в свойство <em>value</em> в том же параметре <em>binding</em>. Когда вызываются хуки директивы, свойство <em>value</em> параметра <em>binding</em> будет динамически изменяться в зависимости от значения <code>dataproperty</code>.</p>
-<p>Пример использования пользовательской директивы с использованием динамического аргумента:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+<h3 id="Динамические-аргументы-директивы"><a href="#Динамические-аргументы-директивы" class="headerlink" title="Динамические аргументы директивы"></a>Динамические аргументы директивы</h3><p>Аргументы директивы могут быть динамическими. Например, для <code>v-mydirective:[argument]=&quot;value&quot;</code>, <code>argument</code> может обновляться в зависимости от свойства данных экземпляра компонента! Это позволит сделать пользовательские директивы более гибкими при использовании в приложении.</p>
+<p>Допустим, необходимо создать собственную директиву, которая позволит установить элементы на странице с помощью фиксированного позиционирования. Можно создать пользовательскую директиву, где значение определяет вертикальное положение в пикселях, например так:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"baseexample"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Прокрутите страницу вниз<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-tack:left</span>=<span class="hljs-string">"[dynamicleft]"</span>&gt;</span>У этого блока будет смещение слева страницы, а не сверху<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-pin</span>=<span class="hljs-string">"200"</span>&gt;</span>Элемент зафиксирован в 200px от начала страницы<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'tack'</span>, &#123;
-  bind(el, binding, vnode) &#123;
-    el.style.position = <span class="hljs-string">'fixed'</span>;
-    <span class="hljs-keyword">const</span> s = (binding.arg == <span class="hljs-string">'left'</span> ? <span class="hljs-string">'left'</span> : <span class="hljs-string">'top'</span>);
-    el.style[s] = binding.value + <span class="hljs-string">'px'</span>;
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'pin'</span>, &#123;
+  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) </span>&#123;
+    el.style.position = <span class="hljs-string">'fixed'</span>
+    el.style.top = binding.value + <span class="hljs-string">'px'</span>
   &#125;
 &#125;)
 
-<span class="hljs-comment">// Запускаем приложение</span>
 <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  data() &#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#baseexample'</span>
+&#125;)</code></pre>
+<p>Это закрепит элемент в 200px от начала страницы. Но что если возникнет случай, когда необходимо закрепить элемент слева, а не сверху? Для этого пригодится динамический аргумент директивы, который можно определить для каждого экземпляра компонента:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dynamicexample"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Прокрутите страницу вниз<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-pin:</span>[<span class="hljs-attr">direction</span>]=<span class="hljs-string">"200"</span>&gt;</span>Элемент зафиксирован в 200px слева страницы.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'pin'</span>, &#123;
+  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) </span>&#123;
+    el.style.position = <span class="hljs-string">'fixed'</span>
+    <span class="hljs-keyword">var</span> s = (binding.arg == <span class="hljs-string">'left'</span> ? <span class="hljs-string">'left'</span> : <span class="hljs-string">'top'</span>)
+    el.style[s] = binding.value + <span class="hljs-string">'px'</span>
+  &#125;
+&#125;)
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#dynamicexample'</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">dynamicleft</span>: <span class="hljs-number">500</span>
+      <span class="hljs-attr">direction</span>: <span class="hljs-string">'left'</span>
     &#125;
   &#125;
 &#125;)</code></pre>
+<p>Результат:<br>
+<iframe height="200" style="width: 100%;" class="demo" scrolling="no" title="Dynamic Directive Arguments" src="//codepen.io/team/Vue/embed/rgLLzb/?height=300&theme-id=32763&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/rgLLzb/" target="_blank" rel="noopener">Dynamic Directive Arguments</a> by Vue
+  (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+</iframe>
+</p>
+<p>Теперь пользовательская директива достаточно гибкая для использования в нескольких различных случаях.</p>
 <h2 id="Сокращённая-запись"><a href="#Сокращённая-запись" class="headerlink" title="Сокращённая запись"></a>Сокращённая запись</h2><p>Часто нам может потребоваться одинаковое поведение на <code>bind</code> и <code>update</code>, а остальные хуки не нужны. В таком случае можно использовать сокращённую запись:</p>
 <pre><code class="hljs js">Vue.directive(<span class="hljs-string">'color-swatch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
   el.style.backgroundColor = binding.value
