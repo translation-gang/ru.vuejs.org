@@ -143,36 +143,69 @@ new Vue({
 </script>
 {% endraw %}
 
-Аргументы директивы могут быть динамическими. Например, в `v-mydirective:argument=[dataproperty]`, `argument` — это строковое значение, присвоенное свойству *arg* в хуке директивы *binding*, а `dataproperty` — ссылка на свойство данных в экземпляре компонента, присвоенное в свойство *value* в том же параметре *binding*. Когда вызываются хуки директивы, свойство *value* параметра *binding* будет динамически изменяться в зависимости от значения `dataproperty`.
+### Динамические аргументы директивы
 
-Пример использования пользовательской директивы с использованием динамического аргумента:
+Аргументы директивы могут быть динамическими. Например, для `v-mydirective:[argument]="value"`, `argument` может обновляться в зависимости от свойства данных экземпляра компонента! Это позволит сделать пользовательские директивы более гибкими при использовании в приложении.
+
+Допустим, необходимо создать собственную директиву, которая позволит установить элементы на странице с помощью фиксированного позиционирования. Можно создать пользовательскую директиву, где значение определяет вертикальное положение в пикселях, например так:
 
 ```html
-<div id="app">
+<div id="baseexample">
   <p>Прокрутите страницу вниз</p>
-  <p v-tack:left="[dynamicleft]">У этого блока будет смещение слева страницы, а не сверху</p>
+  <p v-pin="200">Элемент зафиксирован в 200px от начала страницы</p>
 </div>
 ```
 
 ```js
-Vue.directive('tack', {
-  bind(el, binding, vnode) {
-    el.style.position = 'fixed';
-    const s = (binding.arg == 'left' ? 'left' : 'top');
-    el.style[s] = binding.value + 'px';
+Vue.directive('pin', {
+  bind: function (el, binding, vnode) {
+    el.style.position = 'fixed'
+    el.style.top = binding.value + 'px'
   }
 })
 
-// Запускаем приложение
 new Vue({
-  el: '#app',
-  data() {
+  el: '#baseexample'
+})
+```
+
+Это закрепит элемент в 200px от начала страницы. Но что если возникнет случай, когда необходимо закрепить элемент слева, а не сверху? Для этого пригодится динамический аргумент директивы, который можно определить для каждого экземпляра компонента:
+
+```html
+<div id="dynamicexample">
+  <h3>Прокрутите страницу вниз</h3>
+  <p v-pin:[direction]="200">Элемент зафиксирован в 200px слева страницы.</p>
+</div>
+```
+
+```js
+Vue.directive('pin', {
+  bind: function (el, binding, vnode) {
+    el.style.position = 'fixed'
+    var s = (binding.arg == 'left' ? 'left' : 'top')
+    el.style[s] = binding.value + 'px'
+  }
+})
+
+new Vue({
+  el: '#dynamicexample',
+  data: function () {
     return {
-      dynamicleft: 500
+      direction: 'left'
     }
   }
 })
 ```
+
+Результат:
+{% raw %}
+<iframe height="200" style="width: 100%;" class="demo" scrolling="no" title="Dynamic Directive Arguments" src="//codepen.io/team/Vue/embed/rgLLzb/?height=300&theme-id=32763&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  Посмотрите Pen <a href='https://codepen.io/team/Vue/pen/rgLLzb/'>Dynamic Directive Arguments</a> by Vue
+  (<a href='https://codepen.io/Vue'>@Vue</a>) на <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+{% endraw %}
+
+Теперь пользовательская директива достаточно гибкая для использования в нескольких различных случаях.
 
 ## Сокращённая запись
 
