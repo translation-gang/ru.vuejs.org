@@ -31,7 +31,7 @@ order: 401
 
 <a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a>
 
-Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
+Перечисленные языки даны только для примера. С тем же успехом можно использовать Bable, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с `vue-loader`, вы также получаете прекрасную поддержку CSS-модулей.
 
 ### Что насчёт разделения ответственности?
 
