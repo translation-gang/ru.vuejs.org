@@ -311,9 +311,6 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
-    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
-      <img src="/images/modus.png" alt="Modus">
-    </a>
     <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -356,9 +353,6 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
-    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
-      <img src="/images/modus.png" alt="Modus">
-    </a>
     <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
@@ -1246,7 +1240,7 @@ computed: &#123;
 <h4 id="Хорошо-21"><a href="#Хорошо-21" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span></code></pre>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">AppSidebar</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">"&#123; width: sidebarWidth + 'px' &#125;"</span>&gt;</span></code></pre>
 </div>
-<h3 id="Сокращённая-запись-директив-настоятельно-рекомендуется"><a href="#Сокращённая-запись-директив-настоятельно-рекомендуется" class="headerlink" title="Сокращённая запись директив настоятельно рекомендуется"></a>Сокращённая запись директив <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Сокращённую запись директив (<code>:</code> для <code>v-bind:</code> и <code>@</code> для <code>v-on:</code>) следует использовать всегда или никогда.</strong></p>
+<h3 id="Сокращённая-запись-директив-настоятельно-рекомендуется"><a href="#Сокращённая-запись-директив-настоятельно-рекомендуется" class="headerlink" title="Сокращённая запись директив настоятельно рекомендуется"></a>Сокращённая запись директив <sup data-p="b">настоятельно рекомендуется</sup></h3><p><strong>Сокращённую запись директив (<code>:</code> для <code>v-bind:</code>, <code>@</code> для <code>v-on:</code> и <code>#</code> для <code>v-slot</code>) следует использовать всегда или никогда.</strong></p>
 <div class="style-example example-bad">
 <h4 id="Плохо-22"><a href="#Плохо-22" class="headerlink" title="Плохо"></a>Плохо</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
   <span class="hljs-attr">v-bind:value</span>=<span class="hljs-string">"newTodoText"</span>
@@ -1256,6 +1250,13 @@ computed: &#123;
   <span class="hljs-attr">v-on:input</span>=<span class="hljs-string">"onInput"</span>
   @<span class="hljs-attr">focus</span>=<span class="hljs-string">"onFocus"</span>
 &gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь может быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">footer</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Здесь контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 </div>
 <div class="style-example example-good">
 <h4 id="Хорошо-22"><a href="#Хорошо-22" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
@@ -1274,6 +1275,20 @@ computed: &#123;
   <span class="hljs-attr">v-on:input</span>=<span class="hljs-string">"onInput"</span>
   <span class="hljs-attr">v-on:focus</span>=<span class="hljs-string">"onFocus"</span>
 &gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь может быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Здесь контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь может быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">footer</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Здесь контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
 </div>
 <h2 id="Правила-приоритета-C-Рекомендуется-Минимизация-произвольных-выборов-и-накладных-расходов"><a href="#Правила-приоритета-C-Рекомендуется-Минимизация-произвольных-выборов-и-накладных-расходов" class="headerlink" title="Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)"></a>Правила приоритета C: Рекомендуется (Минимизация произвольных выборов и накладных расходов)</h2><h3 id="Порядок-опций-компонента-экземпляра-рекомендуется"><a href="#Порядок-опций-компонента-экземпляра-рекомендуется" class="headerlink" title="Порядок опций компонента/экземпляра рекомендуется"></a>Порядок опций компонента/экземпляра <sup data-p="c">рекомендуется</sup></h3><p><strong>Опции компонента/экземпляра должны быть упорядочены консистентно.</strong></p>
 <p>Это порядок по умолчанию, который мы рекомендуем для опций компонентов. Они разделены на категории, поэтому вы поймёте, где добавлять новые свойства из плагинов.</p>
