@@ -1480,7 +1480,7 @@ computed: {
 
 ### Сокращённая запись директив <sup data-p="b">настоятельно рекомендуется</sup>
 
-**Сокращённую запись директив (`:` для `v-bind:` и `@` для `v-on:`) следует использовать всегда или никогда.**
+**Сокращённую запись директив (`:` для `v-bind:`, `@` для `v-on:` и `#` для `v-slot`) следует использовать всегда или никогда.**
 
 {% raw %}<div class="style-example example-bad">{% endraw %}
 
@@ -1500,6 +1500,15 @@ computed: {
 >
 ```
 
+```html
+<template v-slot:header>
+  <h1>Здесь может быть заголовок страницы</h1>
+</template>
+
+ <template #footer>
+  <p>Здесь контактная информация</p>
+</template>
+```
 {% raw %}</div>{% endraw %}
 
 {% raw %}<div class="style-example example-good">{% endraw %}
@@ -1532,6 +1541,26 @@ computed: {
   v-on:input="onInput"
   v-on:focus="onFocus"
 >
+```
+
+```html
+<template v-slot:header>
+  <h1>Здесь может быть заголовок страницы</h1>
+</template>
+
+ <template v-slot:footer>
+  <p>Здесь контактная информация</p>
+</template>
+```
+
+```html
+<template #header>
+  <h1>Здесь может быть заголовок страницы</h1>
+</template>
+
+ <template #footer>
+  <p>Здесь контактная информация</p>
+</template>
 ```
 
 {% raw %}</div>{% endraw %}
