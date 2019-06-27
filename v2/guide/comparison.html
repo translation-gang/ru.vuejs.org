@@ -326,6 +326,9 @@
     <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
     </a>
+    <a href="https://teeplusplusclth.com/" target="_blank" class="logo">
+      <img src="/images/tee__.png" alt="Tee++">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -1001,6 +1004,9 @@
     <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
     </a>
+    <a href="https://teeplusplusclth.com/" target="_blank" class="logo">
+      <img src="/images/tee__.png" alt="Tee++">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -1077,11 +1083,11 @@
 <p>Наконец, стилизация в однофайловых компонентах Vue очень гибка. С помощью <a href="https://github.com/vuejs/vue-loader" target="_blank" rel="noopener">vue-loader</a>, вы можете использовать любой препроцессор, постпроцессор и даже глубокую интеграцию с <a href="https://vue-loader.vuejs.org/ru/features/css-modules.html" target="_blank" rel="noopener">CSS-модулями</a> — всё в элементе <code>&lt;style&gt;</code>.</p>
 <h3 id="Масштабирование"><a href="#Масштабирование" class="headerlink" title="Масштабирование"></a>Масштабирование</h3><h4 id="Масштабирование-вверх"><a href="#Масштабирование-вверх" class="headerlink" title="Масштабирование вверх"></a>Масштабирование вверх</h4><p>Для крупных приложений, как Vue так и React предоставляют надёжные решения для роутинга. Сообщество React также породило весьма инновационные решения в области управления состоянием приложения (см. Flux/Redux). Эти подходы, и <a href="https://yarnpkg.com/en/packages?q=redux%20vue&amp;p=1" target="_blank" rel="noopener">даже сам Redux</a> легко интегрируются в приложения на Vue. В действительности, Vue сделал следующий шаг, создав <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> — вдохновлённую Elm реализацию паттерна управления состоянием приложения. Vuex глубоко интегрирован с Vue, что, на наш взгляд, изрядно облегчает жизнь разработчикам.</p>
 <p>В качестве ещё одного важного различия между React и Vue можно упомянуть тот факт, что все дополнительные библиотеки Vue, включая библиотеки для управления состоянием приложения и для роутинга (среди <a href="https://github.com/vuejs" target="_blank" rel="noopener">прочих задач</a>), официально поддерживаются в актуальном соответствии с ядром библиотеки. React, напротив, предпочитает отдать эти вопросы на откуп сообществу, тем самым создавая более фрагментированную экосистему. Впрочем, как уже замечалось ранее, в силу популярности React, его экосистема значительно обширнее, чем у Vue.</p>
-<p>Наконец, у Vue есть <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">инструменты командной строки для генерации проектов</a>, упрощающие создание новых проектов с использованием подходящей системы сборки, включая <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">Webpack</a>, <a href="https://github.com/vuejs-templates/browserify" target="_blank" rel="noopener">Browserify</a> или даже <a href="https://github.com/vuejs-templates/simple" target="_blank" rel="noopener">вовсе без таковой</a>. В сообществе React также существуют наработки в этом направлении — например, <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">create-react-app</a>, но на данный момент функциональность этого решения имеет ряд ограничений:</p>
+<p>Наконец, у Vue есть <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">CLI генератор проектов</a>, который позволяет легко начать новый проект с помощью интерактивного мастера. Его также можно использовать для <a href="https://cli.vuejs.org/ru/guide/prototyping.html#%D0%BC%D0%B3%D0%BD%D0%BE%D0%B2%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D1%82%D0%B8%D0%BF%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" target="_blank" rel="noopener">мгновенного прототипирования</a> компонента. React также делает успехи в этой области с помощью <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">create-react-app</a>, но в настоящее время у него есть несколько ограничений:</p>
 <ul>
-<li>Нет возможности конфигурации проекта в процессе генерации. Vue позволяет <a href="http://yeoman.io/" target="_blank" rel="noopener">Yeoman</a>-подобную настройку шаблонов.</li>
-<li>Существует только один шаблон для одностраничного приложения, в то время как Vue позволяет выбрать подходящий шаблон из довольно широкого их многообразия.</li>
-<li>Нет возможности создавать проекты из пользовательских шаблонов, что может быть особенно полезно для enterprise-окружений с установившимися ранее соглашениями.</li>
+<li>Он не допускает никакой конфигурации во время создания проекта, в то время как Vue CLI работает поверх обновляемой runtime-зависимости, которая легко расширяется с помощью <a href="https://cli.vuejs.org/ru/guide/plugins-and-presets.html#%D0%BFn%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B" target="_blank" rel="noopener">плагинов</a>.</li>
+<li>Существует только один шаблон для одностраничного приложения, в то время как Vue предлагает широкий выбор опций по умолчанию для различных целей и систем сборки.</li>
+<li>Нет возможности создавать проекты из пользовательских <a href="https://cli.vuejs.org/guide/plugins-and-presets.html#presets" target="_blank" rel="noopener">пресетов настроек</a><a href="https://cli.vuejs.org/ru/guide/plugins-and-presets.html#%D0%BF%D1%80%D0%B5%D1%81%D0%B5%D1%82%D1%8B-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA" target="_blank" rel="noopener">https://cli.vuejs.org/ru/guide/plugins-and-presets.html#%D0%BF%D1%80%D0%B5%D1%81%D0%B5%D1%82%D1%8B-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BA</a>, что может быть особенно полезно для enterprise-окружений с установившимися ранее соглашениями.</li>
 </ul>
 <p>Важно заметить, что многие из этих ограничений — следствия сознательно принятых решений команды create-react-app, и в них есть и свои плюсы. Например, коль скоро ваш проект не требует пользовательской настройки процесса сборки, её можно будет обновлять как зависимость. Прочитать больше об этом подходе <a href="https://github.com/facebookincubator/create-react-app#philosophy" target="_blank" rel="noopener">можно здесь</a>.</p>
 <h4 id="Масштабирование-вниз"><a href="#Масштабирование-вниз" class="headerlink" title="Масштабирование вниз"></a>Масштабирование вниз</h4><p>React известен своей довольно крутой кривой изучения. До того момента, когда новичок сможет что-то написать, ему придётся узнать о JSX, а вероятно — и о ES2015+, поскольку многие примеры используют синтаксис ES2015-классов. Кроме того придётся разобраться с системами сборки, поскольку, хотя технически и существует возможность использовать Babel самостоятельно для live-компиляции кода, для production этот подход в любом случае не годится.</p>
