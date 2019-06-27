@@ -28,6 +28,9 @@ platinum_sponsors:
       https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness
     img: nativescript.png
     name: NativeScript
+  - url: 'https://teeplusplusclth.com/'
+    img: tee__.png
+    name: Tee++
 gold_sponsors:
   - url: 'https://www.vuemastery.com/'
     img: vuemastery.png
@@ -100,6 +103,9 @@ gold_sponsors:
   - url: 'https://www.bacancytechnology.com'
     img: bacancy_technology.png
     name: Bacancy Technology
+  - url: 'https://www.bestvpn.co/'
+    img: bestvpn_co.png
+    name: BestVPN.co
   - url: 'https://blokt.com/'
     img: blokt_cryptocurrency_news.png
     name: Blokt Cryptocurrency News
