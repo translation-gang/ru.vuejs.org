@@ -1580,6 +1580,35 @@ type: api
   // `callback` вызывается сразу, с текущим значением `a`
   ```
 
+  Обратите внимание, при использовании опции `immediate` нет возможности отменить отслеживание указанного свойства в коллбэке вызванном в первый раз.
+
+  ```js
+  // Подобное приведёт к ошибке
+  var unwatch = vm.$watch(
+    'value',
+    function () {
+      doSomething()
+      unwatch()
+    },
+    { immediate: true }
+  )
+  ```
+
+  Если необходимо вызвать функцию unwatch внутри коллбэка, то следует проверять её доступность:
+
+  ```js
+  var unwatch = vm.$watch(
+    'value',
+    function () {
+      doSomething()
+      if (unwatch) {
+        unwatch()
+      }
+    },
+    { immediate: true }
+  )
+  ```
+
 ### vm.$set( target, propertyName/index, value )
 
 - **Аргументы:**
