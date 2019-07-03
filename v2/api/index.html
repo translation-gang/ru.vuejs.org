@@ -1755,6 +1755,27 @@ vm.someObject.nestedValue = <span class="hljs-number">123</span>
   <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
 &#125;)
 <span class="hljs-comment">// `callback` вызывается сразу, с текущим значением `a`</span></code></pre>
+<p>Обратите внимание, при использовании опции <code>immediate</code> нет возможности отменить отслеживание указанного свойства в коллбэке вызванном в первый раз.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Подобное приведёт к ошибке</span>
+<span class="hljs-keyword">var</span> unwatch = vm.$watch(
+  <span class="hljs-string">'value'</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    doSomething()
+    unwatch()
+  &#125;,
+  &#123; <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span> &#125;
+)</code></pre>
+<p>Если необходимо вызвать функцию unwatch внутри коллбэка, то следует проверять её доступность:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> unwatch = vm.$watch(
+  <span class="hljs-string">'value'</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    doSomething()
+    <span class="hljs-keyword">if</span> (unwatch) &#123;
+      unwatch()
+    &#125;
+  &#125;,
+  &#123; <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span> &#125;
+)</code></pre>
 </li>
 </ul>
 <h3 id="vm-set-target-propertyName-index-value"><a href="#vm-set-target-propertyName-index-value" class="headerlink" title="vm.$set( target, propertyName/index, value )"></a>vm.$set( target, propertyName/index, value )</h3><ul>

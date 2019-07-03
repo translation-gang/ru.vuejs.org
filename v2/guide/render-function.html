@@ -1442,6 +1442,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 &#125;)</code></pre>
 <blockquote>
 <p>Примечание: в версиях до 2.3.0 опция <code>props</code> необходима, если вы хотите использовать входные параметры в функциональном компоненте. С версии 2.3.0 и выше вы можете опустить опцию <code>props</code> и все атрибуты, найденные на узле компонента, будут неявно извлечены в качестве входных данных.</p>
+<p>Ссылка будет указывать на HTMLElement при использовании с функциональными компонентами, потому что у них нет состояния и экземпляра.</p>
 </blockquote>
 <p>С версии 2.5.0+, если вы используете <a href="single-file-components.html">однофайловые компоненты</a>, вы можете объявить функциональные компоненты, основанные на шаблоне таким образом:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">functional</span>&gt;</span>
