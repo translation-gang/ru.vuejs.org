@@ -470,7 +470,7 @@ scrollBehavior: function (to, from, savedPosition) {
 {% raw %}
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>beforeRouteEnter</code>.</p>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>activate</code>.</p>
 </div>
 {% endraw %}
 
