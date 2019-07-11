@@ -6,6 +6,8 @@ order: 401
 
 ## Введение
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/introduction-to-single-file-components?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Single File Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
+
 Во многих проектах, глобальные компоненты определяются посредством `Vue.component`, с последующим `new Vue({ el: '#container' })` для указания элемента-контейнера в теле каждой страницы.
 
 Для проектов малого и среднего размера, в которых JavaScript используется лишь для некоторых страниц, этот подход может прекрасно работать. В более же сложных проектах или в случаях, когда весь ваш фронтенд управляется JavaScript, явными становятся следующие недостатки:

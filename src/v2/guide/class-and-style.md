@@ -8,6 +8,8 @@ order: 6
 
 ## Связывание CSS-классов
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-dynamic-classes?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Dynamic Classes Lesson">Посмотрите бесплатный урок на Vue School</a></div>
+
 ### Использование объектов
 
 Для динамической установки или удаления CSS-классов можно передавать объект в директиву `v-bind:class`:
