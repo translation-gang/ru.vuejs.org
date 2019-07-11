@@ -314,9 +314,6 @@
     <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
-    <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png" alt="Tooltwist">
-    </a>
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
       <img src="/images/vueschool.png" alt="VueSchool">
     </a>
@@ -325,9 +322,6 @@
     </a>
     <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
-    </a>
-    <a href="https://teeplusplusclth.com/" target="_blank" class="logo">
-      <img src="/images/tee__.png" alt="Tee++">
     </a>
     </div>
   </div>
@@ -992,9 +986,6 @@
     <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
-    <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png" alt="Tooltwist">
-    </a>
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
       <img src="/images/vueschool.png" alt="VueSchool">
     </a>
@@ -1003,9 +994,6 @@
     </a>
     <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
-    </a>
-    <a href="https://teeplusplusclth.com/" target="_blank" class="logo">
-      <img src="/images/tee__.png" alt="Tee++">
     </a>
     </div>
   </div>
@@ -1108,7 +1096,9 @@ vm.$watch(<span class="hljs-string">'a'</span>, <span class="hljs-function"><spa
   <span class="hljs-comment">// Этот коллбэк будет вызван, когда изменится `vm.a`</span>
 &#125;)</code></pre>
 <p>С полным списком свойств и методов экземпляра Vue можно ознакомиться в <a href="../api/#Свойства-экземпляра">справочнике API</a>.</p>
-<h2 id="Хуки-жизненного-цикла-экземпляра"><a href="#Хуки-жизненного-цикла-экземпляра" class="headerlink" title="Хуки жизненного цикла экземпляра"></a>Хуки жизненного цикла экземпляра</h2><p>Каждый экземпляр Vue при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые <strong>хуками жизненного цикла</strong>, с помощью которых можно выполнять свой код на определённых этапах.</p>
+<h2 id="Хуки-жизненного-цикла-экземпляра"><a href="#Хуки-жизненного-цикла-экземпляра" class="headerlink" title="Хуки жизненного цикла экземпляра"></a>Хуки жизненного цикла экземпляра</h2><div class="vueschool"><a href="https://vueschool.io/lessons/understanding-the-vuejs-lifecycle-hooks?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Lifecycle Hooks Lesson">Посмотрите бесплатный урок на Vue School</a></div>
+
+<p>Каждый экземпляр Vue при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые <strong>хуками жизненного цикла</strong>, с помощью которых можно выполнять свой код на определённых этапах.</p>
 <p>Например, хук <a href="../api/#created"><code>created</code></a> можно использовать для выполнения кода после создания экземпляра:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">data</span>: &#123;

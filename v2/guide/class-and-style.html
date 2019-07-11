@@ -314,9 +314,6 @@
     <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
-    <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png" alt="Tooltwist">
-    </a>
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
       <img src="/images/vueschool.png" alt="VueSchool">
     </a>
@@ -325,9 +322,6 @@
     </a>
     <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
-    </a>
-    <a href="https://teeplusplusclth.com/" target="_blank" class="logo">
-      <img src="/images/tee__.png" alt="Tee++">
     </a>
     </div>
   </div>
@@ -992,9 +986,6 @@
     <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
-    <a href="http://tooltwist.com/" target="_blank" class="logo">
-      <img src="/images/tooltwist.png" alt="Tooltwist">
-    </a>
     <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
       <img src="/images/vueschool.png" alt="VueSchool">
     </a>
@@ -1003,9 +994,6 @@
     </a>
     <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
-    </a>
-    <a href="https://teeplusplusclth.com/" target="_blank" class="logo">
-      <img src="/images/tee__.png" alt="Tee++">
     </a>
     </div>
   </div>
@@ -1031,7 +1019,9 @@
     
     
       <p>Часто возникает необходимость динамически изменять CSS-классы и inline-стили элементов в зависимости от состояния приложения. Поскольку и то и другое атрибуты, мы можем использовать <code>v-bind</code>: необходимо лишь вычислить итоговую строку при помощи выражения. Впрочем, заниматься конкатенацией строк неудобно, это может привести к ошибкам. К счастью, Vue предоставляет дополнительные возможности директивы <code>v-bind</code> для работы с <code>class</code> и <code>style</code>. Эти атрибуты кроме строковых значений могут принимать массивы или объекты.</p>
-<h2 id="Связывание-CSS-классов"><a href="#Связывание-CSS-классов" class="headerlink" title="Связывание CSS-классов"></a>Связывание CSS-классов</h2><h3 id="Использование-объектов"><a href="#Использование-объектов" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Для динамической установки или удаления CSS-классов можно передавать объект в директиву <code>v-bind:class</code>:</p>
+<h2 id="Связывание-CSS-классов"><a href="#Связывание-CSS-классов" class="headerlink" title="Связывание CSS-классов"></a>Связывание CSS-классов</h2><div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-dynamic-classes?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Dynamic Classes Lesson">Посмотрите бесплатный урок на Vue School</a></div>
+
+<h3 id="Использование-объектов"><a href="#Использование-объектов" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Для динамической установки или удаления CSS-классов можно передавать объект в директиву <code>v-bind:class</code>:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>Запись выше означает, что наличие класса <code>active</code> будет определяться <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy" target="_blank" rel="noopener">истинностью</a> параметра <code>isActive</code>.</p>
 <p>Таким образом можно управлять несколькими классами, добавляя в объект другие поля. Кроме того, <code>v-bind:class</code> можно использовать совместно с обычным атрибутом <code>class</code>:</p>
