@@ -112,11 +112,12 @@ import MyComponent from 'my-component/sfc'; // Обратите внимание
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/my-component.min.js"
   },
   "devDependencies": {
-    "rollup": "^0.57.1",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-vue": "^3.0.0",
-    "vue": "^2.5.16",
-    "vue-template-compiler": "^2.5.16",
+    "rollup": "^1.17.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
     ...
   },
   ...
@@ -169,8 +170,9 @@ export default component;
 С готовой секцией `scripts` и обёрткой для однофайловых компонентов, всё что нам осталось - убедиться, что Rollup правильно настроен. К счастью, это можно сделать с помощью маленького файла rollup.config.js, состоящего из 16 строк кода:
 
 ```js
+import commonjs from 'rollup-plugin-commonjs'; // Конвертирование CommonJS модулей в ES6
 import vue from 'rollup-plugin-vue'; // Обработка однофайловых компонентов .vue
-import buble from 'rollup-plugin-buble'; // Транспиляция/Полифилизация для умеренной поддержки браузеров
+import buble from 'rollup-plugin-buble'; // Транспиляция/добавление полифилов для умеренной поддержки браузеров
 export default {
   input: 'src/wrapper.js', // Путь до относительного package.json
   output: {
@@ -178,6 +180,7 @@ export default {
     exports: 'named'
   },
   plugins: [
+    commonjs(),
     vue({
         css: true, // Динамически внедряем CSS в тег <style>
         compileTemplate: true, // Явное преобразование шаблона в рендер-функцию
