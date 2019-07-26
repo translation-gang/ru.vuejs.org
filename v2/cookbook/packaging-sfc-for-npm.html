@@ -537,11 +537,12 @@ dist/</code></pre>
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/my-component.min.js"
   &#125;,
   "devDependencies": &#123;
-    "rollup": "^0.57.1",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-vue": "^3.0.0",
-    "vue": "^2.5.16",
-    "vue-template-compiler": "^2.5.16",
+    "rollup": "^1.17.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
     ...
   &#125;,
   ...
@@ -580,8 +581,9 @@ dist/</code></pre>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> component;</code></pre>
 <p>Обратите внимание, что в первой строке импортируется непосредственно ваш однофайловый компонент, а последняя строка экспортирует его без изменений. Как указано в комментариях в остальной части кода, обёртка предоставляет функцию <code>install</code> для Vue, затем пытается обнаружить Vue и автоматически установить компонент. Выполнив 90% работы, настало время ускориться к финишу!</p>
 <h3 id="Как-настроить-сборку-с-Rollup"><a href="#Как-настроить-сборку-с-Rollup" class="headerlink" title="Как настроить сборку с Rollup?"></a>Как настроить сборку с Rollup?</h3><p>С готовой секцией <code>scripts</code> и обёрткой для однофайловых компонентов, всё что нам осталось - убедиться, что Rollup правильно настроен. К счастью, это можно сделать с помощью маленького файла rollup.config.js, состоящего из 16 строк кода:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-vue'</span>; <span class="hljs-comment">// Обработка однофайловых компонентов .vue</span>
-<span class="hljs-keyword">import</span> buble <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-buble'</span>; <span class="hljs-comment">// Транспиляция/Полифилизация для умеренной поддержки браузеров</span>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> commonjs <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-commonjs'</span>; <span class="hljs-comment">// Конвертирование CommonJS модулей в ES6</span>
+<span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-vue'</span>; <span class="hljs-comment">// Обработка однофайловых компонентов .vue</span>
+<span class="hljs-keyword">import</span> buble <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-buble'</span>; <span class="hljs-comment">// Транспиляция/добавление полифилов для умеренной поддержки браузеров</span>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
   <span class="hljs-attr">input</span>: <span class="hljs-string">'src/wrapper.js'</span>, <span class="hljs-comment">// Путь до относительного package.json</span>
   output: &#123;
@@ -589,6 +591,7 @@ dist/</code></pre>
     <span class="hljs-attr">exports</span>: <span class="hljs-string">'named'</span>
   &#125;,
   <span class="hljs-attr">plugins</span>: [
+    commonjs(),
     vue(&#123;
         <span class="hljs-attr">css</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Динамически внедряем CSS в тег &lt;style&gt;</span>
         compileTemplate: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Явное преобразование шаблона в рендер-функцию</span>
