@@ -121,7 +121,7 @@ Vue.component('example', {
 })
 ```
 
-Поскольку `$nextTick()` возвращает промис, вы можете достичь того же, используя новый синтаксис [async/await из ES2016](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function):
+Поскольку `$nextTick()` возвращает Promise, вы можете достичь того же, используя новый синтаксис [async/await из ES2016](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function):
 
  ```js
   methods: {
