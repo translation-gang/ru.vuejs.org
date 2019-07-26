@@ -1087,7 +1087,7 @@ Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</sp
     &#125;
   &#125;
 &#125;)</code></pre>
-<p>Поскольку <code>$nextTick()</code> возвращает промис, вы можете достичь того же, используя новый синтаксис <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async/await из ES2016</a>:</p>
+<p>Поскольку <code>$nextTick()</code> возвращает Promise, вы можете достичь того же, используя новый синтаксис <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async/await из ES2016</a>:</p>
  <pre><code class="hljs js">methods: &#123;
   <span class="hljs-attr">updateMessage</span>: <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'обновлено'</span>

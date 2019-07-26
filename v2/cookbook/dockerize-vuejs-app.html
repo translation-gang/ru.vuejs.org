@@ -493,7 +493,7 @@
 </span>
 <span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span>
 <span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"http-server"</span>, <span class="hljs-string">"dist"</span> ]</span></code></pre>
-<p>Может показаться лишним сначала копировать <code>package.json</code> и <code>package-lock.json</code>, а затем все файлы и каталоги проекта в два отдельных шага, но на самом деле есть <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">одна очень веская причина для этого</a> (спойлер: это позволяет нам использовать кешированные слои Docker).</p>
+<p>Может показаться лишним сначала копировать <code>package.json</code> и <code>package-lock.json</code>, а затем все файлы и каталоги проекта в два отдельных шага, но на самом деле есть <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">одна очень веская причина для этого</a> (спойлер: это позволяет нам использовать кэшированные слои Docker).</p>
 <p>Теперь давайте соберём образ Docker для нашего приложения на Vue.js:</p>
 <pre><code class="hljs bash">docker build -t vuejs-cookbook/dockerize-vuejs-app .</code></pre>
 <p>Наконец, запустим наше приложение Vue.js в контейнере Docker:</p>

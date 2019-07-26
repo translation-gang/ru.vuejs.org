@@ -511,7 +511,7 @@ test(<span class="hljs-string">'Hello'</span>, () =&gt; &#123;
   <span class="hljs-comment">// устанавливаем `username` меньше 7 символов, без учёта пробелов</span>
   wrapper.setData(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">' '</span>.repeat(<span class="hljs-number">7</span>) &#125;)
 
-  <span class="hljs-comment">// проверяем, что ошибка отрисовалась</span>
+  <span class="hljs-comment">// проверяем, что ошибка отобразилась</span>
   expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBe(<span class="hljs-literal">true</span>)
 
   <span class="hljs-comment">// обновляем имя, чтобы оно было достаточно длинным</span>
@@ -579,7 +579,7 @@ test(<span class="hljs-string">'Hello'</span>, () =&gt; &#123;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Список из того, что нам нужно проверить:</p>
 <ul>
-<li>отрисовалось ли свойство <code>message</code>?</li>
+<li>отобразилось ли свойство <code>message</code>?</li>
 <li>если <code>error</code> равно <code>true</code>, в разметке должен быть <code>&lt;div class=&quot;error&quot;&gt;</code></li>
 <li>если <code>error</code> равно <code>false</code>, в разметке не должно быть <code>&lt;div class=&quot;error&quot;&gt;</code></li>
 </ul>
@@ -596,7 +596,7 @@ describe(<span class="hljs-string">'Foo'</span>, () =&gt; &#123;
       &#125;
     &#125;)
 
-    <span class="hljs-comment">// посмотреть, отрисовалось ли сообщение</span>
+    <span class="hljs-comment">// посмотреть, отобразилось ли сообщение</span>
     expect(wrapper.find(<span class="hljs-string">'.message'</span>).text()).toEqual(<span class="hljs-string">'Привет, мир'</span>)
 
     <span class="hljs-comment">// проверить, что ошибка отрисовалась</span>
