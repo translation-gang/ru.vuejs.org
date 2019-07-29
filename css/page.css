@@ -25,7 +25,7 @@ pre code {
   color: #525252;
   white-space: pre;
   padding: 1.2em 1.4em;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.6rem;
   display: block;
 }
@@ -251,7 +251,7 @@ strong {
 code,
 pre {
   font-family: "Roboto Mono", Monaco, courier, monospace;
-  font-size: 0.85rem;
+  font-size: 0.85em;
   background-color: #f8f8f8;
   -webkit-font-smoothing: initial;
   -moz-osx-font-smoothing: initial;
