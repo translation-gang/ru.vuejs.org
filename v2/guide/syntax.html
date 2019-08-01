@@ -1082,20 +1082,25 @@ new Vue({
 <p>Добавлено в версии 2.6.0+</p>
 </blockquote>
 <p>Начиная с версии 2.6.0, можно использовать JavaScript-выражение в аргументе директивы, заключив его в квадратные скобки:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">attributeName</span>]=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!--
+Обратите внимание, что есть некоторые ограничения для выражения аргументов,
+подробнее об этом в разделе «Ограничения динамического выражения» ниже.
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">attributeName</span>]=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Здесь <code>attributeName</code> будет выполняться как выражение JavaScript, а его вычисленное значение использоваться в качестве финального значения аргумента. Например, если ваш экземпляр Vue имеет в данных свойство <code>attributeName</code>, значение которого равно <code>&quot;href&quot;</code>, то это будет эквивалентно привязке <code>v-bind:href</code>.</p>
 <p>Таким же образом можно использовать динамические аргументы для привязки обработчика к динамическому имени события:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:</span>[<span class="hljs-attr">eventName</span>]=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>Когда значение <code>eventName</code> будет <code>&quot;focus&quot;</code>, то обработчик <code>v-on:[eventName]</code> будет эквивалентен <code>v-on:focus</code>.</p>
+<p>В этом примере, когда значение <code>eventName</code> будет <code>&quot;focus&quot;</code>, то обработчик <code>v-on:[eventName]</code> будет эквивалентен <code>v-on:focus</code>.</p>
 <h4 id="Ограничения-значений-динамического-аргумента"><a href="#Ограничения-значений-динамического-аргумента" class="headerlink" title="Ограничения значений динамического аргумента"></a>Ограничения значений динамического аргумента</h4><p>Ожидается, что динамические аргументы в результате будут строкой, за исключением <code>null</code>. Специальное значение <code>null</code> можно использовать для явного удаления привязки. Любые другие нестроковые значения будут вызывать предупреждения.</p>
-<h4 id="Ограничения-динамического-выражения"><a href="#Ограничения-динамического-выражения" class="headerlink" title="Ограничения динамического выражения"></a>Ограничения динамического выражения</h4><p class="tip">Динамические выражения аргументов имеют синтаксические ограничения, потому что некоторые символы недопустимы в именах атрибутов HTML, такие как пробелы и кавычки. Также стоит избегать верхнего регистра если указываете шаблоны в DOM.</p>
-
-<p>Например, следующее недопустимо:</p>
+<h4 id="Ограничения-динамического-выражения"><a href="#Ограничения-динамического-выражения" class="headerlink" title="Ограничения динамического выражения"></a>Ограничения динамического выражения</h4><p>Для выражений динамических аргументов есть синтаксические ограничения, поскольку некоторые символы, такие как пробелы и кавычки, являются недопустимыми внутри имён атрибутов HTML. Например:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Подобное вызовет предупреждение компилятора. --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>['<span class="hljs-attr">foo</span>' + <span class="hljs-attr">bar</span>]=<span class="hljs-string">"value"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Обойти это ограничение можно использованием выражения без пробелов или кавычек, или заменой комплексного выражения на вычисляемое свойство.</p>
-<p>Кроме того, если вы указываете шаблоны в DOM (шаблоны, написанные непосредственно в HTML-файле), вы должны не забывать, что браузеры приводят имена атрибутов в нижний регистр:</p>
- <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Будет преобразовано в v-bind:[someattr] при указании в шаблоне в DOM. --&gt;</span>
+<p>При использовании шаблонов в DOM (шаблонов, написанных непосредственно в HTML-файле), следует избегать именования ключей заглавными буквами, поскольку браузеры будут приводить имена атрибутов к строчным:</p>
+ <pre><code class="hljs html"><span class="hljs-comment">&lt;!--
+В шаблонах DOM это преобразуется браузером в v-bind:[someattr].
+Если в экземпляре не будет свойства "someattr", такой код не заработает.
+--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">someAttr</span>]=<span class="hljs-string">"value"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <h3 id="Модификаторы"><a href="#Модификаторы" class="headerlink" title="Модификаторы"></a>Модификаторы</h3><p>Модификаторы — особые постфиксы, добавляемые после точки, обозначающие, что директива должна быть связана каким-то определённым образом. Например, модификатор <code>.prevent</code> говорит директиве <code>v-on</code> вызвать <code>event.preventDefault()</code> при обработке произошедшего события:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">"onSubmit"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
