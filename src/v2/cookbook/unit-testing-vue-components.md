@@ -25,7 +25,7 @@ order: 6
 
 <script>
 export default {
-  name: 'Привет',
+  name: 'Hello',
   data () {
     return {
       username: ''
