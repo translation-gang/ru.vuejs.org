@@ -1102,7 +1102,7 @@
 <p>Затем в любых потомках мы можем воспользоваться свойством <code>inject</code> для получения специальных свойств, которые мы хотели бы добавить к этому экземпляру:</p>
 <pre><code class="hljs js">inject: [<span class="hljs-string">'getMap'</span>]</code></pre>
 <p>Вы можете увидеть <a href="https://jsfiddle.net/chrisvfritz/tdv8dt3s/" target="_blank" rel="noopener">полный пример здесь</a>. Преимуществом использования в отличие от <code>$parent</code> в том, что мы можем получить доступ к <code>getMap</code> <em>в любом</em> компоненте-потомке, без раскрытия всего экземпляра <code>&lt;google-map&gt;</code>. Это позволяет нам безопаснее продолжать разработку этого компонента, не опасаясь, что мы можем изменить/удалить что-то, на что полагается дочерний компонент. Интерфейс между этими компонентами остаётся чётко определённым, как и с <code>props</code>.</p>
-<p>Фактически мы можете думать о внедрении зависимостей как о входных параметрах «дальнего действия», за исключением случаев, когда:</p>
+<p>Фактически вы можете думать о внедрении зависимостей как о входных параметрах «дальнего действия», за исключением случаев, когда:</p>
 <ul>
 <li>родительским компонентам не нужно знать, какие потомки используют свойства, которые он предоставляет</li>
 <li>компонентам-потомкам не нужно знать, откуда внедряются эти свойства</li>
@@ -1254,17 +1254,14 @@ beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</
     
     <div class="footer">
         <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
-<div class="bsa-cpc"></div>
+<div id="bsa-native"></div>
 <script>
-  (function(){
-    if(typeof _bsa !== 'undefined' && _bsa) {
-    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
-      target: '.bsa-cpc',
-      align: 'horizontal',
-      disable_css: 'true'
-    });
-      }
-  })();
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
 </script>
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?

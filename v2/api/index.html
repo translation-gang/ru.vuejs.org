@@ -2742,17 +2742,14 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'п�
     
     <div class="footer">
         <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
-<div class="bsa-cpc"></div>
+<div id="bsa-native"></div>
 <script>
-  (function(){
-    if(typeof _bsa !== 'undefined' && _bsa) {
-    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
-      target: '.bsa-cpc',
-      align: 'horizontal',
-      disable_css: 'true'
-    });
-      }
-  })();
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
 </script>
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?

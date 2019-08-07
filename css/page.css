@@ -152,8 +152,7 @@ pre code.hljs.css::before {
 }
 #ad span {
   color: #4f5959;
-  display: inline-block;
-  margin-bottom: 5px;
+  display: block;
 }
 #ad img {
   width: 125px;
@@ -161,55 +160,48 @@ pre code.hljs.css::before {
 #ad .carbon-img,
 #ad .carbon-text {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-weight: normal;
   color: #304455;
 }
 #ad .carbon-poweredby {
   color: #aaa;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
   font-weight: normal;
 }
-.bsa-cpc {
-  font-size: 1em;
+#bsa-native .native-box {
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.075);
   background-color: #f8f8f8;
-}
-.bsa-cpc a._default_ {
-  text-align: left;
-  display: block;
-  padding: 10px 15px 12px;
-  margin-bottom: 20px;
-  color: #666;
-  font-weight: 400;
-  line-height: 18px;
-}
-.bsa-cpc a._default_ .default-image,
-.bsa-cpc a._default_ .default-title,
-.bsa-cpc a._default_ .default-description {
-  display: inline;
-  vertical-align: middle;
-  margin-right: 6px;
-}
-.bsa-cpc a._default_ .default-image img {
-  height: 20px;
+  color: #304455;
+  display: flex;
   border-radius: 3px;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
+  padding: 0.65em 1em;
+  align-items: center;
+  margin-bottom: 1.2em;
 }
-.bsa-cpc a._default_ .default-title {
+#bsa-native .native-box .native-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+}
+#bsa-native .native-box .native-sponsor {
+  background-color: #41b983;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-right: 1em;
+  line-height: 1;
+  padding: 6px 10px;
   font-weight: 600;
+  text-transform: uppercase;
 }
-.bsa-cpc a._default_ .default-description:after {
-  font-size: 0.85em;
-  content: "Sponsored";
-  color: #1c90f3;
-  border: 1px solid #1c90f3;
-  border-radius: 3px;
-  padding: 0 4px 1px;
-  margin-left: 6px;
-}
-.bsa-cpc .default-ad {
-  display: none;
+#bsa-native .native-box .native-text {
+  font-weight: normal;
+  line-height: 1.35;
+  text-align: left;
 }
 @media print {
   #ad {
