@@ -469,7 +469,7 @@
       <h1>Добавление свойств экземпляра</h1>
     
     
-      <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Могут быть данные/утилиты, которые планируете использовать во многих компонентах, но не хотите при этом <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch3.md" target="_blank" rel="noopener">загрязнять глобальную область видимости</a>. В этих случаях вы можете сделать их доступными для каждого экземпляра Vue, указав их в прототипе:</p>
+      <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Могут быть данные/утилиты, которые планируете использовать во многих компонентах, но не хотите при этом <a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch3.md" target="_blank" rel="noopener">загрязнять глобальную область видимости</a>. В этих случаях вы можете сделать их доступными для каждого экземпляра Vue, указав их в прототипе:</p>
 <pre><code class="hljs js">Vue.prototype.$appName = <span class="hljs-string">'Моё приложение'</span>;</code></pre>
 <p>Теперь <code>$appName</code> доступно во всех экземплярах Vue, даже до создания. Если мы запустим:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
