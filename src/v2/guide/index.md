@@ -290,6 +290,8 @@ var app6 = new Vue({
 Vue.component('todo-item', {
   template: '<li>Это одна задача в списке</li>'
 })
+
+var app = new Vue(...)
 ```
 
 Теперь его можно использовать в шаблоне другого компонента:
