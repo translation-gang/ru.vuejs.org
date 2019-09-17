@@ -11,7 +11,7 @@
     <% if (page.type) { %>
       <% if (page.type === 'menu') { %>
         <form id="search-form">
-          <input type="text" id="search-query-menu" class="search-query st-default-search-input">
+          <input type="text" id="search-query-menu" aria-label="Поиск по сайту Vue.JS" class="search-query st-default-search-input">
         </form>
         <%- partial('partials/toc', { type: 'guide' }) %>
       <% } else { %>
@@ -45,7 +45,7 @@
         <%- partial('partials/ad-text') %>
       <%_ } _%>
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
-      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/<%- page.path.replace(/\.html$/, '.md') %>" target="_blank">
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/<%- page.path.replace(/\.html$/, '.md') %>" rel="noopener" target="_blank">
         Отредактируйте эту страницу на GitHub!
       </a>
     </div>
