@@ -137,7 +137,7 @@ pre code.hljs.css::before {
 #ad {
   width: 125px;
   position: fixed;
-  z-index: 99;
+  z-index: 19;
   bottom: 10px;
   right: 10px;
   padding: 10px;
@@ -421,7 +421,7 @@ sup.beta.beta {
   height: 40px;
   padding: 10px 60px;
   position: relative;
-  z-index: 100;
+  z-index: 20;
 }
 body.docs #header {
   position: fixed;
@@ -549,7 +549,7 @@ body.docs #nav {
   width: 100%;
   height: 40px;
   background-color: #fff;
-  z-index: 9;
+  z-index: 20;
   display: none;
   box-shadow: 0 0 2px rgba(0,0,0,0.25);
 }
@@ -652,7 +652,6 @@ body.docs #nav {
 @media screen and (max-width: 900px) {
   .sidebar {
     position: fixed;
-    z-index: 10;
     background-color: #f9f9f9;
     height: 100%;
     top: 0;
@@ -759,14 +758,13 @@ body.docs #nav {
   padding: 0.5em;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  z-index: 11;
 }
 .modal.open {
   display: block;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 40;
 }
 .modal-text {
   margin-bottom: 0.5em;
@@ -783,7 +781,7 @@ body.docs #nav {
   left: 0;
   right: 0;
   background: rgba(0,0,0,0.2);
-  z-index: 10;
+  z-index: 30;
 }
 .stop-scroll {
   overflow: hidden;
@@ -883,6 +881,7 @@ body {
 #mobile-bar.top {
   background-color: transparent;
   box-shadow: none;
+  z-index: 9;
 }
 #mobile-bar.top .logo {
   display: none;
@@ -994,24 +993,24 @@ body {
   right: 4px;
   top: 4px;
 }
-#special-sponsor {
+#special {
   background-color: #fff;
   text-align: center;
   padding-bottom: 30px;
 }
-#special-sponsor h3 {
+#special h3 {
   margin: 0;
 }
-#special-sponsor a {
+#special a {
   color: #4f5959;
 }
-#special-sponsor a,
-#special-sponsor span,
-#special-sponsor img {
+#special a,
+#special span,
+#special img {
   display: inline-block;
   vertical-align: middle;
 }
-#special-sponsor img {
+#special img {
   margin: 15px;
 }
 #highlights {

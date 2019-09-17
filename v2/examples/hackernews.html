@@ -48,8 +48,12 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet" type="text/css">
-        <link href="//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="//fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet" type="text/css">
 
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -68,7 +72,7 @@
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-46852172-1', 'ru.vuejs.org');
 
           ga('send', 'pageview');
@@ -90,7 +94,7 @@
   <ul id="nav">
     <li>
   <form id="search-form">
-    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
   </form>
 </li>
 <li class="nav-dropdown-container learn">
@@ -109,8 +113,8 @@
     <li><h4>Видео курсы</h4></li>
     <li>
       <ul>
-        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
-        <li><a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank">Vue School</a></li>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="noopener">Vue Mastery</a></li>
+        <li><a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="noopener">Vue School</a></li>
       </ul>
     </li>
   </ul>
@@ -121,39 +125,39 @@
   <ul class="nav-dropdown">
     <li><h4>Помощь</h4></li>
     <li><ul>
-      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
-      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
       <ul>
-        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
-        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank">Vue CLI</a></li>
-        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank">Vue Loader</a></li>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
       </ul>
     </li>
     <li><h4>Официальные плагины</h4></li>
     <li><ul>
-      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank">Vuex</a></li>
-      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Новости</h4></li>
     <li><ul>
-      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
-      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
-      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
-      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
-      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
-      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank" rel="noopener">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
     </ul></li>
   </ul>
 </li>
@@ -161,13 +165,16 @@
 <li>
   <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
 </li>
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
 <li class="nav-dropdown-container support-vue">
   <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
       <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
     </ul></li>
   </ul>
 </li>
@@ -175,13 +182,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -198,7 +205,7 @@
     <ul class="main-menu">
       <li>
   <form id="search-form">
-    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input" aria-label="Поиск">
   </form>
 </li>
 <li class="nav-dropdown-container learn">
@@ -217,8 +224,8 @@
     <li><h4>Видео курсы</h4></li>
     <li>
       <ul>
-        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank">Vue Mastery</a></li>
-        <li><a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank">Vue School</a></li>
+        <li><a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="noopener">Vue Mastery</a></li>
+        <li><a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="noopener">Vue School</a></li>
       </ul>
     </li>
   </ul>
@@ -229,39 +236,39 @@
   <ul class="nav-dropdown">
     <li><h4>Помощь</h4></li>
     <li><ul>
-      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank">Форум</a></li>
-      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
-      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank">Митапы</a></li>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
     </ul></li>
     <li><h4>Инструментарий</h4></li>
     <li>
       <ul>
-        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
-        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank">Vue CLI</a></li>
-        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank">Vue Loader</a></li>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
       </ul>
     </li>
     <li><h4>Официальные плагины</h4></li>
     <li><ul>
-      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank">Vuex</a></li>
-      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Новости</h4></li>
     <li><ul>
-      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank">Еженедельные новости</a></li>
-      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
-      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank">События</a></li>
-      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
-      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
-      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
-      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
     </ul></li>
     <li><h4>Списки ресурсов</h4></li>
     <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue Curated</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank" rel="noopener">Официальные репозитории</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
     </ul></li>
   </ul>
 </li>
@@ -269,13 +276,16 @@
 <li>
   <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
 </li>
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
 <li class="nav-dropdown-container support-vue">
   <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
       <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
       <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
     </ul></li>
   </ul>
 </li>
@@ -283,13 +293,13 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+    <li><a href="https://vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/examples/hackernews.html" class="nav-link" target="_blank" rel="noopener">Tiếng Việt</a></li>
   </ul>
 </li>
 
@@ -300,7 +310,7 @@
   <div class="main-sponsor">
     <span>Специальный спонсор</span>
     <div>
-    <a href="https://stdlib.com/" target="_blank" class="logo">
+    <a href="https://stdlib.com/" target="_blank" rel="noopener" class="logo">
       <img src="/images/stdlib.png" alt="">
     </a>
     </div>
@@ -311,17 +321,20 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
-    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" rel="noopener" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
-    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="noopener" class="logo">
       <img src="/images/vueschool.png" alt="VueSchool">
     </a>
-    <a href="https://vehikl.com/" target="_blank" class="logo">
+    <a href="https://vehikl.com/" target="_blank" rel="noopener" class="logo">
       <img src="/images/vehikl.png" alt="Vehikl">
     </a>
-    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" rel="noopener" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
+    </a>
+    <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank" rel="noopener" class="logo">
+      <img src="/images/retool.png" alt="Retool">
     </a>
     </div>
   </div>
@@ -435,17 +448,20 @@
   <div class="main-sponsor">
     <span>Платиновые спонсоры</span>
     <div>
-    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+    <a href="https://bit.dev/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" rel="noopener" class="logo">
       <img src="/images/bit.png" alt="Bit">
     </a>
-    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="noopener" class="logo">
       <img src="/images/vueschool.png" alt="VueSchool">
     </a>
-    <a href="https://vehikl.com/" target="_blank" class="logo">
+    <a href="https://vehikl.com/" target="_blank" rel="noopener" class="logo">
       <img src="/images/vehikl.png" alt="Vehikl">
     </a>
-    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" rel="noopener" class="logo">
       <img src="/images/nativescript.png" alt="NativeScript">
+    </a>
+    <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank" rel="noopener" class="logo">
+      <img src="/images/retool.png" alt="Retool">
     </a>
     </div>
   </div>
@@ -515,7 +531,7 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
 </script>
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
-      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/examples/hackernews.md" target="_blank">
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/examples/hackernews.md" rel="noopener" target="_blank">
         Отредактируйте эту страницу на GitHub!
       </a>
     </div>
@@ -531,9 +547,9 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/search.css">
-        <script src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [
           '#search-query-nav',
