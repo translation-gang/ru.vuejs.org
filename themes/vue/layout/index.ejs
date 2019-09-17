@@ -20,7 +20,7 @@
           <%- partial('icons/play') %>
           ПОЧЕМУ VUE.JS?</a>
         <a class="button white" href="<%- url_for("/v2/guide/") %>">НАЧАТЬ ЗНАКОМСТВО</a>
-        <a class="button gray has-icon" href="https://github.com/vuejs/vue" target="_blank">
+        <a class="button gray has-icon" href="https://github.com/vuejs/vue" target="_blank" rel="noopener">
           <%- partial('icons/github-dark') %>
           GITHUB</a>
       </p>
@@ -31,7 +31,7 @@
 <div id="special-sponsor">
   <h3>Специальный спонсор</h3>
   <% var specialSponsor = theme.special_sponsors[0]; %>
-  <a href="<%- specialSponsor.url %>" target="_blank">
+  <a href="<%- specialSponsor.url %>" target="_blank" rel="noopener">
     <img src="<%- url_for(`/images/${specialSponsor.img}`) %>" style="width:160px" alt="Code.xyz Logo">
     <br>
     <span><%- specialSponsor.description %></span>
@@ -75,6 +75,7 @@
       id="revue-form"
       name="revue-form"
       target="_blank"
+      rel="noopener"
       action="https://www.getrevue.co/profile/vuenewsletter/add_subscriber"
       method="post"
       @submit="subscribe"
@@ -96,24 +97,24 @@
       >
     </form>
     <p>
-      Вы можете прочитать предыдущие выпуски и послушать наш подкаст на сайте <a href="https://news.vuejs.org" target="_blank">news.vuejs.org</a>.
+      Вы можете прочитать предыдущие выпуски и послушать наш подкаст на сайте <a href="https://news.vuejs.org" target="_blank" rel="noopener">news.vuejs.org</a>.
     </p>
   </div>
 </div>
 
 <div id="footer">
   <p>
-    <a class="social-icon" href="https://github.com/vuejs/vue" target="_blank">
+    <a class="social-icon" href="https://github.com/vuejs/vue" target="_blank" rel="noopener">
       <%- partial('icons/github') %>
     </a>
-    <a class="social-icon" href="https://twitter.com/vuejs" target="_blank">
+    <a class="social-icon" href="https://twitter.com/vuejs" target="_blank" rel="noopener">
       <%- partial('icons/twitter') %>
     </a>
-    <a class="social-icon" href="https://medium.com/the-vue-point" target="_blank">
+    <a class="social-icon" href="https://medium.com/the-vue-point" target="_blank" rel="noopener">
       <%- partial('icons/medium') %>
     </a>
   </p>
-  <p>Выпускается по <a href="https://opensource.org/licenses/MIT" target="_blank">лицензии MIT</a><br>
+  <p>Выпускается по <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">лицензии MIT</a><br>
   Copyright &copy; 2014-<%- new Date().getFullYear() %> Evan You</p>
 </div>
 
