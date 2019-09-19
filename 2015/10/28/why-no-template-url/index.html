@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="ru">
     <head><meta name="generator" content="Hexo 3.8.0">
@@ -62,6 +63,9 @@
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
+
+        
+
         <script>
           Vue.config.productionTip = false
           window.PAGE_TYPE = ""
@@ -153,29 +157,30 @@
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
       <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
     </ul></li>
-    <li><h4>Списки ресурсов</h4></li>
-    <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank" rel="noopener">Официальные репозитории</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Vue Curated</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
-    </ul></li>
   </ul>
 </li>
 
 <li>
   <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
 </li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+  </ul>
+</li>
+
 <!-- <li>
   <a href="/partners" class="nav-link ">Партнёры</a>
 </li> -->
 <li class="nav-dropdown-container support-vue">
   <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
-    </ul></li>
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
   </ul>
 </li>
 
@@ -263,29 +268,30 @@
       <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
       <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
     </ul></li>
-    <li><h4>Списки ресурсов</h4></li>
-    <li><ul>
-      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank" rel="noopener">Официальные репозитории</a></li>
-      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Vue Curated</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
-    </ul></li>
   </ul>
 </li>
 
 <li>
   <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
 </li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+  </ul>
+</li>
+
 <!-- <li>
   <a href="/partners" class="nav-link ">Партнёры</a>
 </li> -->
 <li class="nav-dropdown-container support-vue">
   <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><ul>
-      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
-      <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
-      <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
-    </ul></li>
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
   </ul>
 </li>
 
@@ -358,10 +364,12 @@
   </div>
 </div>
 <div class="content with-sidebar blog post">
+  
   <div id="ad">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
-  </script>
-</div>
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIK2QU&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
 
   <h1>Why Vue.js doesn't support templateURL</h1>
   <h4>Oct 28, 2015</h4>
