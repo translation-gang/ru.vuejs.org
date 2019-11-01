@@ -1063,6 +1063,7 @@ ul.demo li {
 }
 #team-members .vuer .avatar img {
   border-radius: 50%;
+  object-fit: cover;
 }
 #team-members .vuer .profile {
   padding-left: 26px;
@@ -1274,6 +1275,9 @@ ul.demo li {
 }
 #partners .partner .profile .social a.instagram {
   color: #c13584;
+}
+#partners .partner .profile .social a.youtube {
+  color: #f00;
 }
 #partners .partner .profile .social i {
   vertical-align: text-bottom;
