@@ -22,8 +22,8 @@ WORKDIR /app
 # копируем оба 'package.json' и 'package-lock.json' (если есть)
 COPY package*.json ./
 
-# устанавливаем зависимости проекта
-RUN npm install
+# устанавливаем зависимости проекта за исключением зависимостей для разработки
+RUN npm install --production
 
 # копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')
 COPY . .
@@ -66,7 +66,7 @@ docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/doc
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm install --production
 COPY . .
 RUN npm run build
 
