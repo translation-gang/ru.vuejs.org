@@ -8,6 +8,7 @@ platinum_sponsors_china:
 special_sponsors:
   - url: 'https://stdlib.com/'
     img: stdlib.png
+    name: Standard Library
     description: 'Build APIs you need in minutes instead of days, for free.'
 platinum_sponsors:
   - url: >-
@@ -94,8 +95,8 @@ gold_sponsors:
   - url: 'https://js.devexpress.com/'
     img: devexpress.png
     name: DevExpress
-  - url: 'https://fastcoding.jp/javascript/ '
-    img: fastcoding_inc.svg
+  - url: 'https://fastcoding.jp/javascript/'
+    img: fastcoding_inc.png
     name: FASTCODING Inc
   - url: 'https://usave.co.uk/utilities/broadband'
     img: usave.png
