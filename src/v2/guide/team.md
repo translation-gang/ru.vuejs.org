@@ -29,7 +29,7 @@ order: 803
           <dd>
             <ul>
               <li v-for="repo in profile.reposOfficial">
-                <a :href="githubUrl('vuejs', repo)" target=_blank>{{ repo.name || repo }}</a>
+                <a :href="githubUrl('vuejs', repo)" target="_blank">{{ repo.name || repo }}</a>
               </li>
             </ul>
           </dd>
@@ -39,7 +39,7 @@ order: 803
           <dd>
             <ul>
               <li v-for="repo in profile.reposPersonal">
-                <a :href="githubUrl(profile.github, repo)" target=_blank>{{ repo.name || repo }}</a>
+                <a :href="githubUrl(profile.github, repo)" target="_blank">{{ repo.name || repo }}</a>
               </li>
             </ul>
           </dd>
@@ -91,7 +91,7 @@ order: 803
           <dd>
             <ul>
               <li v-for="link in profile.links">
-                <a :href="link" target=_blank>{{ minimizeLink(link) }}</a>
+                <a :href="link" target="_blank">{{ minimizeLink(link) }}</a>
               </li>
             </ul>
           </dd>
@@ -263,7 +263,8 @@ order: 803
     'Boston, MA, USA': [42.360081, -71.058884],
     'Kyiv, Ukraine': [50.450100, 30.523399],
     'Washington, DC, USA': [38.8935755,-77.0846156,12],
-    'Kraków, Poland': [50.064650, 19.936579]
+    'Kraków, Poland': [50.064650, 19.936579],
+    'Oslo, Norway': [59.911491, 10.757933]
   }
   var languageNameFor = {
     en: 'English',
@@ -282,7 +283,8 @@ order: 803
     fa: 'فارسی',
     ko: '한국어',
     ro: 'Română',
-    uk: 'Українська'
+    uk: 'Українська',
+    no: 'Norwegian'
   }
 
   var team = [{
@@ -1122,6 +1124,22 @@ order: 803
       ],
       links: [
         'https://vuejsfeed.com/', 'https://vueschool.io/'
+      ]
+    },
+    {
+      name: 'Rolf Haug',
+      title: 'Educator & Consultant',
+      city: 'Oslo, Norway',
+      languages: ['en', 'no'],
+      github: 'rahaug',
+      twitter: 'rahaug',
+      work: {
+        role: 'Educator & Co-founder',
+        org: 'Vue School',
+        orgUrl: 'https://vueschool.io/'
+      },
+      links: [
+        'https://vueschool.io/', 'https://rah.no'
       ]
     },
     {

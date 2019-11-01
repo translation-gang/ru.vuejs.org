@@ -6,7 +6,7 @@ order: 302
 
 ## Введение
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/create-vuejs-directive?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Custom Directives lesson">Посмотрите бесплатный урок на Vue School</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/create-vuejs-directive?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Custom Directives lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 Помимо встроенных директив (таких как `v-model` и `v-show`), Vue позволяет использовать ваши собственные. При этом важно понимать, что основным механизмом создания повторно используемого кода во Vue 2.0 всё-таки являются компоненты. Тем не менее, для выполнения низкоуровневых операций с DOM пользовательские директивы могут очень пригодиться. В качестве примера реализуем фокус на элементе input:
 

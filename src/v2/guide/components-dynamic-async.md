@@ -201,7 +201,7 @@ new Vue({
 
 ## Асинхронные компоненты
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/dynamically-load-components?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Async Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/dynamically-load-components?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Async Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 Иногда бывает удобно разделить крупное приложение на части и подгружать компоненты с сервера только тогда, когда в них возникнет потребность. Для этого Vue позволяет определить компонент как функцию-фабрику, асинхронно возвращающую определение компонента. Vue вызовет фабричную функцию только тогда, когда компонент действительно понадобится, и закэширует результат для дальнейшего использования. Например:
 

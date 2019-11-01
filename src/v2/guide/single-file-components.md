@@ -6,7 +6,7 @@ order: 401
 
 ## Введение
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/introduction-to-single-file-components?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Single File Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/introduction-to-single-file-components?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Single File Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 Во многих проектах, глобальные компоненты определяются посредством `Vue.component`, с последующим `new Vue({ el: '#container' })` для указания элемента-контейнера в теле каждой страницы.
 

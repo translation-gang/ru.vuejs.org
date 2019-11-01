@@ -8,7 +8,7 @@ order: 502
 
 Сложность больших приложений нередко возрастает из-за распределения кусочков состояния по многим компонентам и связям между ними. Для решения этой проблемы, Vue предлагает [Vuex](https://github.com/vuejs/vuex): нашу собственную библиотеку управления состоянием, вдохновлённую языком Elm. Она даже интегрируется с [Vue-devtools](https://github.com/vuejs/vue-devtools), из коробки давая доступ к функциональности ["машины времени"](https://raw.githubusercontent.com/vuejs/vue-devtools/master/media/demo.gif).
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/mastering-vuex/intro-to-vuex/" target="_blank" rel="noopener" title="Изучение Vuex">Посмотрите объясняющее видео на Vue Mastery</a></div>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/mastering-vuex/intro-to-vuex/" target="_blank" rel="sponsored noopener" title="Изучение Vuex">Посмотрите объясняющее видео на Vue Mastery</a></div>
 
 ### Информация для React-разработчиков
 

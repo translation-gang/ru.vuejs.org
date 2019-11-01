@@ -8,7 +8,7 @@ order: 6
 
 ## Связывание CSS-классов
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-dynamic-classes?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Dynamic Classes Lesson">Посмотрите бесплатный урок на Vue School</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-dynamic-classes?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Dynamic Classes Lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 ### Использование объектов
 

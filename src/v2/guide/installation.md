@@ -75,7 +75,7 @@ Vue.js предоставляет [официальный инструмента
 
 <p class="tip">CLI — это инструмент для тех, кто знаком с Node.js и соответствующими инструментами сборки. Если вы новичок во Vue или инструментах сборки фронтенда, рекомендуем сначала прочитать <a href="./">руководство</a>, не требующее использования инструментов сборки, а уже потом разбираться с CLI.</p>
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/real-world-vue-js/vue-cli" target="_blank" rel="noopener" title="Vue CLI">Посмотрите объясняющее видео на Vue Mastery</a></div>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/real-world-vue-js/vue-cli" target="_blank" rel="sponsored noopener" title="Vue CLI">Посмотрите объясняющее видео на Vue Mastery</a></div>
 
 ## Объяснение различных сборок
 

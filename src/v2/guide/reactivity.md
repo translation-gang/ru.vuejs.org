@@ -6,7 +6,7 @@ order: 601
 
 Мы уже разобрали большую часть основ, так что пришло время нырнуть поглубже! Одна из наиболее примечательных возможностей Vue — это ненавязчивая реактивность. Модели представляют собой простые JavaScript-объекты. По мере их изменения обновляется и представление данных, благодаря чему управление состоянием приложения становится простым и очевидным. Тем не менее, у механизма реактивности есть ряд особенностей, знакомство с которыми позволит избежать распространённых ошибок. В этом разделе руководства мы подробно рассмотрим низкоуровневую реализацию системы реактивности Vue.
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="noopener" title="Реактивность Vue">Посмотрите объясняющее видео на Vue Mastery</a></div>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="sponsored noopener" title="Реактивность Vue">Посмотрите объясняющее видео на Vue Mastery</a></div>
 
 ## Как отслеживаются изменения
 

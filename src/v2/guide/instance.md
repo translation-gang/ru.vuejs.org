@@ -123,7 +123,7 @@ vm.$watch('a', function (newValue, oldValue) {
 
 ## Хуки жизненного цикла экземпляра
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/understanding-the-vuejs-lifecycle-hooks?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Lifecycle Hooks Lesson">Посмотрите бесплатный урок на Vue School</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/understanding-the-vuejs-lifecycle-hooks?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Lifecycle Hooks Lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 Каждый экземпляр Vue при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые **хуками жизненного цикла**, с помощью которых можно выполнять свой код на определённых этапах.
 

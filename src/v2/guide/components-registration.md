@@ -6,7 +6,7 @@ order: 101
 
 > Подразумевается, что вы уже изучили и разобрались с разделом [Основы компонентов](components.html). Если нет — прочитайте его сначала.
 
-<div class="vueschool"><a href="https://vueschool.io/lessons/global-vs-local-components?friend=vuejs" target="_blank" rel="noopener" title="Free Vue.js Component Registration lesson">Посмотрите бесплатный урок на Vue School</a></div>
+<div class="vueschool"><a href="https://vueschool.io/lessons/global-vs-local-components?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Component Registration lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 ## Именование компонентов
 
