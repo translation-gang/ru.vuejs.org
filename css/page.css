@@ -1505,6 +1505,210 @@ ul.demo li {
   border-bottom: 5px solid transparent;
   border-left: 8px solid #fff;
 }
+.vueschool-weekend-promo.docs .vueschool-banner {
+  z-index: 100;
+}
+.vueschool-banner {
+  display: none;
+  background: #0d0751;
+  overflow: hidden;
+  position: relative;
+  background-image: url("/images/vueschool_banner_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.vueschool-banner:hover:before {
+  transition: width 0.15s ease-in;
+  width: 50%;
+}
+.vueschool-banner:hover p {
+  transition-delay: 0;
+}
+.vueschool-banner a {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+.vueschool-banner .hidden {
+  display: none;
+}
+.vueschool-banner--wrapper {
+  color: #fff;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background: #0d0751;
+  margin-left: -50px;
+  padding-left: 50px;
+  position: relative;
+}
+.vueschool-banner--wrapper:hover + .vueschool-banner--close:before,
+.vueschool-banner--wrapper:hover + .vueschool-banner--close:after {
+  transform-origin: 100%;
+  background: #fff;
+}
+.vueschool-banner--wrapper p {
+  margin: -3px 50px 0 20px;
+  font-size: 1.17rem;
+  font-weight: 600;
+  position: relative;
+  transition-delay: 0.15s;
+}
+.vueschool-banner--wrapper span {
+  font-size: 1rem;
+  display: block;
+  color: #fff;
+}
+.vueschool-banner--wrapper button {
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 32px;
+  background: #ff49c6;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  margin: 0 auto;
+}
+.vueschool-banner--wrapper button:hover {
+  color: #fff;
+}
+.vueschool-banner--logo {
+  position: relative;
+  z-index: 2;
+}
+.vueschool-banner--close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  height: 40px;
+  width: 40px;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.vueschool-banner--close:before,
+.vueschool-banner--close:after {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 14px;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transform-origin: 50%;
+  transform: rotate(-45deg);
+  transition: all 0.2s ease-out;
+}
+.vueschool-banner--close:after {
+  transform: rotate(45deg);
+}
+.vueschool-banner--close:hover:before,
+.vueschool-banner--close:hover:after {
+  transform: rotate(180deg);
+}
+.vueschool-weekend-promo #mobile-bar,
+.vueschool-weekend-promo #mobile-bar.top {
+  position: relative;
+  background-color: #fff;
+}
+.vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) {
+  padding-top: 0;
+}
+.vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #header {
+  position: relative;
+  width: auto;
+}
+.vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #nav {
+  position: absolute;
+}
+.vueschool-weekend-promo.vueschool-menu-fixed #mobile-bar {
+  position: fixed;
+}
+@media screen and (min-width: 901px) {
+  .vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #main.fix-sidebar .sidebar .sidebar-inner {
+    padding-top: 110px;
+  }
+  .vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #sidebar-sponsors-platinum-right {
+    position: absolute;
+    top: 170px;
+  }
+}
+@media screen and (min-width: 415px) and (max-width: 900px) {
+  .vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #main.fix-sidebar .sidebar .sidebar-inner {
+    padding-top: 140px;
+  }
+  .vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #sidebar-sponsors-platinum-right {
+    position: absolute;
+    top: 170px;
+  }
+  .vueschool-menu-fixed.docs .vueschool-banner {
+    margin-bottom: 0;
+  }
+  .vueschool-banner button {
+    display: none;
+  }
+}
+@media screen and (max-width: 414px) {
+  .vueschool-weekend-promo.docs:not(.vueschool-menu-fixed) #main.fix-sidebar .sidebar .sidebar-inner {
+    padding-top: 100px;
+  }
+  .vueschool-banner .vueschool-banner--logo {
+    margin-left: 0;
+  }
+  .vueschool-weekend-promo.vueschool-menu-fixed .vueschool-banner {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .vueschool-banner a {
+    height: 40px;
+    overflow: hidden;
+  }
+  .vueschool-banner .vueschool-banner--logo {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+  .vueschool-banner p,
+  .vueschool-banner span {
+    font-size: 0.8rem;
+  }
+  .vueschool-banner .vueschool-banner--close {
+    top: 0px;
+    right: 0px;
+  }
+  .vueschool-banner .vueschool-banner--close:before,
+  .vueschool-banner .vueschool-banner--close:after {
+    top: 19px;
+    left: 14px;
+    width: 15px;
+    height: 2px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .vueschool-banner p {
+    max-width: 200px;
+  }
+  .vueschool-banner span {
+    display: none;
+  }
+  .vueschool-banner button {
+    display: none;
+  }
+}
+@media screen and (max-width: 286px) {
+  .vueschool-banner p {
+    font-size: 0.6rem;
+    margin: -3px 28px 0 0px;
+  }
+}
+@media print {
+  .vueschool-banner {
+    display: none;
+  }
+}
 .themes-grid {
   display: flex;
   flex-wrap: wrap;

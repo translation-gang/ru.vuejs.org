@@ -87,6 +87,98 @@
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
     <body class="docs">
+        <div id="vs-banner" class="vueschool-banner hide" role="banner">
+    <a href="https://vueschool.io/sales/blackfriday?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=TopBanner&utm_campaign=Black%20Friday" title="Learn Vue.js with Vue School's video courses" target="_blank">
+      <img class="vueschool-banner--logo" src="/images/vueschool_logo.svg" alt="Vue School Logo">
+      <div class="vueschool-banner--wrapper">
+        <p>Black Friday 40% OFF at Vue School<span>Learn Vue.js through video courses.</span></p>
+        <button>Get 40% Off</button>
+      </div>
+      <div id="vs-close" class="vueschool-banner--close"></div>
+    </a>
+  </div>
+
+  <script>
+
+    (function () {
+      // Get elements
+      var elBody = document.getElementsByTagName("body")[0];
+      var elBanner = document.getElementById("vs-banner");
+      var elClose = document.getElementById("vs-close");
+      var elMenu = document.getElementById("mobile-bar");
+      // Variable names
+      var nameWrapper = "vueschool-weekend-promo";
+      var nameFixMenu = "vueschool-menu-fixed";
+      var nameStorage = "vueschool-banner";
+      // Defaults values
+      var isMenuFixed = false;
+      var posMenu = 80;
+      var initBanner = function () {
+        // Add event listeners
+        toggleBannerEvents(true);
+        // Add class to the body to push fixed elements
+        elBody.classList.add(nameWrapper);
+        // Display the banner
+        elBanner.style.display = "block";
+        // Init close button action
+        elClose.onclick = closeBanner;
+        // Get the menu position
+        getMenuPosition();
+        // Check current page offset position
+        isMenuFixed = isUnderBanner();
+        // And position menu accordingly
+        if (isMenuFixed) {
+          elBody.classList.add("fixed");
+        }
+      }
+      var closeBanner = function(e) {
+        // Prevent bubbling event that redirect to vueschool.io
+        e.preventDefault();
+        // Remove events
+        toggleBannerEvents(false);
+        // Hide the banner
+        elBanner.style.display = "none";
+        // Remove class to the body that push fixed elements
+        elBody.classList.remove(nameWrapper);
+        // Save action in the local storage
+        localStorage.setItem(nameStorage, true);
+      }
+      var getMenuPosition = function() {
+        posMenu = elBanner.clientHeight;
+      }
+      var isUnderBanner = function() {
+        return window.pageYOffset > posMenu;
+      }
+      var fixMenuAfterBanner = function() {
+        if (isUnderBanner()) {
+          if (!isMenuFixed) {
+            // The menu will be fixed
+            toggleFixedPosition(true);
+          }
+        } else if (isMenuFixed) {
+          // The menu stay under the banner
+          toggleFixedPosition(false);
+        }
+      }
+      var toggleBannerEvents = function (on) {
+        // Add or remove event listerners attached to the DOM
+        var method = on ? "addEventListener" : "removeEventListener";
+        window[method]("resize", getMenuPosition);
+        window[method]("scroll", fixMenuAfterBanner);
+      }
+      var toggleFixedPosition = function (on) {
+        // Switch between relative and fixed position
+        var method = on ? "add" : "remove";
+        elBody.classList[method](nameFixMenu);
+        isMenuFixed = on;
+      }
+      // Load component according to user preferences
+      if (!localStorage.getItem(nameStorage)) {
+        initBanner();
+      }
+    })()
+  </script>
+
         <div id="mobile-bar">
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
@@ -205,6 +297,7 @@
     <li><a href="https://fr.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank" rel="noopener">Français</a></li>
     <li><a href="https://vi.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank" rel="noopener">Tiếng Việt</a></li>
     <li><a href="https://es.vuejs.org/v2/guide/syntax.html" class="nav-link" target="_blank" rel="noopener">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/guide/syntax.html" class="nav-link" target="_blank" rel="noopener">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -971,7 +1064,7 @@
 <p>Выражение в фигурных скобках будет заменено значением свойства <code>msg</code> соответствующего объекта данных. Кроме того, оно будет обновлено при любом изменении этого свойства.</p>
 <p>Возможно также выполнение интерполяции однократно, которая не обновится при изменении данных — с помощью <a href="../api/#v-once">директивы v-once</a>, но обратите внимание, это повлияет сразу на все связанные переменные в рамках данного элемента:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-once</span>&gt;</span>Это сообщение никогда не изменится: &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
-<h3 id="Сырой-HTML"><a href="#Сырой-HTML" class="headerlink" title="Сырой HTML"></a>Сырой HTML</h3><p>Значение выражения в двойных фигурных скобках подставляется как простой текст, а не как HTML. Для HTML необходимо использовать директиву <code>v-html</code>:</p>
+<h3 id="Сырой-HTML"><a href="#Сырой-HTML" class="headerlink" title="Сырой HTML"></a>Сырой HTML</h3><p>Значение выражения в двойных фигурных скобках подставляется как простой текст, а не как HTML. Для HTML необходимо использовать <a href="../api/#v-html">директиву <code>v-html</code></a>:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Двойные фигурные скобки: &#123;&#123; rawHtml &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Директива v-html: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"rawHtml"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 
@@ -993,7 +1086,7 @@ new Vue({
 <p>Содержимое тега <code>span</code> будет заменено значением свойства <code>rawHtml</code>, интерпретированного как обычный HTML — все привязки данных игнорируются. Запомните, вы не можете использовать <code>v-html</code> для вложения шаблонов друг в друга, потому что движок шаблонов Vue не основывается на строках. Вместо этого нужно использовать компоненты, позволяющие сочетать и переиспользовать элементы UI.</p>
 <p class="tip">Динамическая отрисовка произвольного HTML-кода на вашем сайте крайне опасна, так как может легко привести к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Используйте интерполяцию HTML только для доверенного кода, и <strong>никогда</strong> не подставляйте туда содержимое, создаваемое пользователями.</p>
 
-<h3 id="Атрибуты"><a href="#Атрибуты" class="headerlink" title="Атрибуты"></a>Атрибуты</h3><p>Синтаксис двойных фигурных скобок не работает с HTML-атрибутами. Используйте вместо него <a href="../api/#v-bind">директиву v-bind</a>:</p>
+<h3 id="Атрибуты"><a href="#Атрибуты" class="headerlink" title="Атрибуты"></a>Атрибуты</h3><p>Синтаксис двойных фигурных скобок не работает с HTML-атрибутами. Используйте вместо него <a href="../api/#v-bind">директиву <code>v-bind</code></a>:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"dynamicId"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p>При использовании с булевыми атрибутами (когда их наличие уже означает <code>true</code>) <code>v-bind</code> работает немного иначе. В этом примере:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:disabled</span>=<span class="hljs-string">"isButtonDisabled"</span>&gt;</span>Кнопка<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
