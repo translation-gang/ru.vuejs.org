@@ -6,6 +6,8 @@ order: 5
 
 ## Вычисляемые свойства
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-computed-properties?friend=vuejs" target="_blank" rel="sponsored noopener" title="Узнайте, как работать с вычисляемыми свойствами в бесплатном уроке Vue School">Узнайте, как работать с вычисляемыми свойствами в бесплатном уроке Vue School</a></div>
+
 Встраиваемые в шаблоны выражения удобны, но могут предназначаться только для простых операций. При усложнении логики их труднее поддерживать:
 
 ```html

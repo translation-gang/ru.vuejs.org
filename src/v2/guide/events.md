@@ -4,6 +4,8 @@ type: guide
 order: 9
 ---
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-user-events?friend=vuejs" target="_blank" rel="sponsored noopener" title="Узнайте, как обрабатывать события в бесплатном уроке Vue School">Узнайте, как обрабатывать события в бесплатном уроке Vue School</a></div>
+
 ## Подписка на события
 
 Для подписки на события DOM и выполнения JavaScript-кода по их наступлении используйте директиву `v-on`.

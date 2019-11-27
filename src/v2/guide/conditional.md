@@ -4,6 +4,8 @@ type: guide
 order: 7
 ---
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-conditionals?friend=vuejs" target="_blank" rel="sponsored noopener" title="Узнайте, как работать с условной отрисовкой в бесплатном уроке Vue School">Узнайте, как работать с условной отрисовкой в бесплатном уроке Vue School</a></div>
+
 ## `v-if`
 
 Директива `v-if` используется для рендеринга блока по условию. Блок будет отображаться только в том случае, если выражение директивы возвращает значение, приводимое к true.

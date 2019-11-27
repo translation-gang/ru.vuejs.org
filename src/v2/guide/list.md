@@ -4,6 +4,8 @@ type: guide
 order: 8
 ---
 
+<div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-loops?friend=vuejs" target="_blank" rel="sponsored noopener" title="Узнайте, как работать со списками в бесплатном уроке Vue School">Узнайте, как работать со списками в бесплатном уроке Vue School</a></div>
+
 ## Отображение массива элементов с помощью `v-for`
 
 Используйте директиву `v-for` для отрисовки списка элементов на основе массива данных. У директивы `v-for` особый синтаксис записи: `item in items`, где `items` — исходный массив, а `item` — **ссылка** на текущий элемент массива:
