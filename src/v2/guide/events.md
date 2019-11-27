@@ -157,7 +157,9 @@ new Vue({
 methods: {
   warn: function (message, event) {
     // теперь у нас есть доступ к нативному событию
-    if (event) event.preventDefault()
+    if (event) {
+      event.preventDefault()
+    }
     alert(message)
   }
 }
