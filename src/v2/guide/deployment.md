@@ -95,10 +95,10 @@ module.exports = {
 
 #### Rollup
 
-Используйте [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
+Используйте [@rollup/plugin-replace](https://github.com/rollup/plugins/tree/master/packages/replace):
 
 ```js
-const replace = require('rollup-plugin-replace')
+const replace = require('@rollup/plugin-replace')
 
 rollup({
   // ...
