@@ -520,9 +520,11 @@ test(<span class="hljs-string">'Hello'</span>, () =&gt; &#123;
 describe(<span class="hljs-string">'Foo'</span>, () =&gt; &#123;
   it(<span class="hljs-string">'отрисовывает сообщение и правильно реагирует на пользовательский ввод'</span>, () =&gt; &#123;
     <span class="hljs-keyword">const</span> wrapper = shallowMount(Foo, &#123;
-      <span class="hljs-attr">data</span>: &#123;
-        <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет, мир'</span>,
-        <span class="hljs-attr">username</span>: <span class="hljs-string">''</span>
+      data() &#123;
+        <span class="hljs-keyword">return</span> &#123;
+          <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет, мир'</span>,
+          <span class="hljs-attr">username</span>: <span class="hljs-string">''</span>
+        &#125;
       &#125;
     &#125;)
 
