@@ -291,10 +291,10 @@ Vue.config.keyCodes.f1 = 112
 
 ```html
 <!-- Alt + C -->
-<input @keyup.alt.67="clear">
+<input v-on:keyup.alt.67="clear">
 
 <!-- Ctrl + Click -->
-<div @click.ctrl="doSomething">Сделать что-нибудь</div>
+<div v-on:click.ctrl="doSomething">Сделать что-нибудь</div>
 ```
 
 <p class="tip">Обратите внимание, клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий `keyup` они должны быть нажаты, когда событие генерируется. Другими словами, `keyup.ctrl` сработает только тогда, когда вы отпустите клавишу, удерживая нажатой `ctrl`. Это не сработает, если вы отпустите только клавишу `ctrl`. Если вы хотите такое поведение, используйте `keyCode` для `ctrl` вместо `keyup.17`.</p>
@@ -307,13 +307,13 @@ Vue.config.keyCodes.f1 = 112
 
 ```html
 <!-- сработает, даже если Alt или Shift также нажаты -->
-<button @click.ctrl="onClick">A</button>
+<button v-on:click.ctrl="onClick">A</button>
 
 <!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши -->
-<button @click.ctrl.exact="onCtrlClick">A</button>
+<button v-on:click.ctrl.exact="onCtrlClick">A</button>
 
 <!-- сработает, только когда не нажаты никакие системные модификаторы -->
-<button @click.exact="onClick">A</button>
+<button v-on:click.exact="onClick">A</button>
 ```
 
 ### Модификаторы клавиш мыши
