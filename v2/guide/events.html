@@ -1175,10 +1175,10 @@ Vue.config.keyCodes.f1 = <span class="hljs-number">112</span></code></pre>
 </blockquote>
 <p>Например:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Alt + C --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> @<span class="hljs-attr">keyup.alt.67</span>=<span class="hljs-string">"clear"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup.alt.67</span>=<span class="hljs-string">"clear"</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- Ctrl + Click --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> @<span class="hljs-attr">click.ctrl</span>=<span class="hljs-string">"doSomething"</span>&gt;</span>Сделать что-нибудь<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-on:click.ctrl</span>=<span class="hljs-string">"doSomething"</span>&gt;</span>Сделать что-нибудь<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 <p class="tip">Обратите внимание, клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <code>keyup</code> они должны быть нажаты, когда событие генерируется. Другими словами, <code>keyup.ctrl</code> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <code>ctrl</code>. Это не сработает, если вы отпустите только клавишу <code>ctrl</code>. Если вы хотите такое поведение, используйте <code>keyCode</code> для <code>ctrl</code> вместо <code>keyup.17</code>.</p>
 
 <h3 id="Модификатор-exact"><a href="#Модификатор-exact" class="headerlink" title="Модификатор .exact"></a>Модификатор <code>.exact</code></h3><blockquote>
@@ -1186,13 +1186,13 @@ Vue.config.keyCodes.f1 = <span class="hljs-number">112</span></code></pre>
 </blockquote>
 <p>Модификатор <code>.exact</code> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события.</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- сработает, даже если Alt или Shift также нажаты --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.ctrl</span>=<span class="hljs-string">"onClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click.ctrl</span>=<span class="hljs-string">"onClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.ctrl.exact</span>=<span class="hljs-string">"onCtrlClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click.ctrl.exact</span>=<span class="hljs-string">"onCtrlClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- сработает, только когда не нажаты никакие системные модификаторы --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.exact</span>=<span class="hljs-string">"onClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click.exact</span>=<span class="hljs-string">"onClick"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <h3 id="Модификаторы-клавиш-мыши"><a href="#Модификаторы-клавиш-мыши" class="headerlink" title="Модификаторы клавиш мыши"></a>Модификаторы клавиш мыши</h3><blockquote>
 <p>Добавлено в версии 2.2.0+</p>
 </blockquote>
