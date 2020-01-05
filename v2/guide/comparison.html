@@ -243,11 +243,11 @@
     <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
       <img src="/images/vehikl.png" alt="Vehikl">
     </a>
-    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="/images/nativescript.png" alt="NativeScript">
-    </a>
     <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank" rel="sponsored noopener" class="logo">
       <img src="/images/retool.png" alt="Retool">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/passionate_people.png" alt="Passionate People">
     </a>
     </div>
   </div>
@@ -932,11 +932,11 @@
     <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
       <img src="/images/vehikl.png" alt="Vehikl">
     </a>
-    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="/images/nativescript.png" alt="NativeScript">
-    </a>
     <a href="https://retool.com/?utm_source=sponsor&utm_campaign=vue" target="_blank" rel="sponsored noopener" class="logo">
       <img src="/images/retool.png" alt="Retool">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/passionate_people.png" alt="Passionate People">
     </a>
     </div>
   </div>
@@ -1003,7 +1003,7 @@
 </ul>
 <p>Некоторые утверждают, что важно изучить дополнительный язык DSL (Domain-Specific Language) для написания шаблонов — мы считаем, что эта разница в лучшем случае поверхностна. Во-первых, JSX не означает, что пользователю не нужно ничего учить — это дополнительный синтаксис на основе простого JavaScript, поэтому он прост в освоении для любого, кто знаком с JavaScript, но говорить, что это просто для всех, было бы заблуждением. Точно также шаблон является просто дополнительным синтаксисом поверх простого HTML и, следовательно, имеет очень низкий порог вхождения для тех, кто уже знаком с HTML. С помощью DSL мы также можем помочь пользователю сделать больше с меньшим количеством кода (например, с <code>v-on</code> модификаторами). Похожая задача может включать в себя намного больше кода при использовании простых функций JSX или render-функций.</p>
 <p>На более высоком уровне мы можем разделить компоненты на две категории: презентационные и логические. Мы рекомендуем использовать шаблоны для презентационных компонентов и <code>render</code>-функции / JSX для логических. Процентное соотношение этих компонентов зависит от типа вашего приложения, но обычно презентационные компоненты более распространены.</p>
-<h4 id="Модульный-компонентный-CSS"><a href="#Модульный-компонентный-CSS" class="headerlink" title="Модульный (компонентный) CSS"></a>Модульный (компонентный) CSS</h4><p>За исключением случаев разделения компонентов на несколько файлов (например, посредством <a href="https://github.com/gajus/react-css-modules" target="_blank" rel="noopener">CSS-модулей</a>), для ограничения области видимости CSS в React обычно используется подход CSS-in-JS (например, <a href="https://github.com/styled-components/styled-components" target="_blank" rel="noopener">styled-components</a>, <a href="https://github.com/paypal/glamorous" target="_blank" rel="noopener">glamorous</a> и <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">emotion</a>). Это представляет собой новый компонентно-ориентированный подход к стилизации, который отличается от обычного процесса разработки CSS. Кроме того, несмотря на поддержку извлечения CSS в отдельный файл стилей на этапе сборки, по-прежнему может быть необходимо, чтобы во время выполнения были подключены в сборку для корректной работы стилизации. В то время, как вы получаете доступ к динамичности JavaScript при создании ваших стилей, этот компромисс зачастую увеличивает размер сборки и время исполнения.</p>
+<h4 id="Модульный-компонентный-CSS"><a href="#Модульный-компонентный-CSS" class="headerlink" title="Модульный (компонентный) CSS"></a>Модульный (компонентный) CSS</h4><p>За исключением случаев разделения компонентов на несколько файлов (например, посредством <a href="https://github.com/gajus/react-css-modules" target="_blank" rel="noopener">CSS-модулей</a>), для ограничения области видимости CSS в React обычно используется подход CSS-in-JS (например, <a href="https://github.com/styled-components/styled-components" target="_blank" rel="noopener">styled-components</a> и <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">emotion</a>). Это представляет собой новый компонентно-ориентированный подход к стилизации, который отличается от обычного процесса разработки CSS. Кроме того, несмотря на поддержку извлечения CSS в отдельный файл стилей на этапе сборки, по-прежнему может быть необходимо, чтобы во время выполнения были подключены в сборку для корректной работы стилизации. В то время, как вы получаете доступ к динамичности JavaScript при создании ваших стилей, этот компромисс зачастую увеличивает размер сборки и время исполнения.</p>
 <p>Если вы поклонник подхода CSS-in-JS — многие популярные библиотеки поддерживают Vue (например, <a href="https://github.com/styled-components/vue-styled-components" target="_blank" rel="noopener">styled-components-vue</a> и <a href="https://github.com/egoist/vue-emotion" target="_blank" rel="noopener">vue-emotion</a>). Главным отличием между React и Vue здесь будет то, что по умолчанию стилизация Vue выполняется через знакомые теги <code>style</code> в <a href="single-file-components.html">однофайловых компонентах</a>.</p>
 <p><a href="single-file-components.html">Однофайловые компоненты</a> предоставляют вам полный доступ к CSS в том же файле, что и остальная часть кода вашего компонента.</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
