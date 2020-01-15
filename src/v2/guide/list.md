@@ -364,12 +364,14 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
 Например:
 
 ```html
-<li v-for="n in evenNumbers">{{ n }}</li>
+<ul v-for="set in sets">
+  <li v-for="n in even(set)">{{ n }}</li>
+</ul>
 ```
 
 ```js
 data: {
-  numbers: [ 1, 2, 3, 4, 5 ]
+  sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
 },
 computed: {
   evenNumbers: function () {
