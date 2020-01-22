@@ -792,7 +792,7 @@ components/
 * Поскольку эти компоненты часто используются, вы можете просто сделать их глобальными, а не импортировать их повсюду. Префикс делает это возможным с помощью Webpack:
 
   ```js
-  var requireComponent = require.context('./src', true, /^Base[A-Z]/)
+  var requireComponent = require.context('./src', true, /Base[A-Z]\w+\.(vue|js)$/)
   requireComponent.keys().forEach(function (fileName) {
     var baseComponentConfig = requireComponent(fileName)
     baseComponentConfig = baseComponentConfig.default || baseComponentConfig
