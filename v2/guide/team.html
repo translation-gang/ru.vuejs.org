@@ -1083,7 +1083,7 @@
   <div class="team">
 
     <h2 id="active-core-team-members">
-      Основная команда
+      Активные члены основной команды
       <button v-if="geolocationSupported && !userPosition" @click="getUserPosition" :disabled="isSorting" class="sort-by-distance-button">
         <i v-if="isSorting" class="fa fa-refresh rotating-clockwise"></i>
         <template v-else="">
@@ -1560,7 +1560,7 @@
         orgUrl: 'https://gitlab.com/'
       },
       github: 'NataliaTepluhina',
-      twitter: 'N_Tepluhina'
+      twitter: 'N_Tepluhina',
     },
     {
       name: 'Yosuke Ota',
@@ -1575,29 +1575,43 @@
       },
       reposOfficial: [
         'eslint-plugin-vue'
+      ],
+    },
+    {
+      name: 'Ben Hong',
+      title: 'Proud Ravenclaw Dragon'
+      city: 'Washington, DC, USA',
+      languages: ['en', 'zh'],
+      work: {
+        role: 'Senior Frontend Engineer',
+        org: 'GitLab (Meltano)',
+      },
+      reposOfficial: [
+        'vuejs.org',
+        'vuepress',
+        'vuejs/events'
+      ],
+      github: 'bencodezen',
+      twitter: 'bencodezen',
+      links: [
+        'https://bencodezen.io/'
       ]
-    }
+    },
   ]))
 
   var emeriti = shuffle([
-    {
+     {
       name: 'Chris Fritz',
       title: 'Good Word Putter-Togetherer',
-      city: 'Lansing, MI, USA',
+      city: 'Durham, NC, USA',
       languages: ['en', 'de'],
       github: 'chrisvfritz',
       twitter: 'chrisvfritz',
       work: {
         role: 'Educator & Consultant'
       },
-      reposOfficial: [
-        'vuejs.org', 'vue-migration-helper'
-      ],
       reposPersonal: [
-        'vue-2.0-simple-routing-example', 'vue-ssr-demo-simple'
-      ],
-      links: [
-        'https://www.patreon.com/chrisvuefritz'
+        'vue-enterprise-boilerplate'
       ]
     },
     {
@@ -2023,24 +2037,6 @@
       },
       links: [
         'https://vuejsdevelopers.com'
-      ]
-    },
-    {
-      name: 'Ben Hong',
-      title: '',
-      city: 'Washington, DC, USA',
-      languages: ['en', 'zh'],
-      work: {
-        role: 'Senior Frontend Engineer',
-        org: 'GitLab (Meltano)',
-      },
-      reposOfficial: [
-        'vuejs/events'
-      ],
-      github: 'bencodezen',
-      twitter: 'bencodezen',
-      links: [
-        'https://bencodezen.io/'
       ]
     },
     {
