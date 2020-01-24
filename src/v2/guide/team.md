@@ -123,7 +123,7 @@ order: 803
   <div class="team">
 
     <h2 id="active-core-team-members">
-      Основная команда
+      Активные члены основной команды
       <button
         v-if="geolocationSupported && !userPosition"
         @click="getUserPosition"
@@ -631,7 +631,7 @@ order: 803
         orgUrl: 'https://gitlab.com/'
       },
       github: 'NataliaTepluhina',
-      twitter: 'N_Tepluhina'
+      twitter: 'N_Tepluhina',
     },
     {
       name: 'Yosuke Ota',
@@ -646,7 +646,7 @@ order: 803
       },
       reposOfficial: [
         'eslint-plugin-vue'
-      ]
+      ],
     },
     {
       name: 'Ben Hong',
@@ -671,24 +671,18 @@ order: 803
   ]))
 
   var emeriti = shuffle([
-    {
+     {
       name: 'Chris Fritz',
       title: 'Good Word Putter-Togetherer',
-      city: 'Lansing, MI, USA',
+      city: 'Durham, NC, USA',
       languages: ['en', 'de'],
       github: 'chrisvfritz',
       twitter: 'chrisvfritz',
       work: {
         role: 'Educator & Consultant'
       },
-      reposOfficial: [
-        'vuejs.org', 'vue-migration-helper'
-      ],
       reposPersonal: [
-        'vue-2.0-simple-routing-example', 'vue-ssr-demo-simple'
-      ],
-      links: [
-        'https://www.patreon.com/chrisvuefritz'
+        'vue-enterprise-boilerplate'
       ]
     },
     {
