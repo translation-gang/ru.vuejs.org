@@ -213,7 +213,7 @@ const app = new Vue({
 })
 ```
 
-Как вы можете видеть, мы добавили `validEmail` в качестве нового метода и просто вызываем его из `checkForm`. Вы можете поиграться с этим примером здесь:
+Как вы можете видеть, мы добавили `validEmail` в качестве нового метода и просто вызываем его из `checkForm`. Вы можете поиграть с этим примером здесь:
 
 <p data-height="265" data-theme-id="0" data-slug-hash="vWqNXZ" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 2" class="codepen">Посмотреть Pen <a href="https://codepen.io/cfjedimaster/pen/vWqNXZ/">валидации форм 2</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -327,7 +327,7 @@ const app = new Vue({
 })
 ```
 
-Мы указали итоговую сумму как вычисляемое свойство, и это было достаточно просто реализовать для обхода этой ошибки. Мой метод checkForm теперь просто должен проверять является ли значение total равным 100 им всё. Вы можете поиграться с этим примером здесь:
+Мы указали итоговую сумму как вычисляемое свойство, и это было достаточно просто реализовать для обхода этой ошибки. Мой метод checkForm теперь просто должен проверять является ли значение total равным 100 им всё. Вы можете поиграть с этим примером здесь:
 
 <p data-height="265" data-theme-id="0" data-slug-hash="vWqGoy" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 3" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/vWqGoy/">валидации форм 3</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
