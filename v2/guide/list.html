@@ -1143,7 +1143,7 @@ new Vue({
 <li><code>sort()</code></li>
 <li><code>reverse()</code></li>
 </ul>
-<p>Можете открыть консоль и поиграться с массивом <code>items</code> из предыдущего примера, вызывая его методы внесения изменений, например: <code>example1.items.push({ message: &#39;Baz&#39; })</code>.</p>
+<p>Можете открыть консоль и поиграть с массивом <code>items</code> из предыдущего примера, вызывая его методы внесения изменений, например: <code>example1.items.push({ message: &#39;Baz&#39; })</code>.</p>
 <h3 id="Замены-в-массиве"><a href="#Замены-в-массиве" class="headerlink" title="Замены в массиве"></a>Замены в массиве</h3><p>Методы внесения изменений, как следует из их названия, изменяют оригинальный массив, на котором они вызываются. Существуют и неизменяющие методы, такие как <code>filter()</code>, <code>concat()</code> и <code>slice()</code>, они не вносят изменений в изначальный массив, а <strong>всегда возвращают новый массив</strong>. При работе с неизменяющими методами можно просто заменять старый массив на новый:</p>
 <pre><code class="hljs js">example1.items = example1.items.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>&#123;
   <span class="hljs-keyword">return</span> item.message.match(<span class="hljs-regexp">/Foo/</span>)

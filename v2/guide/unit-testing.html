@@ -984,13 +984,16 @@
     &#125;
   &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<p>Для тестирования компонента нужно просто импортировать его вместе с Vue, и использовать обыкновенные операторы контроля (здесь в качестве примера мы используем операторы контроля <code>expect</code> в стиле Jasmine/Jest):</p>
-<pre><code class="hljs js"><span class="hljs-comment">// Импортируем Vue и тестируемый компонент</span>
-<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
-<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'path/to/MyComponent.vue'</span>
+<p>Затем импортируйте компонент вместе с <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a>, и теперь можно использовать много общих утверждений (здесь используется <code>expect</code> утверждения в стиле Jest в качестве примера):</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Импортируем `shallowMount` из Vue Test Utils и тестируемый компонент</span>
+<span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@vue/test-utils'</span>
+<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'./MyComponent.vue'</span>
 
-<span class="hljs-comment">// Здесь используются тесты Jasmine 2.0, но вы можете</span>
-<span class="hljs-comment">// взять любой тест-раннер и библиотеку для сравнения</span>
+<span class="hljs-comment">// Монтируем компонент</span>
+<span class="hljs-keyword">const</span> wrapper = shallowMount(MyComponent)
+
+<span class="hljs-comment">// Здесь используются тесты Jest, но вы можете</span>
+<span class="hljs-comment">// взять любой тест-раннер/библиотеку для сравнения</span>
 describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
   <span class="hljs-comment">// Проверка опций компонента</span>
   it(<span class="hljs-string">'has a created hook'</span>, () =&gt; &#123;
@@ -1006,15 +1009,12 @@ describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
 
   <span class="hljs-comment">// Анализ экземпляра компонента при монтировании</span>
   it(<span class="hljs-string">'correctly sets the message when created'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(MyComponent).$mount()
-    expect(vm.message).toBe(<span class="hljs-string">'bye!'</span>)
+    expect(wrapper.vm.$data.message).toBe(<span class="hljs-string">'bye!'</span>)
   &#125;)
 
   <span class="hljs-comment">// Монтирование экземпляра и оценка вывода отрисовки</span>
   it(<span class="hljs-string">'renders the correct message'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> Constructor = Vue.extend(MyComponent)
-    <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Constructor().$mount()
-    expect(vm.$el.textContent).toBe(<span class="hljs-string">'bye!'</span>)
+    expect(wrapper.text()).toBe(<span class="hljs-string">'bye!'</span>)
   &#125;)
 &#125;)</code></pre>
 <h2 id="Создание-тестируемых-компонентов"><a href="#Создание-тестируемых-компонентов" class="headerlink" title="Создание тестируемых компонентов"></a>Создание тестируемых компонентов</h2><p>Результат отрисовки компонента по большей части определяется входными параметрами, которые он принимает. В действительности, если вывод отрисовки зависит только от входных параметров компонента, тестирование становится крайне прямолинейным и похожим на контроль возвращаемого значения чистой функции в зависимости от разных аргументов. Рассмотрим надуманный пример:</p>
@@ -1027,40 +1027,42 @@ describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
     <span class="hljs-attr">props</span>: [<span class="hljs-string">'msg'</span>]
   &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<p>Можно проконтролировать вывод отрисовки в зависимости от разных значений входных параметров, используя опцию <code>propsData</code>:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<p>Можно проконтролировать вывод отрисовки в зависимости от разных значений входных параметров, используя <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a>:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@vue/test-utils'</span>
 <span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'./MyComponent.vue'</span>
 
 <span class="hljs-comment">// вспомогательная функция, выполняющая монтирование и</span>
-<span class="hljs-comment">// возвращающая строку с результатами отрисовки</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getRenderedText</span> (<span class="hljs-params">Component, propsData</span>) </span>&#123;
-  <span class="hljs-keyword">const</span> Constructor = Vue.extend(Component)
-  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Constructor(&#123; <span class="hljs-attr">propsData</span>: propsData &#125;).$mount()
-  <span class="hljs-keyword">return</span> vm.$el.textContent
+<span class="hljs-comment">// возвращающая отрисованный компонент</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getMountedComponent</span> (<span class="hljs-params">Component, propsData</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> shallowMount(MyComponent, &#123;
+    propsData
+  &#125;)
 &#125;
 
 describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
   it(<span class="hljs-string">'render correctly with different props'</span>, () =&gt; &#123;
-    expect(getRenderedText(MyComponent, &#123;
-      <span class="hljs-attr">msg</span>: <span class="hljs-string">'Hello'</span>
-    &#125;)).toBe(<span class="hljs-string">'Hello'</span>)
+    expect(
+      getMountedComponent(MyComponent, &#123;
+        <span class="hljs-attr">msg</span>: <span class="hljs-string">'Hello'</span>
+      &#125;).text()
+    ).toBe(<span class="hljs-string">'Hello'</span>)
 
-    expect(getRenderedText(MyComponent, &#123;
-      <span class="hljs-attr">msg</span>: <span class="hljs-string">'Bye'</span>
-    &#125;)).toBe(<span class="hljs-string">'Bye'</span>)
+    expect(
+      getMountedComponent(MyComponent, &#123;
+        <span class="hljs-attr">msg</span>: <span class="hljs-string">'Bye'</span>
+      &#125;).text()
+    ).toBe(<span class="hljs-string">'Bye'</span>)
   &#125;)
 &#125;)</code></pre>
-<h2 id="Контроль-асинхронных-обновлений"><a href="#Контроль-асинхронных-обновлений" class="headerlink" title="Контроль асинхронных обновлений"></a>Контроль асинхронных обновлений</h2><p>Поскольку Vue <a href="reactivity.html#Асинхронная-очередь-обновлений">выполняет обновления DOM асинхронно</a>, контроль результатов обновления DOM в зависимости от изменений состояния компонента должен выполняться в переданном в <code>Vue.nextTick</code> коллбэке:</p>
+<h2 id="Контроль-асинхронных-обновлений"><a href="#Контроль-асинхронных-обновлений" class="headerlink" title="Контроль асинхронных обновлений"></a>Контроль асинхронных обновлений</h2><p>Поскольку Vue <a href="reactivity.html#Асинхронная-очередь-обновлений">выполняет обновления DOM асинхронно</a>, контроль результатов обновления DOM в зависимости от изменений состояния компонента должен выполняться после разрешения <code>vm.$nextTick()</code>:</p>
 <pre><code class="hljs js"><span class="hljs-comment">// Оценить созданный HTML после обновления состояния компонента</span>
-it(<span class="hljs-string">'updates the rendered message when vm.message updates'</span>, done =&gt; &#123;
-  <span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(MyComponent).$mount()
-  vm.message = <span class="hljs-string">'foo'</span>
+it(<span class="hljs-string">'updates the rendered message when wrapper.message updates'</span>, <span class="hljs-keyword">async</span> () =&gt; &#123;
+  <span class="hljs-keyword">const</span> wrapper = shallowMount(MyComponent)
+  wrapper.setData(&#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'foo'</span> &#125;)
 
-  <span class="hljs-comment">// дождаться следующего «тика» перед оценкой состояния DOM</span>
-  Vue.nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
-    expect(vm.$el.textContent).toBe(<span class="hljs-string">'foo'</span>)
-    done()
-  &#125;)
+  <span class="hljs-comment">// Дожидаемся следующего "tick" после изменения состояния перед проверкой изменений в DOM</span>
+  <span class="hljs-keyword">await</span> wrapper.vm.$nextTick()
+  expect(wrapper.text()).toBe(<span class="hljs-string">'foo'</span>)
 &#125;)</code></pre>
 <p>Подробнее о модульном тестировании во Vue, вы можете изучить на <a href="https://vue-test-utils.vuejs.org/ru/" target="_blank" rel="noopener">Vue Test Utils</a> и на странице нашей книги рецептов <a href="../cookbook/unit-testing-vue-components.html">о модульном тестировании компонентов Vue</a>.</p>
 

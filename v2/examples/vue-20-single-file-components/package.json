@@ -1,0 +1,1 @@
+{"name":"vue-20-single-file-components","version":"0.1.0","private":true,"scripts":{"serve":"vue-cli-service serve","build":"vue-cli-service build","lint":"vue-cli-service lint"},"dependencies":{"vue":"^2.6.11"},"devDependencies":{},"browserslist":["> 1%","last 2 versions","not ie 

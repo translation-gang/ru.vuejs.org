@@ -1013,7 +1013,7 @@ var vm = new Vue({
 <pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(vm.reversedMessage) <span class="hljs-comment">// =&gt; 'тевирП'</span>
 vm.message = <span class="hljs-string">'Пока'</span>
 <span class="hljs-built_in">console</span>.log(vm.reversedMessage) <span class="hljs-comment">// =&gt; 'акоП'</span></code></pre>
-<p>Вы можете открыть консоль и поиграться с примером самостоятельно. Значение <code>vm.reversedMessage</code> всегда зависит от значения <code>vm.message</code>.</p>
+<p>Вы можете открыть консоль и поиграть с примером самостоятельно. Значение <code>vm.reversedMessage</code> всегда зависит от значения <code>vm.message</code>.</p>
 <p>В шаблонах можно обращаться к вычисляемым свойствам как и к обычным. Vue знает, что <code>vm.reversedMessage</code> зависит от <code>vm.message</code>, поэтому при обновлении <code>vm.message</code> обновятся и все зависящие от него элементы, в нашем случае обновится <code>vm.reversedMessage</code>. Самое важное — эту зависимость теперь мы указали декларативно: геттер вычисляемого свойства не имеет побочных эффектов, что упрощает понимание кода и его тестирование.</p>
 <h3 id="Кеширование-вычисляемых-свойств"><a href="#Кеширование-вычисляемых-свойств" class="headerlink" title="Кеширование вычисляемых свойств"></a>Кеширование вычисляемых свойств</h3><p>Можно заметить, что такого же результата можно достичь и с помощью метода:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: «&#123;&#123; reverseMessage() &#125;&#125;»<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
