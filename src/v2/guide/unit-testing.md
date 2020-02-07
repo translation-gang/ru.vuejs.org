@@ -29,15 +29,18 @@ order: 402
 </script>
 ```
 
-Для тестирования компонента нужно просто импортировать его вместе с Vue, и использовать обыкновенные операторы контроля (здесь в качестве примера мы используем операторы контроля `expect` в стиле Jasmine/Jest):
+Затем импортируйте компонент вместе с [Vue Test Utils](https://vue-test-utils.vuejs.org/ru/), и теперь можно использовать много общих утверждений (здесь используется `expect` утверждения в стиле Jest в качестве примера):
 
 ```js
-// Импортируем Vue и тестируемый компонент
-import Vue from 'vue'
-import MyComponent from 'path/to/MyComponent.vue'
+// Импортируем `shallowMount` из Vue Test Utils и тестируемый компонент
+import { shallowMount } from '@vue/test-utils'
+import MyComponent from './MyComponent.vue'
 
-// Здесь используются тесты Jasmine 2.0, но вы можете
-// взять любой тест-раннер и библиотеку для сравнения
+// Монтируем компонент
+const wrapper = shallowMount(MyComponent)
+
+// Здесь используются тесты Jest, но вы можете
+// взять любой тест-раннер/библиотеку для сравнения
 describe('MyComponent', () => {
   // Проверка опций компонента
   it('has a created hook', () => {
@@ -53,15 +56,12 @@ describe('MyComponent', () => {
 
   // Анализ экземпляра компонента при монтировании
   it('correctly sets the message when created', () => {
-    const vm = new Vue(MyComponent).$mount()
-    expect(vm.message).toBe('bye!')
+    expect(wrapper.vm.$data.message).toBe('bye!')
   })
 
   // Монтирование экземпляра и оценка вывода отрисовки
   it('renders the correct message', () => {
-    const Constructor = Vue.extend(MyComponent)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.textContent).toBe('bye!')
+    expect(wrapper.text()).toBe('bye!')
   })
 })
 ```
