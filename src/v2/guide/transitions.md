@@ -1244,7 +1244,7 @@ new Vue({
 
 <p class="tip">Важно знать, что FLIP-анимации не работают с элементами, для которых установлен режим позиционирования `display: inline`. Вместо него используйте режим `display: inline-block` или flex-контейнер.</p>
 
-FLIP-анимации не ограничены одной осью. Многомерные массивы могут быть анимированы [столь же просто](https://jsfiddle.net/chrisvfritz/sLrhk1bc/):
+FLIP-анимации не ограничены одной осью. Многомерные массивы могут быть анимированы [столь же просто](https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-list-move-transitions):
 
 {% raw %}
 <div id="sudoku-demo" class="demo">

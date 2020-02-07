@@ -366,7 +366,7 @@ function generatePoints (stats) {
 </style>
 {% endraw %}
 
-См. [этот fiddle](https://jsfiddle.net/chrisvfritz/65gLu2b6/) для просмотра исходного кода.
+См. [этот пример](https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-dynamic-state-transitions) для просмотра исходного кода.
 
 ## Представление переходов как компонентов
 
