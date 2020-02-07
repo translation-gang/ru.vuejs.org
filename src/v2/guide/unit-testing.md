@@ -82,48 +82,50 @@ describe('MyComponent', () => {
 </script>
 ```
 
-Можно проконтролировать вывод отрисовки в зависимости от разных значений входных параметров, используя опцию `propsData`:
+Можно проконтролировать вывод отрисовки в зависимости от разных значений входных параметров, используя [Vue Test Utils](https://vue-test-utils.vuejs.org/ru/):
 
 ```js
-import Vue from 'vue'
+import { shallowMount } from '@vue/test-utils'
 import MyComponent from './MyComponent.vue'
 
 // вспомогательная функция, выполняющая монтирование и
-// возвращающая строку с результатами отрисовки
-function getRenderedText (Component, propsData) {
-  const Constructor = Vue.extend(Component)
-  const vm = new Constructor({ propsData: propsData }).$mount()
-  return vm.$el.textContent
+// возвращающая отрисованный компонент
+function getMountedComponent (Component, propsData) {
+  return shallowMount(MyComponent, {
+    propsData
+  })
 }
 
 describe('MyComponent', () => {
   it('render correctly with different props', () => {
-    expect(getRenderedText(MyComponent, {
-      msg: 'Hello'
-    })).toBe('Hello')
+    expect(
+      getMountedComponent(MyComponent, {
+        msg: 'Hello'
+      }).text()
+    ).toBe('Hello')
 
-    expect(getRenderedText(MyComponent, {
-      msg: 'Bye'
-    })).toBe('Bye')
+    expect(
+      getMountedComponent(MyComponent, {
+        msg: 'Bye'
+      }).text()
+    ).toBe('Bye')
   })
 })
 ```
 
 ## Контроль асинхронных обновлений
 
-Поскольку Vue [выполняет обновления DOM асинхронно](reactivity.html#Асинхронная-очередь-обновлений), контроль результатов обновления DOM в зависимости от изменений состояния компонента должен выполняться в переданном в `Vue.nextTick` коллбэке:
+Поскольку Vue [выполняет обновления DOM асинхронно](reactivity.html#Асинхронная-очередь-обновлений), контроль результатов обновления DOM в зависимости от изменений состояния компонента должен выполняться после разрешения `vm.$nextTick()`:
 
 ```js
 // Оценить созданный HTML после обновления состояния компонента
-it('updates the rendered message when vm.message updates', done => {
-  const vm = new Vue(MyComponent).$mount()
-  vm.message = 'foo'
+it('updates the rendered message when wrapper.message updates', async () => {
+  const wrapper = shallowMount(MyComponent)
+  wrapper.setData({ message: 'foo' })
 
-  // дождаться следующего «тика» перед оценкой состояния DOM
-  Vue.nextTick(() => {
-    expect(vm.$el.textContent).toBe('foo')
-    done()
-  })
+  // Дожидаемся следующего "tick" после изменения состояния перед проверкой изменений в DOM
+  await wrapper.vm.$nextTick()
+  expect(wrapper.text()).toBe('foo')
 })
 ```
 
