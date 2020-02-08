@@ -91,7 +91,7 @@ import MyComponent from './MyComponent.vue'
 // вспомогательная функция, выполняющая монтирование и
 // возвращающая отрисованный компонент
 function getMountedComponent (Component, propsData) {
-  return shallowMount(MyComponent, {
+  return shallowMount(Component, {
     propsData
   })
 }
