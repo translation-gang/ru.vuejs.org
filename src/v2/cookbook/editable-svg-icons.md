@@ -108,7 +108,7 @@ export default {
 
 Хранение иконок в компонентах очень удобно, когда вы хотите их анимировать, особенно при взаимодействии. Встроенные SVG-иконки имеют самую высокую поддержку для какого-либо взаимодействия. Ниже очень простой пример иконки, которая анимируется при клике:
 
-```html
+```vue
 <template>
   <svg
     @click="startScissors"
@@ -118,15 +118,18 @@ export default {
     height="100"
     aria-labelledby="scissors"
     role="presentation"
-    >
+  >
     <title
       id="scissors"
       lang="en"
-    >Анимированная иконка с ножницами</title>
+    >
+      Анимированная иконка с ножницами
+    </title>
     <path
       id="bk"
       fill="#fff"
-      d="M0 0h100v100H0z"/>
+      d="M0 0h100v100H0z"
+    />
     <g ref="leftscissor">
       <path d="M..."/>
       ...
