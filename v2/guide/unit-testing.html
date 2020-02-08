@@ -1034,7 +1034,7 @@ describe(<span class="hljs-string">'MyComponent'</span>, () =&gt; &#123;
 <span class="hljs-comment">// вспомогательная функция, выполняющая монтирование и</span>
 <span class="hljs-comment">// возвращающая отрисованный компонент</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getMountedComponent</span> (<span class="hljs-params">Component, propsData</span>) </span>&#123;
-  <span class="hljs-keyword">return</span> shallowMount(MyComponent, &#123;
+  <span class="hljs-keyword">return</span> shallowMount(Component, &#123;
     propsData
   &#125;)
 &#125;

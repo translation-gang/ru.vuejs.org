@@ -1006,10 +1006,10 @@
 <h4 id="Модульный-компонентный-CSS"><a href="#Модульный-компонентный-CSS" class="headerlink" title="Модульный (компонентный) CSS"></a>Модульный (компонентный) CSS</h4><p>За исключением случаев разделения компонентов на несколько файлов (например, посредством <a href="https://github.com/gajus/react-css-modules" target="_blank" rel="noopener">CSS-модулей</a>), для ограничения области видимости CSS в React обычно используется подход CSS-in-JS (например, <a href="https://github.com/styled-components/styled-components" target="_blank" rel="noopener">styled-components</a> и <a href="https://github.com/emotion-js/emotion" target="_blank" rel="noopener">emotion</a>). Это представляет собой новый компонентно-ориентированный подход к стилизации, который отличается от обычного процесса разработки CSS. Кроме того, несмотря на поддержку извлечения CSS в отдельный файл стилей на этапе сборки, по-прежнему может быть необходимо, чтобы во время выполнения были подключены в сборку для корректной работы стилизации. В то время, как вы получаете доступ к динамичности JavaScript при создании ваших стилей, этот компромисс зачастую увеличивает размер сборки и время исполнения.</p>
 <p>Если вы поклонник подхода CSS-in-JS — многие популярные библиотеки поддерживают Vue (например, <a href="https://github.com/styled-components/vue-styled-components" target="_blank" rel="noopener">styled-components-vue</a> и <a href="https://github.com/egoist/vue-emotion" target="_blank" rel="noopener">vue-emotion</a>). Главным отличием между React и Vue здесь будет то, что по умолчанию стилизация Vue выполняется через знакомые теги <code>style</code> в <a href="single-file-components.html">однофайловых компонентах</a>.</p>
 <p><a href="single-file-components.html">Однофайловые компоненты</a> предоставляют вам полный доступ к CSS в том же файле, что и остальная часть кода вашего компонента.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="undefined">
-  @media (min-width: 250px) &#123;
-    .list-container:hover &#123;
-      background: orange;
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+  @<span class="hljs-keyword">media</span> (min-width: <span class="hljs-number">250px</span>) &#123;
+    <span class="hljs-selector-class">.list-container</span><span class="hljs-selector-pseudo">:hover</span> &#123;
+      <span class="hljs-attribute">background</span>: orange;
     &#125;
   &#125;
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
