@@ -475,34 +475,37 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/Screen%20Shot%202018-01-01%20at%204.51.40%20PM.png" width="450"></p>
 <h2 id="Анимируемые-иконки"><a href="#Анимируемые-иконки" class="headerlink" title="Анимируемые иконки"></a>Анимируемые иконки</h2><p>Хранение иконок в компонентах очень удобно, когда вы хотите их анимировать, особенно при взаимодействии. Встроенные SVG-иконки имеют самую высокую поддержку для какого-либо взаимодействия. Ниже очень простой пример иконки, которая анимируется при клике:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">svg</span>
-    @<span class="hljs-attr">click</span>=<span class="hljs-string">"startScissors"</span>
-    <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span>
-    <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 100 100"</span>
-    <span class="hljs-attr">width</span>=<span class="hljs-string">"100"</span>
-    <span class="hljs-attr">height</span>=<span class="hljs-string">"100"</span>
-    <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"scissors"</span>
-    <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>
-    &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"scissors"</span>
-      <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>
-    &gt;</span>Анимированная иконка с ножницами<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"bk"</span>
-      <span class="hljs-attr">fill</span>=<span class="hljs-string">"#fff"</span>
-      <span class="hljs-attr">d</span>=<span class="hljs-string">"M0 0h100v100H0z"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"leftscissor"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M..."</span>/&gt;</span>
+<pre><code class="hljs vue">&lt;template&gt;
+  &lt;svg
+    @click=&quot;startScissors&quot;
+    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+    viewBox=&quot;0 0 100 100&quot;
+    width=&quot;100&quot;
+    height=&quot;100&quot;
+    aria-labelledby=&quot;scissors&quot;
+    role=&quot;presentation&quot;
+  &gt;
+    &lt;title
+      id=&quot;scissors&quot;
+      lang=&quot;en&quot;
+    &gt;
+      Анимированная иконка с ножницами
+    &lt;/title&gt;
+    &lt;path
+      id=&quot;bk&quot;
+      fill=&quot;#fff&quot;
+      d=&quot;M0 0h100v100H0z&quot;
+    /&gt;
+    &lt;g ref=&quot;leftscissor&quot;&gt;
+      &lt;path d=&quot;M...&quot;/&gt;
       ...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"rightscissor"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M..."</span>/&gt;</span>
+    &lt;/g&gt;
+    &lt;g ref=&quot;rightscissor&quot;&gt;
+      &lt;path d=&quot;M...&quot;/&gt;
       ...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+    &lt;/g&gt;
+  &lt;/svg&gt;
+&lt;/template&gt;</code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; TweenMax, Sine &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'gsap'</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
