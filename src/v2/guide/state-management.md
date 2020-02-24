@@ -19,13 +19,13 @@ order: 502
 Часто упускается из виду тот факт, что «источником истины» во Vue-приложениях является исходный объект `data` — экземпляры Vue всего лишь проксируют доступ к нему. Поэтому состояние, которым должны совместно владеть несколько экземпляров, можно просто передать по ссылке:
 
 ```js
-const sourceOfTruth = {};
+var sourceOfTruth = {};
 
-const vmA = new Vue({
+var vmA = new Vue({
   data: sourceOfTruth
 });
 
-const vmB = new Vue({
+var vmB = new Vue({
   data: sourceOfTruth
 });
 ```
