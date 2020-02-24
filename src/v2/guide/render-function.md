@@ -639,6 +639,4 @@ Vue.component('my-functional-button', {
 
 Возможно, вам будет интересно узнать, что Vue-шаблоны в действительности компилируются в `render`-функцию. Обычно нет необходимости знать подобные детали реализации, но может быть любопытным посмотреть на то, как компилируются те или иные возможности шаблонов. Ниже приведена небольшая демонстрация использования метода `Vue.compile`, который в режиме реального времени компилирует строки шаблонов:
 
-{% raw %}
-<script async src="https://jsfiddle.net/phanan/5h0wx9np/embed/result,js,html/"></script>
-{% endraw %}
+<iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-template-compilation?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light&view=preview" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
