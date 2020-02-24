@@ -91,7 +91,7 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <div id="header">
+        <header id="header">
   <a id="logo" href="/">
     <img src="/images/logo.png" alt="Логотип Vue">
     <span>Vue.js</span>
@@ -211,7 +211,7 @@
 
 
   </ul>
-</div>
+</header>
 
         
             <div id="main" class="fix-sidebar">
@@ -226,8 +226,8 @@
   <div class="main-sponsor">
     <span>Специальный спонсор</span>
     <div>
-    <a href="https://stdlib.com/" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="/images/stdlib.png" alt="Standard Library">
+    <a href="https://autocode.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/autocode.svg" alt="Autocode">
     </a>
     </div>
   </div>
@@ -1006,6 +1006,7 @@ var app = new Vue({
 </script>
 
 <p>Вот мы и создали наше первое Vue-приложение! Выглядит как простая отрисовка шаблона, но «под капотом» Vue выполнил немало работы. Данные и DOM теперь <strong>реактивно</strong> связаны. Как это проверить? Просто откройте консоль JavaScript в браузере (прямо здесь, на этой странице) и задайте свойству <code>app.message</code> новое значение. Вы тут же увидите соответствующее изменение в браузере.</p>
+<p>Обратите внимание, что теперь больше не нужно напрямую взаимодействовать с HTML. Приложение Vue присоединяется к одному элементу DOM (<code>#app</code> в данном случае), а затем полностью контролирует его. HTML является нашей точкой входа, но всё остальное происходит внутри вновь созданного экземпляра Vue.</p>
 <p>Кроме интерполяции текста, можно также связывать атрибуты элементов:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-2"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"message"</span>&gt;</span>

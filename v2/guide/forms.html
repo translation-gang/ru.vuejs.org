@@ -91,7 +91,7 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <div id="header">
+        <header id="header">
   <a id="logo" href="/">
     <img src="/images/logo.png" alt="Логотип Vue">
     <span>Vue.js</span>
@@ -211,7 +211,7 @@
 
 
   </ul>
-</div>
+</header>
 
         
             <div id="main" class="fix-sidebar">
@@ -226,8 +226,8 @@
   <div class="main-sponsor">
     <span>Специальный спонсор</span>
     <div>
-    <a href="https://stdlib.com/" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="/images/stdlib.png" alt="Standard Library">
+    <a href="https://autocode.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/autocode.svg" alt="Autocode">
     </a>
     </div>
   </div>
@@ -1126,7 +1126,7 @@ new Vue({
 })
 </script>
 
-<p class="tip">Если начальное значение выражения <code>v-model</code> не соответствует ни одному из вариантов списка, элемент <code>&lt;select&gt;</code> будет отображаться в «невыбранном» состоянии. В iOS это приведёт к тому, что пользователь не сможет выбрать первый элемент, потому что iOS не сгенерирует событие change в этом случае. Поэтому рекомендуется предоставлять отключённый вариант выбора с пустым значением value, как показано в примере выше.</p>
+<p class="tip">Если начальное значение выражения <code>v-model</code> не соответствует ни одному из вариантов списка, элемент <code>&lt;select&gt;</code> будет отображаться в «невыбранном» состоянии. В iOS это приведёт к тому, что пользователь не сможет выбрать первый элемент, потому что iOS не сгенерирует событие <code>change</code> в этом случае. Поэтому рекомендуется предоставлять отключённый <code>disabled</code>-вариант выбора с пустым значением value, как показано в примере выше.</p>
 
 <p>Выбор нескольких вариантов из списка (с привязкой к массиву):</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"selected"</span> <span class="hljs-attr">multiple</span>&gt;</span>
@@ -1230,10 +1230,10 @@ vm.pick === vm.a</code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// когда выбрано:</span>
 <span class="hljs-keyword">typeof</span> vm.selected <span class="hljs-comment">// =&gt; 'object'</span>
 vm.selected.number <span class="hljs-comment">// =&gt; 123</span></code></pre>
-<h2 id="Модификаторы"><a href="#Модификаторы" class="headerlink" title="Модификаторы"></a>Модификаторы</h2><h3 id="lazy"><a href="#lazy" class="headerlink" title=".lazy"></a><code>.lazy</code></h3><p>По умолчанию <code>v-model</code> синхронизирует ввод с данными по событию <code>input</code> (за исключением <a href="#vmodel-ime-tip">вышеупомянутых</a> событий IME). Можно указать модификатор <code>lazy</code>, чтобы использовать для синхронизации событие <code>change</code>:</p>
+<h2 id="Модификаторы"><a href="#Модификаторы" class="headerlink" title="Модификаторы"></a>Модификаторы</h2><h3 id="lazy"><a href="#lazy" class="headerlink" title=".lazy"></a><code>.lazy</code></h3><p>По умолчанию <code>v-model</code> синхронизирует ввод с данными по событию <code>input</code> (за исключением <a href="#vmodel-ime-tip">вышеупомянутых</a> событий IME). Можно указать модификатор <code>lazy</code>, чтобы использовать для синхронизации <em>после</em> события <code>change</code>:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- синхронизируется по событию "change", а не "input" --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">"msg"</span>&gt;</span></code></pre>
-<h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Для автоматического приведения введённого пользователем к числу, добавьте модификатор <code>number</code>:</p>
+<h3 id="number"><a href="#number" class="headerlink" title=".number"></a><code>.number</code></h3><p>Для автоматического приведения введённого пользователем к Number, добавьте модификатор <code>number</code>:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span></code></pre>
 <p>Зачастую это полезно, потому что даже при указанном атрибуте <code>type=&quot;number&quot;</code> значением поля ввода всегда будет строка. Если значение не удаётся распарсить с помощью <code>parseFloat()</code>, то возвращается оригинальное значение.</p>
 <h3 id="trim"><a href="#trim" class="headerlink" title=".trim"></a><code>.trim</code></h3><p>Если необходимо, чтобы автоматически обрезались пробелы в начале и в конце строки, используйте модификатор <code>trim</code> для полей ввода, обрабатываемых через <code>v-model</code>:</p>
@@ -1241,7 +1241,8 @@ vm.selected.number <span class="hljs-comment">// =&gt; 123</span></code></pre>
 <h2 id="Использование-v-model-с-компонентами"><a href="#Использование-v-model-с-компонентами" class="headerlink" title="Использование v-model с компонентами"></a>Использование <code>v-model</code> с компонентами</h2><blockquote>
 <p>Если вы ещё не знакомы с компонентами Vue, пока просто пропустите эту секцию</p>
 </blockquote>
-<p>Встроенных в HTML элементов ввода не всегда достаточно. К счастью, компоненты Vue позволяют создавать собственные аналоги с полностью настраиваемым поведением. Эти элементы тоже могут работать с директивой <code>v-model</code>. Подробнее в разделе <a href="components.html#Использование-v-model-на-компонентах">пользовательские элементы ввода</a>.</p>
+<p>Встроенных в HTML элементов ввода не всегда достаточно. К счастью, компоненты Vue позволяют создавать собственные аналоги с полностью настраиваемым поведением. Эти элементы тоже могут работать с директивой <code>v-model</code>!</p>
+<p>Подробнее в разделе <a href="components.html#Использование-v-model-на-компонентах">пользовательские элементы ввода</a>.</p>
 
     
     

@@ -91,7 +91,7 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <div id="header">
+        <header id="header">
   <a id="logo" href="/">
     <img src="/images/logo.png" alt="Логотип Vue">
     <span>Vue.js</span>
@@ -211,7 +211,7 @@
 
 
   </ul>
-</div>
+</header>
 
         
             <div id="main" class="fix-sidebar">
@@ -226,8 +226,8 @@
   <div class="main-sponsor">
     <span>Специальный спонсор</span>
     <div>
-    <a href="https://stdlib.com/" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="/images/stdlib.png" alt="Standard Library">
+    <a href="https://autocode.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/autocode.svg" alt="Autocode">
     </a>
     </div>
   </div>
@@ -904,7 +904,8 @@ vm.a <span class="hljs-comment">// 2</span></code></pre>
       <span class="hljs-attr">handler</span>: <span class="hljs-string">'someMethod'</span>,
       <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
     &#125;,
-    <span class="hljs-attr">e</span>: [
+    <span class="hljs-comment">// можно передать массив коллбэков, они будут вызываться один за одним</span>
+    e: [
       <span class="hljs-string">'handle1'</span>,
       <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle2</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
       &#123;

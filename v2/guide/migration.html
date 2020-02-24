@@ -91,7 +91,7 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <div id="header">
+        <header id="header">
   <a id="logo" href="/">
     <img src="/images/logo.png" alt="Логотип Vue">
     <span>Vue.js</span>
@@ -211,7 +211,7 @@
 
 
   </ul>
-</div>
+</header>
 
         
             <div id="main" class="fix-sidebar">
@@ -226,8 +226,8 @@
   <div class="main-sponsor">
     <span>Специальный спонсор</span>
     <div>
-    <a href="https://stdlib.com/" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="/images/stdlib.png" alt="Standard Library">
+    <a href="https://autocode.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/autocode.svg" alt="Autocode">
     </a>
     </div>
   </div>
@@ -1627,14 +1627,14 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <h3 id="Two-Way-Filters-заменён"><a href="#Two-Way-Filters-заменён" class="headerlink" title="Two-Way Filters заменён"></a>Two-Way Filters <sup>заменён</sup></h3><p>Some users have enjoyed using two-way filters with <code>v-model</code> to create interesting inputs with very little code. While <em>seemingly</em> simple however, two-way filters can also hide a great deal of complexity - and even encourage poor UX by delaying state updates. Instead, components wrapping an input are recommended as a more explicit and feature-rich way of creating custom inputs.</p>
 <p>As an example, we’ll now walk the migration of a two-way currency filter:</p>
-<iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/6744xnjk/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-10-two-way-currency-filter?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light" style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-<p>It mostly works well, but the delayed state updates can cause strange behavior. For example, click on the <code>Result</code> tab and try entering <code>9.999</code> into one of those inputs. When the input loses focus, its value will update to <code>$10.00</code>. When looking at the calculated total however, you’ll see that <code>9.999</code> is what’s stored in our data. The version of reality that the user sees is out of sync!</p>
+<p>It mostly works well, but the delayed state updates can cause strange behavior. For example, try entering <code>9.999</code> into one of those inputs. When the input loses focus, its value will update to <code>$10.00</code>. When looking at the calculated total however, you’ll see that <code>9.999</code> is what’s stored in our data. The version of reality that the user sees is out of sync!</p>
 <p>To start transitioning towards a more robust solution using Vue 2.0, let’s first wrap this filter in a new <code>&lt;currency-input&gt;</code> component:</p>
-<iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/943zfbsh/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-10-two-way-currency-filter-v2?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light" style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <p>This allows us add behavior that a filter alone couldn’t encapsulate, such as selecting the content of an input on focus. Now the next step will be to extract the business logic from the filter. Below, we pull everything out into an external <a href="https://gist.github.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e" target="_blank" rel="noopener"><code>currencyValidator</code> object</a>:</p>
-<iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/9c32kev2/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-10-two-way-currency-filter-v3?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light" style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <p>This increased modularity not only makes it easier to migrate to Vue 2, but also allows currency parsing and formatting to be:</p>
 <ul>
@@ -1643,7 +1643,7 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 </ul>
 <p>Having this validator extracted out, we’ve also more comfortably built it up into a more robust solution. The state quirks have been eliminated and it’s actually impossible for users to enter anything wrong, similar to what the browser’s native number input tries to do.</p>
 <p>We’re still limited however, by filters and by Vue 1.0 in general, so let’s complete the upgrade to Vue 2.0:</p>
-<iframe width="100%" height="300" src="https://jsfiddle.net/chrisvfritz/1oqjojjx/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-two-way-currency-filter?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light" style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <p>You may notice that:</p>
 <ul>
