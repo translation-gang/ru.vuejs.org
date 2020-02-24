@@ -1,108 +1,110 @@
-<div class="sidebar">
-  <div class="sidebar-inner-index">
-    <ul class="main-menu">
-      <%- partial('partials/main_menu', { context: 'sidebar' }) %>
-    </ul>
+<main role="main">
+  <div class="sidebar">
+    <div class="sidebar-inner-index">
+      <ul class="main-menu">
+        <%- partial('partials/main_menu', { context: 'sidebar' }) %>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div id="hero">
-  <div class="inner">
-    <div class="left">
-      <img class="hero-logo" src="<%- url_for("/images/logo.png") %>" alt="Логотип Vue">
-    </div><div class="right">
-      <h2 class="vue">Vue.js</h2>
-      <h1>
-        Прогрессивный<br>JavaScript-фреймворк
-      </h1>
-      <p>
-        <a id="modal-player" class="button has-icon" href="javascript:;">
-          <%- partial('icons/play') %>
+  <div id="hero">
+    <div class="inner">
+      <div class="left">
+        <img class="hero-logo" src="<%- url_for("/images/logo.png") %>" alt="Логотип Vue">
+      </div><div class="right">
+        <h2 class="vue">Vue.js</h2>
+        <h1>
+          Прогрессивный<br>JavaScript-фреймворк
+        </h1>
+        <p>
+          <a id="modal-player" class="button has-icon" href="javascript:;">
+            <%- partial('icons/play') %>
           ПОЧЕМУ VUE.JS?</a>
-        <a class="button white" href="<%- url_for("/v2/guide/") %>">НАЧАТЬ ЗНАКОМСТВО</a>
-        <a class="button gray has-icon" href="https://github.com/vuejs/vue" target="_blank" rel="noopener">
-          <%- partial('icons/github-dark') %>
-          GITHUB</a>
-      </p>
+          <a class="button white" href="<%- url_for("/v2/guide/") %>">НАЧАТЬ ЗНАКОМСТВО</a>
+          <a class="button gray has-icon" href="https://github.com/vuejs/vue" target="_blank" rel="noopener">
+            <%- partial('icons/github-dark') %>
+            GITHUB</a>
+        </p>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="special">
-  <h3>Специальный спонсор</h3>
-  <% var specialSponsor = theme.special_sponsors[0]; %>
-  <a href="<%- specialSponsor.url %>" target="_blank" rel="noopener sponsored">
-    <img src="<%- url_for(`/images/${specialSponsor.img}`) %>" style="width:160px" alt="Code.xyz Logo">
-    <br>
-    <span><%- specialSponsor.description %></span>
-  </a>
-</div>
+  <div id="special">
+    <h3>Специальный спонсор</h3>
+    <% var specialSponsor = theme.special_sponsors[0]; %>
+    <a href="<%- specialSponsor.url %>" target="_blank" rel="noopener sponsored">
+      <img src="<%- url_for(`/images/${specialSponsor.img}`) %>" style="width:160px" alt="Code.xyz Logo">
+      <br>
+      <span><%- specialSponsor.description %></span>
+    </a>
+  </div>
 
-<div id="highlights">
-  <div class="inner">
-    <div class="point">
-      <h2>Доступный</h2>
-      <p>Уже знаете HTML, CSS и&nbsp;JavaScript? Освойте короткое руководство&nbsp;— и&nbsp;вперёд!</p>
+  <div id="highlights">
+    <div class="inner">
+      <div class="point">
+        <h2>Доступный</h2>
+        <p>Уже знаете HTML, CSS и&nbsp;JavaScript? Освойте короткое руководство&nbsp;— и&nbsp;вперёд!</p>
+      </div>
+
+      <div class="point">
+        <h2>Разносторонний</h2>
+        <p>Постепенно внедряемая экосистема, которая масштабируется из&nbsp;библиотеки в&nbsp;полнофункциональный фреймворк.</p>
+      </div>
+
+      <div class="point">
+        <h2>Производительный</h2>
+        <p>
+          Всего 20&nbsp;КБ (min+gzip)<br>
+          Быстрый виртуальный&nbsp;DOM<br>
+          Оптимизация без сложностей
+        </p>
+      </div>
     </div>
+  </div>
 
-    <div class="point">
-      <h2>Разносторонний</h2>
-      <p>Постепенно внедряемая экосистема, которая масштабируется из&nbsp;библиотеки в&nbsp;полнофункциональный фреймворк.</p>
+  <div id="sponsors">
+    <div class="inner">
+      <%- partial('partials/sponsors') %>
     </div>
+  </div>
 
-    <div class="point">
-      <h2>Производительный</h2>
+  <div id="news">
+    <div class="inner">
+      <h3><label for="member_email">Подпишитесь на нашу еженедельную рассылку (на английском)</label></h3>
+      <form
+        class="newsletter-form"
+        id="revue-form"
+        name="revue-form"
+        target="_blank"
+        rel="noopener"
+        action="https://www.getrevue.co/profile/vuenewsletter/add_subscriber"
+        method="post"
+        @submit="subscribe"
+      >
+        <input
+          class="newsletter-input"
+          type="email"
+          name="member[email]"
+          id="member_email"
+          required
+          placeholder="Адрес электронной почты"
+        >
+        <input
+          class="button newsletter-button"
+          type="submit"
+          value="Подписаться"
+          name="member[subscribe]"
+          id="member_submit"
+        >
+      </form>
       <p>
-        Всего 20&nbsp;КБ (min+gzip)<br>
-        Быстрый виртуальный&nbsp;DOM<br>
-        Оптимизация без сложностей
+        Вы можете прочитать предыдущие выпуски и послушать наш подкаст на сайте <a href="https://news.vuejs.org" target="_blank" rel="noopener">news.vuejs.org</a>.
       </p>
     </div>
   </div>
-</div>
+</main>
 
-<div id="sponsors">
-  <div class="inner">
-    <%- partial('partials/sponsors') %>
-  </div>
-</div>
-
-<div id="news">
-  <div class="inner">
-    <h3><label for="member_email">Подпишитесь на нашу еженедельную рассылку (на английском)</label></h3>
-    <form
-      class="newsletter-form"
-      id="revue-form"
-      name="revue-form"
-      target="_blank"
-      rel="noopener"
-      action="https://www.getrevue.co/profile/vuenewsletter/add_subscriber"
-      method="post"
-      @submit="subscribe"
-    >
-      <input
-        class="newsletter-input"
-        type="email"
-        name="member[email]"
-        id="member_email"
-        required
-        placeholder="Адрес электронной почты"
-      >
-      <input
-        class="button newsletter-button"
-        type="submit"
-        value="Подписаться"
-        name="member[subscribe]"
-        id="member_submit"
-      >
-    </form>
-    <p>
-      Вы можете прочитать предыдущие выпуски и послушать наш подкаст на сайте <a href="https://news.vuejs.org" target="_blank" rel="noopener">news.vuejs.org</a>.
-    </p>
-  </div>
-</div>
-
-<div id="footer">
+<footer id="footer" role="contentinfo">
   <p>
     <a class="social-icon" href="https://github.com/vuejs/vue" target="_blank" rel="noopener">
       <%- partial('icons/github') %>
@@ -116,7 +118,7 @@
   </p>
   <p>Выпускается по <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">лицензии MIT</a><br>
   Copyright &copy; 2014-<%- new Date().getFullYear() %> Evan You</p>
-</div>
+</footer>
 
 <div id="video-modal" class="modal">
   <div class="video-space" style="padding: 56.25% 0 0 0; position: relative;">
@@ -130,7 +132,7 @@
   </div>
   <script src="https://player.vimeo.com/api/player.js"></script>
   <p class="modal-text">
-    Видео
+    Video by
     <a
       href="https://www.vuemastery.com"
       target="_blank"
