@@ -686,6 +686,7 @@ type: api
         handler: 'someMethod',
         immediate: true
       },
+      // можно передать массив коллбэков, они будут вызываться один за одним
       e: [
         'handle1',
         function handle2 (val, oldVal) { /* ... */ },
