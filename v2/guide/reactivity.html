@@ -1017,38 +1017,6 @@ vm.items.splice(indexOfItem, <span class="hljs-number">1</span>, newValue)</code
 <pre><code class="hljs js">vm.$set(vm.items, indexOfItem, newValue)</code></pre>
 <p>Для решения второй проблемы используйте <code>splice</code>:</p>
 <pre><code class="hljs js">vm.items.splice(newLength)</code></pre>
-<h2 id="Предостережения-об-изменениях-объектов"><a href="#Предостережения-об-изменениях-объектов" class="headerlink" title="Предостережения об изменениях объектов"></a>Предостережения об изменениях объектов</h2><p>Опять же, из-за ограничений JavaScript, <strong>Vue не может обнаружить добавление или удаление свойств</strong>. Например:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
-  &#125;
-&#125;)
-<span class="hljs-comment">// свойство `vm.a` реактивно</span>
-
-vm.b = <span class="hljs-number">2</span>
-<span class="hljs-comment">// свойство `vm.b` НЕ реактивно</span></code></pre>
-<p>Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода <code>Vue.set(object, propertyName, value)</code>. Например, для следующего:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">userProfile</span>: &#123;
-      <span class="hljs-attr">name</span>: <span class="hljs-string">'Anika'</span>
-    &#125;
-  &#125;
-&#125;)</code></pre>
-<p>Можно добавить новое свойство <code>age</code> для вложенного объекта <code>userProfile</code>:</p>
-<pre><code class="hljs js">Vue.set(vm.userProfile, <span class="hljs-string">'age'</span>, <span class="hljs-number">27</span>)</code></pre>
-<p>Также можно использовать метод экземпляра <code>vm.$set</code>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
-<pre><code class="hljs js">vm.$set(vm.userProfile, <span class="hljs-string">'age'</span>, <span class="hljs-number">27</span>)</code></pre>
-<p>Иногда может потребоваться добавить ряд новых свойств существующему объекту, например, используя <code>Object.assign()</code> или <code>_.extend()</code>. В таких случаях, нужно создать новый объект со свойствами обоих объектов. Поэтому вместо:</p>
-<pre><code class="hljs js"><span class="hljs-built_in">Object</span>.assign(vm.userProfile, &#123;
-  <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
-  <span class="hljs-attr">favoriteColor</span>: <span class="hljs-string">'Vue Green'</span>
-&#125;)</code></pre>
-<p>Следует добавлять новые реактивные свойства таким образом:</p>
-<pre><code class="hljs js">vm.userProfile = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;
-  <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
-  <span class="hljs-attr">favoriteColor</span>: <span class="hljs-string">'Vue Green'</span>
-&#125;)</code></pre>
 <h2 id="Объявление-реактивных-свойств"><a href="#Объявление-реактивных-свойств" class="headerlink" title="Объявление реактивных свойств"></a>Объявление реактивных свойств</h2><p>Поскольку Vue не позволяет динамически добавлять корневые реактивные свойства, это означает, что все корневые поля необходимо инициализировать изначально, хотя бы пустыми значениями:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">data</span>: &#123;
