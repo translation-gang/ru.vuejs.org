@@ -12,7 +12,7 @@ order: 8
 
 ```html
 <ul id="example-1">
-  <li v-for="item in items">
+  <li v-for="item in items" :key="item.message">
     {{ item.message }}
   </li>
 </ul>
@@ -34,8 +34,8 @@ var example1 = new Vue({
 
 {% raw %}
 <ul id="example-1" class="demo">
-  <li v-for="item in items">
-    {{item.message}}
+  <li v-for="item in items" :key="item.message">
+    {{ item.message }}
   </li>
 </ul>
 <script>
