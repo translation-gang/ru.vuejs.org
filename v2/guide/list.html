@@ -249,6 +249,9 @@
     <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
       <img src="/images/passionate_people.png" alt="Passionate People">
     </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/storyblok.png" alt="Storyblok">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -938,6 +941,9 @@
     <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
       <img src="/images/passionate_people.png" alt="Passionate People">
     </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="/images/storyblok.png" alt="Storyblok">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -968,7 +974,7 @@
 
 <h2 id="Отображение-массива-элементов-с-помощью-v-for"><a href="#Отображение-массива-элементов-с-помощью-v-for" class="headerlink" title="Отображение массива элементов с помощью v-for"></a>Отображение массива элементов с помощью <code>v-for</code></h2><p>Используйте директиву <code>v-for</code> для отрисовки списка элементов на основе массива данных. У директивы <code>v-for</code> особый синтаксис записи: <code>item in items</code>, где <code>items</code> — исходный массив, а <code>item</code> — <strong>ссылка</strong> на текущий элемент массива:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-1"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.message"</span>&gt;</span>
     &#123;&#123; item.message &#125;&#125;
   <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
@@ -984,8 +990,8 @@
 <p>Результат:</p>
 
 <ul id="example-1" class="demo">
-  <li v-for="item in items">
-    {{item.message}}
+  <li v-for="item in items" :key="item.message">
+    {{ item.message }}
   </li>
 </ul>
 <script>
@@ -1149,62 +1155,21 @@ new Vue({
   <span class="hljs-keyword">return</span> item.message.match(<span class="hljs-regexp">/Foo/</span>)
 &#125;)</code></pre>
 <p>Можно предположить, что Vue придётся выбросить существующий DOM и заново отрисовать список целиком, но, к счастью, это не так. Во Vue есть умные эвристики для максимизации переиспользования элементов DOM, поэтому замена одного массива другим, в случае совпадения части элементов этих массивов, будет очень эффективной операцией.</p>
-<h3 id="Предостережения"><a href="#Предостережения" class="headerlink" title="Предостережения"></a>Предостережения</h3><p>Из-за ограничений JavaScript, Vue <strong>не способен</strong> отследить следующие изменения в массиве:</p>
-<ol>
-<li>Прямую установку элемента по индексу: <code>vm.items[indexOfItem] = newValue</code></li>
-<li>Явное изменение длины массива: <code>vm.items.length = newLength</code></li>
-</ol>
-<p>Например:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">items</span>: [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]
-  &#125;
-&#125;)
-vm.items[<span class="hljs-number">1</span>] = <span class="hljs-string">'x'</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span>
-vm.items.length = <span class="hljs-number">2</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span></code></pre>
-<p>Решить первую проблему можно двумя способами, оба дадут эффект аналогичный <code>vm.items[indexOfItem] = newValue</code>, плюс запустят реактивные обновления состояния приложения:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// Использовать Vue.set</span>
-Vue.set(vm.items, indexOfItem, newValue)</code></pre>
-<pre><code class="hljs js"><span class="hljs-comment">// Использовать Array.prototype.splice</span>
-vm.items.splice(indexOfItem, <span class="hljs-number">1</span>, newValue)</code></pre>
-<p>Можно использовать метод экземпляра <a href="https://ru.vuejs.org/v2/api/#vm-set" target="_blank" rel="noopener"><code>vm.$set</code></a>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
-<pre><code class="hljs js">vm.$set(vm.items, indexOfItem, newValue)</code></pre>
-<p>Для решения второй проблемы используйте <code>splice</code>:</p>
-<pre><code class="hljs js">vm.items.splice(newLength)</code></pre>
-<h2 id="Предостережения-об-изменениях-объектов"><a href="#Предостережения-об-изменениях-объектов" class="headerlink" title="Предостережения об изменениях объектов"></a>Предостережения об изменениях объектов</h2><p>Опять же, из-за ограничений JavaScript, <strong>Vue не может обнаружить добавление или удаление свойств</strong>. Например:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
-  &#125;
-&#125;)
-<span class="hljs-comment">// свойство `vm.a` реактивно</span>
-
-vm.b = <span class="hljs-number">2</span>
-<span class="hljs-comment">// свойство `vm.b` НЕ реактивно</span></code></pre>
-<p>Vue не позволяет динамически добавлять новые реактивные свойства на корневом уровне уже созданного экземпляра. Тем не менее, можно добавить реактивные свойства к вложенному объекту с помощью метода <code>Vue.set(object, propertyName, value)</code>. Например, для следующего:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">userProfile</span>: &#123;
-      <span class="hljs-attr">name</span>: <span class="hljs-string">'Anika'</span>
-    &#125;
-  &#125;
-&#125;)</code></pre>
-<p>Можно добавить новое свойство <code>age</code> для вложенного объекта <code>userProfile</code>:</p>
-<pre><code class="hljs js">Vue.set(vm.userProfile, <span class="hljs-string">'age'</span>, <span class="hljs-number">27</span>)</code></pre>
-<p>Также можно использовать метод экземпляра <code>vm.$set</code>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
-<pre><code class="hljs js">vm.$set(vm.userProfile, <span class="hljs-string">'age'</span>, <span class="hljs-number">27</span>)</code></pre>
-<p>Иногда может потребоваться добавить ряд новых свойств существующему объекту, например, используя <code>Object.assign()</code> или <code>_.extend()</code>. В таких случаях, нужно создать новый объект со свойствами обоих объектов. Поэтому вместо:</p>
-<pre><code class="hljs js"><span class="hljs-built_in">Object</span>.assign(vm.userProfile, &#123;
-  <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
-  <span class="hljs-attr">favoriteColor</span>: <span class="hljs-string">'Vue Green'</span>
-&#125;)</code></pre>
-<p>Следует добавлять новые реактивные свойства таким образом:</p>
-<pre><code class="hljs js">vm.userProfile = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, vm.userProfile, &#123;
-  <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
-  <span class="hljs-attr">favoriteColor</span>: <span class="hljs-string">'Vue Green'</span>
-&#125;)</code></pre>
+<h3 id="Предостережения"><a href="#Предостережения" class="headerlink" title="Предостережения"></a>Предостережения</h3><p>Вследствие ограничений JavaScript, есть виды изменений, которые Vue <strong>не может обнаружить</strong> при работе с массивами и объектами. Это обсуждается в разделе <a href="reactivity.html#Особенности-отслеживания-изменений">реактивности</a>.</p>
 <h2 id="Отображение-отфильтрованных-отсортированных-результатов"><a href="#Отображение-отфильтрованных-отсортированных-результатов" class="headerlink" title="Отображение отфильтрованных/отсортированных результатов"></a>Отображение отфильтрованных/отсортированных результатов</h2><p>Иногда хочется отобразить отфильтрованную или отсортированную версию массива, не изменяя оригинальные данные. В таком случае создайте вычисляемое свойство, возвращающее отфильтрованный или отсортированный массив.</p>
 <p>Например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
+<pre><code class="hljs js">data: &#123;
+  <span class="hljs-attr">numbers</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ]
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">even</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>&#123;
+    <span class="hljs-keyword">return</span> numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
+      <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>
+    &#125;)
+  &#125;
+&#125;</code></pre>
+<p>В ситуациях, когда вычисляемые свойства невозможно использовать (например, внутри вложенных циклов <code>v-for</code>), просто используйте метод:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"set in sets"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"n in even(set)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
@@ -1214,18 +1179,6 @@ vm.b = <span class="hljs-number">2</span>
 <span class="hljs-attr">computed</span>: &#123;
   <span class="hljs-attr">even</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
-      <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>
-    &#125;)
-  &#125;
-&#125;</code></pre>
-<p>В ситуациях, когда вычисляемые свойства невозможно использовать (например, внутри вложенных циклов <code>v-for</code>), просто используйте метод:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"n in even(numbers)"</span>&gt;</span>&#123;&#123; n &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">numbers</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ]
-&#125;,
-<span class="hljs-attr">methods</span>: &#123;
-  <span class="hljs-attr">even</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>&#123;
-    <span class="hljs-keyword">return</span> numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
       <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>
     &#125;)
   &#125;
