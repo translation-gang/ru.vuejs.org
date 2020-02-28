@@ -364,6 +364,25 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
 Например:
 
 ```html
+<li v-for="n in even(numbers)">{{ n }}</li>
+```
+
+```js
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+methods: {
+  even: function (numbers) {
+    return numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+
+В ситуациях, когда вычисляемые свойства невозможно использовать (например, внутри вложенных циклов `v-for`), просто используйте метод:
+
+```html
 <ul v-for="set in sets">
   <li v-for="n in even(set)">{{ n }}</li>
 </ul>
@@ -376,25 +395,6 @@ data: {
 computed: {
   even: function () {
     return this.numbers.filter(function (number) {
-      return number % 2 === 0
-    })
-  }
-}
-```
-
-В ситуациях, когда вычисляемые свойства невозможно использовать (например, внутри вложенных циклов `v-for`), просто используйте метод:
-
-```html
-<li v-for="n in even(numbers)">{{ n }}</li>
-```
-
-```js
-data: {
-  numbers: [ 1, 2, 3, 4, 5 ]
-},
-methods: {
-  even: function (numbers) {
-    return numbers.filter(function (number) {
       return number % 2 === 0
     })
   }
