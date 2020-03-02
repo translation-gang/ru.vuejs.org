@@ -1162,7 +1162,7 @@ new Vue({
 <pre><code class="hljs js">data: &#123;
   <span class="hljs-attr">numbers</span>: [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ]
 &#125;,
-<span class="hljs-attr">methods</span>: &#123;
+<span class="hljs-attr">computed</span>: &#123;
   <span class="hljs-attr">evenNumbers</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
       <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>
@@ -1176,7 +1176,7 @@ new Vue({
 <pre><code class="hljs js">data: &#123;
   <span class="hljs-attr">sets</span>: [[ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ], [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>]]
 &#125;,
-<span class="hljs-attr">computed</span>: &#123;
+<span class="hljs-attr">methods</span>: &#123;
   <span class="hljs-attr">even</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>&#123;
     <span class="hljs-keyword">return</span> numbers.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number</span>) </span>&#123;
       <span class="hljs-keyword">return</span> number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>

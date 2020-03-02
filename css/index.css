@@ -464,7 +464,7 @@ body.docs #nav {
   border-bottom: 3px solid transparent;
   position: absolute;
   top: 50%;
-  margin-top: -4px;
+  transform: translateY(-50%);
   left: 8px;
 }
 #nav .nav-dropdown .nav-link.new::before {
