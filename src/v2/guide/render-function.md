@@ -439,6 +439,7 @@ render: function (createElement) {
 
 ```js
 render: function (createElement) {
+  // `<div><child v-slot="props"><span>{{ props.text }}</span></child></div>`
   return createElement('div', [
     createElement('child', {
       // передаём `scopedSlots` в объект data
