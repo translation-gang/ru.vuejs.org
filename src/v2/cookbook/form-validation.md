@@ -334,20 +334,24 @@ const app = new Vue({
 
 ## Валидация на стороне сервера
 
-В последнем примере мы построили что-то, что использует Ajax для валидации на сервере. Форма предложит назвать новый продукт и затем проверит, чтобы имя было уникальным. Мы быстро накидали [OpenWhisk](http://openwhisk.apache.org/) serverless действие для этой валидации. Хотя это не очень важно, вот эта логика:
+В последнем примере мы построили что-то, что использует Ajax для валидации на сервере. Форма предложит назвать новый продукт и затем проверит, чтобы имя было уникальным. Мы быстро накидали [Netlify](https://netlify.com/) serverless действие для этой валидации. Хотя это не очень важно, вот эта логика:
 
 ```js
-function main(args) {
-  return new Promise((resolve, reject) => {
-    // плохие имена продуктов: vista, empire, mbp
-    let badNames = ['vista','empire','mbp'];
+exports.handler = async (event, context) => {
 
-    if (badNames.includes(args.name)) {
-      reject({ error: 'Существующий продукт' });
+  const badNames = ['vista', 'empire', 'mbp'];
+  const name = event.queryStringParameters.name;
+
+  if (badNames.includes(name)) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({error: 'Invalid name passed.'})
     }
+  }
 
-    resolve({ status: 'ok' });
-  });
+  return {
+    statusCode: 204
+  }
 }
 ```
 
@@ -390,7 +394,7 @@ function main(args) {
 Здесь нет ничего особенного. Давайте посмотрим на JavaScript.
 
 ```js
-const apiUrl = 'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/productName.json?name=';
+const apiUrl = 'https://vuecookbook.netlify.com/.netlify/functions/product-name?name=';
 
 const app = new Vue({
   el: '#app',
@@ -408,13 +412,12 @@ const app = new Vue({
         this.errors.push('Укажите имя продукта.');
       } else {
         fetch(apiUrl + encodeURIComponent(this.name))
-          .then(res => res.json())
-          .then(res => {
-            if (res.error) {
-              this.errors.push(res.error);
-            } else {
-              // перенаправляем на новый URL, или делаем что-либо при успехе
-              alert('ok!');
+          .then(async res => {
+            if (res.status === 204) {
+              alert('OK');
+            } else if (res.status === 400) {
+              let errorResponse = await res.json();
+              this.errors.push(errorResponse.error);
             }
           });
       }
