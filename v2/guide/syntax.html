@@ -54,10 +54,10 @@
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
         <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -1024,7 +1024,7 @@ new Vue({
 <h2 id="Директивы"><a href="#Директивы" class="headerlink" title="Директивы"></a>Директивы</h2><p>Директивы — это специальные атрибуты с префиксом <code>v-</code>. В качестве значения они принимают <strong>одно выражение JavaScript</strong> (за исключением <code>v-for</code>, которую мы изучим далее). Директива реактивно применяет к DOM изменения при обновлении значения этого выражения. Вспомним пример из введения:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"seen"</span>&gt;</span>Сейчас меня видно<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <p>В этом случае директива <code>v-if</code> удалит или вставит элемент <code>&lt;p&gt;</code> в зависимости от истинности значения выражения <code>seen</code>.</p>
-<h3 id="Аргументы"><a href="#Аргументы" class="headerlink" title="Аргументы"></a>Аргументы</h3><p>Некоторые директивы могут принимать «аргумент», разделённый от названия директивы двоеточием. Например, директива <code>v-bind</code> используется для реактивного обновления атрибутов HTML:</p>
+<h3 id="Аргументы"><a href="#Аргументы" class="headerlink" title="Аргументы"></a>Аргументы</h3><p>Некоторые директивы могут принимать «аргумент», отделённый от названия директивы двоеточием. Например, директива <code>v-bind</code> используется для реактивного обновления атрибутов HTML:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>В данном случае <code>href</code> — аргумент, указывающий директиве <code>v-bind</code> связать атрибут <code>href</code> элемента со значением выражения <code>url</code>.</p>
 <p>Другим примером будет директива <code>v-on</code>, которая отслеживает события DOM:</p>
@@ -1103,8 +1103,12 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/syntax.md" rel="noopener" target="_blank">
-        Отредактируйте эту страницу на GitHub!
+        Изменить эту страницу на GitHub!
       </a>
+      Опубликовано на
+      <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+        Netlify
+      </a>.
     </div>
 </div>
 

@@ -54,10 +54,10 @@
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
         <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -1323,6 +1323,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 &#125;</code></pre>
 <p>Чтобы передать слоты со своей областью видимости в дочерний компонент при помощи <code>render</code>-функции, добавьте свойство <code>scopedSlots</code> в данные VNode:</p>
 <pre><code class="hljs js">render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
+  <span class="hljs-comment">// `&lt;div&gt;&lt;child v-slot="props"&gt;&lt;span&gt;&#123;&#123; props.text &#125;&#125;&lt;/span&gt;&lt;/child&gt;&lt;/div&gt;`</span>
   <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>, [
     createElement(<span class="hljs-string">'child'</span>, &#123;
       <span class="hljs-comment">// передаём `scopedSlots` в объект data</span>
@@ -1496,8 +1497,12 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/render-function.md" rel="noopener" target="_blank">
-        Отредактируйте эту страницу на GitHub!
+        Изменить эту страницу на GitHub!
       </a>
+      Опубликовано на
+      <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+        Netlify
+      </a>.
     </div>
 </div>
 

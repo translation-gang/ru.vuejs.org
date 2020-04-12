@@ -54,10 +54,10 @@
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
         <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -585,7 +585,7 @@
       e.preventDefault();
     &#125;,
     <span class="hljs-attr">validEmail</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">email</span>) </span>&#123;
-      <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(([^&lt;&gt;()[\]\\.,;:\s@"]+(\.[^&lt;&gt;()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span>;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">3</span>&#125;\])|(([a-zA-Z\<span class="hljs-number">-0</span><span class="hljs-number">-9</span>]+\.)+[a-zA-Z]&#123;<span class="hljs-number">2</span>,&#125;))$/;
+      <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(([^&lt;&gt;()[\]\\.,;:\s@"]+(\.[^&lt;&gt;()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span>;
       <span class="hljs-keyword">return</span> re.test(email);
     &#125;
   &#125;
@@ -697,18 +697,22 @@
 <p></p><p data-height="265" data-theme-id="0" data-slug-hash="vWqGoy" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 3" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/vWqGoy/" target="_blank" rel="noopener">валидации форм 3</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="Валидация-на-стороне-сервера"><a href="#Валидация-на-стороне-сервера" class="headerlink" title="Валидация на стороне сервера"></a>Валидация на стороне сервера</h2><p>В последнем примере мы построили что-то, что использует Ajax для валидации на сервере. Форма предложит назвать новый продукт и затем проверит, чтобы имя было уникальным. Мы быстро накидали <a href="http://openwhisk.apache.org/" target="_blank" rel="noopener">OpenWhisk</a> serverless действие для этой валидации. Хотя это не очень важно, вот эта логика:</p>
-<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params">args</span>) </span>&#123;
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
-    <span class="hljs-comment">// плохие имена продуктов: vista, empire, mbp</span>
-    <span class="hljs-keyword">let</span> badNames = [<span class="hljs-string">'vista'</span>,<span class="hljs-string">'empire'</span>,<span class="hljs-string">'mbp'</span>];
+<h2 id="Валидация-на-стороне-сервера"><a href="#Валидация-на-стороне-сервера" class="headerlink" title="Валидация на стороне сервера"></a>Валидация на стороне сервера</h2><p>В последнем примере мы построили что-то, что использует Ajax для валидации на сервере. Форма предложит назвать новый продукт и затем проверит, чтобы имя было уникальным. Мы быстро накидали <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a> serverless действие для этой валидации. Хотя это не очень важно, вот эта логика:</p>
+<pre><code class="hljs js">exports.handler = <span class="hljs-keyword">async</span> (event, context) =&gt; &#123;
 
-    <span class="hljs-keyword">if</span> (badNames.includes(args.name)) &#123;
-      reject(&#123; <span class="hljs-attr">error</span>: <span class="hljs-string">'Существующий продукт'</span> &#125;);
+  <span class="hljs-keyword">const</span> badNames = [<span class="hljs-string">'vista'</span>, <span class="hljs-string">'empire'</span>, <span class="hljs-string">'mbp'</span>];
+  <span class="hljs-keyword">const</span> name = event.queryStringParameters.name;
+
+  <span class="hljs-keyword">if</span> (badNames.includes(name)) &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">statusCode</span>: <span class="hljs-number">400</span>,
+      <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(&#123;<span class="hljs-attr">error</span>: <span class="hljs-string">'Invalid name passed.'</span>&#125;)
     &#125;
+  &#125;
 
-    resolve(&#123; <span class="hljs-attr">status</span>: <span class="hljs-string">'ok'</span> &#125;);
-  &#125;);
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">statusCode</span>: <span class="hljs-number">204</span>
+  &#125;
 &#125;</code></pre>
 <p>В принципе, любое имя кроме «vista», «empire», и «mbp» приемлемы. Хорошо, давайте посмотрим на форму.</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
@@ -743,7 +747,7 @@
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
 <p>Здесь нет ничего особенного. Давайте посмотрим на JavaScript.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> apiUrl = <span class="hljs-string">'https://openwhisk.ng.bluemix.net/api/v1/web/rcamden%40us.ibm.com_My%20Space/safeToDelete/productName.json?name='</span>;
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> apiUrl = <span class="hljs-string">'https://vuecookbook.netlify.com/.netlify/functions/product-name?name='</span>;
 
 <span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
@@ -761,13 +765,12 @@
         <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Укажите имя продукта.'</span>);
       &#125; <span class="hljs-keyword">else</span> &#123;
         fetch(apiUrl + <span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-keyword">this</span>.name))
-          .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.json())
-          .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
-            <span class="hljs-keyword">if</span> (res.error) &#123;
-              <span class="hljs-keyword">this</span>.errors.push(res.error);
-            &#125; <span class="hljs-keyword">else</span> &#123;
-              <span class="hljs-comment">// перенаправляем на новый URL, или делаем что-либо при успехе</span>
-              alert(<span class="hljs-string">'ok!'</span>);
+          .then(<span class="hljs-keyword">async</span> res =&gt; &#123;
+            <span class="hljs-keyword">if</span> (res.status === <span class="hljs-number">204</span>) &#123;
+              alert(<span class="hljs-string">'OK'</span>);
+            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res.status === <span class="hljs-number">400</span>) &#123;
+              <span class="hljs-keyword">let</span> errorResponse = <span class="hljs-keyword">await</span> res.json();
+              <span class="hljs-keyword">this</span>.errors.push(errorResponse.error);
             &#125;
           &#125;);
       &#125;
@@ -800,8 +803,12 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/cookbook/form-validation.md" rel="noopener" target="_blank">
-        Отредактируйте эту страницу на GitHub!
+        Изменить эту страницу на GitHub!
       </a>
+      Опубликовано на
+      <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+        Netlify
+      </a>.
     </div>
 </div>
 

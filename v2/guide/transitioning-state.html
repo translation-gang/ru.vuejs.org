@@ -54,10 +54,10 @@
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
         <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
 
-        <link href="//fonts.googleapis.com/css?family=Roboto Mono&display=swap" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
 
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
@@ -979,7 +979,7 @@
 </ul>
 <p>Все эти параметры либо хранятся как числа, либо могут быть сконвертированы в числа. Это значит, что мы можем использовать сторонние библиотеки для анимации, в сочетании с компонентными и реактивными системами Vue.</p>
 <h2 id="Анимация-состояния-при-помощи-наблюдателей"><a href="#Анимация-состояния-при-помощи-наблюдателей" class="headerlink" title="Анимация состояния при помощи наблюдателей"></a>Анимация состояния при помощи наблюдателей</h2><p>Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием <a href="https://greensock.com/" target="_blank" rel="noopener">GreenSock</a>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"animated-number-demo"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"20"</span>&gt;</span>
@@ -998,12 +998,12 @@
   &#125;,
   <span class="hljs-attr">watch</span>: &#123;
     <span class="hljs-attr">number</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newValue</span>) </span>&#123;
-      TweenLite.to(<span class="hljs-keyword">this</span>.$data, <span class="hljs-number">0.5</span>, &#123; <span class="hljs-attr">tweenedNumber</span>: newValue &#125;);
+      gsap.to(<span class="hljs-keyword">this</span>.$data, &#123; <span class="hljs-attr">duration</span>: <span class="hljs-number">0.5</span>, <span class="hljs-attr">tweenedNumber</span>: newValue &#125;);
     &#125;
   &#125;
 &#125;)</code></pre>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 <div id="animated-number-demo" class="demo">
   <input v-model.number="number" type="number" step="20">
   <p>{{ animatedNumber }}</p>
@@ -1022,7 +1022,7 @@ new Vue({
   },
   watch: {
     number: function(newValue) {
-      TweenLite.to(this.$data, 0.5, { tweenedNumber: newValue });
+      gsap.to(this.$data, { duration: 0.5, tweenedNumber: newValue });
     }
   }
 })
@@ -1457,8 +1457,12 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/transitioning-state.md" rel="noopener" target="_blank">
-        Отредактируйте эту страницу на GitHub!
+        Изменить эту страницу на GitHub!
       </a>
+      Опубликовано на
+      <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+        Netlify
+      </a>.
     </div>
 </div>
 
