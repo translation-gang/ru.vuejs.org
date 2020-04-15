@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head><meta name="generator" content="Hexo 3.8.0">
-        <title>Practical use of scoped slots with GoogleMaps — Vue.js</title>
+        <title>Практическое использование слотов с ограниченной областью видимости с GoogleMaps — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,12 +19,12 @@
         <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html">
 
         <meta property="og:type" content="article">
-        <meta property="og:title" content="Practical use of scoped slots with GoogleMaps — Vue.js">
+        <meta property="og:title" content="Практическое использование слотов с ограниченной областью видимости с GoogleMaps — Vue.js">
         <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
 
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="Practical use of scoped slots with GoogleMaps — Vue.js">
+        <meta name="twitter:title" content="Практическое использование слотов с ограниченной областью видимости с GoogleMaps — Vue.js">
         <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
         <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
 
@@ -350,7 +350,7 @@
         
         
         <li>
-            <a href="/v2/cookbook/practical-use-of-scoped-slots.html" class="sidebar-link current">Practical use of scoped slots with GoogleMaps</a>
+            <a href="/v2/cookbook/practical-use-of-scoped-slots.html" class="sidebar-link current">Практическое использование слотов с ограниченной областью видимости с GoogleMaps</a>
         </li>
     
 </ul>
@@ -402,19 +402,19 @@
       
     
     
-      <h1>Practical use of scoped slots with GoogleMaps</h1>
+      <h1>Практическое использование слотов с ограниченной областью видимости с GoogleMaps</h1>
     
     
-      <h2 id="Base-Example"><a href="#Base-Example" class="headerlink" title="Base Example"></a>Base Example</h2><p>There are situations when you want the template inside the slot to be able to access data from the child component that is responsible for rendering the slot content. This is particularly useful when you need freedom in creating custom templates that use the child component’s data properties. That is a typical use case for scoped slots.</p>
-<p>Imagine a component that configures and prepares an external API to be used in another component, but is not tightly coupled with any specific template. Such a component could then be reused in multiple places rendering different templates but using the same base object with specific API.</p>
-<p>We’ll create a component (<code>GoogleMapLoader.vue</code>) that:</p>
+      <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Бывают ситуации, когда может потребоваться чтобы шаблон внутри слота имел доступ к данным дочернего компонента, отвечающего за отрисовку содержимого слота. Это особенно полезно, когда требуется свобода в создании пользовательских шаблонов, использующих свойства данных дочернего компонента. Это типичный случай для использования слотов с ограниченной областью видимости.</p>
+<p>Представьте себе компонент, который настраивает и подготавливает внешний API для использования в другом компоненте, но не имеет тесной связи с каким-либо конкретным шаблоном. Такой компонент может быть повторно использован в нескольких местах, отрисовывая различные шаблоны, но используя один и тот же базовый объект с определенным API.</p>
+<p>Мы создадим компонент (<code>GoogleMapLoader.vue</code>) который:</p>
 <ol>
-<li>Initializes the <a href="https://developers.google.com/maps/documentation/javascript/reference/" target="_blank" rel="noopener">Google Maps API</a></li>
-<li>Creates <code>google</code> and <code>map</code> objects</li>
-<li>Exposes those objects to the parent component in which the <code>GoogleMapLoader</code> is used</li>
+<li>Инициализирует <a href="https://developers.google.com/maps/documentation/javascript/reference/" target="_blank" rel="noopener">Google Maps API</a></li>
+<li>Создаёт объекты <code>google</code> и <code>map</code>.</li>
+<li>Предоставляет доступ к тем объектам родительского компонента, в котором используется <code>GoogleMapLoader</code>.</li>
 </ol>
-<p>Below is an example of how this can be achieved. We will analyze the code piece-by-piece and see what is actually happening in the next section.</p>
-<p>Let’s first establish our <code>GoogleMapLoader.vue</code> template:</p>
+<p>Ниже приведён пример как этого можно добиться. Мы проанализируем код по частям и посмотрим, что на самом деле происходит в следующем разделе.</p>
+<p>Сначала создадим шаблон <code>GoogleMapLoader.vue</code>:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"google-map"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"googleMap"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -426,7 +426,7 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p>Now, our script needs to pass some props to the component which allows us to set the <a href="https://developers.google.com/maps/documentation/javascript/reference/" target="_blank" rel="noopener">Google Maps API</a> and <a href="https://developers.google.com/maps/documentation/javascript/reference/map#Map" target="_blank" rel="noopener">Map object</a>:</p>
+<p>Теперь скрипту нужно передать некоторые данные компоненту, который позволяет установить <a href="https://developers.google.com/maps/documentation/javascript/reference/" target="_blank" rel="noopener">Google Maps API</a> и <a href="https://developers.google.com/maps/documentation/javascript/reference/map#Map" target="_blank" rel="noopener">Map object</a>:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> GoogleMapsApiLoader <span class="hljs-keyword">from</span> <span class="hljs-string">'google-maps-api-loader'</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
@@ -446,6 +446,7 @@
     <span class="hljs-keyword">const</span> googleMapApi = <span class="hljs-keyword">await</span> GoogleMapsApiLoader(&#123;
       <span class="hljs-attr">apiKey</span>: <span class="hljs-keyword">this</span>.apiKey
     &#125;)
+
     <span class="hljs-keyword">this</span>.google = googleMapApi
     <span class="hljs-keyword">this</span>.initializeMap()
   &#125;,
@@ -459,20 +460,20 @@
     &#125;
   &#125;
 &#125;</code></pre>
-<p>This is just part of a working example, you can find the whole example in the Codesandbox below.</p>
+<p>Это всего лишь часть рабочего примера, который можно найти в Codesandbox ниже.</p>
 <iframe src="https://codesandbox.io/embed/1o45zvxk0q" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-<h2 id="Real-World-Example-Creating-a-Google-Map-Loader-component"><a href="#Real-World-Example-Creating-a-Google-Map-Loader-component" class="headerlink" title="Real-World Example: Creating a Google Map Loader component"></a>Real-World Example: Creating a Google Map Loader component</h2><h3 id="1-Create-a-component-that-initializes-our-map"><a href="#1-Create-a-component-that-initializes-our-map" class="headerlink" title="1. Create a component that initializes our map"></a>1. Create a component that initializes our map</h3><p><code>GoogleMapLoader.vue</code></p>
-<p>In the template, we create a container for the map which will be used to mount the <a href="https://developers.google.com/maps/documentation/javascript/reference/map#Map" target="_blank" rel="noopener">Map</a> object extracted from the Google Maps API.</p>
+<h2 id="Реальный-пример-Создание-компонента-Google-Map-Loader"><a href="#Реальный-пример-Создание-компонента-Google-Map-Loader" class="headerlink" title="Реальный пример: Создание компонента Google Map Loader"></a>Реальный пример: Создание компонента Google Map Loader</h2><h3 id="1-Создание-компонента-который-инициализирует-карту"><a href="#1-Создание-компонента-который-инициализирует-карту" class="headerlink" title="1. Создание компонента, который инициализирует карту"></a>1. Создание компонента, который инициализирует карту</h3><p><code>GoogleMapLoader.vue</code></p>
+<p>В шаблоне создаём контейнер для карты, в который будет монтироваться объект <a href="https://developers.google.com/maps/documentation/javascript/reference/map#Map" target="_blank" rel="noopener">Map</a> из Google Maps API.</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"google-map"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"googleMap"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p>Next up, our script needs to receive props from the parent component which will allow us to set the Google Map. Those props consist of:</p>
+<p>Далее, скрипт должен получить данные от родительского компонента, который позволит установить Google Map. Эти данные состоят из:</p>
 <ul>
-<li><a href="https://developers.google.com/maps/documentation/javascript/reference/3/map#MapOptions" target="_blank" rel="noopener">mapConfig</a>: Google Maps config object</li>
-<li><a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener">apiKey</a>: Our personal api key required by Google Maps</li>
+<li><a href="https://developers.google.com/maps/documentation/javascript/reference/3/map#MapOptions" target="_blank" rel="noopener">mapConfig</a>: конфигурация Google Maps</li>
+<li><a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener">apiKey</a>: Персональный ключ API, требуемый для Google Maps</li>
 </ul>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> GoogleMapsApiLoader <span class="hljs-keyword">from</span> <span class="hljs-string">'google-maps-api-loader'</span>
 
@@ -481,18 +482,19 @@
     <span class="hljs-attr">mapConfig</span>: <span class="hljs-built_in">Object</span>,
     <span class="hljs-attr">apiKey</span>: <span class="hljs-built_in">String</span>
   &#125;</code></pre>
-<p>Then, we set the initial values of google and map to null:</p>
+<p>Затем устанавливаем <code>null</code> в качестве начального значения <code>google</code> и <code>map</code>:</p>
 <pre><code class="hljs js">data() &#123;
   <span class="hljs-keyword">return</span> &#123;
     <span class="hljs-attr">google</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">map</span>: <span class="hljs-literal">null</span>
   &#125;
 &#125;</code></pre>
-<p>On <code>mounted</code> hook we instantiate a <code>googleMapApi</code> and <code>Map</code> objects from the <code>GoogleMapsApi</code> and we set the values of <code>google</code> and <code>map</code> to the created instances:</p>
+<p>В хуке <code>mounted</code> инициализируем объекты <code>googleMapApi</code> и <code>Map</code> из <code>GoogleMapsApi</code> и устанавливаем значения <code>google</code> и <code>map</code> для создаваемых экземпляров:</p>
 <pre><code class="hljs js">  <span class="hljs-keyword">async</span> mounted() &#123;
     <span class="hljs-keyword">const</span> googleMapApi = <span class="hljs-keyword">await</span> GoogleMapsApiLoader(&#123;
       <span class="hljs-attr">apiKey</span>: <span class="hljs-keyword">this</span>.apiKey
     &#125;)
+
     <span class="hljs-keyword">this</span>.google = googleMapApi
     <span class="hljs-keyword">this</span>.initializeMap()
   &#125;,
@@ -504,18 +506,18 @@
     &#125;
   &#125;
 &#125;</code></pre>
-<p>So far, so good. With all that done, we could continue adding the other objects to the map (Markers, Polylines, etc.) and use it as an ordinary map component.</p>
-<p>But, we want to use our <code>GoogleMapLoader</code> component only as a loader that prepares the map — we don’t want to render anything on it.</p>
-<p>To achieve that, we need to allow the parent component that will use our <code>GoogleMapLoader</code> to access <code>this.google</code> and <code>this.map</code> that are set inside the <code>GoogleMapLoader</code> component. That’s where <a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">scoped slots</a> really shine. Scoped slots allow us to expose the properties set in a child component to the parent component. It may sound like Inception, but bear with me one more minute as we break that down further.</p>
-<h3 id="2-Create-component-that-uses-our-initializer-component"><a href="#2-Create-component-that-uses-our-initializer-component" class="headerlink" title="2. Create component that uses our initializer component."></a>2. Create component that uses our initializer component.</h3><p><code>TravelMap.vue</code></p>
-<p>In the template, we render the <code>GoogleMapLoader</code> component and pass props that are required to initialize the map.</p>
+<p>Пока все хорошо. Сделав всё это при необходимости можно продолжать добавлять на карту другие объекты (Маркеры, Ломанные и т.д.) и использовать её как обычный компонент карты.</p>
+<p>Но мы хотим использовать наш компонент <code>GoogleMapLoader</code> только в качестве загрузчика, который подготавливает карту — мы не хотим ничего на ней отрисовывать.</p>
+<p>Для этого нам необходимо разрешить родительскому компоненту, который будет использовать наш <code>GoogleMapLoader</code>, получать доступ к <code>this.google</code> и <code>this.map</code>, определённые внутри компонента <code>GoogleMapLoader</code>. Вот где <a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">слоты с ограниченной областью видимости</a> действительно выручают. Эти слоты позволяют в родительском компоненте получить доступ к свойствам, заданным в дочернем компоненте. Звучит с чего уже можно начинать, но потерпите ещё одну минуту, мы разберёмся с этим далее.</p>
+<h3 id="2-Создание-компонента-использующий-компонент-инициализатор"><a href="#2-Создание-компонента-использующий-компонент-инициализатор" class="headerlink" title="2. Создание компонента, использующий компонент-инициализатор"></a>2. Создание компонента, использующий компонент-инициализатор</h3><p><code>TravelMap.vue</code></p>
+<p>В шаблоне мы отрисовываем компонент <code>GoogleMapLoader</code> и передаём данные, необходимые для инициализации карты.</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span>
     <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">"mapConfig"</span>
     <span class="hljs-attr">apiKey</span>=<span class="hljs-string">"yourApiKey"</span>
   /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p>Our script tag will look like this:</p>
+<p>Логика компонента будет выглядеть так:</p>
 <pre><code class="hljs js">&lt;script&gt;
 <span class="hljs-keyword">import</span> GoogleMapLoader <span class="hljs-keyword">from</span> <span class="hljs-string">'./GoogleMapLoader'</span>
 <span class="hljs-keyword">import</span> &#123; mapSettings &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
@@ -535,8 +537,8 @@
   &#125;
 &#125;
 &lt;<span class="hljs-regexp">/script&gt;</span></code></pre>
-<p>Still no scoped slots, so let’s add one.</p>
-<h3 id="3-Expose-google-and-map-properties-to-the-parent-component-by-adding-a-scoped-slot"><a href="#3-Expose-google-and-map-properties-to-the-parent-component-by-adding-a-scoped-slot" class="headerlink" title="3. Expose google and map properties to the parent component by adding a scoped slot."></a>3. Expose <code>google</code> and <code>map</code> properties to the parent component by adding a scoped slot.</h3><p>Finally, we can add a scoped slot that will do the job and allow us to access the child component props in the parent component. We do that by adding the <code>&lt;slot&gt;</code> tag in the child component and passing the props that we want to expose (using <code>v-bind</code> directive or <code>:propName</code> shorthand). It does not differ from passing the props down to the child component, but doing it in the <code>&lt;slot&gt;</code> tag will reverse the direction of data flow.</p>
+<p>До сих пор нет слотов с ограниченной областью видимости, так что давайте добавим один.</p>
+<h3 id="3-Предоставление-доступа-к-свойствам-google-и-map-в-родительском-компоненте-с-помощью-слота-с-ограниченной-областью-видимости"><a href="#3-Предоставление-доступа-к-свойствам-google-и-map-в-родительском-компоненте-с-помощью-слота-с-ограниченной-областью-видимости" class="headerlink" title="3. Предоставление доступа к свойствам google и map в родительском компоненте с помощью слота с ограниченной областью видимости"></a>3. Предоставление доступа к свойствам <code>google</code> и <code>map</code> в родительском компоненте с помощью слота с ограниченной областью видимости</h3><p>Наконец, мы можем добавить слот с ограниченной областью видимости, который позволит нам получить доступ к данным дочернего компонента в родительском. Мы сделаем это, добавив тег <code>&lt;slot&gt;</code> в дочерний компонент и передав данные, к которым хотим предоставить доступ (используя директиву <code>v-bind</code> или её сокращение <code>:propName</code>). Это не отличается от передачи данных в дочерний компонент, но если сделать это в теге <code>&lt;slot&gt;</code>то направление потока данных изменится.</p>
 <p><code>GoogleMapLoader.vue</code></p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
@@ -549,9 +551,9 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p>Now, when we have the slot in the child component, we need to receive and consume the exposed props in the parent component.</p>
-<h3 id="4-Receive-exposed-props-in-the-parent-component-using-slot-scope-attribute"><a href="#4-Receive-exposed-props-in-the-parent-component-using-slot-scope-attribute" class="headerlink" title="4. Receive exposed props in the parent component using slot-scope attribute."></a>4. Receive exposed props in the parent component using <code>slot-scope</code> attribute.</h3><p>To receive the props in the parent component, we declare a template element and use the <code>slot-scope</code> attribute. This attribute has access to the object carrying all the props exposed from the child component. We can grab the whole object or we can <a href="../guide/components-slots.html#Деструктурирование-входных-параметров-слота">de-structure that object</a> and only what we need.</p>
-<p>Let’s de-structure this thing to get what we need.</p>
+<p>Теперь, когда есть слот в дочернем компоненте, мы должны получать и использовать предоставленные входные параметры в родительском компоненте.</p>
+<h3 id="4-Получить-незащищенные-данные-в-родительском-компоненте-используя-атрибут-slot-scope"><a href="#4-Получить-незащищенные-данные-в-родительском-компоненте-используя-атрибут-slot-scope" class="headerlink" title="4. Получить незащищенные данные в родительском компоненте, используя атрибут slot-scope."></a>4. Получить незащищенные данные в родительском компоненте, используя атрибут <code>slot-scope</code>.</h3><p>Для получения данных в родительском компоненте, мы объявляем элемент шаблона и используем атрибут <code>slot-scope</code>. Этот атрибут имеет доступ к объекту со всеми данными из дочернего компонента, к которым открываем доступ. Мы можем использовать объект целиком или <a href="../guide/components-slots.html#Деструктурирование-входных-параметров-слота">деструктурировать его</a> и использовать только необходимое.</p>
+<p>Давайте воспользуемся деструктуризацией.</p>
 <p><code>TravelMap.vue</code></p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span>
   <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">"mapConfig"</span>
@@ -562,10 +564,10 @@
   	&#123;&#123; google &#125;&#125;
   <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">GoogleMapLoader</span>&gt;</span></code></pre>
-<p>Even though the <code>google</code> and <code>map</code> props do not exist in the <code>TravelMap</code> scope, the component has access to them and we can use them in the template.</p>
-<p>You might wonder why would we do things like that and what is the use of all that?</p>
-<p>Scoped slots allow us to pass a template to the slot instead of a rendered element. It’s called a <code>scoped</code> slot because it will have access to certain child component data even though the template is rendered in the parent component scope. This gives us the freedom to fill the template with custom content from the parent component.</p>
-<h3 id="5-Create-factory-components-for-Markers-and-Polylines"><a href="#5-Create-factory-components-for-Markers-and-Polylines" class="headerlink" title="5. Create factory components for Markers and Polylines"></a>5. Create factory components for Markers and Polylines</h3><p>Now when we have our map ready we will create two factory components that will be used to add elements to the <code>TravelMap</code>.</p>
+<p>Несмотря на то, что свойства <code>google</code> и <code>map</code> не существуют в области видимости <code>TravelMap</code>, компонент имеет доступ к ним и мы можем использовать их в шаблоне.</p>
+<p>Ты можешь задаться вопросом, зачем нам делать такие вещи, и какая от этого польза?</p>
+<p>Слоты с ограниченной областью видимости позволяют передавать шаблон в слот вместо элемента рендера. Он называется <code>scoped</code>-слотом, потому что у него будет доступ к определенным данным дочернего компонента, даже если шаблон рендерится в области видимости родительского компонента. Это предоставляет нам свободу по наполнению шаблона пользовательским содержимым из родительского компонента.</p>
+<h3 id="5-Создание-фабричных-компонентов-для-маркеров-и-ломанных"><a href="#5-Создание-фабричных-компонентов-для-маркеров-и-ломанных" class="headerlink" title="5. Создание фабричных компонентов для маркеров и ломанных"></a>5. Создание фабричных компонентов для маркеров и ломанных</h3><p>Теперь, когда карта готова, создадим два фабричных компонента, которые будут использоваться для добавления элементов в <code>TravelMap</code>.</p>
 <p><code>GoogleMapMarker.vue</code></p>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; POINT_MARKER_ICON_CONFIG &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
 
@@ -621,13 +623,13 @@
     &#125;)
   &#125;
 &#125;</code></pre>
-<p>Both of these receive <code>google</code> that we use to extract the required object (Marker or Polyline) as well as <code>map</code> which gives as a reference to the map on which we want to place our element.</p>
-<p>Each component also expects an extra prop to create a corresponding element. In this case, we have <code>marker</code> and <code>path</code>, respectively.</p>
-<p>On the mounted hook, we create an element (Marker/Polyline) and attach it to our map by passing the <code>map</code> property to the object constructor.</p>
-<p>There’s still one more step to go…</p>
-<h3 id="6-Add-elements-to-map"><a href="#6-Add-elements-to-map" class="headerlink" title="6. Add elements to map"></a>6. Add elements to map</h3><p>Let’s use our factory components to add elements to our map. We must render the factory component and pass the <code>google</code> and <code>map</code> objects so data flows to the right places.</p>
-<p>We also need to provide the data that’s required by the element itself. In our case, that’s the <code>marker</code> object with the position of the marker and the <code>path</code> object with Polyline coordinates.</p>
-<p>Here we go, integrating the data points directly into the template:</p>
+<p>Оба они получают <code>google</code>, который мы используем для извлечения нужного объекта (<code>Marker</code> или <code>Polyline</code>), а также <code>map</code>, в котором будет ссылка на карту, на которой можем разместить элемент.</p>
+<p>Каждый компонент также ожидает дополнительные данные для создания соответствующего элемента. В этом случае это <code>marker</code> и <code>path</code> соответственно.</p>
+<p>В хуке <code>mounted</code> создаём элемент (Marker/Polyline) и прикрепляем его к карте, передавая свойство <code>map</code> конструктору объекта.</p>
+<p>Остается ещё один шаг…</p>
+<h3 id="6-Добавление-элементов-на-карту"><a href="#6-Добавление-элементов-на-карту" class="headerlink" title="6. Добавление элементов на карту"></a>6. Добавление элементов на карту</h3><p>Давайте используем наши фабричные компоненты для добавления элементов на карту. Мы должны отобразить фабричные компоненты и передать объекты <code>google</code> и <code>map</code> так, чтобы данные попали в нужные места.</p>
+<p>Нам также необходимо предоставить данные, которые требуются самому элементу. В нашем случае это объект <code>marker</code> с положением маркера и объект <code>path</code> с координатами ломанной.</p>
+<p>Итак, интегрируем точки данных непосредственно в шаблон:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span>
   <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">"mapConfig"</span>
   <span class="hljs-attr">apiKey</span>=<span class="hljs-string">"yourApiKey"</span>
@@ -649,7 +651,7 @@
     /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">GoogleMapLoader</span>&gt;</span></code></pre>
-<p>We need to import the required factory components in our script and set the data that will be passed to the markers and lines:</p>
+<p>Нам нужно импортировать необходимые фабричные компоненты в наш скрипт и задать данные, которые будут передаваться маркерам и линиям:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; mapSettings &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
@@ -686,9 +688,9 @@
     &#125;
   &#125;
 &#125;</code></pre>
-<h2 id="When-To-Avoid-This-Pattern"><a href="#When-To-Avoid-This-Pattern" class="headerlink" title="When To Avoid This Pattern"></a>When To Avoid This Pattern</h2><p>It might be tempting to create a very complex solution based on the example, but at some point we can get to the situation where this abstraction becomes an independent part of the code living in our codebase. If we get to that point it might be worth considering extraction to an add-on.</p>
-<h2 id="Wrapping-Up"><a href="#Wrapping-Up" class="headerlink" title="Wrapping Up"></a>Wrapping Up</h2><p>That’s it. With all those bits and pieces created we can now re-use the <code>GoogleMapLoader</code> component as a base for all our maps by passing different templates to each one of them. Imagine that you need to create another map with different Markers or just Markers without Polylines. By using the above pattern it becomes very easy as we just need to pass different content to the <code>GoogleMapLoader</code> component.</p>
-<p>This pattern is not strictly connected to Google Maps; it can be used with any library to set the base component and expose the library’s API that might be then used in the component that summoned the base component.</p>
+<h2 id="Когда-следует-избегать-этого-паттерна"><a href="#Когда-следует-избегать-этого-паттерна" class="headerlink" title="Когда следует избегать этого паттерна"></a>Когда следует избегать этого паттерна</h2><p>Может возникнуть соблазн создать очень сложное решение на основе примера, но в какой-то момент можно попасть в ситуацию, когда эта абстракция становится самостоятельной частью кода, живущей в нашей кодовой базе. Если мы дойдём до этого момента, то, возможно, стоит подумать об извлечении в плагин.</p>
+<h2 id="Подытожим"><a href="#Подытожим" class="headerlink" title="Подытожим"></a>Подытожим</h2><p>Вот так. После создания всех этих маленьких частей мы теперь можем повторно использовать компонент <code>GoogleMapLoader</code> в качестве базы для всех наших карт, передавая в каждом случае различные шаблоны. Представьте, что вам нужно создать другую карту с разными Маркерами или просто Маркеры без Ломанных. Используя вышеприведенный шаблон, это становится очень просто, так как просто нужно будет передать разное содержимое компоненту <code>GoogleMapLoader</code>.</p>
+<p>Этот шаблон не связан строго с Google Maps; он может быть использован с любой библиотекой для реализации базового компонента и предоставления API библиотеки, которое может быть затем использовано в компоненте, вызвавшем базовый компонент.</p>
 
     
     
