@@ -187,3 +187,34 @@ const Component = Vue.extend({
 ```
 
 Если вы обнаружите, что вывод типа или автодополнение не работают, аннотация некоторых методов может помочь решить эти проблемы. Использование опции `--noImplicitAny` поможет найти многие из этих методов без аннотаций.
+
+## Аннотация входных параметров Props
+
+```ts
+import Vue, { PropType } from 'vue'
+
+interface ComplexMessage {
+  title: string,
+  okMessage: string,
+  cancelMessage: string
+}
+
+const Component = Vue.extend({
+  props: {
+    name: String,
+    success: { type: String },
+    callback: {
+      type: Function as PropType<() => void>
+    },
+    message: {
+      type: Object as PropType<ComplexMessage>,
+      required: true,
+      validator (message: ComplexMessage) {
+        return !!message.title;
+      }
+    }
+  }
+})
+```
+
+Если обнаружили, что функция валидатора не получает выведенный тип или не работает автоподстановка свойств, то аннотация аргумента с ожидаемым типом может помочь решить эти проблемы.
