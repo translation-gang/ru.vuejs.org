@@ -197,15 +197,15 @@
 <li class="nav-dropdown-container language">
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
-    <li><a href="https://vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/typescript.html" class="nav-link" target="_blank" rel="noopener">Bahasa Indonesia</a></li>
+    <li><a href="https://vuejs.org/v2/guide/typescript.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/typescript.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/typescript.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/typescript.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/typescript.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/typescript.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/typescript.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/guide/typescript.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/guide/typescript.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -1094,6 +1094,31 @@ vue create my-project-name</code></pre>
   &#125;
 &#125;)</code></pre>
 <p>Если вы обнаружите, что вывод типа или автодополнение не работают, аннотация некоторых методов может помочь решить эти проблемы. Использование опции <code>--noImplicitAny</code> поможет найти многие из этих методов без аннотаций.</p>
+<h2 id="Аннотация-входных-параметров-Props"><a href="#Аннотация-входных-параметров-Props" class="headerlink" title="Аннотация входных параметров Props"></a>Аннотация входных параметров Props</h2><pre><code class="hljs ts"><span class="hljs-keyword">import</span> Vue, &#123; PropType &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+
+<span class="hljs-keyword">interface</span> ComplexMessage &#123;
+  title: <span class="hljs-built_in">string</span>,
+  okMessage: <span class="hljs-built_in">string</span>,
+  cancelMessage: <span class="hljs-built_in">string</span>
+&#125;
+
+<span class="hljs-keyword">const</span> Component = Vue.extend(&#123;
+  props: &#123;
+    name: <span class="hljs-built_in">String</span>,
+    success: &#123; <span class="hljs-keyword">type</span>: <span class="hljs-built_in">String</span> &#125;,
+    callback: &#123;
+      <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Function</span> <span class="hljs-keyword">as</span> PropType&lt;<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>&gt;
+    &#125;,
+    message: &#123;
+      <span class="hljs-keyword">type</span>: <span class="hljs-built_in">Object</span> <span class="hljs-keyword">as</span> PropType&lt;ComplexMessage&gt;,
+      required: <span class="hljs-literal">true</span>,
+      validator (message: ComplexMessage) &#123;
+        <span class="hljs-keyword">return</span> !!message.title;
+      &#125;
+    &#125;
+  &#125;
+&#125;)</code></pre>
+<p>Если обнаружили, что функция валидатора не получает выведенный тип или не работает автоподстановка свойств, то аннотация аргумента с ожидаемым типом может помочь решить эти проблемы.</p>
 
     
     
