@@ -16,7 +16,7 @@ Starting in 0.11, all child components have isolated scope by default, and the r
 
 `paramAttributes` enables us to write Web Component style templates:
 
-``` js
+```js
 Vue.component('my-component', {
   paramAttributes: ['params'],
   compiled: function () {
@@ -25,7 +25,7 @@ Vue.component('my-component', {
 })
 ```
 
-``` html
+```html
 <my-component params="{{params}}"></my-component>
 ```
 
@@ -33,14 +33,14 @@ Vue.component('my-component', {
 
 Previously in 0.10, all directives on a component's container element are compiled in the child component's scope. Because it inherited parent scope, this worked in most situations. Starting in 0.11.1, we want to provide a cleaner separation between component scopes. The rule of thumbs is: if something appears in the parent template, it will be compiled in parent scope; if it appears in child template, it will be compiled in child scope. For example:
 
-``` html
+```html
 <!-- parent template -->
 <div v-component="child" v-on="click:onParentClick">
   <p>{{parentMessage}}</p>
 </div>
 ```
 
-``` html
+```html
 <!-- child template, with replace: true -->
 <div v-on="click:onChildClick">
   <h1>{{childMessage}}</h1>

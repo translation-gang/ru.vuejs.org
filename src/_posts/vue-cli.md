@@ -11,7 +11,7 @@ Recently there has been a lot of [discussion around the tooling hurdle](https://
 
 The usage looks like this:
 
-``` bash
+```bash
 npm install -g vue-cli
 vue init webpack my-project
 # answer prompts
@@ -42,7 +42,7 @@ Current available templates include:
 
 If you are not happy with the official templates, you can fork these templates, modify them to fit your specific needs (or even create your own from scratch), and use them via `vue-cli` too, because `vue-cli` can work directly on GitHub repos:
 
-``` bash
+```bash
 vue init username/repo my-project
 ```
 
