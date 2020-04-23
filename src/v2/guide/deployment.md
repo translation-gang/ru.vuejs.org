@@ -1,5 +1,5 @@
 ---
-title: Развёртывание на production
+title: Публикация на production
 type: guide
 order: 404
 ---
@@ -128,6 +128,6 @@ rollup({
 - [Browserify + vueify](https://github.com/vuejs/vueify#css-extraction)
 - [Rollup + rollup-plugin-vue](https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler)
 
-## Отслеживание ошибок времени выполнения
+## Отслеживание ошибок во время выполнения
 
 Если при отрисовке компонента произойдёт ошибка, она будет передана в глобальную функцию `Vue.config.errorHandler`, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с [Sentry](https://sentry.io), может быть неплохой идеей — тем более, что [интеграция с Vue официально поддерживается](https://sentry.io/for/vue/).
