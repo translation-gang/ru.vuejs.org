@@ -474,8 +474,8 @@ dist/</code></pre>
   &#125;,
   "devDependencies": &#123;
     "rollup": "^1.17.0",
-    "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.0.1",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^11.1.0",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
@@ -517,9 +517,10 @@ dist/</code></pre>
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> component;</code></pre>
 <p>Обратите внимание, что в первой строке импортируется непосредственно ваш однофайловый компонент, а последняя строка экспортирует его без изменений. Как указано в комментариях в остальной части кода, обёртка предоставляет функцию <code>install</code> для Vue, затем пытается обнаружить Vue и автоматически установить компонент. Выполнив 90% работы, настало время ускориться к финишу!</p>
 <h3 id="Как-настроить-сборку-с-Rollup"><a href="#Как-настроить-сборку-с-Rollup" class="headerlink" title="Как настроить сборку с Rollup?"></a>Как настроить сборку с Rollup?</h3><p>С готовой секцией <code>scripts</code> и обёрткой для однофайловых компонентов, всё что нам осталось - убедиться, что Rollup правильно настроен. К счастью, это можно сделать с помощью маленького файла rollup.config.js, состоящего из 16 строк кода:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> commonjs <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-commonjs'</span>; <span class="hljs-comment">// Конвертирование CommonJS модулей в ES6</span>
+<pre><code class="hljs js"><span class="hljs-keyword">import</span> commonjs <span class="hljs-keyword">from</span> <span class="hljs-string">'@rollup/plugin-commonjs'</span>; <span class="hljs-comment">// Конвертирование CommonJS модулей в ES6</span>
 <span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-vue'</span>; <span class="hljs-comment">// Обработка однофайловых компонентов .vue</span>
-<span class="hljs-keyword">import</span> buble <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-buble'</span>; <span class="hljs-comment">// Транспиляция/добавление полифилов для умеренной поддержки браузеров</span>
+<span class="hljs-keyword">import</span> buble <span class="hljs-keyword">from</span> <span class="hljs-string">'@rollup/plugin-buble'</span>; <span class="hljs-comment">// Транспиляция/добавление полифилов для умеренной поддержки браузеров</span>
+
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
   <span class="hljs-attr">input</span>: <span class="hljs-string">'src/wrapper.js'</span>, <span class="hljs-comment">// Путь до относительного package.json</span>
   output: &#123;
@@ -543,7 +544,7 @@ dist/</code></pre>
 <h2 id="Когда-избегать-этого-способа"><a href="#Когда-избегать-этого-способа" class="headerlink" title="Когда избегать этого способа"></a>Когда избегать этого способа</h2><p>Использование данного метода может быть плохой идеей в определённых случаях. В данной статье мы не вдавались в подробности того, как были написаны сами компоненты. Некоторые компоненты могут порождать побочные эффекты, например использовать директивы или расширять сторонние библиотеки дополнительным функционалом. В этих случаях вам нужно будет оценить, слишком ли велики изменения, необходимые для использования этого способа.</p>
 <p>Кроме того, обратите внимание на любые зависимости, которые может иметь ваш компонент. Например, если вы подключаете стороннюю библиотеку для сортировки или для работы с API, Rollup может включить их в итоговый код сборки, если будет неправильно настроен. Чтобы иметь возможность использовать данный способ, вам нужно будет настроить Rollup таким образом, чтобы он исключал эти файлы из финального результата. Затем вам нужно будет обновить документацию, чтобы сообщить своим пользователям о зависимостях.</p>
 <h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>В то время, когда эта статья была написана, Vue CLI 3 был в бета-версии. Эта версия CLI содержит в себе встроенный режим сборки <code>library</code>, который создаёт версии CommonJS и UMD компонента. Этого должно быть достаточно, тем не менее вам нужно будет убедиться, что в вашем файле package.json  правильно указаны значения <code>main</code> и <code>unpkg</code>. К тому же, отсутствует поддержка ES6 <code>module</code>, если только она не будет добавлена до релиза CLI или через плагин.</p>
-<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт является результатом выступления <a href="https://twitter.com/webdevdodge" target="_blank" rel="noopener">Mike Dodge</a> на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу <a href="https://www.npmjs.com/package/vue-sfc-rollup" target="_blank" rel="noopener">vue-sfc-rollup</a> из npm. Также, вы можете <a href="https://github.com/team-innovation/vue-sfc-rollup" target="_blank" rel="noopener">склонировать код</a> и отредактировать его.</p>
+<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт является результатом выступления <a href="https://twitter.com/webdevdodge" target="_blank" rel="noopener">Mike Dodge</a> на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу <a href="https://www.npmjs.com/package/vue-sfc-rollup" target="_blank" rel="noopener">vue-sfc-rollup</a> из npm. Также, вы можете клонировать код <a href="https://github.com/team-innovation/vue-sfc-rollup" target="_blank" rel="noopener">из репозитория</a> и отредактировать его.</p>
 
     
     
