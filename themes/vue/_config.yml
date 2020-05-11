@@ -11,10 +11,6 @@ special_sponsors:
     name: Autocode
     description: Построение рабочих процессов app-to-app и подключение API
 platinum_sponsors:
-  - url: >-
-      https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1
-    img: vueschool.png
-    name: VueSchool
   - url: 'https://vehikl.com/'
     img: vehikl.png
     name: Vehikl
@@ -85,15 +81,15 @@ gold_sponsors:
   - url: 'http://www.pullrequest.com'
     img: pullrequest.svg
     name: PullRequest
-  - url: 'https://unicorn.io/'
-    img: unicorn_io.png
-    name: Unicorn.io
   - url: 'https://www.vuescreencasts.com/'
     img: happy_programmer_llc.png
     name: Happy Programmer LLC
   - url: 'https://www.primefaces.org/primevue'
     img: primevue.png
     name: PrimeVue
+  - url: 'https://cooltechzone.com/netflix-vpn'
+    img: netflix_vpn.png
+    name: Netflix VPN
 silver_sponsors:
   - url: 'https://roadster.com'
     img: roadster.png
