@@ -227,12 +227,12 @@ Vue.component('async-webpack-example', function (resolve) {
 })
 ```
 
-Вы также можете вернуть `Promise` в функции-фабрике, так что с Webpack 2 и синтаксисом ES2015 можно сделать так:
+Также можно возвращать `Promise` из функции-фабрики, поэтому с Webpack 2 и синтаксисом ES2015 можно использовать динамические импорты:
 
 ```js
 Vue.component(
   'async-webpack-example',
-  // Функция `import` возвращает Promise.
+  // Динамический импорт возвращает Promise
   () => import('./my-async-component')
 )
 ```
