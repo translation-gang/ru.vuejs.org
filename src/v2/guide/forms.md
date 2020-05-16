@@ -94,21 +94,19 @@ new Vue({
 Список чекбоксов, привязанных к одному массиву:
 
 ```html
-<div id="example-3" class="demo">
-  <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
-  <label for="jack">Джек</label>
-  <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
-  <label for="john">Джон</label>
-  <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
-  <label for="mike">Майк</label>
-  <br>
-  <span>Отмеченные имена: {{ checkedNames }}</span>
-</div>
+<input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+<label for="jack">Джек</label>
+<input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+<label for="john">Джон</label>
+<input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
+<label for="mike">Майк</label>
+<br>
+<span>Отмеченные имена: {{ checkedNames }}</span>
 ```
 
 ```js
 new Vue({
-  el: '#example-3',
+  el: '...',
   data: {
     checkedNames: []
   }
