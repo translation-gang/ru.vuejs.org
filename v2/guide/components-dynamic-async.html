@@ -1145,10 +1145,10 @@ new Vue({
   <span class="hljs-comment">// для последующей асинхронной загрузки</span>
   <span class="hljs-built_in">require</span>([<span class="hljs-string">'./my-async-component'</span>], resolve)
 &#125;)</code></pre>
-<p>Вы также можете вернуть <code>Promise</code> в функции-фабрике, так что с Webpack 2 и синтаксисом ES2015 можно сделать так:</p>
+<p>Также можно возвращать <code>Promise</code> из функции-фабрики, поэтому с Webpack 2 и синтаксисом ES2015 можно использовать динамические импорты:</p>
 <pre><code class="hljs js">Vue.component(
   <span class="hljs-string">'async-webpack-example'</span>,
-  <span class="hljs-comment">// Функция `import` возвращает Promise.</span>
+  <span class="hljs-comment">// Динамический импорт возвращает Promise</span>
   () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">'./my-async-component'</span>)
 )</code></pre>
 <p>При использовании <a href="components-registration.html#Локальная-регистрация">локальной регистрации компонентов</a>, вы также можете непосредственно указывать функцию, которая возвращает <code>Promise</code>:</p>
