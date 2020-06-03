@@ -684,7 +684,7 @@ Vue.component(<span class="hljs-string">'my-component'</span>, &#123; <span clas
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Создание реактивного объекта. Внутренне Vue реализует подобное для объекта, возвращаемого функцией <code>data</code>.</p>
-<p>Возвращаемый объект можно использовать внутри <a href="../guide/render-function.html">render-функций</a> и <a href="../guide/computed.html">вычисляемых свойств</a>, а при его изменениях будут вызываться соответствующие обновления. Также его можно воспользоваться как небольшое межкомпонентное хранилище для простых сценариев:</p>
+<p>Возвращаемый объект можно использовать внутри <a href="../guide/render-function.html">render-функций</a> и <a href="../guide/computed.html">вычисляемых свойств</a>, а при его изменениях будут вызываться соответствующие обновления. Также его можно использовать как небольшое межкомпонентное хранилище для простых сценариев:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">const</span> state = Vue.observable(&#123; <span class="hljs-attr">count</span>: <span class="hljs-number">0</span> &#125;)
  <span class="hljs-keyword">const</span> Demo = &#123;
   render(h) &#123;
