@@ -293,7 +293,7 @@ Vue.component('todo-item', {
   template: '<li>Это одна задача в списке</li>'
 })
 
-var app = new Vue({ el: "todo-list" })
+var app = new Vue({ el: "#todo-list" })
 ```
 
 Теперь его можно использовать в шаблоне другого компонента:
