@@ -139,7 +139,7 @@ Cypress.io — фреймворк для тестирования, которы�
 **Ресурсы:**
 
 - [Официальный сайт Cypress](https://www.cypress.io)
-- [Официальный плагин Vue CLI Cypress](https://cli.vuejs.org/core-plugins/e2e-cypress.html)
+- [Официальный плагин Vue CLI Cypress](https://cli.vuejs.org/ru/core-plugins/e2e-cypress.html)
 - [Cypress Testing Library](https://github.com/testing-library/cypress-testing-library)
 
 #### Nightwatch.js
@@ -149,7 +149,7 @@ Nightwatch.js — фреймворк для end-to-end тестирования,
 **Ресурсы:**
 
 - [Официальный сайт Nightwatch](https://nightwatchjs.org)
-- [Официальный плагин Vue CLI Nightwatch](https://cli.vuejs.org/core-plugins/e2e-nightwatch.html)
+- [Официальный плагин Vue CLI Nightwatch](https://cli.vuejs.org/ru/core-plugins/e2e-nightwatch.html)
 
 #### Puppeteer
 
