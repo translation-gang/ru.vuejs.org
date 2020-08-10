@@ -272,11 +272,11 @@ var watchExampleVM = new Vue({
   watch: {
     question: function (newQuestion, oldQuestion) {
       this.answer = 'Ожидаю, когда вы закончите печатать...'
-      this.debouncedGetAnswer()
+      this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
     }
   },
   created: function () {
-    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
+    this.debouncedGetAnswer()
   },
   methods: {
     getAnswer: function () {
