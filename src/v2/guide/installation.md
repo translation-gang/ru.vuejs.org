@@ -2,7 +2,7 @@
 title: Установка
 type: guide
 order: 1
-vue_version: 2.6.11
+vue_version: 2.6.12
 gz_size: "33.30"
 ---
 
@@ -47,14 +47,14 @@ Vue следует [семантическому версионированию]
 Для production, мы рекомендуем указывать конкретную версию и сборку, чтобы избежать неожиданных поломок при выходе новых версий:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 ```
 
 Если используете нативные ES-модули, также существует и совместимая с ES-модулями сборка:
 
 ```html
 <script type="module">
-  import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js'
+  import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js'
 </script>
 ```
 
