@@ -1511,8 +1511,11 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; н
 </li>
 <li><p><strong>Только для чтения</strong></p>
 </li>
+<li><p><strong>Реактивны?</strong> Нет</p>
+</li>
 <li><p><strong>Подробности:</strong></p>
 <p>Используется для доступа к контенту, указанному <a href="../guide/components.html#Распределение-контента-слотами">через слоты</a>. У каждого <a href="../guide/components-slots.html#Именованные-слоты">именованного слота</a> есть соответствующее значение (например, содержимое <code>slot=&quot;foo&quot;</code> попадёт в <code>vm.$slots.foo</code>). Свойство <code>default</code> содержит узлы, не включённые в именованные слоты, либо содержимое <code>v-slot:default</code>.</p>
+<p>Обратите внимание, что слоты <strong>не реактивны</strong>. Если необходим компонент, который будет перерендериваться при изменении данных, переданных в слот, мы рекомендуем рассмотреть другую стратегию, которая полагается на опции реактивного экземпляра, такие как <code>props</code> или <code>data</code>.</p>
 <p><strong>Примечание:</strong> <code>v-slot:foo</code> поддерживается в версии v2.6+. Для более старых версий вы можете использовать <a href="../guide/components-slots.html#Устаревший-синтаксис">устаревший синтаксис</a>.</p>
 <p>Особенно полезно <code>vm.$slots</code> в компонентах с <a href="../guide/render-function.html">render-функциями</a>.</p>
 </li>
