@@ -130,7 +130,7 @@ import MyComponent from 'my-component/sfc'; // Обратите внимание
 
 ### Как выглядит мой подготовленный для npm компонент?
 
-В зависимости от того, как используется ваш компонент, он должен быть JavaScript-модулем, совместимым с [CommonJS/UMD](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a), [ES6 javascript](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e) модулем, или, в случае использования тега `<script>`, он будет автоматически загружаться во Vue с помощью `Vue.use(...)`, поэтому он будет сразу доступен на странице. Это достигается простым файлом wrapper.js, который обрабатывает экспорт и автоматическую установку модуля. В целом, обёртка выглядит следующим образом:
+В зависимости от того, как используется ваш компонент, он должен быть JavaScript-модулем, совместимым с [CommonJS/UMD](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a), [ES6 JavaScript](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e) модулем, или, в случае использования тега `<script>`, он будет автоматически загружаться во Vue с помощью `Vue.use(...)`, поэтому он будет сразу доступен на странице. Это достигается простым файлом wrapper.js, который обрабатывает экспорт и автоматическую установку модуля. В целом, обёртка выглядит следующим образом:
 
 ```js
 // Импорт vue компонента
