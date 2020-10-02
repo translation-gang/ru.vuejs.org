@@ -1,5 +1,5 @@
 ---
-title: Используем Axios для доступа к API
+title: Используем axios для доступа к API
 type: cookbook
 order: 9
 ---
