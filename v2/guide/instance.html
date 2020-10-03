@@ -267,7 +267,7 @@
           Руководство
           
             <select class="version-select">
-              <option value="v3">3.x-beta</option>
+              <option value="v3">3.x</option>
               <option value="SELF" selected>2.x</option>
               <option value="v1">1.0</option>
               <option value="012">0.12</option>
@@ -981,10 +981,10 @@
 <pre><code class="hljs undefined">Корневой экземпляр
 └─ TodoList
    ├─ TodoItem
-   │  ├─ DeleteTodoButton
-   │  └─ EditTodoButton
+   │  ├─ TodoButtonDelete
+   │  └─ TodoButtonEdit
    └─ TodoListFooter
-      ├─ ClearTodosButton
+      ├─ TodosButtonClear
       └─ TodoListStatistics</code></pre>
 <p>Подробнее о <a href="components.html">системе компонентов</a> мы поговорим позднее. А сейчас запомните, что все компоненты Vue также являются экземплярами Vue и поэтому принимают такой же объект опций (за исключением нескольких специфичных для корневого).</p>
 <h2 id="Данные-и-методы"><a href="#Данные-и-методы" class="headerlink" title="Данные и методы"></a>Данные и методы</h2><p>Когда экземпляр Vue создан, он добавляет все свойства, найденные в опции <code>data</code>, в <strong>систему реактивности</strong> Vue. Поэтому представление будет «реагировать» на их изменения, обновляясь в соответствии с новыми значениями.</p>

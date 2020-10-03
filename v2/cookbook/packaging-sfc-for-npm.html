@@ -320,7 +320,7 @@
         
         
         <li>
-            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Используем Axios для доступа к API</a>
+            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Используем axios для доступа к API</a>
         </li>
     
         
@@ -486,7 +486,7 @@ dist/</code></pre>
 <p class="tip">Не забудьте, если у вас уже есть файл package.json, вероятнее всего он будет содержать больше кода. Пример выше только демонстрирует, как можно начинать. Также, <i>пакеты</i>, перечисленные в devDependencies (не их версии), единственное требование для rollup, чтобы создать три отдельных вида сборки (umd, es, и unpkg). С появлением новых версий, модули следует обновить по мере необходимости.</p>
 
 <p>Мы закончили с изменениями в package.json. Далее, нам понадобится небольшая обёртка для экспорта или автоматической установки актуального однофайлового компонента. Плюс - минимальная конфигурация системы сборки Rollup - и настройка завершена!</p>
-<h3 id="Как-выглядит-мой-подготовленный-для-npm-компонент"><a href="#Как-выглядит-мой-подготовленный-для-npm-компонент" class="headerlink" title="Как выглядит мой подготовленный для npm компонент?"></a>Как выглядит мой подготовленный для npm компонент?</h3><p>В зависимости от того, как используется ваш компонент, он должен быть JavaScript-модулем, совместимым с <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a" target="_blank" rel="noopener">CommonJS/UMD</a>, <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e" target="_blank" rel="noopener">ES6 javascript</a> модулем, или, в случае использования тега <code>&lt;script&gt;</code>, он будет автоматически загружаться во Vue с помощью <code>Vue.use(...)</code>, поэтому он будет сразу доступен на странице. Это достигается простым файлом wrapper.js, который обрабатывает экспорт и автоматическую установку модуля. В целом, обёртка выглядит следующим образом:</p>
+<h3 id="Как-выглядит-мой-подготовленный-для-npm-компонент"><a href="#Как-выглядит-мой-подготовленный-для-npm-компонент" class="headerlink" title="Как выглядит мой подготовленный для npm компонент?"></a>Как выглядит мой подготовленный для npm компонент?</h3><p>В зависимости от того, как используется ваш компонент, он должен быть JavaScript-модулем, совместимым с <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a" target="_blank" rel="noopener">CommonJS/UMD</a>, <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e" target="_blank" rel="noopener">ES6 JavaScript</a> модулем, или, в случае использования тега <code>&lt;script&gt;</code>, он будет автоматически загружаться во Vue с помощью <code>Vue.use(...)</code>, поэтому он будет сразу доступен на странице. Это достигается простым файлом wrapper.js, который обрабатывает экспорт и автоматическую установку модуля. В целом, обёртка выглядит следующим образом:</p>
 <pre><code class="hljs js"><span class="hljs-comment">// Импорт vue компонента</span>
 <span class="hljs-keyword">import</span> component <span class="hljs-keyword">from</span> <span class="hljs-string">'./my-component.vue'</span>;
 

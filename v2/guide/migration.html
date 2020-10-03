@@ -267,7 +267,7 @@
           Руководство
           
             <select class="version-select">
-              <option value="v3">3.x-beta</option>
+              <option value="v3">3.x</option>
               <option value="SELF" selected>2.x</option>
               <option value="v1">1.0</option>
               <option value="012">0.12</option>
@@ -1613,7 +1613,7 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 <h4 id="Replacing-the-capitalize-Filter"><a href="#Replacing-the-capitalize-Filter" class="headerlink" title="Replacing the capitalize Filter"></a>Replacing the <code>capitalize</code> Filter</h4><pre><code class="hljs js">text[<span class="hljs-number">0</span>].toUpperCase() + text.slice(<span class="hljs-number">1</span>)</code></pre>
 <h4 id="Replacing-the-uppercase-Filter"><a href="#Replacing-the-uppercase-Filter" class="headerlink" title="Replacing the uppercase Filter"></a>Replacing the <code>uppercase</code> Filter</h4><pre><code class="hljs js">text.toUpperCase()</code></pre>
 <h4 id="Replacing-the-lowercase-Filter"><a href="#Replacing-the-lowercase-Filter" class="headerlink" title="Replacing the lowercase Filter"></a>Replacing the <code>lowercase</code> Filter</h4><pre><code class="hljs js">text.toLowerCase()</code></pre>
-<h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a href="https://www.npmjs.com/package/pluralize" target="_blank" rel="noopener">pluralize</a> package on NPM serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
+<h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a href="https://www.npmjs.com/package/pluralize" target="_blank" rel="noopener">pluralize</a> package on npm serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
 <pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pluralizeKnife</span> (<span class="hljs-params">count</span>) </span>&#123;
   <span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) &#123;
     <span class="hljs-keyword">return</span> <span class="hljs-string">'no knives'</span>

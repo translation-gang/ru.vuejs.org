@@ -267,7 +267,7 @@
           Руководство
           
             <select class="version-select">
-              <option value="v3">3.x-beta</option>
+              <option value="v3">3.x</option>
               <option value="SELF" selected>2.x</option>
               <option value="v1">1.0</option>
               <option value="012">0.12</option>
@@ -989,10 +989,10 @@
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span>&gt;</span><span class="javascript">
   <span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js'</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<p>Исходный код самого NPM-пакета также доступен по ссылке <a href="https://cdn.jsdelivr.net/npm/vue/" target="_blank" rel="noopener">cdn.jsdelivr.net/npm/vue</a>.</p>
-<p>Vue также доступен на <a href="https://unpkg.com/vue@2.6.12/dist/vue.js" target="_blank" rel="noopener">unpkg</a> и <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js" target="_blank" rel="noopener">cdnjs</a> (cdnjs синхронизируется с NPM с некоторой задержкой, из-за чего последняя версия может быть не всегда доступна сразу).</p>
+<p>Исходный код самого npm-пакета также доступен по ссылке <a href="https://cdn.jsdelivr.net/npm/vue/" target="_blank" rel="noopener">cdn.jsdelivr.net/npm/vue</a>.</p>
+<p>Vue также доступен на <a href="https://unpkg.com/vue@2.6.12/dist/vue.js" target="_blank" rel="noopener">unpkg</a> и <a href="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js" target="_blank" rel="noopener">cdnjs</a> (cdnjs синхронизируется с npm с некоторой задержкой, из-за чего последняя версия может быть не всегда доступна сразу).</p>
 <p>Обязательно прочитайте про <a href="#Объяснение-различных-сборок">отличия в сборках Vue</a> и используйте <strong>версию для production</strong> на своём опубликованном сайте, заменив <code>vue.js</code> на <code>vue.min.js</code>. Это сборка оптимизирована для скорости, а не для удобства разработки.</p>
-<h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>Рекомендуем использовать NPM при создании крупных приложений на Vue. Этот вариант прекрасно работает в паре с инструментами сборки, такими как <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> и <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. Во Vue также есть совместимые с ними инструменты для использования <a href="single-file-components.html">однофайловых компонентов</a>.</p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>Рекомендуем использовать npm при создании крупных приложений на Vue. Этот вариант прекрасно работает в паре с инструментами сборки, такими как <a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a> и <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>. Во Vue также есть совместимые с ними инструменты для использования <a href="single-file-components.html">однофайловых компонентов</a>.</p>
 <pre><code class="hljs bash"><span class="hljs-comment"># последняя стабильная версия</span>
 $ npm install vue</code></pre>
 <h2 id="Инструменты-командной-строки-CLI"><a href="#Инструменты-командной-строки-CLI" class="headerlink" title="Инструменты командной строки (CLI)"></a>Инструменты командной строки (CLI)</h2><p>Vue.js предоставляет <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">официальный инструментарий для командной строки (CLI)</a> для быстрого создания каркаса амбициозных одностраничных приложений. Предлагаемые шаблоны содержат всё необходимое для организации современной фронтенд-разработки. Всего за несколько минут вы получите работающую конфигурацию с горячей перезагрузкой модулей, линтингом кода при сохранении и настроенной конфигурацией production-сборки. Подробнее вы можете изучить в <a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">документации Vue CLI</a>.</p>
@@ -1000,7 +1000,7 @@ $ npm install vue</code></pre>
 
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/real-world-vue-js/vue-cli" target="_blank" rel="sponsored noopener" title="Vue CLI">Посмотрите объясняющее видео на Vue Mastery</a></div>
 
-<h2 id="Объяснение-различных-сборок"><a href="#Объяснение-различных-сборок" class="headerlink" title="Объяснение различных сборок"></a>Объяснение различных сборок</h2><p>В <a href="https://cdn.jsdelivr.net/npm/vue/dist/" target="_blank" rel="noopener">папке <code>dist/</code> NPM-пакета</a> можно найти много разных сборок Vue.js. Вот краткий обзор отличий между ними:</p>
+<h2 id="Объяснение-различных-сборок"><a href="#Объяснение-различных-сборок" class="headerlink" title="Объяснение различных сборок"></a>Объяснение различных сборок</h2><p>В <a href="https://cdn.jsdelivr.net/npm/vue/dist/" target="_blank" rel="noopener">папке <code>dist/</code> npm-пакета</a> можно найти много разных сборок Vue.js. Вот краткий обзор отличий между ними:</p>
 <table>
 <thead>
 <tr>

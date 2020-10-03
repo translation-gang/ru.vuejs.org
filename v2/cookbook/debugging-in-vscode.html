@@ -320,7 +320,7 @@
         
         
         <li>
-            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Используем Axios для доступа к API</a>
+            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Используем axios для доступа к API</a>
         </li>
     
         
@@ -465,9 +465,9 @@
 <p><img src="/images/breakpoint_hit.png" alt="Breakpoint Hit"></p>
 </li>
 </ol>
-<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — использовать Vue.js devtools <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">для Chrome</a> и <a href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/" target="_blank" rel="noopener">для Firefox</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
+<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-devtools"><a href="#Vue-devtools" class="headerlink" title="Vue devtools"></a>Vue devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — использовать Vue.js devtools <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">для Chrome</a> и <a href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/" target="_blank" rel="noopener">для Firefox</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
 <p><img src="/images/devtools-timetravel.gif" alt="Devtools Timetravel Debugger"></p>
-<p class="tip">Обратите внимание, если на странице используется production/минифицированная сборка Vue.js (как например, стандартная ссылка на CDN), то проверка инструментов разработки по умолчанию отключена и поэтому панель Vue не будет отображаться в инструментах разработчика. Если вы переключитесь на неминифицированную версию, вам может потребоваться обновить страницу, чтобы увидеть изменения.</p>
+<p class="tip">Обратите внимание, если на странице используется production/минифицированная сборка Vue.js (как например, стандартная ссылка на CDN), то проверка инструментов разработки по умолчанию отключена и поэтому панель Vue не будет отображаться в инструментах разработчика. Если вы переключитесь на не минифицированную версию, вам может потребоваться обновить страницу, чтобы увидеть изменения.</p>
 
 <h3 id="Использование-выражения-Debugger"><a href="#Использование-выражения-Debugger" class="headerlink" title="Использование выражения Debugger"></a>Использование выражения Debugger</h3><p>Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger" target="_blank" rel="noopener">нативное выражение debugger</a> прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти выражения после окончания отладки.</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
