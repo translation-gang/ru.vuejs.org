@@ -24,10 +24,10 @@ var vm = new Vue({
 Корневой экземпляр
 └─ TodoList
    ├─ TodoItem
-   │  ├─ DeleteTodoButton
-   │  └─ EditTodoButton
+   │  ├─ TodoButtonDelete
+   │  └─ TodoButtonEdit
    └─ TodoListFooter
-      ├─ ClearTodosButton
+      ├─ TodosButtonClear
       └─ TodoListStatistics
 ```
 
