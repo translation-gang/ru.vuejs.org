@@ -41,7 +41,7 @@ Vue следует [семантическому версионированию]
 Для создания прототипов или в целях обучения можно использовать последнюю версию:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 ```
 
 Для production, мы рекомендуем указывать конкретную версию и сборку, чтобы избежать неожиданных поломок при выходе новых версий:
@@ -83,7 +83,7 @@ Vue.js предоставляет [официальный инструмента
 
 ## Объяснение различных сборок
 
-В [папке `dist/` npm-пакета](https://cdn.jsdelivr.net/npm/vue/dist/) можно найти много разных сборок Vue.js. Вот краткий обзор отличий между ними:
+В [папке `dist/` npm-пакета](https://cdn.jsdelivr.net/npm/vue@2/dist/) можно найти много разных сборок Vue.js. Вот краткий обзор отличий между ними:
 
 |                               | UMD                | CommonJS              | ES Module (для сборщиков) | ES Module (для браузеров) |
 | ---                           | ---                | ---                   | ---                       | ---                       |
@@ -100,7 +100,7 @@ Vue.js предоставляет [официальный инструмента
 
 - **Runtime**: код, который отвечает за создание экземпляров Vue, отрисовку и изменение виртуального DOM и т.д. По сути, это всё, кроме компилятора.
 
-- **[UMD](https://github.com/umdjs/umd)**: сборки UMD можно использовать сразу в браузере, подключая тегом `<script>`. По умолчанию в jsDelivr CDN из [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) будет UMD-сборка Runtime + Компилятор (`vue.js`).
+- **[UMD](https://github.com/umdjs/umd)**: сборки UMD можно использовать сразу в браузере, подключая тегом `<script>`. По умолчанию в jsDelivr CDN из [https://cdn.jsdelivr.net/npm/vue@2](https://cdn.jsdelivr.net/npm/vue@2) будет UMD-сборка Runtime + Компилятор (`vue.js`).
 
 - **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: сборки CommonJS предназначены для использования вместе со старыми инструментами сборки, такими как [Browserify](http://browserify.org/) или [Webpack 1](https://webpack.github.io). По умолчанию для них (`pkg.main`) будет сборка Runtime-only CommonJS (`vue.runtime.common.js`).
 
