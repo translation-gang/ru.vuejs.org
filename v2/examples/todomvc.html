@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="with-v3-banner">
     <head><meta name="generator" content="Hexo 3.8.0">
         <title>TodoMVC — Vue.js</title>
         <meta charset="utf-8">
@@ -91,13 +91,19 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <header id="header">
-  <a id="logo" href="/">
-    <img src="/images/logo.png" alt="Логотип Vue">
-    <span>Vue.js</span>
-  </a>
-  <ul id="nav">
-    <li>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.vuejs.org/">Перейти</a> к документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
   </form>
@@ -210,8 +216,9 @@
 </li>
 
 
-  </ul>
-</header>
+    </ul>
+  </header>
+</div>
 
         
             <div id="main" class="fix-sidebar">
@@ -386,6 +393,11 @@
 
 
 <div class="content examples with-sidebar ">
+    <p class="tip warning v3-warning">
+      Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.vuejs.org/">документация здесь</a>.
+    </p>
+
     
       
         

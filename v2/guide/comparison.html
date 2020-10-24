@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="with-v3-banner">
     <head><meta name="generator" content="Hexo 3.8.0">
         <title>Сравнение с другими фреймворками — Vue.js</title>
         <meta charset="utf-8">
@@ -91,13 +91,19 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <header id="header">
-  <a id="logo" href="/">
-    <img src="/images/logo.png" alt="Логотип Vue">
-    <span>Vue.js</span>
-  </a>
-  <ul id="nav">
-    <li>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.vuejs.org/">Перейти</a> к документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
   </form>
@@ -210,8 +216,9 @@
 </li>
 
 
-  </ul>
-</header>
+    </ul>
+  </header>
+</div>
 
         
             <div id="main" class="fix-sidebar">
@@ -956,6 +963,11 @@
 
 
 <div class="content guide with-sidebar comparison-guide">
+    <p class="tip warning v3-warning">
+      Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.vuejs.org/">документация здесь</a>.
+    </p>
+
     
       
         
@@ -1033,7 +1045,7 @@
 <p>Важно заметить, что многие из этих ограничений — следствия сознательно принятых решений команды create-react-app, и в них есть и свои плюсы. Например, коль скоро ваш проект не требует пользовательской настройки процесса сборки, её можно будет обновлять как зависимость. Прочитать больше об этом подходе <a href="https://github.com/facebookincubator/create-react-app#philosophy" target="_blank" rel="noopener">можно здесь</a>.</p>
 <h4 id="Масштабирование-вниз"><a href="#Масштабирование-вниз" class="headerlink" title="Масштабирование вниз"></a>Масштабирование вниз</h4><p>React известен своей довольно крутой кривой изучения. До того момента, когда новичок сможет что-то написать, ему придётся узнать о JSX, а вероятно — и о ES2015+, поскольку многие примеры используют синтаксис ES2015-классов. Кроме того придётся разобраться с системами сборки, поскольку, хотя технически и существует возможность использовать Babel самостоятельно для live-компиляции кода, для production этот подход в любом случае не годится.</p>
 <p>Vue масштабируется вверх ничуть не хуже, чем React, и в то же время его можно масштабировать и вниз — вплоть до варианта использования вместе с jQuery. Именно так — для старта в простейшем случае достаточно просто добавить тег скрипта на HTML-страницу.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>Начиная с этого момента можно писать код на Vue, и даже использовать production-версию, не мучаясь угрызениями совести и волнениями насчёт производительности.</p>
 <p>Поскольку знания JSX, ES2015 и систем сборки не требуется для начала работы с Vue, в среднем у новых разработчиков уходит не больше дня на чтение <a href="./">руководства</a>, позволяющего узнать достаточно для построения нетривиальных приложений.</p>
 <h3 id="Нативная-отрисовка"><a href="#Нативная-отрисовка" class="headerlink" title="Нативная отрисовка"></a>Нативная отрисовка</h3><p>React Native позволяет писать нативные приложения для iOS и Android, используя ту же самую модель компонентов React’а. Это — прекрасно, так как позволяет разработчикам применить знание одного и того же фреймворка на различных платформах. В этой области, Vue официально поддерживает проект <a href="https://weex.apache.org/" target="_blank" rel="noopener">Weex</a> — кроссплатформенный UI-фреймворк, созданный Alibaba Group и инкубированный Apache Software Foundation (ASF). Weex позволяет использовать тот же синтаксис Vue для создания компонентов, которые не только могут отображаться в браузере, но и также нативными элементами в iOS и Android!</p>

@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="with-v3-banner">
     <head><meta name="generator" content="Hexo 3.8.0">
         <title>Введение — Vue.js</title>
         <meta charset="utf-8">
@@ -91,13 +91,19 @@
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
-        <header id="header">
-  <a id="logo" href="/">
-    <img src="/images/logo.png" alt="Логотип Vue">
-    <span>Vue.js</span>
-  </a>
-  <ul id="nav">
-    <li>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.vuejs.org/">Перейти</a> к документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
   <form id="search-form">
     <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
   </form>
@@ -210,8 +216,9 @@
 </li>
 
 
-  </ul>
-</header>
+    </ul>
+  </header>
+</div>
 
         
             <div id="main" class="fix-sidebar">
@@ -956,6 +963,11 @@
 
 
 <div class="content guide with-sidebar index-guide">
+    <p class="tip warning v3-warning">
+      Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.vuejs.org/">документация здесь</a>.
+    </p>
+
     
       
         
@@ -981,10 +993,10 @@
 
 <p>Проще всего попробовать Vue.js, начав с <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-hello-world" target="_blank" rel="noopener">примера Hello World</a>. Откройте его в другой вкладке, и изменяйте по ходу чтения руководства. Можно и просто <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html" target="_blank" rel="noopener noreferrer" download="index.html">создать <code>index.html</code> файл</a> на диске и подключить Vue:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- версия для разработки, отображает полезные предупреждения в консоли --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>или:</p>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- production-версия, оптимизированная для размера и скорости --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 <p>В разделе по <a href="installation.html">установке</a> описаны и другие варианты установки Vue. Обратите внимание, мы <strong>не рекомендуем</strong> новичкам начинать с <code>vue-cli</code>, особенно если нет опыта работы с инструментами сборки Node.js.</p>
 <p>Если предпочитаете что-то более интерактивное, можете пройти <a href="https://scrimba.com/g/gvuedocs" target="_blank" rel="noopener">эту серию уроков на Scrimba</a>, которая представляет собой сочетание скринкастов и песочницы для проверки примеров кода, где вы можете остановиться и продолжить изучение в любое время.</p>
 <h2 id="Декларативная-отрисовка"><a href="#Декларативная-отрисовка" class="headerlink" title="Декларативная отрисовка"></a>Декларативная отрисовка</h2><div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank" rel="noopener noreferrer">Пройдите этот урок на Scrimba</a></div>

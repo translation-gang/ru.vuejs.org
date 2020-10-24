@@ -461,7 +461,26 @@ i.rotating-clockwise {
   height: 40px;
   padding: 10px 60px;
   position: relative;
-  z-index: 100;
+  z-index: 20;
+}
+#v3-banner {
+  background-color: #42b983;
+  min-height: 40px;
+  padding: 10px 60px;
+  z-index: 19;
+  box-sizing: border-box;
+  text-align: center;
+  color: #d6ffec;
+  display: none;
+}
+#v3-banner a {
+  color: #fff;
+  font-weight: bold;
+}
+@media screen and (max-width: 900px) {
+  #v3-banner .hidden-sm {
+    display: none;
+  }
 }
 body.docs #header {
   position: fixed;
@@ -470,6 +489,7 @@ body.docs #header {
 }
 body.docs #nav {
   position: fixed;
+  top: 10px;
 }
 #nav {
   list-style-type: none;
@@ -592,9 +612,13 @@ body.docs #nav {
   width: 100%;
   height: 40px;
   background-color: #fff;
-  z-index: 9;
+  z-index: 20;
   display: none;
   box-shadow: 0 0 2px rgba(0,0,0,0.25);
+  pointer-events: none;
+}
+#mobile-bar > * {
+  pointer-events: auto;
 }
 #mobile-bar .menu-button {
   position: absolute;
@@ -1786,6 +1810,15 @@ ul.demo li {
   content: "\f00c";
   font-family: FontAwesome;
   background-color: #42b983;
+}
+.content p.warning {
+  border-left-color: #ffa500;
+}
+.content p.warning:before {
+  background-color: #ffa500;
+}
+.content p.v3-warning {
+  margin-top: 0;
 }
 .guide-links {
   margin-top: 2em;
