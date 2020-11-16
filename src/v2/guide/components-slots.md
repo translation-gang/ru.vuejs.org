@@ -445,7 +445,7 @@ function (slotProps) {
 </todo-list>
 ```
 
-Однако, это едва ли вершина айсберга на что способы слоты с ограниченной областью видимости. Несколько реальных примеров использования слотов с ограниченной областью видимости можно посмотреть в библиотеках [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), и [Portal Vue](https://github.com/LinusBorg/portal-vue).
+Однако, это едва ли не вершина айсберга возможностей на которые способны слоты с ограниченной областью видимости. Несколько реальных примеров использования слотов с ограниченной областью видимости можно посмотреть в библиотеках [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), и [Portal Vue](https://github.com/LinusBorg/portal-vue).
 
 ## Устаревший синтаксис
 
