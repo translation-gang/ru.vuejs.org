@@ -344,6 +344,7 @@ Vue.component('base-input', {
 
 ```html
 <base-input
+  label="Пользователь:"
   v-model="username"
   required
   placeholder="Введите имя пользователя"
