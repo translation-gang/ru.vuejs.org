@@ -1035,7 +1035,7 @@
 <p>Для решения этой проблемы Vue предоставляет свойство <code>$listeners</code>, содержащее объект всех слушателей, которые используются на компоненте. Например:</p>
 <pre><code class="hljs js">&#123;
   <span class="hljs-attr">focus</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
-  input: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+  <span class="hljs-attr">input</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
 &#125;</code></pre>
 <p>Используя свойство <code>$listeners</code>, вы можете передать все слушатели событий на компоненте на определённый дочерний элемент с помощью <code>v-on=&quot;$listeners&quot;</code>. Для таких элементов как <code>&lt;input&gt;</code>, вы также можете захотеть работоспособности с <code>v-model</code>, для чего бывает полезно создать новое вычисляемое свойство для слушателей, например <code>inputListeners</code> указанный ниже:</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-input'</span>, &#123;
@@ -1052,7 +1052,7 @@
         <span class="hljs-comment">// перезаписать поведение некоторых существующих.</span>
         &#123;
           <span class="hljs-comment">// Это обеспечит, что будет работать v-model на компоненте</span>
-          input: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
+          <span class="hljs-attr">input</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
             vm.$emit(<span class="hljs-string">'input'</span>, event.target.value)
           &#125;
         &#125;

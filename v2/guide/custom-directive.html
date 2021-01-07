@@ -1005,7 +1005,7 @@ new Vue({
 <pre><code class="hljs js"><span class="hljs-comment">// Регистрируем глобальную пользовательскую директиву `v-focus`</span>
 Vue.directive(<span class="hljs-string">'focus'</span>, &#123;
   <span class="hljs-comment">// Когда привязанный элемент вставлен в DOM...</span>
-  inserted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+  <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
     <span class="hljs-comment">// Переключаем фокус на элемент</span>
     el.focus()
   &#125;
@@ -1014,7 +1014,7 @@ Vue.directive(<span class="hljs-string">'focus'</span>, &#123;
 <pre><code class="hljs js">directives: &#123;
   <span class="hljs-attr">focus</span>: &#123;
     <span class="hljs-comment">// определение директивы</span>
-    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+    <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
       el.focus()
     &#125;
   &#125;

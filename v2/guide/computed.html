@@ -1002,7 +1002,7 @@
   &#125;,
   <span class="hljs-attr">computed</span>: &#123;
     <span class="hljs-comment">// геттер вычисляемого значения</span>
-    reversedMessage: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-attr">reversedMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// `this` указывает на экземпляр vm</span>
       <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
     &#125;
@@ -1037,7 +1037,7 @@ vm.message = <span class="hljs-string">'Пока'</span>
 <h3 id="Кэширование-вычисляемых-свойств"><a href="#Кэширование-вычисляемых-свойств" class="headerlink" title="Кэширование вычисляемых свойств"></a>Кэширование вычисляемых свойств</h3><p>Можно заметить, что такого же результата можно достичь и с помощью метода:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Сообщение задом наперёд: «&#123;&#123; reverseMessage() &#125;&#125;»<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// в компоненте</span>
-methods: &#123;
+<span class="hljs-attr">methods</span>: &#123;
   <span class="hljs-attr">reverseMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
   &#125;
@@ -1085,14 +1085,14 @@ methods: &#123;
 <p>Так гораздо лучше, не правда ли?</p>
 <h3 id="Сеттеры-вычисляемых-свойств"><a href="#Сеттеры-вычисляемых-свойств" class="headerlink" title="Сеттеры вычисляемых свойств"></a>Сеттеры вычисляемых свойств</h3><p>По умолчанию вычисляемые свойства работают только на чтение, но при необходимости можно также указать и сеттер:</p>
 <pre><code class="hljs js"><span class="hljs-comment">// ...</span>
-computed: &#123;
+<span class="hljs-attr">computed</span>: &#123;
   <span class="hljs-attr">fullName</span>: &#123;
     <span class="hljs-comment">// геттер:</span>
-    get: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstName + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastName
     &#125;,
     <span class="hljs-comment">// сеттер:</span>
-    set: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue</span>) </span>&#123;
+    <span class="hljs-attr">set</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue</span>) </span>&#123;
       <span class="hljs-keyword">var</span> names = newValue.split(<span class="hljs-string">' '</span>)
       <span class="hljs-keyword">this</span>.firstName = names[<span class="hljs-number">0</span>]
       <span class="hljs-keyword">this</span>.lastName = names[names.length - <span class="hljs-number">1</span>]
@@ -1114,8 +1114,8 @@ computed: &#123;
 <span class="hljs-comment">&lt;!-- и библиотек функций общего назначения, ядро Vue может       --&gt;</span>
 <span class="hljs-comment">&lt;!-- оставаться маленьким и не изобретать их заново. Кроме того, --&gt;</span>
 <span class="hljs-comment">&lt;!-- это позволяет вам использовать только знакомые инструменты. --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
 <span class="hljs-keyword">var</span> watchExampleVM = <span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#watch-example'</span>,
@@ -1125,7 +1125,7 @@ computed: &#123;
   &#125;,
   <span class="hljs-attr">watch</span>: &#123;
     <span class="hljs-comment">// эта функция запускается при любом изменении вопроса</span>
-    question: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newQuestion, oldQuestion</span>) </span>&#123;
+    <span class="hljs-attr">question</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newQuestion, oldQuestion</span>) </span>&#123;
       <span class="hljs-keyword">this</span>.answer = <span class="hljs-string">'Ожидаю, когда вы закончите печатать...'</span>
       <span class="hljs-keyword">this</span>.debouncedGetAnswer()
     &#125;

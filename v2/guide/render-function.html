@@ -1089,68 +1089,68 @@ createElement(
 )</code></pre>
 <h3 id="Подробно-об-объекте-данных"><a href="#Подробно-об-объекте-данных" class="headerlink" title="Подробно об объекте данных"></a>Подробно об объекте данных</h3><p>Обратите внимание: особым образом рассматриваемые в шаблонах атрибуты <code>v-bind:class</code> и <code>v-bind:style</code>, и в объектах данных виртуальных узлов имеют собственные поля на верхнем уровне объектов данных. Этот объект также позволяет вам связывать обычные атрибуты HTML, а также свойства DOM, такие как <code>innerHTML</code> (это заменит директиву <code>v-html</code>):</p>
 <pre><code class="hljs js">&#123;
-  // То же API, что и у `v-bind:class`, принимающий
-  // строку, объект, массив строк или массив объектов
-  class: &#123;
-    foo: true,
-    bar: false
+  <span class="hljs-comment">// То же API, что и у `v-bind:class`, принимающий</span>
+  <span class="hljs-comment">// строку, объект, массив строк или массив объектов</span>
+  <span class="hljs-attr">class</span>: &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">bar</span>: <span class="hljs-literal">false</span>
   &#125;,
-  // То же API, что и у `v-bind:style`, принимающий
-  // строку, объект, массив строк или массив объектов
-  style: &#123;
-    color: 'red',
-    fontSize: '14px'
+  <span class="hljs-comment">// То же API, что и у `v-bind:style`, принимающий</span>
+  <span class="hljs-comment">// строку, объект, массив строк или массив объектов</span>
+  <span class="hljs-attr">style</span>: &#123;
+    <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>,
+    <span class="hljs-attr">fontSize</span>: <span class="hljs-string">'14px'</span>
   &#125;,
-  // Обычные атрибуты HTML
-  attrs: &#123;
-    id: 'foo'
+  <span class="hljs-comment">// Обычные атрибуты HTML</span>
+  <span class="hljs-attr">attrs</span>: &#123;
+    <span class="hljs-attr">id</span>: <span class="hljs-string">'foo'</span>
   &#125;,
-  // Входные параметры компонентов
-  props: &#123;
-    myProp: 'bar'
+  <span class="hljs-comment">// Входные параметры компонентов</span>
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">myProp</span>: <span class="hljs-string">'bar'</span>
   &#125;,
-  // Свойства DOM
-  domProps: &#123;
-    innerHTML: 'baz'
+  <span class="hljs-comment">// Свойства DOM</span>
+  <span class="hljs-attr">domProps</span>: &#123;
+    <span class="hljs-attr">innerHTML</span>: <span class="hljs-string">'baz'</span>
   &#125;,
-  // Обработчики событий располагаются под ключом `on`,
-  // однако модификаторы, вроде как `v-on:keyup.enter`, не
-  // поддерживаются. Проверять keyCode придётся вручную.
-  on: &#123;
-    click: this.clickHandler
+  <span class="hljs-comment">// Обработчики событий располагаются под ключом `on`,</span>
+  <span class="hljs-comment">// однако модификаторы, вроде как `v-on:keyup.enter`, не</span>
+  <span class="hljs-comment">// поддерживаются. Проверять keyCode придётся вручную.</span>
+  <span class="hljs-attr">on</span>: &#123;
+    <span class="hljs-attr">click</span>: <span class="hljs-keyword">this</span>.clickHandler
   &#125;,
-  // Только для компонентов. Позволяет слушать нативные события,
-  // а не генерируемые в компоненте через `vm.$emit`.
-  nativeOn: &#123;
-    click: this.nativeClickHandler
+  <span class="hljs-comment">// Только для компонентов. Позволяет слушать нативные события,</span>
+  <span class="hljs-comment">// а не генерируемые в компоненте через `vm.$emit`.</span>
+  <span class="hljs-attr">nativeOn</span>: &#123;
+    <span class="hljs-attr">click</span>: <span class="hljs-keyword">this</span>.nativeClickHandler
   &#125;,
-  // Пользовательские директивы. Обратите внимание, что `oldValue`
-  // не может быть указано, так как Vue сам его отслеживает
-  directives: [
+  <span class="hljs-comment">// Пользовательские директивы. Обратите внимание, что `oldValue`</span>
+  <span class="hljs-comment">// не может быть указано, так как Vue сам его отслеживает</span>
+  <span class="hljs-attr">directives</span>: [
     &#123;
-      name: 'my-custom-directive',
-      value: '2',
-      expression: '1 + 1',
-      arg: 'foo',
-      modifiers: &#123;
-        bar: true
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'my-custom-directive'</span>,
+      <span class="hljs-attr">value</span>: <span class="hljs-string">'2'</span>,
+      <span class="hljs-attr">expression</span>: <span class="hljs-string">'1 + 1'</span>,
+      <span class="hljs-attr">arg</span>: <span class="hljs-string">'foo'</span>,
+      <span class="hljs-attr">modifiers</span>: &#123;
+        <span class="hljs-attr">bar</span>: <span class="hljs-literal">true</span>
       &#125;
     &#125;
   ],
-  // Слоты с ограниченной областью видимости в формате
-  // &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;
-  scopedSlots: &#123;
-    default: props =&gt; createElement('span', props.text)
+  <span class="hljs-comment">// Слоты с ограниченной областью видимости в формате</span>
+  <span class="hljs-comment">// &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span>
+  <span class="hljs-attr">scopedSlots</span>: &#123;
+    <span class="hljs-attr">default</span>: <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> createElement(<span class="hljs-string">'span'</span>, props.text)
   &#125;,
-  // Имя слота, если этот компонент
-  // является потомком другого компонента
-  slot: 'name-of-slot',
-  // Прочие специальные свойства верхнего уровня
-  key: 'myKey',
-  ref: 'myRef',
-  // Если указываете одно имя в ref к нескольким элементам
-  // в render-функции — это сделает `$refs.myRef` массивом
-  refInFor: true
+  <span class="hljs-comment">// Имя слота, если этот компонент</span>
+  <span class="hljs-comment">// является потомком другого компонента</span>
+  <span class="hljs-attr">slot</span>: <span class="hljs-string">'name-of-slot'</span>,
+  <span class="hljs-comment">// Прочие специальные свойства верхнего уровня</span>
+  <span class="hljs-attr">key</span>: <span class="hljs-string">'myKey'</span>,
+  <span class="hljs-attr">ref</span>: <span class="hljs-string">'myRef'</span>,
+  <span class="hljs-comment">// Если указываете одно имя в ref к нескольким элементам</span>
+  <span class="hljs-comment">// в render-функции — это сделает `$refs.myRef` массивом</span>
+  <span class="hljs-attr">refInFor</span>: <span class="hljs-literal">true</span>
 &#125;</code></pre>
 <h3 id="Полный-пример"><a href="#Полный-пример" class="headerlink" title="Полный пример"></a>Полный пример</h3><p>Узнав всё это, мы теперь можем завершить начатый ранее компонент:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> getChildrenTextContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">children</span>) </span>&#123;
@@ -1341,7 +1341,7 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
     createElement(<span class="hljs-string">'child'</span>, &#123;
       <span class="hljs-comment">// передаём `scopedSlots` в объект data</span>
       <span class="hljs-comment">// в виде &#123; name: props =&gt; VNode | Array&lt;VNode&gt; &#125;</span>
-      scopedSlots: &#123;
+      <span class="hljs-attr">scopedSlots</span>: &#123;
         <span class="hljs-attr">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">props</span>) </span>&#123;
           <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'span'</span>, props.text)
         &#125;
@@ -1385,12 +1385,12 @@ Vue.component(<span class="hljs-string">'anchored-heading'</span>, &#123;
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
   <span class="hljs-attr">functional</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-comment">// входные параметры опциональны</span>
-  props: &#123;
+  <span class="hljs-attr">props</span>: &#123;
     <span class="hljs-comment">// ...</span>
   &#125;,
   <span class="hljs-comment">// чтобы компенсировать отсутствие экземпляра</span>
   <span class="hljs-comment">// мы передаём контекст вторым аргументом</span>
-  render: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement, context</span>) </span>&#123;
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement, context</span>) </span>&#123;
     <span class="hljs-comment">// ...</span>
   &#125;
 &#125;)</code></pre>

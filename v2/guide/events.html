@@ -1024,7 +1024,7 @@ var example1 = new Vue({
     <span class="hljs-attr">name</span>: <span class="hljs-string">'Vue.js'</span>
   &#125;,
   <span class="hljs-comment">// определяйте методы в объекте `methods`</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-attr">greet</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
       <span class="hljs-comment">// `this` внутри методов указывает на экземпляр Vue</span>
       alert(<span class="hljs-string">'Привет, '</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">'!'</span>)
@@ -1095,7 +1095,7 @@ new Vue({
   Отправить
 <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// ...</span>
-methods: &#123;
+<span class="hljs-attr">methods</span>: &#123;
   <span class="hljs-attr">warn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message, event</span>) </span>&#123;
     <span class="hljs-comment">// теперь у нас есть доступ к нативному событию</span>
     <span class="hljs-keyword">if</span> (event) &#123;

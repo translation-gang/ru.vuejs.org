@@ -422,23 +422,23 @@
 <pre><code class="hljs docker"><span class="hljs-keyword">FROM</span> node:lts-alpine
 
 <span class="hljs-comment"># устанавливаем простой HTTP-сервер для статики</span>
-<span class="hljs-keyword">RUN</span><span class="bash"> npm install -g http-server
-</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install -g http-server</span>
+
 <span class="hljs-comment"># делаем каталог 'app' текущим рабочим каталогом</span>
-<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
-</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+
 <span class="hljs-comment"># копируем оба 'package.json' и 'package-lock.json' (если есть)</span>
-<span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./
-</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./</span>
+
 <span class="hljs-comment"># устанавливаем зависимости проекта</span>
-<span class="hljs-keyword">RUN</span><span class="bash"> npm install
-</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+
 <span class="hljs-comment"># копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')</span>
-<span class="hljs-keyword">COPY</span><span class="bash"> . .
-</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . .</span>
+
 <span class="hljs-comment"># собираем приложение для production с минификацией</span>
-<span class="hljs-keyword">RUN</span><span class="bash"> npm run build
-</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm run build</span>
+
 <span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span>
 <span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"http-server"</span>, <span class="hljs-string">"dist"</span> ]</span></code></pre>
 <p>Может показаться лишним сначала копировать <code>package.json</code> и <code>package-lock.json</code>, а затем все файлы и каталоги проекта в два отдельных шага, но на самом деле есть <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">одна очень веская причина для этого</a> (спойлер: это позволяет нам использовать кэшированные слои Docker).</p>
@@ -455,16 +455,16 @@
 <p>Давайте доработаем наш <code>Dockerfile</code> для использования NGINX:</p>
  <pre><code class="hljs docker"><span class="hljs-comment"># этап сборки (build stage)</span>
 <span class="hljs-keyword">FROM</span> node:lts-alpine as build-stage
-<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app
-</span><span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./
-</span><span class="hljs-keyword">RUN</span><span class="bash"> npm install
-</span><span class="hljs-keyword">COPY</span><span class="bash"> . .
-</span><span class="hljs-keyword">RUN</span><span class="bash"> npm run build
-</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . .</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm run build</span>
+
 <span class="hljs-comment"># этап production (production-stage)</span>
 <span class="hljs-keyword">FROM</span> nginx:stable-alpine as production-stage
-<span class="hljs-keyword">COPY</span><span class="bash"> --from=build-stage /app/dist /usr/share/nginx/html
-</span><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> --from=build-stage /app/dist /usr/share/nginx/html</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
 <span class="hljs-keyword">CMD</span><span class="bash"> [<span class="hljs-string">"nginx"</span>, <span class="hljs-string">"-g"</span>, <span class="hljs-string">"daemon off;"</span>]</span></code></pre>
 <p>ОК, разберёмся что здесь происходит</p>
 <ul>

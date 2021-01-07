@@ -1093,11 +1093,11 @@ new Vue({
   <span class="hljs-attribute">transition</span>: all .<span class="hljs-number">3s</span> ease;
 &#125;
 <span class="hljs-selector-class">.slide-fade-leave-active</span> &#123;
-  <span class="hljs-attribute">transition</span>: all .<span class="hljs-number">8s</span> <span class="hljs-built_in">cubic-bezier</span>(1.0, 0.5, 0.8, 1.0);
+  <span class="hljs-attribute">transition</span>: all .<span class="hljs-number">8s</span> <span class="hljs-built_in">cubic-bezier</span>(<span class="hljs-number">1.0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.8</span>, <span class="hljs-number">1.0</span>);
 &#125;
 <span class="hljs-selector-class">.slide-fade-enter</span>, <span class="hljs-selector-class">.slide-fade-leave-to</span>
 <span class="hljs-comment">/* .slide-fade-leave-active до версии 2.1.8 */</span> &#123;
-  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(10px);
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(<span class="hljs-number">10px</span>);
   <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
 &#125;</code></pre>
 
@@ -1150,15 +1150,15 @@ new Vue({
 <span class="hljs-selector-class">.bounce-leave-active</span> &#123;
   <span class="hljs-attribute">animation</span>: bounce-in .<span class="hljs-number">5s</span> reverse;
 &#125;
-@<span class="hljs-keyword">keyframes</span> bounce-in &#123;
+<span class="hljs-keyword">@keyframes</span> bounce-in &#123;
   0% &#123;
-    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(0);
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">0</span>);
   &#125;
   50% &#123;
-    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1.5);
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1.5</span>);
   &#125;
   100% &#123;
-    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1);
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1</span>);
   &#125;
 &#125;</code></pre>
 
@@ -1291,17 +1291,17 @@ new Vue({
   <span class="hljs-comment">&lt;!-- ... --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// ...</span>
-methods: &#123;
+<span class="hljs-attr">methods</span>: &#123;
   <span class="hljs-comment">// --------</span>
   <span class="hljs-comment">// ПОЯВЛЕНИЕ</span>
   <span class="hljs-comment">// --------</span>
 
-  beforeEnter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+  <span class="hljs-attr">beforeEnter</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
     <span class="hljs-comment">// ...</span>
   &#125;,
   <span class="hljs-comment">// коллбэк done не обязательно использовать, если</span>
   <span class="hljs-comment">// анимация или переход также определены в CSS</span>
-  enter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;
+  <span class="hljs-attr">enter</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;
     <span class="hljs-comment">// ...</span>
     done()
   &#125;,
@@ -1316,12 +1316,12 @@ methods: &#123;
   <span class="hljs-comment">// ИСЧЕЗНОВЕНИЕ</span>
   <span class="hljs-comment">// --------</span>
 
-  beforeLeave: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+  <span class="hljs-attr">beforeLeave</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
     <span class="hljs-comment">// ...</span>
   &#125;,
   <span class="hljs-comment">// коллбэк done не обязательно использовать, если</span>
   <span class="hljs-comment">// анимация или переход также определены в CSS</span>
-  leave: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;
+  <span class="hljs-attr">leave</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;
     <span class="hljs-comment">// ...</span>
     done()
   &#125;,
@@ -1329,7 +1329,7 @@ methods: &#123;
     <span class="hljs-comment">// ...</span>
   &#125;,
   <span class="hljs-comment">// leaveCancelled доступна только для v-show</span>
-  leaveCancelled: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+  <span class="hljs-attr">leaveCancelled</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
     <span class="hljs-comment">// ...</span>
   &#125;
 &#125;</code></pre>
@@ -1343,7 +1343,7 @@ methods: &#123;
 Velocity работает примерно так же, как и jQuery.animate,
 и весьма удобен для создания JavaScript-анимаций
 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-4"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"show = !show"</span>&gt;</span>
@@ -1495,7 +1495,7 @@ new Vue({
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// ...</span>
-computed: &#123;
+<span class="hljs-attr">computed</span>: &#123;
   <span class="hljs-attr">buttonMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">switch</span> (<span class="hljs-keyword">this</span>.docState) &#123;
       <span class="hljs-keyword">case</span> <span class="hljs-string">'saved'</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">'Редактировать'</span>
@@ -1808,7 +1808,7 @@ new Vue({
 &#125;
 <span class="hljs-selector-class">.list-enter</span>, <span class="hljs-selector-class">.list-leave-to</span> <span class="hljs-comment">/* .list-leave-active до версии 2.1.8 */</span> &#123;
   <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(30px);
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">30px</span>);
 &#125;</code></pre>
 
 <div id="list-demo" class="demo">
@@ -1857,7 +1857,7 @@ new Vue({
 <p>С этим примером есть одна проблема. При добавлении или удалении элемента, окружающие его элементы резко перемещаются, вместо того чтобы плавно перелететь на новые места. Мы исправим это позднее.</p>
 <h3 id="Анимация-перемещения-элементов-списка"><a href="#Анимация-перемещения-элементов-списка" class="headerlink" title="Анимация перемещения элементов списка"></a>Анимация перемещения элементов списка</h3><p>У компонента <code>&lt;transition-group&gt;</code> припасён ещё один козырь в рукаве. Он способен анимировать не только появление и удаление элементов, но также и их перемещение. Происходит это путём добавления <strong>класса <code>v-move</code></strong>, который указывается при изменении позиции элементов. Как и с другими классами, префикс устанавливается в соответствии с указанным значением атрибута <code>name</code>. Аналогично, можно указать класс вручную в атрибуте <code>move-class</code>.</p>
 <p>Этим классом удобнее всего указывать продолжительность и тайминги перехода:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"flip-list-demo"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"shuffle"</span>&gt;</span>Перемешать<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -1912,7 +1912,7 @@ new Vue({
 
 <p>Хотя это и может выглядеть как магия, «под капотом» Vue использует довольно простую анимационную технику под названием <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="noopener">FLIP</a>, которая позволяет плавно перевести элементы с их старых позиций на новые, используя CSS-трансформации.</p>
 <p>Теперь мы можем совместить эту технику с нашим предыдущим примером, чтобы анимировать все возможные изменения нашего списка!</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"list-complete-demo"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"shuffle"</span>&gt;</span>Перемешать<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -1957,7 +1957,7 @@ new Vue({
 <span class="hljs-selector-class">.list-complete-enter</span>, <span class="hljs-selector-class">.list-complete-leave-to</span>
 <span class="hljs-comment">/* .list-complete-leave-active до версии 2.1.8 */</span> &#123;
   <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(30px);
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(<span class="hljs-number">30px</span>);
 &#125;
 <span class="hljs-selector-class">.list-complete-leave-active</span> &#123;
   <span class="hljs-attribute">position</span>: absolute;
@@ -2076,7 +2076,7 @@ new Vue({
 </style>
 
 <h3 id="Упругая-анимация-элементов-списка"><a href="#Упругая-анимация-элементов-списка" class="headerlink" title="Упругая анимация элементов списка"></a>Упругая анимация элементов списка</h3><p>Настраивая JavaScript-переходы через data-атрибуты возможно также организовать упругую анимацию списка:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"staggered-list-demo"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"query"</span>&gt;</span>
@@ -2249,7 +2249,7 @@ new Vue({
 <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
 <p>Может пригодиться, если вы определили CSS-переходы или анимации, используя принятые во Vue соглашения об именовании классов, и просто хотите переключаться между ними.</p>
 <p>На самом деле, любой атрибут может быть динамически связан. И речь не только об атрибутах. Поскольку хуки — это просто методы, у них есть доступ ко всем данным в текущем контексте, а значит и JavaScript-анимации могут зависеть от состояния компонента.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dynamic-fade-demo"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"demo"</span>&gt;</span>
   Fade In: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"fadeInDuration"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">v-bind:max</span>=<span class="hljs-string">"maxFadeDuration"</span>&gt;</span>

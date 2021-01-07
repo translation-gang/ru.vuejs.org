@@ -1174,7 +1174,7 @@ new Vue({
 <p>При использовании <a href="components-registration.html#Локальная-регистрация">локальной регистрации компонентов</a>, вы также можете непосредственно указывать функцию, которая возвращает <code>Promise</code>:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-comment">// ...</span>
-  components: &#123;
+  <span class="hljs-attr">components</span>: &#123;
     <span class="hljs-string">'my-component'</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./my-async-component'</span>)
   &#125;
 &#125;)</code></pre>
@@ -1186,16 +1186,16 @@ new Vue({
 <p>Фабрика асинхронного компонента также может возвращать объект следующего формата:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">const</span> AsyncComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (&#123;
   <span class="hljs-comment">// Загружаемый компонент. Значение должно быть Promise</span>
-  component: <span class="hljs-keyword">import</span>(<span class="hljs-string">'./MyComponent.vue'</span>),
+  <span class="hljs-attr">component</span>: <span class="hljs-keyword">import</span>(<span class="hljs-string">'./MyComponent.vue'</span>),
   <span class="hljs-comment">// Компонент загрузки, используемый пока загружается асинхронный компонент</span>
-  loading: LoadingComponent,
+  <span class="hljs-attr">loading</span>: LoadingComponent,
   <span class="hljs-comment">// Компонент ошибки, используемый при неудачной загрузке</span>
-  error: ErrorComponent,
+  <span class="hljs-attr">error</span>: ErrorComponent,
   <span class="hljs-comment">// Задержка перед показом компонента загрузки. По умолчанию: 200 мс.</span>
-  delay: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">delay</span>: <span class="hljs-number">200</span>,
   <span class="hljs-comment">// Компонент ошибки будет отображаться, если таймаут</span>
   <span class="hljs-comment">// был указан и время ожидания превышено. По умолчанию: Infinity.</span>
-  timeout: <span class="hljs-number">3000</span>
+  <span class="hljs-attr">timeout</span>: <span class="hljs-number">3000</span>
 &#125;)</code></pre>
 <blockquote>
 <p>Обратите внимание, что вы должны использовать <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">Vue Router</a> версии 2.4.0+ если вы хотите использовать указанный выше синтаксис для компонентов маршрута.</p>

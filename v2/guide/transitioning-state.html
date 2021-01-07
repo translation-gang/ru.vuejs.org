@@ -992,7 +992,7 @@
 </ul>
 <p>Все эти параметры либо хранятся как числа, либо могут быть сконвертированы в числа. Это значит, что мы можем использовать сторонние библиотеки для анимации, в сочетании с компонентными и реактивными системами Vue.</p>
 <h2 id="Анимация-состояния-при-помощи-наблюдателей"><a href="#Анимация-состояния-при-помощи-наблюдателей" class="headerlink" title="Анимация состояния при помощи наблюдателей"></a>Анимация состояния при помощи наблюдателей</h2><p>Наблюдатели позволяют нам анимировать изменения любых числовых свойств. В такой абстрактной форме это может звучать сложновато, так что давайте просто разберём пример с использованием <a href="https://greensock.com/" target="_blank" rel="noopener">GreenSock</a>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"animated-number-demo"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"20"</span>&gt;</span>
@@ -1042,8 +1042,8 @@ new Vue({
 </script>
 
 <p>Когда вы изменяете число, это изменение в элементе под полем ввода анимируется. Для демонстрации — неплохо, но как насчёт параметров, которые напрямую как числа не хранятся, например, таких, как CSS-цвета? Используя <a href="https://github.com/tweenjs/tween.js" target="_blank" rel="noopener">Tween.js</a> и <a href="https://github.com/brehaut/color-js" target="_blank" rel="noopener">Color.js</a>, мы можем решить эту задачу:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/tween.js@16.3.4"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/color-js@1.0.3"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/tween.js@16.3.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/color-js@1.0.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-7"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
@@ -1296,7 +1296,7 @@ function generatePoints (stats) {
 
 <p>См. <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-dynamic-state-transitions" target="_blank" rel="noopener">этот пример</a> для просмотра исходного кода.</p>
 <h2 id="Представление-переходов-как-компонентов"><a href="#Представление-переходов-как-компонентов" class="headerlink" title="Представление переходов как компонентов"></a>Представление переходов как компонентов</h2><p>Управление множеством переходов может быстро переусложнить экземпляр или компонент. К счастью, многие анимации могут быть выделены в специализированные дочерние компоненты. Давайте проделаем эту операцию с анимированным числом из одного из предыдущих примеров:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/tween.js@16.3.4"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/tween.js@16.3.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-8"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"firstNumber"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"20"</span>&gt;</span> +

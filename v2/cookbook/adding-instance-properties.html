@@ -441,7 +441,7 @@
   <span class="hljs-attr">data</span>: &#123;
     <span class="hljs-comment">// Ох ах - appName *случайно* совпало с именем</span>
     <span class="hljs-comment">// свойства экземпляра, которое мы определили!</span>
-    appName: <span class="hljs-string">'Название какого-то другого приложения'</span>
+    <span class="hljs-attr">appName</span>: <span class="hljs-string">'Название какого-то другого приложения'</span>
   &#125;,
   <span class="hljs-attr">beforeCreate</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.appName);
@@ -453,7 +453,7 @@
 <p>Будет выведено <code>&quot;Моё приложение&quot;</code>, а затем <code>&quot;Название какого-то другого приложения&quot;</code>, потому что <code>this.appName</code> (<a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/objects-classes/ch5.md" target="_blank" rel="noopener">в каком-то роде</a>) будет перезаписан свойством <code>data</code> после создания экземпляра. Мы именуем свойства экземпляра с <code>$</code> чтобы избежать такого. Вы даже можете использовать своё собственное соглашение по именованию, если хотите, например <code>$_appName</code> или <code>ΩappName</code>, для предотвращения конфликтов с плагинами или будущими функциями.</p>
 <h2 id="Пример-из-жизни-замена-Vue-Resource-на-axios"><a href="#Пример-из-жизни-замена-Vue-Resource-на-axios" class="headerlink" title="Пример из жизни: замена Vue Resource на axios"></a>Пример из жизни: замена Vue Resource на axios</h2><p>Предположим, вы заменяете <a href="https://medium.com/the-vue-point/retiring-vue-resource-871a82880af4" target="_blank" rel="noopener">ушедший на пенсию Vue Resource</a>. Но вам очень понравился доступ к методам запросов через <code>this.$http</code> и вы хотите получить аналогичное с axios.</p>
 <p>Всё, что вам нужно сделать — это добавить axios в ваш проект:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
@@ -517,7 +517,7 @@
   <span class="hljs-attr">helpers</span>: &#123;
     <span class="hljs-comment">// Это чистая функциональная версия</span>
     <span class="hljs-comment">// метода $reverseText, который мы видели ранее</span>
-    reverseText: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text</span>) </span>&#123;
+    <span class="hljs-attr">reverseText</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">text</span>) </span>&#123;
       <span class="hljs-keyword">return</span> text
         .split(<span class="hljs-string">''</span>)
         .reverse()

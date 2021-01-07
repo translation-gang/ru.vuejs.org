@@ -451,7 +451,7 @@ Vue.config.devtools = <span class="hljs-literal">true</span></code></pre>
   <span class="hljs-attr">v</span>: <span class="hljs-number">86</span>,
   <span class="hljs-attr">f1</span>: <span class="hljs-number">112</span>,
   <span class="hljs-comment">// camelCase НЕ БУДЕТ РАБОТАТЬ</span>
-  mediaPlayPause: <span class="hljs-number">179</span>,
+  <span class="hljs-attr">mediaPlayPause</span>: <span class="hljs-number">179</span>,
   <span class="hljs-comment">// используйте kebab-case в двойных кавычках</span>
  <span class="hljs-string">"media-play-pause"</span>: <span class="hljs-number">179</span>,
   <span class="hljs-attr">up</span>: [<span class="hljs-number">38</span>, <span class="hljs-number">87</span>]
@@ -790,9 +790,9 @@ Vue.component(<span class="hljs-string">'props-demo-simple'</span>, &#123;
 Vue.component(<span class="hljs-string">'props-demo-advanced'</span>, &#123;
   <span class="hljs-attr">props</span>: &#123;
     <span class="hljs-comment">// только проверка типа</span>
-    height: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-attr">height</span>: <span class="hljs-built_in">Number</span>,
     <span class="hljs-comment">// проверка типа и другие правила валидации</span>
-    age: &#123;
+    <span class="hljs-attr">age</span>: &#123;
       <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
       <span class="hljs-attr">default</span>: <span class="hljs-number">0</span>,
       <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
@@ -843,11 +843,11 @@ Vue.component(<span class="hljs-string">'props-demo-advanced'</span>, &#123;
   <span class="hljs-attr">data</span>: &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;,
   <span class="hljs-attr">computed</span>: &#123;
     <span class="hljs-comment">// если свойство только возвращает данные, достаточно простой функции:</span>
-    aDouble: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-attr">aDouble</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a * <span class="hljs-number">2</span>
     &#125;,
     <span class="hljs-comment">// свойство и возвращает, и получает данные:</span>
-    aPlus: &#123;
+    <span class="hljs-attr">aPlus</span>: &#123;
       <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a + <span class="hljs-number">1</span>
       &#125;,
@@ -911,20 +911,20 @@ vm.a <span class="hljs-comment">// 2</span></code></pre>
       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'новое значение: %s, старое значение: %s'</span>, val, oldVal)
     &#125;,
     <span class="hljs-comment">// строка с именем метода:</span>
-    b: <span class="hljs-string">'someMethod'</span>,
+    <span class="hljs-attr">b</span>: <span class="hljs-string">'someMethod'</span>,
     <span class="hljs-comment">// Коллбэк будет вызываться каждый раз, когда изменяется любое из свойств</span>
     <span class="hljs-comment">// наблюдаемого объекта, независимо от глубины их вложенности</span>
-    c: &#123;
+    <span class="hljs-attr">c</span>: &#123;
       <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
       <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-comment">// коллбэк будет вызван сразу же после начала наблюдения</span>
-    d: &#123;
+    <span class="hljs-attr">d</span>: &#123;
       <span class="hljs-attr">handler</span>: <span class="hljs-string">'someMethod'</span>,
       <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-comment">// можно передать массив коллбэков, они будут вызываться один за одним</span>
-    e: [
+    <span class="hljs-attr">e</span>: [
       <span class="hljs-string">'handle1'</span>,
       <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle2</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
       &#123;
@@ -1403,9 +1403,9 @@ vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; н
   &#125;,
   <span class="hljs-attr">props</span>: &#123;
     <span class="hljs-comment">// это позволит использовать входной параметр `value` для других целей</span>
-    value: <span class="hljs-built_in">String</span>,
+    <span class="hljs-attr">value</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-comment">// используйте `checked` в качестве параметра, который заменяет `value`</span>
-    checked: &#123;
+    <span class="hljs-attr">checked</span>: &#123;
       <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
       <span class="hljs-attr">default</span>: <span class="hljs-number">0</span>
     &#125;
@@ -1967,9 +1967,9 @@ vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'п�
 <li><p><strong>Пример:</strong></p>
 <pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-comment">// ...</span>
-    example: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-attr">example</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// меняем данные:</span>
       <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'changed'</span>
       <span class="hljs-comment">// DOM ещё не обновлён</span>

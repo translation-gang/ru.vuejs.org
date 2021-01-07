@@ -428,8 +428,8 @@
   <span class="hljs-comment">// остальной код компонента</span>
 &#125;</code></pre>
 <p>Или даже подключить компонент, используя тег <code>&lt;script&gt;</code> непосредственно в браузере:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/my-component"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/my-component"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 ...
 <span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
 ...</code></pre>
@@ -535,7 +535,7 @@ dist/</code></pre>
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
   <span class="hljs-attr">input</span>: <span class="hljs-string">'src/wrapper.js'</span>, <span class="hljs-comment">// Путь до относительного package.json</span>
-  output: &#123;
+  <span class="hljs-attr">output</span>: &#123;
     <span class="hljs-attr">name</span>: <span class="hljs-string">'MyComponent'</span>,
     <span class="hljs-attr">exports</span>: <span class="hljs-string">'named'</span>
   &#125;,
@@ -543,7 +543,7 @@ dist/</code></pre>
     commonjs(),
     vue(&#123;
         <span class="hljs-attr">css</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Динамически внедряем CSS в тег &lt;style&gt;</span>
-        compileTemplate: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Явное преобразование шаблона в рендер-функцию</span>
+        <span class="hljs-attr">compileTemplate</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Явное преобразование шаблона в рендер-функцию</span>
     &#125;),
     buble() <span class="hljs-comment">// Транспиляция в ES5</span>
   ],

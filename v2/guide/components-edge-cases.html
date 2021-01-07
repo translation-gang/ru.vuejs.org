@@ -1042,7 +1042,7 @@
 <p>И даже определить методы для использования родителем:</p>
 <pre><code class="hljs js">methods: &#123;
   <span class="hljs-comment">// Используется родителем для фокуса на input</span>
-  focus: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-attr">focus</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">this</span>.$refs.input.focus()
   &#125;
 &#125;</code></pre>
@@ -1084,7 +1084,7 @@
 <p>Обычно вам не придётся использовать их, но они доступны для случаев, когда вам необходимо вручную прослушивать события на экземпляре компонента. Они также могут быть полезны в качестве инструмента организации кода. Например, вы часто можете увидеть этот шаблон для интеграции сторонней библиотеки:</p>
 <pre><code class="hljs js"><span class="hljs-comment">// Добавляем datepicker на input</span>
 <span class="hljs-comment">// когда он будет примонтирован в DOM.</span>
-mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<span class="hljs-attr">mounted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
   <span class="hljs-comment">// Pikaday — сторонняя библиотека для выбора дат</span>
   <span class="hljs-keyword">this</span>.picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
     <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
@@ -1093,7 +1093,7 @@ mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> 
 &#125;,
 <span class="hljs-comment">// Перед уничтожением компонента,</span>
 <span class="hljs-comment">// также уничтожаем и datepicker.</span>
-beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<span class="hljs-attr">beforeDestroy</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
   <span class="hljs-keyword">this</span>.picker.destroy()
 &#125;</code></pre>
 <p>Здесь есть две потенциальных проблемы:</p>

@@ -998,7 +998,7 @@
 
 <span class="hljs-built_in">module</span>.exports = &#123;
   <span class="hljs-comment">// ...</span>
-  plugins: [
+  <span class="hljs-attr">plugins</span>: [
     <span class="hljs-comment">// ...</span>
     <span class="hljs-keyword">new</span> webpack.DefinePlugin(&#123;
       <span class="hljs-string">'process.env.NODE_ENV'</span>: <span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-string">'production'</span>)
@@ -1028,11 +1028,11 @@ browserify(browserifyOptions)
 <pre><code class="hljs js"><span class="hljs-comment">// Используйте пользовательский модуль envify для указания переменных окружения</span>
 <span class="hljs-keyword">var</span> envify = <span class="hljs-built_in">require</span>(<span class="hljs-string">'envify/custom'</span>)
 
-browserify: &#123;
+<span class="hljs-attr">browserify</span>: &#123;
   <span class="hljs-attr">dist</span>: &#123;
     <span class="hljs-attr">options</span>: &#123;
       <span class="hljs-comment">// Функция для изменения порядка по умолчанию у grunt-browserify</span>
-      configure: <span class="hljs-function"><span class="hljs-params">b</span> =&gt;</span> b
+      <span class="hljs-attr">configure</span>: <span class="hljs-function"><span class="hljs-params">b</span> =&gt;</span> b
         .transform(<span class="hljs-string">'vueify'</span>)
         .transform(
           <span class="hljs-comment">// Порядок необходим для обработки файлов node_modules</span>
@@ -1050,7 +1050,7 @@ browserify: &#123;
 
 rollup(&#123;
   <span class="hljs-comment">// ...</span>
-  plugins: [
+  <span class="hljs-attr">plugins</span>: [
     replace(&#123;
       <span class="hljs-string">'process.env.NODE_ENV'</span>: <span class="hljs-built_in">JSON</span>.stringify( <span class="hljs-string">'production'</span> )
     &#125;)

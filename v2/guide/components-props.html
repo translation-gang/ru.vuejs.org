@@ -991,7 +991,7 @@
 <h2 id="Стиль-именования-входных-параметров-camelCase-в-сравнении-с-kebab-case"><a href="#Стиль-именования-входных-параметров-camelCase-в-сравнении-с-kebab-case" class="headerlink" title="Стиль именования входных параметров (camelCase в сравнении с kebab-case)"></a>Стиль именования входных параметров (camelCase в сравнении с kebab-case)</h2><p>Имена HTML-атрибутов являются регистро-независимыми, поэтому браузеры интерпретируют любые прописные символы как строчные. Это означает, что при использовании шаблонов в DOM входные параметры в camelCase-стиле должны использовать свои эквиваленты в стиле kebab-case (разделённые дефисами):</p>
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
   <span class="hljs-comment">// camelCase в JavaScript</span>
-  props: [<span class="hljs-string">'postTitle'</span>],
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'postTitle'</span>],
   <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;h3&gt;&#123;&#123; postTitle &#125;&#125;&lt;/h3&gt;'</span>
 &#125;)</code></pre>
 <pre><code class="hljs html"><span class="hljs-comment">&lt;!-- kebab-case в HTML --&gt;</span>
@@ -1090,30 +1090,30 @@
 <pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
   <span class="hljs-attr">props</span>: &#123;
     <span class="hljs-comment">// Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)</span>
-    propA: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-attr">propA</span>: <span class="hljs-built_in">Number</span>,
     <span class="hljs-comment">// Несколько допустимых типов</span>
-    propB: [<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Number</span>],
+    <span class="hljs-attr">propB</span>: [<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Number</span>],
     <span class="hljs-comment">// Обязательное значение строкового типа</span>
-    propC: &#123;
+    <span class="hljs-attr">propC</span>: &#123;
       <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
       <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
     &#125;,
     <span class="hljs-comment">// Число со значением по умолчанию</span>
-    propD: &#123;
+    <span class="hljs-attr">propD</span>: &#123;
       <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
       <span class="hljs-attr">default</span>: <span class="hljs-number">100</span>
     &#125;,
     <span class="hljs-comment">// Объект со значением по умолчанию</span>
-    propE: &#123;
+    <span class="hljs-attr">propE</span>: &#123;
       <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
       <span class="hljs-comment">// Для объектов или массивов значения по умолчанию</span>
       <span class="hljs-comment">// должны возвращаться из функции</span>
-      <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-attr">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
         <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'hello'</span> &#125;
       &#125;
     &#125;,
     <span class="hljs-comment">// Пользовательская функция для валидации</span>
-    propF: &#123;
+    <span class="hljs-attr">propF</span>: &#123;
       <span class="hljs-attr">validator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
         <span class="hljs-comment">// Значение должно соответствовать одной из этих строк</span>
         <span class="hljs-keyword">return</span> [<span class="hljs-string">'success'</span>, <span class="hljs-string">'warning'</span>, <span class="hljs-string">'danger'</span>].indexOf(value) !== <span class="hljs-number">-1</span>
@@ -1194,6 +1194,7 @@
 
 <p>Этот шаблон позволяет вам использовать базовые компоненты больше как обычные HTML-элементы, не беспокоясь о том, какой элемент будет у него корневым:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span>
+  <span class="hljs-attr">label</span>=<span class="hljs-string">"Пользователь:"</span>
   <span class="hljs-attr">v-model</span>=<span class="hljs-string">"username"</span>
   <span class="hljs-attr">required</span>
   <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Введите имя пользователя"</span>

@@ -1304,7 +1304,7 @@ utility library, we know the specific debounce implementation we
 use will be best-in-class - and we can use it ANYWHERE. Not only
 in our template.
 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"debounce-search-demo"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"searchQuery"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Type something"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; searchIndicator &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
@@ -1335,7 +1335,7 @@ in our template.
   &#125;,
   <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-comment">// This is where the debounce actually belongs.</span>
-    expensiveOperation: _.debounce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-attr">expensiveOperation</span>: _.debounce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-keyword">this</span>.isCalculating = <span class="hljs-literal">true</span>
       setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
         <span class="hljs-keyword">this</span>.isCalculating = <span class="hljs-literal">false</span>
@@ -1503,7 +1503,7 @@ Vue.config.keyCodes.f1 = <span class="hljs-number">112</span></code></pre>
 <p>Then in our components, we can use <code>$emit</code>, <code>$on</code>, <code>$off</code> to emit events, listen for events, and clean up event listeners, respectively:</p>
 <pre><code class="hljs js"><span class="hljs-comment">// NewTodoInput</span>
 <span class="hljs-comment">// ...</span>
-methods: &#123;
+<span class="hljs-attr">methods</span>: &#123;
   <span class="hljs-attr">addTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     eventHub.$emit(<span class="hljs-string">'add-todo'</span>, &#123; <span class="hljs-attr">text</span>: <span class="hljs-keyword">this</span>.newTodoText &#125;)
     <span class="hljs-keyword">this</span>.newTodoText = <span class="hljs-string">''</span>
@@ -1511,20 +1511,20 @@ methods: &#123;
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// DeleteTodoButton</span>
 <span class="hljs-comment">// ...</span>
-methods: &#123;
+<span class="hljs-attr">methods</span>: &#123;
   <span class="hljs-attr">deleteTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>&#123;
     eventHub.$emit(<span class="hljs-string">'delete-todo'</span>, id)
   &#125;
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// Todos</span>
 <span class="hljs-comment">// ...</span>
-created: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
   eventHub.$on(<span class="hljs-string">'add-todo'</span>, <span class="hljs-keyword">this</span>.addTodo)
   eventHub.$on(<span class="hljs-string">'delete-todo'</span>, <span class="hljs-keyword">this</span>.deleteTodo)
 &#125;,
 <span class="hljs-comment">// It's good to clean up event listeners before</span>
 <span class="hljs-comment">// a component is destroyed.</span>
-beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<span class="hljs-attr">beforeDestroy</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
   eventHub.$off(<span class="hljs-string">'add-todo'</span>, <span class="hljs-keyword">this</span>.addTodo)
   eventHub.$off(<span class="hljs-string">'delete-todo'</span>, <span class="hljs-keyword">this</span>.deleteTodo)
 &#125;,

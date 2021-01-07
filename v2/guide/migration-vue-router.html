@@ -1041,9 +1041,9 @@
 marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">page</span>) </span>&#123;
   routes.push(&#123;
     <span class="hljs-attr">path</span>: <span class="hljs-string">'/marketing/'</span> + page.slug
-    component: &#123;
+    <span class="hljs-attr">component</span>: &#123;
       <span class="hljs-attr">extends</span>: MarketingComponent
-      data: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
         <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">page</span>: page &#125;
       &#125;
     &#125;

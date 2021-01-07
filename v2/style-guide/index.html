@@ -445,14 +445,14 @@
 </details>
 <div class="style-example example-bad">
 <h4 id="Плохо-2"><a href="#Плохо-2" class="headerlink" title="Плохо"></a>Плохо</h4><pre><code class="hljs js"><span class="hljs-comment">// Этого достаточно лишь для прототипа</span>
-props: [<span class="hljs-string">'status'</span>]</code></pre>
+<span class="hljs-attr">props</span>: [<span class="hljs-string">'status'</span>]</code></pre>
 </div>
 <div class="style-example example-good">
 <h4 id="Хорошо-2"><a href="#Хорошо-2" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs js">props: &#123;
   <span class="hljs-attr">status</span>: <span class="hljs-built_in">String</span>
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// Ещё лучше!</span>
-props: &#123;
+<span class="hljs-attr">props</span>: &#123;
   <span class="hljs-attr">status</span>: &#123;
     <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
@@ -712,7 +712,7 @@ props: &#123;
 <div class="style-example example-bad">
 <h4 id="Плохо-6"><a href="#Плохо-6" class="headerlink" title="Плохо"></a>Плохо</h4><pre><code class="hljs js"><span class="hljs-keyword">var</span> myGreatMixin = &#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-attr">update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// ...</span>
     &#125;
@@ -720,7 +720,7 @@ props: &#123;
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> myGreatMixin = &#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-attr">_update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// ...</span>
     &#125;
@@ -728,7 +728,7 @@ props: &#123;
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> myGreatMixin = &#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-attr">$update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// ...</span>
     &#125;
@@ -736,7 +736,7 @@ props: &#123;
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> myGreatMixin = &#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-attr">$_update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// ...</span>
     &#125;
@@ -746,7 +746,7 @@ props: &#123;
 <div class="style-example example-good">
 <h4 id="Хорошо-6"><a href="#Хорошо-6" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs js"><span class="hljs-keyword">var</span> myGreatMixin = &#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     <span class="hljs-attr">$_myGreatMixin_update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
       <span class="hljs-comment">// ...</span>
     &#125;
@@ -755,7 +755,7 @@ props: &#123;
 <pre><code class="hljs js"><span class="hljs-comment">// Ещё лучше!</span>
 <span class="hljs-keyword">var</span> myGreatMixin = &#123;
   <span class="hljs-comment">// ...</span>
-  methods: &#123;
+  <span class="hljs-attr">methods</span>: &#123;
     publicMethod() &#123;
       <span class="hljs-comment">// ...</span>
       myPrivateFunction()
@@ -1118,7 +1118,7 @@ requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-ke
 <h4 id="Хорошо-19"><a href="#Хорошо-19" class="headerlink" title="Хорошо"></a>Хорошо</h4><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- В шаблоне --&gt;</span>
 &#123;&#123; normalizedFullName &#125;&#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// Комплексное выражение было вынесено в вычисляемое свойство</span>
-computed: &#123;
+<span class="hljs-attr">computed</span>: &#123;
   <span class="hljs-attr">normalizedFullName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.fullName.split(<span class="hljs-string">' '</span>).map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">word</span>) </span>&#123;
       <span class="hljs-keyword">return</span> word[<span class="hljs-number">0</span>].toUpperCase() + word.slice(<span class="hljs-number">1</span>)
@@ -1400,7 +1400,7 @@ computed: &#123;
 &#125;</code></pre>
 <pre><code class="hljs js"><span class="hljs-comment">// Отсутствие пробелов не мешает, если компонент</span>
 <span class="hljs-comment">// всё ещё легко читать и перемещаться по нему.</span>
-props: &#123;
+<span class="hljs-attr">props</span>: &#123;
   <span class="hljs-attr">value</span>: &#123;
     <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
     <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
