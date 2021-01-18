@@ -986,7 +986,7 @@
       <blockquote>
 <p><a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">Vue CLI</a> предоставляет встроенную поддержку TypeScript.</p>
 </blockquote>
-<h2 id="Официальные-файлы-объявлений-в-npm-пакетах"><a href="#Официальные-файлы-объявлений-в-npm-пакетах" class="headerlink" title="Официальные файлы объявлений в npm-пакетах"></a>Официальные файлы объявлений в npm-пакетах</h2><p>Статическая типизация может предотвратить много потенциальных ошибок времени выполнения, особенно при разрастании приложений. По этой причине Vue поставляется с <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="noopener">официальными файлами объявлений</a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a>, причём не только для ядра Vue, но также для <a href="https://github.com/vuejs/vue-router/tree/dev/types" target="_blank" rel="noopener">Vue Router</a> и <a href="https://github.com/vuejs/vuex/tree/dev/types" target="_blank" rel="noopener">Vuex</a>.</p>
+<h2 id="Официальные-файлы-объявлений-в-npm-пакетах"><a href="#Официальные-файлы-объявлений-в-npm-пакетах" class="headerlink" title="Официальные файлы объявлений в npm-пакетах"></a>Официальные файлы объявлений в npm-пакетах</h2><p>Статическая типизация может предотвратить много потенциальных ошибок ещё на этапе компиляции, особенно при разрастании приложений. По этой причине Vue поставляется с <a href="https://github.com/vuejs/vue/tree/dev/types" target="_blank" rel="noopener">официальными файлами объявления типов</a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a>, причём не только для ядра Vue, но также и для <a href="https://github.com/vuejs/vue-router/tree/dev/types" target="_blank" rel="noopener">Vue Router</a> и <a href="https://github.com/vuejs/vuex/tree/dev/types" target="_blank" rel="noopener">Vuex</a>.</p>
 <p>Так как всё это уже <a href="https://cdn.jsdelivr.net/npm/vue@2/types/" target="_blank" rel="noopener">опубликовано на npm</a>, то вам даже не понадобится использовать внешние инструменты, такие как <code>Typings</code>, потому что объявления типов автоматически импортируются вместе с Vue.</p>
 <h2 id="Рекомендуемая-конфигурация"><a href="#Рекомендуемая-конфигурация" class="headerlink" title="Рекомендуемая конфигурация"></a>Рекомендуемая конфигурация</h2><pre><code class="hljs js"><span class="hljs-comment">// tsconfig.json</span>
 &#123;
@@ -1080,7 +1080,7 @@ vue create my-project-name</code></pre>
 <span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
   myOption: <span class="hljs-string">'Привет'</span>
 &#125;)</code></pre>
-<h2 id="Аннотации-возвращаемых-типов"><a href="#Аннотации-возвращаемых-типов" class="headerlink" title="Аннотации возвращаемых типов"></a>Аннотации возвращаемых типов</h2><p>Из-за циклической природы файлов объявлений Vue, TypeScript может столкнуться с трудностями при определении типов определённых методов. По этой причине вам может потребоваться аннотировать возвращаемый тип для методов, таких как <code>render</code> и тех, которые находятся в <code>computed</code>.</p>
+<h2 id="Аннотации-возвращаемых-типов"><a href="#Аннотации-возвращаемых-типов" class="headerlink" title="Аннотации возвращаемых типов"></a>Аннотации возвращаемых типов</h2><p>TypeScript может столкнуться с трудностями при определении типов определённых методов из-за циклической природы файлов Vue с объявлением типов. По этой причине вам может потребоваться аннотировать возвращаемый тип для методов, таких как <code>render</code> и тех, которые находятся в <code>computed</code>.</p>
 <pre><code class="hljs ts"><span class="hljs-keyword">import</span> Vue, &#123; VNode &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
 
 <span class="hljs-keyword">const</span> Component = Vue.extend(&#123;
@@ -1131,7 +1131,7 @@ vue create my-project-name</code></pre>
     &#125;
   &#125;
 &#125;)</code></pre>
-<p>Если обнаружили, что функция валидатора не получает выведенный тип или не работает автоподстановка свойств, то аннотация аргумента с ожидаемым типом может помочь решить эти проблемы.</p>
+<p>Если функция валидатора не получает выведенный тип или не работает автоподстановка свойств, то аннотация аргумента с ожидаемым типом может помочь решить эти проблемы.</p>
 
     
     
