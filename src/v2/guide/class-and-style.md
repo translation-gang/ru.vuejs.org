@@ -25,7 +25,7 @@ order: 6
 ```html
 <div
   class="static"
-  v-bind:class="{ active: isActive, 'text-danger': hasError }"
+  v-bind:class="{ active: isActive, ['text-danger']: hasError }"
 ></div>
 ```
 
