@@ -215,7 +215,7 @@ new Vue({
 Часто нам может потребоваться одинаковое поведение на `bind` и `update`, а остальные хуки не нужны. В таком случае можно использовать сокращённую запись:
 
 ```js
-Vue.directive('color-swatch', function (el, binding) {
+Vue.directive('color-switch', function (el, binding) {
   el.style.backgroundColor = binding.value
 })
 ```
