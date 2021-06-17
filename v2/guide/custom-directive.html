@@ -1146,7 +1146,7 @@ new Vue({
 
 <p>Теперь пользовательская директива достаточно гибкая для использования в нескольких различных случаях.</p>
 <h2 id="Сокращённая-запись"><a href="#Сокращённая-запись" class="headerlink" title="Сокращённая запись"></a>Сокращённая запись</h2><p>Часто нам может потребоваться одинаковое поведение на <code>bind</code> и <code>update</code>, а остальные хуки не нужны. В таком случае можно использовать сокращённую запись:</p>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'color-swatch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
+<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'color-switch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
   el.style.backgroundColor = binding.value
 &#125;)</code></pre>
 <h2 id="Передача-объекта-данных-в-директиву"><a href="#Передача-объекта-данных-в-директиву" class="headerlink" title="Передача объекта данных в директиву"></a>Передача объекта данных в директиву</h2><p>В случае, если директива должна принимать несколько параметров, можно указать объект JavaScript — годится любое валидное выражение, помните?</p>
