@@ -668,7 +668,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
-<p>Обратите внимание на набор полей охватывающих пять разных функций. Обратите внимание на использование <code>.number</code> в атрибуте <code>v-model</code>. Это говорит Vue преобразовывать значение в число, когда вы его используете. Однако, здесь есть ошибка в это функции — когда значение пустое, то оно будет превращаться в строку. Вы увидите ниже как можно обойти эту проблему. Чтобы сделать это немного проще для пользователя, мы также добавили итоговую сумму внизу, чтобы они могли видеть в реальном времени, на какую сумму выбрано возможностей. Теперь давайте посмотрим на JavaScript.</p>
+<p>Обратите внимание на набор полей охватывающих пять разных функций. Обратите внимание на использование <code>.number</code> в атрибуте <code>v-model</code>. Это говорит Vue, что нужно преобразовывать значение в число, когда вы его используете. Однако, в этой функции есть ошибка — когда значение пустое, то оно будет превращаться в строку. Вы увидите ниже как можно обойти эту проблему. Чтобы сделать это немного проще для пользователя, мы также добавили итоговую сумму внизу, чтобы они могли видеть в реальном времени, на какую сумму выбрано возможностей. Теперь давайте посмотрим на JavaScript.</p>
 <pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
   <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
   <span class="hljs-attr">data</span>: &#123;
@@ -855,6 +855,15 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
             autocompleteOptions: { hint: false, appendTo: 'body'}
           })
         })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
         </script>
     </body>
 </html>
