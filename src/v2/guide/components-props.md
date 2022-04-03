@@ -216,7 +216,7 @@ Vue.component('my-component', {
     propF: {
       validator: function (value) {
         // Значение должно соответствовать одной из этих строк
-        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+        return ['success', 'warning', 'danger'].includes(value)
       }
     }
   }
