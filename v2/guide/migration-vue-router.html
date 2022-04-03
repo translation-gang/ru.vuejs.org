@@ -158,8 +158,8 @@
     </li>
     <li><h4>Официальные плагины</h4></li>
     <li><ul>
-      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
-      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
       <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
     </ul></li>
     <li><h4>Новости</h4></li>
@@ -984,7 +984,7 @@
     
     
       <blockquote>
-<p>Только Vue Router 2 совместим с Vue 2, поэтому если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации <a href="https://router.vuejs.org/ru/" target="_blank" rel="noopener">Vue Router</a>.</p>
+<p>Только Vue Router 2 совместим с Vue 2, поэтому если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации <a href="https://v3.router.vuejs.org/ru/" target="_blank" rel="noopener">Vue Router</a>.</p>
 </blockquote>
 <h2 id="Инициализация-роутера"><a href="#Инициализация-роутера" class="headerlink" title="Инициализация роутера"></a>Инициализация роутера</h2><h3 id="router-start-заменено"><a href="#router-start-заменено" class="headerlink" title="router.start заменено"></a><code>router.start</code> <sup>заменено</sup></h3><p>Больше нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:</p>
 <pre><code class="hljs js">router.start(&#123;
@@ -1008,7 +1008,7 @@
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.start</code>.</p>
 </div>
 
-<h2 id="Объявление-путей"><a href="#Объявление-путей" class="headerlink" title="Объявление путей"></a>Объявление путей</h2><h3 id="router-map-заменено"><a href="#router-map-заменено" class="headerlink" title="router.map заменено"></a><code>router.map</code> <sup>заменено</sup></h3><p>Теперь пути объявляются как массив в <a href="https://router.vuejs.org/ru/essentials/getting-started.html#javascript" target="_blank" rel="noopener">свойстве <code>routes</code></a> при установке роутера. Например, эти пути:</p>
+<h2 id="Объявление-путей"><a href="#Объявление-путей" class="headerlink" title="Объявление путей"></a>Объявление путей</h2><h3 id="router-map-заменено"><a href="#router-map-заменено" class="headerlink" title="router.map заменено"></a><code>router.map</code> <sup>заменено</sup></h3><p>Теперь пути объявляются как массив в <a href="https://v3.router.vuejs.org/ru/essentials/getting-started.html#javascript" target="_blank" rel="noopener">свойстве <code>routes</code></a> при установке роутера. Например, эти пути:</p>
 <pre><code class="hljs js">router.map(&#123;
   <span class="hljs-string">'/foo'</span>: &#123;
     <span class="hljs-attr">component</span>: Foo
@@ -1081,14 +1081,14 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
     next()
   &#125;
 &#125;)</code></pre>
-<h3 id="subRoutes-переименовано"><a href="#subRoutes-переименовано" class="headerlink" title="subRoutes переименовано"></a><code>subRoutes</code> <sup>переименовано</sup></h3><p><a href="https://router.vuejs.org/ru/essentials/nested-routes.html" target="_blank" rel="noopener">Переименовано в <code>children</code></a> для соответствия Vue другим библиотекам маршрутизации.</p>
+<h3 id="subRoutes-переименовано"><a href="#subRoutes-переименовано" class="headerlink" title="subRoutes переименовано"></a><code>subRoutes</code> <sup>переименовано</sup></h3><p><a href="https://v3.router.vuejs.org/ru/essentials/nested-routes.html" target="_blank" rel="noopener">Переименовано в <code>children</code></a> для соответствия Vue другим библиотекам маршрутизации.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование свойства <code>subRoutes</code>.</p>
 </div>
 
-<h3 id="router-redirect-заменено"><a href="#router-redirect-заменено" class="headerlink" title="router.redirect заменено"></a><code>router.redirect</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>. Например, вам нужно заменить:</p>
+<h3 id="router-redirect-заменено"><a href="#router-redirect-заменено" class="headerlink" title="router.redirect заменено"></a><code>router.redirect</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://v3.router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>. Например, вам нужно заменить:</p>
 <pre><code class="hljs js">router.redirect(&#123;
   <span class="hljs-string">'/tos'</span>: <span class="hljs-string">'/terms-of-service'</span>
 &#125;)</code></pre>
@@ -1103,7 +1103,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.redirect</code>.</p>
 </div>
 
-<h3 id="router-alias-заменено"><a href="#router-alias-заменено" class="headerlink" title="router.alias заменено"></a><code>router.alias</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>, которой вы присваиваете псевдоним. Например, вам нужно заменить:</p>
+<h3 id="router-alias-заменено"><a href="#router-alias-заменено" class="headerlink" title="router.alias заменено"></a><code>router.alias</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://v3.router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>, которой вы присваиваете псевдоним. Например, вам нужно заменить:</p>
 <pre><code class="hljs js">router.alias(&#123;
   <span class="hljs-string">'/manage'</span>: <span class="hljs-string">'/admin'</span>
 &#125;)</code></pre>
@@ -1152,7 +1152,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование устаревшего синтаксиса.</p>
 </div>
 
-<h2 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h2><h3 id="v-link-заменено"><a href="#v-link-заменено" class="headerlink" title="v-link заменено"></a><code>v-link</code> <sup>заменено</sup></h3><p>Директива <code>v-link</code> заменена на новый <a href="https://router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компонент <code>&lt;router-link&gt;</code></a>, так как за данный тип работ теперь отвечают только компоненты во Vue 2. Это означает, что всякий раз, когда у вас есть ссылка, как эта:</p>
+<h2 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h2><h3 id="v-link-заменено"><a href="#v-link-заменено" class="headerlink" title="v-link заменено"></a><code>v-link</code> <sup>заменено</sup></h3><p>Директива <code>v-link</code> заменена на новый <a href="https://v3.router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компонент <code>&lt;router-link&gt;</code></a>, так как за данный тип работ теперь отвечают только компоненты во Vue 2. Это означает, что всякий раз, когда у вас есть ссылка, как эта:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-link</span>=<span class="hljs-string">"'/about'"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 <p>Вам необходимо изменить её следующим образом:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/about"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></code></pre>
@@ -1163,7 +1163,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link</code>.</p>
 </div>
 
-<h3 id="v-link-active-заменено"><a href="#v-link-active-заменено" class="headerlink" title="v-link-active заменено"></a><code>v-link-active</code> <sup>заменено</sup></h3><p>Директива <code>v-link-active</code> также была заменена на атрибут <code>tag</code> в <a href="https://router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компоненте <code>&lt;router-link&gt;</code></a>. Например, вам нужно заменить это:</p>
+<h3 id="v-link-active-заменено"><a href="#v-link-active-заменено" class="headerlink" title="v-link-active заменено"></a><code>v-link-active</code> <sup>заменено</sup></h3><p>Директива <code>v-link-active</code> также была заменена на атрибут <code>tag</code> в <a href="https://v3.router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компоненте <code>&lt;router-link&gt;</code></a>. Например, вам нужно заменить это:</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-link-active</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-link</span>=<span class="hljs-string">"'/about'"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
@@ -1178,7 +1178,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link-active</code>.</p>
 </div>
 
-<h2 id="Программная-навигация"><a href="#Программная-навигация" class="headerlink" title="Программная навигация"></a>Программная навигация</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/API/History_API" target="_blank" rel="noopener">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="noopener">навигации вперёд/назад</a>, в то время как <a href="https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="noopener"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
+<h2 id="Программная-навигация"><a href="#Программная-навигация" class="headerlink" title="Программная навигация"></a>Программная навигация</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/API/History_API" target="_blank" rel="noopener">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://v3.router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="noopener">навигации вперёд/назад</a>, в то время как <a href="https://v3.router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="noopener"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1192,7 +1192,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>hashbang: false</code>.</p>
 </div>
 
-<h3 id="history-true-заменено"><a href="#history-true-заменено" class="headerlink" title="history: true заменено"></a><code>history: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
+<h3 id="history-true-заменено"><a href="#history-true-заменено" class="headerlink" title="history: true заменено"></a><code>history: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://v3.router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
   <span class="hljs-attr">history</span>: <span class="hljs-string">'true'</span>
 &#125;)</code></pre>
@@ -1206,7 +1206,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>history: true</code>.</p>
 </div>
 
-<h3 id="abstract-true-заменено"><a href="#abstract-true-заменено" class="headerlink" title="abstract: true заменено"></a><code>abstract: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
+<h3 id="abstract-true-заменено"><a href="#abstract-true-заменено" class="headerlink" title="abstract: true заменено"></a><code>abstract: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://v3.router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
 <pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
   <span class="hljs-attr">abstract</span>: <span class="hljs-string">'true'</span>
 &#125;)</code></pre>
@@ -1220,7 +1220,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>abstract: true</code>.</p>
 </div>
 
-<h2 id="Опции-роутера-разное"><a href="#Опции-роутера-разное" class="headerlink" title="Опции роутера: разное"></a>Опции роутера: разное</h2><h3 id="saveScrollPosition-заменено"><a href="#saveScrollPosition-заменено" class="headerlink" title="saveScrollPosition заменено"></a><code>saveScrollPosition</code> <sup>заменено</sup></h3><p>Было заменено на <a href="https://router.vuejs.org/ru/advanced/scroll-behavior.html" target="_blank" rel="noopener">опцию <code>scrollBehavior</code></a> которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, но для возврата старого поведения:</p>
+<h2 id="Опции-роутера-разное"><a href="#Опции-роутера-разное" class="headerlink" title="Опции роутера: разное"></a>Опции роутера: разное</h2><h3 id="saveScrollPosition-заменено"><a href="#saveScrollPosition-заменено" class="headerlink" title="saveScrollPosition заменено"></a><code>saveScrollPosition</code> <sup>заменено</sup></h3><p>Было заменено на <a href="https://v3.router.vuejs.org/ru/advanced/scroll-behavior.html" target="_blank" rel="noopener">опцию <code>scrollBehavior</code></a> которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, но для возврата старого поведения:</p>
 <pre><code class="hljs js">saveScrollPosition: <span class="hljs-literal">true</span></code></pre>
 <p>Вы можете заменить это на:</p>
 <pre><code class="hljs js">scrollBehavior: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">to, from, savedPosition</span>) </span>&#123;
@@ -1253,14 +1253,14 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>suppressTransitionError: true</code>.</p>
 </div>
 
-<h2 id="Хуки-путей"><a href="#Хуки-путей" class="headerlink" title="Хуки путей"></a>Хуки путей</h2><h3 id="activate-заменено"><a href="#activate-заменено" class="headerlink" title="activate заменено"></a><code>activate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards" target="_blank" rel="noopener"><code>beforeRouteEnter</code></a> в компоненте.</p>
+<h2 id="Хуки-путей"><a href="#Хуки-путей" class="headerlink" title="Хуки путей"></a>Хуки путей</h2><h3 id="activate-заменено"><a href="#activate-заменено" class="headerlink" title="activate заменено"></a><code>activate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://v3.router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards" target="_blank" rel="noopener"><code>beforeRouteEnter</code></a> в компоненте.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>activate</code>.</p>
 </div>
 
-<h3 id="canActivate-заменено"><a href="#canActivate-заменено" class="headerlink" title="canActivate заменено"></a><code>canActivate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://router.vuejs.org/ru/advanced/navigation-guards.html#perroute-guard" target="_blank" rel="noopener"><code>beforeEnter</code></a> в компоненте.</p>
+<h3 id="canActivate-заменено"><a href="#canActivate-заменено" class="headerlink" title="canActivate заменено"></a><code>canActivate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://v3.router.vuejs.org/ru/advanced/navigation-guards.html#perroute-guard" target="_blank" rel="noopener"><code>beforeEnter</code></a> в компоненте.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -1274,7 +1274,7 @@ marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">fu
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>deactivate</code>.</p>
 </div>
 
-<h3 id="canDeactivate-заменено"><a href="#canDeactivate-заменено" class="headerlink" title="canDeactivate заменено"></a><code>canDeactivate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards" target="_blank" rel="noopener"><code>beforeRouteLeave</code></a> в компоненте.</p>
+<h3 id="canDeactivate-заменено"><a href="#canDeactivate-заменено" class="headerlink" title="canDeactivate заменено"></a><code>canDeactivate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://v3.router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards" target="_blank" rel="noopener"><code>beforeRouteLeave</code></a> в компоненте.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
