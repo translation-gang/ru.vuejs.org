@@ -824,19 +824,6 @@ Vue.component(<span class="hljs-string">'TodoItem'</span>, &#123;
 </li>
 <li><p>Поскольку имена компонентов всегда должны состоять из нескольких слов, это соглашение запрещает вам выбирать произвольный префикс для простых компонентов-обёрток (например, <code>MyButton</code>, <code>VueButton</code>).</p>
 </li>
-<li><p>Поскольку эти компоненты часто используются, вы можете просто сделать их глобальными, а не импортировать их повсюду. Префикс делает это возможным с помощью Webpack:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> requireComponent = <span class="hljs-built_in">require</span>.context(<span class="hljs-string">'./src'</span>, <span class="hljs-literal">true</span>, /Base[A-Z]\w+\.(vue|js)$/)
-requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fileName</span>) </span>&#123;
-  <span class="hljs-keyword">var</span> baseComponentConfig = requireComponent(fileName)
-  baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-  <span class="hljs-keyword">var</span> baseComponentName = baseComponentConfig.name || (
-    fileName
-      .replace(<span class="hljs-regexp">/^.+\//</span>, <span class="hljs-string">''</span>)
-      .replace(<span class="hljs-regexp">/\.\w+$/</span>, <span class="hljs-string">''</span>)
-  )
-  Vue.component(baseComponentName, baseComponentConfig)
-&#125;)</code></pre>
-</li>
 </ul>
 </details>
 <div class="style-example example-bad">
