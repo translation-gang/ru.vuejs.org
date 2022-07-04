@@ -771,7 +771,8 @@ ul.demo li {
 }
 .content .patreon-sponsors a,
 .content .patreon-sponsors img {
-  width: 140px;
+  max-width: 140px;
+  max-height: 60px;
   display: inline-block;
   vertical-align: middle;
 }
