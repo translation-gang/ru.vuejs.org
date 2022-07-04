@@ -1,0 +1,1305 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>Входные параметры — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/components-props.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/guide/components-props.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Входные параметры — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Входные параметры — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "guide"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/components-props.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components-props.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-props.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-props.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-props.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-props.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-props.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/guide/components-props.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/guide/components-props.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Руководство
+          
+            <select class="version-select">
+              <option value="v3">3.x</option>
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Основы компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+              <li><h3>Продвинутые компоненты</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-registration.html" class="sidebar-link">Регистрация компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-props.html" class="sidebar-link current">Входные параметры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Пользовательские события</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-slots.html" class="sidebar-link">Слоты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические и асинхронные компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-edge-cases.html" class="sidebar-link">Обработка крайних случаев</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переходы и анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Переиспользование и композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/testing.html" class="sidebar-link">Тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Публикация на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/security.html" class="sidebar-link">Безопасность</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content guide with-sidebar components-props-guide">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>Входные параметры</h1>
+  
+  
+    <blockquote>
+<p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
+</blockquote>
+<div class="vueschool"><a href="https://vueschool.io/lessons/reusable-components-with-props?friend=vuejs" target="_blank" rel="sponsored noopener" title="Узнайте, как работать с входными параметрами компонентов в бесплатном уроке Vue School">Узнайте, как работать с входными параметрами компонентов в бесплатном уроке Vue School</a></div>
+
+<h2 id="Стиль-именования-входных-параметров-camelCase-в-сравнении-с-kebab-case"><a href="#Стиль-именования-входных-параметров-camelCase-в-сравнении-с-kebab-case" class="headerlink" title="Стиль именования входных параметров (camelCase в сравнении с kebab-case)"></a>Стиль именования входных параметров (camelCase в сравнении с kebab-case)</h2><p>Имена HTML-атрибутов являются регистро-независимыми, поэтому браузеры интерпретируют любые прописные символы как строчные. Это означает, что при использовании шаблонов в DOM входные параметры в camelCase-стиле должны использовать свои эквиваленты в стиле kebab-case (разделённые дефисами):</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-comment">// camelCase в JavaScript</span>
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'postTitle'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;h3&gt;&#123;&#123; postTitle &#125;&#125;&lt;/h3&gt;'</span>
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- kebab-case в HTML --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">post-title</span>=<span class="hljs-string">"hello!"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>Опять же, если вы используете строковые шаблоны, то это ограничение не применяется.</p>
+<h2 id="Указание-типа-входных-параметров"><a href="#Указание-типа-входных-параметров" class="headerlink" title="Указание типа входных параметров"></a>Указание типа входных параметров</h2><p>До сих пор мы видели только входные параметры, перечисленные в виде массива строк:</p>
+<pre><code class="hljs js">props: [<span class="hljs-string">'title'</span>, <span class="hljs-string">'likes'</span>, <span class="hljs-string">'isPublished'</span>, <span class="hljs-string">'commentIds'</span>, <span class="hljs-string">'author'</span>]</code></pre>
+<p>Однако лучше, когда каждый входной параметр будет определённого типа. В этих случаях вы можете перечислить входные параметры объектом, где свойство и значение будут содержать информацию об имени входного параметра и его типе, соответственно:</p>
+<pre><code class="hljs js">props: &#123;
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">String</span>,
+  <span class="hljs-attr">likes</span>: <span class="hljs-built_in">Number</span>,
+  <span class="hljs-attr">isPublished</span>: <span class="hljs-built_in">Boolean</span>,
+  <span class="hljs-attr">commentIds</span>: <span class="hljs-built_in">Array</span>,
+  <span class="hljs-attr">author</span>: <span class="hljs-built_in">Object</span>,
+  <span class="hljs-attr">callback</span>: <span class="hljs-built_in">Function</span>,
+  <span class="hljs-attr">contactsPromise</span>: <span class="hljs-built_in">Promise</span> <span class="hljs-comment">// или любой другой конструктор</span>
+&#125;</code></pre>
+<p>Это не только документирует ваш компонент, но также предупреждает пользователей в консоли JavaScript браузера, если они передают неправильный тип. Вы узнаете гораздо больше о <a href="#Валидация-входных-параметров">проверках типов и других валидациях входных параметров</a> дальше на этой странице.</p>
+<h2 id="Передача-статических-и-динамических-входных-параметров"><a href="#Передача-статических-и-динамических-входных-параметров" class="headerlink" title="Передача статических и динамических входных параметров"></a>Передача статических и динамических входных параметров</h2><p>До сих пор вы встречали, что во входные параметры передавались статические значения, например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"My journey with Vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>Вы также встречали входные параметры, присваивающие динамическое значение с помощью <code>v-bind</code>, например:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Динамически присваиваем значение переменной --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамически присваиваем значение комплексного выражения --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title + ' написанный ' + post.author.name"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>В этих двух примерах мы передаём строковые значения, но могут передаваться значения <em>любого типа</em> во входной параметр.</p>
+<h3 id="Передача-чисел"><a href="#Передача-чисел" class="headerlink" title="Передача чисел"></a>Передача чисел</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Несмотря на то, что `42` статическое значение, нам нужен v-bind, --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:likes</span>=<span class="hljs-string">"42"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:likes</span>=<span class="hljs-string">"post.likes"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-булевых-значений"><a href="#Передача-булевых-значений" class="headerlink" title="Передача булевых значений"></a>Передача булевых значений</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Указание входного параметра без значения будет означать `true`. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">is-published</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Несмотря на то, что `false` статическое значение, нам нужен v-bind --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.     --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:is-published</span>=<span class="hljs-string">"false"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:is-published</span>=<span class="hljs-string">"post.currentUserFavorited"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-массивов"><a href="#Передача-массивов" class="headerlink" title="Передача массивов"></a>Передача массивов</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Несмотря на то, что указан статический массив, нам нужен v-bind, --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:comment-ids</span>=<span class="hljs-string">"[234, 266, 273]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:comment-ids</span>=<span class="hljs-string">"post.commentIds"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-объектов"><a href="#Передача-объектов" class="headerlink" title="Передача объектов"></a>Передача объектов</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Несмотря на то, что указан статический объект, нам нужен v-bind, --&gt;</span>
+<span class="hljs-comment">&lt;!-- чтобы сообщить Vue, что это выражение JavaScript, а не строка.   --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:author</span>=<span class="hljs-string">"&#123; name: 'Veronica', company: 'Veridian Dynamics' &#125;"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Динамическое присвоение значения переменной. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:author</span>=<span class="hljs-string">"post.author"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="Передача-свойств-объекта"><a href="#Передача-свойств-объекта" class="headerlink" title="Передача свойств объекта"></a>Передача свойств объекта</h3><p>Если вы хотите передать все свойства объекта в качестве входных параметров, вы можете использовать <code>v-bind</code> без аргументов (<code>v-bind</code> вместо <code>v-bind:prop-name</code>). Например, для объекта <code>post</code>:</p>
+<pre><code class="hljs js">post: &#123;
+  <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'My Journey with Vue'</span>
+&#125;</code></pre>
+<p>Следующий шаблон:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">"post"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>Будет аналогичен:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"post.id"</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h2 id="Однонаправленный-поток-данных"><a href="#Однонаправленный-поток-данных" class="headerlink" title="Однонаправленный поток данных"></a>Однонаправленный поток данных</h2><p>Все входные параметры образуют <strong>одностороннюю привязку</strong> между дочерним свойством и родительским: когда родительское свойство обновляется — оно будет передаваться дочернему, но не наоборот. Это предотвращает случайное изменение дочерними компонентами родительского состояния, что может затруднить понимание потока данных вашего приложения.</p>
+<p>Кроме того, каждый раз, когда обновляется родительский компонент, все входные параметры дочернего компонента будут обновлены актуальными значениями. Это означает, что вы <strong>не должны</strong> пытаться изменять входной параметр внутри дочернего компонента. Если вы это сделаете, Vue отобразит предупреждение в консоли.</p>
+<p>Обычно встречаются два случая, когда возникает соблазн изменять входной параметр:</p>
+<ol>
+<li><p><strong>Входной параметр используется для передачи начального значения; дочерний компонент хочет использовать его как локальное свойство данных в дальнейшем.</strong> В этом случае лучше всего определить локальное свойство в данных, которое использует значение входного параметра в качестве начального:</p>
+<pre><code class="hljs js">props: [<span class="hljs-string">'initialCounter'</span>],
+<span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">counter</span>: <span class="hljs-keyword">this</span>.initialCounter
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p><strong>Входной параметр передаётся как необработанное значение, которое необходимо преобразовать.</strong> В этом случае лучше всего определить вычисляемое свойство с использованием входного параметра:</p>
+<pre><code class="hljs js">props: [<span class="hljs-string">'size'</span>],
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">normalizedSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size.trim().toLowerCase()
+  &#125;
+&#125;</code></pre>
+</li>
+</ol>
+<p class="tip">Обратите внимание, что объекты и массивы в JavaScript передаются по ссылке, поэтому если входной параметр является массивом или объектом, то изменение объекта или массива внутри дочернего компонента <strong>будет влиять</strong> на состояние родителя.</p>
+
+<h2 id="Валидация-входных-параметров"><a href="#Валидация-входных-параметров" class="headerlink" title="Валидация входных параметров"></a>Валидация входных параметров</h2><p>Компоненты могут указывать требования к своим входным параметрам, такие как определение типа, которые вы уже видели. Если эти требования не выполнены — Vue предупредит вас сообщением в JavaScript-консоли браузера. Это особенно полезно при разработке компонента, который предназначен для использования другими.</p>
+<p>Чтобы указать валидации входного параметра, вы можете предоставить в <code>props</code> объект с валидациями для проверки значения, вместо массива строк. Например:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-comment">// Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)</span>
+    <span class="hljs-attr">propA</span>: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-comment">// Несколько допустимых типов</span>
+    <span class="hljs-attr">propB</span>: [<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Number</span>],
+    <span class="hljs-comment">// Обязательное значение строкового типа</span>
+    <span class="hljs-attr">propC</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+    &#125;,
+    <span class="hljs-comment">// Число со значением по умолчанию</span>
+    <span class="hljs-attr">propD</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-number">100</span>
+    &#125;,
+    <span class="hljs-comment">// Объект со значением по умолчанию</span>
+    <span class="hljs-attr">propE</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
+      <span class="hljs-comment">// Для объектов или массивов значения по умолчанию</span>
+      <span class="hljs-comment">// должны возвращаться из функции</span>
+      <span class="hljs-attr">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'hello'</span> &#125;
+      &#125;
+    &#125;,
+    <span class="hljs-comment">// Пользовательская функция для валидации</span>
+    <span class="hljs-attr">propF</span>: &#123;
+      <span class="hljs-attr">validator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+        <span class="hljs-comment">// Значение должно соответствовать одной из этих строк</span>
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">'success'</span>, <span class="hljs-string">'warning'</span>, <span class="hljs-string">'danger'</span>].includes(value)
+      &#125;
+    &#125;
+  &#125;
+&#125;)</code></pre>
+<p>Когда валидация входного параметра заканчивается ошибкой — Vue выдаст предупреждение в консоли (если используется сборка для разработки).</p>
+<p class="tip">Обратите внимание, что входные параметры валидируются <strong>перед</strong> созданием экземпляра компонента, поэтому свойства экземпляра (например, <code>data</code>, <code>computed</code> и т.д.) не будут доступны внутри <code>default</code> или функций <code>validator</code>.</p>
+
+<h3 id="Проверка-типа"><a href="#Проверка-типа" class="headerlink" title="Проверка типа"></a>Проверка типа</h3><p>Значением <code>type</code> может быть один из следующих нативных конструкторов:</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Array</li>
+<li>Object</li>
+<li>Date</li>
+<li>Function</li>
+<li>Symbol</li>
+</ul>
+<p>Кроме того, <code>type</code> также может быть пользовательской функцией-конструктором и валидация будет выполняться проверкой с помощью <code>instanceof</code>. Например, если существует следующая функция-конструктор:</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span> (<span class="hljs-params">firstName, lastName</span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.firstName = firstName
+  <span class="hljs-keyword">this</span>.lastName = lastName
+&#125;</code></pre>
+<p>Вы можете использовать:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">author</span>: Person
+  &#125;
+&#125;)</code></pre>
+<p>чтобы проверить, что значение входного параметра <code>author</code> было создано с помощью <code>new Person</code>.</p>
+<h2 id="Передача-обычных-атрибутов"><a href="#Передача-обычных-атрибутов" class="headerlink" title="Передача обычных атрибутов"></a>Передача обычных атрибутов</h2><p>Обычные атрибуты — это атрибуты, передаваемые в компонент, но не имеющие определения соответствующего входного параметра в компоненте.</p>
+<p>Хотя явно определённые свойства предпочтительны для передачи информации дочернему компоненту, авторы библиотек компонентов не всегда могут предвидеть все контексты, в которых будут использованы их компоненты. Вот почему компоненты могут принимать произвольные атрибуты, которые добавляются в корневой элемент компонента.</p>
+<p>Например, представьте, что мы используем сторонний компонент <code>bootstrap-date-input</code> с плагином Bootstrap, который требует указания атрибута <code>data-date-picker</code> на элементе <code>input</code>. Мы можем добавить этот атрибут к нашему экземпляру компонента:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-date-input</span> <span class="hljs-attr">data-date-picker</span>=<span class="hljs-string">"activated"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-date-input</span>&gt;</span></code></pre>
+<p>И атрибут <code>data-date-picker=&quot;activated&quot;</code> будет автоматически добавлен в корневой элемент <code>bootstrap-date-input</code>.</p>
+<h3 id="Замена-Объединение-существующих-атрибутов"><a href="#Замена-Объединение-существующих-атрибутов" class="headerlink" title="Замена/Объединение существующих атрибутов"></a>Замена/Объединение существующих атрибутов</h3><p>Представьте, что это шаблон для <code>bootstrap-date-input</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"date"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>&gt;</span></code></pre>
+<p>Чтобы добавить тему для нашего плагина выбора даты, нам может понадобиться добавить определённый класс, например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-date-input</span>
+  <span class="hljs-attr">data-date-picker</span>=<span class="hljs-string">"activated"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"date-picker-theme-dark"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-date-input</span>&gt;</span></code></pre>
+<p>В этом случае определены два разных значения для <code>class</code>:</p>
+<ul>
+<li><code>form-control</code>, который задаётся компонентом в его шаблоне</li>
+<li><code>date-picker-theme-dark</code>, который передаётся компоненту его родителем</li>
+</ul>
+<p>Для большинства атрибутов значение, предоставляемое компоненту, будет заменять значение, заданное компонентом. Например, передача <code>type=&quot;text&quot;</code> будет заменять <code>type=&quot;date&quot;</code> и, вероятно, ломать всё! К счастью, работа с атрибутами <code>class</code> и <code>style</code> немного умнее, поэтому оба значения будут объединены в итоговое: <code>form-control date-picker-theme-dark</code>.</p>
+<h3 id="Отключение-наследования-атрибутов"><a href="#Отключение-наследования-атрибутов" class="headerlink" title="Отключение наследования атрибутов"></a>Отключение наследования атрибутов</h3><p>Если вы <strong>не хотите</strong>, чтобы корневой элемент компонента наследовал атрибуты, вы можете установить <code>inheritAttrs: false</code> в опциях компонента. Например:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
+<p>Это может быть особенно полезно в сочетании со свойством экземпляра <code>$attrs</code>, которое содержит имена атрибутов и значения, переданные компоненту, например:</p>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">placeholder</span>: <span class="hljs-string">'Введите имя пользователя'</span>
+&#125;</code></pre>
+<p>С помощью <code>inheritAttrs: false</code> и <code>$attrs</code> вы можете вручную определять к какому элементу должны применяться атрибуты, что часто требуется для <a href="../style-guide/#Именование-базовых-компонентов-настоятельно-рекомендуется">базовых компонентов</a>:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-input'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'label'</span>, <span class="hljs-string">'value'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;label&gt;
+      &#123;&#123; label &#125;&#125;
+      &lt;input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      &gt;
+    &lt;/label&gt;
+  `</span>
+&#125;)</code></pre>
+<p class="tip">Обратите внимание, что опция <code>inheritAttrs: false</code> <strong>не влияет</strong> на биндинги <code>style</code> и <code>class</code>.</p>
+
+<p>Этот шаблон позволяет вам использовать базовые компоненты больше как обычные HTML-элементы, не беспокоясь о том, какой элемент будет у него корневым:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span>
+  <span class="hljs-attr">label</span>=<span class="hljs-string">"Пользователь:"</span>
+  <span class="hljs-attr">v-model</span>=<span class="hljs-string">"username"</span>
+  <span class="hljs-attr">required</span>
+  <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Введите имя пользователя"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="/v2/guide/components-registration.html">Регистрация компонентов</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="/v2/guide/components-custom-events.html">Пользовательские события</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/components-props.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,2783 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>API — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/api/index.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/api/index.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="API — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="API — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "api"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link current">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/api/index.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/api/index.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/api/index.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/api/index.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/api/index.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/api/index.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/api/index.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/api/index.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/api/index.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          API
+          
+            <select class="version-select">
+              <option value="v3">3.x</option>
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content api with-sidebar ">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>API</h1>
+  
+  
+    <h2 id="Глобальные-параметры"><a href="#Глобальные-параметры" class="headerlink" title="Глобальные параметры"></a>Глобальные параметры</h2><p><code>Vue.config</code> — это объект, содержащий глобальные параметры Vue. Перед загрузкой приложения можно изменить следующие свойства:</p>
+<h3 id="silent"><a href="#silent" class="headerlink" title="silent"></a>silent</h3><ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>false</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js">Vue.config.silent = <span class="hljs-literal">true</span></code></pre>
+<p>Отключение вывода логов и предупреждений Vue.</p>
+</li>
+</ul>
+<h3 id="optionMergeStrategies"><a href="#optionMergeStrategies" class="headerlink" title="optionMergeStrategies"></a>optionMergeStrategies</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: Function }</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>{}</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js">Vue.config.optionMergeStrategies._my_option = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">parent, child, vm</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> child + <span class="hljs-number">1</span>
+&#125;
+
+<span class="hljs-keyword">const</span> Profile = Vue.extend(&#123;
+  <span class="hljs-attr">_my_option</span>: <span class="hljs-number">1</span>
+&#125;)
+
+<span class="hljs-comment">// Profile.options._my_option = 2</span></code></pre>
+<p>Изменение стратегии слияния опций на вашу собственную.</p>
+<p>Функция слияния получает значения опций родительского и дочернего элемента первым и вторым аргументами соответственно.<br>Третьим аргументом передаётся контекст действующего экземпляра Vue.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Пользовательские-стратегии-слияния-опций">Пользовательские стратегии слияния опций</a></p>
+</li>
+</ul>
+<h3 id="devtools"><a href="#devtools" class="headerlink" title="devtools"></a>devtools</h3><ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>true</code> (<code>false</code> в production-сборках)</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js"><span class="hljs-comment">// убедитесь, что устанавливаете свойство синхронно сразу после загрузки Vue</span>
+Vue.config.devtools = <span class="hljs-literal">true</span></code></pre>
+<p>Определяет, должен ли Vue разрешать <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a> проводить инспекцию. Значение по умолчанию для разработки — <code>true</code>, для production — <code>false</code>. Установите <code>true</code>, чтобы vue-devtools работали и в production.</p>
+</li>
+</ul>
+<h3 id="errorHandler"><a href="#errorHandler" class="headerlink" title="errorHandler"></a>errorHandler</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>undefined</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js">Vue.config.errorHandler = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, vm, info</span>) </span>&#123;
+  <span class="hljs-comment">// Обработка ошибки. В `info` подробности Vue-специфичной ошибки,</span>
+  <span class="hljs-comment">// например, в каком хуке жизненного цикла произошла ошибка.</span>
+  <span class="hljs-comment">// Доступно только в версиях 2.2.0+</span>
+&#125;</code></pre>
+<p>Определение обработчика для ошибок, не отловленных во время отрисовки компонентов и в наблюдателях. Обработчик получает аргументами ошибку и действующий экземпляр Vue.</p>
+<blockquote>
+<p>В версиях 2.2.0+, этот хук также отслеживает ошибки в хуках жизненного цикла компонентов. Кроме того, если установлено значение <code>undefined</code>, отловленные ошибки будут выведены через <code>console.error</code> вместо остановки приложения.</p>
+</blockquote>
+<blockquote>
+<p>В версиях 2.4.0+, этот хук также отслеживает ошибки, возникающие внутри пользовательских обработчиков событий Vue.</p>
+</blockquote>
+<blockquote>
+<p>В версиях 2.6.0+, этот хук также отслеживает ошибки, возникающие внутри <code>v-on</code> слушателей DOM. Кроме того, если какой-либо из покрываемых хуков или обработчиков возвращает цепочку Promise (например, асинхронные функции), ошибка из этой цепочки Promise также будет обработана.</p>
+</blockquote>
+<blockquote>
+<p>Сервисы отслеживания ошибок <a href="https://sentry.io/for/vue/" target="_blank" rel="noopener">Sentry</a> и <a href="https://docs.bugsnag.com/platforms/browsers/vue/" target="_blank" rel="noopener">Bugsnag</a> предлагают официальную интеграцию с использованием этого свойства.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="warnHandler"><a href="#warnHandler" class="headerlink" title="warnHandler"></a>warnHandler</h3><blockquote>
+<p>Добавлено в версии 2.4.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>undefined</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js">Vue.config.warnHandler = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg, vm, trace</span>) </span>&#123;
+  <span class="hljs-comment">// `trace` — это трассировка иерархии компонентов</span>
+&#125;</code></pre>
+<p>Определение пользовательского обработчика для предупреждений Vue во время выполнения. Обратите внимание, работает он только с версией для разработки и игнорируется в версии для production.</p>
+</li>
+</ul>
+<h3 id="ignoredElements"><a href="#ignoredElements" class="headerlink" title="ignoredElements"></a>ignoredElements</h3><ul>
+<li><p><strong>Тип:</strong> <code>Array&lt;string | RegExp&gt;</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>[]</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js">Vue.config.ignoredElements = [
+  'my-custom-web-component',
+  'another-web-component',
+  // Используйте `RegExp` для игнорирования элементов, начинающихся с «ion-»
+  // Добавлено в версии 2.5.0+
+  /^ion-/
+]</code></pre>
+<p>Список элементов, которые игнорируются Vue. Это могут быть компоненты, устанавливаемые за пределами Vue (например, через Web Components API). В противном случае, будет возникать предупреждение о «Неизвестном пользовательском элементе», предполагая, что вы забыли зарегистрировать компонент или допустили ошибку в написании имени компонента.</p>
+</li>
+</ul>
+<h3 id="keyCodes"><a href="#keyCodes" class="headerlink" title="keyCodes"></a>keyCodes</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: number | Array&lt;number&gt; }</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>{}</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js">Vue.config.keyCodes = &#123;
+  <span class="hljs-attr">v</span>: <span class="hljs-number">86</span>,
+  <span class="hljs-attr">f1</span>: <span class="hljs-number">112</span>,
+  <span class="hljs-comment">// camelCase НЕ БУДЕТ РАБОТАТЬ</span>
+  <span class="hljs-attr">mediaPlayPause</span>: <span class="hljs-number">179</span>,
+  <span class="hljs-comment">// используйте kebab-case в двойных кавычках</span>
+ <span class="hljs-string">"media-play-pause"</span>: <span class="hljs-number">179</span>,
+  <span class="hljs-attr">up</span>: [<span class="hljs-number">38</span>, <span class="hljs-number">87</span>]
+&#125;</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> @<span class="hljs-attr">keyup.media-play-pause</span>=<span class="hljs-string">"method"</span>&gt;</span></code></pre>
+<p>Определение пользовательских псевдонимов кодов клавиш для директивы <code>v-on</code>.</p>
+</li>
+</ul>
+<h3 id="performance"><a href="#performance" class="headerlink" title="performance"></a>performance</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>false</code> (с версии 2.2.3+)</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Установка <code>true</code> включает отслеживание производительности на этапах инициализации, компиляции, отрисовки и обновления компонента на графике в инструментах разработчика браузера. Работает только в режиме разработки в браузерах, которые поддерживают <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark" target="_blank" rel="noopener">performance.mark</a> API.</p>
+</li>
+</ul>
+<h3 id="productionTip"><a href="#productionTip" class="headerlink" title="productionTip"></a>productionTip</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>true</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Установка <code>false</code> отключает предупреждение о работе в режиме разработки при запуске Vue.</p>
+</li>
+</ul>
+<h2 id="Глобальный-API"><a href="#Глобальный-API" class="headerlink" title="Глобальный API"></a>Глобальный API</h2><h3 id="Vue-extend-options"><a href="#Vue-extend-options" class="headerlink" title="Vue.extend( options )"></a>Vue.extend( options )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object} options</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Создаёт «подкласс» базового конструктора Vue. Принимает параметром объект с опциями нового компонента.</p>
+<p>Внимание: у объекта, передаваемого в <code>Vue.extend()</code>, свойство <code>data</code> должно быть функцией.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mount-point"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-comment">// Создание конструктора</span>
+<span class="hljs-keyword">var</span> Profile = Vue.extend(&#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;&#123;&#123;firstName&#125;&#125; &#123;&#123;lastName&#125;&#125;, также известный как &#123;&#123;alias&#125;&#125;&lt;/p&gt;'</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Уолтер'</span>,
+      <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Уайт'</span>,
+      <span class="hljs-attr">alias</span>: <span class="hljs-string">'Гейзенберг'</span>
+    &#125;
+  &#125;
+&#125;)
+<span class="hljs-comment">// создаёт экземпляр Profile и монтирует его к элементу DOM</span>
+<span class="hljs-keyword">new</span> Profile().$mount(<span class="hljs-string">'#mount-point'</span>)</code></pre>
+<p>Результатом будет:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Уолтер Уайт, также известный как Гейзенберг<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html">Компоненты</a></p>
+</li>
+</ul>
+<h3 id="Vue-nextTick-callback-context"><a href="#Vue-nextTick-callback-context" class="headerlink" title="Vue.nextTick( [callback, context] )"></a>Vue.nextTick( [callback, context] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Function} [callback]</code></li>
+<li><code>{Object} [context]</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Вызов функции <code>callback</code> при следующем цикле обновления DOM. Используйте для работы с обновлённым DOM после изменения данных.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// изменение данных</span>
+vm.msg = <span class="hljs-string">'Привет'</span>
+<span class="hljs-comment">// DOM ещё не обновлён</span>
+Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// теперь DOM обновлён</span>
+&#125;)
+
+<span class="hljs-comment">// использование с Promise (добавлено в 2.1.0+, см. примечание ниже)</span>
+Vue.nextTick()
+  .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// DOM обновлён</span>
+  &#125;)</code></pre>
+<blockquote>
+<p>Добавлено в версии 2.1.0+: функция возвращает <code>Promise</code>, когда не указан коллбэк и они поддерживаются окружением. Обратите внимание, Vue не поставляется с полифилом для <code>Promise</code>. Если требуется поддержка браузеров, которые не поддерживают их нативно (например, IE), необходимо предоставить полифил самостоятельно.</p>
+</blockquote>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Асинхронная очередь обновлений</a></p>
+</li>
+</ul>
+<h3 id="Vue-set-target-propertyName-index-value"><a href="#Vue-set-target-propertyName-index-value" class="headerlink" title="Vue.set( target, propertyName/index, value )"></a>Vue.set( target, propertyName/index, value )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object | Array} target</code></li>
+<li><code>{string | number} propertyName/index</code></li>
+<li><code>{any} value</code></li>
+</ul>
+</li>
+<li><p><strong>Возвращает:</strong> установленное значение.</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Добавление свойства к реактивному объекту, гарантируя, что новое свойство также будет реактивным и будет вызвано обновление представления. Это пригодится для добавления новых свойств к реактивным объектам, поскольку иначе Vue не может отследить эти изменения (например, <code>this.myObject.newProperty = &#39;hi&#39;</code>).</p>
+<p class="tip">Обратите внимание, объект не может быть экземпляром Vue или корневым объектом данных экземпляра Vue.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
+</li>
+</ul>
+<h3 id="Vue-delete-target-propertyName-index"><a href="#Vue-delete-target-propertyName-index" class="headerlink" title="Vue.delete( target, propertyName/index )"></a>Vue.delete( target, propertyName/index )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object| Array} target</code></li>
+<li><code>{string | number} propertyName/index</code></li>
+</ul>
+<blockquote>
+<p>Только в версиях 2.2.0+: возможность работы с массивами + индексами.</p>
+</blockquote>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Удаление поля. Для реактивного объекта будет вызвано обновление шаблона. Необходим, потому что Vue не может отследить неявное удаление полей (но вам редко когда это понадобится).</p>
+<p class="tip">Объект <code>target</code> не может быть экземпляром Vue, или корневым объектом данных экземпляра Vue.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
+</li>
+</ul>
+<h3 id="Vue-directive-id-definition"><a href="#Vue-directive-id-definition" class="headerlink" title="Vue.directive( id, [definition] )"></a>Vue.directive( id, [definition] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string} id</code></li>
+<li><code>{Function | Object} [definition]</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Регистрирует новую глобальную директиву или возвращает уже зарегистрированную.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// регистрируем директиву-объект:</span>
+Vue.directive(<span class="hljs-string">'my-directive'</span>, &#123;
+  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;,
+  <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;,
+  <span class="hljs-attr">update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;,
+  <span class="hljs-attr">componentUpdated</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;,
+  <span class="hljs-attr">unbind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;
+&#125;)
+
+<span class="hljs-comment">// регистрируем директиву в виде простой функции:</span>
+Vue.directive(<span class="hljs-string">'my-directive'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// Vue будет вызывать эту функцию для `bind` и `update`</span>
+&#125;)
+
+<span class="hljs-comment">// получаем определение директивы, если она зарегистрирована:</span>
+<span class="hljs-keyword">var</span> myDirective = Vue.directive(<span class="hljs-string">'my-directive'</span>)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/custom-directive.html">Пользовательские директивы</a></p>
+</li>
+</ul>
+<h3 id="Vue-filter-id-definition"><a href="#Vue-filter-id-definition" class="headerlink" title="Vue.filter( id, [definition] )"></a>Vue.filter( id, [definition] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string} id</code></li>
+<li><code>{Function} [definition]</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Регистрирует новый глобальный фильтр или возвращает уже зарегистрированный.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// регистрируем фильтр:</span>
+Vue.filter(<span class="hljs-string">'my-filter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+  <span class="hljs-comment">// возвращаем обработанное значение</span>
+&#125;)
+
+<span class="hljs-comment">// получаем фильтр, если он зарегистрирован:</span>
+<span class="hljs-keyword">var</span> myFilter = Vue.filter(<span class="hljs-string">'my-filter'</span>)</code></pre>
+<p><strong>См. также:</strong> <a href="../guide/filters.html">Фильтры</a></p>
+</li>
+</ul>
+<h3 id="Vue-component-id-definition"><a href="#Vue-component-id-definition" class="headerlink" title="Vue.component( id, [definition] )"></a>Vue.component( id, [definition] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string} id</code></li>
+<li><code>{Function | Object} [definition]</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Регистрирует глобальный компонент или возвращает уже зарегистрированный. Регистрация автоматически устанавливает переданный <code>id</code> в <code>name</code> компонента.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// регистрируем конструктор, полученный из `Vue.extend`:</span>
+Vue.component(<span class="hljs-string">'my-component'</span>, Vue.extend(&#123; <span class="hljs-comment">/* ... */</span> &#125;))
+
+<span class="hljs-comment">// регистрируем объект с опциями</span>
+<span class="hljs-comment">// (Vue вызовет для этого объекта `Vue.extend` автоматически):</span>
+Vue.component(<span class="hljs-string">'my-component'</span>, &#123; <span class="hljs-comment">/* ... */</span> &#125;)
+
+<span class="hljs-comment">// получаем зарегистрированный компонент (всегда возвращает конструктор):</span>
+<span class="hljs-keyword">var</span> MyComponent = Vue.component(<span class="hljs-string">'my-component'</span>)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html">Компоненты</a></p>
+</li>
+</ul>
+<h3 id="Vue-use-plugin"><a href="#Vue-use-plugin" class="headerlink" title="Vue.use( plugin )"></a>Vue.use( plugin )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object | Function} plugin</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Устанавливает плагин Vue.js. Если плагин — объект, у него должен быть публичный метод <code>install</code>. Если плагин — функция, она будет воспринята как метод <code>install</code>. Этот метод будет выполнен с Vue в качестве аргумента.</p>
+<p>Этот метод необходимо вызывать перед <code>new Vue()</code>.</p>
+<p>Плагин устанавливается только один раз, независимо от числа вызовов этого метода с одним и тем же плагином.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/plugins.html">Плагины</a></p>
+</li>
+</ul>
+<h3 id="Vue-mixin-mixin"><a href="#Vue-mixin-mixin" class="headerlink" title="Vue.mixin( mixin )"></a>Vue.mixin( mixin )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object} mixin</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Применяет примесь ко всем созданным впоследствии экземплярам Vue. Таким образом авторы плагинов могут встраивать желаемое поведение во все компоненты. <strong>Не рекомендуется использовать в коде приложений</strong>.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/mixins.html#Глобальные-примеси">Глобальные примеси</a></p>
+</li>
+</ul>
+<h3 id="Vue-compile-template"><a href="#Vue-compile-template" class="headerlink" title="Vue.compile( template )"></a>Vue.compile( template )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string} template</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Компилирует строковый шаблон в <code>render</code>-функцию. <strong>Доступно только в полной сборке.</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> res = Vue.compile(<span class="hljs-string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">msg</span>: <span class="hljs-string">'hello'</span>
+  &#125;,
+  <span class="hljs-attr">render</span>: res.render,
+  <span class="hljs-attr">staticRenderFns</span>: res.staticRenderFns
+&#125;)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции и JSX</a></p>
+</li>
+</ul>
+<h3 id="Vue-observable-object"><a href="#Vue-observable-object" class="headerlink" title="Vue.observable( object )"></a>Vue.observable( object )</h3><blockquote>
+<p>Добавлено в версии 2.6.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object} object</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Создание реактивного объекта. Внутренне Vue реализует подобное для объекта, возвращаемого функцией <code>data</code>.</p>
+<p>Возвращаемый объект можно использовать внутри <a href="../guide/render-function.html">render-функций</a> и <a href="../guide/computed.html">вычисляемых свойств</a>, а при его изменениях будут вызываться соответствующие обновления. Также его можно использовать как небольшое межкомпонентное хранилище для простых сценариев:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> state = Vue.observable(&#123; <span class="hljs-attr">count</span>: <span class="hljs-number">0</span> &#125;)
+ <span class="hljs-keyword">const</span> Demo = &#123;
+  render(h) &#123;
+    <span class="hljs-keyword">return</span> h(<span class="hljs-string">'button'</span>, &#123;
+      <span class="hljs-attr">on</span>: &#123; <span class="hljs-attr">click</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; state.count++ &#125;&#125;
+    &#125;, <span class="hljs-string">`счётчик — <span class="hljs-subst">$&#123;state.count&#125;</span>`</span>)
+  &#125;
+&#125;</code></pre>
+<p class="tip">В версии Vue 2.x, <code>Vue.observable</code> напрямую мутирует передаваемый ему объект, поэтому он эквивалентен возвращаемому объекту, как <a href="../guide/instance.html#Данные-и-методы">продемонстрировано здесь</a>. В Vue 3.x уже будет возвращаться реактивный прокси, оставляя исходный объект нереактивным при изменениях напрямую. Поэтому, для будущей совместимости, рекомендуем всегда работать с объектом, возвращаемым <code>Vue.observable</code>, а не с объектом переданным ему изначально.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
+</li>
+</ul>
+<h3 id="Vue-version"><a href="#Vue-version" class="headerlink" title="Vue.version"></a>Vue.version</h3><ul>
+<li><p><strong>Подробности:</strong> Возвращает версию Vue в виде строки. Это может пригодиться при разработке плагинов и компонентов, где используются различные стратегии для работы с разными версиями.</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> version = <span class="hljs-built_in">Number</span>(Vue.version.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">0</span>])
+
+<span class="hljs-keyword">if</span> (version === <span class="hljs-number">2</span>) &#123;
+  <span class="hljs-comment">// Vue v2.x.x</span>
+&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (version === <span class="hljs-number">1</span>) &#123;
+  <span class="hljs-comment">// Vue v1.x.x</span>
+&#125; <span class="hljs-keyword">else</span> &#123;
+  <span class="hljs-comment">// Неподдерживамые версии Vue</span>
+&#125;</code></pre>
+</li>
+</ul>
+<h2 id="Опции-—-данные"><a href="#Опции-—-данные" class="headerlink" title="Опции — данные"></a>Опции — данные</h2><h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object | Function</code></p>
+</li>
+<li><p><strong>Ограничение:</strong> При создании компонента, может быть только тип <code>Function</code>.</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Объект с данными экземпляра Vue. Vue рекурсивно преобразует его свойства в геттеры/сеттеры, чтобы сделать их «реактивными». <strong>Объект должен быть простым</strong>: Vue проигнорирует свойства прототипа и нативные объекты, например, из API браузера. Прежде всего, данные должны быть просто данными — не рекомендуется передавать объекты со своим собственным поведением.</p>
+<p>Добавлять реактивные свойства к корневому объекту данных после инициализации нельзя. Определяйте все корневые реактивные свойства до создания экземпляра.</p>
+<p>После создания экземпляра, объект с данными доступен через <code>vm.$data</code>. Экземпляр Vue также проксирует все свойства объекта, поэтому <code>vm.a</code> аналогично <code>vm.$data.a</code>.</p>
+<p>Свойства, имена которых начинаются с <code>_</code> или <code>$</code>, <strong>не будут проксироваться</strong> из-за возможных конфликтов с внутренними свойствами и методами API Vue. Получить доступ к таким свойствам можно через <code>vm.$data._property</code>.</p>
+<p>При определении <strong>компонента</strong> опция <code>data</code> должна быть функцией, которая возвращает объект данных, потому что может быть создано множество экземпляров. Если использовать в <code>data</code> простой объект, то все созданные экземпляры получат <strong>ссылку на него</strong>! А когда <code>data</code> — функция, при создании нового экземпляра можно вызвать её и получить свежую копию данных для инициализации.</p>
+<p>Чтобы сделать полную копию оригинального объекта, передайте <code>vm.$data</code> в <code>JSON.parse(JSON.stringify(...))</code>.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> data = &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;
+
+<span class="hljs-comment">// создаём экземпляр напрямую:</span>
+<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: data
+&#125;)
+vm.a <span class="hljs-comment">// =&gt; 1</span>
+vm.$data === data <span class="hljs-comment">// =&gt; true</span>
+
+<span class="hljs-comment">// обязательно используйте функцию во `Vue.extend()`:</span>
+<span class="hljs-keyword">var</span> Component = Vue.extend(&#123;
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;
+  &#125;
+&#125;)</code></pre>
+<p>Обратите внимание, если использовать стрелочную функцию в свойстве <code>data</code>, то <code>this</code> не будет указывать на экземпляр компонента, но получить к нему доступ можно из первого аргумента функции:</p>
+<pre><code class="hljs js">data: <span class="hljs-function"><span class="hljs-params">vm</span> =&gt;</span> (&#123; <span class="hljs-attr">a</span>: vm.myProp &#125;)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/reactivity.html">Подробно о реактивности</a></p>
+</li>
+</ul>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><ul>
+<li><p><strong>Тип:</strong> <code>Array&lt;string&gt; | Object</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Список или хэш входных параметров, по которым разрешено получение данных из родительского компонента. Можно использовать простой синтаксис в виде массива, или объект, который предоставляет дополнительные возможности: проверку типов, пользовательские валидации и значения по умолчанию.</p>
+<p>При использовании объектного синтаксиса можно указать следующие опции:</p>
+<ul>
+<li><code>type</code>: может быть одним из следующих нативных конструкторов: <code>String</code>, <code>Number</code>, <code>Boolean</code>, <code>Array</code>, <code>Object</code>, <code>Date</code>, <code>Function</code>, <code>Symbol</code>, любой функцией пользовательского конструктора или массивов таких. Проверяет является ли входной параметр указанного типа и выдаёт предупреждение если нет. Подробнее в разделе <a href="../guide/components-props.html#Указание-типа-входных-параметров">указания типов входных параметров</a>.</li>
+<li><code>default</code>: <code>any</code><br>Определяет значение по умолчанию для входного параметра. Если входной параметр не был передан, то будет использовано это значение. Для объекта или массива значение по умолчанию нужно указывать фабричной функцией, возвращающей объект или массив.</li>
+<li><code>required</code>: <code>Boolean</code><br>Определяет является ли входной параметр обязательным. В не-production окружениях будет выведено предупреждение в консоли, если значение истинно, а входной параметр не передавался.</li>
+<li><code>validator</code>: <code>Function</code><br>Пользовательская функция валидации, которая принимает входной параметр в качестве единственного аргумента. В не-production окружениях будет выведено предупреждение в консоли, если эта функция возвращает ложное значение (т.е. валидация не пройдена). Подробнее о валидации входных параметров можно прочитать <a href="../guide/components-props.html#Валидация-входных-параметров">здесь</a>.</li>
+</ul>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-comment">// простая форма записи:</span>
+Vue.component(<span class="hljs-string">'props-demo-simple'</span>, &#123;
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'size'</span>, <span class="hljs-string">'myMessage'</span>]
+&#125;)
+
+<span class="hljs-comment">// объект с указанием правил валидации:</span>
+Vue.component(<span class="hljs-string">'props-demo-advanced'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-comment">// только проверка типа</span>
+    <span class="hljs-attr">height</span>: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-comment">// проверка типа и другие правила валидации</span>
+    <span class="hljs-attr">age</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">validator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+        <span class="hljs-keyword">return</span> value &gt;= <span class="hljs-number">0</span>
+      &#125;
+    &#125;
+  &#125;
+&#125;)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components-props.html">Входные параметры</a></p>
+</li>
+</ul>
+<h3 id="propsData"><a href="#propsData" class="headerlink" title="propsData"></a>propsData</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: any }</code></p>
+</li>
+<li><p><strong>Ограничение:</strong> учитывается только при создании экземпляра выражением <code>new</code>.</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Входные параметры компонента при его создании. Обычно используются для целей модульного тестирования.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> Comp = Vue.extend(&#123;
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'msg'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;'</span>
+&#125;)
+
+<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Comp(&#123;
+  <span class="hljs-attr">propsData</span>: &#123;
+    <span class="hljs-attr">msg</span>: <span class="hljs-string">'привет'</span>
+  &#125;
+&#125;)</code></pre>
+</li>
+</ul>
+<h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: Function | { get: Function, set: Function } }</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вычисляемые свойства, которые будут подмешаны к экземпляру Vue. В геттерах и сеттерах <code>this</code> будет указывать на экземпляр Vue.</p>
+<p>Обратите внимание, при использовании стрелочной функции в определении вычисляемого свойства, <code>this</code> не будет указывать на экземпляр компонента, но к нему можно получить доступ из первого аргумента функции:</p>
+<pre><code class="hljs js">computed: &#123;
+  <span class="hljs-attr">aDouble</span>: <span class="hljs-function"><span class="hljs-params">vm</span> =&gt;</span> vm.a * <span class="hljs-number">2</span>
+&#125;</code></pre>
+<p>Вычисляемые свойства кэшируются и повторно вычисляются только при изменении реактивных зависимостей. Обратите внимание, если определённая зависимость выходит за область видимости экземпляра (т.е не реактивная), то вычисляемое свойство <strong>не будет обновляться</strong>.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-comment">// если свойство только возвращает данные, достаточно простой функции:</span>
+    <span class="hljs-attr">aDouble</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a * <span class="hljs-number">2</span>
+    &#125;,
+    <span class="hljs-comment">// свойство и возвращает, и получает данные:</span>
+    <span class="hljs-attr">aPlus</span>: &#123;
+      <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a + <span class="hljs-number">1</span>
+      &#125;,
+      <span class="hljs-attr">set</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) </span>&#123;
+        <span class="hljs-keyword">this</span>.a = v - <span class="hljs-number">1</span>
+      &#125;
+    &#125;
+  &#125;
+&#125;)
+vm.aPlus   <span class="hljs-comment">// =&gt; 2</span>
+vm.aPlus = <span class="hljs-number">3</span>
+vm.a       <span class="hljs-comment">// =&gt; 2</span>
+vm.aDouble <span class="hljs-comment">// =&gt; 4</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/computed.html">Вычисляемые свойства</a></p>
+</li>
+</ul>
+<h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: Function }</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Методы, которые будут подмешаны к экземпляру Vue. Можно запускать эти методы напрямую из экземпляра VM, или использовать их в директивах. <code>this</code> методов указывает на экземпляр Vue.</p>
+<p class="tip"><strong>Не используйте стрелочные функции при определении методов</strong> (например, <code>plus: () =&gt; this.a++</code>). Стрелочные функции связываются с родительским контекстом, поэтому <code>this</code> будет указывать не на экземпляр Vue, и <code>this.a</code> окажется неопределённым.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">plus</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.a++
+    &#125;
+  &#125;
+&#125;)
+vm.plus()
+vm.a <span class="hljs-comment">// 2</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/events.html">Обработка событий</a></p>
+</li>
+</ul>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: string | Function | Object | Array }</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Объект, ключи которого — выражения для наблюдения, а значения — коллбэки, вызываемые при их изменении. Значения также могут быть строками с именами методов, или объектами, содержащими дополнительные опции. Экземпляр Vue вызовет <code>$watch()</code> соответствующий каждому ключу объекта при своём создании.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">d</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-attr">e</span>: &#123;
+      <span class="hljs-attr">f</span>: &#123;
+        <span class="hljs-attr">g</span>: <span class="hljs-number">5</span>
+      &#125;
+    &#125;
+  &#125;,
+  <span class="hljs-attr">watch</span>: &#123;
+    <span class="hljs-attr">a</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'новое значение: %s, старое значение: %s'</span>, val, oldVal)
+    &#125;,
+    <span class="hljs-comment">// строка с именем метода:</span>
+    <span class="hljs-attr">b</span>: <span class="hljs-string">'someMethod'</span>,
+    <span class="hljs-comment">// Коллбэк будет вызываться каждый раз, когда изменяется любое из свойств</span>
+    <span class="hljs-comment">// наблюдаемого объекта, независимо от глубины их вложенности</span>
+    <span class="hljs-attr">c</span>: &#123;
+      <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+      <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span>
+    &#125;,
+    <span class="hljs-comment">// коллбэк будет вызван сразу же после начала наблюдения</span>
+    <span class="hljs-attr">d</span>: &#123;
+      <span class="hljs-attr">handler</span>: <span class="hljs-string">'someMethod'</span>,
+      <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
+    &#125;,
+    <span class="hljs-comment">// можно передать массив коллбэков, они будут вызываться один за одним</span>
+    <span class="hljs-attr">e</span>: [
+      <span class="hljs-string">'handle1'</span>,
+      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle2</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+      &#123;
+        <span class="hljs-attr">handler</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle3</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;,
+        <span class="hljs-comment">/* ... */</span>
+      &#125;
+    ],
+    <span class="hljs-comment">// отслеживание значения `vm.e.f`: &#123;g: 5&#125;</span>
+    <span class="hljs-string">'e.f'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val, oldVal</span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;
+&#125;)
+vm.a = <span class="hljs-number">2</span> <span class="hljs-comment">// =&gt; новое значение: 2, старое значение: 1</span></code></pre>
+<p class="tip"><strong>Не используйте стрелочные функции при указании методов наблюдателей</strong> (например, <code>searchQuery: newValue =&gt; this.updateAutocomplete(newValue)</code>). Стрелочные функции связываются с родительским контекстом, поэтому <code>this</code> будет указывать не на экземпляр Vue, и <code>this.updateAutocomplete</code> окажется неопределённым.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="#vm-watch">Методы экземпляра — vm.$watch</a></p>
+</li>
+</ul>
+<h2 id="Опции-—-DOM"><a href="#Опции-—-DOM" class="headerlink" title="Опции — DOM"></a>Опции — DOM</h2><h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><ul>
+<li><p><strong>Тип:</strong> <code>string | Element</code></p>
+</li>
+<li><p><strong>Ограничение:</strong> учитывается только при создании экземпляра выражением <code>new</code>.</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Указывает в какой существующий DOM-элемент монтировать экземпляр Vue. Может быть как строковым CSS-селектором, так и объектом типа HTMLElement.</p>
+<p>После монтирования экземпляра, переданный или найденный по CSS-селектору элемент будет доступен через <code>vm.$el</code>.</p>
+<p>Если эта опция указана при создании экземпляра, компиляция начинается сразу. В остальных случаях, вызовите <code>vm.$mount()</code>, чтобы запустить компиляцию.</p>
+<p class="tip">Предоставленный элемент служит только точкой монтирования. В отличие от Vue 1.x, он обязательно будет заменяться DOM-ом, сгенерированным Vue. Поэтому не стоит монтировать в корневые элементы <code>&lt;html&gt;</code> или <code>&lt;body&gt;</code>.</p>
+
+<p class="tip">Если не указана <code>render</code>-функция и отсутствует опция <code>template</code>, то в качестве шаблона будет использовано HTML-содержимое DOM-элемента точки монтирования. В этом случае требуется сборка Runtime + Компилятор.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
+<li><a href="../guide/installation.html#Runtime-Компилятор-vs-Runtime-only">Runtime + Компилятор vs. Runtime-only</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><ul>
+<li><p><strong>Тип:</strong> <code>string</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Строковый шаблон с разметкой для экземпляра Vue. Этот шаблон <strong>заменяет элемент</strong> в точке монтирования. Вся существующая разметка в точке монтирования будет проигнорирована, если в шаблоне нет слота для распределения контента.</p>
+<p>Если строка начинается с <code>#</code>, она будет использована как querySelector, а в качестве строкового шаблона использоваться innerHTML элемента с указанным id. Таким образом можно подключать шаблоны  из тегов <code>&lt;script type=&quot;x-template&quot;&gt;</code>.</p>
+<p class="tip">В целях безопасности используйте только те шаблоны Vue, которым можно доверять. Никогда не используйте в качестве шаблона данные, вводимые пользователем.</p>
+
+<p class="tip">Если в опциях Vue указана <code>render</code>-функция, шаблон будет проигнорирован.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
+<li><a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><ul>
+<li><p><strong>Тип:</strong> <code>(createElement: () =&gt; VNode) =&gt; VNode</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Альтернатива строковым шаблонам, позволяющая использовать все алгоритмические возможности JavaScript. <code>Render</code>-функция получает первым аргументом метод <code>createElement</code>, необходимый для создания элементов <code>VNode</code> (виртуальных нод).</p>
+<p>Для функциональных компонентов вторым параметром будет <code>context</code> для доступа к контекстным данным, поскольку у функциональных компонентов нет экземпляров.</p>
+<p class="tip">Функция в опции <code>render</code> имеет приоритет над <code>render</code>-функцией, скомпилированной из опции <code>template</code> и над HTML-шаблоном расположенным в точке монтирования, указанной в опции <code>el</code>.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции и JSX</a></p>
+</li>
+</ul>
+<h3 id="renderError"><a href="#renderError" class="headerlink" title="renderError"></a>renderError</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>(createElement: () =&gt; VNode, error: Error) =&gt; VNode</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p><strong>Работает только в режиме разработки.</strong></p>
+<p>Предоставляет альтернативное отображение если <code>render</code>-функция встречается с ошибкой. Ошибка будет передана в <code>renderError</code> в качестве второго аргумента. Это может пригодиться при использовании вместе с горячей перезагрузкой модулей.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  render (h) &#123;
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'oops'</span>)
+  &#125;,
+  renderError (h, err) &#123;
+    <span class="hljs-keyword">return</span> h(<span class="hljs-string">'pre'</span>, &#123; <span class="hljs-attr">style</span>: &#123; <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span> &#125;&#125;, err.stack)
+  &#125;
+&#125;).$mount(<span class="hljs-string">'#app'</span>)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции и JSX</a></p>
+</li>
+</ul>
+<h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook — буквально «крючок») — функция, вызываемая в определённый момент жизненного цикла, например, непосредственно перед или после создания компонента.</p>
+<p class="tip">Все хуки жизненного цикла автоматически привязывают контекст <code>this</code> к экземпляру Vue, чтобы получить доступ к данным, вычисляемым свойствами и методами. <strong>Не используйте стрелочные функции для определения хуков жизненного цикла</strong> (например, <code>created: () =&gt; this.fetchTodos()</code>). Поскольку стрелочные функции связываются с родительским контекстом, <code>this</code> будет указывать не на экземпляр Vue, и <code>this.fetchTodos</code> окажется неопределённым.</p>
+
+<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается синхронно сразу после инициализации экземпляра, до настройки наблюдения за данными, механизмов слежения и событий.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается синхронно сразу после создания экземпляра. На этом этапе экземпляр закончил обработку опций и настроил наблюдение за данными, вычисляемые свойства, методы, коллбэки слежения и событий. Однако, фаза монтирования ещё не начата, и свойство <code>$el</code> ещё не доступно.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается перед началом монтирования, перед первым вызовом функции <code>render</code>.</p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается сразу после монтирования экземпляра, когда взамен <code>el</code> создан <code>vm.$el</code>. Если корневой экземпляр смонтирован на элемент документа, <code>vm.$el</code> тоже будет элементом документа.</p>
+<p>Обратите внимание, что <code>mounted</code> <strong>не гарантирует</strong> что все дочерние компоненты будут уже примонтированы. Если необходимо подождать пока не будут отрисованы все дочерние, можно воспользоваться <a href="#vm-nextTick">vm.$nextTick</a> внутри <code>mounted</code>:</p>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// Код, который будет запущен только после</span>
+    <span class="hljs-comment">// отображения всех представлений</span>
+  &#125;)
+&#125;</code></pre>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается при изменении данных перед тем, как DOM будет обновляться. Это хорошее место для получения доступа к существующему DOM перед обновлением, например чтобы удалить добавленные слушатели событий.</p>
+<p><strong>Не вызывается при отрисовке на стороне сервера, потому что на сервере выполняется только начальная отрисовка.</strong></p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается после того, как виртуальный DOM был обновлён из-за изменения данных.</p>
+<p>DOM компонента будет уже обновлён к моменту вызова этого хука, поэтому вы можете выполнять здесь операции связанные с DOM. Тем не менее, старайтесь избегать изменения состояния в этом хуке. Для реагирования на изменения состояния лучше использовать <a href="#computed">вычисляемые свойства</a> или <a href="#watch">отслеживание с помощью watch</a>.</p>
+<p>Обратите внимание, что <code>updated</code> <strong>не гарантирует</strong> что все дочерние компоненты будут уже переотрисованы. Если необходимо подождать пока все не будут повторно отрисованы, можно воспользоваться <a href="#vm-nextTick">vm.$nextTick</a> внутри <code>updated</code>:</p>
+<pre><code class="hljs js">updated: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// Код, который будет запущен только после</span>
+    <span class="hljs-comment">// обновления всех представлений</span>
+  &#125;)
+&#125;</code></pre>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="activated"><a href="#activated" class="headerlink" title="activated"></a>activated</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается при активации компонента внутри <code>&lt;keep-alive&gt;</code>.</p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="#keep-alive">Встроенные компоненты — keep-alive</a></li>
+<li><a href="../guide/components-dynamic-async.html#keep-alive-с-динамическими-компонентами">Динамические и асинхронные компоненты — keep-alive с динамическими компонентами</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="deactivated"><a href="#deactivated" class="headerlink" title="deactivated"></a>deactivated</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается после деактивации компонента внутри <code>&lt;keep-alive&gt;</code>.</p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="#keep-alive">Встроенные компоненты — keep-alive</a></li>
+<li><a href="../guide/components-dynamic-async.html#keep-alive-с-динамическими-компонентами">Динамические и асинхронные компоненты — keep-alive с динамическими компонентами</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается перед уничтожением экземпляра Vue. На этом этапе экземпляр всё ещё полностью функционален.</p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h3><ul>
+<li><p><strong>Тип:</strong> <code>Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается после уничтожения экземпляра Vue. К моменту вызова этого хука, все директивы экземпляра Vue уже отвязаны, все подписчики событий удалены, а все дочерние экземпляры Vue уничтожены.</p>
+<p><strong>Не вызывается при отрисовке на стороне сервера.</strong></p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h3 id="errorCaptured"><a href="#errorCaptured" class="headerlink" title="errorCaptured"></a>errorCaptured</h3><blockquote>
+<p>Добавлено в версии 2.5.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>(err: Error, vm: Component, info: string) =&gt; ?boolean</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Вызывается, когда фиксируется ошибка из любого дочернего компонента. Хук получает три аргумента: ошибку, экземпляр компонента, который вызвал ошибку, и строку, содержащую информацию где была зафиксирована ошибка. Хук может возвращать <code>false</code>, чтобы предотвратить дальнейшее распространение ошибки.</p>
+<p class="tip">Вы можете изменить состояние компонента в этом хуке. Тем не менее, важно иметь в вашем шаблоне или <code>render</code>-функции условия, которые оборачивают другой контент при обнаружении ошибки; иначе компонент может попасть в бесконечный цикл отрисовки.</p>
+
+<p><strong>Правила распространения ошибок</strong></p>
+<ul>
+<li><p>По умолчанию все ошибки по-прежнему отправляются в глобальный обработчик <code>config.errorHandler</code>, если он был определён, поэтому эти ошибки всё равно могут быть отправлены например в сервис сбора аналитики из одного места в коде.</p>
+</li>
+<li><p>Если существует несколько хуков <code>errorCaptured</code> в цепочке наследования компонента или родительской цепочке, то все они будут вызваны с той же ошибкой.</p>
+</li>
+<li><p>Если сам хук <code>errorCaptured</code> выбрасывает ошибку, то обе этих ошибки (зафиксированная и выброшенная хуком) будут отправлены в глобальный обработчик <code>config.errorHandler</code>.</p>
+</li>
+<li><p>Хук <code>errorCaptured</code> может возвращать <code>false</code> чтобы предотвратить дальнейшее распространение ошибки. Это по существу означает «эта ошибка была обработана и её следует игнорировать». Это предотвратит вызов дополнительных хуков <code>errorCaptured</code> или глобального обработчика <code>config.errorHandler</code> для этой ошибки.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Опции-—-ресурсы"><a href="#Опции-—-ресурсы" class="headerlink" title="Опции — ресурсы"></a>Опции — ресурсы</h2><h3 id="directives"><a href="#directives" class="headerlink" title="directives"></a>directives</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Хэш директив, доступных экземпляру Vue.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/custom-directive.html">Пользовательские директивы</a></p>
+</li>
+</ul>
+<h3 id="filters"><a href="#filters" class="headerlink" title="filters"></a>filters</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Хэш фильтров, доступных экземпляру Vue.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="#Vue-filter"><code>Vue.filter</code></a></p>
+</li>
+</ul>
+<h3 id="components"><a href="#components" class="headerlink" title="components"></a>components</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Хэш компонентов, доступных экземпляру Vue.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html">Компоненты</a></p>
+</li>
+</ul>
+<h2 id="Опции-—-композиция"><a href="#Опции-—-композиция" class="headerlink" title="Опции — композиция"></a>Опции — композиция</h2><h3 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h3><ul>
+<li><p><strong>Тип:</strong> <code>экземпляр Vue</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Определяет родительский экземпляр для создаваемого. Устанавливает отношение «родитель-потомок» между ними. Родитель будет доступен дочернему экземпляру посредством <code>this.$parent</code>, а дочерний экземпляр будет добавлен в массив <code>$children</code> родителя.</p>
+<p class="tip">Старайтесь реже использовать <code>$parent</code> и <code>$children</code> — этот механизм мы предусмотрели на крайний случай. Для общения между родителем и ребёнком лучше использовать входные параметры и события.</p>
+
+</li>
+</ul>
+<h3 id="mixins"><a href="#mixins" class="headerlink" title="mixins"></a>mixins</h3><ul>
+<li><p><strong>Тип:</strong> <code>Array&lt;Object&gt;</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Массив объектов-примесей. Примеси могут содержать те же опции, что и обычные объекты экземпляров Vue — они будут добавлены к основным опциям согласно логике <code>Vue.extend()</code>. Например, если и примесь и объект экземпляра содержат хук <code>created</code>, то будут вызваны оба.</p>
+<p>Хуки примесей вызываются в порядке их определения, до вызова собственных хуков компонента.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>) &#125;
+&#125;
+<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>) &#125;,
+  <span class="hljs-attr">mixins</span>: [mixin]
+&#125;)
+<span class="hljs-comment">// =&gt; 1</span>
+<span class="hljs-comment">// =&gt; 2</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/mixins.html">Примеси</a></p>
+</li>
+</ul>
+<h3 id="extends"><a href="#extends" class="headerlink" title="extends"></a>extends</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object | Function</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Позволяет декларативно наследоваться от другого компонента (который может быть либо простым объектом, либо конструктором), не используя <code>Vue.extend</code>. Главным образом предназначено для облегчения наследования между компонентами, определёнными в одном файле.</p>
+<p>Эта функциональность аналогична <code>mixins</code>.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> CompA = &#123; ... &#125;
+
+<span class="hljs-comment">// наследуем от CompA, не вызывая `Vue.extend`:</span>
+<span class="hljs-keyword">var</span> CompB = &#123;
+  <span class="hljs-attr">extends</span>: CompA,
+  ...
+&#125;</code></pre>
+</li>
+</ul>
+<h3 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide / inject"></a>provide / inject</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong></p>
+<ul>
+<li><strong>provide:</strong> <code>Object | () =&gt; Object</code></li>
+<li><strong>inject:</strong> <code>Array&lt;string&gt; | { [key: string]: string | Symbol | Object }</code></li>
+</ul>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Эта пара опций используется вместе, чтобы позволить компоненту-родителю внедрять зависимости во всех его компонентах-потомках, независимо от того, насколько глубоко в иерархии они находятся, пока они находятся в той же самой родительской цепочке. Если вы знакомы с React, это очень похоже на функцию контекста.</p>
+<p>Опция <code>provide</code> должна быть объектом или функцией, возвращающей объект. Этот объект содержит свойства, которые будут доступны для внедрения в их потомках. Вы можете использовать ES2015 Symbols в качестве ключей этого объекта, но только в окружениях, которые нативно поддерживают <code>Symbol</code> и <code>Reflect.ownKeys</code>.</p>
+<p>Опция <code>inject</code> должна быть:</p>
+<ul>
+<li>массивом строк, или</li>
+<li>объектом, где ключи стоят для локального связывания имени, а значение является:<ul>
+<li>ключом (string или Symbol) для поиска в доступных инъекциях, или</li>
+<li>объектом, где:<ul>
+<li>свойство <code>from</code> является ключом (string или Symbol) для поиска в доступных инъекциях, и</li>
+<li>свойство <code>default</code> используется как резервное значение</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Примечание: привязки <code>provide</code> и <code>inject</code> НЕ РЕАКТИВНЫ. Это сделано намеренно. Тем не менее, если вы передаёте вниз отслеживаемый объект, свойства на этом объекте остаются реактивными.</p>
+</blockquote>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-comment">// родительский компонент предоставляет доступ к 'foo'</span>
+<span class="hljs-keyword">var</span> Provider = &#123;
+  <span class="hljs-attr">provide</span>: &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span>
+  &#125;,
+  <span class="hljs-comment">// ...</span>
+&#125;
+
+<span class="hljs-comment">// дочерний компонент внедряет 'foo'</span>
+<span class="hljs-keyword">var</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: [<span class="hljs-string">'foo'</span>],
+  created () &#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.foo) <span class="hljs-comment">// =&gt; "bar"</span>
+  &#125;
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
+<p>С помощью ES2015 Symbols, функция <code>provide</code> и объект <code>inject</code>:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> s = <span class="hljs-built_in">Symbol</span>()
+
+<span class="hljs-keyword">const</span> Provider = &#123;
+  provide () &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      [s]: <span class="hljs-string">'foo'</span>
+    &#125;
+  &#125;
+&#125;
+
+<span class="hljs-keyword">const</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: &#123; s &#125;,
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
+<blockquote>
+<p>Следующие два примера работают в версии Vue 2.2.1+. Ниже этой версии, внедрённые значения устанавливаются после инициализации <code>props</code> и <code>data</code>.</p>
+</blockquote>
+<p>Использование внедрённого значения, значением по умолчанию для входных данных:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: [<span class="hljs-string">'foo'</span>],
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">bar</span>: &#123;
+      <span class="hljs-keyword">default</span> () &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.foo
+      &#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
+<p>Использование внедрённого значения в качестве данных:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: [<span class="hljs-string">'foo'</span>],
+  data () &#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">bar</span>: <span class="hljs-keyword">this</span>.foo
+    &#125;
+  &#125;
+&#125;</code></pre>
+<blockquote>
+<p>С версии 2.5.0+ инъекции могут быть необязательными со значением по умолчанию:</p>
+</blockquote>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: &#123;
+    <span class="hljs-attr">foo</span>: &#123; <span class="hljs-attr">default</span>: <span class="hljs-string">'foo'</span> &#125;
+  &#125;
+&#125;</code></pre>
+<p>Если потребуется внедрить значение из свойства с другим именем, используйте <code>from</code> для обозначения свойства-источника:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: &#123;
+    <span class="hljs-attr">foo</span>: &#123;
+      <span class="hljs-attr">from</span>: <span class="hljs-string">'bar'</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-string">'foo'</span>
+    &#125;
+  &#125;
+&#125;</code></pre>
+<p>Аналогично значениям по умолчанию входных параметров, вам нужно использовать функцию фабрику для не-примитивных значений:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> Child = &#123;
+  <span class="hljs-attr">inject</span>: &#123;
+    <span class="hljs-attr">foo</span>: &#123;
+      <span class="hljs-attr">from</span>: <span class="hljs-string">'bar'</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+    &#125;
+  &#125;
+&#125;</code></pre>
+</li>
+</ul>
+<h2 id="Опции-—-разное"><a href="#Опции-—-разное" class="headerlink" title="Опции — разное"></a>Опции — разное</h2><h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><ul>
+<li><p><strong>Тип:</strong> <code>string</code></p>
+</li>
+<li><p><strong>Ограничение:</strong> учитывается только при определении компонента.</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Название компонента. Позволяет компоненту рекурсивно вызывать самого себя в шаблоне. Обратите внимание что когда компонент регистрируется глобально посредством <code>Vue.component()</code>, глобальный ID автоматически устанавливается равным его имени.</p>
+<p>Кроме того, компоненты с указанным <code>name</code> проще отлаживать из-за более понятных сообщений в консоли. Во <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue-devtools</a> все безымянные компоненты довольно неинформативно называются <code>&lt;AnonymousComponent&gt;</code>. Указание имён для компонентов значительно улучшает ситуацию.</p>
+</li>
+</ul>
+<h3 id="delimiters"><a href="#delimiters" class="headerlink" title="delimiters"></a>delimiters</h3><ul>
+<li><p><strong>Тип:</strong> <code>Array&lt;string&gt;</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>["{{", "}}"]</code></p>
+</li>
+<li><p><strong>Ограничения:</strong> Эта опция доступна только в полной сборке, поддерживающей компиляцию шаблонов в браузере.</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Разделители, выделяющие текст для интерполяции.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">delimiters</span>: [<span class="hljs-string">'$&#123;'</span>, <span class="hljs-string">'&#125;'</span>]
+&#125;)
+
+<span class="hljs-comment">// Разделители изменены на стиль строк-шаблонов в ES6</span></code></pre>
+</li>
+</ul>
+<h3 id="functional"><a href="#functional" class="headerlink" title="functional"></a>functional</h3><ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Превращает компонент в функциональный, то есть не имеющий собственного состояния (<code>data</code>) и своего экземпляра (<code>this</code>). Такие компоненты по сути — просто <code>render</code>-функция, возвращающая узлы виртуального DOM. Это сильно ускоряет их отрисовку.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html#Функциональные-компоненты">Функциональные компоненты</a></p>
+</li>
+</ul>
+<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>{ prop?: string, event?: string }</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Позволяет настроить входной параметр и событие, используемые для работы <code>v-model</code>. По умолчанию, <code>v-model</code> на компоненте использует входной параметр <code>value</code> и событие <code>input</code>. Но для некоторых типов полей, таких как чекбоксы и радиокнопки, может потребоваться использовать входной параметр <code>value</code> для других целей. Использование опции <code>model</code> позволит избежать конфликта в таких случаях.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-checkbox'</span>, &#123;
+  <span class="hljs-attr">model</span>: &#123;
+    <span class="hljs-attr">prop</span>: <span class="hljs-string">'checked'</span>,
+    <span class="hljs-attr">event</span>: <span class="hljs-string">'change'</span>
+  &#125;,
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-comment">// это позволит использовать входной параметр `value` для других целей</span>
+    <span class="hljs-attr">value</span>: <span class="hljs-built_in">String</span>,
+    <span class="hljs-comment">// используйте `checked` в качестве параметра, который заменяет `value`</span>
+    <span class="hljs-attr">checked</span>: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-number">0</span>
+    &#125;
+  &#125;,
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-checkbox</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"some value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-checkbox</span>&gt;</span></code></pre>
+<p>Указанное выше эквивалентно:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-checkbox</span>
+  <span class="hljs-attr">:checked</span>=<span class="hljs-string">"foo"</span>
+  @<span class="hljs-attr">change</span>=<span class="hljs-string">"val =&gt; &#123; foo = val &#125;"</span>
+  <span class="hljs-attr">value</span>=<span class="hljs-string">"some value"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-checkbox</span>&gt;</span></code></pre>
+</li>
+</ul>
+<h3 id="inheritAttrs"><a href="#inheritAttrs" class="headerlink" title="inheritAttrs"></a>inheritAttrs</h3><blockquote>
+<p>Добавлено в версии 2.4.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>true</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>По умолчанию атрибуты из родительской области видимости, которые не были распознаны как входные параметры, будут «проваливаться» и применяться к корневому элементу дочернего компонента как обычные HTML-атрибуты. При создании компонента, который оборачивает элемент или другой компонент, это не всегда может быть ожидаемым поведением. Устанавливая <code>inheritAttrs</code> в <code>false</code>, это поведение по умолчанию может быть отключено. Атрибуты доступны через свойство экземпляра <code>$attrs</code> (также добавленное в версии 2.4.0) и могут быть явно привязаны к некорневому элементу с использованием <code>v-bind</code>.</p>
+<p>Примечание: эта опция <strong>не влияет</strong> на привязки <code>class</code> и <code>style</code>.</p>
+</li>
+</ul>
+<h3 id="comments"><a href="#comments" class="headerlink" title="comments"></a>comments</h3><blockquote>
+<p>Добавлено в версии 2.4.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>По умолчанию:</strong> <code>false</code></p>
+</li>
+<li><p><strong>Ограничения:</strong> Эта опция доступна только в полной сборке, поддерживающей компиляцию шаблонов в браузере.</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Когда установлено в значение <code>true</code>, будут сохраняться и отрисовываться HTML-комментарии, найденные в шаблонах. Поведение по умолчанию выбрасывает их.</p>
+</li>
+</ul>
+<h2 id="Свойства-экземпляра"><a href="#Свойства-экземпляра" class="headerlink" title="Свойства экземпляра"></a>Свойства экземпляра</h2><h3 id="vm-data"><a href="#vm-data" class="headerlink" title="vm.$data"></a>vm.$data</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Объект с данными, над которым экземпляр Vue осуществляет наблюдение. Экземпляр проксирует сюда вызовы своих полей. (Например, <code>vm.a</code> будет указывать на <code>vm.$data.a</code>)</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="#data">Опции — данные</a></p>
+</li>
+</ul>
+<h3 id="vm-props"><a href="#vm-props" class="headerlink" title="vm.$props"></a>vm.$props</h3><blockquote>
+<p>Добавлено в версии 2.2.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Объект, предоставляющий доступ к текущим входным данным компонента. Экземпляр Vue проксирует доступ к свойствам своего объекта входных данных.</p>
+</li>
+</ul>
+<h3 id="vm-el"><a href="#vm-el" class="headerlink" title="vm.$el"></a>vm.$el</h3><ul>
+<li><p><strong>Тип:</strong> <code>Element</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Корневой элемент DOM, управляемый экземпляром Vue.</p>
+</li>
+</ul>
+<h3 id="vm-options"><a href="#vm-options" class="headerlink" title="vm.$options"></a>vm.$options</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Опции, переданные в конструктор экземпляра Vue. Полезно, если вы хотите передавать туда собственные опции:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">customOption</span>: <span class="hljs-string">'что-нибудь'</span>,
+  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$options.customOption) <span class="hljs-comment">// =&gt; 'что-нибудь'</span>
+  &#125;
+&#125;)</code></pre>
+</li>
+</ul>
+<h3 id="vm-parent"><a href="#vm-parent" class="headerlink" title="vm.$parent"></a>vm.$parent</h3><ul>
+<li><p><strong>Тип:</strong> <code>экземпляр Vue</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Экземпляр родителя, если он есть у текущего экземпляра.</p>
+</li>
+</ul>
+<h3 id="vm-root"><a href="#vm-root" class="headerlink" title="vm.$root"></a>vm.$root</h3><ul>
+<li><p><strong>Тип:</strong> <code>экземпляр Vue</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Корневой экземпляр Vue текущего дерева компонентов. Если у экземпляра нет родителя, в этом поле будет он сам.</p>
+</li>
+</ul>
+<h3 id="vm-children"><a href="#vm-children" class="headerlink" title="vm.$children"></a>vm.$children</h3><ul>
+<li><p><strong>Тип:</strong> <code>Array&lt;экземпляр Vue&gt;</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Компоненты-потомки экземпляра. <strong>Обратите внимание, что порядок следования элементов в <code>$children</code> не гарантируется, и этот массив не реактивен.</strong> Вместо того, чтобы использовать <code>$children</code> для связывания данных, попробуйте использовать обычный массив и директиву <code>v-for</code> для создания дочерних компонентов, и используйте этот массив как «источник истины».</p>
+</li>
+</ul>
+<h3 id="vm-slots"><a href="#vm-slots" class="headerlink" title="vm.$slots"></a>vm.$slots</h3><ul>
+<li><p><strong>Тип:</strong> <code>{ [name: string]: ?Array&lt;VNode&gt; }</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Реактивны?</strong> Нет</p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Используется для доступа к контенту, указанному <a href="../guide/components.html#Распределение-контента-слотами">через слоты</a>. У каждого <a href="../guide/components-slots.html#Именованные-слоты">именованного слота</a> есть соответствующее значение (например, содержимое <code>slot=&quot;foo&quot;</code> попадёт в <code>vm.$slots.foo</code>). Свойство <code>default</code> содержит узлы, не включённые в именованные слоты, либо содержимое <code>v-slot:default</code>.</p>
+<p>Обратите внимание, что слоты <strong>не реактивны</strong>. Если необходим компонент, который будет перерендериваться при изменении данных, переданных в слот, мы рекомендуем рассмотреть другую стратегию, которая полагается на опции реактивного экземпляра, такие как <code>props</code> или <code>data</code>.</p>
+<p><strong>Примечание:</strong> <code>v-slot:foo</code> поддерживается в версии v2.6+. Для более старых версий вы можете использовать <a href="../guide/components-slots.html#Устаревший-синтаксис">устаревший синтаксис</a>.</p>
+<p>Особенно полезно <code>vm.$slots</code> в компонентах с <a href="../guide/render-function.html">render-функциями</a>.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Обо мне<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Этот контент попадёт в vm.$slots.default, потому что он не в именованном слоте.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Copyright 2016 Evan You<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Этот контент тоже попадёт в vm.$slots.default.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>.
+<span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">createElement</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> header = <span class="hljs-keyword">this</span>.$slots.header
+    <span class="hljs-keyword">var</span> body   = <span class="hljs-keyword">this</span>.$slots.default
+    <span class="hljs-keyword">var</span> footer = <span class="hljs-keyword">this</span>.$slots.footer
+    <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'div'</span>, [
+      createElement(<span class="hljs-string">'header'</span>, header),
+      createElement(<span class="hljs-string">'main'</span>, body),
+      createElement(<span class="hljs-string">'footer'</span>, footer)
+    ])
+  &#125;
+&#125;)</code></pre>
+<ul>
+<li><a href="#slot">Компонент <code>&lt;slot&gt;</code></a></li>
+<li><a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></li>
+<li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-scopedSlots"><a href="#vm-scopedSlots" class="headerlink" title="vm.$scopedSlots"></a>vm.$scopedSlots</h3><blockquote>
+<p>Добавлено в версии 2.1.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>{ [name: string]: props =&gt; Array&lt;VNode&gt; | undefined }</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Используется для доступа к контенту, указанному <a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">через слоты с ограниченной областью видимости</a>. Для каждого слота, включая и слот <code>default</code>, объект содержащий соответствующую функцию, что возвращает VNode.</p>
+<p>Использование <code>vm.$scopedSlots</code> наиболее полезно при написании компонентов с использованием <a href="../guide/render-function.html">render-функций</a>.</p>
+<p><strong>Примечание:</strong> начиная с версии 2.6.0+ есть два важных изменения этого свойства:</p>
+<ol>
+<li><p>Функции слотов с ограниченной областью видимости теперь гарантированно возвращают массив VNodes, за исключением когда возвращаемое свойство является недействительным, в таком случае функция вернёт <code>undefined</code>.</p>
+</li>
+<li><p>Все <code>$slots</code> теперь также доступны в <code>$scopedSlots</code> как функции. Если вы работаете с render-функциями, рекомендуем всегда обращаться к слотам через <code>$scopedSlots</code>, независимо от того, используют ли они свою область видимости в настоящее время или нет. Это не только упростит будущие изменения при переработке слота, но и облегчит миграцию на Vue 3, где все слоты будут функциями.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="#slot"><code>&lt;slot&gt;</code> компонент</a></li>
+<li><a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">Слоты с ограниченной областью видимости</a></li>
+<li><a href="../guide/render-function.html#Слоты">Render-функции — слоты</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-refs"><a href="#vm-refs" class="headerlink" title="vm.$refs"></a>vm.$refs</h3><ul>
+<li><p><strong>Тип:</strong> <code>Object</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Объект из DOM-элементов и экземпляров компонентов, зарегистрированных с помощью <a href="#ref">атрибутов <code>ref</code></a>.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/components-edge-cases.html#Доступ-к-экземплярам-дочерних-компонентов-amp-элементов">Доступ к экземплярам дочерних компонентов и элементов</a></li>
+<li><a href="#ref">Специальный атрибут — ref</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-isServer"><a href="#vm-isServer" class="headerlink" title="vm.$isServer"></a>vm.$isServer</h3><ul>
+<li><p><strong>Тип:</strong> <code>boolean</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Запущен ли данный экземпляр Vue на сервере.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/ssr.html">SSR. Отрисовка на стороне сервера</a></p>
+</li>
+</ul>
+<h3 id="vm-attrs"><a href="#vm-attrs" class="headerlink" title="vm.$attrs"></a>vm.$attrs</h3><blockquote>
+<p>Добавлено в версии 2.4.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: string }</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Содержит нераспознанные атрибуты (за исключением <code>class</code> и <code>style</code>), указанные для компонента в родительской области видимости. Если у компонента нет объявленных входных параметров, здесь окажутся все атрибуты (кроме <code>class</code> и <code>style</code>). Эти атрибуты можно передавать вниз во внутренние компоненты через <code>v-bind=&quot;$attrs&quot;</code> — что может быть полезным при создании компонентов высшего порядка (HOC).</p>
+</li>
+</ul>
+<h3 id="vm-listeners"><a href="#vm-listeners" class="headerlink" title="vm.$listeners"></a>vm.$listeners</h3><blockquote>
+<p>Добавлено в версии 2.4.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Тип:</strong> <code>{ [key: string]: Function | Array&lt;Function&gt; }</code></p>
+</li>
+<li><p><strong>Только для чтения</strong></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Содержит обработчики событий <code>v-on</code> из родительской области видимости (без модификаторов <code>.native</code>). Они могут быть переданы во внутренние компоненты через <code>v-on=&quot;$listeners&quot;</code> — что может быть полезным при создании прозрачных обёрток компонентов.</p>
+</li>
+</ul>
+<h2 id="Методы-экземпляра-—-данные"><a href="#Методы-экземпляра-—-данные" class="headerlink" title="Методы экземпляра — данные"></a>Методы экземпляра — данные</h2><h3 id="vm-watch-expOrFn-callback-options"><a href="#vm-watch-expOrFn-callback-options" class="headerlink" title="vm.$watch( expOrFn, callback, [options] )"></a>vm.$watch( expOrFn, callback, [options] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string | Function} expOrFn</code></li>
+<li><code>{Function | Object} callback</code></li>
+<li><code>{Object} [options]</code><ul>
+<li><code>{boolean} deep</code></li>
+<li><code>{boolean} immediate</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Возвращает:</strong> <code>{Function} unwatch</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Запускает наблюдение за выражением или вычисляемой функцией на предмет изменений. В параметры коллбэка будут переданы новое и старое значения отслеживаемого объекта. Выражение может быть только простым путём до переменной с разделителями-точками. Для более сложных случаев используйте функцию.</p>
+<p class="tip">Обратите внимание: когда изменяете (а не заменяете) объект или массив, старое и новое значения при вызове коллбэка будут совпадать, так как они ссылаются на один и тот же объект или массив. Vue не сохраняет копии объекта на момент, предшествовавший изменениям.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-comment">// следим за переменной, указанной путём:</span>
+vm.$watch(<span class="hljs-string">'a.b.c'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newVal, oldVal</span>) </span>&#123;
+  <span class="hljs-comment">// переменная изменилась, сделайте что-нибудь</span>
+&#125;)
+
+<span class="hljs-comment">// следим за функцией:</span>
+vm.$watch(
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// Данный обработчик будет вызываться каждый раз, когда выражение</span>
+    <span class="hljs-comment">// `this.a + this.b` даёт результат. Это похоже на отслеживание</span>
+    <span class="hljs-comment">// вычисляемого свойства без определения самого вычисляемого свойства</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a + <span class="hljs-keyword">this</span>.b
+  &#125;,
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newVal, oldVal</span>) </span>&#123;
+    <span class="hljs-comment">// значение функции изменилось, сделайте что-нибудь</span>
+  &#125;
+)</code></pre>
+<p><code>vm.$watch</code> возвращает функцию unwatch, которая останавливает слежение:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> unwatch = vm.$watch(<span class="hljs-string">'a'</span>, cb)
+<span class="hljs-comment">// позднее, останавливаем слежение:</span>
+unwatch()</code></pre>
+</li>
+<li><p><strong>Опция: deep</strong></p>
+<p>Чтобы слежение реагировало на изменения во вложенных объектах, передайте <code>deep: true</code> в объекте параметров. Обратите внимание, что для наблюдения за изменениями массивов этого не требуется.</p>
+<pre><code class="hljs js">vm.$watch(<span class="hljs-string">'someObject'</span>, callback, &#123;
+  <span class="hljs-attr">deep</span>: <span class="hljs-literal">true</span>
+&#125;)
+vm.someObject.nestedValue = <span class="hljs-number">123</span>
+<span class="hljs-comment">// вызывается callback</span></code></pre>
+</li>
+<li><p><strong>Опция: immediate</strong></p>
+<p>Если передано <code>immediate: true</code>, коллбэк будет вызван сразу же после начала наблюдения с текущим значением выражения:</p>
+<pre><code class="hljs js">vm.$watch(<span class="hljs-string">'a'</span>, callback, &#123;
+  <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span>
+&#125;)
+<span class="hljs-comment">// `callback` вызывается сразу, с текущим значением `a`</span></code></pre>
+<p>Обратите внимание, при использовании опции <code>immediate</code> нет возможности отменить отслеживание указанного свойства в коллбэке вызванном в первый раз.</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Подобное приведёт к ошибке</span>
+<span class="hljs-keyword">var</span> unwatch = vm.$watch(
+  <span class="hljs-string">'value'</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    doSomething()
+    unwatch()
+  &#125;,
+  &#123; <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span> &#125;
+)</code></pre>
+<p>Если необходимо вызвать функцию unwatch внутри коллбэка, то следует проверять её доступность:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> unwatch = vm.$watch(
+  <span class="hljs-string">'value'</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    doSomething()
+    <span class="hljs-keyword">if</span> (unwatch) &#123;
+      unwatch()
+    &#125;
+  &#125;,
+  &#123; <span class="hljs-attr">immediate</span>: <span class="hljs-literal">true</span> &#125;
+)</code></pre>
+</li>
+</ul>
+<h3 id="vm-set-target-propertyName-index-value"><a href="#vm-set-target-propertyName-index-value" class="headerlink" title="vm.$set( target, propertyName/index, value )"></a>vm.$set( target, propertyName/index, value )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object | Array} target</code></li>
+<li><code>{string | number} propertyName/index</code></li>
+<li><code>{any} value</code></li>
+</ul>
+</li>
+<li><p><strong>Возвращает:</strong> установленное значение.</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p><strong>Псевдоним</strong> глобального метода <code>Vue.set</code>.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="#Vue-set">Vue.set</a></p>
+</li>
+</ul>
+<h3 id="vm-delete-target-propertyName-index"><a href="#vm-delete-target-propertyName-index" class="headerlink" title="vm.$delete( target, propertyName/index )"></a>vm.$delete( target, propertyName/index )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Object | Array} target</code></li>
+<li><code>{string | number} propertyName/index</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p><strong>Псевдоним</strong> глобального метода <code>Vue.delete</code>.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="#Vue-delete">Vue.delete</a></p>
+</li>
+</ul>
+<h2 id="Методы-экземпляра-—-события"><a href="#Методы-экземпляра-—-события" class="headerlink" title="Методы экземпляра — события"></a>Методы экземпляра — события</h2><h3 id="vm-on-event-callback"><a href="#vm-on-event-callback" class="headerlink" title="vm.$on( event, callback )"></a>vm.$on( event, callback )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string | Array&lt;string&gt;} event</code> (массив поддерживается только в версиях 2.2.0+)</li>
+<li><code>{Function} callback</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Создаёт подписку на пользовательское событие текущего vm. Такое событие можно породить функцией <code>vm.$emit</code>. Коллбэк получит все дополнительные аргументы, переданные этому методу.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js">vm.$on(<span class="hljs-string">'test'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg</span>) </span>&#123;
+  <span class="hljs-built_in">console</span>.log(msg)
+&#125;)
+vm.$emit(<span class="hljs-string">'test'</span>, <span class="hljs-string">'привет'</span>)
+<span class="hljs-comment">// =&gt; "привет"</span></code></pre>
+</li>
+</ul>
+<h3 id="vm-once-event-callback"><a href="#vm-once-event-callback" class="headerlink" title="vm.$once( event, callback )"></a>vm.$once( event, callback )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string} event</code></li>
+<li><code>{Function} callback</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Создаёт подписку на пользовательское событие, но срабатывает только один раз. После первого же использования подписчик будет удалён.</p>
+</li>
+</ul>
+<h3 id="vm-off-event-callback"><a href="#vm-off-event-callback" class="headerlink" title="vm.$off( [event, callback] )"></a>vm.$off( [event, callback] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string | Array&lt;string&gt;} event</code> (массив поддерживается только в 2.2.2+)</li>
+<li><code>{Function} [callback]</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Удаляет пользовательские подписчики события.</p>
+<ul>
+<li><p>Если функция вызвана без параметров, она удалит все подписки на события;</p>
+</li>
+<li><p>Если указан только тип события — удалит все подписки указанного события;</p>
+</li>
+<li><p>Если указан и тип события, и коллбэк — будет удалена именно эта подписка именно этого события.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-emit-eventName-…args"><a href="#vm-emit-eventName-…args" class="headerlink" title="vm.$emit( eventName, […args] )"></a>vm.$emit( eventName, […args] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{string} eventName</code></li>
+<li><code>[...args]</code></li>
+</ul>
+<p>Порождает событие в текущем экземпляре. Все дополнительно указанные параметры будут переданы в коллбэк подписки.</p>
+</li>
+<li><p><strong>Примеры:</strong></p>
+<p>Использование <code>$emit</code> только с именем события:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'welcome-button'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;button v-on:click="$emit('welcome')"&gt;
+      Нажмите для приветствия
+    &lt;/button&gt;
+  `</span>
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"emit-example-simple"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">welcome-button</span> <span class="hljs-attr">v-on:welcome</span>=<span class="hljs-string">"sayHi"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">welcome-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#emit-example-simple'</span>,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">sayHi</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      alert(<span class="hljs-string">'Привет!'</span>)
+    &#125;
+  &#125;
+&#125;)</code></pre>
+
+  <div id="emit-example-simple" class="demo">
+    <welcome-button v-on:welcome="sayHi"></welcome-button>
+  </div>
+  <script>
+    Vue.component('welcome-button', {
+      template: `
+        <button v-on:click="$emit('welcome')">
+          Нажмите для приветствия
+        </button>
+      `
+    })
+    new Vue({
+      el: '#emit-example-simple',
+      methods: {
+        sayHi: function () {
+          alert('Привет!')
+        }
+      }
+    })
+  </script>
+  
+<p>Использование <code>$emit</code> с дополнительными аргументами:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'magic-eight-ball'</span>, &#123;
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">possibleAdvice</span>: [<span class="hljs-string">'Да'</span>, <span class="hljs-string">'Нет'</span>, <span class="hljs-string">'Может быть'</span>]
+    &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">giveAdvice</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">var</span> randomAdviceIndex = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-keyword">this</span>.possibleAdvice.length)
+      <span class="hljs-keyword">this</span>.$emit(<span class="hljs-string">'give-advice'</span>, <span class="hljs-keyword">this</span>.possibleAdvice[randomAdviceIndex])
+    &#125;
+  &#125;,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;button v-on:click="giveAdvice"&gt;
+      Делать или нет?
+    &lt;/button&gt;
+  `</span>
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"emit-example-argument"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">magic-eight-ball</span> <span class="hljs-attr">v-on:give-advice</span>=<span class="hljs-string">"showAdvice"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">magic-eight-ball</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#emit-example-argument'</span>,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">showAdvice</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">advice</span>) </span>&#123;
+      alert(advice)
+    &#125;
+  &#125;
+&#125;)</code></pre>
+
+  <div id="emit-example-argument" class="demo">
+    <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+  </div>
+  <script>
+    Vue.component('magic-eight-ball', {
+      data: function () {
+        return {
+          possibleAdvice: ['Да', 'Нет', 'Может быть']
+        }
+      },
+      methods: {
+        giveAdvice: function () {
+          var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+          this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+        }
+      },
+      template: `
+        <button v-on:click="giveAdvice">
+          Делать или нет?
+        </button>
+      `
+    })
+    new Vue({
+      el: '#emit-example-argument',
+      methods: {
+        showAdvice: function (advice) {
+          alert(advice)
+        }
+      }
+    })
+  </script>
+  
+</li>
+</ul>
+<h2 id="Методы-экземпляра-—-жизненный-цикл"><a href="#Методы-экземпляра-—-жизненный-цикл" class="headerlink" title="Методы экземпляра — жизненный цикл"></a>Методы экземпляра — жизненный цикл</h2><h3 id="vm-mount-elementOrSelector"><a href="#vm-mount-elementOrSelector" class="headerlink" title="vm.$mount( [elementOrSelector] )"></a>vm.$mount( [elementOrSelector] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Element | string} [elementOrSelector]</code></li>
+<li><code>{boolean} [hydrating]</code></li>
+</ul>
+</li>
+<li><p><strong>Возвращает:</strong> <code>vm</code> — сам экземпляр</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Если при создании экземпляра Vue не была указана опция <code>el</code>, он окажется в «непримонтированном» (unmounted) состоянии, то есть без ассоциированного элемента DOM. Вызовите <code>vm.$mount()</code>, чтобы примонтировать такой экземпляр.</p>
+<p>Если параметр <code>elementOrSelector</code> не указан, шаблон будет отрисован как элемент вне документа. Вы сможете затем вставить такой элемент нативным интерфейсом DOM.</p>
+<p>Метод возвращает сам экземпляр, чтобы вы могли вызывать дополнительные методы по цепочке.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> MyComponent = Vue.extend(&#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;Привет!&lt;/div&gt;'</span>
+&#125;)
+
+<span class="hljs-comment">// создаём и монтируем в #app (заменит #app):</span>
+<span class="hljs-keyword">new</span> MyComponent().$mount(<span class="hljs-string">'#app'</span>)
+
+<span class="hljs-comment">// другой вариант записи, делает то же самое:</span>
+<span class="hljs-keyword">new</span> MyComponent(&#123; <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span> &#125;)
+
+<span class="hljs-comment">// отрисовываем вне документа и вставляем в DOM позднее:</span>
+<span class="hljs-keyword">var</span> component = <span class="hljs-keyword">new</span> MyComponent().$mount()
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'app'</span>).appendChild(component.$el)</code></pre>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></li>
+<li><a href="../guide/ssr.html">SSR. Отрисовка на стороне сервера</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-forceUpdate"><a href="#vm-forceUpdate" class="headerlink" title="vm.$forceUpdate()"></a>vm.$forceUpdate()</h3><ul>
+<li><p><strong>Использование:</strong></p>
+<p>Заставляет экземпляр Vue произвести переотрисовку. Обратите внимание, что этот метод затронет не все дочерние компоненты, а только сам экземпляр и дочерние компоненты с контентными слотами.</p>
+</li>
+</ul>
+<h3 id="vm-nextTick-callback"><a href="#vm-nextTick-callback" class="headerlink" title="vm.$nextTick( [callback] )"></a>vm.$nextTick( [callback] )</h3><ul>
+<li><p><strong>Аргументы:</strong></p>
+<ul>
+<li><code>{Function} [callback]</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Выполняет функцию <code>callback</code> при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM. Функция делает то же самое, что и глобальный <code>Vue.nextTick</code>, но кроме того связывает <code>this</code> с текущим экземпляром в коллбэке.</p>
+<blockquote>
+<p>Добавлено в версии 2.1.0+: возвращает <code>Promise</code>, если окружение их поддерживает и коллбэк не указан. Обратите внимание, что Vue не поставляется с полифилом для <code>Promise</code>. Поэтому при необходимости поддержки браузеров, которые не поддерживают их нативно (например, IE), вам придётся предоставить полифил самостоятельно.</p>
+</blockquote>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-attr">example</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-comment">// меняем данные:</span>
+      <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'changed'</span>
+      <span class="hljs-comment">// DOM ещё не обновлён</span>
+      <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-comment">// теперь DOM обновлён</span>
+        <span class="hljs-comment">// `this` указывает на текущий экземпляр</span>
+        <span class="hljs-keyword">this</span>.doSomethingElse()
+      &#125;)
+    &#125;
+  &#125;
+&#125;)</code></pre>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="#Vue-nextTick">Vue.nextTick</a></li>
+<li><a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Асинхронная очередь обновлений</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="vm-destroy"><a href="#vm-destroy" class="headerlink" title="vm.$destroy()"></a>vm.$destroy()</h3><ul>
+<li><p><strong>Использование:</strong></p>
+<p>Полностью уничтожает vm. Очищает связи с другими существующими vm, отвязывает директивы, отменяет все подписки на события.</p>
+<p>Вызывает хуки <code>beforeDestroy</code> и <code>destroyed</code>.</p>
+<p class="tip">Как правило, вам не придётся вызывать этот метод самим. Лучше контролировать жизненный цикл дочерних компонентов в data-driven стиле директивами <code>v-if</code> и <code>v-for</code>.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
+</li>
+</ul>
+<h2 id="Директивы"><a href="#Директивы" class="headerlink" title="Директивы"></a>Директивы</h2><h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><ul>
+<li><p><strong>Принимает:</strong> <code>string</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Управляет текстовым содержимым элемента (<code>textContent</code>). Если вам нужно управлять только частью содержимого тега, используйте интерполяцию <code>{{ Mustache }}</code>.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-text</span>=<span class="hljs-string">"msg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- то же, что --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/syntax.html#Текст">Синтаксис шаблонов — интерполяции</a></p>
+</li>
+</ul>
+<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><ul>
+<li><p><strong>Принимает:</strong> <code>string</code></p>
+</li>
+<li><p><strong>Подробности:</strong></p>
+<p>Управляет HTML-содержимым элемента (<code>innerHTML</code>). <strong>Обратите внимание, что содержимое вставляется как обычный HTML — то есть не компилируется как шаблон Vue</strong>. Не стоит организовывать вложенные шаблоны с помощью <code>v-html</code>, попробуйте лучше применить компоненты.</p>
+<p class="tip">Динамическая отрисовка произвольного HTML-кода на сайте — это очень опасная практика, легко приводящая к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Передавайте в <code>v-html</code> только содержимое, которому можно доверять, и <strong>никогда</strong> — необработанный пользовательский ввод.</p>
+
+<p class="tip">В <a href="../guide/single-file-components.html">однофайловых компонентах</a> <code>scoped</code> стили не будут применены к содержимому внутри <code>v-html</code>, потому что этот HTML не обрабатывается компилятором шаблонов Vue. Если вы хотите стилизовать содержимое <code>v-html</code> с помощью локального CSS, то вы можете вместо этого использовать <a href="https://vue-loader.vuejs.org/ru/features/css-modules.html" target="_blank" rel="noopener">CSS-модули</a> или дополнительный глобальный элемент <code>&lt;style&gt;</code> с иной стратегией, такой как БЭМ.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"html"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/syntax.html#Сырой-HTML">Синтаксис шаблонов — интерполяции</a></p>
+</li>
+</ul>
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><ul>
+<li><p><strong>Принимает:</strong> <code>any</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Переключает CSS-свойство <code>display</code> элемента, в зависимости от того, истинно ли указанное выражение.</p>
+<p>При изменении состояния этой директивы вызываются анимации, заданные в transition.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-show">Условная отрисовка — v-show</a></p>
+</li>
+</ul>
+<h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><ul>
+<li><p><strong>Принимает:</strong> <code>any</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Осуществляет отрисовку элемента, только если передаваемое выражение истинно. При изменении значения выражения на противоположное, элемент и содержащиеся в нём компоненты и директивы уничтожаются/пересоздаются. Если элемент — <code>&lt;template&gt;</code>, вместо него будет отрисовано его содержимое.</p>
+<p>Эта директива также запускает анимационные переходы при изменении условия.</p>
+<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if">отрисовки списков</a>.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-if">Условная отрисовка — v-if</a></p>
+</li>
+</ul>
+<h3 id="v-else"><a href="#v-else" class="headerlink" title="v-else"></a>v-else</h3><ul>
+<li><p><strong>Не принимает какое-либо выражение</strong></p>
+</li>
+<li><p><strong>Ограничение:</strong> предыдущий элемент должен иметь директиву <code>v-if</code> или <code>v-else-if</code>.</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Определяет «блок else» для <code>v-if</code> или цепочки <code>v-if</code>/<code>v-else-if</code>.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"Math.random() &gt; 0.5"</span>&gt;</span>
+  Сейчас меня видно
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else</span>&gt;</span>
+  А сейчас — нет
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else">Условная отрисовка — v-else</a></p>
+</li>
+</ul>
+<h3 id="v-else-if"><a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h3><blockquote>
+<p>Добавлено в версии 2.1.0+</p>
+</blockquote>
+<ul>
+<li><p><strong>Принимает:</strong> <code>any</code></p>
+</li>
+<li><p><strong>Ограничение:</strong> предшествующий элемент должен иметь <code>v-if</code> или <code>v-else-if</code>.</p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Обозначает «блок else if» для <code>v-if</code>. Можно объединять в цепочки.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"type === 'A'"</span>&gt;</span>
+  A
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">"type === 'B'"</span>&gt;</span>
+  B
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">"type === 'C'"</span>&gt;</span>
+  C
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-else</span>&gt;</span>
+  Не A/B/C
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/conditional.html#v-else-if">Условная отрисовка — v-else-if</a></p>
+</li>
+</ul>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><ul>
+<li><p><strong>Принимает:</strong> <code>Array | Object | number | string | Iterable (с версии 2.6)</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Многократно отрисовывает элемент или блок шаблона, основываясь на переданных данных. Значение директивы должно следовать синтаксису <code>alias in expression</code> — в <code>alias</code> будет элемент текущей итерации:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span>&gt;</span>
+  &#123;&#123; item.text &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Кроме того, вы можете указать название для индекса (или ключа, если вы работаете с объектом):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(item, index) in items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, key) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(val, name, index) in object"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>По умолчанию <code>v-for</code> будет пытаться обновить элементы «на месте», не перемещая их. Если вам нужно, чтобы элементы перемещались, сохраняя явную упорядоченность, укажите атрибут <code>key</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
+  &#123;&#123; item.text &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>С версии 2.6.0+, <code>v-for</code> также может работать со значениями, реализующими <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol" target="_blank" rel="noopener">протокол Iterable</a>, включая нативные <code>Map</code> и <code>Set</code>. К сожалению, Vue 2.x в настоящее время не поддерживает реактивность для значений <code>Map</code> и <code>Set</code> и поэтому не сможет автоматически отслеживать изменения в них.</p>
+<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if&quot;">отрисовки списков</a>.</p>
+
+<p>Использование <code>v-for</code> подробно описано в секции руководства по ссылке ниже.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/list.html">Отрисовка списков</a></li>
+<li><a href="../guide/list.html#key">key</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><ul>
+<li><p><strong>Сокращение:</strong> <code>@</code></p>
+</li>
+<li><p><strong>Принимает:</strong> <code>Function | Inline-выражение | Object</code></p>
+</li>
+<li><p><strong>Параметр:</strong> <code>event</code></p>
+</li>
+<li><p><strong>Модификаторы:</strong></p>
+<ul>
+<li><code>.stop</code> — вызовет <code>event.stopPropagation()</code>.</li>
+<li><code>.prevent</code> — вызовет <code>event.preventDefault()</code>.</li>
+<li><code>.capture</code> — добавит подписку в режиме capture.</li>
+<li><code>.self</code> — вызовет обработчик только если событие возникло непосредственно на этом элементе.</li>
+<li><code>.{keyCode | keyAlias}</code> — вызывает обработчик только при нажатии определённой клавиши.</li>
+<li><code>.native</code> — подписаться на нативное событие на корневом элементе компонента.</li>
+<li><code>.once</code> — вызовет обработчик не больше одного раза.</li>
+<li><code>.left</code> - (2.2.0) вызов обработчика только по событию нажатия левой кнопки мыши.</li>
+<li><code>.right</code> - (2.2.0) вызов обработчика только по событию нажатия правой кнопки мыши.</li>
+<li><code>.middle</code> - (2.2.0) вызов обработчика только по событию нажатия средней кнопки мыши.</li>
+<li><code>.passive</code> - (2.3.0+) вызов обработчика события DOM с опцией <code>{ passive: true }</code>.</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Прикрепляет к элементу подписчик события. Тип события указывается в параметре. Выражение может быть именем метода, inline-выражением или вовсе отсутствовать, если указан один или несколько модификаторов.</p>
+<p>У обычного элемента можно подписаться только <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noopener"><strong>на нативные события DOM</strong></a>. У элемента компонента можно подписаться <strong>на пользовательские события</strong>, вызываемые этим дочерним компонентом.</p>
+<p>При работе с нативными событиями DOM, метод получает нативное событие единственным аргументом. В inline-выражениях, можно получить к нему доступ с помощью <code>$event</code>: <code>v-on:click=&quot;handle(&#39;ok&#39;, $event)&quot;</code>.</p>
+<p>Начиная с версии 2.4.0+, <code>v-on</code> также поддерживает привязку к объекту пар событие/обработчик без аргумента. Обратите внимание, что при использовании синтаксиса объекта не поддерживаются никакие модификаторы.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- обработчик метода --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- динамическое имя события (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:</span>[<span class="hljs-attr">event</span>]=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- inline-выражение --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"doThat('hello', $event)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- сокращённая запись --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- сокращённая запись динамического имени события (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @[<span class="hljs-attr">event</span>]=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- модификатор stop propagation --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.stop</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- модификатор prevent default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.prevent</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- модификатор prevent default без дополнительных действий --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> @<span class="hljs-attr">submit.prevent</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- цепочка из модификаторов --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click.stop.prevent</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- модификатор клавиши keyAlias --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> @<span class="hljs-attr">keyup.enter</span>=<span class="hljs-string">"onEnter"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- модификатор клавиши keyCode --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> @<span class="hljs-attr">keyup.13</span>=<span class="hljs-string">"onEnter"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- обработчик метода будет вызван не больше одного раза --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click.once</span>=<span class="hljs-string">"doThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- синтаксис объекта (2.4.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on</span>=<span class="hljs-string">"&#123; mousedown: doThis, mouseup: doThat &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<p>Подписка на пользовательское событие в дочернем элементе (обработчик вызывается, когда дочерний элемент вызывает “my-event”):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> @<span class="hljs-attr">my-event</span>=<span class="hljs-string">"handleThis"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- inline-выражение --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> @<span class="hljs-attr">my-event</span>=<span class="hljs-string">"handleThis(123, $event)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- подписываемся на нативное событие в компоненте --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"onClick"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/events.html">Обработка событий</a></li>
+<li><a href="../guide/components.html#Отправка-сообщений-родителям-с-помощью-событий">Компоненты — Отправка сообщений родителям с помощью событий</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><ul>
+<li><p><strong>Сокращение:</strong> <code>:</code></p>
+</li>
+<li><p><strong>Принимает:</strong> <code>any (если указан параметр) | Object (если параметр не указан)</code></p>
+</li>
+<li><p><strong>Параметр:</strong> <code>attrOrProp (опционально)</code></p>
+</li>
+<li><p><strong>Модификаторы:</strong></p>
+<ul>
+<li><code>.prop</code> — используется для связывания в качестве DOM-свойства, а не атрибута (<a href="https://stackoverflow.com/questions/6003819/properties-and-attributes-in-html#answer-6004028" target="_blank" rel="noopener">в чём разница?</a>). Если тег является компонентом, то <code>.prop</code> будет устанавливать свойство на <code>$el</code> компонента.</li>
+<li><code>.camel</code> — (2.1.0+) преобразует имена атрибутов из kebab-case в camelCase.</li>
+<li><code>.sync</code> — (2.3.0+) синтаксический сахар, который будет преобразован в обработчик <code>v-on</code> для обновления связанного значения.</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Динамически связывает атрибуты тега или входной параметр компонента с выражением.</p>
+<p>При использовании с атрибутами <code>class</code> и <code>style</code> поддерживает массивы и объекты в качестве значений. Подробнее это описано в соответствующем руководстве по ссылке ниже.</p>
+<p>Для правильного связывания входного параметра компонента, тот должен быть корректно определён в дочернем компоненте.</p>
+<p>Если аргумент не указан, связанное значение может быть содержащим пары имя-значение. Обратите внимание, что в этом случае атрибуты <code>class</code> и <code>style</code> не поддерживают массивы и объекты.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- связывание атрибута --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">v-bind:src</span>=<span class="hljs-string">"imageSrc"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- динамическое имя атрибута (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">"value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- сокращённая запись --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"imageSrc"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- сокращённая запись для динамического имени атрибута (2.6.0+) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">"value"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- поддержка конкатенации строк --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"'/path/to/images/' + fileName"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- связывание CSS-класса --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"&#123; red: isRed &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"[classA, classB]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"[classA, &#123; classB: isB, classC: isC &#125;]"</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- связывание локального стиля --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">"&#123; fontSize: size + 'px' &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">"[styleObjectA, styleObjectB]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- связывание с объектом, содержащим атрибуты --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">"&#123; id: someProp, 'other-attr': otherProp &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- связывание с атрибутами DOM при указании модификатора --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:text-content.prop</span>=<span class="hljs-string">"text"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- связывание входного параметра. "prop" должен быть определён в my-component. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">:prop</span>=<span class="hljs-string">"someThing"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- передача всех входных параметров компонента в child-component --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">child-component</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">"$props"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">child-component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- XLink --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:xlink:special</span>=<span class="hljs-string">"foo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre>
+<p>Модификатор <code>.camel</code> позволяет перевод имени атрибута <code>v-bind</code> в camelCase при использовании DOM-шаблонов, например для атрибута <code>viewBox</code> SVG:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">:view-box.camel</span>=<span class="hljs-string">"viewBox"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></code></pre>
+<p>В использовании <code>.camel</code> нет необходимости, если вы пользуетесь строковыми шаблонами или <code>vue-loader</code>/<code>vueify</code>.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/class-and-style.html">Работа с классами и стилями</a></li>
+<li><a href="../guide/components.html#Передача-данных-в-дочерние-компоненты-через-входные-параметры">Компоненты — Передача данных в дочерние компоненты через входные параметры</a></li>
+<li><a href="../guide/components-custom-events.html#Модификатор-sync">Компоненты — Модификатор <code>.sync</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><ul>
+<li><p><strong>Принимает:</strong> разное, в зависимости от типа форм или выходных данных компонентов</p>
+</li>
+<li><p><strong>Используется только с:</strong></p>
+<ul>
+<li><code>&lt;input&gt;</code></li>
+<li><code>&lt;select&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li>компонентами</li>
+</ul>
+</li>
+<li><p><strong>Модификаторы:</strong></p>
+<ul>
+<li><a href="../guide/forms.html#lazy"><code>.lazy</code></a> — подписаться на события <code>change</code>, а не <code>input</code></li>
+<li><a href="../guide/forms.html#number"><code>.number</code></a> — приводить корректную введённую строку к числу</li>
+<li><a href="../guide/forms.html#trim"><code>.trim</code></a> — удалять пробелы в начале и в конце введённой строки</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Двусторонним образом связывает элемент ввода данных или компонент с переменной. Директива подробно описана в руководстве по ссылке ниже.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/forms.html">Работа с формами</a></li>
+<li><a href="../guide/components.html#Использование-v-model-на-компонентах">Компоненты — Использование v-model на компонентах</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-slot"><a href="#v-slot" class="headerlink" title="v-slot"></a>v-slot</h3><ul>
+<li><p><strong>Сокращение:</strong> <code>#</code></p>
+</li>
+<li><p><strong>Принимает:</strong> JavaScript выражение, допустимое в позиции аргумента (можно использовать деструктуризацию в <a href="../guide/components-slots.html#Деструктурирование-входных-параметров-слота">поддерживаемых окружениях</a>). Опционально — требуется только в случае, когда используются входные параметры у слота.</p>
+</li>
+<li><p><strong>Параметр:</strong> имя слота (опционально, по умолчанию <code>default</code>)</p>
+</li>
+<li><p><strong>Ограничение:</strong></p>
+<ul>
+<li><code>&lt;template&gt;</code></li>
+<li><a href="../guide/components-slots.html#Сокращённый-синтаксис-для-одиночного-слота-по-умолчанию">компоненты</a> (для одиночного слота по умолчанию с входными параметрами)</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Указывает именованные слоты или слоты с входными параметрами.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Именованные слоты --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    Содержимое заголовка
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  Содержимое слота по умолчанию
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    Содержимое подвала
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Именованный слот с входными параметрами --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">infinite-scroll</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:item</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span>
+      &#123;&#123; slotProps.item.text &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">infinite-scroll</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Слот по умолчанию с входными параметрами, с использованием деструктурирования --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mouse-position</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; x, y &#125;"</span>&gt;</span>
+  Позиция курсора: &#123;&#123; x &#125;&#125;, &#123;&#123; y &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">mouse-position</span>&gt;</span></code></pre>
+<p>Более подробно можно изучить по ссылкам ниже.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/components-slots.html">Компоненты — Слоты</a></li>
+<li><a href="https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md" target="_blank" rel="noopener">RFC-0001</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="v-pre"><a href="#v-pre" class="headerlink" title="v-pre"></a>v-pre</h3><ul>
+<li><p><strong>Не принимает какое-либо выражение</strong></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Пропустить компиляцию для этого элемента и всех его потомков. Вы можете использовать это для отображения необработанных тегов <code>{{}}</code>. Кроме того, пропуск большого количества элементов может ускорить компиляцию.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-pre</span>&gt;</span>&#123;&#123; эта часть не будет скомпилирована &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+</li>
+</ul>
+<h3 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h3><ul>
+<li><p><strong>Не принимает какое-либо выражение</strong></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Эта директива останется на элементе до тех пор, пока связанный с ним экземпляр Vue не закончит компиляцию. В сочетании с CSS-правилом <code>[v-cloak] { display: none }</code> этой директивой можно скрывать не скомпилированные шаблоны до тех пор, пока экземпляр Vue не будет готов.</p>
+</li>
+<li><p><strong>Пример:</strong></p>
+<pre><code class="hljs css"><span class="hljs-selector-attr">[v-cloak]</span> &#123;
+  <span class="hljs-attribute">display</span>: none;
+&#125;</code></pre>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-cloak</span>&gt;</span>
+  &#123;&#123; message &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Элемент <code>&lt;div&gt;</code> не появится, пока компиляция не закончится.</p>
+</li>
+</ul>
+<h3 id="v-once"><a href="#v-once" class="headerlink" title="v-once"></a>v-once</h3><ul>
+<li><p><strong>Не принимает какое-либо выражение</strong></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p><strong>Однократно</strong> отрисовывает элемент или компонент. При повторной отрисовке он, а также все его потомки, рассматриваются как статический контент и пропускаются. Это поможет увеличить производительность обновлений.</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- одиночный элемент --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-once</span>&gt;</span>Это никогда не изменится: &#123;&#123;msg&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- элемент с потомком --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-once</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>comment<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- компонент --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-once</span> <span class="hljs-attr">:comment</span>=<span class="hljs-string">"msg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- директива `v-for` --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"i in list"</span> <span class="hljs-attr">v-once</span>&gt;</span>&#123;&#123;i&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/syntax.html#Текст">Синтаксис шаблонов — интерполяции</a></li>
+<li><a href="../guide/components-edge-cases.html#“Дешёвые”-статические-компоненты-с-использованием-v-once">Компоненты — дешёвые статические компоненты с <code>v-once</code></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Специальные-атрибуты"><a href="#Специальные-атрибуты" class="headerlink" title="Специальные атрибуты"></a>Специальные атрибуты</h2><h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><ul>
+<li><p><strong>Принимает:</strong> <code>number | string | boolean (с версии 2.4.2) | symbol (с версии 2.5.12)</code></p>
+<p>Атрибут <code>key</code> помогает алгоритму работы с виртуальным DOM определить, какие ноды соответствует какой строке данных. Если этот атрибут не указан, Vue использует алгоритм, минимизирующий перемещение элементов и старается обновить и повторно использовать как можно больше элементов правильного типа «на местах». А если ключ указан, Vue изменяет порядок следования элементов, основываясь на изменении порядка ключей. Элементы, соответствующие ключам, которых больше нет, Vue всегда уничтожает.</p>
+<p>Потомки одного и того же общего родителя должны иметь <strong>уникальные ключи</strong>. Повторяющиеся ключи приведут к ошибкам при отрисовке.</p>
+<p>Как правило, используется в связке с <code>v-for</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<p>Можно также применить эту директиву, чтобы элемент всегда заменялся на новый, а не переиспользовался. Это может помочь, если вы хотите:</p>
+<ul>
+<li>Быть уверенным, что все хуки жизненного цикла компонента будут вызваны</li>
+<li>Запускать анимации (например, установленные в transition)</li>
+</ul>
+<p>Например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"text"</span>&gt;</span>&#123;&#123; text &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
+<p>При изменении <code>text</code>, <code>&lt;span&gt;</code> всегда будет заменяться целиком, что спровоцирует вызов анимации.</p>
+</li>
+</ul>
+<h3 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h3><ul>
+<li><p><strong>Принимает:</strong> <code>string</code></p>
+<p>Название элемента или компонента для регистрации ссылки на него. В объекте <code>$refs</code> появится поле с названием из этого атрибута и значением: элементом DOM, если атрибут стоял на простом теге или экземпляром компонента, если атрибут стоял на пользовательском компоненте:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- vm.$refs.p будет DOM-элементом --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"p"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- vm.$refs.child будет указывать на экземпляр дочернего компонента --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">child-component</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"child"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">child-component</span>&gt;</span></code></pre>
+<p>При использовании на элементах/компонентах с <code>v-for</code>, регистрируется массив ссылок на элементы DOM или экземпляры компонентов.</p>
+<p>Важное замечание о времени регистрации ссылок: поскольку ссылки создаются <code>render</code>-функцией, вы не сможете использовать их при первичной отрисовке — на тот момент они ещё не существуют! Кроме того, объект <code>$refs</code> не является реактивным, поэтому не стоит пытаться использовать его в шаблонах для связывания данных.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components-edge-cases.html#Доступ-к-экземплярам-дочерних-компонентов-amp-элементов">Ссылки на компоненты-потомки</a></p>
+</li>
+</ul>
+<h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><ul>
+<li><p><strong>Принимает:</strong> <code>string | Object (объект с настройками компонента)</code></p>
+<p>Используется для <a href="../guide/components.html#Динамическое-переключение-компонентов">динамически переключаемых компонентов</a> и для обхода <a href="../guide/components.html#Особенности-парсинга-DOM-шаблона">ограничений при использовании DOM-шаблонов</a>.</p>
+<p>Например:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- используемый компонент меняется при изменениях currentView --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentView"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- необходим, потому что `&lt;my-row&gt;` будет считаться невалидным --&gt;</span>
+<span class="hljs-comment">&lt;!-- элементом внутри `&lt;table&gt;` и будет вынесен выше             --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">is</span>=<span class="hljs-string">"my-row"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
+<p>Подробности использования можно изучить по ссылкам ниже.</p>
+</li>
+<li><p><strong>См. также:</strong></p>
+<ul>
+<li><a href="../guide/components.html#Динамическое-переключение-компонентов">Динамическое переключение компонентов</a></li>
+<li><a href="../guide/components.html#Особенности-парсинга-DOM-шаблона">Особенности парсинга DOM-шаблона</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="slot-устарело"><a href="#slot-устарело" class="headerlink" title="slot устарело"></a>slot <sup style="color:#c92222">устарело</sup></h3><p><strong>Предпочитайте использовать <a href="#v-slot">v-slot</a> в 2.6.0+.</strong></p>
+<ul>
+<li><p><strong>Принимает:</strong> <code>string</code></p>
+<p>Используется в содержимом дочерних компонентов для указания того, к какому из именованных слотов принадлежит отмеченный контент.</p>
+<p>Подробнее в руководстве по ссылке ниже.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components-slots.html#Именованные-слоты">Именованные слоты</a></p>
+</li>
+</ul>
+<h3 id="slot-scope-устарело"><a href="#slot-scope-устарело" class="headerlink" title="slot-scope устарело"></a>slot-scope <sup style="color:#c92222">устарело</sup></h3><p><strong>Предпочитайте использовать <a href="#v-slot">v-slot</a> в 2.6.0+.</strong></p>
+<ul>
+<li><p><strong>Принимает:</strong> <code>выражение аргумента функции</code></p>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Используется для обозначения элемента или компонента в качестве слота с ограниченной областью видимости. Значением атрибута должно быть валидное выражение JavaScript, которое может использоваться в качестве аргумента сигнатуры функции. Это означает, что в поддерживаемых окружениях вы также можете использовать деструктурирование ES2015 в выражении. Служит заменой для <a href="#scope-replaced"><code>scope</code></a> в версии 2.5.0+.</p>
+<p>Этот атрибут не поддерживает динамические привязки.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">Слоты с ограниченной областью видимости</a></p>
+</li>
+</ul>
+<h3 id="scope-удалено"><a href="#scope-удалено" class="headerlink" title="scope удалено"></a>scope <sup style="color:#c92222">удалено</sup></h3><p><strong>Заменён на <a href="#slot-scope">slot-scope</a> в 2.5.0+. Предпочитайте использовать <a href="#v-slot">v-slot</a> в 2.6.0+.</strong></p>
+<p>Используется для обозначения элемента <code>&lt;template&gt;</code> в качестве слота с ограниченной областью видимости, который заменён на <a href="#slot-scope"><code>slot-scope</code></a> в версии 2.5.0+.</p>
+<ul>
+<li><p><strong>Использование:</strong></p>
+<p>Аналогично <a href="#slot-scope"><code>slot-scope</code></a> за исключением того, что <code>scope</code> может использоваться только на элементах <code>&lt;template&gt;</code>.</p>
+</li>
+</ul>
+<h2 id="Встроенные-компоненты"><a href="#Встроенные-компоненты" class="headerlink" title="Встроенные компоненты"></a>Встроенные компоненты</h2><h3 id="component"><a href="#component" class="headerlink" title="component"></a>component</h3><ul>
+<li><p><strong>Входные параметры:</strong></p>
+<ul>
+<li><code>is</code> — string | ComponentDefinition | ComponentConstructor</li>
+<li><code>inline-template</code> — boolean</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>«Метакомпонент» для отрисовки динамических компонентов. Настоящий компонент для отрисовки определяется параметром <code>is</code>:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- динамический компонент, контролируемый --&gt;</span>
+<span class="hljs-comment">&lt;!-- свойством vm `componentId` --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"componentId"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- может также отрисовывать зарегистрированный или переданный параметром компонент --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"$options.components.child"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#Динамическое-переключение-компонентов">Динамическое переключение компонентов</a></p>
+</li>
+</ul>
+<h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3><ul>
+<li><p><strong>Входные параметры:</strong></p>
+<ul>
+<li><code>name</code> — string, используется для автоматической генерации имён CSS-классов для анимаций. Например, <code>name: &#39;fade&#39;</code> автоматически раскроется в <code>.fade-enter</code>, <code>.fade-enter-active</code> и т. д. Значение по умолчанию — <code>&quot;v&quot;</code>.</li>
+<li><code>appear</code> — boolean, вызывать ли анимацию при первой отрисовке. По умолчанию <code>false</code>.</li>
+<li><code>css</code> — boolean, применять ли CSS-классы. По умолчанию <code>true</code>. Если установить в <code>false</code>, будут вызываться только обработчики JavaScript, зарегистрированные для событий компонента.</li>
+<li><code>type</code> — string, указывает тип событий, с помощью которых определяется момент завершения анимации. Доступные значения: <code>&quot;transition&quot;</code> и <code>&quot;animation&quot;</code>. По умолчанию автоматически выбирается тип, задающий наибольшую продолжительность.</li>
+<li><code>mode</code> — string, управляет порядком анимаций исчезновения и появления элементов. Доступные режимы <code>&quot;out-in&quot;</code> (сначала старый элемент исчезает, потом новый появляется) и <code>&quot;in-out&quot;</code> (сначала новый элемент появляется, потом исчезает старый). По умолчанию исчезновение и появление происходят одновременно.</li>
+<li><code>duration</code> - number | { <code>enter</code>: number, <code>leave</code>: number }, указывает длительность перехода. По умолчанию Vue ожидает первого события <code>transitionend</code> или <code>animationend</code> на корневом элементе.</li>
+<li><code>enter-class</code> — string</li>
+<li><code>leave-class</code> — string</li>
+<li><code>appear-class</code> — string</li>
+<li><code>enter-to-class</code> — string</li>
+<li><code>leave-to-class</code> — string</li>
+<li><code>appear-to-class</code> — string</li>
+<li><code>enter-active-class</code> — string</li>
+<li><code>leave-active-class</code> — string</li>
+<li><code>appear-active-class</code> — string</li>
+</ul>
+</li>
+<li><p><strong>События:</strong></p>
+<ul>
+<li><code>before-enter</code></li>
+<li><code>before-leave</code></li>
+<li><code>before-appear</code></li>
+<li><code>enter</code></li>
+<li><code>leave</code></li>
+<li><code>appear</code></li>
+<li><code>after-enter</code></li>
+<li><code>after-leave</code></li>
+<li><code>after-appear</code></li>
+<li><code>enter-cancelled</code></li>
+<li><code>leave-cancelled</code> (только для <code>v-show</code>)</li>
+<li><code>appear-cancelled</code></li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Указывает анимацию перехода для <strong>одного</strong> элемента или компонента. <code>&lt;transition&gt;</code> не порождает дополнительного элемента DOM при отрисовке, и не отображается в иерархии компонентов в инспекторе. Этот компонент просто применяет поведение перехода к своему содержимому.</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- простой элемент --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"ok"</span>&gt;</span>переключаемое содержимое<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- динамический компонент --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fade"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"out-in"</span> <span class="hljs-attr">appear</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- хук на событие --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"transition-demo"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">transition</span> @<span class="hljs-attr">after-enter</span>=<span class="hljs-string">"transitionComplete"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"ok"</span>&gt;</span>переключаемое содержимое<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  ...
+  methods: &#123;
+    <span class="hljs-attr">transitionComplete</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
+      <span class="hljs-comment">// сделайте что-нибудь с переданным элементом DOM ...</span>
+    &#125;
+  &#125;
+  ...
+&#125;).$mount(<span class="hljs-string">'#transition-demo'</span>)</code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимирование списков и появления/исчезновения</a></p>
+</li>
+</ul>
+<h3 id="transition-group"><a href="#transition-group" class="headerlink" title="transition-group"></a>transition-group</h3><ul>
+<li><p><strong>Входные параметры:</strong></p>
+<ul>
+<li><code>tag</code> — string, по умолчанию используется <code>span</code>.</li>
+<li><code>move-class</code> — переопределяет CSS-класс, применяемый во время анимации перемещения.</li>
+<li>те же атрибуты, что и у <code>&lt;transition&gt;</code> кроме <code>mode</code>.</li>
+</ul>
+</li>
+<li><p><strong>События:</strong></p>
+<ul>
+<li>те же, что и у <code>&lt;transition&gt;</code>.</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Указывает анимацию перехода для <strong>нескольких</strong> элементов или компонентов. <code>&lt;transition-group&gt;</code> превращается в реальный элемент DOM. По умолчанию для этого используется тег <code>&lt;span&gt;</code>, но можно указать любой другой в параметре <code>tag</code>.</p>
+<p>Обратите внимание, что каждый потомок <code>&lt;transition-group&gt;</code> должен иметь <strong>уникальное значение key</strong>, чтобы анимации работали корректно.</p>
+<p>Анимации перехода реализованы с помощью CSS-трансформаций. Когда позиция потомка изменилась после обновления, ему будет добавлен CSS-класс (автоматически сгенерированный из атрибута <code>name</code>, или же явно указанный в атрибуте <code>move-class</code>). Если после применения этого класса свойство <code>transform</code> можно будет анимировать, элемент будет с плавным переходом переведён туда, где он должен быть с помощью <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="noopener">техники FLIP</a>.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition-group</span> <span class="hljs-attr">tag</span>=<span class="hljs-string">"ul"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slide"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span>
+    &#123;&#123; item.text &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition-group</span>&gt;</span></code></pre>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимирование списков и появления/исчезновения</a></p>
+</li>
+</ul>
+<h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><ul>
+<li><p><strong>Props:</strong></p>
+<ul>
+<li><code>include</code> — строка, регулярное выражение или массив. Только компоненты с совпадающими именами будут кешироваться.</li>
+<li><code>exclude</code> — строка, регулярное выражение или массив. Все компоненты с совпадающими именами не будут кэшироваться.</li>
+<li><code>max</code> - число. Максимальное количество кэшируемых экземпляров.</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p>Оберните динамические компоненты тегом <code>&lt;keep-alive&gt;</code>, чтобы кэшировать экземпляры интерактивных компонентов вместо того, чтобы их уничтожать. Так же, как и <code>&lt;transition&gt;</code>, <code>&lt;keep-alive&gt;</code> — абстрактный компонент: при отрисовке он не превращается в элемент DOM, и не показывается в цепочке родителей компонента.</p>
+<p>Когда компонент, расположенный внутри <code>&lt;keep-alive&gt;</code> показывается или скрывается, вызываются его хуки жизненного цикла <code>activated</code> или <code>deactivated</code> соответственно.</p>
+<blockquote>
+<p>В версии 2.2.0+, <code>activated</code> и <code>deactivated</code> будет срабатывать для всех вложенных компонентов внутри <code>&lt;keep-alive&gt;</code> дерева.</p>
+</blockquote>
+<p>В основном используется для сохранения состояния компонента, чтобы избежать повторной отрисовки.</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- базовый вариант --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- несколько потомков --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">comp-a</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"a &gt; 1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">comp-a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">comp-b</span> <span class="hljs-attr">v-else</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">comp-b</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- использование вместе с `&lt;transition&gt;` --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
+<p>Обратите внимание, <code>&lt;keep-alive&gt;</code> предназначен для случая, когда есть один прямой дочерний компонент, который переключается. Он не будет работать, если в нём есть <code>v-for</code>. При наличии несколько дочерних компонентов отображаемых по условию, как указано выше, <code>&lt;keep-alive&gt;</code> требует, чтобы отображался только один дочерний компонент в один момент времени.</p>
+</li>
+<li><p><strong><code>include</code> и <code>exclude</code></strong></p>
+<blockquote>
+<p>Добавлено в версии 2.1.0+</p>
+</blockquote>
+<p>Входные параметры <code>include</code> и <code>exclude</code> позволяют организовать условное кэширование компонентов. Оба параметра можно указать в виде строки со списком имён компонентов через запятую, регулярным выражением или массивом:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- строка с именами через запятую --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span> <span class="hljs-attr">include</span>=<span class="hljs-string">"a,b"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- регулярное выражение (используйте `v-bind`) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span> <span class="hljs-attr">:include</span>=<span class="hljs-string">"/a|b/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- массив (используйте `v-bind`) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span> <span class="hljs-attr">:include</span>=<span class="hljs-string">"['a', 'b']"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
+<p>Проверяется сначала собственное значение опции <code>name</code> компонента, а в случае его недоступности — имя, указанное при локальной регистрации (ключ в опции <code>components</code> компонента-родителя). Анонимные компоненты таким образом проверить не получится.</p>
+</li>
+<li><p><strong><code>max</code></strong></p>
+<blockquote>
+<p>Добавлено в версии 2.5.0+</p>
+</blockquote>
+<p>Максимальное количество экземпляров для кэширования. По достижению этого лимита, экземпляр закэшированного компонента, который дольше всего не использовался будет уничтожен перед созданием нового экземпляра.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span> <span class="hljs-attr">:max</span>=<span class="hljs-string">"10"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
+<p class="tip"><code>&lt;keep-alive&gt;</code> не работает с функциональными компонентами, так как у них отсутствуют экземпляры.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components-dynamic-async.html#keep-alive-с-динамическими-компонентами">Динамические и асинхронные компоненты — keep-alive с динамическими компонентами</a></p>
+</li>
+</ul>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><ul>
+<li><p><strong>Входные параметры:</strong></p>
+<ul>
+<li><code>name</code> — string, используется для именования слотов</li>
+</ul>
+</li>
+<li><p><strong>Использование:</strong></p>
+<p><code>&lt;slot&gt;</code> — элемент, чьё содержимое будет распределено в шаблон компонента. Сам элемент <code>&lt;slot&gt;</code> при отрисовке заменяется.</p>
+<p>Подробнее этот механизм описан в руководстве по ссылке ниже.</p>
+</li>
+<li><p><strong>См. также:</strong> <a href="../guide/components.html#Распределение-контента-слотами">Распределение контента слотами</a></p>
+</li>
+</ul>
+<h2 id="Интерфейс-VNode"><a href="#Интерфейс-VNode" class="headerlink" title="Интерфейс VNode"></a>Интерфейс VNode</h2><ul>
+<li>Смотрите информацию об <a href="https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js" target="_blank" rel="noopener">объявлении классов VNode</a>.</li>
+</ul>
+<h2 id="Отрисовка-на-стороне-сервера"><a href="#Отрисовка-на-стороне-сервера" class="headerlink" title="Отрисовка на стороне сервера"></a>Отрисовка на стороне сервера</h2><ul>
+<li>Смотрите <a href="https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer" target="_blank" rel="noopener">документацию пакета vue-server-renderer</a>.</li>
+</ul>
+
+  
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/api/index.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>

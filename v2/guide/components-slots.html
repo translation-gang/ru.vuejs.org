@@ -1,0 +1,1441 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>Слоты — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/components-slots.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/guide/components-slots.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Слоты — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Слоты — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "guide"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/components-slots.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components-slots.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-slots.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-slots.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-slots.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-slots.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-slots.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/guide/components-slots.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/guide/components-slots.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Руководство
+          
+            <select class="version-select">
+              <option value="v3">3.x</option>
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Основы компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+              <li><h3>Продвинутые компоненты</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-registration.html" class="sidebar-link">Регистрация компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-props.html" class="sidebar-link">Входные параметры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Пользовательские события</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-slots.html" class="sidebar-link current">Слоты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические и асинхронные компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-edge-cases.html" class="sidebar-link">Обработка крайних случаев</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переходы и анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Переиспользование и композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/testing.html" class="sidebar-link">Тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Публикация на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/security.html" class="sidebar-link">Безопасность</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content guide with-sidebar components-slots-guide">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>Слоты</h1>
+  
+  
+    <blockquote>
+<p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
+</blockquote>
+<blockquote>
+<p>В версии 2.6.0 был представлен новый единый синтаксис (директива <code>v-slot</code>) для именованных слотов и слотов с ограниченной областью видимости. Он заменяет атрибуты <code>slot</code> и <code>slot-scope</code>, которые в настоящий момент объявлены устаревшими, но _не_ удалены и документированы <a href="#Устаревший-синтаксис">здесь</a>. Обоснование введения нового синтаксиса описано в этом <a href="https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md" target="_blank" rel="noopener">RFC</a>.</p>
+</blockquote>
+<h2 id="Содержимое-слота"><a href="#Содержимое-слота" class="headerlink" title="Содержимое слота"></a>Содержимое слота</h2><p>Vue реализует API распределения контента, вдохновлённое текущим <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="noopener">черновиком спецификации веб-компонентов</a>, используя элемент <code>&lt;slot&gt;</code> в качестве точек распространения контента.</p>
+<p>Например, это позволит составлять такие компоненты:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  Ваш профиль
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+<p>Для этого шаблон <code>&lt;navigation-link&gt;</code> должен быть например таким:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+  <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"nav-link"</span>
+&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>При отрисовке компонента <code>&lt;slot&gt;&lt;/slot&gt;</code> будет заменён на «Ваш профиль». Слоты могут содержать любой код шаблона, в том числе HTML:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Добавляем иконку из набора Font Awesome --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-user"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  Ваш профиль
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+<p>Или даже другие компоненты:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Используем компонент для добавления иконки --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">font-awesome-icon</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">font-awesome-icon</span>&gt;</span>
+  Ваш профиль
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+<p>Если шаблон <code>&lt;navigation-link&gt;</code> <strong>не содержит</strong> элемент <code>&lt;slot&gt;</code>, любой переданный контент будет просто проигнорирован.</p>
+<h2 id="Область-видимости-при-компиляции"><a href="#Область-видимости-при-компиляции" class="headerlink" title="Область видимости при компиляции"></a>Область видимости при компиляции</h2><p>Если необходимо использовать данные внутри слота, например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  Вы вошли как &#123;&#123; user.name &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+<p>То этот слот имеет доступ к тем же свойствам экземпляра (т.е. к той же «области видимости»), что и остальная часть шаблона. Слот <strong>не имеет доступа</strong> к области видимости <code>&lt;navigation-link&gt;</code>. Поэтому попытка получить <code>url</code> не сработает:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">navigation-link</span> <span class="hljs-attr">url</span>=<span class="hljs-string">"/profile"</span>&gt;</span>
+  Кликните для перехода сюда: &#123;&#123; url &#125;&#125;
+  <span class="hljs-comment">&lt;!--
+  Значение `url` будет неопределено (undefined), потому что этот
+  контент передаётся _на_ &lt;navigation-link&gt;, а не определяется
+  _внутри_ компонента &lt;navigation-link&gt;.
+  --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">navigation-link</span>&gt;</span></code></pre>
+<p>Как правило, достаточно запомнить что:</p>
+<blockquote>
+<p>Всё в родительском шаблоне компилируется в области видимости родительского компонента; всё в дочернем шаблоне компилируется в области видимости дочернего компонента.</p>
+</blockquote>
+<h2 id="Содержимое-слота-по-умолчанию"><a href="#Содержимое-слота-по-умолчанию" class="headerlink" title="Содержимое слота по умолчанию"></a>Содержимое слота по умолчанию</h2><p>Бывает полезным указать запасное содержимое слота (т.е. по умолчанию), которое будет отображаться только тогда, когда ничего не передавалось в слот. Например, в компоненте <code>&lt;submit-button&gt;</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<p>Было бы удобно если текст «Отправить» отображался внутри <code>&lt;button&gt;</code> большую часть времени. Чтобы сделать «Отправить» в качестве содержимого по умолчанию, необходимо поместить его между тегами <code>&lt;slot&gt;</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span>Отправить<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<p>Теперь, при использовании <code>&lt;submit-button&gt;</code> в родительском компоненте и не указывая содержимое для слота:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">submit-button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">submit-button</span>&gt;</span></code></pre>
+<p>отобразится содержимое по умолчанию — «Отправить»:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
+  Отправить
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<p>Но если указать содержимое:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">submit-button</span>&gt;</span>
+  Сохранить
+<span class="hljs-tag">&lt;/<span class="hljs-name">submit-button</span>&gt;</span></code></pre>
+<p>Тогда оно будет использовано для отображения:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
+  Сохранить
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<h2 id="Именованные-слоты"><a href="#Именованные-слоты" class="headerlink" title="Именованные слоты"></a>Именованные слоты</h2><blockquote>
+<p>Обновлено в версии 2.6.0+. Устаревший синтаксис с использованием атрибута <code>slot</code> можно посмотреть <a href="#Устаревший-синтаксис">здесь</a>.</p>
+</blockquote>
+<p>Зачастую удобно иметь несколько слотов. К примеру, для компонента <code>&lt;base-layout&gt;</code> со следующим шаблоном:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Мы хотим отобразить контент заголовка здесь --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Мы хотим отобразить основной контент здесь --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Мы хотим отобразить контент подвала здесь --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>В таких случаях элементу <code>&lt;slot&gt;</code> можно указать специальный атрибут <code>name</code>, который используется для определения дополнительных слотов:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"header"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"footer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Обычный <code>&lt;slot&gt;</code> без <code>name</code> неявно имеет имя «default».</p>
+<p>Чтобы указать содержимое для именованного слота, нужно использовать директиву <code>v-slot</code> на <code>&lt;template&gt;</code>, передав имя слота аргументом <code>v-slot</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></code></pre>
+<p>Теперь всё внутри элементов <code>&lt;template&gt;</code> будет передаваться в соответствующие слоты. Предполагается, что любое содержимое, не обёрнутое в <code>&lt;template&gt;</code> с использованием <code>v-slot</code>, предназначается для слота по умолчанию.</p>
+<p>Однако, можно и явно обернуть в <code>&lt;template&gt;</code> содержимое слота по умолчанию:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:default</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></code></pre>
+<p>В обоих случаях, итоговый HTML будет таким:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Обратите внимание, что <strong><code>v-slot</code> можно добавлять только на <code>&lt;template&gt;</code></strong> (за <a href="#Сокращённый-синтаксис-для-одиночного-слота-по-умолчанию">одним исключением</a>), в отличие от устаревшего <a href="#Устаревший-синтаксис">атрибута <code>slot</code></a>.</p>
+<h2 id="Слоты-с-ограниченной-областью-видимости"><a href="#Слоты-с-ограниченной-областью-видимости" class="headerlink" title="Слоты с ограниченной областью видимости"></a>Слоты с ограниченной областью видимости</h2><blockquote>
+<p>Обновлено в версии 2.6.0+. Устаревший синтаксис, с использованием атрибута <code>slot-scope</code> можно посмотреть <a href="#Устаревший-синтаксис">здесь</a>.</p>
+</blockquote>
+<p>Иногда для содержимого слота полезно иметь возможность использовать данные, доступные только в дочернем компоненте. Например, представьте компонент <code>&lt;current-user&gt;</code> со следующим шаблоном:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span>&#123;&#123; user.lastName &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<p>Может потребоваться заменить это содержимое по умолчанию, например, чтобы отобразить имя пользователя, а не фамилию:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span>&gt;</span>
+  &#123;&#123; user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>Однако это не сработает, потому что только компонент <code>&lt;current-user&gt;</code> имеет доступ к <code>user</code>, а новое содержимое слота отрисовывается в родительском.</p>
+<p>Чтобы сделать <code>user</code> доступным для содержимого слота в родительском компоненте, необходимо добавить привязку <code>user</code> в качестве атрибута на элементе <code>&lt;slot&gt;</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">v-bind:user</span>=<span class="hljs-string">"user"</span>&gt;</span>
+    &#123;&#123; user.lastName &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<p>Атрибуты, привязанные к элементу <code>&lt;slot&gt;</code>, называются <strong>входными параметрами слота</strong>. Теперь, в родительской области видимости, можно использовать <code>v-slot</code> со значением, чтобы указать имя для предоставленных слоту входных параметров:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:default</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    &#123;&#123; slotProps.user.firstName &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>В этом примере мы выбрали имя объекта <code>slotProps</code>, содержащего все входные параметры слота, но можно использовать любое другое, которое нравится.</p>
+<h3 id="Сокращённый-синтаксис-для-одиночного-слота-по-умолчанию"><a href="#Сокращённый-синтаксис-для-одиночного-слота-по-умолчанию" class="headerlink" title="Сокращённый синтаксис для одиночного слота по умолчанию"></a>Сокращённый синтаксис для одиночного слота по умолчанию</h3><p>В случаях, когда <em>только слоту по умолчанию</em> предоставляется содержимое, тег компонента можно использовать в качестве шаблона слота. Это позволяет использовать <code>v-slot</code> непосредственно на компоненте:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot:default</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+  &#123;&#123; slotProps.user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>Эту запись можно сократить ещё больше. Предполагается, что неуказанное явно содержимое относится к слоту по умолчанию, так и <code>v-slot</code> без аргумента означает слот по умолчанию:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+  &#123;&#123; slotProps.user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>Обратите внимание, что такой сокращённый синтаксис для слота по умолчанию <strong>нельзя смешивать</strong> с именованными слотами, потому что это приведёт к неоднозначности области видимости:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- НЕПРАВИЛЬНО, будет выкидывать предупреждение --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+  &#123;&#123; slotProps.user.firstName &#125;&#125;
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:other</span>=<span class="hljs-string">"otherSlotProps"</span>&gt;</span>
+    slotProps НЕДОСТУПНЫ здесь
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>При наличии нескольких слотов лучше используйте полный синтаксис на основе <code>&lt;template&gt;</code> для <em>всех</em> слотов:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:default</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    &#123;&#123; slotProps.user.firstName &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:other</span>=<span class="hljs-string">"otherSlotProps"</span>&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<h3 id="Деструктурирование-входных-параметров-слота"><a href="#Деструктурирование-входных-параметров-слота" class="headerlink" title="Деструктурирование входных параметров слота"></a>Деструктурирование входных параметров слота</h3><p>Слоты с ограниченной областью видимости, под капотом работают заключая содержимое слота в функцию, и передавая входные параметры одним аргументом:</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">slotProps</span>) </span>&#123;
+  <span class="hljs-comment">// ... содержимое слота ...</span>
+&#125;</code></pre>
+<p>Это значит, что значение <code>v-slot</code> может принимать любое допустимое выражение JavaScript, которое может появиться в позиции аргумента определения функции. Поэтому в поддерживаемых окружениях (<a href="single-file-components.html">однофайловых компонентах</a> или <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility" target="_blank" rel="noopener">современных браузерах</a>), можно также использовать <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2" target="_blank" rel="noopener">деструктурирование ES2015</a> чтобы извлекать определённые входные параметры слотов, например вот так:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user &#125;"</span>&gt;</span>
+  &#123;&#123; user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>Такой подход сделает шаблон намного чище, особенно когда слот предоставляет множество входных параметров. Это также открывает другие возможности, такие как переименование входных параметров, например <code>user</code> в <code>person</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user: person &#125;"</span>&gt;</span>
+  &#123;&#123; person.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>Можно даже определять значения по умолчанию, которые будут использоваться в случае, если входной параметр слота не определён:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">"&#123; user = &#123; firstName: 'Гость' &#125; &#125;"</span>&gt;</span>
+  &#123;&#123; user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<h2 id="Динамическое-имя-слота"><a href="#Динамическое-имя-слота" class="headerlink" title="Динамическое имя слота"></a>Динамическое имя слота</h2><blockquote>
+<p>Добавлено в версии 2.6.0+</p>
+</blockquote>
+<p><a href="syntax.html#Динамические-аргументы">Динамические аргументы директивы</a> также работают с <code>v-slot</code>, что позволяет указать динамическое имя слота:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:</span>[<span class="hljs-attr">dynamicSlotName</span>]&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></code></pre>
+<h2 id="Сокращённая-запись-для-именованных-слотов"><a href="#Сокращённая-запись-для-именованных-слотов" class="headerlink" title="Сокращённая запись для именованных слотов"></a>Сокращённая запись для именованных слотов</h2><blockquote>
+<p>Добавлено в версии 2.6.0+</p>
+</blockquote>
+<p>Аналогично <code>v-on</code> и <code>v-bind</code>, у <code>v-slot</code> есть собственное сокращение, заменяющее всё перед аргументом (<code>v-slot:</code>) специальным символом <code>#</code>. Например, <code>v-slot:header</code> можно записать как <code>#header</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></code></pre>
+<p>Однако, как и в случае с другими директивами, сокращение доступно только при наличии аргумента. Это означает, что следующий синтаксис недопустим:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Это выкинет предупреждение --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> #=<span class="hljs-string">"&#123; user &#125;"</span>&gt;</span>
+  &#123;&#123; user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<p>Необходимо всегда указывать имя слота, если хотите использовать сокращение:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">current-user</span> #<span class="hljs-attr">default</span>=<span class="hljs-string">"&#123; user &#125;"</span>&gt;</span>
+  &#123;&#123; user.firstName &#125;&#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">current-user</span>&gt;</span></code></pre>
+<h2 id="Другие-примеры"><a href="#Другие-примеры" class="headerlink" title="Другие примеры"></a>Другие примеры</h2><p><strong>Входные параметры слотов позволяют превратить их в переиспользуемые шаблоны, которые могут отображать различное содержимое, основываясь на входных параметрах.</strong> Это очень полезно при разработке переиспользуемых компонентов, которые инкапсулируют логику данных, позволяя родительскому компоненту настраивать часть своего шаблона.</p>
+<p>Например, реализуем компонент <code>&lt;todo-list&gt;</code>, который содержит шаблон и логику фильтрации для списка задач:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
+    <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in filteredTodos"</span>
+    <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"todo.id"</span>
+  &gt;</span>
+    &#123;&#123; todo.text &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<p>Вместо жёсткого кодирования содержимого каждой задачи списка, мы можем позволить родительскому компоненту взять на себя управление отображением с помощью слота, а затем привязать <code>todo</code> в качестве входного параметра слота:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>
+    <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in filteredTodos"</span>
+    <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"todo.id"</span>
+  &gt;</span>
+    <span class="hljs-comment">&lt;!--
+    Указываем слот для каждой задачи, передавая
+    объект `todo` в качестве входного параметра.
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"todo"</span> <span class="hljs-attr">v-bind:todo</span>=<span class="hljs-string">"todo"</span>&gt;</span>
+      <span class="hljs-comment">&lt;!-- Содержимое по умолчанию --&gt;</span>
+      &#123;&#123; todo.text &#125;&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<p>Теперь, при использовании <code>&lt;todo-list&gt;</code>, можно опционально переопределить <code>&lt;template&gt;</code> для элементов списка, но сохранив доступ к данным из дочернего компонента:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">v-bind:todos</span>=<span class="hljs-string">"todos"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-slot:todo</span>=<span class="hljs-string">"&#123; todo &#125;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"todo.isComplete"</span>&gt;</span>✓<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    &#123;&#123; todo.text &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span></code></pre>
+<p>Однако, это едва ли не вершина айсберга возможностей на которые способны слоты с ограниченной областью видимости. Несколько реальных примеров использования слотов с ограниченной областью видимости можно посмотреть в библиотеках <a href="https://github.com/Akryum/vue-virtual-scroller" target="_blank" rel="noopener">Vue Virtual Scroller</a>, <a href="https://github.com/posva/vue-promised" target="_blank" rel="noopener">Vue Promised</a>, и <a href="https://github.com/LinusBorg/portal-vue" target="_blank" rel="noopener">Portal Vue</a>.</p>
+<h2 id="Устаревший-синтаксис"><a href="#Устаревший-синтаксис" class="headerlink" title="Устаревший синтаксис"></a>Устаревший синтаксис</h2><blockquote>
+<p>В версии Vue 2.6.0 была представлена директива <code>v-slot</code>, предлагающая улучшенный альтернативный API для всё ещё поддерживаемых атрибутов <code>slot</code> и <code>slot-scope</code>. Полное обоснование добавления <code>v-slot</code> описано в <a href="https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md" target="_blank" rel="noopener">RFC</a>. Атрибуты <code>slot</code> и <code>slot-scope</code> будут поддерживаться в новых версиях 2.x, но официально они считаются устаревшими и будут удалены во Vue 3.</p>
+</blockquote>
+<h3 id="Именованные-атрибуты-с-помощью-атрибута-slot"><a href="#Именованные-атрибуты-с-помощью-атрибута-slot" class="headerlink" title="Именованные атрибуты с помощью атрибута slot"></a>Именованные атрибуты с помощью атрибута <code>slot</code></h3><blockquote>
+<p><abbr title="Будет поддерживаться во всех 2.x версиях Vue, но больше не рекомендуется к использованию.">Устаревшее</abbr> с 2.6.0+. Новый рекомендованный синтаксис можно посмотреть <a href="#Именованные-слоты">здесь</a>.</p>
+</blockquote>
+<p>Для передачи содержимого в именованные слоты из родительского компонента используйте специальный атрибут <code>slot</code> на теге <code>&lt;template&gt;</code> (в качестве примера здесь используется компонент <code>&lt;base-layout&gt;</code>, описанный <a href="#Именованные-слоты">выше</a>):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"header"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"footer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></code></pre>
+<p>Также атрибут <code>slot</code> можно использовать непосредственно на обычном элементе:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-layout</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"header"</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"footer"</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">base-layout</span>&gt;</span></code></pre>
+<p>Может быть только один слот без имени, который является <strong>слотом по умолчанию</strong> и служит для отображения оставшегося содержимого. В обоих случаях итоговый HTML будет таким:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Здесь мог быть заголовок страницы<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Параграф для основного контента.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>И ещё один.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Некая контактная информация<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<h3 id="Слоты-с-ограниченной-областью-видимости-с-помощью-атрибута-slot-scope"><a href="#Слоты-с-ограниченной-областью-видимости-с-помощью-атрибута-slot-scope" class="headerlink" title="Слоты с ограниченной областью видимости с помощью атрибута slot-scope"></a>Слоты с ограниченной областью видимости с помощью атрибута <code>slot-scope</code></h3><blockquote>
+<p><abbr title="Будет поддерживаться во всех 2.x версиях Vue, но больше не рекомендуется к использованию.">Устаревшее</abbr> с 2.6.0+. Новый рекомендованный синтаксис можно посмотреть <a href="#Слоты-с-ограниченной-областью-видимости">здесь</a>.</p>
+</blockquote>
+<p>Для получения входных параметров, переданных в слот, родительский компонент может использовать <code>&lt;template&gt;</code> с атрибутом <code>slot-scope</code> (в качестве примера используется <code>&lt;slot-example&gt;</code>, описанный <a href="#Слоты-с-ограниченной-областью-видимости">выше</a>):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot-example</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"default"</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    &#123;&#123; slotProps.msg &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">slot-example</span>&gt;</span></code></pre>
+<p>Здесь <code>slot-scope</code> объявляет объект с полученными входными параметрами как переменную <code>slotProps</code>, и делает его доступным внутри области видимости <code>&lt;template&gt;</code>. Можно назвать <code>slotProps</code> как угодно, придерживаясь именования аргументов для функций в JavaScript.</p>
+<p>В примере <code>slot=&quot;default&quot;</code> можно опустить, так как это подразумевается:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot-example</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    &#123;&#123; slotProps.msg &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">slot-example</span>&gt;</span></code></pre>
+<p>Атрибут <code>slot-scope</code> также можно использовать непосредственно не только на элементах <code>&lt;template&gt;</code> (включая компоненты):</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot-example</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"slotProps"</span>&gt;</span>
+    &#123;&#123; slotProps.msg &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">slot-example</span>&gt;</span></code></pre>
+<p>Значение <code>slot-scope</code> может принимать любое допустимое выражение JavaScript, которое может использоваться в позиции аргумента определения функции. Это означает, что в поддерживаемых средах (<a href="single-file-components.html">однофайловых компонентах</a> или <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility" target="_blank" rel="noopener">современных браузерах</a>) также можно использовать <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80_%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2" target="_blank" rel="noopener">деструктурирование ES2015</a> в выражении, например так:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">slot-example</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"&#123; msg &#125;"</span>&gt;</span>
+    &#123;&#123; msg &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">slot-example</span>&gt;</span></code></pre>
+<p>Используя <code>&lt;todo-list&gt;</code> описанный <a href="#Другие-примеры">выше</a> в качестве примера, вот эквивалентная запись с использованием <code>slot-scope</code>:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">v-bind:todos</span>=<span class="hljs-string">"todos"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"todo"</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"&#123; todo &#125;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"todo.isComplete"</span>&gt;</span>✓<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    &#123;&#123; todo.text &#125;&#125;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span></code></pre>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="/v2/guide/components-custom-events.html">Пользовательские события</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="/v2/guide/components-dynamic-async.html">Динамические и асинхронные компоненты</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/components-slots.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>

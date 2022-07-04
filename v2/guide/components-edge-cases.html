@@ -1,0 +1,1309 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>Обработка крайних случаев — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/components-edge-cases.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/guide/components-edge-cases.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Обработка крайних случаев — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Обработка крайних случаев — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "guide"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/guide/components-edge-cases.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/guide/components-edge-cases.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Руководство
+          
+            <select class="version-select">
+              <option value="v3">3.x</option>
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Основы компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+              <li><h3>Продвинутые компоненты</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-registration.html" class="sidebar-link">Регистрация компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-props.html" class="sidebar-link">Входные параметры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Пользовательские события</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-slots.html" class="sidebar-link">Слоты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические и асинхронные компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-edge-cases.html" class="sidebar-link current">Обработка крайних случаев</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переходы и анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Переиспользование и композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/testing.html" class="sidebar-link">Тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Публикация на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/security.html" class="sidebar-link">Безопасность</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content guide with-sidebar components-edge-cases-guide">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>Обработка крайних случаев</h1>
+  
+  
+    <blockquote>
+<p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
+</blockquote>
+<p class="tip">Все возможности, описанные на этой странице, описывают способы обработки крайних случаев, что означает необычные ситуации, которые иногда требуют исключений в правилах Vue. Однако обратите внимание, что все они имеют недостатки или ситуации, когда они могут быть опасными. Они отмечены в каждом случае, поэтому помните о них, когда решаете использовать каждую из возможностей.</p>
+
+<h2 id="Доступ-к-элементу-и-компоненту"><a href="#Доступ-к-элементу-и-компоненту" class="headerlink" title="Доступ к элементу и компоненту"></a>Доступ к элементу и компоненту</h2><p>В большинстве случаев лучше избегать связи с другими экземплярами компонентов или вручную манипулировать элементами DOM. Однако есть случаи, когда это может быть уместно.</p>
+<h3 id="Доступ-к-корневому-экземпляру"><a href="#Доступ-к-корневому-экземпляру" class="headerlink" title="Доступ к корневому экземпляру"></a>Доступ к корневому экземпляру</h3><p>В каждом дочернем компоненте экземпляра <code>new Vue</code>, к этому корневому экземпляру можно получить доступ через свойство <code>$root</code>. Например, для этого корневого экземпляра:</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Корневой экземпляр Vue</span>
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-number">1</span>
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    <span class="hljs-attr">bar</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">baz</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; <span class="hljs-comment">/* ... */</span> &#125;
+  &#125;
+&#125;)</code></pre>
+<p>Теперь все дочерние компоненты смогут получить доступ к этому экземпляру и использовать его в качестве глобального хранилища:</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Получение данных из корневого экземпляра</span>
+<span class="hljs-keyword">this</span>.$root.foo
+
+<span class="hljs-comment">// Установка данных в корневом экземпляре</span>
+<span class="hljs-keyword">this</span>.$root.foo = <span class="hljs-number">2</span>
+
+<span class="hljs-comment">// Использование вычисляемых свойств корневого экземпляра</span>
+<span class="hljs-keyword">this</span>.$root.bar
+
+<span class="hljs-comment">// Вызов методов корневого экземпляра</span>
+<span class="hljs-keyword">this</span>.$root.baz()</code></pre>
+<p class="tip">Это может быть удобно для демонстраций или очень маленьких приложений с несколькими компонентами. Однако этот паттерн плохо масштабируется для средних или крупных приложений, поэтому мы настоятельно рекомендуем использовать <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> для управления состоянием в большинстве случаев.</p>
+
+<h3 id="Доступ-к-экземпляру-родительского-компонента"><a href="#Доступ-к-экземпляру-родительского-компонента" class="headerlink" title="Доступ к экземпляру родительского компонента"></a>Доступ к экземпляру родительского компонента</h3><p>Подобно <code>$root</code>, свойство <code>$parent</code> можно использовать для доступа к родительскому экземпляру из дочернего. Это может быть заманчивым для использования в качестве ленивой альтернативы передачи данных с помощью входных параметров.</p>
+<p class="tip">В большинстве случаев обращение к родительскому компоненту делает ваше приложение более проблематичным в отладке и поддержке, особенно если вы изменяете данные в родителе. Когда вы вернётесь к этому компоненту позднее, будет очень сложно выяснить, откуда происходит изменение данных.</p>
+
+<p>Однако есть случаи, в частности библиотек общих компонентов, когда это <em>может быть</em> подходящим. Например, в абстрактных компонентах, которые взаимодействуют через JavaScript с API вместо отрисовки HTML, как например эти гипотетические компоненты Google Maps:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
+<p>Компонент <code>&lt;google-map&gt;</code> может определять свойство <code>map</code>, к которому должны иметь доступ все подкомпоненты. В этом случае <code>&lt;google-map-markers&gt;</code> может получить доступ к карте с помощью <code>this.$parent.getMap</code>, чтобы добавить на карту набор маркеров. Вы можете увидеть этот шаблон <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-accessing-parent-component-instance" target="_blank" rel="noopener">в действии здесь</a>.</p>
+<p>Однако помните, что компоненты, построенные с использованием этого шаблона являются хрупкими. Например, представьте, что мы добавляем новый компонент <code>&lt;google-map-region&gt;</code> и когда в нём появляется <code>&lt;google-map-markers&gt;</code>, то он должен отображать только маркеры, попадающие в регион:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-region</span> <span class="hljs-attr">v-bind:shape</span>=<span class="hljs-string">"cityBoundaries"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">google-map-region</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
+<p>Затем внутри <code>&lt;google-map-markers&gt;</code> вы можете застать себя за созданием хаков наподобие такого:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">this</span>.$parent.map || <span class="hljs-keyword">this</span>.$parent.$parent.map</code></pre>
+<p>Это может быстро выйти из-под контроля. Поэтому, чтобы предоставлять контекстную информацию для компонентов-потомков на любую глубину вложенности, мы вместо этого рекомендуем <a href="#Внедрение-зависимостей">инъекцию зависимостей</a>.</p>
+<h3 id="Доступ-к-экземплярам-дочерних-компонентов-и-элементов"><a href="#Доступ-к-экземплярам-дочерних-компонентов-и-элементов" class="headerlink" title="Доступ к экземплярам дочерних компонентов и элементов"></a>Доступ к экземплярам дочерних компонентов и элементов</h3><p>Несмотря на наличие входных параметров и событий, иногда вам может потребоваться прямой доступ к дочернему компоненту в JavaScript. Для этого вы можете назначить ссылочный ID дочернему компоненту с помощью атрибута <code>ref</code>. Например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"usernameInput"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
+<p>Теперь в компоненте, где вы определили этот <code>ref</code>, вы можете использовать:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$refs.usernameInput</code></pre>
+<p>для доступа к экземпляру <code>&lt;base-input&gt;</code>. Это может быть полезно, если вы хотите например, программно добавить фокус на поле из родителя. В этом случае компонент <code>&lt;base-input&gt;</code> может аналогичным образом использовать <code>ref</code> чтобы обеспечить доступ к определённым элементам внутри него, например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"input"</span>&gt;</span></code></pre>
+<p>И даже определить методы для использования родителем:</p>
+<pre><code class="hljs js">methods: &#123;
+  <span class="hljs-comment">// Используется родителем для фокуса на input</span>
+  <span class="hljs-attr">focus</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.$refs.input.focus()
+  &#125;
+&#125;</code></pre>
+<p>Таким образом мы позволим родительскому компоненту добавлять фокус на input внутри <code>&lt;base-input&gt;</code> с помощью:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$refs.usernameInput.focus()</code></pre>
+<p>Когда <code>ref</code> используется вместе с <code>v-for</code>, то ref будет массивом, содержащим дочерние компоненты, отображаемых от источника данных.</p>
+<p class="tip"><code>$refs</code> заполняются только после того, как компонент был отрисован, и они не реактивны. Это подразумевается только как обходной путь для прямого манипулирования потомками — вам следует избегать доступа к <code>$refs</code> из шаблонов или вычисляемых свойств.</p>
+
+<h3 id="Внедрение-зависимостей"><a href="#Внедрение-зависимостей" class="headerlink" title="Внедрение зависимостей"></a>Внедрение зависимостей</h3><p>Ранее, когда мы обсуждали <a href="#Доступ-к-экземпляру-родительского-компонента">доступ к экземпляру родительского компонента</a>, мы показали пример:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">google-map</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">google-map-region</span> <span class="hljs-attr">v-bind:shape</span>=<span class="hljs-string">"cityBoundaries"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">google-map-markers</span> <span class="hljs-attr">v-bind:places</span>=<span class="hljs-string">"iceCreamShops"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">google-map-markers</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">google-map-region</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">google-map</span>&gt;</span></code></pre>
+<p>В этом компоненте все потомки <code>&lt;google-map&gt;</code> нуждались в доступе к методу <code>getMap</code>, чтобы узнать с какой картой им взаимодействовать. К сожалению, использование свойства <code>$parent</code> плохо масштабируется для более глубоко вложенных компонентов. Вот где внедрение зависимостей может быть полезным, используя два новых свойства экземпляра: <code>provide</code> и <code>inject</code>.</p>
+<p>Опция <code>provide</code> позволяет нам указать данные/методы, которые мы хотим <strong>предоставить</strong> всем компонентам-потомкам. В этом случае, это метод <code>getMap</code> внутри <code>&lt;google-map&gt;</code>:</p>
+<pre><code class="hljs js">provide: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">getMap</span>: <span class="hljs-keyword">this</span>.getMap
+  &#125;
+&#125;</code></pre>
+<p>Затем в любых потомках мы можем воспользоваться свойством <code>inject</code> для получения специальных свойств, которые мы хотели бы добавить к этому экземпляру:</p>
+<pre><code class="hljs js">inject: [<span class="hljs-string">'getMap'</span>]</code></pre>
+<p>Вы можете увидеть <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-dependency-injection" target="_blank" rel="noopener">полный пример здесь</a>. Преимуществом использования в отличие от <code>$parent</code> в том, что мы можем получить доступ к <code>getMap</code> <em>в любом</em> компоненте-потомке, без раскрытия всего экземпляра <code>&lt;google-map&gt;</code>. Это позволяет нам безопаснее продолжать разработку этого компонента, не опасаясь, что мы можем изменить/удалить что-то, на что полагается дочерний компонент. Интерфейс между этими компонентами остаётся чётко определённым, как и с <code>props</code>.</p>
+<p>Фактически вы можете думать о внедрении зависимостей как о входных параметрах «дальнего действия», за исключением случаев, когда:</p>
+<ul>
+<li>родительским компонентам не нужно знать, какие потомки используют свойства, которые он предоставляет</li>
+<li>компонентам-потомкам не нужно знать, откуда внедряются эти свойства</li>
+</ul>
+<p class="tip">Тем не менее, у внедрения зависимостей есть недостатки. Оно связывает компоненты в вашем приложении с тем, как они в настоящее время организованы, что затрудняет рефакторинг. Свойства, указанные в <code>provide</code>, также не будут реактивными. Так и было задумано, потому что использование их для создания централизованного хранилища так же плохо, как и <a href="#Доступ-к-корневому- экземпляру">использование <code>$root</code></a> в тех же целях. Если свойства, которые вы хотите использовать, являются специфическими для вашего приложения, а не общего назначения, или если вы захотите обновить инъектируемые данные внутри родителей, то это хороший признак того, что вам понадобится решение для управления состоянием, например <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>.</p>
+
+<p>Подробнее об инъекции зависимостей можно прочитать <a href="../api/#provide-inject">на странице API</a>.</p>
+<h2 id="Программное-добавление-прослушивателей-событий"><a href="#Программное-добавление-прослушивателей-событий" class="headerlink" title="Программное добавление прослушивателей событий"></a>Программное добавление прослушивателей событий</h2><p>До сих пор вы видели использование <code>$emit</code> и прослушивание с помощью <code>v-on</code>, но экземпляры Vue предоставляют и другие методы для интерфейса событий. Мы можем:</p>
+<ul>
+<li>Прослушивать событие с помощью <code>$on(eventName, eventHandler)</code></li>
+<li>Прослушивать событие только один раз с помощью <code>$once(eventName, eventHandler)</code></li>
+<li>Прекращать прослушивание события с помощью <code>$off(eventName, eventHandler)</code></li>
+</ul>
+<p>Обычно вам не придётся использовать их, но они доступны для случаев, когда вам необходимо вручную прослушивать события на экземпляре компонента. Они также могут быть полезны в качестве инструмента организации кода. Например, вы часто можете увидеть этот шаблон для интеграции сторонней библиотеки:</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Добавляем datepicker на input</span>
+<span class="hljs-comment">// когда он будет примонтирован в DOM.</span>
+<span class="hljs-attr">mounted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// Pikaday — сторонняя библиотека для выбора дат</span>
+  <span class="hljs-keyword">this</span>.picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+    <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+  &#125;)
+&#125;,
+<span class="hljs-comment">// Перед уничтожением компонента,</span>
+<span class="hljs-comment">// также уничтожаем и datepicker.</span>
+<span class="hljs-attr">beforeDestroy</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.picker.destroy()
+&#125;</code></pre>
+<p>Здесь есть две потенциальных проблемы:</p>
+<ul>
+<li>Это требует сохранения <code>picker</code> в экземпляре компонента, когда, возможно, потребуется использование лишь в хуках жизненного цикла. Это не страшно, но это можно считать беспорядком.</li>
+<li>Наш код установки хранится отдельно от нашего кода очистки, что затрудняет программную очистку всего, что мы установили.</li>
+</ul>
+<p>Вы можете решить обе проблемы с помощью программного прослушивания события:</p>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">var</span> picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+    <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs.input,
+    <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+  &#125;)
+
+  <span class="hljs-keyword">this</span>.$once(<span class="hljs-string">'hook:beforeDestroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    picker.destroy()
+  &#125;)
+&#125;</code></pre>
+<p>Используя эту стратегию, мы могли бы даже использовать Pikaday с несколькими элементами ввода, причём каждый новый экземпляр автоматически очищался бы после себя:</p>
+<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.attachDatepicker(<span class="hljs-string">'startDateInput'</span>)
+  <span class="hljs-keyword">this</span>.attachDatepicker(<span class="hljs-string">'endDateInput'</span>)
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">attachDatepicker</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">refName</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> picker = <span class="hljs-keyword">new</span> Pikaday(&#123;
+      <span class="hljs-attr">field</span>: <span class="hljs-keyword">this</span>.$refs[refName],
+      <span class="hljs-attr">format</span>: <span class="hljs-string">'YYYY-MM-DD'</span>
+    &#125;)
+
+    <span class="hljs-keyword">this</span>.$once(<span class="hljs-string">'hook:beforeDestroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      picker.destroy()
+    &#125;)
+  &#125;
+&#125;</code></pre>
+<p>Посмотрите <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-programmatic-event-listeners" target="_blank" rel="noopener">этот пример</a> для полного кода. Обратите внимание, что если вам приходится делать много установок и очисток в рамках одного компонента, то лучшим решением будет, как правило, создание более модульных компонентов. В этом случае мы рекомендуем создать переиспользуемый компонент <code>&lt;input-datepicker&gt;</code>.</p>
+<p>Чтобы узнать больше о программных прослушивателях событий, ознакомьтесь на странице API с разделом <a href="../api/#Методы-экземпляра-—-события">Методы экземпляра — события</a>.</p>
+<p class="tip">Обратите внимание, что система событий Vue отличается от браузерного <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget" target="_blank" rel="noopener">EventTarget API</a>. Хотя они работают аналогично, <code>$emit</code>, <code>$on</code>, и <code>$off</code> <strong>не являются</strong> псевдонимами для <code>dispatchEvent</code>, <code>addEventListener</code>, и <code>removeEventListener</code>.</p>
+
+<h2 id="Циклические-ссылки"><a href="#Циклические-ссылки" class="headerlink" title="Циклические ссылки"></a>Циклические ссылки</h2><h3 id="Рекурсивные-компоненты"><a href="#Рекурсивные-компоненты" class="headerlink" title="Рекурсивные компоненты"></a>Рекурсивные компоненты</h3><p>Компоненты могут рекурсивно вызывать себя в своём собственном шаблоне. Однако, они могут делать это только с помощью опции <code>name</code>:</p>
+<pre><code class="hljs js">name: <span class="hljs-string">'unique-name-of-my-component'</span></code></pre>
+<p>Когда вы регистрируете компонент глобально с помощью <code>Vue.component</code>, глобальный ID будет автоматически устанавливаться как параметр опции <code>name</code> компонента.</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'unique-name-of-my-component'</span>, &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
+<p>Если вы не будете осторожны, рекурсивные компоненты также могут привести к бесконечным циклам:</p>
+<pre><code class="hljs js">name: <span class="hljs-string">'stack-overflow'</span>,
+<span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&lt;stack-overflow&gt;&lt;/stack-overflow&gt;&lt;/div&gt;'</span></code></pre>
+<p>Компонент, указанный выше, приведёт к ошибке «max stack size exceeded», поэтому убедитесь, что рекурсивный вызов определяется по условию (т.е. использует <code>v-if</code>, который в конечном итоге будет <code>false</code>).</p>
+<h3 id="Циклические-ссылки-между-компонентами"><a href="#Циклические-ссылки-между-компонентами" class="headerlink" title="Циклические ссылки между компонентами"></a>Циклические ссылки между компонентами</h3><p>Предположим, что вы создаёте дерево каталога файлов, как например в Finder или File Explorer. У вас может быть компонент <code>tree-folder</code> с таким шаблоном:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123; folder.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tree-folder-contents</span> <span class="hljs-attr">:children</span>=<span class="hljs-string">"folder.children"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<p>Затем компонент <code>tree-folder-contents</code> с этим шаблоном:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"child in children"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tree-folder</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"child.children"</span> <span class="hljs-attr">:folder</span>=<span class="hljs-string">"child"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-else</span>&gt;</span>&#123;&#123; child.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></code></pre>
+<p>Когда вы присмотритесь, вы увидите, что эти компоненты фактически будут потомком _и_ предком в дереве отрисовки — парадокс! При регистрации компонентов глобально с помощью <code>Vue.component</code> этот парадокс разрешается автоматически за вас. Если это ваш случай, можете не читать дальше.</p>
+<p>Однако, если вы используете require/import для компонентов с помощью <strong>модульной системы</strong>, например через Webpack или Browserify, вы получите сообщение об ошибке:</p>
+<pre><code class="hljs undefined">Failed to mount component: template or render function not defined.</code></pre>
+<p>Чтобы объяснить, что здесь происходит, давайте назовём наши компоненты A и B. Система модулей видит, что ей нужен A, но сначала A нуждается в B, но B нуждается в A, но A нуждается в B, и т. д. Она застревает в цикле, не зная, как полностью разрешить любой компонент без предварительного разрешения другого. Чтобы исправить это, нам нужно дать модульной системе точку, в которой она может сказать «A нуждается в B <em>иногда</em>, но нет необходимости разрешать B сначала».</p>
+<p>В нашем случае давайте сделаем эту точку компонентом <code>tree-folder</code>. Мы знаем, что потомок, создающий парадокс, является компонентом <code>tree-folder-contents</code>, поэтому мы подождём, пока не будет вызван хук жизненного цикла <code>beforeCreate</code> для его регистрации:</p>
+<pre><code class="hljs js">beforeCreate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.$options.components.TreeFolderContents = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./tree-folder-contents.vue'</span>).default
+&#125;</code></pre>
+<p>Или вы можете использовать асинхронный <code>import</code> Webpack при локальной регистрации компонента:</p>
+<pre><code class="hljs js">components: &#123;
+  <span class="hljs-attr">TreeFolderContents</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./tree-folder-contents.vue'</span>)
+&#125;</code></pre>
+<p>Проблема решена!</p>
+<h2 id="Альтернативные-определения-шаблонов"><a href="#Альтернативные-определения-шаблонов" class="headerlink" title="Альтернативные определения шаблонов"></a>Альтернативные определения шаблонов</h2><h3 id="Inline-шаблоны"><a href="#Inline-шаблоны" class="headerlink" title="Inline-шаблоны"></a>Inline-шаблоны</h3><p>Если у компонента-потомка присутствует специальный атрибут <code>inline-template</code>, то содержимое элемента будет использовано не для распределения контента, а в качестве шаблона этого компонента. Это позволяет более гибко использовать шаблоны.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">inline-template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Этот шаблон будет скомпилирован в области видимости компонента-потомка.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Доступа к данным родителя нет.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+<p>Все inline-шаблоны должны быть определены внутри элемента DOM, к которому присоединяется Vue.</p>
+<p class="tip">Тем не менее, <code>inline-template</code> усложняют понимание области видимости вашего шаблона. В качестве наилучшей практики рекомендуется определять шаблоны внутри компонента с помощью опции <code>template</code> или в теге <code>&lt;template&gt;</code> в файле <code>.vue</code>.</p>
+
+<h3 id="X-Templates"><a href="#X-Templates" class="headerlink" title="X-Templates"></a>X-Templates</h3><p>Другой способ определения шаблонов — указывать их внутри тега script с типом <code>text/x-template</code>, а затем ссылаться на шаблон по id. Например:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/x-template"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hello-world-template"</span>&gt;</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Привет, привет, привет<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'hello-world'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'#hello-world-template'</span>
+&#125;)</code></pre>
+<p>Все шаблоны x-template должны быть определены вне элемента DOM, к которому присоединяется Vue.</p>
+<p class="tip">Это может быть полезным для демонстраций с большими шаблонами или в очень маленьких приложениях, но в остальных случаях их следует избегать, поскольку они отделяют шаблоны от остального определения компонента.</p>
+
+<h2 id="Контролирование-обновлений"><a href="#Контролирование-обновлений" class="headerlink" title="Контролирование обновлений"></a>Контролирование обновлений</h2><p>Благодаря системе реактивности Vue, она всегда знает, когда нужно выполнять обновления (если вы используете её правильно). Однако есть крайние случаи, когда вам может потребоваться принудительное обновление, несмотря на то, что никаких реактивных данных не изменилось. Также есть другие случаи, когда вы можете предотвратить ненужные обновления.</p>
+<h3 id="Принудительное-обновление"><a href="#Принудительное-обновление" class="headerlink" title="Принудительное обновление"></a>Принудительное обновление</h3><p class="tip">Если вам необходимо принудительное обновление во Vue, в 99.99% случаев вы где-то совершили ошибку.</p>
+
+<p>Возможно, вы не учли предостережения об обнаружении изменений <a href="list.html#Предостережения">в массивах</a> или <a href="list.html#Предостережения-об-изменениях-объектов">в объектах</a>, или вы можете полагаться на состояние, которое не отслеживается системой реактивности Vue, например с помощью <code>data</code>.</p>
+<p>Однако, если вы исключили вышеизложенные варианты и оказались в крайне редкой ситуации, связанной с необходимостью принудительного обновления вручную, то вы можете сделать это с помощью <a href="../api/#vm-forceUpdate"><code>$forceUpdate</code></a>.</p>
+<h3 id="“Дешёвые”-статические-компоненты-с-помощью-v-once"><a href="#“Дешёвые”-статические-компоненты-с-помощью-v-once" class="headerlink" title="“Дешёвые” статические компоненты с помощью v-once"></a>“Дешёвые” статические компоненты с помощью <code>v-once</code></h3><p>Отрисовка простых элементов HTML во Vue происходит очень быстро, но иногда встречаются компоненты, в которых <strong>очень много</strong> статического контента. В таких случаях, вы можете убедиться что он будет выполнен один раз и затем закэширован, добавив директиву <code>v-once</code> на корневой элемент, например:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'terms-of-service'</span>, &#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;div v-once&gt;
+      &lt;h1&gt;Условия использования&lt;/h1&gt;
+      ... много-много статического контента ...
+    &lt;/div&gt;
+  `</span>
+&#125;)</code></pre>
+<p class="tip">Ещё раз, попробуйте не злоупотреблять этим шаблоном. Хотя это удобно в тех редких случаях, когда вам необходимо отображать много статического контента, это просто не нужно пока вы не заметите замедление при отрисовке — плюс, это может вызвать много путаницы позднее. Например, представьте себе другого разработчика, который не знаком с директивой <code>v-once</code> или просто пропустил её наличие в шаблоне. Могут уйти часы, пока удастся выяснить, почему шаблон не обновляется правильно.</p>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="/v2/guide/components-dynamic-async.html">Динамические и асинхронные компоненты</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="/v2/guide/transitions.html">Анимирование списков и появления/исчезновения</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/components-edge-cases.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>

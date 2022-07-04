@@ -1,0 +1,1444 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>Миграция с Vue Router 0.7.x — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/migration-vue-router.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/guide/migration-vue-router.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Миграция с Vue Router 0.7.x — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Миграция с Vue Router 0.7.x — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "guide"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link current">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/guide/migration-vue-router.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/guide/migration-vue-router.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Руководство
+          
+            <select class="version-select">
+              <option value="v3">3.x</option>
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/installation.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/instance.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/syntax.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/computed.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/class-and-style.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/conditional.html" class="sidebar-link">Условная отрисовка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/list.html" class="sidebar-link">Отрисовка списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/events.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/forms.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components.html" class="sidebar-link">Основы компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+              <li><h3>Продвинутые компоненты</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-registration.html" class="sidebar-link">Регистрация компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-props.html" class="sidebar-link">Входные параметры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-custom-events.html" class="sidebar-link">Пользовательские события</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-slots.html" class="sidebar-link">Слоты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-dynamic-async.html" class="sidebar-link">Динамические и асинхронные компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/components-edge-cases.html" class="sidebar-link">Обработка крайних случаев</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переходы и анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/transitioning-state.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Переиспользование и композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/mixins.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/custom-directive.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/render-function.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/plugins.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/filters.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/single-file-components.html" class="sidebar-link">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/testing.html" class="sidebar-link">Тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/typescript.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/deployment.html" class="sidebar-link">Публикация на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/routing.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/state-management.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/ssr.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/security.html" class="sidebar-link">Безопасность</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/reactivity.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vue-router.html" class="sidebar-link current">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/migration-vuex.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="/v2/guide/comparison.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/join.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content guide with-sidebar migration-vue-router-guide">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>Миграция с Vue Router 0.7.x</h1>
+  
+  
+    <blockquote>
+<p>Только Vue Router 2 совместим с Vue 2, поэтому если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации <a href="https://v3.router.vuejs.org/ru/" target="_blank" rel="noopener">Vue Router</a>.</p>
+</blockquote>
+<h2 id="Инициализация-роутера"><a href="#Инициализация-роутера" class="headerlink" title="Инициализация роутера"></a>Инициализация роутера</h2><h3 id="router-start-заменено"><a href="#router-start-заменено" class="headerlink" title="router.start заменено"></a><code>router.start</code> <sup>заменено</sup></h3><p>Больше нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:</p>
+<pre><code class="hljs js">router.start(&#123;
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;router-view&gt;&lt;/router-view&gt;'</span>
+&#125;, <span class="hljs-string">'#app'</span>)</code></pre>
+<p>вы должны передать роутер как свойство в экземпляр Vue:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">router</span>: router,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;router-view&gt;&lt;/router-view&gt;'</span>
+&#125;)</code></pre>
+<p>или, если вы используете runtime-сборку Vue:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">router</span>: router,
+  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(<span class="hljs-string">'router-view'</span>)
+&#125;)</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.start</code>.</p>
+</div>
+
+<h2 id="Объявление-путей"><a href="#Объявление-путей" class="headerlink" title="Объявление путей"></a>Объявление путей</h2><h3 id="router-map-заменено"><a href="#router-map-заменено" class="headerlink" title="router.map заменено"></a><code>router.map</code> <sup>заменено</sup></h3><p>Теперь пути объявляются как массив в <a href="https://v3.router.vuejs.org/ru/essentials/getting-started.html#javascript" target="_blank" rel="noopener">свойстве <code>routes</code></a> при установке роутера. Например, эти пути:</p>
+<pre><code class="hljs js">router.map(&#123;
+  <span class="hljs-string">'/foo'</span>: &#123;
+    <span class="hljs-attr">component</span>: Foo
+  &#125;,
+  <span class="hljs-string">'/bar'</span>: &#123;
+    <span class="hljs-attr">component</span>: Bar
+  &#125;
+&#125;)</code></pre>
+<p>будут объявлены как:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">routes</span>: [
+    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/foo'</span>, <span class="hljs-attr">component</span>: Foo &#125;,
+    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/bar'</span>, <span class="hljs-attr">component</span>: Bar &#125;
+  ]
+&#125;)</code></pre>
+<p>Синтаксис массива позволяет сделать согласование путей более предсказуемым, так как итерация по объекту не гарантирует использование одинакового порядка свойств во всех браузерах.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.map</code>.</p>
+</div>
+
+<h3 id="router-on-удалено"><a href="#router-on-удалено" class="headerlink" title="router.on удалено"></a><code>router.on</code> <sup>удалено</sup></h3><p>Если вам нужно программно генерировать пути при запуске приложения, вы можете сделать это, динамически добавляя определения путей в массив. Например:</p>
+<pre><code class="hljs js"><span class="hljs-comment">// Базовый массив путей</span>
+<span class="hljs-keyword">var</span> routes = [
+  <span class="hljs-comment">// ...</span>
+]
+
+<span class="hljs-comment">// Динамически генерируемые пути</span>
+marketingPages.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">page</span>) </span>&#123;
+  routes.push(&#123;
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/marketing/'</span> + page.slug
+    <span class="hljs-attr">component</span>: &#123;
+      <span class="hljs-attr">extends</span>: MarketingComponent
+      <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">page</span>: page &#125;
+      &#125;
+    &#125;
+  &#125;)
+&#125;)
+
+<span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> Router(&#123;
+  <span class="hljs-attr">routes</span>: routes
+&#125;)</code></pre>
+<p>Если вам нужно добавить новые пути после того, как был создан экземпляр роутера, вы можете заменить свойство <code>match</code> новым, включающим в себя путь, который вы хотите добавить:</p>
+<pre><code class="hljs js">router.match = createMatcher(
+  [&#123;
+    <span class="hljs-attr">path</span>: <span class="hljs-string">'/my/new/path'</span>,
+    <span class="hljs-attr">component</span>: MyComponent
+  &#125;].concat(router.options.routes)
+)</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.on</code>.</p>
+</div>
+
+<h3 id="router-beforeEach-изменён"><a href="#router-beforeEach-изменён" class="headerlink" title="router.beforeEach изменён"></a><code>router.beforeEach</code> <sup>изменён</sup></h3><p><code>router.beforeEach</code> теперь работает асинхронно и принимает функцию <code>next</code> третьим аргументом.</p>
+<pre><code class="hljs js">router.beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">transition</span>) </span>&#123;
+  <span class="hljs-keyword">if</span> (transition.to.path === <span class="hljs-string">'/forbidden'</span>) &#123;
+    transition.abort()
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    transition.next()
+  &#125;
+&#125;)</code></pre>
+<pre><code class="hljs js">router.beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">to, from, next</span>) </span>&#123;
+  <span class="hljs-keyword">if</span> (to.path === <span class="hljs-string">'/forbidden'</span>) &#123;
+    next(<span class="hljs-literal">false</span>)
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    next()
+  &#125;
+&#125;)</code></pre>
+<h3 id="subRoutes-переименовано"><a href="#subRoutes-переименовано" class="headerlink" title="subRoutes переименовано"></a><code>subRoutes</code> <sup>переименовано</sup></h3><p><a href="https://v3.router.vuejs.org/ru/essentials/nested-routes.html" target="_blank" rel="noopener">Переименовано в <code>children</code></a> для соответствия Vue другим библиотекам маршрутизации.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование свойства <code>subRoutes</code>.</p>
+</div>
+
+<h3 id="router-redirect-заменено"><a href="#router-redirect-заменено" class="headerlink" title="router.redirect заменено"></a><code>router.redirect</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://v3.router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>. Например, вам нужно заменить:</p>
+<pre><code class="hljs js">router.redirect(&#123;
+  <span class="hljs-string">'/tos'</span>: <span class="hljs-string">'/terms-of-service'</span>
+&#125;)</code></pre>
+<p>в вашей конфигурации <code>routes</code> на объявление, показанное ниже:</p>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/tos'</span>,
+  <span class="hljs-attr">redirect</span>: <span class="hljs-string">'/terms-of-service'</span>
+&#125;</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.redirect</code>.</p>
+</div>
+
+<h3 id="router-alias-заменено"><a href="#router-alias-заменено" class="headerlink" title="router.alias заменено"></a><code>router.alias</code> <sup>заменено</sup></h3><p>Теперь это <a href="https://v3.router.vuejs.org/ru/essentials/redirect-and-alias.html" target="_blank" rel="noopener">опция при объявлении роутера</a>, которой вы присваиваете псевдоним. Например, вам нужно заменить:</p>
+<pre><code class="hljs js">router.alias(&#123;
+  <span class="hljs-string">'/manage'</span>: <span class="hljs-string">'/admin'</span>
+&#125;)</code></pre>
+<p>в вашей конфигурации <code>routes</code> на объявление, показанное ниже:</p>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/admin'</span>,
+  <span class="hljs-attr">component</span>: AdminPanel,
+  <span class="hljs-attr">alias</span>: <span class="hljs-string">'/manage'</span>
+&#125;</code></pre>
+<p>Если вам нужно несколько псевдонимов, вы можете также использовать синтаксис массива:</p>
+<pre><code class="hljs js">alias: [<span class="hljs-string">'/manage'</span>, <span class="hljs-string">'/administer'</span>, <span class="hljs-string">'/administrate'</span>]</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти вызовы <code>router.alias</code>.</p>
+</div>
+
+<h3 id="Произвольные-свойства-пути-заменено"><a href="#Произвольные-свойства-пути-заменено" class="headerlink" title="Произвольные свойства пути заменено"></a>Произвольные свойства пути <sup>заменено</sup></h3><p>Произвольные свойства пути теперь должны быть помещены в новое свойство <code>meta</code>, чтобы избежать конфликтов с будущей функциональностью. Например, если вы определили:</p>
+<pre><code class="hljs js"><span class="hljs-string">'/admin'</span>: &#123;
+  <span class="hljs-attr">component</span>: AdminPanel,
+  <span class="hljs-attr">requiresAuth</span>: <span class="hljs-literal">true</span>
+&#125;</code></pre>
+<p>вы должны заменить это на:</p>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/admin'</span>,
+  <span class="hljs-attr">component</span>: AdminPanel,
+  <span class="hljs-attr">meta</span>: &#123;
+    <span class="hljs-attr">requiresAuth</span>: <span class="hljs-literal">true</span>
+  &#125;
+&#125;</code></pre>
+<p>Затем, для дальнейшего доступа к этому свойству пути, вы должны пройти через свойство <code>meta</code>, например:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">if</span> (route.meta.requiresAuth) &#123;
+  <span class="hljs-comment">// ...</span>
+&#125;</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти произвольные свойства пути, не помещённые в свойство `meta`.</p>
+</div>
+
+<h2 id="Сопоставление-путей"><a href="#Сопоставление-путей" class="headerlink" title="Сопоставление путей"></a>Сопоставление путей</h2><p>Сопоставление путей теперь использует <a href="https://github.com/pillarjs/path-to-regexp" target="_blank" rel="noopener">path-to-regexp</a> под капотом, что делает его гораздо более гибким, чем было ранее.</p>
+<h3 id="Один-или-более-именованных-параметров-изменено"><a href="#Один-или-более-именованных-параметров-изменено" class="headerlink" title="Один или более именованных параметров изменено"></a>Один или более именованных параметров <sup>изменено</sup></h3><p>Синтаксис немного изменился, поэтому <code>/category/*tags</code>, например, должно быть заменено на <code>/category/:tags+</code>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование устаревшего синтаксиса.</p>
+</div>
+
+<h2 id="Ссылки"><a href="#Ссылки" class="headerlink" title="Ссылки"></a>Ссылки</h2><h3 id="v-link-заменено"><a href="#v-link-заменено" class="headerlink" title="v-link заменено"></a><code>v-link</code> <sup>заменено</sup></h3><p>Директива <code>v-link</code> заменена на новый <a href="https://v3.router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компонент <code>&lt;router-link&gt;</code></a>, так как за данный тип работ теперь отвечают только компоненты во Vue 2. Это означает, что всякий раз, когда у вас есть ссылка, как эта:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-link</span>=<span class="hljs-string">"'/about'"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<p>Вам необходимо изменить её следующим образом:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/about"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></code></pre>
+<p>Запомните, что <code>target=&quot;_blank&quot;</code> больше не поддерживается в <code>&lt;router-link&gt;</code>, поэтому, если вам нужно открыть ссылку в новой вкладке, вы должны использовать тег <code>&lt;a&gt;</code>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link</code>.</p>
+</div>
+
+<h3 id="v-link-active-заменено"><a href="#v-link-active-заменено" class="headerlink" title="v-link-active заменено"></a><code>v-link-active</code> <sup>заменено</sup></h3><p>Директива <code>v-link-active</code> также была заменена на атрибут <code>tag</code> в <a href="https://v3.router.vuejs.org/ru/api/router-link.html" target="_blank" rel="noopener">компоненте <code>&lt;router-link&gt;</code></a>. Например, вам нужно заменить это:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-link-active</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-link</span>=<span class="hljs-string">"'/about'"</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></code></pre>
+<p>на:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">tag</span>=<span class="hljs-string">"li"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/about"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span>О нас<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span></code></pre>
+<p>Тег <code>&lt;a&gt;</code> будет фактически ссылкой (с правильным атрибутом <code>href</code>), но активный класс будет применён к родительскому тегу <code>&lt;li&gt;</code>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование директивы <code>v-link-active</code>.</p>
+</div>
+
+<h2 id="Программная-навигация"><a href="#Программная-навигация" class="headerlink" title="Программная навигация"></a>Программная навигация</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/API/History_API" target="_blank" rel="noopener">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://v3.router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="noopener">навигации вперёд/назад</a>, в то время как <a href="https://v3.router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="noopener"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>router.go</code> вместо необходимого использования <code>router.push</code>.</p>
+</div>
+
+<h2 id="Опции-роутера-режимы"><a href="#Опции-роутера-режимы" class="headerlink" title="Опции роутера: режимы"></a>Опции роутера: режимы</h2><h3 id="hashbang-false-удалено"><a href="#hashbang-false-удалено" class="headerlink" title="hashbang: false удалено"></a><code>hashbang: false</code> <sup>удалено</sup></h3><p>Символ хэша больше не требуется для Google при сканировании URL, так что они больше не используются по умолчанию (или в качестве опции) для хеш-стратегии.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>hashbang: false</code>.</p>
+</div>
+
+<h3 id="history-true-заменено"><a href="#history-true-заменено" class="headerlink" title="history: true заменено"></a><code>history: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://v3.router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">history</span>: <span class="hljs-string">'true'</span>
+&#125;)</code></pre>
+<p>на:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">'history'</span>
+&#125;)</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>history: true</code>.</p>
+</div>
+
+<h3 id="abstract-true-заменено"><a href="#abstract-true-заменено" class="headerlink" title="abstract: true заменено"></a><code>abstract: true</code> <sup>заменено</sup></h3><p>Все параметры режима роутера были объединены в <a href="https://v3.router.vuejs.org/ru/api/options.html#mode" target="_blank" rel="noopener">опцию <code>mode</code></a>. Обновите:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">abstract</span>: <span class="hljs-string">'true'</span>
+&#125;)</code></pre>
+<p>на:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">var</span> router = <span class="hljs-keyword">new</span> VueRouter(&#123;
+  <span class="hljs-attr">mode</span>: <span class="hljs-string">'abstract'</span>
+&#125;)</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>abstract: true</code>.</p>
+</div>
+
+<h2 id="Опции-роутера-разное"><a href="#Опции-роутера-разное" class="headerlink" title="Опции роутера: разное"></a>Опции роутера: разное</h2><h3 id="saveScrollPosition-заменено"><a href="#saveScrollPosition-заменено" class="headerlink" title="saveScrollPosition заменено"></a><code>saveScrollPosition</code> <sup>заменено</sup></h3><p>Было заменено на <a href="https://v3.router.vuejs.org/ru/advanced/scroll-behavior.html" target="_blank" rel="noopener">опцию <code>scrollBehavior</code></a> которая принимает функцию, поэтому поведение прокрутки стало полностью настраиваемым - даже для каждого пути. Это открывает много новых возможностей, но для возврата старого поведения:</p>
+<pre><code class="hljs js">saveScrollPosition: <span class="hljs-literal">true</span></code></pre>
+<p>Вы можете заменить это на:</p>
+<pre><code class="hljs js">scrollBehavior: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">to, from, savedPosition</span>) </span>&#123;
+  <span class="hljs-keyword">return</span> savedPosition || &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">0</span> &#125;
+&#125;</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>saveScrollPosition: true</code>.</p>
+</div>
+
+<h3 id="root-переименовано"><a href="#root-переименовано" class="headerlink" title="root переименовано"></a><code>root</code> <sup>переименовано</sup></h3><p>Переименовано в <code>base</code> для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/base" target="_blank" rel="noopener">HTML-элементу <code>&lt;base&gt;</code></a>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>root</code>.</p>
+</div>
+
+<h3 id="transitionOnLoad-удалено"><a href="#transitionOnLoad-удалено" class="headerlink" title="transitionOnLoad удалено"></a><code>transitionOnLoad</code> <sup>удалено</sup></h3><p>В этой опции нет необходимости, теперь, когда Vue имеет явное <a href="transitions.html#Transitions-on-Initial-Render">управление переходами <code>appear</code></a>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>transitionOnLoad: true</code>.</p>
+</div>
+
+<h3 id="suppressTransitionError-удалено"><a href="#suppressTransitionError-удалено" class="headerlink" title="suppressTransitionError удалено"></a><code>suppressTransitionError</code> <sup>удалено</sup></h3><p>Удалено из-за упрощения системы хуков. Если вам действительно нужно отловить ошибки переходов, вы можете использовать вместо этого <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch" target="_blank" rel="noopener"><code>try</code>…<code>catch</code></a>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>suppressTransitionError: true</code>.</p>
+</div>
+
+<h2 id="Хуки-путей"><a href="#Хуки-путей" class="headerlink" title="Хуки путей"></a>Хуки путей</h2><h3 id="activate-заменено"><a href="#activate-заменено" class="headerlink" title="activate заменено"></a><code>activate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://v3.router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards" target="_blank" rel="noopener"><code>beforeRouteEnter</code></a> в компоненте.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>activate</code>.</p>
+</div>
+
+<h3 id="canActivate-заменено"><a href="#canActivate-заменено" class="headerlink" title="canActivate заменено"></a><code>canActivate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://v3.router.vuejs.org/ru/advanced/navigation-guards.html#perroute-guard" target="_blank" rel="noopener"><code>beforeEnter</code></a> в компоненте.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>canActivate</code>.</p>
+</div>
+
+<h3 id="deactivate-удалено"><a href="#deactivate-удалено" class="headerlink" title="deactivate удалено"></a><code>deactivate</code> <sup>удалено</sup></h3><p>Вместо этого используйте хуки <a href="../api/#beforeDestroy"><code>beforeDestroy</code></a> или <a href="../api/#destroyed"><code>destroyed</code></a>.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>deactivate</code>.</p>
+</div>
+
+<h3 id="canDeactivate-заменено"><a href="#canDeactivate-заменено" class="headerlink" title="canDeactivate заменено"></a><code>canDeactivate</code> <sup>заменено</sup></h3><p>Вместо этого используйте <a href="https://v3.router.vuejs.org/ru/advanced/navigation-guards.html#incomponent-guards" target="_blank" rel="noopener"><code>beforeRouteLeave</code></a> в компоненте.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>canDeactivate</code>.</p>
+</div>
+
+<h3 id="canReuse-false-удалено"><a href="#canReuse-false-удалено" class="headerlink" title="canReuse: false удалено"></a><code>canReuse: false</code> <sup>удалено</sup></h3><p>Больше не существует вариантов использования этого в новой версии Vue Router.</p>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование опции <code>canReuse: false</code>.</p>
+</div>
+
+<h3 id="data-заменено"><a href="#data-заменено" class="headerlink" title="data заменено"></a><code>data</code> <sup>заменено</sup></h3><p>Свойство <code>$route</code> теперь реактивно, поэтому вы можете просто использовать метод-наблюдатель для отслеживания изменения пути, например:</p>
+<pre><code class="hljs js">watch: &#123;
+  <span class="hljs-string">'$route'</span>: <span class="hljs-string">'fetchData'</span>
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">fetchData</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-comment">// ...</span>
+  &#125;
+&#125;</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование хука <code>data</code>.</p>
+</div>
+
+<h3 id="loadingRouteData-удалено"><a href="#loadingRouteData-удалено" class="headerlink" title="$loadingRouteData удалено"></a><code>$loadingRouteData</code> <sup>удалено</sup></h3><p>Определите ваше свойство (например, <code>isLoading</code>), затем обновите состояние загрузки с помощью опции <code>watch</code> на пути. Например, при предварительном получении данных с использованием <a href="https://github.com/mzabriskie/axios" target="_blank" rel="noopener">axios</a>:</p>
+<pre><code class="hljs js">data: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">posts</span>: [],
+    <span class="hljs-attr">isLoading</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">fetchError</span>: <span class="hljs-literal">null</span>
+  &#125;
+&#125;,
+<span class="hljs-attr">watch</span>: &#123;
+  <span class="hljs-string">'$route'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+    self.isLoading = <span class="hljs-literal">true</span>
+    self.fetchData().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      self.isLoading = <span class="hljs-literal">false</span>
+    &#125;)
+  &#125;
+&#125;,
+<span class="hljs-attr">methods</span>: &#123;
+  <span class="hljs-attr">fetchData</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">return</span> axios.get(<span class="hljs-string">'/api/posts'</span>)
+      .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>&#123;
+        self.posts = response.data.posts
+      &#125;)
+      .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>&#123;
+        self.fetchError = error
+      &#125;)
+  &#125;
+&#125;</code></pre>
+
+<div class="upgrade-path">
+  <h4>Обновление</h4>
+  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование свойства <code>$loadingRouteData</code>.</p>
+</div>
+
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="/v2/guide/migration.html">Миграция с Vue 1.x</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="/v2/guide/migration-vuex.html">Миграция с Vuex 0.6.x на 1.0</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/migration-vue-router.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>

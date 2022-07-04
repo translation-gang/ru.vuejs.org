@@ -1,0 +1,638 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>Устранение утечек памяти — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/cookbook/avoiding-memory-leaks.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Устранение утечек памяти — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Устранение утечек памяти — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "cookbook"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link current">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/cookbook/avoiding-memory-leaks.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Книга рецептов<sup class="beta">beta</sup>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Добавление свойств экземпляра</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Валидация форм</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Редактируемая система SVG-иконок</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/serverless-blog.html" class="sidebar-link">Создание блога, управляемого CMS</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link">Модульное тестирование Vue-компонентов</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/creating-custom-scroll-directives.html" class="sidebar-link">Создание пользовательской директивы прокрутки</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Отладка в VS Code</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Используем axios для доступа к API</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/avoiding-memory-leaks.html" class="sidebar-link current">Устранение утечек памяти</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/client-side-storage.html" class="sidebar-link">Хранение данных на стороне клиента</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/packaging-sfc-for-npm.html" class="sidebar-link">Публикация Vue-компонентов в npm</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/dockerize-vuejs-app.html" class="sidebar-link">Интегрируем Docker в приложение Vue.js</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/practical-use-of-scoped-slots.html" class="sidebar-link">Практическое использование слотов с ограниченной областью видимости с GoogleMaps</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content cookbook with-sidebar ">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>Устранение утечек памяти</h1>
+  
+  
+    <h2 id="Введение"><a href="#Введение" class="headerlink" title="Введение"></a>Введение</h2><p>Если вы разрабатываете приложения на Vue, тогда вам нужно следить за утечками памяти. Эта проблема особенно важна в одностраничных приложениях (SPA), потому что идея использования SPA состоит в отсутствии пользователям необходимости обновлять страницы браузера, поэтому задачей JavaScript приложения также будет и очистка в компонентах от лишнего.</p>
+<p>Утечки памяти в приложениях Vue обычно не исходят от самого Vue, скорее они могут происходить при интеграции других библиотек в приложение.</p>
+<h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>В этом примере показана утечка памяти, вызванная использованием библиотеки <a href="https://github.com/jshjohnson/Choices" target="_blank" rel="noopener">Choices.js</a> внутри компонента Vue без очистки ресурсов должным образом. Далее мы покажем как удалять остающееся после Choices.js и избежать утечки памяти.</p>
+<p>В примере ниже, мы загружаем в select большое число вариантов выбора, а также используем кнопку для отображения/скрытия с помощью директивы <a href="../guide/conditional.html">v-if</a>, чтобы добавлять и удалять список из виртуального DOM. Проблема в этом примере заключается в том, что директива <code>v-if</code> удаляет родительский элемент из DOM, но не выполняет дополнительную очистку DOM от частей, созданных Choices.js, что и вызывает утечку памяти.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet prefetch"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://joshuajohnson.co.uk/Choices/assets/styles/css/choices.min.css?version=3.0.3"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://joshuajohnson.co.uk/Choices/assets/scripts/dist/choices.min.js?version=3.0.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+    <span class="hljs-attr">v-if</span>=<span class="hljs-string">"showChoices"</span>
+    @<span class="hljs-attr">click</span>=<span class="hljs-string">"hide"</span>
+  &gt;</span>Скрыть<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+    <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!showChoices"</span>
+    @<span class="hljs-attr">click</span>=<span class="hljs-string">"show"</span>
+  &gt;</span>Показать<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"showChoices"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"choices-single-default"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">"#app"</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">showChoices</span>: <span class="hljs-literal">true</span>
+    &#125;
+  &#125;,
+  <span class="hljs-attr">mounted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.initializeChoices()
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">initializeChoices</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">let</span> list = []
+      <span class="hljs-comment">// загружаем в наш select множество вариантов,</span>
+      <span class="hljs-comment">// что вызовет большое использование памяти</span>
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;
+        list.push(&#123;
+          <span class="hljs-attr">label</span>: <span class="hljs-string">"Item "</span> + i,
+          <span class="hljs-attr">value</span>: i
+        &#125;)
+      &#125;
+      <span class="hljs-keyword">new</span> Choices(<span class="hljs-string">"#choices-single-default"</span>, &#123;
+        <span class="hljs-attr">searchEnabled</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">removeItemButton</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">choices</span>: list
+      &#125;)
+    &#125;,
+    <span class="hljs-attr">show</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.showChoices = <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">this</span>.initializeChoices()
+      &#125;)
+    &#125;,
+    <span class="hljs-attr">hide</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.showChoices = <span class="hljs-literal">false</span>
+    &#125;
+  &#125;
+&#125;)</code></pre>
+<p>Чтобы увидеть эту утечку памяти в действии, откройте этот <a href="https://codepen.io/freeman-g/pen/qobpxo" target="_blank" rel="noopener">пример на CodePen</a> с помощью Chrome и затем откройте Диспетчер задач Chrome. Чтобы открыть на Mac, выберите в верхнем меню &gt; Окно &gt; Диспетчер задач или на Windows с помощью сочетания клавиш Shift+Esc. Теперь, нажимайте кнопку показать/скрыть около 50 раз. Вы сможете увидеть увеличение использованной памяти в Диспетчере задач Chrome, которая не будет освобождена.</p>
+<p><img src="/images/memory-leak-example.png" alt="Пример утечки памяти"></p>
+<h2 id="Исправление-утечки-памяти"><a href="#Исправление-утечки-памяти" class="headerlink" title="Исправление утечки памяти"></a>Исправление утечки памяти</h2><p>В примере выше, мы можем использовать наш метод <code>hide()</code> для выполнения очистки и устранения утечки памяти перед удалением select из DOM. Для этого мы будем хранить свойство в нашем экземпляре Vue и будем использовать <a href="https://github.com/jshjohnson/Choices" target="_blank" rel="noopener">API плагина Choices</a> в методе <code>destroy()</code> для выполнения необходимых операций очистки.</p>
+<p>Проверьте использование памяти в <a href="https://codepen.io/freeman-g/pen/mxWMor" target="_blank" rel="noopener">обновлённом примере на CodePen</a>.</p>
+<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">"#app"</span>,
+  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> &#123;
+      <span class="hljs-attr">showChoices</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">choicesSelect</span>: <span class="hljs-literal">null</span>
+    &#125;
+  &#125;,
+  <span class="hljs-attr">mounted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">this</span>.initializeChoices()
+  &#125;,
+  <span class="hljs-attr">methods</span>: &#123;
+    <span class="hljs-attr">initializeChoices</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">let</span> list = []
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;
+        list.push(&#123;
+          <span class="hljs-attr">label</span>: <span class="hljs-string">"Item "</span> + i,
+          <span class="hljs-attr">value</span>: i
+        &#125;)
+      &#125;
+      <span class="hljs-comment">// Сохраняем ссылку на экземпляр плагина</span>
+      <span class="hljs-comment">// в объекте data экземпляра Vue</span>
+      <span class="hljs-keyword">this</span>.choicesSelect = <span class="hljs-keyword">new</span> Choices(<span class="hljs-string">"#choices-single-default"</span>, &#123;
+        <span class="hljs-attr">searchEnabled</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">removeItemButton</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">choices</span>: list
+      &#125;)
+    &#125;,
+    <span class="hljs-attr">show</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-keyword">this</span>.showChoices = <span class="hljs-literal">true</span>
+      <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;
+        <span class="hljs-keyword">this</span>.initializeChoices()
+      &#125;)
+    &#125;,
+    <span class="hljs-attr">hide</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-comment">// теперь мы можем использовать ссылку на Choices</span>
+      <span class="hljs-comment">// для выполнения необходимых плагину операций очистки</span>
+      <span class="hljs-comment">// перед удалением элементов из DOM</span>
+      <span class="hljs-keyword">this</span>.choicesSelect.destroy()
+      <span class="hljs-keyword">this</span>.showChoices = <span class="hljs-literal">false</span>
+    &#125;
+  &#125;
+&#125;)</code></pre>
+<h2 id="Подробнее-о-значимости"><a href="#Подробнее-о-значимости" class="headerlink" title="Подробнее о значимости"></a>Подробнее о значимости</h2><p>Управлением памятью и тестированием производительности часто легко можно пренебречь в спешке выпустить готовый продукт, но, тем не менее, сохранение небольшого количества используемой памяти по-прежнему важно для пользовательского опыта использования в целом.</p>
+<p>Определите типы устройств, которые ваши пользователи могут использовать и какой сценарий работы с приложением может быть. Могут ли они использовать ноутбуки или мобильные устройства с небольшим количеством памяти? Будут ли ваши пользователи обычно совершать много переходов между страницами приложения? Если ответы на эти вопросы — «да», тогда хорошие практики управления памятью могут помочь избежать вам наихудшего сценария сбоя браузера пользователя. Даже если ни один ответ на вопрос не будет «да», вы по-прежнему можете ухудшить производительность вашего приложения при длительном использовании, если не будете осторожны.</p>
+<h2 id="Пример-из-жизни"><a href="#Пример-из-жизни" class="headerlink" title="Пример из жизни"></a>Пример из жизни</h2><p>В примере выше, мы использовали директиву <code>v-if</code> чтобы проиллюстрировать утечку памяти, но более распространённый сценарий из жизни возникает при использовании <a href="https://v3.router.vuejs.org/ru/" target="_blank" rel="noopener">vue-router</a> для маршрутизации по компонентам в одностраничном приложении (SPA).</p>
+<p>Также, как и директива <code>v-if</code>, <code>vue-router</code> удаляет элементы из виртуального DOM и заменяет их новыми элементами при навигации пользователя по вашему приложению. <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Хук жизненного цикла</a> <code>beforeDestroy()</code> — хорошее место для решения подобной проблемы в приложениях на основе <code>vue-router</code>.</p>
+<p>Мы могли бы переместить нашу очистку в хук <code>beforeDestroy()</code> следующим образом:</p>
+<pre><code class="hljs js">beforeDestroy: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.choicesSelect.destroy()
+&#125;</code></pre>
+<h2 id="Альтернативы"><a href="#Альтернативы" class="headerlink" title="Альтернативы"></a>Альтернативы</h2><p>Мы обсудили управление памятью при удалении элементов, но что, если вы намеренно хотите сохранять состояние и сохранить элементы в памяти? В этом случае вы можете использовать встроенный компонент <a href="/v2/api/#keep-alive">keep-alive</a>.</p>
+<p>Когда вы оборачиваете компонент с помощью <code>keep-alive</code>, его состояние будет сохранено, и следовательно, останется в памяти.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"show = false"</span>&gt;</span>Скрыть<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- my-component будет сохраняться в памяти даже при удалении --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"show"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
+<p>Эта техника может быть полезна для улучшения пользовательского опыта работы с приложением. Например, представьте, что пользователь начинает вводить комментарий в текстовое поле и затем решает перейти на другую страницу. Если пользователь вернётся обратно, то его комментарий останется сохранён в поле.</p>
+<p>С тех пор, как начнёте использовать keep-alive, у вас появится доступ к двум дополнительным хукам жизненного цикла: <code>activated</code> и <code>deactivated</code>. Если вы хотите выполнить очистку или изменить данные при удалении компонента с keep-alive, вы можете сделать это в хуке <code>deactivated</code>.</p>
+<pre><code class="hljs js">deactivated: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-comment">// удаление любых данных, которые не требуется хранить</span>
+&#125;</code></pre>
+<h2 id="Подытожим"><a href="#Подытожим" class="headerlink" title="Подытожим"></a>Подытожим</h2><p>Vue позволяет легко разрабатывать потрясающие реактивные JavaScript-приложения, но вам всё равно нужно уделять внимание утечкам памяти. Эти утечки обычно происходят при использовании дополнительных сторонних библиотек, которые манипулируют DOM вне Vue. Не забудьте проверить ваше приложение на утечки памяти и предпринять соответствующие шаги для добавления необходимых очисток в компонентах, где это необходимо.</p>
+
+  
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/cookbook/avoiding-memory-leaks.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>

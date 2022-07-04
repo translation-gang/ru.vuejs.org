@@ -1,0 +1,592 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru" class="with-v3-banner">
+    <head><meta name="generator" content="Hexo 3.8.0">
+        <title>Интегрируем Docker в приложение Vue.js — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+        <link rel="alternate" hreflang="es" href="https://es.vuejs.org/v2/cookbook/dockerize-vuejs-app.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Интегрируем Docker в приложение Vue.js — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Интегрируем Docker в приложение Vue.js — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="/manifest.json">
+
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="/js/vue.js"></script>
+
+        
+
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "cookbook"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        <div>
+  <div id="v3-banner">
+    <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
+    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+  </div>
+
+  <header id="header">
+    <a id="logo" href="/">
+      <img src="/images/logo.png" alt="Логотип Vue">
+      <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input" aria-label="Поиск">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Документация</h4></li>
+    <li>
+      <ul>
+        <li><a href="/v2/guide/" class="nav-link">Руководство</a></li>
+        <li><a href="/v2/api/" class="nav-link">API</a></li>
+        <li><a href="/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+        <li><a href="/v2/examples/" class="nav-link">Примеры</a></li>
+        <li><a href="/v2/cookbook/" class="nav-link current">Книга рецептов</a></li>
+      </ul>
+    </li>
+    <li><h4>Видео курсы</h4></li>
+    <li>
+      <ul>
+        <li>
+          <a href="https://www.vuemastery.com/courses/" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue Mastery
+          </a>
+        </li>
+        <li>
+          <a href="https://vueschool.io/?friend=vuejs&utm_source=Vuejs.org&utm_medium=Link&utm_content=Navbar%20Dropdown" class="nav-link" target="_blank" rel="sponsored noopener">
+            Vue School
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="https://forum.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank" rel="noopener">Чат</a></li>
+      <li><a href="https://events.vuejs.org/meetups/" class="nav-link" target="_blank" rel="noopener">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank" rel="noopener">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://v3.router.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Router</a></li>
+      <li><a href="https://v3.vuex.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank" rel="noopener">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="https://news.vuejs.org" class="nav-link" target="_blank" rel="noopener">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank" rel="noopener">Roadmap</a></li>
+      <li><a href="https://events.vuejs.org/" class="nav-link" target="_blank" rel="noopener">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank" rel="noopener">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank" rel="noopener">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank" rel="noopener">Сообщество разработчиков</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="/v2/guide/team.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container resources">
+  <a href="#" class="nav-link">Ресурсы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/resources/partners.html" class="nav-link">Партнёры</a></li>
+    <li><a href="/resources/themes.html" class="nav-link">Темы</a></li>
+    <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank" rel="noopener">Awesome Vue</a></li>
+    <li><a href="https://awesomejs.dev/for/vue/" class="nav-link" target="_blank" rel="noopener">Найти пакеты для Vue</a></li>
+  </ul>
+</li>
+
+<!-- <li>
+  <a href="/partners" class="nav-link ">Партнёры</a>
+</li> -->
+<li class="nav-dropdown-container support-vue">
+  <a href="/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+    <li><a href="/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+    <li><a href="https://vue.threadless.com" target="_blank" rel="noopener" class="nav-link">Магазин футболок</a></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="https://vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">English</a></li>
+    <li><a href="https://cn.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">中文</a></li>
+    <li><a href="https://jp.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">日本語</a></li>
+    <li><a href="https://kr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">한국어</a></li>
+    <li><a href="https://br.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">Português</a></li>
+    <li><a href="https://fr.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">Français</a></li>
+    <li><a href="https://vi.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a href="https://es.vuejs.org/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">Español</a></li>
+    <li><a href="https://docs.vuejs.id/v2/cookbook/dockerize-vuejs-app.html" class="nav-link">Bahasa Indonesia</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+  </header>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+              
+  
+
+<div class="sidebar">
+  <div class="sidebar-inner">
+    
+    <div class="list">
+        <div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Книга рецептов<sup class="beta">beta</sup>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/index.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/adding-instance-properties.html" class="sidebar-link">Добавление свойств экземпляра</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/form-validation.html" class="sidebar-link">Валидация форм</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/editable-svg-icons.html" class="sidebar-link">Редактируемая система SVG-иконок</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/serverless-blog.html" class="sidebar-link">Создание блога, управляемого CMS</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/unit-testing-vue-components.html" class="sidebar-link">Модульное тестирование Vue-компонентов</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/creating-custom-scroll-directives.html" class="sidebar-link">Создание пользовательской директивы прокрутки</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/debugging-in-vscode.html" class="sidebar-link">Отладка в VS Code</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/using-axios-to-consume-apis.html" class="sidebar-link">Используем axios для доступа к API</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/avoiding-memory-leaks.html" class="sidebar-link">Устранение утечек памяти</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/client-side-storage.html" class="sidebar-link">Хранение данных на стороне клиента</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/packaging-sfc-for-npm.html" class="sidebar-link">Публикация Vue-компонентов в npm</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/dockerize-vuejs-app.html" class="sidebar-link current">Интегрируем Docker в приложение Vue.js</a>
+        </li>
+    
+        
+        
+        <li>
+            <a href="/v2/cookbook/practical-use-of-scoped-slots.html" class="sidebar-link">Практическое использование слотов с ограниченной областью видимости с GoogleMaps</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://www.vuemastery.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuemastery.png" alt="VueMastery">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://passionatepeople.io/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/passionate_people.png" alt="Passionate People">
+    </a>
+    <a href="https://www.storyblok.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/storyblok.png" alt="Storyblok">
+    </a>
+    <a href="https://ionicframework.com/vue?utm_source=partner&utm_medium=referral&utm_campaign=vuesponsorship&utm_content=vuedocs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/ionic.png?v2" alt="Ionic">
+    </a>
+    <a href="https://nuxtjs.org/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/nuxt.png" alt="Nuxt">
+    </a>
+    <a href="https://www.refurbed.org/?utm_source=vuejs" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/refurbed.png" alt="Refurbed">
+    </a>
+    <a href="https://buttercms.com/vuejs-cms/?utm_source=vuejs.org&utm_medium=banner&utm_campaign=sponsorship" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/buttercms.svg" alt="ButterCMS">
+    </a>
+    <a href="https://www.sanofi.com/" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/sanofi.png" alt="Sanofi">
+    </a>
+    <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+
+<div class="content cookbook with-sidebar ">
+  <p class="tip warning v3-warning">
+    Эта документация для версий v2.x и ранее.
+      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+  </p>
+
+  
+    
+      
+  <div id="ad">
+    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    </script>
+  </div>
+
+
+    
+  
+  
+    <h1>Интегрируем Docker в приложение Vue.js</h1>
+  
+  
+    <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Итак, вы создали своё первое приложение на Vue.js, используя потрясающий <a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">шаблон Vue для webpack</a>, и теперь вы хотите похвастаться своим коллегам, показав им, что можно также запустить его в Docker-контейнере.</p>
+<p>Начнём с создания <code>Dockerfile</code> в корневом каталоге нашего проекта:</p>
+<pre><code class="hljs docker"><span class="hljs-keyword">FROM</span> node:lts-alpine
+
+<span class="hljs-comment"># устанавливаем простой HTTP-сервер для статики</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install -g http-server</span>
+
+<span class="hljs-comment"># делаем каталог 'app' текущим рабочим каталогом</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+
+<span class="hljs-comment"># копируем оба 'package.json' и 'package-lock.json' (если есть)</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./</span>
+
+<span class="hljs-comment"># устанавливаем зависимости проекта</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+
+<span class="hljs-comment"># копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . .</span>
+
+<span class="hljs-comment"># собираем приложение для production с минификацией</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm run build</span>
+
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span>
+<span class="hljs-keyword">CMD</span><span class="bash"> [ <span class="hljs-string">"http-server"</span>, <span class="hljs-string">"dist"</span> ]</span></code></pre>
+<p>Может показаться лишним сначала копировать <code>package.json</code> и <code>package-lock.json</code>, а затем все файлы и каталоги проекта в два отдельных шага, но на самом деле есть <a href="http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/" target="_blank" rel="noopener">одна очень веская причина для этого</a> (спойлер: это позволяет нам использовать кэшированные слои Docker).</p>
+<p>Теперь давайте соберём образ Docker для нашего приложения на Vue.js:</p>
+<pre><code class="hljs bash">docker build -t vuejs-cookbook/dockerize-vuejs-app .</code></pre>
+<p>Наконец, запустим наше приложение Vue.js в контейнере Docker:</p>
+<pre><code class="hljs bash">docker run -it -p 8080:8080 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</code></pre>
+<p>У нас есть доступ к нашему Vue.js-приложению по адресу <code>localhost: 8080</code>.</p>
+<h2 id="Пример-из-реальной-жизни"><a href="#Пример-из-реальной-жизни" class="headerlink" title="Пример из реальной жизни"></a>Пример из реальной жизни</h2><p>В предыдущем примере мы использовали простой, не требующий конфигурации <a href="https://github.com/indexzero/http-server" target="_blank" rel="noopener">HTTP-сервер</a>, работающий из командной строки, для обслуживания нашего приложения на Vue.js, который отлично подходит для быстрого прототипирования и <em>может быть</em> даже для простых сценариев в production. В конце концов, в документации говорится:</p>
+<blockquote>
+<p>Он достаточно мощный для использования в production, но он прост и достаточно уязвим для хакерских атак, поэтому он подходит для использования в качестве тестирования, локальной разработки и обучения.</p>
+</blockquote>
+<p>Тем не менее, для реально сложных случаев использования в production может быть разумнее использовать широко известные решения, такие как <a href="https://www.nginx.com/" target="_blank" rel="noopener">NGINX</a> или <a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a>, и это именно то, что мы собираемся сделать дальше: мы собираемся использовать NGINX для обслуживания нашего приложения на Vue.js, потому что данный сервер считается одним из наиболее эффективных и проверенных на практике решений.</p>
+<p>Давайте доработаем наш <code>Dockerfile</code> для использования NGINX:</p>
+ <pre><code class="hljs docker"><span class="hljs-comment"># этап сборки (build stage)</span>
+<span class="hljs-keyword">FROM</span> node:lts-alpine as build-stage
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /app</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> package*.json ./</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm install</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> . .</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> npm run build</span>
+
+<span class="hljs-comment"># этап production (production-stage)</span>
+<span class="hljs-keyword">FROM</span> nginx:stable-alpine as production-stage
+<span class="hljs-keyword">COPY</span><span class="bash"> --from=build-stage /app/dist /usr/share/nginx/html</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span>
+<span class="hljs-keyword">CMD</span><span class="bash"> [<span class="hljs-string">"nginx"</span>, <span class="hljs-string">"-g"</span>, <span class="hljs-string">"daemon off;"</span>]</span></code></pre>
+<p>ОК, разберёмся что здесь происходит</p>
+<ul>
+<li>мы разделили наш оригинальный файл <code>Dockerfile</code> на несколько этапов с помощью <a href="https://docs.docker.com/develop/develop-images/multistage-build/" target="_blank" rel="noopener">многоступенчатых сборок Docker</a>;</li>
+<li>первый этап отвечает за сборку готового для production артефакта нашего приложения Vue.js;</li>
+<li>второй этап отвечает за обслуживание такого артефакта с использованием NGINX.</li>
+</ul>
+<p>Теперь собираем Docker-образ нашего приложения на Vue.js:</p>
+<pre><code class="hljs bash">docker build -t vuejs-cookbook/dockerize-vuejs-app .</code></pre>
+<p>Наконец, запустим наше приложение Vue.js в контейнере Docker:</p>
+<pre><code class="hljs bash">docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app</code></pre>
+<p>Получить доступ к Vue.js приложению теперь можно по адресу <code>localhost: 8080</code>.</p>
+<h2 id="Дополнительный-контекст"><a href="#Дополнительный-контекст" class="headerlink" title="Дополнительный контекст"></a>Дополнительный контекст</h2><p>Если вы читаете этот рецепт, то скорее всего знаете, зачем вам необходимо использовать Docker в приложении на Vue.js. Но если вы просто пришли на данную страницу, нажав кнопку «Мне повезёт» с Google, позвольте мне поделиться с вами несколькими вескими основаниями для этого.</p>
+<p>Сегодняшняя современная тенденция заключается в создании приложений с использованием подхода <a href="https://pivotal.io/cloud-native" target="_blank" rel="noopener">Cloud-Native</a>, который тесно связан со следующими ключевыми концепциями:</p>
+<ul>
+<li>Микросервисы</li>
+<li>DevOps</li>
+<li>Непрерывная поставка (Continuous Delivery)</li>
+</ul>
+<p>Посмотрим, как эти понятия в действительности влияют на наше решение использовать Docker в приложении на Vue.js.</p>
+<h3 id="Последствия-микросервисов"><a href="#Последствия-микросервисов" class="headerlink" title="Последствия микросервисов"></a>Последствия микросервисов</h3><p>Принимая этот <a href="https://martinfowler.com/microservices/" target="_blank" rel="noopener">архитектурный стиль микросервисов</a>, мы стремимся к созданию одного приложения как набора небольших сервисов, каждый из которых работает в собственном процессе и взаимодействует с лёгкими механизмами. Эти сервисы основаны на бизнес-возможностях и независимо развёртываются путём полного автоматизированного механизма развёртывания.</p>
+<p>Таким образом, принятие этого архитектурного подхода в большинстве случаев подразумевает разработку и доставку нашего фронтенда как независимого сервиса.</p>
+<h3 id="Влияние-DevOps"><a href="#Влияние-DevOps" class="headerlink" title="Влияние DevOps"></a>Влияние DevOps</h3><p>Принимая культуру <a href="https://martinfowler.com/bliki/DevOpsCulture.html" target="_blank" rel="noopener">DevOps</a>, инструменты и гибкую инженерную практику, в частности, получается хороший эффект расширения сотрудничества между ролями разработки и операциями. Одна из главных проблем прошлого (но и в некоторых реалиях сегодня) заключается в том, что команда разработчиков обычно не интересовалась операцией и обслуживанием системы после её передачи команде технической поддержки, в то время как последняя, как правило, не была в курсе всех бизнес-целей системы и, следовательно, неохотно удовлетворяя оперативные потребности системы (также называемые «капризы разработчиков»).</p>
+<p>Таким образом, доставка нашего Vue.js-приложения в качестве Docker-образа помогает уменьшить, если не полностью устранить, разницу между запуском сервиса на ноутбуке разработчика, в production или любом другом окружении, о котором мы можем думать.</p>
+<h3 id="Влияние-непрерывной-поставки"><a href="#Влияние-непрерывной-поставки" class="headerlink" title="Влияние непрерывной поставки"></a>Влияние непрерывной поставки</h3><p>Используя принцип <a href="https://martinfowler.com/bliki/ContinuousDelivery.html" target="_blank" rel="noopener">непрерывной поставки</a>, мы создаём наше программное обеспечение таким образом, чтобы его можно было выпустить в production в любое время. Такая инженерная практика обеспечивается так называемым <a href="https://martinfowler.com/bliki/DeploymentPipeline.html" target="_blank" rel="noopener">конвейером непрерывной поставки</a>. Цель непрерывной поставки — разделение нашей сборки на этапы (например, компиляция, модульные тесты, интеграционные тесты, тесты производительности и т.д.), И каждый этап проверяет наш артефакт сборки каждый раз при изменении нашего программного обеспечения. В конечном итоге, каждый этап повышает нашу уверенность в готовности к production артефакта сборки и, следовательно, снижает риск сломать что-то в production (или любых других окружений по этой причине).</p>
+<p>Таким образом, создание Docker-образа для нашего приложения на Vue.js является хорошим выбором, потому что это будет представлять собой последний артефакт сборки, тот же артефакт, который будет проверен нашим конвейером непрерывной поставки и который потенциально может быть выпущен в production с уверенностью.</p>
+<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>Если ваша компания ещё не использует Docker и Kubernetes, или вы просто хотите выпустить в production ваш MVP, возможно, интеграция Docker к вашему приложения на Vue.js не то, что вам нужно.</p>
+<p>Распространённые альтернативы:</p>
+<ul>
+<li>использование платформы «всё-в-одном», например <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>;</li>
+<li>Размещение вашего SPA на <a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener">Amazon S3</a> и его обслуживание с <a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener">Amazon CloudFront</a> (см. <a href="https://serverless-stack.com/chapters/deploy-the-frontend.html" target="_blank" rel="noopener">эту страницу</a> для подробного руководства).</li>
+</ul>
+
+  
+  
+  <div class="footer">
+      <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<div id="bsa-native"></div>
+<script>
+_bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
+  {
+    target: '#bsa-native',
+    template: '<a class="native-box" href="##statlink##"><div class="native-sponsor">Sponsor</div><div class="native-text"><strong>##company##</strong> — ##description##</div></a>'
+  }
+);
+</script>
+
+    Обнаружили ошибку или хотите добавить что-то своё в документацию?
+    <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/cookbook/dockerize-vuejs-app.md" rel="noopener" target="_blank">
+      Измените эту страницу на GitHub!
+    </a>
+    Опубликовано на
+    <a href="https://url.netlify.com/HJ8X2mxP8" rel="noopener" target="_blank">
+      Netlify
+    </a>.
+  </div>
+</div>
+
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="/js/css.escape.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- search -->
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/css/search.css">
+        <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+
+        // unregister service worker
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for(let registration of registrations) {
+              registration.unregister()
+            }
+          })
+        }
+        </script>
+    </body>
+</html>
