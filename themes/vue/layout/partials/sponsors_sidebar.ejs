@@ -1,15 +1,17 @@
-<div id="sidebar-sponsors-special">
-  <div class="main-sponsor">
-    <span>Специальный спонсор</span>
-    <div>
-    <%_ for (const sponsor of theme.special_sponsors) {_%>
-    <a href="<%- sponsor.url %>" target="_blank" rel="sponsored noopener" class="logo">
-      <img src="<%- url_for(`/images/${sponsor.wide_img || sponsor.img}`) %>" alt="<%-sponsor.name-%>">
-    </a>
-    <%_ } _%>
+<%_ if (theme.special_sponsors) { _%>
+  <div id="sidebar-sponsors-special">
+    <div class="main-sponsor">
+      <span>Специальный спонсор</span>
+      <div>
+      <%_ for (const sponsor of theme.special_sponsors) {_%>
+      <a href="<%- sponsor.url %>" target="_blank" rel="sponsored noopener" class="logo">
+        <img src="<%- url_for(`/images/${sponsor.wide_img || sponsor.img}`) %>" alt="<%-sponsor.name-%>">
+      </a>
+      <%_ } _%>
+      </div>
     </div>
   </div>
-</div>
-<% if (!page.sponsors && !page.partners) { %>
-<%- partial('partials/platinum_sponsors', { context: 'left' }) %>
-<% } %>
+  <%_ } _%>
+  <%_ if (!page.sponsors && !page.partners) { _%>
+  <%- partial('partials/platinum_sponsors', { context: 'left' }) %>
+  <%_ } _%>
