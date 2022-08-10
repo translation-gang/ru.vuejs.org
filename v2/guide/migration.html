@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Миграция с Vue 1.x — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/migration.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/migration.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/migration.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/migration.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/migration.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/migration.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/migration.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/migration.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/migration.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/migration.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/migration.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/migration.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/migration.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/migration.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/migration.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/migration.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/migration.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar migration-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1015,7 +1034,7 @@
 <p>С чего мне начать миграцию?</p>
 </blockquote>
 <ol>
-<li><p>Начните с запуска <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> в текущем проекте. Мы тщательно минимизировали и скомпилировали сложные Vue разработки в простой интерфейс командной строки. Всякий раз, когда они признают устаревшую функцию, они сообщат вам, выдадут предложения и предоставят ссылки на дополнительную информацию.</p>
+<li><p>Начните с запуска <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> в текущем проекте. Мы тщательно минимизировали и скомпилировали сложные Vue разработки в простой интерфейс командной строки. Всякий раз, когда они признают устаревшую функцию, они сообщат вам, выдадут предложения и предоставят ссылки на дополнительную информацию.</p>
 </li>
 <li><p>После этого просмотрите оглавление этой страницы на боковой панели. Если вы видите тему, проблема которой может повлиять на вас, но помощник по миграции не поймал её - проверьте её.</p>
 </li>
@@ -1042,13 +1061,9 @@
 <p>Только Vue Router 2 совместим с Vue 2, так что да, вам также придётся следовать по пути <a href="migration-vue-router.html">миграции для Vue Router</a>. К счастью, в большинстве приложений не так много кода маршрутизатора, поэтому это, скорее всего, не займёт больше часа.</p>
 <p>Что касается Vuex, то даже версия 0.8 совместима с Vue 2, поэтому вы не должны обновляться. Единственная причина, по которой вы, возможно, захотите немедленно обновиться - воспользоваться новыми функциями Vuex 2, такими как модули и уменьшенный шаблон.</p>
 <h2 id="Шаблоны"><a href="#Шаблоны" class="headerlink" title="Шаблоны"></a>Шаблоны</h2><h3 id="Фрагментированные-экземпляры-удалены"><a href="#Фрагментированные-экземпляры-удалены" class="headerlink" title="Фрагментированные экземпляры удалены"></a>Фрагментированные экземпляры <sup>удалены</sup></h3><p>Каждый компонент должен содержать только один корневой элемент. Фрагментированные экземпляры больше не используются. Если ваш шаблон выглядит следующим образом:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Рекомендовано заменить код, просто обернув всё содержимое в новый элемент, например, вот так:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1059,96 +1074,80 @@
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
 <h3 id="compiled-заменён"><a href="#compiled-заменён" class="headerlink" title="compiled заменён"></a><code>compiled</code> <sup>заменён</sup></h3><p>Вместо этого используйте новый хук <code>mounted</code>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
 <h3 id="attached-удалён"><a href="#attached-удалён" class="headerlink" title="attached удалён"></a><code>attached</code> <sup>удалён</sup></h3><p>Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:</p>
-<pre><code class="hljs js">attached: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  doSomething()
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">attached</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">doSomething</span>()<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Вы можете использовать:</p>
-<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    doSomething()
-  &#125;)
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">mounted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.$nextTick(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">doSomething</span>()<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
 <h3 id="detached-удалён"><a href="#detached-удалён" class="headerlink" title="detached удалён"></a><code>detached</code> <sup>удалён</sup></h3><p>Используйте пользовательскую проверку DOM в других хуках. Например, чтобы заменить:</p>
-<pre><code class="hljs js">detached: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  doSomething()
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">detached</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">doSomething</span>()<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Вы можете использовать:</p>
-<pre><code class="hljs js">destroyed: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    doSomething()
-  &#125;)
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">destroyed</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.$nextTick(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-title function_">doSomething</span>()<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
 <h3 id="init-переименован"><a href="#init-переименован" class="headerlink" title="init переименован"></a><code>init</code> <sup>переименован</sup></h3><p>Вместо этого используйте новый хук <code>beforeCreate</code>, который фактически ничем не отличается. Данный хук был переименован для логической взаимосвязи с другими методами жизненного цикла.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
 <h3 id="ready-заменён"><a href="#ready-заменён" class="headerlink" title="ready заменён"></a><code>ready</code> <sup>заменён</sup></h3><p>Вместо этого используйте новый хук <code>mounted</code>. Однако, следует отметить, что использование хука <code>mounted</code> не даёт гарантии существования в документе. Для этого также используйте <code>Vue.nextTick</code>/<code>vm.$nextTick</code>. Например:</p>
-<pre><code class="hljs js">mounted: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-comment">// код, уже предполагающий наличие this.$el в документе</span>
-  &#125;)
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">mounted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.$nextTick(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// код, уже предполагающий наличие this.$el в документе</span><br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти все примеры использования этого хука.</p>
 </div>
 
 <h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a><code>v-for</code></h2><h3 id="Очерёдность-аргументов-для-массивов-в-v-for-изменено"><a href="#Очерёдность-аргументов-для-массивов-в-v-for-изменено" class="headerlink" title="Очерёдность аргументов для массивов в v-for изменено"></a>Очерёдность аргументов для массивов в <code>v-for</code> <sup>изменено</sup></h3><p>При использовании <code>index</code> очерёдность аргументов для массивов выглядела так <code>(index, value)</code>. Теперь она имеет вид <code>(value, index)</code>, чтобы не противоречить нативным методам массивов JavaScript, таким как <code>forEach</code> и <code>map</code>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали нестандартное наименование индексу аргументов как  <code>position</code> или <code>num</code>, помощник не выделит их.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали нестандартное наименование индексу аргументов как  <code>position</code> или <code>num</code>, помощник не выделит их.</p>
 </div>
 
 <h3 id="Очерёдность-аргументов-для-объектов-в-v-for-изменено"><a href="#Очерёдность-аргументов-для-объектов-в-v-for-изменено" class="headerlink" title="Очерёдность аргументов для объектов в v-for изменено"></a>Очерёдность аргументов для объектов в <code>v-for</code> <sup>изменено</sup></h3><p>При использовании имени свойства/ключа очерёдность аргументов для объектов выглядела так <code>(name, value)</code>. Теперь она имеет вид <code>(value, name)</code>, чтобы не противоречить распространённым итераторам объекта, таким как lodash.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали название ключу аргументов как <code>name</code> или <code>property</code>, помощник не выделит их.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры устаревших очерёдностей аргументов. Обратите внимание: если вы дали название ключу аргументов как <code>name</code> или <code>property</code>, помощник не выделит их.</p>
 </div>
 
 <h3 id="index-и-key-удалены"><a href="#index-и-key-удалены" class="headerlink" title="$index и $key удалены"></a><code>$index</code> и <code>$key</code> <sup>удалены</sup></h3><p>Неявно определённые переменные <code>$index</code> и <code>$key</code> были заменены на явно определённые в <code>v-for</code>. Это позволяет коду быть легко читаемым для разработчиков, которые менее опытны во Vue, и к тому же как результат приводит к более понятному поведению при работе с вложенными циклами.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры этих удалённых переменных. Если вы пропустили какую-то, то следует также проверить <strong>ошибки консоли</strong>, такие как: <code>Uncaught ReferenceError: $index is not defined</code></p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры этих удалённых переменных. Если вы пропустили какую-то, то следует также проверить <strong>ошибки консоли</strong>, такие как: <code>Uncaught ReferenceError: $index is not defined</code></p>
 </div>
 
 <h3 id="track-by-заменён"><a href="#track-by-заменён" class="headerlink" title="track-by заменён"></a><code>track-by</code> <sup>заменён</sup></h3><p><code>track-by</code> был заменён на <code>key</code>, который работает как любой другой атрибут: без директивы <code>v-bind:</code> или префикса <code>:</code> он воспринимался как буквенная строка. В большинстве же случаев вам захочется использовать динамичную привязку, которая требует написания полного выражения, а не просто ключа. Например, вместо:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">track-by</span>=<span class="hljs-string">"id"</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span> <span class="hljs-attr">track-by</span>=<span class="hljs-string">&quot;id&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Теперь необходимо писать:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"item.id"</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span> <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">&quot;item.id&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционного помощника</a> в вашем проекте, чтобы найти примеры использования <code>track-by</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционного помощника</a> в вашем проекте, чтобы найти примеры использования <code>track-by</code>.</p>
 </div>
 
 <h3 id="Диапазон-значений-в-v-for-изменено"><a href="#Диапазон-значений-в-v-for-изменено" class="headerlink" title="Диапазон значений  в v-for изменено"></a>Диапазон значений  в <code>v-for</code> <sup>изменено</sup></h3><p>Раньше в <code>v-for=&quot;number in 10&quot;</code> мы имели значение <code>number</code>, начиная от 0 и заканчивая 9. Теперь это значение начинается с 1 и заканчивается 10.</p>
@@ -1159,27 +1158,9 @@
 </div>
 
 <h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><h3 id="coerce-Prop-Option-удалён"><a href="#coerce-Prop-Option-удалён" class="headerlink" title="coerce Prop Option удалён"></a><code>coerce</code> Prop Option <sup>удалён</sup></h3><p>If you want to coerce a prop, setup a local computed value based on it instead. For example, instead of:</p>
-<pre><code class="hljs js">props: &#123;
-  <span class="hljs-attr">username</span>: &#123;
-    <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
-    <span class="hljs-attr">coerce</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
-      <span class="hljs-keyword">return</span> value
-        .toLowerCase()
-        .replace(<span class="hljs-regexp">/\s+/</span>, <span class="hljs-string">'-'</span>)
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">props</span>: &#123;<br>  <span class="hljs-attr">username</span>: &#123;<br>    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,<br>    <span class="hljs-attr">coerce</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) &#123;<br>      <span class="hljs-keyword">return</span> value<br>        .<span class="hljs-title function_">toLowerCase</span>()<br>        .<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\s+/</span>, <span class="hljs-string">&#x27;-&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>You could write:</p>
-<pre><code class="hljs js">props: &#123;
-  <span class="hljs-attr">username</span>: <span class="hljs-built_in">String</span>,
-&#125;,
-<span class="hljs-attr">computed</span>: &#123;
-  <span class="hljs-attr">normalizedUsername</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.username
-      .toLowerCase()
-      .replace(<span class="hljs-regexp">/\s+/</span>, <span class="hljs-string">'-'</span>)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">props</span>: &#123;<br>  <span class="hljs-attr">username</span>: <span class="hljs-title class_">String</span>,<br>&#125;,<br><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">normalizedUsername</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">username</span><br>      .<span class="hljs-title function_">toLowerCase</span>()<br>      .<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\s+/</span>, <span class="hljs-string">&#x27;-&#x27;</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>There are a few advantages:</p>
 <ul>
 <li>You still have access to the original value of the prop.</li>
@@ -1188,7 +1169,7 @@
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>coerce</code> option.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>coerce</code> option.</p>
 </div>
 
 <h3 id="twoWay-Prop-Option-удалён"><a href="#twoWay-Prop-Option-удалён" class="headerlink" title="twoWay Prop Option удалён"></a><code>twoWay</code> Prop Option <sup>удалён</sup></h3><p>Props are now always one-way down. To produce side effects in the parent scope, a component needs to explicitly emit an event instead of relying on implicit binding. For more information, see:</p>
@@ -1200,7 +1181,7 @@
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>twoWay</code> option.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>twoWay</code> option.</p>
 </div>
 
 <h3 id="once-and-sync-Modifiers-on-v-bind-удалён"><a href="#once-and-sync-Modifiers-on-v-bind-удалён" class="headerlink" title=".once and .sync Modifiers on v-bind удалён"></a><code>.once</code> and <code>.sync</code> Modifiers on <code>v-bind</code> <sup>удалён</sup></h3><p>Props are now always one-way down. To produce side effects in the parent scope, a component needs to explicitly emit an event instead of relying on implicit binding. For more information, see:</p>
@@ -1212,7 +1193,7 @@
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>.once</code> and <code>.sync</code> modifiers.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>.once</code> and <code>.sync</code> modifiers.</p>
 </div>
 
 <h3 id="Prop-Mutation-deprecated"><a href="#Prop-Mutation-deprecated" class="headerlink" title="Prop Mutation deprecated"></a>Prop Mutation <sup>deprecated</sup></h3><p>Mutating a prop locally is now considered an anti-pattern, e.g. declaring a prop and then setting <code>this.myProp = &#39;someOtherValue&#39;</code> in the component. Due to the new rendering mechanism, whenever the parent component re-renders, the child component’s local changes will be overwritten.</p>
@@ -1227,7 +1208,7 @@
   <p>Run your end-to-end test suite or app after upgrading and look for <strong>console warnings</strong> about prop mutations.</p>
 </div>
 
-<h3 id="Props-on-a-Root-Instance-заменён"><a href="#Props-on-a-Root-Instance-заменён" class="headerlink" title="Props on a Root Instance заменён"></a>Props on a Root Instance <sup>заменён</sup></h3><p>On root Vue instances (i.e. instances created with <code>new Vue({ ... })</code>), you must use <code>propsData</code> instead of <code>props</code>.</p>
+<h3 id="Props-on-a-Root-Instance-заменён"><a href="#Props-on-a-Root-Instance-заменён" class="headerlink" title="Props on a Root Instance заменён"></a>Props on a Root Instance <sup>заменён</sup></h3><p>On root Vue instances (i.e. instances created with <code>new Vue(&#123; ... &#125;)</code>), you must use <code>propsData</code> instead of <code>props</code>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1236,26 +1217,13 @@
 
 <h2 id="Computed-properties"><a href="#Computed-properties" class="headerlink" title="Computed properties"></a>Computed properties</h2><h3 id="cache-false-deprecated"><a href="#cache-false-deprecated" class="headerlink" title="cache: false deprecated"></a><code>cache: false</code> <sup>deprecated</sup></h3><p>Caching invalidation of computed properties will be removed in future major versions of Vue. Replace any uncached computed properties with methods, which will have the same result.</p>
 <p>For example:</p>
-<pre><code class="hljs js">template: <span class="hljs-string">'&lt;p&gt;message: &#123;&#123; timeMessage &#125;&#125;&lt;/p&gt;'</span>,
-<span class="hljs-attr">computed</span>: &#123;
-  <span class="hljs-attr">timeMessage</span>: &#123;
-    <span class="hljs-attr">cache</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-attr">get</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now() + <span class="hljs-keyword">this</span>.message
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;p&gt;message: &#123;&#123; timeMessage &#125;&#125;&lt;/p&gt;&#x27;</span>,<br><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">timeMessage</span>: &#123;<br>    <span class="hljs-attr">cache</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">get</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() + <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Or with component methods:</p>
-<pre><code class="hljs js">template: <span class="hljs-string">'&lt;p&gt;message: &#123;&#123; getTimeMessage() &#125;&#125;&lt;/p&gt;'</span>,
-<span class="hljs-attr">methods</span>: &#123;
-  <span class="hljs-attr">getTimeMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Date</span>.now() + <span class="hljs-keyword">this</span>.message
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;p&gt;message: &#123;&#123; getTimeMessage() &#125;&#125;&lt;/p&gt;&#x27;</span>,<br><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">getTimeMessage</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() + <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>cache: false</code> option.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>cache: false</code> option.</p>
 </div>
 
 <h2 id="Built-In-Directives"><a href="#Built-In-Directives" class="headerlink" title="Built-In Directives"></a>Built-In Directives</h2><h3 id="Truthiness-Falsiness-with-v-bind-changed"><a href="#Truthiness-Falsiness-with-v-bind-changed" class="headerlink" title="Truthiness/Falsiness with v-bind changed"></a>Truthiness/Falsiness with <code>v-bind</code> <sup>changed</sup></h3><p>When used with <code>v-bind</code>, the only falsy values are now: <code>null</code>, <code>undefined</code>, and <code>false</code>. This means <code>0</code> and empty strings will render as truthy. So for example, <code>v-bind:draggable=&quot;&#39;&#39;&quot;</code> will render as <code>draggable=&quot;true&quot;</code>.</p>
@@ -1269,7 +1237,7 @@
 </div>
 
 <h3 id="Listening-for-Native-Events-on-Components-with-v-on-changed"><a href="#Listening-for-Native-Events-on-Components-with-v-on-changed" class="headerlink" title="Listening for Native Events on Components with v-on changed"></a>Listening for Native Events on Components with <code>v-on</code> <sup>changed</sup></h3><p>When used on a component, <code>v-on</code> now only listens to custom events <code>$emit</code>ted by that component. To listen for a native DOM event on the root element, you can use the <code>.native</code> modifier. For example:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:click.native</span>=<span class="hljs-string">"doSomething"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-on:click.native</span>=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1322,82 +1290,32 @@ new Vue({
 </script>
 
 <p>Using the <code>debounce</code> attribute, there’d be no way to detect the “Typing” state, because we lose access to the input’s real-time state. By decoupling the debounce function from Vue however, we’re able to debounce only the operation we want to limit, removing the limits on features we can develop:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!--
-By using the debounce function from lodash or another dedicated
-utility library, we know the specific debounce implementation we
-use will be best-in-class - and we can use it ANYWHERE. Not only
-in our template.
---&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"debounce-search-demo"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"searchQuery"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Type something"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; searchIndicator &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#debounce-search-demo'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">searchQuery</span>: <span class="hljs-string">''</span>,
-    <span class="hljs-attr">searchQueryIsDirty</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-attr">isCalculating</span>: <span class="hljs-literal">false</span>
-  &#125;,
-  <span class="hljs-attr">computed</span>: &#123;
-    <span class="hljs-attr">searchIndicator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isCalculating) &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-string">'⟳ Fetching new results'</span>
-      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.searchQueryIsDirty) &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-string">'... Typing'</span>
-      &#125; <span class="hljs-keyword">else</span> &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-string">'✓ Done'</span>
-      &#125;
-    &#125;
-  &#125;,
-  <span class="hljs-attr">watch</span>: &#123;
-    <span class="hljs-attr">searchQuery</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">this</span>.searchQueryIsDirty = <span class="hljs-literal">true</span>
-      <span class="hljs-keyword">this</span>.expensiveOperation()
-    &#125;
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-comment">// This is where the debounce actually belongs.</span>
-    <span class="hljs-attr">expensiveOperation</span>: _.debounce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">this</span>.isCalculating = <span class="hljs-literal">true</span>
-      setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-        <span class="hljs-keyword">this</span>.isCalculating = <span class="hljs-literal">false</span>
-        <span class="hljs-keyword">this</span>.searchQueryIsDirty = <span class="hljs-literal">false</span>
-      &#125;.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">1000</span>)
-    &#125;, <span class="hljs-number">500</span>)
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">By using the debounce function from lodash or another dedicated</span><br><span class="hljs-comment">utility library, we know the specific debounce implementation we</span><br><span class="hljs-comment">use will be best-in-class - and we can use it ANYWHERE. Not only</span><br><span class="hljs-comment">in our template.</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;debounce-search-demo&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;searchQuery&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Type something&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;&#123; searchIndicator &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#debounce-search-demo&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">searchQuery</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>    <span class="hljs-attr">searchQueryIsDirty</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">isCalculating</span>: <span class="hljs-literal">false</span><br>  &#125;,<br>  <span class="hljs-attr">computed</span>: &#123;<br>    <span class="hljs-attr">searchIndicator</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">isCalculating</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;⟳ Fetching new results&#x27;</span><br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">searchQueryIsDirty</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;... Typing&#x27;</span><br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;✓ Done&#x27;</span><br>      &#125;<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">watch</span>: &#123;<br>    <span class="hljs-attr">searchQuery</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">searchQueryIsDirty</span> = <span class="hljs-literal">true</span><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">expensiveOperation</span>()<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-comment">// This is where the debounce actually belongs.</span><br>    <span class="hljs-attr">expensiveOperation</span>: _.<span class="hljs-title function_">debounce</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">isCalculating</span> = <span class="hljs-literal">true</span><br>      <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">isCalculating</span> = <span class="hljs-literal">false</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">searchQueryIsDirty</span> = <span class="hljs-literal">false</span><br>      &#125;.<span class="hljs-title function_">bind</span>(<span class="hljs-variable language_">this</span>), <span class="hljs-number">1000</span>)<br>    &#125;, <span class="hljs-number">500</span>)<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Another advantage of this approach is there will be times when debouncing isn’t quite the right wrapper function. For example, when hitting an API for search suggestions, waiting to offer suggestions until after the user has stopped typing for a period of time isn’t an ideal experience. What you probably want instead is a <strong>throttling</strong> function. Now since you’re already using a utility library like lodash, refactoring to use its <code>throttle</code> function instead takes only a few seconds.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>debounce</code> attribute.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>debounce</code> attribute.</p>
 </div>
 
 <h3 id="lazy-or-number-Param-Attributes-for-v-model-заменён"><a href="#lazy-or-number-Param-Attributes-for-v-model-заменён" class="headerlink" title="lazy or number Param Attributes for v-model заменён"></a><code>lazy</code> or <code>number</code> Param Attributes for <code>v-model</code> <sup>заменён</sup></h3><p>The <code>lazy</code> and <code>number</code> param attributes are now modifiers, to make it more clear what That means instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">lazy</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">number</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">lazy</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;age&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">number</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>You would use:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">"name"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;age&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the these param attributes.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the these param attributes.</p>
 </div>
 
 <h3 id="value-Attribute-with-v-model-удалён"><a href="#value-Attribute-with-v-model-удалён" class="headerlink" title="value Attribute with v-model удалён"></a><code>value</code> Attribute with <code>v-model</code> <sup>удалён</sup></h3><p><code>v-model</code> no longer cares about the initial value of an inline <code>value</code> attribute. For predictability, it will instead always treat the Vue instance data as the source of truth.</p>
 <p>That means this element:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"foo"</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;foo&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>backed by this data:</p>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">text</span>: <span class="hljs-string">'bar'</span>
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;bar&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>will render with a value of “bar” instead of “foo”. The same goes for a <code>&lt;textarea&gt;</code> with existing content. Instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"text"</span>&gt;</span>
-  hello world
-<span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><br>  hello world<br><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>You should ensure your initial value for <code>text</code> is “hello world”.</p>
 
 <div class="upgrade-path">
@@ -1406,14 +1324,12 @@ in our template.
 </div>
 
 <h3 id="v-model-with-v-for-Iterated-Primitive-Values-удалён"><a href="#v-model-with-v-for-Iterated-Primitive-Values-удалён" class="headerlink" title="v-model with v-for Iterated Primitive Values удалён"></a><code>v-model</code> with <code>v-for</code> Iterated Primitive Values <sup>удалён</sup></h3><p>Cases like this no longer work:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"str in strings"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"str"</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;str in strings&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;str&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>The reason is this is the equivalent JavaScript that the <code>&lt;input&gt;</code> would compile to:</p>
-<pre><code class="hljs js">strings.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) </span>&#123;
-  <span class="hljs-keyword">return</span> createElement(<span class="hljs-string">'input'</span>, ...)
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">strings.<span class="hljs-title function_">map</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;input&#x27;</span>, ...)<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>As you can see, <code>v-model</code>‘s two-way binding doesn’t make sense here. Setting <code>str</code> to another value in the iterator function will do nothing because it’s only a local variable in the function scope.</p>
 <p>Instead, you should use an array of <strong>objects</strong> so that <code>v-model</code> can update the field on the object. For example:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"obj in objects"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"obj.str"</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;obj in objects&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;obj.str&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
@@ -1421,41 +1337,39 @@ in our template.
 </div>
 
 <h3 id="v-bind-style-with-Object-Syntax-and-important-удалён"><a href="#v-bind-style-with-Object-Syntax-and-important-удалён" class="headerlink" title="v-bind:style with Object Syntax and !important удалён"></a><code>v-bind:style</code> with Object Syntax and <code>!important</code> <sup>удалён</sup></h3><p>This will no longer work:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"&#123; color: myColor + ' !important' &#125;"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;&#123; color: myColor + &#x27; !important&#x27; &#125;&quot;</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>If you really need to override another <code>!important</code>, you must use the string syntax:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"'color: ' + myColor + ' !important'"</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;&#x27;color: &#x27; + myColor + &#x27; !important&#x27;&quot;</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of style bindings with <code>!important</code> in objects.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of style bindings with <code>!important</code> in objects.</p>
 </div>
 
 <h3 id="v-el-and-v-ref-заменён"><a href="#v-el-and-v-ref-заменён" class="headerlink" title="v-el and v-ref заменён"></a><code>v-el</code> and <code>v-ref</code> <sup>заменён</sup></h3><p>For simplicity, <code>v-el</code> and <code>v-ref</code> have been merged into the <code>ref</code> attribute, accessible on a component instance via <code>$refs</code>. That means <code>v-el:my-element</code> would become <code>ref=&quot;myElement&quot;</code> and <code>v-ref:my-component</code> would become <code>ref=&quot;myComponent&quot;</code>. When used on a normal element, the <code>ref</code> will be the DOM element, and when used on a component, the <code>ref</code> will be the component instance.</p>
 <p>Since <code>v-ref</code> is no longer a directive, but a special attribute, it can also be dynamically defined. This is especially useful in combination with <code>v-for</code>. For example:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">v-bind:ref</span>=<span class="hljs-string">"'item' + item.id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span> <span class="hljs-attr">v-bind:ref</span>=<span class="hljs-string">&quot;&#x27;item&#x27; + item.id&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Previously, <code>v-el</code>/<code>v-ref</code> combined with <code>v-for</code> would produce an array of elements/components, because there was no way to give each item a unique name. You can still achieve this behavior by given each item the same <code>ref</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"items"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;items&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Unlike in 1.x, these <code>$refs</code> are not reactive, because they’re registered/updated during the render process itself. Making them reactive would require duplicate renders for every change.</p>
 <p>On the other hand, <code>$refs</code> are designed primarily for programmatic access in JavaScript - it is not recommended to rely on them in templates, because that would mean referring to state that does not belong to the instance itself. This would violate Vue’s data-driven view model.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>v-el</code> and <code>v-ref</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>v-el</code> and <code>v-ref</code>.</p>
 </div>
 
 <h3 id="v-else-with-v-show-удалён"><a href="#v-else-with-v-show-удалён" class="headerlink" title="v-else with v-show удалён"></a><code>v-else</code> with <code>v-show</code> <sup>удалён</sup></h3><p><code>v-else</code> no longer works with <code>v-show</code>. Use <code>v-if</code> with a negation expression instead. For example, instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"foo"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"bar"</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;foo&quot;</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">&quot;bar&quot;</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>You can use:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"foo"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!foo &amp;&amp; bar"</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;foo&quot;</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;!foo &amp;&amp; bar&quot;</span>&gt;</span>Not foo, but bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>v-else</code> with <code>v-show</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>v-else</code> with <code>v-show</code>.</p>
 </div>
 
-<h2 id="Пользовательские-Директивы-упрощены"><a href="#Пользовательские-Директивы-упрощены" class="headerlink" title="Пользовательские Директивы упрощены"></a>Пользовательские Директивы <sup>упрощены<sup></sup></sup></h2><p>Directives have a greatly reduced scope of responsibility: they are now only used for applying low-level direct DOM manipulations. In most cases, you should prefer using components as the main code-reuse abstraction.</p>
+<h2 id="Пользовательские-Директивы-упрощены"><a href="#Пользовательские-Директивы-упрощены" class="headerlink" title="Пользовательские Директивы упрощены"></a>Пользовательские Директивы <sup>упрощены<sup></h2><p>Directives have a greatly reduced scope of responsibility: they are now only used for applying low-level direct DOM manipulations. In most cases, you should prefer using components as the main code-reuse abstraction.</p>
 <p>Some of the most notable differences include:</p>
 <ul>
 <li>Directives no longer have instances. This means there’s no more <code>this</code> inside directive hooks. Instead, they receive everything they might need as arguments. If you really must persist state across hooks, you can do so on <code>el</code>.</li>
@@ -1466,206 +1380,128 @@ in our template.
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of defined directives. The helper will flag all of them, as it's likely in most cases that you'll want to refactor to a component.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of defined directives. The helper will flag all of them, as it's likely in most cases that you'll want to refactor to a component.</p>
 </div>
 
 <h3 id="Directive-literal-Modifier-удалён"><a href="#Directive-literal-Modifier-удалён" class="headerlink" title="Directive .literal Modifier удалён"></a>Directive <code>.literal</code> Modifier <sup>удалён</sup></h3><p>The <code>.literal</code> modifier has been removed, as the same can be easily achieved by providing a string literal as the value.</p>
 <p>For example, you can update:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive.literal</span>=<span class="hljs-string">"foo bar baz"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive.literal</span>=<span class="hljs-string">&quot;foo bar baz&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>to:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive</span>=<span class="hljs-string">"'foo bar baz'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-my-directive</span>=<span class="hljs-string">&quot;&#x27;foo bar baz&#x27;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the `.literal` modifier on a directive.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the `.literal` modifier on a directive.</p>
 </div>
 
 <h2 id="Transitions"><a href="#Transitions" class="headerlink" title="Transitions"></a>Transitions</h2><h3 id="transition-Attribute-заменён"><a href="#transition-Attribute-заменён" class="headerlink" title="transition Attribute заменён"></a><code>transition</code> Attribute <sup>заменён</sup></h3><p>Vue’s transition system has changed quite drastically and now uses <code>&lt;transition&gt;</code> and <code>&lt;transition-group&gt;</code> wrapper elements, rather than the <code>transition</code> attribute. It’s recommended to read the new <a href="transitions.html">Transitions guide</a> to learn more.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>transition</code> attribute.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>transition</code> attribute.</p>
 </div>
 
 <h3 id="Vue-transition-for-Reusable-Transitions-заменён"><a href="#Vue-transition-for-Reusable-Transitions-заменён" class="headerlink" title="Vue.transition for Reusable Transitions заменён"></a><code>Vue.transition</code> for Reusable Transitions <sup>заменён</sup></h3><p>With the new transition system, you can now <a href="transitions.html#Reusable-Transitions">use components for reusable transitions</a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.transition</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.transition</code>.</p>
 </div>
 
 <h3 id="Transition-stagger-Attribute-удалён"><a href="#Transition-stagger-Attribute-удалён" class="headerlink" title="Transition stagger Attribute удалён"></a>Transition <code>stagger</code> Attribute <sup>удалён</sup></h3><p>If you need to stagger list transitions, you can control timing by setting and accessing a <code>data-index</code> (or similar attribute) on an element. See <a href="transitions.html#Staggering-List-Transitions">an example here</a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the <code>transition</code> attribute. During your update, you can transition (pun very much intended) to the new staggering strategy as well.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the <code>transition</code> attribute. During your update, you can transition (pun very much intended) to the new staggering strategy as well.</p>
 </div>
 
 <h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><h3 id="events-option-удалён"><a href="#events-option-удалён" class="headerlink" title="events option удалён"></a><code>events</code> option <sup>удалён</sup></h3><p>The <code>events</code> option has been removed. Event handlers should now be registered in the <code>created</code> hook instead. Check out the <a href="#dispatch-and-broadcast-replaced"><code>$dispatch</code> and <code>$broadcast</code> migration guide</a> for a detailed example.</p>
 <h3 id="Vue-directive-39-on-39-keyCodes-заменён"><a href="#Vue-directive-39-on-39-keyCodes-заменён" class="headerlink" title="Vue.directive(&#39;on&#39;).keyCodes заменён"></a><code>Vue.directive(&#39;on&#39;).keyCodes</code> <sup>заменён</sup></h3><p>The new, more concise way to configure <code>keyCodes</code> is through <code>Vue.config.keyCodes</code>. For example:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// enable v-on:keyup.f1</span>
-Vue.config.keyCodes.f1 = <span class="hljs-number">112</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// enable v-on:keyup.f1</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-property">config</span>.<span class="hljs-property">keyCodes</span>.<span class="hljs-property">f1</span> = <span class="hljs-number">112</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the the old <code>keyCode</code> configuration syntax.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the the old <code>keyCode</code> configuration syntax.</p>
 </div>
 
-<h3 id="dispatch-and-broadcast-заменён"><a href="#dispatch-and-broadcast-заменён" class="headerlink" title="$dispatch and $broadcast заменён"></a><code>$dispatch</code> and <code>$broadcast</code> <sup>заменён</sup></h3><p><code>$dispatch</code> and <code>$broadcast</code> have been removed in favor of more explicitly cross-component communication and more maintainable state management solutions, such as <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>.</p>
+<h3 id="dispatch-and-broadcast-заменён"><a href="#dispatch-and-broadcast-заменён" class="headerlink" title="$dispatch and $broadcast заменён"></a><code>$dispatch</code> and <code>$broadcast</code> <sup>заменён</sup></h3><p><code>$dispatch</code> and <code>$broadcast</code> have been removed in favor of more explicitly cross-component communication and more maintainable state management solutions, such as <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex">Vuex</a>.</p>
 <p>The problem is event flows that depend on a component’s tree structure can be hard to reason about and are very brittle when the tree becomes large. They don’t scale well and only set you up for pain later. <code>$dispatch</code> and <code>$broadcast</code> also do not solve communication between sibling components.</p>
 <p>One of the most common uses for these methods is to communicate between a parent and its direct children. In these cases, you can actually <a href="components.html#Form-Input-Components-using-Custom-Events">listen to an <code>$emit</code> from a child with <code>v-on</code></a>. This allows you to keep the convenience of events with added explicitness.</p>
 <p>However, when communicating between distant descendants/ancestors, <code>$emit</code> won’t help you. Instead, the simplest possible upgrade would be to use a centralized event hub. This has the added benefit of allowing you to communicate between components no matter where they are in the component tree - even between siblings! Because Vue instances implement an event emitter interface, you can actually use an empty Vue instance for this purpose.</p>
 <p>For example, let’s say we have a todo app structured like this:</p>
-<pre><code class="hljs undefined">Todos
-├─ NewTodoInput
-└─ Todo
-   └─ DeleteTodoButton</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">Todos<br>├─ NewTodoInput<br>└─ Todo<br>   └─ DeleteTodoButton<br></code></pre></td></tr></table></figure>
 <p>We could manage communication between components with this single event hub:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// This is the event hub we'll use in every</span>
-<span class="hljs-comment">// component to communicate between them.</span>
-<span class="hljs-keyword">var</span> eventHub = <span class="hljs-keyword">new</span> Vue()</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// This is the event hub we&#x27;ll use in every</span><br><span class="hljs-comment">// component to communicate between them.</span><br><span class="hljs-keyword">var</span> eventHub = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>()<br></code></pre></td></tr></table></figure>
 <p>Then in our components, we can use <code>$emit</code>, <code>$on</code>, <code>$off</code> to emit events, listen for events, and clean up event listeners, respectively:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// NewTodoInput</span>
-<span class="hljs-comment">// ...</span>
-<span class="hljs-attr">methods</span>: &#123;
-  <span class="hljs-attr">addTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    eventHub.$emit(<span class="hljs-string">'add-todo'</span>, &#123; <span class="hljs-attr">text</span>: <span class="hljs-keyword">this</span>.newTodoText &#125;)
-    <span class="hljs-keyword">this</span>.newTodoText = <span class="hljs-string">''</span>
-  &#125;
-&#125;</code></pre>
-<pre><code class="hljs js"><span class="hljs-comment">// DeleteTodoButton</span>
-<span class="hljs-comment">// ...</span>
-<span class="hljs-attr">methods</span>: &#123;
-  <span class="hljs-attr">deleteTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>&#123;
-    eventHub.$emit(<span class="hljs-string">'delete-todo'</span>, id)
-  &#125;
-&#125;</code></pre>
-<pre><code class="hljs js"><span class="hljs-comment">// Todos</span>
-<span class="hljs-comment">// ...</span>
-<span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  eventHub.$on(<span class="hljs-string">'add-todo'</span>, <span class="hljs-keyword">this</span>.addTodo)
-  eventHub.$on(<span class="hljs-string">'delete-todo'</span>, <span class="hljs-keyword">this</span>.deleteTodo)
-&#125;,
-<span class="hljs-comment">// It's good to clean up event listeners before</span>
-<span class="hljs-comment">// a component is destroyed.</span>
-<span class="hljs-attr">beforeDestroy</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  eventHub.$off(<span class="hljs-string">'add-todo'</span>, <span class="hljs-keyword">this</span>.addTodo)
-  eventHub.$off(<span class="hljs-string">'delete-todo'</span>, <span class="hljs-keyword">this</span>.deleteTodo)
-&#125;,
-<span class="hljs-attr">methods</span>: &#123;
-  <span class="hljs-attr">addTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newTodo</span>) </span>&#123;
-    <span class="hljs-keyword">this</span>.todos.push(newTodo)
-  &#125;,
-  <span class="hljs-attr">deleteTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">todoId</span>) </span>&#123;
-    <span class="hljs-keyword">this</span>.todos = <span class="hljs-keyword">this</span>.todos.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">todo</span>) </span>&#123;
-      <span class="hljs-keyword">return</span> todo.id !== todoId
-    &#125;)
-  &#125;
-&#125;</code></pre>
-<p>This pattern can serve as a replacement for <code>$dispatch</code> and <code>$broadcast</code> in simple scenarios, but for more complex cases, it’s recommended to use a dedicated state management layer such as <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a>.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// NewTodoInput</span><br><span class="hljs-comment">// ...</span><br><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">addTodo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    eventHub.$emit(<span class="hljs-string">&#x27;add-todo&#x27;</span>, &#123; <span class="hljs-attr">text</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">newTodoText</span> &#125;)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">newTodoText</span> = <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// DeleteTodoButton</span><br><span class="hljs-comment">// ...</span><br><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">deleteTodo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) &#123;<br>    eventHub.$emit(<span class="hljs-string">&#x27;delete-todo&#x27;</span>, id)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Todos</span><br><span class="hljs-comment">// ...</span><br><span class="hljs-attr">created</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  eventHub.$on(<span class="hljs-string">&#x27;add-todo&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">addTodo</span>)<br>  eventHub.$on(<span class="hljs-string">&#x27;delete-todo&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">deleteTodo</span>)<br>&#125;,<br><span class="hljs-comment">// It&#x27;s good to clean up event listeners before</span><br><span class="hljs-comment">// a component is destroyed.</span><br><span class="hljs-attr">beforeDestroy</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  eventHub.$off(<span class="hljs-string">&#x27;add-todo&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">addTodo</span>)<br>  eventHub.$off(<span class="hljs-string">&#x27;delete-todo&#x27;</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">deleteTodo</span>)<br>&#125;,<br><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">addTodo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">newTodo</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">todos</span>.<span class="hljs-title function_">push</span>(newTodo)<br>  &#125;,<br>  <span class="hljs-attr">deleteTodo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">todoId</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">todos</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">todos</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">todo</span>) &#123;<br>      <span class="hljs-keyword">return</span> todo.<span class="hljs-property">id</span> !== todoId<br>    &#125;)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>This pattern can serve as a replacement for <code>$dispatch</code> and <code>$broadcast</code> in simple scenarios, but for more complex cases, it’s recommended to use a dedicated state management layer such as <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex">Vuex</a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>$dispatch</code> and <code>$broadcast</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>$dispatch</code> and <code>$broadcast</code>.</p>
 </div>
 
 <h2 id="Filters"><a href="#Filters" class="headerlink" title="Filters"></a>Filters</h2><h3 id="Filters-Outside-Text-Interpolations-удалён"><a href="#Filters-Outside-Text-Interpolations-удалён" class="headerlink" title="Filters Outside Text Interpolations удалён"></a>Filters Outside Text Interpolations <sup>удалён</sup></h3><p>Filters can now only be used inside text interpolations (<code>{{ }}</code> tags). In the past we’ve found using filters within directives such as <code>v-model</code>, <code>v-on</code>, etc led to more complexity than convenience. For list filtering on <code>v-for</code>, it’s also better to move that logic into JavaScript as computed properties, so that it can be reused throughout your component.</p>
 <p>In general, whenever something can be achieved in plain JavaScript, we want to avoid introducing a special syntax like filters to take care of the same concern. Here’s how you can replace Vue’s built-in directive filters:</p>
 <h4 id="Replacing-the-debounce-Filter"><a href="#Replacing-the-debounce-Filter" class="headerlink" title="Replacing the debounce Filter"></a>Replacing the <code>debounce</code> Filter</h4><p>Instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup</span>=<span class="hljs-string">"doStuff | debounce 500"</span>&gt;</span></code></pre>
-<pre><code class="hljs js">methods: &#123;
-  <span class="hljs-attr">doStuff</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-comment">// ...</span>
-  &#125;
-&#125;</code></pre>
-<p>Use <a href="https://lodash.com/docs/4.15.0#debounce" target="_blank" rel="noopener">lodash’s <code>debounce</code></a> (or possibly <a href="https://lodash.com/docs/4.15.0#throttle" target="_blank" rel="noopener"><code>throttle</code></a>) to directly limit calling the expensive method. You can achieve the same as above like this:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup</span>=<span class="hljs-string">"doStuff"</span>&gt;</span></code></pre>
-<pre><code class="hljs js">methods: &#123;
-  <span class="hljs-attr">doStuff</span>: _.debounce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-comment">// ...</span>
-  &#125;, <span class="hljs-number">500</span>)
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup</span>=<span class="hljs-string">&quot;doStuff | debounce 500&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">doStuff</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// ...</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Use <a target="_blank" rel="noopener" href="https://lodash.com/docs/4.15.0#debounce">lodash’s <code>debounce</code></a> (or possibly <a target="_blank" rel="noopener" href="https://lodash.com/docs/4.15.0#throttle"><code>throttle</code></a>) to directly limit calling the expensive method. You can achieve the same as above like this:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-on:keyup</span>=<span class="hljs-string">&quot;doStuff&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">doStuff</span>: _.<span class="hljs-title function_">debounce</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// ...</span><br>  &#125;, <span class="hljs-number">500</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>For more on the advantages of this strategy, see <a href="#debounce-Param-Attribute-for-v-model-removed">the example here with <code>v-model</code></a>.</p>
 <h4 id="Replacing-the-limitBy-Filter"><a href="#Replacing-the-limitBy-Filter" class="headerlink" title="Replacing the limitBy Filter"></a>Replacing the <code>limitBy</code> Filter</h4><p>Instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items | limitBy 10"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-<p>Use JavaScript’s built-in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Examples" target="_blank" rel="noopener"><code>.slice</code> method</a> in a computed property:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in filteredItems"</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-<pre><code class="hljs js">computed: &#123;
-  <span class="hljs-attr">filteredItems</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.items.slice(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in items | limitBy 10&quot;</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>Use JavaScript’s built-in <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Examples"><code>.slice</code> method</a> in a computed property:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in filteredItems&quot;</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">filteredItems</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">items</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h4 id="Replacing-the-filterBy-Filter"><a href="#Replacing-the-filterBy-Filter" class="headerlink" title="Replacing the filterBy Filter"></a>Replacing the <code>filterBy</code> Filter</h4><p>Instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in users | filterBy searchQuery in 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-<p>Use JavaScript’s built-in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#Examples" target="_blank" rel="noopener"><code>.filter</code> method</a> in a computed property:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in filteredUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-<pre><code class="hljs js">computed: &#123;
-  <span class="hljs-attr">filteredUsers</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
-    <span class="hljs-keyword">return</span> self.users.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>&#123;
-      <span class="hljs-keyword">return</span> user.name.indexOf(self.searchQuery) !== <span class="hljs-number">-1</span>
-    &#125;)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;user in users | filterBy searchQuery in &#x27;name&#x27;&quot;</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>Use JavaScript’s built-in <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#Examples"><code>.filter</code> method</a> in a computed property:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;user in filteredUsers&quot;</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">filteredUsers</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> self = <span class="hljs-variable language_">this</span><br>    <span class="hljs-keyword">return</span> self.<span class="hljs-property">users</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) &#123;<br>      <span class="hljs-keyword">return</span> user.<span class="hljs-property">name</span>.<span class="hljs-title function_">indexOf</span>(self.<span class="hljs-property">searchQuery</span>) !== -<span class="hljs-number">1</span><br>    &#125;)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>JavaScript’s native <code>.filter</code> can also manage much more complex filtering operations, because you have access to the full power of JavaScript within computed properties. For example, if you wanted to find all active users and case-insensitively match against both their name and email:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
-self.users.filter(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>&#123;
-  <span class="hljs-keyword">var</span> searchRegex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(self.searchQuery, <span class="hljs-string">'i'</span>)
-  <span class="hljs-keyword">return</span> user.isActive &amp;&amp; (
-    searchRegex.test(user.name) ||
-    searchRegex.test(user.email)
-  )
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> self = <span class="hljs-variable language_">this</span><br>self.<span class="hljs-property">users</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) &#123;<br>  <span class="hljs-keyword">var</span> searchRegex = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(self.<span class="hljs-property">searchQuery</span>, <span class="hljs-string">&#x27;i&#x27;</span>)<br>  <span class="hljs-keyword">return</span> user.<span class="hljs-property">isActive</span> &amp;&amp; (<br>    searchRegex.<span class="hljs-title function_">test</span>(user.<span class="hljs-property">name</span>) ||<br>    searchRegex.<span class="hljs-title function_">test</span>(user.<span class="hljs-property">email</span>)<br>  )<br>&#125;)<br></code></pre></td></tr></table></figure>
 <h4 id="Replacing-the-orderBy-Filter"><a href="#Replacing-the-orderBy-Filter" class="headerlink" title="Replacing the orderBy Filter"></a>Replacing the <code>orderBy</code> Filter</h4><p>Instead of:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in users | orderBy 'name'"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-<p>Use <a href="https://lodash.com/docs/4.15.0#orderBy" target="_blank" rel="noopener">lodash’s <code>orderBy</code></a> (or possibly <a href="https://lodash.com/docs/4.15.0#sortBy" target="_blank" rel="noopener"><code>sortBy</code></a>) in a computed property:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"user in orderedUsers"</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-<pre><code class="hljs js">computed: &#123;
-  <span class="hljs-attr">orderedUsers</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> _.orderBy(<span class="hljs-keyword">this</span>.users, <span class="hljs-string">'name'</span>)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;user in users | orderBy &#x27;name&#x27;&quot;</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>Use <a target="_blank" rel="noopener" href="https://lodash.com/docs/4.15.0#orderBy">lodash’s <code>orderBy</code></a> (or possibly <a target="_blank" rel="noopener" href="https://lodash.com/docs/4.15.0#sortBy"><code>sortBy</code></a>) in a computed property:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;user in orderedUsers&quot;</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">orderedUsers</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> _.<span class="hljs-title function_">orderBy</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">users</span>, <span class="hljs-string">&#x27;name&#x27;</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>You can even order by multiple columns:</p>
-<pre><code class="hljs js">_.orderBy(<span class="hljs-keyword">this</span>.users, [<span class="hljs-string">'name'</span>, <span class="hljs-string">'last_login'</span>], [<span class="hljs-string">'asc'</span>, <span class="hljs-string">'desc'</span>])</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">_.<span class="hljs-title function_">orderBy</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">users</span>, [<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;last_login&#x27;</span>], [<span class="hljs-string">&#x27;asc&#x27;</span>, <span class="hljs-string">&#x27;desc&#x27;</span>])<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of filters being used inside directives. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of filters being used inside directives. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="Filter-Argument-Syntax-changed"><a href="#Filter-Argument-Syntax-changed" class="headerlink" title="Filter Argument Syntax changed"></a>Filter Argument Syntax <sup>changed</sup></h3><p>Filters’ syntax for arguments now better aligns with JavaScript function invocation. So instead of taking space-delimited arguments:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate 'YY-MM-DD' timeZone &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate &#x27;YY-MM-DD&#x27; timeZone &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>We surround the arguments with parentheses and delimit the arguments with commas:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate('YY-MM-DD', timeZone) &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; date | formatDate(&#x27;YY-MM-DD&#x27;, timeZone) &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the old filter syntax. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the old filter syntax. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
-<h3 id="Built-In-Text-Filters-удалён"><a href="#Built-In-Text-Filters-удалён" class="headerlink" title="Built-In Text Filters удалён"></a>Built-In Text Filters <sup>удалён</sup></h3><p>Although filters within text interpolations are still allowed, all of the filters have been removed. Instead, it’s recommended to use more specialized libraries for solving problems in each domain (e.g. <a href="https://date-fns.org/" target="_blank" rel="noopener"><code>date-fns</code></a> to format dates and <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener"><code>accounting</code></a> for currencies).</p>
+<h3 id="Built-In-Text-Filters-удалён"><a href="#Built-In-Text-Filters-удалён" class="headerlink" title="Built-In Text Filters удалён"></a>Built-In Text Filters <sup>удалён</sup></h3><p>Although filters within text interpolations are still allowed, all of the filters have been removed. Instead, it’s recommended to use more specialized libraries for solving problems in each domain (e.g. <a target="_blank" rel="noopener" href="https://date-fns.org/"><code>date-fns</code></a> to format dates and <a target="_blank" rel="noopener" href="http://openexchangerates.github.io/accounting.js/"><code>accounting</code></a> for currencies).</p>
 <p>For each of Vue’s built-in text filters, we go through how you can replace them below. The example code could exist in custom helper functions, methods, or computed properties.</p>
 <h4 id="Replacing-the-json-Filter"><a href="#Replacing-the-json-Filter" class="headerlink" title="Replacing the json Filter"></a>Replacing the <code>json</code> Filter</h4><p>You actually don’t need to for debugging anymore, as Vue will nicely format output for you automatically, whether it’s a string, number, array, or plain object. If you want the exact same functionality as JavaScript’s <code>JSON.stringify</code> though, then you can use that in a method or computed property.</p>
-<h4 id="Replacing-the-capitalize-Filter"><a href="#Replacing-the-capitalize-Filter" class="headerlink" title="Replacing the capitalize Filter"></a>Replacing the <code>capitalize</code> Filter</h4><pre><code class="hljs js">text[<span class="hljs-number">0</span>].toUpperCase() + text.slice(<span class="hljs-number">1</span>)</code></pre>
-<h4 id="Replacing-the-uppercase-Filter"><a href="#Replacing-the-uppercase-Filter" class="headerlink" title="Replacing the uppercase Filter"></a>Replacing the <code>uppercase</code> Filter</h4><pre><code class="hljs js">text.toUpperCase()</code></pre>
-<h4 id="Replacing-the-lowercase-Filter"><a href="#Replacing-the-lowercase-Filter" class="headerlink" title="Replacing the lowercase Filter"></a>Replacing the <code>lowercase</code> Filter</h4><pre><code class="hljs js">text.toLowerCase()</code></pre>
-<h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a href="https://www.npmjs.com/package/pluralize" target="_blank" rel="noopener">pluralize</a> package on npm serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
-<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pluralizeKnife</span> (<span class="hljs-params">count</span>) </span>&#123;
-  <span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) &#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'no knives'</span>
-  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (count === <span class="hljs-number">1</span>) &#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'1 knife'</span>
-  &#125; <span class="hljs-keyword">else</span> &#123;
-    <span class="hljs-keyword">return</span> count + <span class="hljs-string">'knives'</span>
-  &#125;
-&#125;</code></pre>
+<h4 id="Replacing-the-capitalize-Filter"><a href="#Replacing-the-capitalize-Filter" class="headerlink" title="Replacing the capitalize Filter"></a>Replacing the <code>capitalize</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">text[<span class="hljs-number">0</span>].<span class="hljs-title function_">toUpperCase</span>() + text.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="Replacing-the-uppercase-Filter"><a href="#Replacing-the-uppercase-Filter" class="headerlink" title="Replacing the uppercase Filter"></a>Replacing the <code>uppercase</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">text.<span class="hljs-title function_">toUpperCase</span>()<br></code></pre></td></tr></table></figure>
+<h4 id="Replacing-the-lowercase-Filter"><a href="#Replacing-the-lowercase-Filter" class="headerlink" title="Replacing the lowercase Filter"></a>Replacing the <code>lowercase</code> Filter</h4><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">text.<span class="hljs-title function_">toLowerCase</span>()<br></code></pre></td></tr></table></figure>
+<h4 id="Replacing-the-pluralize-Filter"><a href="#Replacing-the-pluralize-Filter" class="headerlink" title="Replacing the pluralize Filter"></a>Replacing the <code>pluralize</code> Filter</h4><p>The <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/pluralize">pluralize</a> package on npm serves this purpose nicely, but if you only want to pluralize a specific word or want to have special output for cases like <code>0</code>, then you can also easily define your own pluralize functions. For example:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">pluralizeKnife</span> (count) &#123;<br>  <span class="hljs-keyword">if</span> (count === <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;no knives&#x27;</span><br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (count === <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;1 knife&#x27;</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">return</span> count + <span class="hljs-string">&#x27;knives&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h4 id="Replacing-the-currency-Filter"><a href="#Replacing-the-currency-Filter" class="headerlink" title="Replacing the currency Filter"></a>Replacing the <code>currency</code> Filter</h4><p>For a very naive implementation, you could do something like this:</p>
-<pre><code class="hljs js"><span class="hljs-string">'$'</span> + price.toFixed(<span class="hljs-number">2</span>)</code></pre>
-<p>In many cases though, you’ll still run into strange behavior (e.g. <code>0.035.toFixed(2)</code> rounds up to <code>0.04</code>, but <code>0.045</code> rounds down to <code>0.04</code>). To work around these issues, you can use the <a href="http://openexchangerates.github.io/accounting.js/" target="_blank" rel="noopener"><code>accounting</code></a> library to more reliably format currencies.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-string">&#x27;$&#x27;</span> + price.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+<p>In many cases though, you’ll still run into strange behavior (e.g. <code>0.035.toFixed(2)</code> rounds up to <code>0.04</code>, but <code>0.045</code> rounds down to <code>0.04</code>). To work around these issues, you can use the <a target="_blank" rel="noopener" href="http://openexchangerates.github.io/accounting.js/"><code>accounting</code></a> library to more reliably format currencies.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete text filters. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the obsolete text filters. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="Two-Way-Filters-заменён"><a href="#Two-Way-Filters-заменён" class="headerlink" title="Two-Way Filters заменён"></a>Two-Way Filters <sup>заменён</sup></h3><p>Some users have enjoyed using two-way filters with <code>v-model</code> to create interesting inputs with very little code. While <em>seemingly</em> simple however, two-way filters can also hide a great deal of complexity - and even encourage poor UX by delaying state updates. Instead, components wrapping an input are recommended as a more explicit and feature-rich way of creating custom inputs.</p>
@@ -1676,7 +1512,7 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 <p>To start transitioning towards a more robust solution using Vue 2.0, let’s first wrap this filter in a new <code>&lt;currency-input&gt;</code> component:</p>
 <iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-10-two-way-currency-filter-v2?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light" style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
-<p>This allows us add behavior that a filter alone couldn’t encapsulate, such as selecting the content of an input on focus. Now the next step will be to extract the business logic from the filter. Below, we pull everything out into an external <a href="https://gist.github.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e" target="_blank" rel="noopener"><code>currencyValidator</code> object</a>:</p>
+<p>This allows us add behavior that a filter alone couldn’t encapsulate, such as selecting the content of an input on focus. Now the next step will be to extract the business logic from the filter. Below, we pull everything out into an external <a target="_blank" rel="noopener" href="https://gist.github.com/chrisvfritz/5f0a639590d6e648933416f90ba7ae4e"><code>currencyValidator</code> object</a>:</p>
 <iframe src="https://codesandbox.io/embed/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-10-two-way-currency-filter-v3?codemirror=1&hidedevtools=1&hidenavigation=1&theme=light" style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;" title="vue-20-template-compilation" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <p>This increased modularity not only makes it easier to migrate to Vue 2, but also allows currency parsing and formatting to be:</p>
@@ -1697,7 +1533,7 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of filters used in directives like <code>v-model</code>. If you miss any, you should also see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of filters used in directives like <code>v-model</code>. If you miss any, you should also see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="Slots"><a href="#Slots" class="headerlink" title="Slots"></a>Slots</h2><h3 id="Duplicate-Slots-удалён"><a href="#Duplicate-Slots-удалён" class="headerlink" title="Duplicate Slots удалён"></a>Duplicate Slots <sup>удалён</sup></h3><p>It is no longer supported to have <code>&lt;slot&gt;</code>s with the same name in the same template. When a slot is rendered it is “used up” and cannot be rendered elsewhere in the same render tree. If you must render the same content in multiple places, pass that content as a prop.</p>
@@ -1711,61 +1547,48 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find CSS selectors targeting named slots (e.g. <code>[slot="my-slot-name"]</code>).</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find CSS selectors targeting named slots (e.g. <code>[slot="my-slot-name"]</code>).</p>
 </div>
 
 <h2 id="Special-Attributes"><a href="#Special-Attributes" class="headerlink" title="Special Attributes"></a>Special Attributes</h2><h3 id="keep-alive-Attribute-заменён"><a href="#keep-alive-Attribute-заменён" class="headerlink" title="keep-alive Attribute заменён"></a><code>keep-alive</code> Attribute <sup>заменён</sup></h3><p><code>keep-alive</code> is no longer a special attribute, but rather a wrapper component, similar to <code>&lt;transition&gt;</code>. For example:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">&quot;view&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>This makes it possible to use <code>&lt;keep-alive&gt;</code> on multiple conditional children:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"todos.length &gt; 0"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">no-todos-gif</span> <span class="hljs-attr">v-else</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">no-todos-gif</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">todo-list</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;todos.length &gt; 0&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-list</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">no-todos-gif</span> <span class="hljs-attr">v-else</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">no-todos-gif</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p class="tip">When <code>&lt;keep-alive&gt;</code> has multiple children, they should eventually evaluate to a single child. Any child other than the first one will be ignored.</p>
 
 <p>When used together with <code>&lt;transition&gt;</code>, make sure to nest it inside:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"view"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">&quot;view&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find <code>keep-alive</code> attributes.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find <code>keep-alive</code> attributes.</p>
 </div>
 
 <h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><h3 id="Interpolation-within-Attributes-удалён"><a href="#Interpolation-within-Attributes-удалён" class="headerlink" title="Interpolation within Attributes удалён"></a>Interpolation within Attributes <sup>удалён</sup></h3><p>Interpolation within attributes is no longer valid. For example:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-&#123;&#123; size &#125;&#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-&#123;&#123; size &#125;&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Should either be updated to use an inline expression:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"'btn btn-' + size"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;&#x27;btn btn-&#x27; + size&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Or a data/computed property:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"buttonClasses"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
-<pre><code class="hljs js">computed: &#123;
-  <span class="hljs-attr">buttonClasses</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'btn btn-'</span> + size
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;buttonClasses&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">buttonClasses</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;btn btn-&#x27;</span> + size<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of interpolation used within attributes.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of interpolation used within attributes.</p>
 </div>
 
 <h3 id="HTML-Interpolation-удалён"><a href="#HTML-Interpolation-удалён" class="headerlink" title="HTML Interpolation удалён"></a>HTML Interpolation <sup>удалён</sup></h3><p>HTML interpolations (<code>{{{ foo }}}</code>) have been removed in favor of the <a href="../api/#v-html"><code>v-html</code> directive</a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find HTML interpolations.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find HTML interpolations.</p>
 </div>
 
 <h3 id="One-Time-Bindings-заменён"><a href="#One-Time-Bindings-заменён" class="headerlink" title="One-Time Bindings заменён"></a>One-Time Bindings <sup>заменён</sup></h3><p>One time bindings (<code>{{* foo }}</code>) have been replaced by the new <a href="../api/#v-once"><code>v-once</code> directive</a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find one-time bindings.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find one-time bindings.</p>
 </div>
 
 <h2 id="Reactivity"><a href="#Reactivity" class="headerlink" title="Reactivity"></a>Reactivity</h2><h3 id="vm-watch-changed"><a href="#vm-watch-changed" class="headerlink" title="vm.$watch changed"></a><code>vm.$watch</code> <sup>changed</sup></h3><p>Watchers created via <code>vm.$watch</code> are now fired before the associated component rerenders. This gives you the chance to further update state before the component rerender, thus avoiding unnecessary updates. For example, you can watch a component prop and update the component’s own data when the prop changes.</p>
@@ -1780,166 +1603,145 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete usage.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the obsolete usage.</p>
 </div>
 
 <h3 id="vm-delete-changed"><a href="#vm-delete-changed" class="headerlink" title="vm.$delete changed"></a><code>vm.$delete</code> <sup>changed</sup></h3><p><code>vm.$delete</code> is now an alias for <a href="../api/#Vue-delete"><code>Vue.delete</code></a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of the obsolete usage.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of the obsolete usage.</p>
 </div>
 
 <h3 id="Array-prototype-set-удалён"><a href="#Array-prototype-set-удалён" class="headerlink" title="Array.prototype.$set удалён"></a><code>Array.prototype.$set</code> <sup>удалён</sup></h3><p>Use <code>Vue.set</code> instead.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>.$set</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>.$set</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
 </div>
 
 <h3 id="Array-prototype-remove-удалён"><a href="#Array-prototype-remove-удалён" class="headerlink" title="Array.prototype.$remove удалён"></a><code>Array.prototype.$remove</code> <sup>удалён</sup></h3><p>Use <code>Array.prototype.splice</code> instead. For example:</p>
-<pre><code class="hljs js">methods: &#123;
-  <span class="hljs-attr">removeTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">todo</span>) </span>&#123;
-    <span class="hljs-keyword">var</span> index = <span class="hljs-keyword">this</span>.todos.indexOf(todo)
-    <span class="hljs-keyword">this</span>.todos.splice(index, <span class="hljs-number">1</span>)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">removeTodo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">todo</span>) &#123;<br>    <span class="hljs-keyword">var</span> index = <span class="hljs-variable language_">this</span>.<span class="hljs-property">todos</span>.<span class="hljs-title function_">indexOf</span>(todo)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">todos</span>.<span class="hljs-title function_">splice</span>(index, <span class="hljs-number">1</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Or better yet, pass removal methods an index:</p>
-<pre><code class="hljs js">methods: &#123;
-  <span class="hljs-attr">removeTodo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">index</span>) </span>&#123;
-    <span class="hljs-keyword">this</span>.todos.splice(index, <span class="hljs-number">1</span>)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">removeTodo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">index</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">todos</span>.<span class="hljs-title function_">splice</span>(index, <span class="hljs-number">1</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>.$remove</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>.$remove</code> on an array. If you miss any, you should see <strong>console errors</strong> from the missing method.</p>
 </div>
 
 <h3 id="Vue-set-and-Vue-delete-on-Vue-instances-удалён"><a href="#Vue-set-and-Vue-delete-on-Vue-instances-удалён" class="headerlink" title="Vue.set and Vue.delete on Vue instances удалён"></a><code>Vue.set</code> and <code>Vue.delete</code> on Vue instances <sup>удалён</sup></h3><p><code>Vue.set</code> and <code>Vue.delete</code> can no longer work on Vue instances. It is now mandatory to properly declare all top-level reactive properties in the data option. If you’d like to delete properties on a Vue instance or its <code>$data</code>, set it to null.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.set</code> or <code>Vue.delete</code> on a Vue instance. If you miss any, they'll trigger <strong>console warnings</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.set</code> or <code>Vue.delete</code> on a Vue instance. If you miss any, they'll trigger <strong>console warnings</strong>.</p>
 </div>
 
 <h3 id="Replacing-vm-data-удалён"><a href="#Replacing-vm-data-удалён" class="headerlink" title="Replacing vm.$data удалён"></a>Replacing <code>vm.$data</code> <sup>удалён</sup></h3><p>It is now prohibited to replace a component instance’s root $data. This prevents some edge cases in the reactivity system and makes the component state more predictable (especially with type-checking systems).</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of overwriting <code>vm.$data</code>. If you miss any, <strong>console warnings</strong> will be emitted.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of overwriting <code>vm.$data</code>. If you miss any, <strong>console warnings</strong> will be emitted.</p>
 </div>
 
 <h3 id="vm-get-удалён"><a href="#vm-get-удалён" class="headerlink" title="vm.$get удалён"></a><code>vm.$get</code> <sup>удалён</sup></h3><p>Instead, retrieve reactive data directly.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$get</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$get</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="DOM-Focused-Instance-Methods"><a href="#DOM-Focused-Instance-Methods" class="headerlink" title="DOM-Focused Instance Methods"></a>DOM-Focused Instance Methods</h2><h3 id="vm-appendTo-удалён"><a href="#vm-appendTo-удалён" class="headerlink" title="vm.$appendTo удалён"></a><code>vm.$appendTo</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<pre><code class="hljs js">myElement.appendChild(vm.$el)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">myElement.<span class="hljs-title function_">appendChild</span>(vm.<span class="hljs-property">$el</span>)<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$appendTo</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$appendTo</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-before-удалён"><a href="#vm-before-удалён" class="headerlink" title="vm.$before удалён"></a><code>vm.$before</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<pre><code class="hljs js">myElement.parentNode.insertBefore(vm.$el, myElement)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">myElement.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">insertBefore</span>(vm.<span class="hljs-property">$el</span>, myElement)<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$before</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$before</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-after-удалён"><a href="#vm-after-удалён" class="headerlink" title="vm.$after удалён"></a><code>vm.$after</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<pre><code class="hljs js">myElement.parentNode.insertBefore(vm.$el, myElement.nextSibling)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">myElement.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">insertBefore</span>(vm.<span class="hljs-property">$el</span>, myElement.<span class="hljs-property">nextSibling</span>)<br></code></pre></td></tr></table></figure>
 <p>Or if <code>myElement</code> is the last child:</p>
-<pre><code class="hljs js">myElement.parentNode.appendChild(vm.$el)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">myElement.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">appendChild</span>(vm.<span class="hljs-property">$el</span>)<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$after</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$after</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h3 id="vm-remove-удалён"><a href="#vm-remove-удалён" class="headerlink" title="vm.$remove удалён"></a><code>vm.$remove</code> <sup>удалён</sup></h3><p>Use the native DOM API:</p>
-<pre><code class="hljs js">vm.$el.remove()</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">vm.<span class="hljs-property">$el</span>.<span class="hljs-title function_">remove</span>()<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$remove</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$remove</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
-<h2 id="Meta-Instance-Methods"><a href="#Meta-Instance-Methods" class="headerlink" title="Meta Instance Methods"></a>Meta Instance Methods</h2><h3 id="vm-eval-удалён"><a href="#vm-eval-удалён" class="headerlink" title="vm.$eval удалён"></a><code>vm.$eval</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">the forum</a> for ideas.</p>
+<h2 id="Meta-Instance-Methods"><a href="#Meta-Instance-Methods" class="headerlink" title="Meta Instance Methods"></a>Meta Instance Methods</h2><h3 id="vm-eval-удалён"><a href="#vm-eval-удалён" class="headerlink" title="vm.$eval удалён"></a><code>vm.$eval</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a target="_blank" rel="noopener" href="https://forum.vuejs.org/">the forum</a> for ideas.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$eval</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$eval</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
-<h3 id="vm-interpolate-удалён"><a href="#vm-interpolate-удалён" class="headerlink" title="vm.$interpolate удалён"></a><code>vm.$interpolate</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a href="https://forum.vuejs.org/" target="_blank" rel="noopener">the forum</a> for ideas.</p>
+<h3 id="vm-interpolate-удалён"><a href="#vm-interpolate-удалён" class="headerlink" title="vm.$interpolate удалён"></a><code>vm.$interpolate</code> <sup>удалён</sup></h3><p>No real use. If you do happen to rely on this feature somehow and aren’t sure how to work around it, post on <a target="_blank" rel="noopener" href="https://forum.vuejs.org/">the forum</a> for ideas.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$interpolate</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$interpolate</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
-<h3 id="vm-log-удалён"><a href="#vm-log-удалён" class="headerlink" title="vm.$log удалён"></a><code>vm.$log</code> <sup>удалён</sup></h3><p>Use the <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">Vue Devtools</a> for the optimal debugging experience.</p>
+<h3 id="vm-log-удалён"><a href="#vm-log-удалён" class="headerlink" title="vm.$log удалён"></a><code>vm.$log</code> <sup>удалён</sup></h3><p>Use the <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-devtools">Vue Devtools</a> for the optimal debugging experience.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>vm.$log</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>vm.$log</code>. If you miss any, you'll see <strong>console errors</strong>.</p>
 </div>
 
 <h2 id="Instance-DOM-Options"><a href="#Instance-DOM-Options" class="headerlink" title="Instance DOM Options"></a>Instance DOM Options</h2><h3 id="replace-false-удалён"><a href="#replace-false-удалён" class="headerlink" title="replace: false удалён"></a><code>replace: false</code> <sup>удалён</sup></h3><p>Components now always replace the element they’re bound to. To simulate the behavior of <code>replace: false</code>, you can wrap your root component with an element similar to the one you’re replacing. For example:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div id="app"&gt; ... &lt;/div&gt;'</span>
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;div id=&quot;app&quot;&gt; ... &lt;/div&gt;&#x27;</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Or with a render function:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">h</span>) </span>&#123;
-    h(<span class="hljs-string">'div'</span>, &#123;
-      <span class="hljs-attr">attrs</span>: &#123;
-        <span class="hljs-attr">id</span>: <span class="hljs-string">'app'</span>,
-      &#125;
-    &#125;, <span class="hljs-comment">/* ... */</span>)
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">render</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">h</span>) &#123;<br>    <span class="hljs-title function_">h</span>(<span class="hljs-string">&#x27;div&#x27;</span>, &#123;<br>      <span class="hljs-attr">attrs</span>: &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;app&#x27;</span>,<br>      &#125;<br>    &#125;, <span class="hljs-comment">/* ... */</span>)<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>replace: false</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>replace: false</code>.</p>
 </div>
 
 <h2 id="Global-Config"><a href="#Global-Config" class="headerlink" title="Global Config"></a>Global Config</h2><h3 id="Vue-config-debug-удалён"><a href="#Vue-config-debug-удалён" class="headerlink" title="Vue.config.debug удалён"></a><code>Vue.config.debug</code> <sup>удалён</sup></h3><p>No longer necessary, since warnings come with stack traces by default now.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.config.debug</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.config.debug</code>.</p>
 </div>
 
 <h3 id="Vue-config-async-удалён"><a href="#Vue-config-async-удалён" class="headerlink" title="Vue.config.async удалён"></a><code>Vue.config.async</code> <sup>удалён</sup></h3><p>Async is now required for rendering performance.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.config.async</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.config.async</code>.</p>
 </div>
 
 <h3 id="Vue-config-delimiters-заменён"><a href="#Vue-config-delimiters-заменён" class="headerlink" title="Vue.config.delimiters заменён"></a><code>Vue.config.delimiters</code> <sup>заменён</sup></h3><p>This has been reworked as a <a href="../api/#delimiters">component-level option</a>. This allows you to use alternative delimiters within your app without breaking 3rd-party components.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.config.delimiters</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.config.delimiters</code>.</p>
 </div>
 
 <h3 id="Vue-config-unsafeDelimiters-удалён"><a href="#Vue-config-unsafeDelimiters-удалён" class="headerlink" title="Vue.config.unsafeDelimiters удалён"></a><code>Vue.config.unsafeDelimiters</code> <sup>удалён</sup></h3><p>HTML interpolation has been <a href="#HTML-Interpolation-removed">removed in favor of <code>v-html</code></a>.</p>
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.config.unsafeDelimiters</code>. After this, the helper will also find instances of HTML interpolation so that you can replace them with `v-html`.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.config.unsafeDelimiters</code>. After this, the helper will also find instances of HTML interpolation so that you can replace them with `v-html`.</p>
 </div>
 
 <h2 id="Global-API"><a href="#Global-API" class="headerlink" title="Global API"></a>Global API</h2><h3 id="Vue-extend-with-el-удалён"><a href="#Vue-extend-with-el-удалён" class="headerlink" title="Vue.extend with el удалён"></a><code>Vue.extend</code> with <code>el</code> <sup>удалён</sup></h3><p>The el option can no longer be used in <code>Vue.extend</code>. It’s only valid as an instance creation option.</p>
@@ -1953,7 +1755,7 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.elementDirective</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.elementDirective</code>.</p>
 </div>
 
 <h3 id="Vue-partial-удалён"><a href="#Vue-partial-удалён" class="headerlink" title="Vue.partial удалён"></a><code>Vue.partial</code> <sup>удалён</sup></h3><p>Partials have been removed in favor of more explicit data flow between components, using props. Unless you’re using a partial in a performance-critical area, the recommendation is to use a <a href="components.html">normal component</a> instead. If you were dynamically binding the <code>name</code> of a partial, you can use a <a href="components.html#Dynamic-Components">dynamic component</a>.</p>
@@ -1962,7 +1764,7 @@ self.users.filter(<span class="hljs-function"><span class="hljs-keyword">functio
 
 <div class="upgrade-path">
   <h4>Как обновлять</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">migration helper</a> on your codebase to find examples of <code>Vue.partial</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">migration helper</a> on your codebase to find examples of <code>Vue.partial</code>.</p>
 </div>
 
 
@@ -2011,8 +1813,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

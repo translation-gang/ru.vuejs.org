@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Тестирование — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/testing.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/testing.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/testing.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/testing.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/testing.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/testing.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/testing.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/testing.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/testing.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/testing.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/testing.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/testing.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/testing.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/testing.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/testing.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/testing.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/testing.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar testing-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1024,14 +1043,14 @@
 <h4 id="Jest"><a href="#Jest" class="headerlink" title="Jest"></a>Jest</h4><p>Jest — фреймворк для тестирования JavaScript, которые фокусируется на простоте. Одной из его уникальных особенностей является возможность создания snapshot-тестов, в качестве альтернативного средства проверки модулей приложения.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://jestjs.io" target="_blank" rel="noopener">Официальный сайт Jest</a></li>
-<li><a href="https://cli.vuejs.org/ru/core-plugins/unit-jest.html" target="_blank" rel="noopener">Официальный плагин Vue 2 CLI - Jest</a></li>
+<li><a target="_blank" rel="noopener" href="https://jestjs.io">Официальный сайт Jest</a></li>
+<li><a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/core-plugins/unit-jest.html">Официальный плагин Vue 2 CLI - Jest</a></li>
 </ul>
 <h4 id="Mocha"><a href="#Mocha" class="headerlink" title="Mocha"></a>Mocha</h4><p>Mocha — фреймворк для тестирования JavaScript, который фокусируется на гибкости. Благодаря ей можно выбирать различные библиотеки для выполнения общих функций, таких как spying (например, Sinon) или assertions (например, Chai). Другая уникальная особенность Mocha в том, что она позволяет выполнять тесты как в браузере, так и в Node.js.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://mochajs.org" target="_blank" rel="noopener">Официальный сайт Mocha</a></li>
-<li><a href="https://cli.vuejs.org/ru/core-plugins/unit-mocha.html" target="_blank" rel="noopener">Официальный плагин Vue CLI - Mocha</a></li>
+<li><a target="_blank" rel="noopener" href="https://mochajs.org">Официальный сайт Mocha</a></li>
+<li><a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/core-plugins/unit-mocha.html">Официальный плагин Vue CLI - Mocha</a></li>
 </ul>
 <h2 id="Тестирование-компонентов"><a href="#Тестирование-компонентов" class="headerlink" title="Тестирование компонентов"></a>Тестирование компонентов</h2><h3 id="Введение-2"><a href="#Введение-2" class="headerlink" title="Введение"></a>Введение</h3><p>Для тестирования большинства компонентов Vue потребуется примонтировать их к DOM (неважно, виртуальному или реальному), чтобы иметь возможность полностью проверить их работоспособность. Эта концепция также фреймворк-агностична. Поэтому были созданы фреймворки для тестирования компонентов, которые предоставляют пользователям возможность сделать это надёжным способом, а также поддерживают специфические возможности Vue, такие как интеграцию с Vuex, Vue Router или другими Vue-плагинами.</p>
 <h3 id="Выбор-фреймворка-1"><a href="#Выбор-фреймворка-1" class="headerlink" title="Выбор фреймворка"></a>Выбор фреймворка</h3><p>В следующем разделе приведены рекомендации, которые стоит учитывать при оценке, какой фреймворк для тестирования компонентов лучше всего подходит для вашего приложения.</p>
@@ -1041,14 +1060,14 @@
 <p>Главным принципом является то, что чем больше тесты похоже на то, как используется программное обеспечение, тем больше уверенности они могут обеспечить.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://testing-library.com/docs/vue-testing-library/intro" target="_blank" rel="noopener">Официальный сайт Vue Testing Library</a></li>
+<li><a target="_blank" rel="noopener" href="https://testing-library.com/docs/vue-testing-library/intro">Официальный сайт Vue Testing Library</a></li>
 </ul>
 <h4 id="Vue-Test-Utils"><a href="#Vue-Test-Utils" class="headerlink" title="Vue Test Utils"></a>Vue Test Utils</h4><p>Vue Test Utils — это официальная библиотека для низкоуровневого тестирования компонентов, написанная для предоставления доступа к API, специфичным для Vue. Если вы новичок в тестировании приложений Vue, мы рекомендуем использовать библиотеку Vue Testing Library, которая является абстракцией над Vue Test Utils.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://vue-test-utils.vuejs.org" target="_blank" rel="noopener">Официальная документация Vue Test Utils</a></li>
-<li><a href="https://lmiller1990.github.io/vue-testing-handbook/#what-is-this-guide" target="_blank" rel="noopener">Vue Testing Handbook</a> от Lachlan Miller</li>
-<li><a href="https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html" target="_blank" rel="noopener">Книга рецептов: Модульное тестирование Vue-компонентов</a></li>
+<li><a target="_blank" rel="noopener" href="https://vue-test-utils.vuejs.org">Официальная документация Vue Test Utils</a></li>
+<li><a target="_blank" rel="noopener" href="https://lmiller1990.github.io/vue-testing-handbook/#what-is-this-guide">Vue Testing Handbook</a> от Lachlan Miller</li>
+<li><a target="_blank" rel="noopener" href="https://ru.vuejs.org/v2/cookbook/unit-testing-vue-components.html">Книга рецептов: Модульное тестирование Vue-компонентов</a></li>
 </ul>
 <h2 id="End-to-End-E2E-тестирование"><a href="#End-to-End-E2E-тестирование" class="headerlink" title="End-to-End (E2E) тестирование"></a>End-to-End (E2E) тестирование</h2><h3 id="Введение-3"><a href="#Введение-3" class="headerlink" title="Введение"></a>Введение</h3><p>В то время как модульные тесты предоставляют разработчикам некоторую степень уверенности в коде, с другой стороны модульные тесты и тесты компонентов ограничены в возможностях по обеспечению целостного охвата приложения при публикации в production. В результате, end-to-end (E2E) тесты обеспечивают покрытие того, что, возможно, является наиболее важным аспектом приложения: что происходит, когда пользователи на самом деле используют приложение.</p>
 <p>Другими словами, E2E тесты проверяют сразу все слои вашего приложения. Сюда входит не только код фронтенда, но и работа всех связанных сервисов и инфраструктуры сервера, в условиях которых будут работать пользователи. Тестируя как они взаимодействуют с приложением, E2E тесты часто являются ключом к повышению уверенности в том, что приложение работает корректно.</p>
@@ -1063,25 +1082,25 @@
 <h4 id="Cypress-io"><a href="#Cypress-io" class="headerlink" title="Cypress.io"></a>Cypress.io</h4><p>Cypress.io — фреймворк для тестирования, который фокусируется на повышении производительности разработчиков, предоставляя возможности по надёжному тестированию своих приложений и обеспечении первоклассного опыта разработчиков.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://www.cypress.io" target="_blank" rel="noopener">Официальный сайт Cypress</a></li>
-<li><a href="https://cli.vuejs.org/ru/core-plugins/e2e-cypress.html" target="_blank" rel="noopener">Официальный плагин Vue CLI Cypress</a></li>
-<li><a href="https://github.com/testing-library/cypress-testing-library" target="_blank" rel="noopener">Cypress Testing Library</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cypress.io">Официальный сайт Cypress</a></li>
+<li><a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/core-plugins/e2e-cypress.html">Официальный плагин Vue CLI Cypress</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/testing-library/cypress-testing-library">Cypress Testing Library</a></li>
 </ul>
 <h4 id="Nightwatch-js"><a href="#Nightwatch-js" class="headerlink" title="Nightwatch.js"></a>Nightwatch.js</h4><p>Nightwatch.js — фреймворк для end-to-end тестирования, который можно использовать для тестирования веб-приложений и веб-сайтов, а также для тестирования модулей Node.js и интеграционного тестирования.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://nightwatchjs.org" target="_blank" rel="noopener">Официальный сайт Nightwatch</a></li>
-<li><a href="https://cli.vuejs.org/ru/core-plugins/e2e-nightwatch.html" target="_blank" rel="noopener">Официальный плагин Vue CLI Nightwatch</a></li>
+<li><a target="_blank" rel="noopener" href="https://nightwatchjs.org">Официальный сайт Nightwatch</a></li>
+<li><a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/core-plugins/e2e-nightwatch.html">Официальный плагин Vue CLI Nightwatch</a></li>
 </ul>
 <h4 id="Puppeteer"><a href="#Puppeteer" class="headerlink" title="Puppeteer"></a>Puppeteer</h4><p>Puppeteer — библиотека Node, которая предоставляет высокоуровневый API для управления браузером и может соединяться с другими инструментами для запуска тестов (например, Jest) для проверки вашего приложения.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://pptr.dev" target="_blank" rel="noopener">Официальный сайт Puppeteer</a></li>
+<li><a target="_blank" rel="noopener" href="https://pptr.dev">Официальный сайт Puppeteer</a></li>
 </ul>
 <h4 id="TestCafe"><a href="#TestCafe" class="headerlink" title="TestCafe"></a>TestCafe</h4><p>TestCafe — E2E-фреймворк, основанный на Node.js, который фокусируется на обеспечении лёгкой настройки, чтобы разработчики могли сосредоточиться на создании простых в написании и надёжных тестах.</p>
 <p><strong>Ресурсы:</strong></p>
 <ul>
-<li><a href="https://devexpress.github.io/testcafe/" target="_blank" rel="noopener">Официальный сайт TestCafe</a></li>
+<li><a target="_blank" rel="noopener" href="https://devexpress.github.io/testcafe/">Официальный сайт TestCafe</a></li>
 </ul>
 
   
@@ -1129,8 +1148,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

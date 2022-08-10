@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Работа с классами и стилями — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/class-and-style.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/class-and-style.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/class-and-style.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/class-and-style.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/class-and-style.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/class-and-style.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/class-and-style.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/class-and-style.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/class-and-style.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/class-and-style.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar class-and-style-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1011,95 +1030,60 @@
 <h2 id="Связывание-CSS-классов"><a href="#Связывание-CSS-классов" class="headerlink" title="Связывание CSS-классов"></a>Связывание CSS-классов</h2><div class="vueschool"><a href="https://vueschool.io/lessons/vuejs-dynamic-classes?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Dynamic Classes Lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 <h3 id="Использование-объектов"><a href="#Использование-объектов" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Для динамической установки или удаления CSS-классов можно передавать объект в директиву <code>v-bind:class</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<p>Запись выше означает, что наличие класса <code>active</code> будет определяться <a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy" target="_blank" rel="noopener">истинностью</a> параметра <code>isActive</code>.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;&#123; active: isActive &#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>Запись выше означает, что наличие класса <code>active</code> будет определяться <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">истинностью</a> параметра <code>isActive</code>.</p>
 <p>Таким образом можно управлять несколькими классами, добавляя в объект другие поля. Кроме того, <code>v-bind:class</code> можно использовать совместно с обычным атрибутом <code>class</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-  <span class="hljs-attr">class</span>=<span class="hljs-string">"static"</span>
-  <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"&#123; active: isActive, 'text-danger': hasError &#125;"</span>
-&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span><br><span class="hljs-tag">  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;static&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;&#123; active: isActive, &#x27;text-danger&#x27;: hasError &#125;&quot;</span></span><br><span class="hljs-tag">&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>При использовании таких данных:</p>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">isActive</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">hasError</span>: <span class="hljs-literal">false</span>
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">isActive</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">hasError</span>: <span class="hljs-literal">false</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>В результате получится:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"static active"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;static active&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Список классов элемента обновится при изменении <code>isActive</code> или <code>hasError</code>. Например, если <code>hasError</code> станет <code>true</code>, то значением атрибута <code>class</code> будет <code>&quot;static active text-danger&quot;</code>.</p>
 <p>Используемый объект необязательно указывать прямо в шаблоне:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"classObject"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">classObject</span>: &#123;
-    <span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-string">'text-danger'</span>: <span class="hljs-literal">false</span>
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;classObject&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">classObject</span>: &#123;<br>    <span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-string">&#x27;text-danger&#x27;</span>: <span class="hljs-literal">false</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Результат будет таким же. Можно также использовать и <a href="computed.html">вычисляемые свойства</a>, которые возвращают объект — это очень распространённый и мощный приём:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"classObject"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">isActive</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>
-&#125;,
-<span class="hljs-attr">computed</span>: &#123;
-  <span class="hljs-attr">classObject</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">active</span>: <span class="hljs-keyword">this</span>.isActive &amp;&amp; !<span class="hljs-keyword">this</span>.error,
-      <span class="hljs-string">'text-danger'</span>: <span class="hljs-keyword">this</span>.error &amp;&amp; <span class="hljs-keyword">this</span>.error.type === <span class="hljs-string">'fatal'</span>
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;classObject&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">isActive</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span><br>&#125;,<br><span class="hljs-attr">computed</span>: &#123;<br>  <span class="hljs-attr">classObject</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">active</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">isActive</span> &amp;&amp; !<span class="hljs-variable language_">this</span>.<span class="hljs-property">error</span>,<br>      <span class="hljs-string">&#x27;text-danger&#x27;</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">error</span> &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">error</span>.<span class="hljs-property">type</span> === <span class="hljs-string">&#x27;fatal&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Использование-массивов"><a href="#Использование-массивов" class="headerlink" title="Использование массивов"></a>Использование массивов</h3><p>В <code>v-bind:class</code> можно передать и массив:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"[activeClass, errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">activeClass</span>: <span class="hljs-string">'active'</span>,
-  <span class="hljs-attr">errorClass</span>: <span class="hljs-string">'text-danger'</span>
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;[activeClass, errorClass]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">activeClass</span>: <span class="hljs-string">&#x27;active&#x27;</span>,<br>  <span class="hljs-attr">errorClass</span>: <span class="hljs-string">&#x27;text-danger&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>В результате получим:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active text-danger"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;active text-danger&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Для переключения классов в массиве, в зависимости от некоторого условия, можно использовать условный оператор в тернарной форме:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"[isActive ? activeClass : '', errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;[isActive ? activeClass : &#x27;&#x27;, errorClass]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В этом случае <code>errorClass</code> будет применён к элементу всегда, а <code>activeClass</code> — только в случае истинности <code>isActive</code>.</p>
 <p>Однако, такая запись становится слегка громоздкой, особенно если есть несколько классов, задаваемых по условию. Но можно использовать и смешанный синтаксис:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"[&#123; active: isActive &#125;, errorClass]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;[&#123; active: isActive &#125;, errorClass]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h3 id="Использование-с-компонентами"><a href="#Использование-с-компонентами" class="headerlink" title="Использование с компонентами"></a>Использование с компонентами</h3><blockquote>
 <p>Эта секция предполагает знакомство с <a href="components.html">компонентами Vue</a>. Вы можете спокойно пропустить её сейчас и вернуться позднее.</p>
 </blockquote>
 <p>При использовании атрибута <code>class</code> на пользовательском компоненте, классы будут добавлены к его корневому элементу. Собственные классы элемента при этом не будут потеряны.</p>
 <p>Возьмём, к примеру, такой компонент:</p>
-<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p class="foo bar"&gt;Привет&lt;/p&gt;'</span>
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;my-component&#x27;</span>, &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;p class=&quot;foo bar&quot;&gt;Привет&lt;/p&gt;&#x27;</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Если указать дополнительные классы на компоненте:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"baz boo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;baz boo&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В результате отрисовки получим:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"foo bar baz boo"</span>&gt;</span>Привет<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo bar baz boo&quot;</span>&gt;</span>Привет<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>То же самое справедливо для связывания классов с данными:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">"&#123; active: isActive &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;&#123; active: isActive &#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Если <code>isActive</code> истинно, результирующий HTML будет:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"foo bar active"</span>&gt;</span>Привет<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foo bar active&quot;</span>&gt;</span>Привет<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h2 id="Связывание-inline-стилей"><a href="#Связывание-inline-стилей" class="headerlink" title="Связывание inline-стилей"></a>Связывание inline-стилей</h2><h3 id="Использование-объектов-1"><a href="#Использование-объектов-1" class="headerlink" title="Использование объектов"></a>Использование объектов</h3><p>Объектная запись для <code>v-bind:style</code> выглядит почти как CSS, хотя, на самом деле, это объект JavaScript. Для указания свойств CSS можно применять как camelCase, так и kebab-case (не забывайте про кавычки при использовании kebab-case):</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">activeColor</span>: <span class="hljs-string">'red'</span>,
-  <span class="hljs-attr">fontSize</span>: <span class="hljs-number">30</span>
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;&#123; color: activeColor, fontSize: fontSize + &#x27;px&#x27; &#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">activeColor</span>: <span class="hljs-string">&#x27;red&#x27;</span>,<br>  <span class="hljs-attr">fontSize</span>: <span class="hljs-number">30</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Можно выносить объект стилей из шаблона, чтобы сделать код чище:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"styleObject"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">data: &#123;
-  <span class="hljs-attr">styleObject</span>: &#123;
-    <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>,
-    <span class="hljs-attr">fontSize</span>: <span class="hljs-string">'13px'</span>
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;styleObject&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">data</span>: &#123;<br>  <span class="hljs-attr">styleObject</span>: &#123;<br>    <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;red&#x27;</span>,<br>    <span class="hljs-attr">fontSize</span>: <span class="hljs-string">&#x27;13px&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Можно использовать и вычисляемые свойства, возвращающие объекты стилей.</p>
 <h3 id="Использование-массивов-1"><a href="#Использование-массивов-1" class="headerlink" title="Использование массивов"></a>Использование массивов</h3><p>Запись <code>v-bind:style</code> с массивом позволяет применить несколько объектов стилей к одному и тому же элементу:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"[baseStyles, overridingStyles]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<h3 id="Автоматические-префиксы"><a href="#Автоматические-префиксы" class="headerlink" title="Автоматические префиксы"></a>Автоматические префиксы</h3><p>При использовании в <code>v-bind:style</code> свойств CSS, требующих указания <a href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix" target="_blank" rel="noopener">вендорных префиксов</a>, Vue автоматически определит это и добавит подходящие префиксы к применяемым стилям.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;[baseStyles, overridingStyles]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Автоматические-префиксы"><a href="#Автоматические-префиксы" class="headerlink" title="Автоматические префиксы"></a>Автоматические префиксы</h3><p>При использовании в <code>v-bind:style</code> свойств CSS, требующих указания <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix">вендорных префиксов</a>, Vue автоматически определит это и добавит подходящие префиксы к применяемым стилям.</p>
 <h3 id="Множественные-значения"><a href="#Множественные-значения" class="headerlink" title="Множественные значения"></a>Множественные значения</h3><blockquote>
 <p>Добавлено в версии 2.3.0+</p>
 </blockquote>
 <p>Начиная с версии 2.3.0+ можно предоставить массив из нескольких (префиксных) значений для свойства style, например:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"&#123; display: ['-webkit-box', '-ms-flexbox', 'flex'] &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;&#123; display: [&#x27;-webkit-box&#x27;, &#x27;-ms-flexbox&#x27;, &#x27;flex&#x27;] &#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Это приведёт к отображению последнего значения в массиве, поддерживаемого браузером. В этом примере он будет отображать <code>display: flex</code> для браузеров, которые поддерживают flexbox без префиксов.</p>
 
   
@@ -1147,8 +1131,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

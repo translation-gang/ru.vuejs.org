@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Отладка в VS Code — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/debugging-in-vscode.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/debugging-in-vscode.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/debugging-in-vscode.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -442,58 +461,31 @@
   
   
     <p>Каждое приложение достигает отметки, когда становится необходимо разбираться в ошибках, от больших до малых. В этом рецепте мы исследуем несколько возможностей для пользователей VS Code, кто хочет отлаживать приложения в браузере.</p>
-<p>Этот рецепт покажет как отлаживать приложения <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">Vue CLI</a> в паре с VS Code при их запуске в браузере.</p>
+<p>Этот рецепт покажет как отлаживать приложения <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-cli">Vue CLI</a> в паре с VS Code при их запуске в браузере.</p>
 <p class="tip">Примечание: Этот рецепт охватывает Chrome и Firefox. Если знаете как настроить отладку VS Code с другими браузерами, поделитесь своими знаниями (см. в конце страницы).</p>
 
 <h2 id="Подготовка"><a href="#Подготовка" class="headerlink" title="Подготовка"></a>Подготовка</h2><p>Убедитесь что у вас установлен VS Code и выбранный браузер, а также установлена последняя версия соответствующего расширения отладчика:</p>
 <ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank" rel="noopener">Debugger для Chrome</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug" target="_blank" rel="noopener">Debugger для Firefox</a></li>
+<li><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome">Debugger для Chrome</a></li>
+<li><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug">Debugger для Firefox</a></li>
 </ul>
-<p>Установите и создайте проект с помощью <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a>, следуя инструкциям по установке в <a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">руководстве Vue CLI</a>. Перейдите в каталог новосозданного приложения и откройте VS Code.</p>
+<p>Установите и создайте проект с помощью <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-cli">vue-cli</a>, следуя инструкциям по установке в <a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/">руководстве Vue CLI</a>. Перейдите в каталог новосозданного приложения и откройте VS Code.</p>
 <h3 id="Отображение-исходного-кода-в-браузере"><a href="#Отображение-исходного-кода-в-браузере" class="headerlink" title="Отображение исходного кода в браузере"></a>Отображение исходного кода в браузере</h3><p>Перед тем, как вы сможете отлаживать ваши компоненты Vue из VS Code, вам необходимо обновить сгенерированную конфигурацию Webpack для генерации sourcemaps. Мы делаем это, чтобы отладчик имел возможность сопоставлять код в сжатых файлов со строками в оригинальных. Это гарантирует, что вы можете отлаживать приложения даже после того, как все ваши ресурсы были оптимизированы с помощью Webpack.</p>
 <p>Если вы используете Vue CLI 2, установите или обновите свойство <code>devtool</code> в файле <code>config/index.js</code>:</p>
-<pre><code class="hljs js">devtool: <span class="hljs-string">'source-map'</span>,</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">devtool</span>: <span class="hljs-string">&#x27;source-map&#x27;</span>,<br></code></pre></td></tr></table></figure>
 <p>Если вы используете Vue CLI 3, установите или обновите свойство <code>devtool</code> в файле <code>vue.config.js</code>:</p>
-<pre><code class="hljs js"><span class="hljs-built_in">module</span>.exports = &#123;
-  <span class="hljs-attr">configureWebpack</span>: &#123;
-    <span class="hljs-attr">devtool</span>: <span class="hljs-string">'source-map'</span>
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">configureWebpack</span>: &#123;<br>    <span class="hljs-attr">devtool</span>: <span class="hljs-string">&#x27;source-map&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="Запуск-приложение-из-VS-Code"><a href="#Запуск-приложение-из-VS-Code" class="headerlink" title="Запуск приложение из VS Code"></a>Запуск приложение из VS Code</h3><p class="tip">Мы предполагаем, что приложение работает на порту <code>8080</code>. Если это не так (например, если порт <code>8080</code> был уже занят и поэтому Vue CLI автоматически выбирает другой порт), не забудьте изменить соответствующим образом конфигурацию.</p>
 
 <p>Нажмите на значок отладки в панели действий (узкая боковая панель слева) чтобы открыть представление «Отладка», затем нажмите на значок шестерёнки, чтобы настроить файл launch.json, выберите <strong>Chrome/Firefox: Launch</strong> в качестве окружения. Замените содержимое сгенерированного launch.json указанной ниже конфигурацией:</p>
 <p><img src="/images/config_add.png" alt="Добавление конфигурации Chrome"></p>
-<pre><code class="hljs json">&#123;
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,
-  <span class="hljs-attr">"configurations"</span>: [
-    &#123;
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"chrome"</span>,
-      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"vuejs: chrome"</span>,
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://localhost:8080"</span>,
-      <span class="hljs-attr">"webRoot"</span>: <span class="hljs-string">"$&#123;workspaceFolder&#125;/src"</span>,
-      <span class="hljs-attr">"breakOnLoad"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"sourceMapPathOverrides"</span>: &#123;
-        <span class="hljs-attr">"webpack:///src/*"</span>: <span class="hljs-string">"$&#123;webRoot&#125;/*"</span>
-      &#125;
-    &#125;,
-    &#123;
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"firefox"</span>,
-      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"vuejs: firefox"</span>,
-      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://localhost:8080"</span>,
-      <span class="hljs-attr">"webRoot"</span>: <span class="hljs-string">"$&#123;workspaceFolder&#125;/src"</span>,
-      <span class="hljs-attr">"pathMappings"</span>: [&#123; <span class="hljs-attr">"url"</span>: <span class="hljs-string">"webpack:///src/"</span>, <span class="hljs-attr">"path"</span>: <span class="hljs-string">"$&#123;webRoot&#125;/"</span> &#125;]
-    &#125;
-  ]
-&#125;</code></pre>
+<figure class="highlight json"><table><tr><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0.2.0&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;configurations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;chrome&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vuejs: chrome&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://localhost:8080&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;webRoot&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;/src&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;breakOnLoad&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;sourceMapPathOverrides&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;webpack:///src/*&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$&#123;webRoot&#125;/*&quot;</span><br>      <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;firefox&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vuejs: firefox&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://localhost:8080&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;webRoot&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;/src&quot;</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;pathMappings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;webpack:///src/&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$&#123;webRoot&#125;/&quot;</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 <h2 id="Установка-точки-останова"><a href="#Установка-точки-останова" class="headerlink" title="Установка точки останова"></a>Установка точки останова</h2><ol>
 <li><p>Установите точку останова в файле <strong>src/components/HelloWorld.vue</strong> на <code>строке 90</code> где функция <code>data</code> возвращает строку.</p>
 <p><img src="/images/breakpoint_set.png" alt="Breakpoint Renderer"></p>
 </li>
 <li><p>Откройте свою любимую консоль в корневом каталоге приложения и запустите его с помощью Vue CLI:</p>
-<pre><code class="hljs undefined">npm run serve</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">npm run serve<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>Перейдите в режим отладки, выберите конфигурацию <strong>‘vuejs: chrome/firefox’</strong>, затем нажмите F5 или зелёную кнопку для старта.</p>
 </li>
@@ -501,26 +493,13 @@
 <p><img src="/images/breakpoint_hit.png" alt="Breakpoint Hit"></p>
 </li>
 </ol>
-<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-devtools"><a href="#Vue-devtools" class="headerlink" title="Vue devtools"></a>Vue devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — использовать Vue.js devtools <a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd" target="_blank" rel="noopener">для Chrome</a> и <a href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/" target="_blank" rel="noopener">для Firefox</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
+<h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><h3 id="Vue-devtools"><a href="#Vue-devtools" class="headerlink" title="Vue devtools"></a>Vue devtools</h3><p>Существуют и другие методы отладки, различающиеся по сложности. Самый популярный и простой из них — использовать Vue.js devtools <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">для Chrome</a> и <a target="_blank" rel="noopener" href="https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/">для Firefox</a>. Главное из преимуществ работы с инструментами разработки (devtools) состоит в том, что они позволяют вам в реальном времени менять свойства данных и сразу видеть изменения на странице. Другим важным преимуществом является возможность отладки во времени (time travel debugging) для Vuex.</p>
 <p><img src="/images/devtools-timetravel.gif" alt="Devtools Timetravel Debugger"></p>
 <p class="tip">Обратите внимание, если на странице используется production/минифицированная сборка Vue.js (как например, стандартная ссылка на CDN), то проверка инструментов разработки по умолчанию отключена и поэтому панель Vue не будет отображаться в инструментах разработчика. Если вы переключитесь на не минифицированную версию, вам может потребоваться обновить страницу, чтобы увидеть изменения.</p>
 
-<h3 id="Использование-выражения-Debugger"><a href="#Использование-выражения-Debugger" class="headerlink" title="Использование выражения Debugger"></a>Использование выражения Debugger</h3><p>Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger" target="_blank" rel="noopener">нативное выражение debugger</a> прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти выражения после окончания отладки.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  data() &#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">message</span>: <span class="hljs-string">''</span>
-    &#125;
-  &#125;,
-  mounted() &#123;
-    <span class="hljs-keyword">const</span> hello = <span class="hljs-string">'Hello World!'</span>
-    <span class="hljs-keyword">debugger</span>
-    <span class="hljs-keyword">this</span>.message = hello
-  &#125;
-&#125;;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт был основан на примере <a href="https://twitter.com/auchenberg" target="_blank" rel="noopener">Kenneth Auchenberg</a>, который <a href="https://github.com/Microsoft/VSCode-recipes/tree/master/vuejs-cli" target="_blank" rel="noopener">доступен здесь</a>.</p>
+<h3 id="Использование-выражения-Debugger"><a href="#Использование-выражения-Debugger" class="headerlink" title="Использование выражения Debugger"></a>Использование выражения Debugger</h3><p>Примеры выше предоставляют отличные рабочие варианты для отладки. Однако, есть и альтернативный вариант, когда вы просто можете использовать <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger">нативное выражение debugger</a> прямо в вашем коде. Если вы выберите этот путь, важно не забыть удалить эти выражения после окончания отладки.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;&#x27;</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">const</span> hello = <span class="hljs-string">&#x27;Hello World!&#x27;</span></span><br><span class="language-javascript">    <span class="hljs-keyword">debugger</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span> = hello</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт был основан на примере <a target="_blank" rel="noopener" href="https://twitter.com/auchenberg">Kenneth Auchenberg</a>, который <a target="_blank" rel="noopener" href="https://github.com/Microsoft/VSCode-recipes/tree/master/vuejs-cli">доступен здесь</a>.</p>
 
   
   
@@ -556,8 +535,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

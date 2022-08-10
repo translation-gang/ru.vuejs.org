@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Модульное тестирование Vue-компонентов — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/unit-testing-vue-components.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -443,55 +462,8 @@
   
     <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Модульное тестирование — фундаментальная часть разработки программного обеспечения. В модульных тестах выполняются небольшие фрагменты (единицы) кода в изоляции для упрощения добавления новых функциональных возможностей и отслеживания ошибок. <a href="../guide/single-file-components.html">Однофайловые компоненты</a> Vue позволяют просто писать модульные тесты для компонентов в изоляции. Это поможет вам разрабатывать новую функциональность с уверенностью, что вы не ломаете работу существующей, и помогает другим разработчикам понять, как работает компонент.</p>
 <p>Этот простой пример проверяет, отрисовывается ли какой-либо текст:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"username"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-      <span class="hljs-attr">v-if</span>=<span class="hljs-string">"error"</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">"error"</span>
-    &gt;</span>
-      &#123;&#123; error &#125;&#125;
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">name</span>: <span class="hljs-string">'Hello'</span>,
-  data () &#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">username</span>: <span class="hljs-string">''</span>
-    &#125;
-  &#125;,
-
-  <span class="hljs-attr">computed</span>: &#123;
-    error () &#123;
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.username.trim().length &lt; <span class="hljs-number">7</span>
-        ? <span class="hljs-string">'Имя пользователя должно быть длиннее 6 символов'</span>
-        : <span class="hljs-string">''</span>
-    &#125;
-  &#125;
-&#125;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@vue/test-utils'</span>
-<span class="hljs-keyword">import</span> Hello <span class="hljs-keyword">from</span> <span class="hljs-string">'./Hello.vue'</span>
-
-test(<span class="hljs-string">'Hello'</span>, () =&gt; &#123;
-  <span class="hljs-comment">// отрисовываем компонент в изоляции</span>
-  <span class="hljs-keyword">const</span> wrapper = shallowMount(Hello)
-
-  <span class="hljs-comment">// устанавливаем `username` меньше 7 символов, без учёта пробелов</span>
-  wrapper.setData(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">' '</span>.repeat(<span class="hljs-number">7</span>) &#125;)
-
-  <span class="hljs-comment">// проверяем, что ошибка отобразилась</span>
-  expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBe(<span class="hljs-literal">true</span>)
-
-  <span class="hljs-comment">// обновляем имя, чтобы оно было достаточно длинным</span>
-  wrapper.setData(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">'Александр'</span> &#125;)
-
-  <span class="hljs-comment">// проверяем, что ошибка исчезла</span>
-  expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBe(<span class="hljs-literal">false</span>)
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;error&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>      &#123;&#123; error &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Hello&#x27;</span>,</span><br><span class="language-javascript">  data () &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;&#x27;</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-attr">computed</span>: &#123;</span><br><span class="language-javascript">    error () &#123;</span><br><span class="language-javascript">      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">username</span>.<span class="hljs-title function_">trim</span>().<span class="hljs-property">length</span> &lt; <span class="hljs-number">7</span></span><br><span class="language-javascript">        ? <span class="hljs-string">&#x27;Имя пользователя должно быть длиннее 6 символов&#x27;</span></span><br><span class="language-javascript">        : <span class="hljs-string">&#x27;&#x27;</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@vue/test-utils&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Hello</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Hello.vue&#x27;</span><br><br><span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-comment">// отрисовываем компонент в изоляции</span><br>  <span class="hljs-keyword">const</span> wrapper = <span class="hljs-title function_">shallowMount</span>(<span class="hljs-title class_">Hello</span>)<br><br>  <span class="hljs-comment">// устанавливаем `username` меньше 7 символов, без учёта пробелов</span><br>  wrapper.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27; &#x27;</span>.<span class="hljs-title function_">repeat</span>(<span class="hljs-number">7</span>) &#125;)<br><br>  <span class="hljs-comment">// проверяем, что ошибка отобразилась</span><br>  <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>)<br><br>  <span class="hljs-comment">// обновляем имя, чтобы оно было достаточно длинным</span><br>  wrapper.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;Александр&#x27;</span> &#125;)<br><br>  <span class="hljs-comment">// проверяем, что ошибка исчезла</span><br>  <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">false</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Вышеприведённый фрагмент кода показывает, как проверить, отрисовывается ли сообщение в зависимости от длины имени пользователя. Он демонстрирует общую идею модульного тестирования Vue-компонентов: отрисовка компонента и проверка, что разметка соответствует состоянию компонента.</p>
 <h2 id="Зачем-тестировать"><a href="#Зачем-тестировать" class="headerlink" title="Зачем тестировать?"></a>Зачем тестировать?</h2><p>У модульных тестов компонентов есть множество преимуществ:</p>
 <ul>
@@ -502,53 +474,21 @@ test(<span class="hljs-string">'Hello'</span>, () =&gt; &#123;
 <li>Способствует рефакторингу кода</li>
 </ul>
 <p>Автоматическое тестирование позволяет большим командам разработчиков поддерживать сложную кодовую базу.</p>
-<h4 id="Начало-работы"><a href="#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h4><p><a href="https://github.com/vuejs/vue-test-utils" target="_blank" rel="noopener">Vue Test Utils</a> — официальная библиотека для модульного тестирования Vue-компонентов. Шаблон <code>webpack</code> <a href="https://github.com/vuejs/vue-cli" target="_blank" rel="noopener">vue-cli</a> идёт в комплекте с Karma или Jest, как с хорошо поддерживаемыми программами запуска тестов, и есть некоторые <a href="https://vue-test-utils.vuejs.org/ru/guides/" target="_blank" rel="noopener">руководства</a> в документации Vue Test Utils.</p>
+<h4 id="Начало-работы"><a href="#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h4><p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-test-utils">Vue Test Utils</a> — официальная библиотека для модульного тестирования Vue-компонентов. Шаблон <code>webpack</code> <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-cli">vue-cli</a> идёт в комплекте с Karma или Jest, как с хорошо поддерживаемыми программами запуска тестов, и есть некоторые <a target="_blank" rel="noopener" href="https://vue-test-utils.vuejs.org/ru/guides/">руководства</a> в документации Vue Test Utils.</p>
 <h2 id="Пример-из-реального-мира"><a href="#Пример-из-реального-мира" class="headerlink" title="Пример из реального мира"></a>Пример из реального мира</h2><p>Модульные тесты должны быть:</p>
 <ul>
 <li>Быстрыми для выполнения</li>
 <li>Простыми для понимания</li>
 <li>Тестировать только <em>единственный участок функциональности</em></li>
 </ul>
-<p>Давайте продолжим работу с предыдущим примером, представив идею <a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" target="_blank" rel="noopener">фабричной функцию</a>, чтобы сделать наш тест более компактным и читаемым. Компонент должен:</p>
+<p>Давайте продолжим работу с предыдущим примером, представив идею <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">фабричной функцию</a>, чтобы сделать наш тест более компактным и читаемым. Компонент должен:</p>
 <ul>
 <li>показать приветствие ‘Добро пожаловать в книгу рецептов Vue.js’.</li>
 <li>попросить пользователя ввести своё имя пользователя</li>
 <li>показать ошибку, если введённое имя пользователя меньше семи символов</li>
 </ul>
 <p>Давайте сначала рассмотрим код компонента:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"message"</span>&gt;</span>
-      &#123;&#123; message &#125;&#125;
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    Введите имя пользователя: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"username"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-      <span class="hljs-attr">v-if</span>=<span class="hljs-string">"error"</span>
-      <span class="hljs-attr">class</span>=<span class="hljs-string">"error"</span>
-    &gt;</span>
-      Пожалуйста, введите имя пользователя длиной не менее семи символов.
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">name</span>: <span class="hljs-string">'Foo'</span>,
-
-  data () &#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">message</span>: <span class="hljs-string">'Добро пожаловать в книгу рецептов Vue.js'</span>,
-      <span class="hljs-attr">username</span>: <span class="hljs-string">''</span>
-    &#125;
-  &#125;,
-
-  <span class="hljs-attr">computed</span>: &#123;
-    error () &#123;
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.username.trim().length &lt; <span class="hljs-number">7</span>
-    &#125;
-  &#125;
-&#125;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span><br>      &#123;&#123; message &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    Введите имя пользователя: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;error&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>      Пожалуйста, введите имя пользователя длиной не менее семи символов.<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Foo&#x27;</span>,</span><br><span class="language-javascript"></span><br><span class="language-javascript">  data () &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Добро пожаловать в книгу рецептов Vue.js&#x27;</span>,</span><br><span class="language-javascript">      <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;&#x27;</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-attr">computed</span>: &#123;</span><br><span class="language-javascript">    error () &#123;</span><br><span class="language-javascript">      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">username</span>.<span class="hljs-title function_">trim</span>().<span class="hljs-property">length</span> &lt; <span class="hljs-number">7</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Список из того, что нам нужно проверить:</p>
 <ul>
 <li>отобразилось ли свойство <code>message</code>?</li>
@@ -556,31 +496,7 @@ test(<span class="hljs-string">'Hello'</span>, () =&gt; &#123;
 <li>если <code>error</code> равно <code>false</code>, в разметке не должно быть <code>&lt;div class=&quot;error&quot;&gt;</code></li>
 </ul>
 <p>И наша первая попытка теста:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@vue/test-utils'</span>
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">'./Foo.vue'</span>
-
-describe(<span class="hljs-string">'Foo'</span>, () =&gt; &#123;
-  it(<span class="hljs-string">'отрисовывает сообщение и правильно реагирует на пользовательский ввод'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> wrapper = shallowMount(Foo, &#123;
-      data() &#123;
-        <span class="hljs-keyword">return</span> &#123;
-          <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет, мир'</span>,
-          <span class="hljs-attr">username</span>: <span class="hljs-string">''</span>
-        &#125;
-      &#125;
-    &#125;)
-
-    <span class="hljs-comment">// посмотреть, отобразилось ли сообщение</span>
-    expect(wrapper.find(<span class="hljs-string">'.message'</span>).text()).toEqual(<span class="hljs-string">'Привет, мир'</span>)
-
-    <span class="hljs-comment">// проверить, что ошибка отрисовалась</span>
-    expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBeTruthy()
-
-    <span class="hljs-comment">// обновить `username` и проверить, что ошибка больше не отрисовалась</span>
-    wrapper.setData(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">'Александр'</span> &#125;)
-    expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBeFalsy()
-  &#125;)
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@vue/test-utils&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Foo</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Foo.vue&#x27;</span><br><br><span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Foo&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;отрисовывает сообщение и правильно реагирует на пользовательский ввод&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> wrapper = <span class="hljs-title function_">shallowMount</span>(<span class="hljs-title class_">Foo</span>, &#123;<br>      <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>          <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Привет, мир&#x27;</span>,<br>          <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;&#x27;</span><br>        &#125;<br>      &#125;<br>    &#125;)<br><br>    <span class="hljs-comment">// посмотреть, отобразилось ли сообщение</span><br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.message&#x27;</span>).<span class="hljs-title function_">text</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;Привет, мир&#x27;</span>)<br><br>    <span class="hljs-comment">// проверить, что ошибка отрисовалась</span><br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBeTruthy</span>()<br><br>    <span class="hljs-comment">// обновить `username` и проверить, что ошибка больше не отрисовалась</span><br>    wrapper.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;Александр&#x27;</span> &#125;)<br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBeFalsy</span>()<br>  &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Есть несколько проблем с вышеприведённым кодом:</p>
 <ul>
 <li>в одном тесте проверяются сразу много чего</li>
@@ -593,44 +509,7 @@ describe(<span class="hljs-string">'Foo'</span>, () =&gt; &#123;
 <li>предоставление только минимальных данных, требуемых для выполнения теста</li>
 <li>рефакторинг дублирования логики (создание <code>wrapper</code> и установка переменной <code>username</code>) в фабричную функцию</li>
 </ul>
-<p><em>Обновлённый тест</em>:<br><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@vue/test-utils'</span>
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">'./Foo.vue'</span>
-
-<span class="hljs-keyword">const</span> factory = <span class="hljs-function">(<span class="hljs-params">values = &#123;&#125;</span>) =&gt;</span> &#123;
-  <span class="hljs-keyword">return</span> shallowMount(Foo, &#123;
-    data () &#123;
-      <span class="hljs-keyword">return</span> &#123;
-        ...values
-      &#125;
-    &#125;
-  &#125;)
-&#125;
-
-describe(<span class="hljs-string">'Foo'</span>, () =&gt; &#123;
-  it(<span class="hljs-string">'отрисовывает приветственное сообщение'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> wrapper = factory()
-
-    expect(wrapper.find(<span class="hljs-string">'.message'</span>).text()).toEqual(<span class="hljs-string">'Добро пожаловать в книгу рецептов Vue.js'</span>)
-  &#125;)
-
-  it(<span class="hljs-string">'отрисовывает ошибку, когда имя пользователя меньше 7 символов'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> wrapper = factory(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">''</span> &#125;)
-
-    expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBeTruthy()
-  &#125;)
-
-  it(<span class="hljs-string">'отрисовывает ошибку, когда имя пользователя состоит только из пробелов'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> wrapper = factory(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">' '</span>.repeat(<span class="hljs-number">7</span>) &#125;)
-
-    expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBeTruthy()
-  &#125;)
-
-  it(<span class="hljs-string">'не отрисовывает ошибку, когда имя пользователя равно 7 символам или более'</span>, () =&gt; &#123;
-    <span class="hljs-keyword">const</span> wrapper = factory(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">'Александр'</span> &#125;)
-
-    expect(wrapper.find(<span class="hljs-string">'.error'</span>).exists()).toBeFalsy()
-  &#125;)
-&#125;)</code></pre></p>
+<p><em>Обновлённый тест</em>:<br><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; shallowMount &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@vue/test-utils&#x27;</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Foo</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Foo.vue&#x27;</span><br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">factory</span> = (<span class="hljs-params">values = &#123;&#125;</span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">shallowMount</span>(<span class="hljs-title class_">Foo</span>, &#123;<br>    data () &#123;<br>      <span class="hljs-keyword">return</span> &#123;<br>        ...values<br>      &#125;<br>    &#125;<br>  &#125;)<br>&#125;<br><br><span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Foo&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;отрисовывает приветственное сообщение&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> wrapper = <span class="hljs-title function_">factory</span>()<br><br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.message&#x27;</span>).<span class="hljs-title function_">text</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;Добро пожаловать в книгу рецептов Vue.js&#x27;</span>)<br>  &#125;)<br><br>  <span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;отрисовывает ошибку, когда имя пользователя меньше 7 символов&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> wrapper = <span class="hljs-title function_">factory</span>(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;&#x27;</span> &#125;)<br><br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBeTruthy</span>()<br>  &#125;)<br><br>  <span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;отрисовывает ошибку, когда имя пользователя состоит только из пробелов&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> wrapper = <span class="hljs-title function_">factory</span>(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27; &#x27;</span>.<span class="hljs-title function_">repeat</span>(<span class="hljs-number">7</span>) &#125;)<br><br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBeTruthy</span>()<br>  &#125;)<br><br>  <span class="hljs-title function_">it</span>(<span class="hljs-string">&#x27;не отрисовывает ошибку, когда имя пользователя равно 7 символам или более&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> wrapper = <span class="hljs-title function_">factory</span>(&#123; <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;Александр&#x27;</span> &#125;)<br><br>    <span class="hljs-title function_">expect</span>(wrapper.<span class="hljs-title function_">find</span>(<span class="hljs-string">&#x27;.error&#x27;</span>).<span class="hljs-title function_">exists</span>()).<span class="hljs-title function_">toBeFalsy</span>()<br>  &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure></p>
 <p>Следует отметить:</p>
 <p>В верхней части мы объявляем фабричную функцию, когда объединяет объект <code>values</code> в свойство <code>data</code> и возвращает новый экземпляр <code>wrapper</code>. Таким образом, нам не нужно дублировать <code>const wrapper = shallowMount(Foo)</code> в каждом тесте. Ещё одним большим преимуществом использования такого подхода — случаи, когда в более комплексных компонентах, с методом или вычисляемым свойством, вы захотите имитировать (mock) или создавать заглушку (stub) в каждом тесте, тогда вам нужно будет объявить его только один раз.</p>
 <h2 id="Дополнительный-контекст"><a href="#Дополнительный-контекст" class="headerlink" title="Дополнительный контекст"></a>Дополнительный контекст</h2><p>Вышеприведённый тест довольно прост, но на практике у Vue-компонентов часто другое поведение, которые вы хотите проверить, например:</p>
@@ -639,13 +518,13 @@ describe(<span class="hljs-string">'Foo'</span>, () =&gt; &#123;
 <li>совершение или отправка мутаций или действий с хранилищем <code>Vuex</code></li>
 <li>тестирования взаимодействия</li>
 </ul>
-<p>Более подробные примеры, показывающие такие тесты в действии, вы можете найти в <a href="https://vue-test-utils.vuejs.org/ru/guides/" target="_blank" rel="noopener">руководствах</a>.</p>
+<p>Более подробные примеры, показывающие такие тесты в действии, вы можете найти в <a target="_blank" rel="noopener" href="https://vue-test-utils.vuejs.org/ru/guides/">руководствах</a>.</p>
 <p>Vue Test Utils и огромная экосистема JavaScript обеспечивают множество инструментов чтобы обеспечить почти 100% покрытия тестами. Однако модульные тесты являются лишь частью пирамиды тестирования. Есть и другие типы тестов, включая тесты e2e (end-to-end) и тесты снимками (snapshot). Модульные тесты — это самые маленькие и самые простые тесты — они проверяют утверждения на маленьких единицах работы, изолируя каждую часть единственного компонента.</p>
 <p>Тесты снимками сохраняют разметку вашего Vue-компонента и сравнивают с новой, создаваемой при каждом выполнении теста. Если что-то изменяется, разработчик будет в курсе и сможет решить, было ли решение намеренным (компонент был обновлён) или случайным (компонент работает некорректно).</p>
 <p>Тесты end-to-end гарантирует, что несколько компонентов хорошо взаимодействуют друг с другом. Они находятся на более высоком уровне. Примерами таких тестов может быть тестирование регистрации, входа и изменения данных у пользователя. Они работают медленнее, чем модульные тесты или тестирование снимками.</p>
 <p>Модульные тесты наиболее полезны во время разработки, либо чтобы помочь разработчику подумать спроектировать компонент, либо отрефакторить существующий компонент. Они запускаются каждый раз при изменении кода.</p>
 <p>Тесты высокого уровня, такие как end-to-end тесты, работают намного медленнее. Обычно их запускают перед публикацией сайта для гарантии, что каждая часть системы работает корректно.</p>
-<p>Более подробную информацию о тестировании Vue-компонентов вы можете найти в книге <a href="https://www.manning.com/books/testing-vuejs-applications" target="_blank" rel="noopener">Testing Vue.js Applications</a> от члена команды <a href="https://eddyerburgh.me/" target="_blank" rel="noopener">Эдда Йербурга</a>.</p>
+<p>Более подробную информацию о тестировании Vue-компонентов вы можете найти в книге <a target="_blank" rel="noopener" href="https://www.manning.com/books/testing-vuejs-applications">Testing Vue.js Applications</a> от члена команды <a target="_blank" rel="noopener" href="https://eddyerburgh.me/">Эдда Йербурга</a>.</p>
 <h2 id="Когда-не-следует-тестировать"><a href="#Когда-не-следует-тестировать" class="headerlink" title="Когда не следует тестировать"></a>Когда не следует тестировать</h2><p>Модульное тестирование — важная часть любого серьёзного приложения. Сначала, когда видение развития приложения остаётся неясным, модульное тестирование может замедлить разработку, но после стабилизации направления развития и взаимодействия с настоящими пользователями, модульные тесты (и другие типы автоматических тестов) абсолютно необходимы для обеспечения удобства в поддержке и масштабируемости кодовой базы.</p>
 
   
@@ -682,8 +561,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

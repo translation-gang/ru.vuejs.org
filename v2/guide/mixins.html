@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Примеси — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/mixins.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/mixins.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/mixins.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/mixins.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/mixins.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/mixins.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/mixins.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/mixins.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/mixins.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/mixins.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/mixins.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/mixins.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/mixins.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/mixins.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/mixins.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/mixins.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/mixins.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar mixins-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1011,127 +1030,25 @@
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/next-level-vue/mixins" target="_blank" rel="noopener" title="Введение в примеси">Посмотрите видео-объяснение на Vue Mastery</a></div>
 
 <p>Пример:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// определяем объект примеси</span>
-<span class="hljs-keyword">var</span> myMixin = &#123;
-  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">this</span>.hello()
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">hello</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'привет из примеси!'</span>)
-    &#125;
-  &#125;
-&#125;
-
-<span class="hljs-comment">// определяем компонент, использующий примесь</span>
-<span class="hljs-keyword">var</span> Component = Vue.extend(&#123;
-  <span class="hljs-attr">mixins</span>: [myMixin]
-&#125;)
-
-<span class="hljs-keyword">var</span> component = <span class="hljs-keyword">new</span> Component() <span class="hljs-comment">// =&gt; "привет из примеси!"</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// определяем объект примеси</span><br><span class="hljs-keyword">var</span> myMixin = &#123;<br>  <span class="hljs-attr">created</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">hello</span>()<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">hello</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;привет из примеси!&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">// определяем компонент, использующий примесь</span><br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Component</span> = <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">extend</span>(&#123;<br>  <span class="hljs-attr">mixins</span>: [myMixin]<br>&#125;)<br><br><span class="hljs-keyword">var</span> component = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Component</span>() <span class="hljs-comment">// =&gt; &quot;привет из примеси!&quot;</span><br></code></pre></td></tr></table></figure>
 <h2 id="Слияние-опций"><a href="#Слияние-опций" class="headerlink" title="Слияние опций"></a>Слияние опций</h2><p>Если примесь и компонент содержат пересекающиеся опции, они будут определённым образом объединены.</p>
 <p>Например, объект <code>data</code> претерпевает рекурсивное слияние с объектом <code>data</code> компонента, который имеет приоритет в случаях конфликтов.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;
-  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">message</span>: <span class="hljs-string">'hello'</span>,
-      <span class="hljs-attr">foo</span>: <span class="hljs-string">'abc'</span>
-    &#125;
-  &#125;
-&#125;
-
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">mixins</span>: [mixin],
-  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">message</span>: <span class="hljs-string">'goodbye'</span>,
-      <span class="hljs-attr">bar</span>: <span class="hljs-string">'def'</span>
-    &#125;
-  &#125;,
-  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$data)
-    <span class="hljs-comment">// =&gt; &#123; message: "goodbye", foo: "abc", bar: "def" &#125;</span>
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;<br>  <span class="hljs-attr">data</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;hello&#x27;</span>,<br>      <span class="hljs-attr">foo</span>: <span class="hljs-string">&#x27;abc&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">mixins</span>: [mixin],<br>  <span class="hljs-attr">data</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;goodbye&#x27;</span>,<br>      <span class="hljs-attr">bar</span>: <span class="hljs-string">&#x27;def&#x27;</span><br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">created</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$data</span>)<br>    <span class="hljs-comment">// =&gt; &#123; message: &quot;goodbye&quot;, foo: &quot;abc&quot;, bar: &quot;def&quot; &#125;</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Функции хуков с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <strong>перед</strong> собственными хуками компонента.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;
-  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'вызван хук примеси'</span>)
-  &#125;
-&#125;
-
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">mixins</span>: [mixin],
-  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'вызван хук компонента'</span>)
-  &#125;
-&#125;)
-
-<span class="hljs-comment">// =&gt; "вызван хук примеси"</span>
-<span class="hljs-comment">// =&gt; "вызван хук компонента"</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;<br>  <span class="hljs-attr">created</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;вызван хук примеси&#x27;</span>)<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">mixins</span>: [mixin],<br>  <span class="hljs-attr">created</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;вызван хук компонента&#x27;</span>)<br>  &#125;<br>&#125;)<br><br><span class="hljs-comment">// =&gt; &quot;вызван хук примеси&quot;</span><br><span class="hljs-comment">// =&gt; &quot;вызван хук компонента&quot;</span><br></code></pre></td></tr></table></figure>
 <p>Опции, ожидающие значения в форме объектов, такие как <code>methods</code>, <code>components</code> и <code>directives</code> будут объединены. В случае конфликта, приоритет имеют опции компонента:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">foo</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'foo'</span>)
-    &#125;,
-    <span class="hljs-attr">conflicting</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'из примеси'</span>)
-    &#125;
-  &#125;
-&#125;
-
-<span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">mixins</span>: [mixin],
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">bar</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'bar'</span>)
-    &#125;,
-    <span class="hljs-attr">conflicting</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'из самого компонента'</span>)
-    &#125;
-  &#125;
-&#125;)
-
-vm.foo() <span class="hljs-comment">// =&gt; "foo"</span>
-vm.bar() <span class="hljs-comment">// =&gt; "bar"</span>
-vm.conflicting() <span class="hljs-comment">// =&gt; "из самого компонента"</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> mixin = &#123;<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">foo</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;foo&#x27;</span>)<br>    &#125;,<br>    <span class="hljs-attr">conflicting</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;из примеси&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">mixins</span>: [mixin],<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">bar</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;bar&#x27;</span>)<br>    &#125;,<br>    <span class="hljs-attr">conflicting</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;из самого компонента&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;)<br><br>vm.<span class="hljs-title function_">foo</span>() <span class="hljs-comment">// =&gt; &quot;foo&quot;</span><br>vm.<span class="hljs-title function_">bar</span>() <span class="hljs-comment">// =&gt; &quot;bar&quot;</span><br>vm.<span class="hljs-title function_">conflicting</span>() <span class="hljs-comment">// =&gt; &quot;из самого компонента&quot;</span><br></code></pre></td></tr></table></figure>
 <p>Обратите внимание, что те же самые стратегии слияния используются и во <code>Vue.extend()</code>.</p>
 <h2 id="Глобальные-примеси"><a href="#Глобальные-примеси" class="headerlink" title="Глобальные примеси"></a>Глобальные примеси</h2><p>Примесь может быть применена и глобально. Но используйте данную возможность осторожно! После применения, примесь окажет влияние на <strong>все</strong> экземпляры Vue, создаваемые в дальнейшем. При правильном использовании это можно использовать для вставки логики обработки пользовательских опций:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// добавляем обработчик для пользовательской опции `myOption`</span>
-Vue.mixin(&#123;
-  <span class="hljs-attr">created</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">var</span> myOption = <span class="hljs-keyword">this</span>.$options.myOption
-    <span class="hljs-keyword">if</span> (myOption) &#123;
-      <span class="hljs-built_in">console</span>.log(myOption)
-    &#125;
-  &#125;
-&#125;)
-
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">myOption</span>: <span class="hljs-string">'hello!'</span>
-&#125;)
-<span class="hljs-comment">// =&gt; "hello!"</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// добавляем обработчик для пользовательской опции `myOption`</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">mixin</span>(&#123;<br>  <span class="hljs-attr">created</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> myOption = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$options</span>.<span class="hljs-property">myOption</span><br>    <span class="hljs-keyword">if</span> (myOption) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myOption)<br>    &#125;<br>  &#125;<br>&#125;)<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">myOption</span>: <span class="hljs-string">&#x27;hello!&#x27;</span><br>&#125;)<br><span class="hljs-comment">// =&gt; &quot;hello!&quot;</span><br></code></pre></td></tr></table></figure>
 <p class="tip">Используйте глобальные примеси с осторожностью, поскольку они влияют на все до единого создаваемые экземпляры Vue, включая внешние компоненты. В большинстве случаев их стоит использовать только для обработки пользовательских опций, подобно примеру выше. Неплохой идеей будет их оформление в виде <a href="plugins.html">плагинов</a>, что позволит избежать дублирования кода.</p>
 
 <h2 id="Пользовательские-стратегии-слияния-опций"><a href="#Пользовательские-стратегии-слияния-опций" class="headerlink" title="Пользовательские стратегии слияния опций"></a>Пользовательские стратегии слияния опций</h2><p>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <code>Vue.config.optionMergeStrategies</code>:</p>
-<pre><code class="hljs js">Vue.config.optionMergeStrategies.myOption = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">toVal, fromVal</span>) </span>&#123;
-  <span class="hljs-comment">// return mergedVal</span>
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-property">config</span>.<span class="hljs-property">optionMergeStrategies</span>.<span class="hljs-property">myOption</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">toVal, fromVal</span>) &#123;<br>  <span class="hljs-comment">// return mergedVal</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <code>methods</code>:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> strategies = Vue.config.optionMergeStrategies
-strategies.myOption = strategies.methods</code></pre>
-<p>Более сложным примером может послужить стратегия слияния из <a href="https://github.com/vuejs/vuex" target="_blank" rel="noopener">Vuex</a> 1.x:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> merge = Vue.config.optionMergeStrategies.computed
-Vue.config.optionMergeStrategies.vuex = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">toVal, fromVal</span>) </span>&#123;
-  <span class="hljs-keyword">if</span> (!toVal) <span class="hljs-keyword">return</span> fromVal
-  <span class="hljs-keyword">if</span> (!fromVal) <span class="hljs-keyword">return</span> toVal
-  <span class="hljs-keyword">return</span> &#123;
-    <span class="hljs-attr">getters</span>: merge(toVal.getters, fromVal.getters),
-    <span class="hljs-attr">state</span>: merge(toVal.state, fromVal.state),
-    <span class="hljs-attr">actions</span>: merge(toVal.actions, fromVal.actions)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> strategies = <span class="hljs-title class_">Vue</span>.<span class="hljs-property">config</span>.<span class="hljs-property">optionMergeStrategies</span><br>strategies.<span class="hljs-property">myOption</span> = strategies.<span class="hljs-property">methods</span><br></code></pre></td></tr></table></figure>
+<p>Более сложным примером может послужить стратегия слияния из <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex">Vuex</a> 1.x:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> merge = <span class="hljs-title class_">Vue</span>.<span class="hljs-property">config</span>.<span class="hljs-property">optionMergeStrategies</span>.<span class="hljs-property">computed</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-property">config</span>.<span class="hljs-property">optionMergeStrategies</span>.<span class="hljs-property">vuex</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">toVal, fromVal</span>) &#123;<br>  <span class="hljs-keyword">if</span> (!toVal) <span class="hljs-keyword">return</span> fromVal<br>  <span class="hljs-keyword">if</span> (!fromVal) <span class="hljs-keyword">return</span> toVal<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">getters</span>: <span class="hljs-title function_">merge</span>(toVal.<span class="hljs-property">getters</span>, fromVal.<span class="hljs-property">getters</span>),<br>    <span class="hljs-attr">state</span>: <span class="hljs-title function_">merge</span>(toVal.<span class="hljs-property">state</span>, fromVal.<span class="hljs-property">state</span>),<br>    <span class="hljs-attr">actions</span>: <span class="hljs-title function_">merge</span>(toVal.<span class="hljs-property">actions</span>, fromVal.<span class="hljs-property">actions</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
   
   
@@ -1178,8 +1095,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Миграция с Vuex 0.6.x на 1.0 — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/migration-vuex.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/migration-vuex.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/migration-vuex.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/migration-vuex.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar migration-vuex-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1016,51 +1035,36 @@
 <li>будут поддерживаться в обозримом будущем</li>
 </ul>
 <p>Однако, они имеют различные целевые аудитории.</p>
-<p><strong>Vuex 2.0</strong> радикально переписан и имеет упрощённый API, для тех, кто начинает новые проекты или хочет быть на острие прогресса в области управления состоянием фронтенд-приложений. <strong>Он не покрывается данной инструкцией по миграции</strong>, поэтому если вы хотите узнать о нём больше — обратитесь к <a href="https://v3.vuex.vuejs.org/ru/" target="_blank" rel="noopener">документации Vuex 2.0</a>.</p>
-<p><strong>Vuex 1.0</strong> в основном обратно совместим, поэтому требует внесения довольно незначительных изменений при обновлении. Рекомендуется для тех, кто уже имеет дело с большими проектами, либо для тех, кто просто хочет постепенно обновиться до Vue 2.0. Данное руководство призвано содействовать этому процессу, но включает в себя только заметки по миграции. Для изучения полного руководство по использованию обратитесь к <a href="https://github.com/vuejs/vuex/tree/1.0/docs/en" target="_blank" rel="noopener">документации Vuex 1.0</a>.</p>
+<p><strong>Vuex 2.0</strong> радикально переписан и имеет упрощённый API, для тех, кто начинает новые проекты или хочет быть на острие прогресса в области управления состоянием фронтенд-приложений. <strong>Он не покрывается данной инструкцией по миграции</strong>, поэтому если вы хотите узнать о нём больше — обратитесь к <a target="_blank" rel="noopener" href="https://v3.vuex.vuejs.org/ru/">документации Vuex 2.0</a>.</p>
+<p><strong>Vuex 1.0</strong> в основном обратно совместим, поэтому требует внесения довольно незначительных изменений при обновлении. Рекомендуется для тех, кто уже имеет дело с большими проектами, либо для тех, кто просто хочет постепенно обновиться до Vue 2.0. Данное руководство призвано содействовать этому процессу, но включает в себя только заметки по миграции. Для изучения полного руководство по использованию обратитесь к <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex/tree/1.0/docs/en">документации Vuex 1.0</a>.</p>
 <h2 id="store-watch-со-строковым-параметром-заменено"><a href="#store-watch-со-строковым-параметром-заменено" class="headerlink" title="store.watch со строковым параметром заменено"></a><code>store.watch</code> со строковым параметром <sup>заменено</sup></h2><p><code>store.watch</code> теперь принимает в качестве аргумента только функции. Например, вы должны заменить:</p>
-<pre><code class="hljs js">store.watch(<span class="hljs-string">'user.notifications'</span>, callback)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">store.<span class="hljs-title function_">watch</span>(<span class="hljs-string">&#x27;user.notifications&#x27;</span>, callback)<br></code></pre></td></tr></table></figure>
 <p>на:</p>
-<pre><code class="hljs js">store.watch(
-  <span class="hljs-comment">// Когда возвращаемый результат изменится...</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">state</span>) </span>&#123;
-    <span class="hljs-keyword">return</span> state.user.notifications
-  &#125;,
-  <span class="hljs-comment">// Запустится коллбэк</span>
-  callback
-)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">store.<span class="hljs-title function_">watch</span>(<br>  <span class="hljs-comment">// Когда возвращаемый результат изменится...</span><br>  <span class="hljs-keyword">function</span> (<span class="hljs-params">state</span>) &#123;<br>    <span class="hljs-keyword">return</span> state.<span class="hljs-property">user</span>.<span class="hljs-property">notifications</span><br>  &#125;,<br>  <span class="hljs-comment">// Запустится коллбэк</span><br>  callback<br>)<br></code></pre></td></tr></table></figure>
 <p>Это даёт более полный контроль над отслеживанием реактивных свойств.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>store.watch</code> со строкой в качестве первого аргумента.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>store.watch</code> со строкой в качестве первого аргумента.</p>
 </div>
 
 <h2 id="Вызов-событий-из-хранилища-удалено"><a href="#Вызов-событий-из-хранилища-удалено" class="headerlink" title="Вызов событий из хранилища удалено"></a>Вызов событий из хранилища <sup>удалено</sup></h2><p>Экземпляр хранилища больше не предоставляет интерфейс вызова событий (<code>on</code>,<code>off</code>, <code>emit</code>). Если вы ранее использовали хранилище в качестве глобальной шины событий - <a href="migration.html#dispatch-and-broadcast-removed">см. этот раздел</a> инструкций по миграции.</p>
 <p>Вместо того чтобы использовать этот интерфейс для отслеживания событий, пробрасываемых самим хранилищем (например, <code>store.on(&#39;mutation&#39;, callback)</code>), представлен новый метод - <code>store.subscribe</code>. Типичное использование в плагине выглядит как:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> myPlugin = <span class="hljs-function"><span class="hljs-params">store</span> =&gt;</span> &#123;
-  store.subscribe(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">mutation, state</span>) </span>&#123;
-    <span class="hljs-comment">// Дальнейшие действия...</span>
-  &#125;)
-&#125;</code></pre>
-<p>Обратитесь к <a href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md" target="_blank" rel="noopener">документации по плагинам</a> для большей информации.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> <span class="hljs-title function_">myPlugin</span> = store =&gt; &#123;<br>  store.<span class="hljs-title function_">subscribe</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">mutation, state</span>) &#123;<br>    <span class="hljs-comment">// Дальнейшие действия...</span><br>  &#125;)<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>Обратитесь к <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md">документации по плагинам</a> для большей информации.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>store.on</code>, <code>store.off</code> и <code>store.emit</code>.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>store.on</code>, <code>store.off</code> и <code>store.emit</code>.</p>
 </div>
 
 <h2 id="Прослойки-заменено"><a href="#Прослойки-заменено" class="headerlink" title="Прослойки заменено"></a>Прослойки <sup>заменено</sup></h2><p>Прослойки заменены плагинами. Плагин представляет собой обычную функцию, которая получает хранилище в качестве единственного аргумента и может слушать событие мутации в хранилище:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> myPlugins = <span class="hljs-function"><span class="hljs-params">store</span> =&gt;</span> &#123;
-  store.subscribe(<span class="hljs-string">'mutation'</span>, (mutation, state) =&gt; &#123;
-    <span class="hljs-comment">// Дальнейшие действия...</span>
-  &#125;)
-&#125;</code></pre>
-<p>Для более детального изучения см. <a href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md" target="_blank" rel="noopener">документацию по плагинам</a>.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">myPlugins</span> = store =&gt; &#123;<br>  store.<span class="hljs-title function_">subscribe</span>(<span class="hljs-string">&#x27;mutation&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">mutation, state</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// Дальнейшие действия...</span><br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Для более детального изучения см. <a target="_blank" rel="noopener" href="https://github.com/vuejs/vuex/blob/1.0/docs/en/plugins.md">документацию по плагинам</a>.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
-  <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="noopener">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>middlewares</code> в вашем хранилище.</p>
+  <p>Запустите <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-migration-helper">миграционный помощник</a> в вашем проекте, чтобы найти использование <code>middlewares</code> в вашем хранилище.</p>
 </div>
 
 
@@ -1109,8 +1113,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Пользовательские директивы — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/custom-directive.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/custom-directive.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/custom-directive.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/custom-directive.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/custom-directive.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/custom-directive.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/custom-directive.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/custom-directive.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/custom-directive.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/custom-directive.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar custom-directive-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1012,7 +1031,7 @@
 <p>Помимо встроенных директив (таких как <code>v-model</code> и <code>v-show</code>), Vue позволяет использовать ваши собственные. При этом важно понимать, что основным механизмом создания повторно используемого кода во Vue 2.0 всё-таки являются компоненты. Тем не менее, для выполнения низкоуровневых операций с DOM пользовательские директивы могут очень пригодиться. В качестве примера реализуем фокус на элементе input:</p>
 
 <div id="simplest-directive-example" class="demo">
-  <input v-focus="">
+  <input v-focus>
 </div>
 <script>
 Vue.directive('focus', {
@@ -1026,25 +1045,11 @@ new Vue({
 </script>
 
 <p>После загрузки страницы этот элемент получает фокус ввода (примечание: <code>autofocus</code> не работает на мобильном Safari). Если вы никуда не кликнули с момента открытия этой главы руководства, фокус ввода и сейчас должен быть на этом элементе. Рассмотрим директиву подробнее:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// Регистрируем глобальную пользовательскую директиву `v-focus`</span>
-Vue.directive(<span class="hljs-string">'focus'</span>, &#123;
-  <span class="hljs-comment">// Когда привязанный элемент вставлен в DOM...</span>
-  <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
-    <span class="hljs-comment">// Переключаем фокус на элемент</span>
-    el.focus()
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Регистрируем глобальную пользовательскую директиву `v-focus`</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;focus&#x27;</span>, &#123;<br>  <span class="hljs-comment">// Когда привязанный элемент вставлен в DOM...</span><br>  <span class="hljs-attr">inserted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) &#123;<br>    <span class="hljs-comment">// Переключаем фокус на элемент</span><br>    el.<span class="hljs-title function_">focus</span>()<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Чтобы зарегистрировать директиву локально, можно передать опцию <code>directives</code> при определении компонента:</p>
-<pre><code class="hljs js">directives: &#123;
-  <span class="hljs-attr">focus</span>: &#123;
-    <span class="hljs-comment">// определение директивы</span>
-    <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>&#123;
-      el.focus()
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">directives</span>: &#123;<br>  <span class="hljs-attr">focus</span>: &#123;<br>    <span class="hljs-comment">// определение директивы</span><br>    <span class="hljs-attr">inserted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) &#123;<br>      el.<span class="hljs-title function_">focus</span>()<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Теперь в шаблонах можно использовать новый атрибут <code>v-focus</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-focus</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-focus</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h2 id="Хуки"><a href="#Хуки" class="headerlink" title="Хуки"></a>Хуки</h2><p>Для жизненного цикла директивы можно указать следующие хуки (все они опциональны):</p>
 <ul>
 <li><p><code>bind</code>: вызывается однократно, при первичном связывании директивы с элементом. Здесь можно поместить код инициализации.</p>
@@ -1072,35 +1077,17 @@ Vue.directive(<span class="hljs-string">'focus'</span>, &#123;
 <li><code>oldValue</code>: Предыдущее переданное в директиву значение. Доступно только для хуков <code>update</code> и <code>componentUpdated</code>, и передаётся независимо от того, произошло ли в действительности его изменение.</li>
 <li><code>expression</code>: Выражение-строка, переданное в директиву. Например, для <code>v-my-directive=&quot;1 + 1&quot;</code> это будет <code>&quot;1 + 1&quot;</code>.</li>
 <li><code>arg</code>: Аргумент, переданный в директиву, в случае его наличия. Например, для <code>v-my-directive:foo</code> это будет <code>&quot;foo&quot;</code>.</li>
-<li><code>modifiers</code>: Объект, содержащий модификаторы, если они есть. Например, для <code>v-my-directive.foo.bar</code>, объектом модификаторов будет <code>{ foo: true, bar: true }</code>.</li>
+<li><code>modifiers</code>: Объект, содержащий модификаторы, если они есть. Например, для <code>v-my-directive.foo.bar</code>, объектом модификаторов будет <code>&#123; foo: true, bar: true &#125;</code>.</li>
 </ul>
 </li>
 <li><code>vnode</code>: Виртуальный элемент, созданный компилятором Vue. См. <a href="../api/#Интерфейс-VNode">VNode API</a> для подробностей.</li>
 <li><code>oldVnode</code>: Предыдущий виртуальный элемент, доступный только для хуков <code>update</code> и <code>componentUpdated</code>.</li>
 </ul>
-<p class="tip">Все аргументы, кроме <code>el</code>, следует понимать как только для чтения и никогда не изменять их. В случае необходимости передать информацию между хуками рекомендуем воспользоваться <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="noopener">dataset</a>.</p>
+<p class="tip">Все аргументы, кроме <code>el</code>, следует понимать как только для чтения и никогда не изменять их. В случае необходимости передать информацию между хуками рекомендуем воспользоваться <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">dataset</a>.</p>
 
 <p>Пример пользовательской директивы, использующей некоторые из описанных возможностей:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hook-arguments-example"</span> <span class="hljs-attr">v-demo:foo.a.b</span>=<span class="hljs-string">"message"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'demo'</span>, &#123;
-  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) </span>&#123;
-    <span class="hljs-keyword">var</span> s = <span class="hljs-built_in">JSON</span>.stringify
-    el.innerHTML =
-      <span class="hljs-string">'name: '</span>       + s(binding.name) + <span class="hljs-string">'&lt;br&gt;'</span> +
-      <span class="hljs-string">'value: '</span>      + s(binding.value) + <span class="hljs-string">'&lt;br&gt;'</span> +
-      <span class="hljs-string">'expression: '</span> + s(binding.expression) + <span class="hljs-string">'&lt;br&gt;'</span> +
-      <span class="hljs-string">'argument: '</span>   + s(binding.arg) + <span class="hljs-string">'&lt;br&gt;'</span> +
-      <span class="hljs-string">'modifiers: '</span>  + s(binding.modifiers) + <span class="hljs-string">'&lt;br&gt;'</span> +
-      <span class="hljs-string">'vnode keys: '</span> + <span class="hljs-built_in">Object</span>.keys(vnode).join(<span class="hljs-string">', '</span>)
-  &#125;
-&#125;)
-
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#hook-arguments-example'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">message</span>: <span class="hljs-string">'привет!'</span>
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;hook-arguments-example&quot;</span> <span class="hljs-attr">v-demo:foo.a.b</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;demo&#x27;</span>, &#123;<br>  <span class="hljs-attr">bind</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) &#123;<br>    <span class="hljs-keyword">var</span> s = <span class="hljs-title class_">JSON</span>.<span class="hljs-property">stringify</span><br>    el.<span class="hljs-property">innerHTML</span> =<br>      <span class="hljs-string">&#x27;name: &#x27;</span>       + <span class="hljs-title function_">s</span>(binding.<span class="hljs-property">name</span>) + <span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> +<br>      <span class="hljs-string">&#x27;value: &#x27;</span>      + <span class="hljs-title function_">s</span>(binding.<span class="hljs-property">value</span>) + <span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> +<br>      <span class="hljs-string">&#x27;expression: &#x27;</span> + <span class="hljs-title function_">s</span>(binding.<span class="hljs-property">expression</span>) + <span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> +<br>      <span class="hljs-string">&#x27;argument: &#x27;</span>   + <span class="hljs-title function_">s</span>(binding.<span class="hljs-property">arg</span>) + <span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> +<br>      <span class="hljs-string">&#x27;modifiers: &#x27;</span>  + <span class="hljs-title function_">s</span>(binding.<span class="hljs-property">modifiers</span>) + <span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span> +<br>      <span class="hljs-string">&#x27;vnode keys: &#x27;</span> + <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(vnode).<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;, &#x27;</span>)<br>  &#125;<br>&#125;)<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#hook-arguments-example&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;привет!&#x27;</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="hook-arguments-example" v-demo:foo.a.b="message" class="demo"></div>
 <script>
@@ -1126,59 +1113,24 @@ new Vue({
 
 <h3 id="Динамические-аргументы-директивы"><a href="#Динамические-аргументы-директивы" class="headerlink" title="Динамические аргументы директивы"></a>Динамические аргументы директивы</h3><p>Аргументы директивы могут быть динамическими. Например, для <code>v-mydirective:[argument]=&quot;value&quot;</code>, <code>argument</code> может обновляться в зависимости от свойства данных экземпляра компонента! Это позволит сделать пользовательские директивы более гибкими при использовании в приложении.</p>
 <p>Допустим, необходимо создать собственную директиву, которая позволит установить элементы на странице с помощью фиксированного позиционирования. Можно создать пользовательскую директиву, где значение определяет вертикальное положение в пикселях, например так:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"baseexample"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Прокрутите страницу вниз<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-pin</span>=<span class="hljs-string">"200"</span>&gt;</span>Элемент зафиксирован в 200px от начала страницы<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'pin'</span>, &#123;
-  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) </span>&#123;
-    el.style.position = <span class="hljs-string">'fixed'</span>
-    el.style.top = binding.value + <span class="hljs-string">'px'</span>
-  &#125;
-&#125;)
-
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#baseexample'</span>
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;baseexample&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Прокрутите страницу вниз<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-pin</span>=<span class="hljs-string">&quot;200&quot;</span>&gt;</span>Элемент зафиксирован в 200px от начала страницы<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;pin&#x27;</span>, &#123;<br>  <span class="hljs-attr">bind</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) &#123;<br>    el.<span class="hljs-property">style</span>.<span class="hljs-property">position</span> = <span class="hljs-string">&#x27;fixed&#x27;</span><br>    el.<span class="hljs-property">style</span>.<span class="hljs-property">top</span> = binding.<span class="hljs-property">value</span> + <span class="hljs-string">&#x27;px&#x27;</span><br>  &#125;<br>&#125;)<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#baseexample&#x27;</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Это закрепит элемент в 200px от начала страницы. Но что если возникнет случай, когда необходимо закрепить элемент слева, а не сверху? Для этого пригодится динамический аргумент директивы, который можно определить для каждого экземпляра компонента:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dynamicexample"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Прокрутите страницу вниз<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-pin:</span>[<span class="hljs-attr">direction</span>]=<span class="hljs-string">"200"</span>&gt;</span>Элемент зафиксирован в 200px слева страницы.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'pin'</span>, &#123;
-  <span class="hljs-attr">bind</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) </span>&#123;
-    el.style.position = <span class="hljs-string">'fixed'</span>
-    <span class="hljs-keyword">var</span> s = (binding.arg == <span class="hljs-string">'left'</span> ? <span class="hljs-string">'left'</span> : <span class="hljs-string">'top'</span>)
-    el.style[s] = binding.value + <span class="hljs-string">'px'</span>
-  &#125;
-&#125;)
-
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#dynamicexample'</span>,
-  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">direction</span>: <span class="hljs-string">'left'</span>
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dynamicexample&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Прокрутите страницу вниз<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-pin:</span>[<span class="hljs-attr">direction</span>]=<span class="hljs-string">&quot;200&quot;</span>&gt;</span>Элемент зафиксирован в 200px слева страницы.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;pin&#x27;</span>, &#123;<br>  <span class="hljs-attr">bind</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding, vnode</span>) &#123;<br>    el.<span class="hljs-property">style</span>.<span class="hljs-property">position</span> = <span class="hljs-string">&#x27;fixed&#x27;</span><br>    <span class="hljs-keyword">var</span> s = (binding.<span class="hljs-property">arg</span> == <span class="hljs-string">&#x27;left&#x27;</span> ? <span class="hljs-string">&#x27;left&#x27;</span> : <span class="hljs-string">&#x27;top&#x27;</span>)<br>    el.<span class="hljs-property">style</span>[s] = binding.<span class="hljs-property">value</span> + <span class="hljs-string">&#x27;px&#x27;</span><br>  &#125;<br>&#125;)<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#dynamicexample&#x27;</span>,<br>  <span class="hljs-attr">data</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">direction</span>: <span class="hljs-string">&#x27;left&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Результат:</p>
 
 <iframe height="200" style="width: 100%;" class="demo" scrolling="no" title="Dynamic Directive Arguments" src="//codepen.io/team/Vue/embed/rgLLzb/?height=300&theme-id=32763&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  Посмотрите Pen <a href="https://codepen.io/team/Vue/pen/rgLLzb/" target="_blank" rel="noopener">Dynamic Directive Arguments</a> by Vue
-  (<a href="https://codepen.io/Vue" target="_blank" rel="noopener">@Vue</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.
+  Посмотрите Pen <a target="_blank" rel="noopener" href='https://codepen.io/team/Vue/pen/rgLLzb/'>Dynamic Directive Arguments</a> by Vue
+  (<a target="_blank" rel="noopener" href='https://codepen.io/Vue'>@Vue</a>) на <a target="_blank" rel="noopener" href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <p>Теперь пользовательская директива достаточно гибкая для использования в нескольких различных случаях.</p>
 <h2 id="Сокращённая-запись"><a href="#Сокращённая-запись" class="headerlink" title="Сокращённая запись"></a>Сокращённая запись</h2><p>Часто нам может потребоваться одинаковое поведение на <code>bind</code> и <code>update</code>, а остальные хуки не нужны. В таком случае можно использовать сокращённую запись:</p>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'color-switch'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
-  el.style.backgroundColor = binding.value
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;color-switch&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) &#123;<br>  el.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = binding.<span class="hljs-property">value</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <h2 id="Передача-объекта-данных-в-директиву"><a href="#Передача-объекта-данных-в-директиву" class="headerlink" title="Передача объекта данных в директиву"></a>Передача объекта данных в директиву</h2><p>В случае, если директива должна принимать несколько параметров, можно указать объект JavaScript — годится любое валидное выражение, помните?</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-demo</span>=<span class="hljs-string">"&#123; color: 'белый', text: 'привет!' &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'demo'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
-  <span class="hljs-built_in">console</span>.log(binding.value.color) <span class="hljs-comment">// =&gt; "белый"</span>
-  <span class="hljs-built_in">console</span>.log(binding.value.text)  <span class="hljs-comment">// =&gt; "привет!"</span>
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-demo</span>=<span class="hljs-string">&quot;&#123; color: &#x27;белый&#x27;, text: &#x27;привет!&#x27; &#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;demo&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(binding.<span class="hljs-property">value</span>.<span class="hljs-property">color</span>) <span class="hljs-comment">// =&gt; &quot;белый&quot;</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(binding.<span class="hljs-property">value</span>.<span class="hljs-property">text</span>)  <span class="hljs-comment">// =&gt; &quot;привет!&quot;</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 
   
   
@@ -1225,8 +1177,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

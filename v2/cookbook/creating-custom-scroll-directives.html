@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Создание пользовательской директивы прокрутки — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/creating-custom-scroll-directives.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -441,117 +460,33 @@
     <h1>Создание пользовательской директивы прокрутки</h1>
   
   
-    <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Часто случается, что нам необходимо добавить какое-нибудь нестандартное поведение, например анимацию, при прокрутке на сайте. Существует много способов, как реализовать подобное, но способ, требующий меньше всего кода и зависимостей, заключается в использовании <a href="../guide/custom-directive.html">пользовательской директивы</a> для создания хука, который срабатывает при определённом событии прокрутки.<br><pre><code class="hljs js">Vue.directive(<span class="hljs-string">'scroll'</span>, &#123;
-  <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
-    <span class="hljs-keyword">let</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>&#123;
-      <span class="hljs-keyword">if</span> (binding.value(evt, el)) &#123;
-        <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'scroll'</span>, f)
-      &#125;
-    &#125;
-    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, f)
-  &#125;
-&#125;)
-
-<span class="hljs-comment">// основное приложение</span>
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">handleScroll</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt, el</span>) </span>&#123;
-      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.scrollY &gt; <span class="hljs-number">50</span>) &#123;
-        el.setAttribute(
-          <span class="hljs-string">'style'</span>,
-          <span class="hljs-string">'opacity: 1; transform: translate3d(0, -10px, 0)'</span>
-        )
-      &#125;
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.scrollY &gt; <span class="hljs-number">100</span>
-    &#125;
-  &#125;
-&#125;)</code></pre></p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"centered"</span>&gt;</span>Прокрути меня<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
-    <span class="hljs-attr">v-scroll</span>=<span class="hljs-string">"handleScroll"</span>
-    <span class="hljs-attr">class</span>=<span class="hljs-string">"box"</span>
-  &gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque amet harum aut ab veritatis earum porro praesentium ut corporis. Quasi provident dolorem officia iure fugiat, eius mollitia sequi quisquam.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+    <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Часто случается, что нам необходимо добавить какое-нибудь нестандартное поведение, например анимацию, при прокрутке на сайте. Существует много способов, как реализовать подобное, но способ, требующий меньше всего кода и зависимостей, заключается в использовании <a href="../guide/custom-directive.html">пользовательской директивы</a> для создания хука, который срабатывает при определённом событии прокрутки.<br><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, &#123;<br>  <span class="hljs-attr">inserted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) &#123;<br>    <span class="hljs-keyword">let</span> f = <span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) &#123;<br>      <span class="hljs-keyword">if</span> (binding.<span class="hljs-title function_">value</span>(evt, el)) &#123;<br>        <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, f)<br>      &#125;<br>    &#125;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, f)<br>  &#125;<br>&#125;)<br><br><span class="hljs-comment">// основное приложение</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">handleScroll</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">evt, el</span>) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> &gt; <span class="hljs-number">50</span>) &#123;<br>        el.<span class="hljs-title function_">setAttribute</span>(<br>          <span class="hljs-string">&#x27;style&#x27;</span>,<br>          <span class="hljs-string">&#x27;opacity: 1; transform: translate3d(0, -10px, 0)&#x27;</span><br>        )<br>      &#125;<br>      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> &gt; <span class="hljs-number">100</span><br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;centered&quot;</span>&gt;</span>Прокрути меня<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span><br><span class="hljs-tag">    <span class="hljs-attr">v-scroll</span>=<span class="hljs-string">&quot;handleScroll&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;box&quot;</span></span><br><span class="hljs-tag">  &gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque amet harum aut ab veritatis earum porro praesentium ut corporis. Quasi provident dolorem officia iure fugiat, eius mollitia sequi quisquam.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p class="tip">Важно! Директива должна быть зарегистрирована до экземпляра Vue.</p>
 
 <p>Также нам понадобится свойство в стилях, которое позволит сделать переход между промежуточными состояниями более плавным:</p>
-<pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;
-  <span class="hljs-attribute">transition</span>: <span class="hljs-number">1.5s</span> all <span class="hljs-built_in">cubic-bezier</span>(<span class="hljs-number">0.39</span>, <span class="hljs-number">0.575</span>, <span class="hljs-number">0.565</span>, <span class="hljs-number">1</span>);
-&#125;</code></pre>
-<p></p><p data-height="450" data-theme-id="5162" data-slug-hash="983220ed949ac670dff96bdcaf9d3338" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Пользовательская директива прокрутки - CSS переходы" class="codepen">Посмотреть пример<a href="https://codepen.io/sdras/pen/983220ed949ac670dff96bdcaf9d3338/" target="_blank" rel="noopener">Пользовательская директива прокрутки - CSS переходы</a> от Sarah Drasner (<a href="https://codepen.io/sdras" target="_blank" rel="noopener">@sdras</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-attribute">transition</span>: <span class="hljs-number">1.5s</span> all <span class="hljs-built_in">cubic-bezier</span>(<span class="hljs-number">0.39</span>, <span class="hljs-number">0.575</span>, <span class="hljs-number">0.565</span>, <span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><p data-height="450" data-theme-id="5162" data-slug-hash="983220ed949ac670dff96bdcaf9d3338" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Пользовательская директива прокрутки - CSS переходы" class="codepen">Посмотреть пример<a target="_blank" rel="noopener" href="https://codepen.io/sdras/pen/983220ed949ac670dff96bdcaf9d3338/">Пользовательская директива прокрутки - CSS переходы</a> от Sarah Drasner (<a target="_blank" rel="noopener" href="https://codepen.io/sdras">@sdras</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <p>С помощью GreenSock или любой другой JS-библиотеки для анимаций, можно упростить код:</p>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'scroll'</span>, &#123;
-  <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
-    <span class="hljs-keyword">let</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>&#123;
-      <span class="hljs-keyword">if</span> (binding.value(evt, el)) &#123;
-        <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'scroll'</span>, f)
-      &#125;
-    &#125;
-    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, f)
-  &#125;
-&#125;)
-
-<span class="hljs-comment">// основное приложение</span>
-<span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">handleScroll</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt, el</span>) </span>&#123;
-      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.scrollY &gt; <span class="hljs-number">50</span>) &#123;
-        TweenMax.to(el, <span class="hljs-number">1.5</span>, &#123;
-          <span class="hljs-attr">y</span>: <span class="hljs-number">-10</span>,
-          <span class="hljs-attr">opacity</span>: <span class="hljs-number">1</span>,
-          <span class="hljs-attr">ease</span>: Sine.easeOut
-        &#125;)
-      &#125;
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.scrollY &gt; <span class="hljs-number">100</span>
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, &#123;<br>  <span class="hljs-attr">inserted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) &#123;<br>    <span class="hljs-keyword">let</span> f = <span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) &#123;<br>      <span class="hljs-keyword">if</span> (binding.<span class="hljs-title function_">value</span>(evt, el)) &#123;<br>        <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, f)<br>      &#125;<br>    &#125;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, f)<br>  &#125;<br>&#125;)<br><br><span class="hljs-comment">// основное приложение</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">handleScroll</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">evt, el</span>) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> &gt; <span class="hljs-number">50</span>) &#123;<br>        <span class="hljs-title class_">TweenMax</span>.<span class="hljs-title function_">to</span>(el, <span class="hljs-number">1.5</span>, &#123;<br>          <span class="hljs-attr">y</span>: -<span class="hljs-number">10</span>,<br>          <span class="hljs-attr">opacity</span>: <span class="hljs-number">1</span>,<br>          <span class="hljs-attr">ease</span>: <span class="hljs-title class_">Sine</span>.<span class="hljs-property">easeOut</span><br>        &#125;)<br>      &#125;<br>      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> &gt; <span class="hljs-number">100</span><br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Мы удалим предыдущее CSS-свойство transition из этого решения, так как теперь плавность перехода управляется с помощью JavaScript.</p>
 <h2 id="Выгода-от-использования-пользовательской-директивы-прокрутки"><a href="#Выгода-от-использования-пользовательской-директивы-прокрутки" class="headerlink" title="Выгода от использования пользовательской директивы прокрутки"></a>Выгода от использования пользовательской директивы прокрутки</h2><p>Vue богат различными настройками для директив, многие из которых решают большинство задач, что положительно сказывается на процессе разработки. Но даже если у вас есть частный случай, который не покрывается стандартными средствами фреймворка, он может быть легко решён с помощью создания пользовательской директивы, соответствующей вашим требованиям.</p>
 <p>Добавление и удаление обработчиков на события прокрутки элементов — это действительно хорошее использование данной техники, потому, что директивы прокрутки всегда связаны с самим элементом. В противном случае нам пришлось бы искать ссылку на соответствующий элемент в DOM. Данный подход избавляет от необходимости прохода по DOM, и держит логику события связанной с узлом, на который оно ссылается.</p>
 <h2 id="Реальный-пример-использование-пользовательской-директивы-прокрутки-для-каскадных-анимаций"><a href="#Реальный-пример-использование-пользовательской-директивы-прокрутки-для-каскадных-анимаций" class="headerlink" title="Реальный пример: использование пользовательской директивы прокрутки для каскадных анимаций"></a>Реальный пример: использование пользовательской директивы прокрутки для каскадных анимаций</h2><p>В процессе создания связующего сайта вы можете обнаружить, что переиспользуете один и тот же тип анимаций в нескольких областях.<br>Это кажется простым — создать весьма конкретную пользовательскую директиву, не так ли? Обычно, если вы её переиспользуете, вам понадобится её <em>просто</em> слегка изменить при каждом использовании.</p>
 <p>Чтобы оставить наш код лаконичным и понятным, мы бы захотели передать некоторые параметры, такие, как начальная и конечная точки анимации во время прокрутки страницы вниз.</p>
-<p><strong>Этот пример лучше просматривать в <a href="https://s.codepen.io/sdras/debug/078c19f5b3ed7f7d28584da450296cd0" target="_blank" rel="noopener">полноэкранной версии</a>.</strong></p>
-<p></p><p data-height="500" data-theme-id="5162" data-slug-hash="c8c55e3e0bba997350551dd747119100" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Пример с прокруткой - Использование пользовательской директивы во Vue" class="codepen">Посмотреть пример <a href="https://codepen.io/sdras/pen/c8c55e3e0bba997350551dd747119100/" target="_blank" rel="noopener">Пример с прокруткой - Использование пользовательской директивы во Vue</a> от Sarah Drasner (<a href="https://codepen.io/sdras" target="_blank" rel="noopener">@sdras</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><strong>Этот пример лучше просматривать в <a target="_blank" rel="noopener" href="https://s.codepen.io/sdras/debug/078c19f5b3ed7f7d28584da450296cd0">полноэкранной версии</a>.</strong></p>
+<p><p data-height="500" data-theme-id="5162" data-slug-hash="c8c55e3e0bba997350551dd747119100" data-default-tab="result" data-user="sdras" data-embed-version="2" data-pen-title="Пример с прокруткой - Использование пользовательской директивы во Vue" class="codepen">Посмотреть пример <a target="_blank" rel="noopener" href="https://codepen.io/sdras/pen/c8c55e3e0bba997350551dd747119100/">Пример с прокруткой - Использование пользовательской директивы во Vue</a> от Sarah Drasner (<a target="_blank" rel="noopener" href="https://codepen.io/sdras">@sdras</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <p>В примере выше каждая секция имеет два типа анимаций, которые срабатывают во время прокрутки: анимация изменения формы и анимация отрисовки, которая анимирует отдельные пути в SVG. Мы переиспользуем обе, так что мы можем написать пользовательские директивы для каждой из них. Аргументы, которые мы передадим внутрь, помогут сохранить простоту и универсальность.</p>
 <p>Чтобы показать, как это делается, мы рассмотрим пример с изменением формы, где нам нужно указать значения старта и окончания анимации, а также передать значение пути, в который мы будем трансформировать форму. Эти аргументы определяются как <code>binding.value.foo</code>.</p>
-<pre><code class="hljs js">Vue.directive(<span class="hljs-string">'clipscroll'</span>, &#123;
-  <span class="hljs-attr">inserted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) </span>&#123;
-    <span class="hljs-keyword">let</span> f = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>&#123;
-      <span class="hljs-keyword">var</span> hasRun = <span class="hljs-literal">false</span>
-      <span class="hljs-keyword">if</span> (!hasRun &amp;&amp; <span class="hljs-built_in">window</span>.scrollY &gt; binding.value.start) &#123;
-        hasRun = <span class="hljs-literal">true</span>
-        TweenMax.to(el, <span class="hljs-number">2</span>, &#123;
-          <span class="hljs-attr">morphSVG</span>: binding.value.toPath,
-          <span class="hljs-attr">ease</span>: Sine.easeIn
-        &#125;)
-      &#125;
-      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.scrollY &gt; binding.value.end) &#123;
-        <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">'scroll'</span>, f)
-      &#125;
-    &#125;
-    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, f)
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">directive</span>(<span class="hljs-string">&#x27;clipscroll&#x27;</span>, &#123;<br>  <span class="hljs-attr">inserted</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">el, binding</span>) &#123;<br>    <span class="hljs-keyword">let</span> f = <span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) &#123;<br>      <span class="hljs-keyword">var</span> hasRun = <span class="hljs-literal">false</span><br>      <span class="hljs-keyword">if</span> (!hasRun &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> &gt; binding.<span class="hljs-property">value</span>.<span class="hljs-property">start</span>) &#123;<br>        hasRun = <span class="hljs-literal">true</span><br>        <span class="hljs-title class_">TweenMax</span>.<span class="hljs-title function_">to</span>(el, <span class="hljs-number">2</span>, &#123;<br>          <span class="hljs-attr">morphSVG</span>: binding.<span class="hljs-property">value</span>.<span class="hljs-property">toPath</span>,<br>          <span class="hljs-attr">ease</span>: <span class="hljs-title class_">Sine</span>.<span class="hljs-property">easeIn</span><br>        &#125;)<br>      &#125;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> &gt; binding.<span class="hljs-property">value</span>.<span class="hljs-property">end</span>) &#123;<br>        <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, f)<br>      &#125;<br>    &#125;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, f)<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>После этого, мы можем использовать эту анимацию в нашем шаблоне. В данном случае мы привязываем директиву к элементу <code>clipPath</code> и передаём все наши аргументы внутри объекта в директиву.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">clipPath</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"clip-path"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">path</span>
-    <span class="hljs-attr">v-clipscroll</span>=<span class="hljs-string">"&#123; start: '50', end: '100', toPath: 'M0.39 0.34H15.99V22.44H0.39z' &#125;"</span>
-    <span class="hljs-attr">id</span>=<span class="hljs-string">"poly-shapemorph"</span>
-    <span class="hljs-attr">d</span>=<span class="hljs-string">"M12.46 20.76L7.34 22.04 3.67 18.25 5.12 13.18 10.24 11.9 13.91 15.69 12.46 20.76z"</span>
-  /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">clipPath</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">clipPath</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;clip-path&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">path</span></span><br><span class="hljs-tag">    <span class="hljs-attr">v-clipscroll</span>=<span class="hljs-string">&quot;&#123; start: &#x27;50&#x27;, end: &#x27;100&#x27;, toPath: &#x27;M0.39 0.34H15.99V22.44H0.39z&#x27; &#125;&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;poly-shapemorph&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M12.46 20.76L7.34 22.04 3.67 18.25 5.12 13.18 10.24 11.9 13.91 15.69 12.46 20.76z&quot;</span></span><br><span class="hljs-tag">  /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">clipPath</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>Пользовательские директивы очень полезны, но у вас может возникнуть ситуация, когда вам понадобится что-то очень специфичное, но уже реализованное в библиотеках для прокрутки страницы, и у вас не будет желания писать это с нуля.</p>
-<p><a href="http://scrollmagic.io/" target="_blank" rel="noopener">Scrollmagic</a> обладает очень богатой экосистемой для работы, так же, как и хорошей документацией с примерами. Он включает в себя, но не ограничивается такими возможностями, как  <a href="http://scrollmagic.io/examples/advanced/parallax_scrolling.html" target="_blank" rel="noopener">параллакс-эффект</a>, <a href="http://scrollmagic.io/examples/expert/cascading_pins.html" target="_blank" rel="noopener">каскадное закрепление</a>, <a href="http://scrollmagic.io/examples/basic/section_wipes_natural.html" target="_blank" rel="noopener">вытеснение областей</a> и <a href="http://scrollmagic.io/examples/basic/responsive_duration.html" target="_blank" rel="noopener">отзывчивая продолжительность анимации</a>.</p>
+<p><a target="_blank" rel="noopener" href="http://scrollmagic.io/">Scrollmagic</a> обладает очень богатой экосистемой для работы, так же, как и хорошей документацией с примерами. Он включает в себя, но не ограничивается такими возможностями, как  <a target="_blank" rel="noopener" href="http://scrollmagic.io/examples/advanced/parallax_scrolling.html">параллакс-эффект</a>, <a target="_blank" rel="noopener" href="http://scrollmagic.io/examples/expert/cascading_pins.html">каскадное закрепление</a>, <a target="_blank" rel="noopener" href="http://scrollmagic.io/examples/basic/section_wipes_natural.html">вытеснение областей</a> и <a target="_blank" rel="noopener" href="http://scrollmagic.io/examples/basic/responsive_duration.html">отзывчивая продолжительность анимации</a>.</p>
 
   
   
@@ -587,8 +522,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

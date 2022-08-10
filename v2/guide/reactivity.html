@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Подробно о реактивности — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/reactivity.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/reactivity.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/reactivity.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/reactivity.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/reactivity.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/reactivity.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/reactivity.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/reactivity.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/reactivity.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/reactivity.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/reactivity.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/reactivity.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/reactivity.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/reactivity.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/reactivity.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/reactivity.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar reactivity-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1010,103 +1029,45 @@
     <p>Мы уже разобрали большую часть основ, так что пришло время нырнуть поглубже! Одна из наиболее примечательных возможностей Vue — это ненавязчивая реактивность. Модели представляют собой простые JavaScript-объекты. По мере их изменения обновляется и представление данных, благодаря чему управление состоянием приложения становится простым и очевидным. Тем не менее, у механизма реактивности есть ряд особенностей, знакомство с которыми позволит избежать появление распространённых ошибок. В этом разделе руководства мы подробно рассмотрим низкоуровневую реализацию системы реактивности Vue.</p>
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="sponsored noopener" title="Реактивность Vue">Посмотрите объясняющее видео на Vue Mastery</a></div>
 
-<h2 id="Как-отслеживаются-изменения"><a href="#Как-отслеживаются-изменения" class="headerlink" title="Как отслеживаются изменения"></a>Как отслеживаются изменения</h2><p>Когда простой JavaScript-объект передаётся в экземпляр Vue в качестве опции <code>data</code>, Vue обходит все его поля и превращает их в пары <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters#%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B3%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%BE%D0%B2_%D0%B8_%D1%81%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%BE%D0%B2" target="_blank" rel="noopener">геттер/сеттер</a>, используя <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener"><code>Object.defineProperty</code></a>. Эта возможность появилась в JavaScript только в версии ES5, поэтому в более ранних версиях её эмулировать не получится — по этой-то причине Vue и не поддерживает IE8 и ниже.</p>
-<p>Геттеры и сеттеры не видны пользователю, но именно они являются тем внутренним механизмом, который позволяет Vue отслеживать зависимости и изменения данных. К сожалению, при таком подходе выведенные в консоль браузера геттеры и сеттеры выглядят не так, как обычные объекты, поэтому для более наглядной визуализации лучше использовать <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">инструменты разработчика Vue-devtools</a>.</p>
+<h2 id="Как-отслеживаются-изменения"><a href="#Как-отслеживаются-изменения" class="headerlink" title="Как отслеживаются изменения"></a>Как отслеживаются изменения</h2><p>Когда простой JavaScript-объект передаётся в экземпляр Vue в качестве опции <code>data</code>, Vue обходит все его поля и превращает их в пары <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters#%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B3%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%BE%D0%B2_%D0%B8_%D1%81%D0%B5%D1%82%D1%82%D0%B5%D1%80%D0%BE%D0%B2">геттер/сеттер</a>, используя <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"><code>Object.defineProperty</code></a>. Эта возможность появилась в JavaScript только в версии ES5, поэтому в более ранних версиях её эмулировать не получится — по этой-то причине Vue и не поддерживает IE8 и ниже.</p>
+<p>Геттеры и сеттеры не видны пользователю, но именно они являются тем внутренним механизмом, который позволяет Vue отслеживать зависимости и изменения данных. К сожалению, при таком подходе выведенные в консоль браузера геттеры и сеттеры выглядят не так, как обычные объекты, поэтому для более наглядной визуализации лучше использовать <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-devtools">инструменты разработчика Vue-devtools</a>.</p>
 <p>В каждый экземпляр компонента добавлен связанный с ним <strong>экземпляр наблюдателя</strong>, который помечает все поля, затронутые при отрисовке компонента, как зависимости. В дальнейшем, когда вызывается сеттер поля, помеченного как зависимость, этот сеттер уведомляет наблюдателя, который, в свою очередь, инициирует повторную отрисовку компонента.</p>
 <p><img src="/images/data.png" alt="Цикл реактивности"></p>
 <h2 id="Особенности-отслеживания-изменений"><a href="#Особенности-отслеживания-изменений" class="headerlink" title="Особенности отслеживания изменений"></a>Особенности отслеживания изменений</h2><p>Вследствие ограничений JavaScript, есть виды изменений, которые Vue <strong>не может обнаружить</strong>. Однако существуют способы обойти их, чтобы сохранить реактивность.</p>
 <h3 id="Для-объектов"><a href="#Для-объектов" class="headerlink" title="Для объектов"></a>Для объектов</h3><p>Vue не может обнаружить добавление или удаление свойства. Так как Vue добавляет геттер/сеттер на этапе инициализации экземпляра, свойство должно присутствовать в объекте <code>data</code> для того чтобы Vue преобразовал его и сделал реактивным. Например:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>
-  &#125;
-&#125;)
-<span class="hljs-comment">// теперь `vm.a` — реактивное поле</span>
-
-vm.b = <span class="hljs-number">2</span>
-<span class="hljs-comment">// `vm.b` НЕ реактивно</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">a</span>: <span class="hljs-number">1</span><br>  &#125;<br>&#125;)<br><span class="hljs-comment">// теперь `vm.a` — реактивное поле</span><br><br>vm.<span class="hljs-property">b</span> = <span class="hljs-number">2</span><br><span class="hljs-comment">// `vm.b` НЕ реактивно</span><br></code></pre></td></tr></table></figure>
 <p>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code>Vue.set(object, propertyName, value)</code>:</p>
-<pre><code class="hljs js">Vue.set(vm.someObject, <span class="hljs-string">'b'</span>, <span class="hljs-number">2</span>)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">set</span>(vm.<span class="hljs-property">someObject</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
 <p>Также можно использовать метод экземпляра <code>vm.$set</code>, который представляет собой псевдоним к глобальному <code>Vue.set</code>:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">this</span>.$<span class="hljs-keyword">set</span>(this.someObject, 'b', 2)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.$set(<span class="hljs-variable language_">this</span>.<span class="hljs-property">someObject</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
 <p>Иногда нужно добавить несколько свойств в существующий объект, например, с помощью <code>Object.assign()</code> или <code>_.extend()</code>. Если поступить так, то добавленные свойства не станут реактивными. Для решения этой задачи придётся создать новый объект, содержащий поля как оригинального объекта, так и объекта-примеси:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// вместо `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span>
-<span class="hljs-keyword">this</span>.someObject = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, <span class="hljs-keyword">this</span>.someObject, &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> &#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// вместо `Object.assign(this.someObject, &#123; a: 1, b: 2 &#125;)`</span><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">someObject</span> = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">assign</span>(&#123;&#125;, <span class="hljs-variable language_">this</span>.<span class="hljs-property">someObject</span>, &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> &#125;)<br></code></pre></td></tr></table></figure>
 <h3 id="Для-массивов"><a href="#Для-массивов" class="headerlink" title="Для массивов"></a>Для массивов</h3><p>Vue не может отследить следующие изменения в массиве:</p>
 <ol>
 <li>Прямую установку элемента по индексу: <code>vm.items[indexOfItem] = newValue</code></li>
 <li>Явное изменение длины массива: <code>vm.items.length = newLength</code></li>
 </ol>
 <p>Например:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">items</span>: [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]
-  &#125;
-&#125;)
-vm.items[<span class="hljs-number">1</span>] = <span class="hljs-string">'x'</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span>
-vm.items.length = <span class="hljs-number">2</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">items</span>: [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]<br>  &#125;<br>&#125;)<br>vm.<span class="hljs-property">items</span>[<span class="hljs-number">1</span>] = <span class="hljs-string">&#x27;x&#x27;</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span><br>vm.<span class="hljs-property">items</span>.<span class="hljs-property">length</span> = <span class="hljs-number">2</span> <span class="hljs-comment">// НЕ РЕАКТИВНО</span><br></code></pre></td></tr></table></figure>
 <p>Решить первую проблему можно двумя способами, оба дадут эффект аналогичный <code>vm.items[indexOfItem] = newValue</code>, плюс запустят реактивные обновления состояния приложения:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// Использовать Vue.set</span>
-Vue.set(vm.items, indexOfItem, newValue)</code></pre>
-<pre><code class="hljs js"><span class="hljs-comment">// Использовать Array.prototype.splice</span>
-vm.items.splice(indexOfItem, <span class="hljs-number">1</span>, newValue)</code></pre>
-<p>Можно использовать метод экземпляра <a href="https://ru.vuejs.org/v2/api/#vm-set" target="_blank" rel="noopener"><code>vm.$set</code></a>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
-<pre><code class="hljs js">vm.$<span class="hljs-keyword">set</span>(vm.items, indexOfItem, newValue)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Использовать Vue.set</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">set</span>(vm.<span class="hljs-property">items</span>, indexOfItem, newValue)<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Использовать Array.prototype.splice</span><br>vm.<span class="hljs-property">items</span>.<span class="hljs-title function_">splice</span>(indexOfItem, <span class="hljs-number">1</span>, newValue)<br></code></pre></td></tr></table></figure>
+<p>Можно использовать метод экземпляра <a target="_blank" rel="noopener" href="https://ru.vuejs.org/v2/api/#vm-set"><code>vm.$set</code></a>, который является псевдонимом для глобального <code>Vue.set</code>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">vm.$set(vm.<span class="hljs-property">items</span>, indexOfItem, newValue)<br></code></pre></td></tr></table></figure>
 <p>Для решения второй проблемы используйте <code>splice</code>:</p>
-<pre><code class="hljs js">vm.items.splice(newLength)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">vm.<span class="hljs-property">items</span>.<span class="hljs-title function_">splice</span>(newLength)<br></code></pre></td></tr></table></figure>
 <h2 id="Объявление-реактивных-свойств"><a href="#Объявление-реактивных-свойств" class="headerlink" title="Объявление реактивных свойств"></a>Объявление реактивных свойств</h2><p>Поскольку Vue не позволяет динамически добавлять корневые реактивные свойства, это означает, что все корневые поля необходимо инициализировать изначально, хотя бы пустыми значениями:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-comment">// объявляем поле message, содержащее пустую строку</span>
-    <span class="hljs-attr">message</span>: <span class="hljs-string">''</span>
-  &#125;,
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;'</span>
-&#125;)
-<span class="hljs-comment">// впоследствии задаём значение `message`</span>
-vm.message = <span class="hljs-string">'Привет!'</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-comment">// объявляем поле message, содержащее пустую строку</span><br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;&#x27;</span><br>&#125;)<br><span class="hljs-comment">// впоследствии задаём значение `message`</span><br>vm.<span class="hljs-property">message</span> = <span class="hljs-string">&#x27;Привет!&#x27;</span><br></code></pre></td></tr></table></figure>
 <p>Если не задать поле <code>message</code> в опции data, Vue выведет предупреждение, что функция отрисовки пытается получить доступ к несуществующему свойству.</p>
 <p>Существуют технические причины для этого ограничения: оно позволяет исключить целый класс граничных случаев в системе учёта зависимостей, а также упростить взаимодействие Vue с системами проверки типов. Но более важно то, что с этим ограничением становится проще поддерживать код, так как теперь объект <code>data</code> можно рассматривать как схему состояния компонента. Код, в котором реактивные свойства компонента перечислены заранее, намного проще для понимания.</p>
 <h2 id="Асинхронная-очередь-обновлений"><a href="#Асинхронная-очередь-обновлений" class="headerlink" title="Асинхронная очередь обновлений"></a>Асинхронная очередь обновлений</h2><p>На всякий случай напомним, что во Vue обновление DOM выполняется <strong>асинхронно</strong>. Каждый раз, когда обнаруживается изменение в данных, создаётся очередь, которая используется в качестве буфера для этого и последующих изменений, происходящих в текущей итерации (“tick”) цикла событий. Если один и тот же наблюдатель срабатывает несколько раз, в очередь он попадёт всё равно лишь единожды. Благодаря использованию буфера и устранению дубликатов, вычисления и манипуляции DOM сводятся к минимуму. В следующей итерации цикла событий Vue разбирает очередь и выполняет актуальные (уже не содержащие дубликатов) обновления. На низком уровне для асинхронной постановки задач в очередь используются <code>Promise.then</code>, <code>MutationObserver</code> и <code>setImmediate</code>, а если они недоступны, то <code>setTimeout(fn, 0)</code>.</p>
 <p>Итак, если выполнить код <code>vm.someData = &#39;новое значение&#39;</code>, компонент не будет отрисован сразу же. Он обновится в следующей итерации при разборе очереди. Чаще всего эту особенность можно не принимать в расчёт, но иногда бывает нужно дождаться состояния, в которое DOM перейдёт после обновления данных. Хотя прямая манипуляция DOM нежелательна, а системы в целом предпочтительнее проектировать так, чтобы в них были первичные данные, иногда всё же её не избежать. Чтобы выполнить какой-нибудь код только после того, как завершится обновление DOM, можно передать коллбэк в метод <code>Vue.nextTick(callback)</code> после изменения данных. Он будет вызван после обновления DOM. Например:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example"</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#example'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">message</span>: <span class="hljs-string">'123'</span>
-  &#125;
-&#125;)
-vm.message = <span class="hljs-string">'новое сообщение'</span> <span class="hljs-comment">// изменяем данные</span>
-vm.$el.textContent === <span class="hljs-string">'новое сообщение'</span> <span class="hljs-comment">// false</span>
-Vue.nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-  vm.$el.textContent === <span class="hljs-string">'новое сообщение'</span> <span class="hljs-comment">// true</span>
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example&quot;</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#example&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;123&#x27;</span><br>  &#125;<br>&#125;)<br>vm.<span class="hljs-property">message</span> = <span class="hljs-string">&#x27;новое сообщение&#x27;</span> <span class="hljs-comment">// изменяем данные</span><br>vm.<span class="hljs-property">$el</span>.<span class="hljs-property">textContent</span> === <span class="hljs-string">&#x27;новое сообщение&#x27;</span> <span class="hljs-comment">// false</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">nextTick</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  vm.<span class="hljs-property">$el</span>.<span class="hljs-property">textContent</span> === <span class="hljs-string">&#x27;новое сообщение&#x27;</span> <span class="hljs-comment">// true</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Существует также метод экземпляра <code>vm.$nextTick()</code>, особенно подходящий для использования внутри компонентов, поскольку он не требует обращения к глобальной переменной <code>Vue</code>, а также автоматически связывает контекст <code>this</code> коллбэка с текущим экземпляром Vue:</p>
-<pre><code class="hljs js">Vue.component(<span class="hljs-string">'example'</span>, &#123;
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;'</span>,
-  <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">message</span>: <span class="hljs-string">'не обновлено'</span>
-    &#125;
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">updateMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'обновлено'</span>
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'не обновлено'</span>
-      <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'обновлено'</span>
-      &#125;)
-    &#125;
-  &#125;
-&#125;)</code></pre>
-<p>Поскольку <code>$nextTick()</code> возвращает Promise, вы можете достичь того же, используя новый синтаксис <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async/await из ES2017</a>:</p>
- <pre><code class="hljs js">methods: &#123;
-  <span class="hljs-attr">updateMessage</span>: <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-keyword">this</span>.message = <span class="hljs-string">'обновлено'</span>
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'не обновлено'</span>
-    <span class="hljs-keyword">await</span> <span class="hljs-keyword">this</span>.$nextTick()
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.$el.textContent) <span class="hljs-comment">// =&gt; 'обновлено'</span>
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;example&#x27;</span>, &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;span&gt;&#123;&#123; message &#125;&#125;&lt;/span&gt;&#x27;</span>,<br>  <span class="hljs-attr">data</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;не обновлено&#x27;</span><br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">updateMessage</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span> = <span class="hljs-string">&#x27;обновлено&#x27;</span><br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$el</span>.<span class="hljs-property">textContent</span>) <span class="hljs-comment">// =&gt; &#x27;не обновлено&#x27;</span><br>      <span class="hljs-variable language_">this</span>.$nextTick(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$el</span>.<span class="hljs-property">textContent</span>) <span class="hljs-comment">// =&gt; &#x27;обновлено&#x27;</span><br>      &#125;)<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>Поскольку <code>$nextTick()</code> возвращает Promise, вы можете достичь того же, используя новый синтаксис <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/async_function">async/await из ES2017</a>:</p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-attr">methods</span>: &#123;<br>  <span class="hljs-attr">updateMessage</span>: <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span> = <span class="hljs-string">&#x27;обновлено&#x27;</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$el</span>.<span class="hljs-property">textContent</span>) <span class="hljs-comment">// =&gt; &#x27;не обновлено&#x27;</span><br>    <span class="hljs-keyword">await</span> <span class="hljs-variable language_">this</span>.$nextTick()<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$el</span>.<span class="hljs-property">textContent</span>) <span class="hljs-comment">// =&gt; &#x27;обновлено&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
   
   
@@ -1153,8 +1114,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

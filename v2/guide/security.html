@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Безопасность — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/security.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/security.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/security.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/security.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/security.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/security.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/security.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/security.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/security.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/security.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/security.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/security.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/security.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/security.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/security.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/security.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/security.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar security-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1010,74 +1029,50 @@
     <h2 id="Сообщение-об-уязвимости"><a href="#Сообщение-об-уязвимости" class="headerlink" title="Сообщение об уязвимости"></a>Сообщение об уязвимости</h2><p>При поступлении сообщения об уязвимости, её исправление сразу становится первоочередной задачей для нас. Сотрудник работающий на полную ставку, бросает всё, чтобы заняться ею. Чтобы сообщить об уязвимости, пожалуйста, отправьте сообщение на электронную почту <a href="mailto:security@vuejs.org">security@vuejs.org</a>.</p>
 <p>Хотя новые уязвимости обнаруживаются редко, рекомендуем также всегда использовать последние версии Vue и его официальных библиотек для обеспечения максимальной безопасности вашего приложения.</p>
 <h2 id="Правило-№1-Никогда-не-использовать-ненадёжные-шаблоны"><a href="#Правило-№1-Никогда-не-использовать-ненадёжные-шаблоны" class="headerlink" title="Правило №1: Никогда не использовать ненадёжные шаблоны"></a>Правило №1: Никогда не использовать ненадёжные шаблоны</h2><p>Главное правило для безопасности при использовании Vue — <strong>никогда не использовать ненадёжное содержимое в качестве шаблона компонента</strong>. Это аналогично разрешению исполнения JavaScript в приложении — и даже хуже, потому что может привести к нарушению работы сервера, если код выполнится при серверном рендеринге. Пример такого использования:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div&gt;`</span> + userProvidedString + <span class="hljs-string">`&lt;/div&gt;`</span> <span class="hljs-comment">// НИКОГДА ТАК НЕ ДЕЛАЙТЕ</span>
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">`&lt;div&gt;`</span> + userProvidedString + <span class="hljs-string">`&lt;/div&gt;`</span> <span class="hljs-comment">// НИКОГДА ТАК НЕ ДЕЛАЙТЕ</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Шаблоны Vue компилируются в JavaScript, а выражения внутри шаблонов будут выполняться как часть процесса рендеринга. Несмотря на то, что выражения исполняются в определённом контексте рендеринга, из-за комплексности возможных сред выполнения, для такой инфраструктуры как Vue, нецелесообразно полностью защищать от потенциально вредоносного исполнения кода ввиду чрезмерных накладных расходов для производительности. Самый простой способ избежать этой категории проблем — убедиться, что содержимое шаблонов Vue всегда достоверно и полностью контролируется вами.</p>
 <h2 id="Что-делает-Vue-для-вашей-защиты"><a href="#Что-делает-Vue-для-вашей-защиты" class="headerlink" title="Что делает Vue для вашей защиты"></a>Что делает Vue для вашей защиты</h2><h3 id="HTML-содержимое"><a href="#HTML-содержимое" class="headerlink" title="HTML-содержимое"></a>HTML-содержимое</h3><p>При использовании шаблонов или render-функций содержимое экранируется автоматически. Это значит, что для шаблона:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;&#123; userProvidedString &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>&#123;&#123; userProvidedString &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>если <code>userProvidedString</code> содержит:</p>
-<pre><code class="hljs js"><span class="hljs-string">'&lt;script&gt;alert("hi")&lt;/script&gt;'</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-string">&#x27;&lt;script&gt;alert(&quot;hi&quot;)&lt;/script&gt;&#x27;</span><br></code></pre></td></tr></table></figure>
 <p>то он будет экранирован в следующий HTML:</p>
-<pre><code class="hljs html"><span class="hljs-symbol">&amp;lt;</span>script<span class="hljs-symbol">&amp;gt;</span>alert(<span class="hljs-symbol">&amp;quot;</span>hi<span class="hljs-symbol">&amp;quot;</span>)<span class="hljs-symbol">&amp;lt;</span>/script<span class="hljs-symbol">&amp;gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-symbol">&amp;lt;</span>script<span class="hljs-symbol">&amp;gt;</span>alert(<span class="hljs-symbol">&amp;quot;</span>hi<span class="hljs-symbol">&amp;quot;</span>)<span class="hljs-symbol">&amp;lt;</span>/script<span class="hljs-symbol">&amp;gt;</span><br></code></pre></td></tr></table></figure>
 <p>таким образом предотвращая внедрение вредоносного скрипта. Экранирование осуществляется с помощью нативного API браузера, такого как <code>textContent</code>, поэтому уязвимость возможна только в случае, если сам браузер уязвим.</p>
 <h3 id="Привязка-атрибутов"><a href="#Привязка-атрибутов" class="headerlink" title="Привязка атрибутов"></a>Привязка атрибутов</h3><p>Аналогичным образом, динамические привязки к атрибутам также автоматически экранируются. Это значит, что для шаблона:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"userProvidedString"</span>&gt;</span>
-  hello
-<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">&quot;userProvidedString&quot;</span>&gt;</span><br>  hello<br><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>если <code>userProvidedString</code> содержит:</p>
-<pre><code class="hljs js"><span class="hljs-string">'" onclick="alert(\'hi\')'</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-string">&#x27;&quot; onclick=&quot;alert(\&#x27;hi\&#x27;)&#x27;</span><br></code></pre></td></tr></table></figure>
 <p>то он будет экранирован в следующий HTML:</p>
-<pre><code class="hljs html"><span class="hljs-symbol">&amp;quot;</span> onclick=<span class="hljs-symbol">&amp;quot;</span>alert('hi')</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-symbol">&amp;quot;</span> onclick=<span class="hljs-symbol">&amp;quot;</span>alert(&#x27;hi&#x27;)<br></code></pre></td></tr></table></figure>
 <p>тем самым предотвращая преждевременное закрытие атрибута <code>title</code> для добавления нового, произвольного HTML. Экранирование выполняется с помощью нативного API браузера, такого как <code>setAttribute</code>, поэтому уязвимость возможна только в случае, если сам браузер уязвим.</p>
 <h2 id="Потенциальные-опасности"><a href="#Потенциальные-опасности" class="headerlink" title="Потенциальные опасности"></a>Потенциальные опасности</h2><p>Для любого веб-приложении возможность выполнения пользовательского контента без санитизации в формате HTML, CSS, или JavaScript является потенциально опасным, и этого следует избегать везде где только возможно. Однако бывают моменты, когда некоторый риск может быть приемлемым.</p>
 <p>Например, сервисы такие как CodePen и JSFiddle позволяют выполнять пользовательский контент, но в таком контексте где это ожидается и изолируется внутри iframe. В тех случаях, когда важная функция по своей природе требует определённого уровня уязвимости, ваша команда должна взвесить необходимость этой функции с учётом наихудших сценариев, которые привнесёт её использование.</p>
 <h3 id="Внедрение-HTML"><a href="#Внедрение-HTML" class="headerlink" title="Внедрение HTML"></a>Внедрение HTML</h3><p>Как сказано ранее, Vue автоматически экранирует HTML-содержимое, предотвращая случайное внедрение HTML в приложение. Однако в тех случаях, когда вы уверены в безопасности HTML, можно отображать HTML-содержимое в сыром виде:</p>
 <ul>
 <li><p>Используя шаблон:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"userProvidedHtml"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">&quot;userProvidedHtml&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>Используя render-функцию:</p>
-<pre><code class="hljs js">h(<span class="hljs-string">'div'</span>, &#123;
-  <span class="hljs-attr">domProps</span>: &#123;
-    <span class="hljs-attr">innerHTML</span>: <span class="hljs-keyword">this</span>.userProvidedHtml
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">h</span>(<span class="hljs-string">&#x27;div&#x27;</span>, &#123;<br>  <span class="hljs-attr">domProps</span>: &#123;<br>    <span class="hljs-attr">innerHTML</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">userProvidedHtml</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>Используя render-функцию с JSX:</p>
-<pre><code class="hljs jsx">&lt;div domPropsInnerHTML=&#123;<span class="hljs-keyword">this</span>.userProvidedHtml&#125;&gt;&lt;<span class="hljs-regexp">/div&gt;</span></code></pre>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><code class="hljs jsx">&lt;div domPropsInnerHTML=&#123;<span class="hljs-variable language_">this</span>.<span class="hljs-property">userProvidedHtml</span>&#125;&gt;&lt;/div&gt;<br></code></pre></td></tr></table></figure>
 </li>
 </ul>
 <p class="tip">Запомните, что предоставленный пользователем HTML никогда не может считаться безопасным на 100%, если не находится в изолированном iframe или в той части приложения, где только пользователь, написавший этот HTML, может получить к нему доступ. Кроме того, разрешать пользователям писать свои собственные шаблоны Vue может привнести аналогичные опасности.</p>
 
 <h3 id="Внедрение-URL"><a href="#Внедрение-URL" class="headerlink" title="Внедрение URL"></a>Внедрение URL</h3><p>В таком URL-адресе:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"userProvidedUrl"</span>&gt;</span>
-  Нажми на меня
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<p>Существует потенциальная проблема безопасности, если URL не был «санитизирован» для предотвращения выполнения JavaScript через <code>javascript:</code>. Есть библиотеки, как <a href="https://www.npmjs.com/package/@braintree/sanitize-url" target="_blank" rel="noopener">sanitize-url</a>, которые могут помочь с этим, но несмотря на это:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&quot;userProvidedUrl&quot;</span>&gt;</span><br>  Нажми на меня<br><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>Существует потенциальная проблема безопасности, если URL не был «санитизирован» для предотвращения выполнения JavaScript через <code>javascript:</code>. Есть библиотеки, как <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@braintree/sanitize-url">sanitize-url</a>, которые могут помочь с этим, но несмотря на это:</p>
 <p class="tip">Если вы когда-нибудь занимались санитизацией URL на фронтенде, то у вас уже есть проблема с безопасностью. URL-адреса, предоставляемые пользователем, всегда должны санитизироваться на бэкэнде, перед сохранением в базу данных. Тогда проблема будет решена для <em>каждого</em> клиента, который подключается к вашему API, в том числе нативные мобильные приложения. Также запомните, что использование санитизированных URL-адресов не гарантирует, что они ведут на безопасные ресурсы.</p>
 
 <h3 id="Внедрение-стилей"><a href="#Внедрение-стилей" class="headerlink" title="Внедрение стилей"></a>Внедрение стилей</h3><p>Посмотрим на этот пример:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-  <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"sanitizedUrl"</span>
-  <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"userProvidedStyles"</span>
-&gt;</span>
-  Нажми на меня
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span><br><span class="hljs-tag">  <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&quot;sanitizedUrl&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;userProvidedStyles&quot;</span></span><br><span class="hljs-tag">&gt;</span><br>  Нажми на меня<br><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>предположим что <code>sanitizedUrl</code> был санитизирован и это действительно настоящий URL, а не JavaScript. Но используя <code>userProvidedStyles</code>, злоумышленники всё еще могут предоставить CSS для «click jack», т.е. стилизовать ссылку в виде прозрачного блока поверх кнопки «Входа в систему». В таком случае, если <code>https://user-controlled-website.com/</code> куда ведёт ссылка, создан таким, чтобы визуально повторять на страницу авторизации вашего приложения, появляется возможность перехвата например логинов и паролей пользователей.</p>
 <p>Аналогично можете представить себе, как разрешение пользователям определять содержимое элемента <code>&lt;style&gt;</code> создаст ещё большую уязвимость, предоставив полный контроль над стилями страницы. Поэтому Vue не стоит отрисовывать теги стилей внутри шаблонов, например так:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>&#123;&#123; userProvidedStyles &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>&#123;&#123; userProvidedStyles &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Чтобы полностью обезопасить пользователей от техники click jacking, рекомендуем разрешать полный контроль над CSS только внутри изолированного iframe. В качестве альтернативы, если всё-таки необходимо предоставить пользователю возможность настройки стилей рекомендуем использовать <a href="class-and-style.html#Использование-объектов-1">объектный синтаксис</a> и позволять указывать только значения для конкретных свойств, которые безопасно изменять, например так:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span>
-  <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"sanitizedUrl"</span>
-  <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">"&#123;
-    color: userProvidedColor,
-    background: userProvidedBackground
-  &#125;"</span>
-&gt;</span>
-  Нажми на меня
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span></span><br><span class="hljs-tag">  <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&quot;sanitizedUrl&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&quot;&#123;</span></span><br><span class="hljs-string"><span class="hljs-tag">    color: userProvidedColor,</span></span><br><span class="hljs-string"><span class="hljs-tag">    background: userProvidedBackground</span></span><br><span class="hljs-string"><span class="hljs-tag">  &#125;&quot;</span></span><br><span class="hljs-tag">&gt;</span><br>  Нажми на меня<br><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h3 id="Внедрение-JavaScript"><a href="#Внедрение-JavaScript" class="headerlink" title="Внедрение JavaScript"></a>Внедрение JavaScript</h3><p>Мы настоятельно не рекомендуем отрисовку элементов <code>&lt;script&gt;</code> с помощью Vue, поскольку шаблоны и render-функции никогда не должны иметь в себе побочных эффектов (side effects). Но это не единственный способ для включения строк, которые будут расцениваться как JavaScript во время выполнения.</p>
 <p>Каждый HTML-элемент может иметь атрибуты, значения которых принимают строки JavaScript, например <code>onclick</code>, <code>onfocus</code>, и <code>onmouseenter</code>. Привязка JavaScript предоставленного пользователем к любому из этих атрибутов является потенциальной угрозой безопасности, поэтому этого следует избегать.</p>
 <p class="tip">Запомните, что предоставленный пользователем JavaScript никогда не может считаться безопасным на 100%, если он не находится в изолированном iframe или в части приложения, где только написавший его пользователь может когда-либо получить доступ к нему.</p>
@@ -1092,12 +1087,12 @@
 <h2 id="Лучшие-практики"><a href="#Лучшие-практики" class="headerlink" title="Лучшие практики"></a>Лучшие практики</h2><p>Главное правило заключается в том, что если разрешаете выполнение не-санитизированного пользовательского контента (как например HTML, JavaScript, или даже CSS), то открываетесь для атак. Этот совет остаётся действенным, независимо от того используется ли Vue, другой фреймворк или никакого вообще.</p>
 <p>Кроме вышеизложенных рекомендаций из раздела <a href="#Потенциальные-опасности">потенциальных опасностей</a>, рекомендуем также ознакомиться со следующими ресурсами:</p>
 <ul>
-<li><a href="https://html5sec.org/" target="_blank" rel="noopener">HTML5 Security Cheat Sheet</a></li>
-<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP’s Cross Site Scripting (XSS) Prevention Cheat Sheet</a></li>
+<li><a target="_blank" rel="noopener" href="https://html5sec.org/">HTML5 Security Cheat Sheet</a></li>
+<li><a target="_blank" rel="noopener" href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html">OWASP’s Cross Site Scripting (XSS) Prevention Cheat Sheet</a></li>
 </ul>
 <p>После изучения используйте полученные знания для проверки исходного кода зависимостей на наличие потенциально опасных мест, если они содержат сторонние компоненты или каким-либо иным образом влияют на то, что будет отрисовываться в DOM.</p>
 <h2 id="Координация-с-бэкэндом"><a href="#Координация-с-бэкэндом" class="headerlink" title="Координация с бэкэндом"></a>Координация с бэкэндом</h2><p>Уязвимости безопасности HTTP, такие как подделка межсайтовых запросов (CSRF/XSRF) или внедрение межсайтовых скриптов (XSSI), в основном нацелены на бэкэнд, поэтому Vue тут мало чем может помочь. Тем не менее, лучше скоординировать действия с командой разработчиков бэкэнда, чтобы лучше узнать как следует взаимодействовать с API, например отправляя CSRF-токены при отправке форм.</p>
-<h2 id="Отрисовка-на-стороне-сервера-SSR"><a href="#Отрисовка-на-стороне-сервера-SSR" class="headerlink" title="Отрисовка на стороне сервера (SSR)"></a>Отрисовка на стороне сервера (SSR)</h2><p>При использовании SSR могут возникнуть дополнительные проблемы с безопасностью, поэтому во избежание уязвимостей следуйте рекомендациям изложенным в <a href="https://ssr.vuejs.org/ru/" target="_blank" rel="noopener">документации по SSR</a>.</p>
+<h2 id="Отрисовка-на-стороне-сервера-SSR"><a href="#Отрисовка-на-стороне-сервера-SSR" class="headerlink" title="Отрисовка на стороне сервера (SSR)"></a>Отрисовка на стороне сервера (SSR)</h2><p>При использовании SSR могут возникнуть дополнительные проблемы с безопасностью, поэтому во избежание уязвимостей следуйте рекомендациям изложенным в <a target="_blank" rel="noopener" href="https://ssr.vuejs.org/ru/">документации по SSR</a>.</p>
 
   
   
@@ -1144,8 +1139,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

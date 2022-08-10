@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Синтаксис шаблонов — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/syntax.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/syntax.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/syntax.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/syntax.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/syntax.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/syntax.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/syntax.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/syntax.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/syntax.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/syntax.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/syntax.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/syntax.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/syntax.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/syntax.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/syntax.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/syntax.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/syntax.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar syntax-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1011,13 +1030,12 @@
 <p>Для работы Vue компилирует шаблоны в <code>render</code>-функции виртуального DOM. В сочетании с системой реактивности, Vue умеет определять минимальное число компонентов для повторной отрисовки и применяет минимальное количество манипуляций к DOM при изменении состояния приложения.</p>
 <p>Если вы знакомы с концепцией виртуального DOM и предпочитаете использовать ничем не ограниченную мощь JavaScript — можете также <a href="render-function.html">писать render-функции напрямую</a>, минуя шаблоны и даже используя JSX.</p>
 <h2 id="Интерполяции"><a href="#Интерполяции" class="headerlink" title="Интерполяции"></a>Интерполяции</h2><h3 id="Текст"><a href="#Текст" class="headerlink" title="Текст"></a>Текст</h3><p>Наиболее простой способ связывания данных — это текстовая интерполяция с использованием синтаксиса Mustache (двойных фигурных скобок):</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Сообщение: &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Сообщение: &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Выражение в фигурных скобках будет заменено значением свойства <code>msg</code> соответствующего объекта данных. Кроме того, оно будет обновлено при любом изменении этого свойства.</p>
 <p>Возможно также выполнение интерполяции однократно, которая не обновится при изменении данных — с помощью <a href="../api/#v-once">директивы v-once</a>, но обратите внимание, это повлияет сразу на все связанные переменные в рамках данного элемента:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-once</span>&gt;</span>Это сообщение никогда не изменится: &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-once</span>&gt;</span>Это сообщение никогда не изменится: &#123;&#123; msg &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h3 id="Сырой-HTML"><a href="#Сырой-HTML" class="headerlink" title="Сырой HTML"></a>Сырой HTML</h3><p>Значение выражения в двойных фигурных скобках подставляется как простой текст, а не как HTML. Для HTML необходимо использовать <a href="../api/#v-html">директиву <code>v-html</code></a>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Двойные фигурные скобки: &#123;&#123; rawHtml &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Директива v-html: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">"rawHtml"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Двойные фигурные скобки: &#123;&#123; rawHtml &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Директива v-html: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">&quot;rawHtml&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div id="example1" class="demo">
   <p>Двойные фигурные скобки: {{ rawHtml }}</p>
@@ -1035,82 +1053,49 @@ new Vue({
 </script>
 
 <p>Содержимое тега <code>span</code> будет заменено значением свойства <code>rawHtml</code>, интерпретированного как обычный HTML — все привязки данных игнорируются. Запомните, вы не можете использовать <code>v-html</code> для вложения шаблонов друг в друга, потому что движок шаблонов Vue не основывается на строках. Вместо этого нужно использовать компоненты, позволяющие сочетать и переиспользовать элементы UI.</p>
-<p class="tip">Динамическая отрисовка произвольного HTML-кода на вашем сайте крайне опасна, так как может легко привести к <a href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг" target="_blank" rel="noopener">XSS-уязвимостям</a>. Используйте интерполяцию HTML только для доверенного кода, и <strong>никогда</strong> не подставляйте туда содержимое, создаваемое пользователями.</p>
+<p class="tip">Динамическая отрисовка произвольного HTML-кода на вашем сайте крайне опасна, так как может легко привести к <a target="_blank" rel="noopener" href="https://ru.wikipedia.org/wiki/Межсайтовый_скриптинг">XSS-уязвимостям</a>. Используйте интерполяцию HTML только для доверенного кода, и <strong>никогда</strong> не подставляйте туда содержимое, создаваемое пользователями.</p>
 
 <h3 id="Атрибуты"><a href="#Атрибуты" class="headerlink" title="Атрибуты"></a>Атрибуты</h3><p>Синтаксис двойных фигурных скобок не работает с HTML-атрибутами. Используйте вместо него <a href="../api/#v-bind">директиву <code>v-bind</code></a>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"dynamicId"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">&quot;dynamicId&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>При использовании с булевыми атрибутами (когда их наличие уже означает <code>true</code>) <code>v-bind</code> работает немного иначе. В этом примере:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:disabled</span>=<span class="hljs-string">"isButtonDisabled"</span>&gt;</span>Кнопка<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-bind:disabled</span>=<span class="hljs-string">&quot;isButtonDisabled&quot;</span>&gt;</span>Кнопка<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Если значением <code>isButtonDisabled</code> будет <code>null</code>, <code>undefined</code> или <code>false</code>, то атрибут <code>disabled</code> не добавится в элемент <code>&lt;button&gt;</code>.</p>
 <h3 id="Использование-выражений-JavaScript"><a href="#Использование-выражений-JavaScript" class="headerlink" title="Использование выражений JavaScript"></a>Использование выражений JavaScript</h3><p>Пока мы связывали данные со свойствами в шаблонах только по простым ключам. Но на самом деле при связывании данных Vue поддерживает всю мощь выражений JavaScript:</p>
-<pre><code class="hljs html">&#123;&#123; number + 1 &#125;&#125;
-
-&#123;&#123; ok ? 'YES' : 'NO' &#125;&#125;
-
-&#123;&#123; message.split('').reverse().join('') &#125;&#125;
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"'list-' + id"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html">&#123;&#123; number + 1 &#125;&#125;<br><br>&#123;&#123; ok ? &#x27;YES&#x27; : &#x27;NO&#x27; &#125;&#125;<br><br>&#123;&#123; message.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;<br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">&quot;&#x27;list-&#x27; + id&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Выражения будут вычислены как JavaScript-код в области видимости соответствующего экземпляра Vue. Единственное ограничение в том, что допускается лишь <strong>одно выражение</strong>, поэтому код ниже <strong>НЕ</strong> сработает:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- это не вычисляемое выражение, а определение переменной: --&gt;</span>
-&#123;&#123; var a = 1 &#125;&#125;
-
-<span class="hljs-comment">&lt;!-- операторы условий не сработают, используйте условные операторы в тернарной форме: --&gt;</span>
-&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;</code></pre>
-<p class="tip">Выражения в шаблонах выполняются в режиме «песочницы», поэтому доступ есть только к <a href="https://github.com/vuejs/vue/blob/v2.6.10/src/core/instance/proxy.js#L9" target="_blank" rel="noopener">ограниченному списку</a> глобальных объектов, таким как <code>Math</code> и <code>Date</code>. Не пытайтесь получить доступ к пользовательским глобальным объектам внутри выражений используемых в шаблонах.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- это не вычисляемое выражение, а определение переменной: --&gt;</span><br>&#123;&#123; var a = 1 &#125;&#125;<br><br><span class="hljs-comment">&lt;!-- операторы условий не сработают, используйте условные операторы в тернарной форме: --&gt;</span><br>&#123;&#123; if (ok) &#123; return message &#125; &#125;&#125;<br></code></pre></td></tr></table></figure>
+<p class="tip">Выражения в шаблонах выполняются в режиме «песочницы», поэтому доступ есть только к <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/v2.6.10/src/core/instance/proxy.js#L9">ограниченному списку</a> глобальных объектов, таким как <code>Math</code> и <code>Date</code>. Не пытайтесь получить доступ к пользовательским глобальным объектам внутри выражений используемых в шаблонах.</p>
 
 <h2 id="Директивы"><a href="#Директивы" class="headerlink" title="Директивы"></a>Директивы</h2><p>Директивы — это специальные атрибуты с префиксом <code>v-</code>. В качестве значения они принимают <strong>одно выражение JavaScript</strong> (за исключением <code>v-for</code>, которую мы изучим далее). Директива реактивно применяет к DOM изменения при обновлении значения этого выражения. Вспомним пример из введения:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"seen"</span>&gt;</span>Сейчас меня видно<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;seen&quot;</span>&gt;</span>Сейчас меня видно<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В этом случае директива <code>v-if</code> удалит или вставит элемент <code>&lt;p&gt;</code> в зависимости от истинности значения выражения <code>seen</code>.</p>
 <h3 id="Аргументы"><a href="#Аргументы" class="headerlink" title="Аргументы"></a>Аргументы</h3><p>Некоторые директивы могут принимать «аргумент», отделённый от названия директивы двоеточием. Например, директива <code>v-bind</code> используется для реактивного обновления атрибутов HTML:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&quot;url&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В данном случае <code>href</code> — аргумент, указывающий директиве <code>v-bind</code> связать атрибут <code>href</code> элемента со значением выражения <code>url</code>.</p>
 <p>Другим примером будет директива <code>v-on</code>, которая отслеживает события DOM:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В данном случае аргументом является тип события. Подробнее на обработке событий мы остановимся позднее.</p>
 <h3 id="Динамические-аргументы"><a href="#Динамические-аргументы" class="headerlink" title="Динамические аргументы"></a>Динамические аргументы</h3><blockquote>
 <p>Добавлено в версии 2.6.0+</p>
 </blockquote>
 <p>Начиная с версии 2.6.0, можно использовать JavaScript-выражение в аргументе директивы, заключив его в квадратные скобки:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!--
-Обратите внимание, что есть некоторые ограничения для выражения аргументов,
-подробнее об этом в разделе «Ограничения динамического выражения» ниже.
---&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">attributeName</span>]=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">Обратите внимание, что есть некоторые ограничения для выражения аргументов,</span><br><span class="hljs-comment">подробнее об этом в разделе «Ограничения динамического выражения» ниже.</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">attributeName</span>]=<span class="hljs-string">&quot;url&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Здесь <code>attributeName</code> будет выполняться как выражение JavaScript, а его вычисленное значение использоваться в качестве финального значения аргумента. Например, если ваш экземпляр Vue имеет в данных свойство <code>attributeName</code>, значение которого равно <code>&quot;href&quot;</code>, то это будет эквивалентно привязке <code>v-bind:href</code>.</p>
 <p>Таким же образом можно использовать динамические аргументы для привязки обработчика к динамическому имени события:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:</span>[<span class="hljs-attr">eventName</span>]=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:</span>[<span class="hljs-attr">eventName</span>]=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В этом примере, когда значение <code>eventName</code> будет <code>&quot;focus&quot;</code>, то обработчик <code>v-on:[eventName]</code> будет эквивалентен <code>v-on:focus</code>.</p>
 <h4 id="Ограничения-значений-динамического-аргумента"><a href="#Ограничения-значений-динамического-аргумента" class="headerlink" title="Ограничения значений динамического аргумента"></a>Ограничения значений динамического аргумента</h4><p>Ожидается, что динамические аргументы в результате будут строкой, за исключением <code>null</code>. Специальное значение <code>null</code> можно использовать для явного удаления привязки. Любые другие нестроковые значения будут вызывать предупреждения.</p>
 <h4 id="Ограничения-динамического-выражения"><a href="#Ограничения-динамического-выражения" class="headerlink" title="Ограничения динамического выражения"></a>Ограничения динамического выражения</h4><p>Для выражений динамических аргументов есть синтаксические ограничения, поскольку некоторые символы, такие как пробелы и кавычки, являются недопустимыми внутри имён атрибутов HTML. Например:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Подобное вызовет предупреждение компилятора. --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>['<span class="hljs-attr">foo</span>' + <span class="hljs-attr">bar</span>]=<span class="hljs-string">"value"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Подобное вызовет предупреждение компилятора. --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[&#x27;<span class="hljs-attr">foo</span>&#x27; + <span class="hljs-attr">bar</span>]=<span class="hljs-string">&quot;value&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Обойти это ограничение можно использованием выражения без пробелов или кавычек, или заменой комплексного выражения на вычисляемое свойство.</p>
 <p>При использовании шаблонов в DOM (шаблонов, написанных непосредственно в HTML-файле), следует избегать именования ключей заглавными буквами, поскольку браузеры будут приводить имена атрибутов к строчным:</p>
- <pre><code class="hljs html"><span class="hljs-comment">&lt;!--
-В шаблонах DOM это преобразуется браузером в v-bind:[someattr].
-Если в экземпляре не будет свойства "someattr", такой код не заработает.
---&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">someAttr</span>]=<span class="hljs-string">"value"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+ <figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">В шаблонах DOM это преобразуется браузером в v-bind:[someattr].</span><br><span class="hljs-comment">Если в экземпляре не будет свойства &quot;someattr&quot;, такой код не заработает.</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:</span>[<span class="hljs-attr">someAttr</span>]=<span class="hljs-string">&quot;value&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <h3 id="Модификаторы"><a href="#Модификаторы" class="headerlink" title="Модификаторы"></a>Модификаторы</h3><p>Модификаторы — особые постфиксы, добавляемые после точки, обозначающие, что директива должна быть связана каким-то определённым образом. Например, модификатор <code>.prevent</code> говорит директиве <code>v-on</code> вызвать <code>event.preventDefault()</code> при обработке произошедшего события:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">"onSubmit"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">v-on:submit.prevent</span>=<span class="hljs-string">&quot;onSubmit&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Больше примеров применения модификаторов вы увидите далее, когда будем подробнее разбирать <a href="events.html#Автоматические-модификаторы-событий"><code>v-on</code></a> и <a href="forms.html#Модификаторы"><code>v-model</code></a>.</p>
-<h2 id="Сокращения"><a href="#Сокращения" class="headerlink" title="Сокращения"></a>Сокращения</h2><p>Префикс <code>v-</code> служит для визуального определения Vue-специфичных атрибутов в шаблонах. Это удобно, когда Vue используется для добавления динамического поведения в существующей разметке, но для часто используемых директив может показаться многословным. В то же время необходимость в <code>v-</code> менее значима при создании <a href="https://ru.wikipedia.org/wiki/Одностраничное_приложение" target="_blank" rel="noopener">одностраничных приложений</a>, где Vue контролирует каждый шаблон. Поэтому есть сокращённая запись для двух наиболее часто используемых директив, <code>v-bind</code> и <code>v-on</code>:</p>
-<h3 id="Сокращение-v-bind"><a href="#Сокращение-v-bind" class="headerlink" title="Сокращение v-bind"></a>Сокращение <code>v-bind</code></h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- полный синтаксис --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- сокращённая запись --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:href</span>=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- сокращённая запись с динамическим именем аргумента (2.6.0+) --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">"url"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-<h3 id="Сокращение-v-on"><a href="#Сокращение-v-on" class="headerlink" title="Сокращение v-on"></a>Сокращение <code>v-on</code></h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- полный синтаксис --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- сокращённая запись --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- сокращённая запись с динамическим именем события (2.6.0+) --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> @[<span class="hljs-attr">event</span>]=<span class="hljs-string">"doSomething"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<h2 id="Сокращения"><a href="#Сокращения" class="headerlink" title="Сокращения"></a>Сокращения</h2><p>Префикс <code>v-</code> служит для визуального определения Vue-специфичных атрибутов в шаблонах. Это удобно, когда Vue используется для добавления динамического поведения в существующей разметке, но для часто используемых директив может показаться многословным. В то же время необходимость в <code>v-</code> менее значима при создании <a target="_blank" rel="noopener" href="https://ru.wikipedia.org/wiki/Одностраничное_приложение">одностраничных приложений</a>, где Vue контролирует каждый шаблон. Поэтому есть сокращённая запись для двух наиболее часто используемых директив, <code>v-bind</code> и <code>v-on</code>:</p>
+<h3 id="Сокращение-v-bind"><a href="#Сокращение-v-bind" class="headerlink" title="Сокращение v-bind"></a>Сокращение <code>v-bind</code></h3><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- полный синтаксис --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-bind:href</span>=<span class="hljs-string">&quot;url&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- сокращённая запись --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:href</span>=<span class="hljs-string">&quot;url&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- сокращённая запись с динамическим именем аргумента (2.6.0+) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">:</span>[<span class="hljs-attr">key</span>]=<span class="hljs-string">&quot;url&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Сокращение-v-on"><a href="#Сокращение-v-on" class="headerlink" title="Сокращение v-on"></a>Сокращение <code>v-on</code></h3><figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- полный синтаксис --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- сокращённая запись --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- сокращённая запись с динамическим именем события (2.6.0+) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> @[<span class="hljs-attr">event</span>]=<span class="hljs-string">&quot;doSomething&quot;</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Такие атрибуты на вид несколько отличаются от обычного HTML-кода, но символы <code>:</code> и <code>@</code> являются валидными символами для названий атрибутов, и все браузеры поддерживающие Vue могут их корректно обработать. К тому же, в итоговой разметке они не появятся. Сокращённый синтаксис совершенно необязателен, но он скорее всего вам понравится, когда вы узнаете больше о том, как он используется далее.</p>
 
   
@@ -1158,8 +1143,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

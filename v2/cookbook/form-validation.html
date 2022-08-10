@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Валидация форм — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/form-validation.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/form-validation.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/form-validation.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/form-validation.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -445,382 +464,45 @@
 
 <p>Валидация форм нативно поддерживается браузерами, но иногда разные браузеры могут обрабатывать вещи таким образом, что полагаться на них будет сложнее. Даже когда поддержка валидации реализована на отлично — могут потребоваться специальные проверки, и более подходящие решения основанные на Vue. Начнём с простого примера.</p>
 <p>Есть форма с тремя полями, сделаем два из них обязательными. Давайте посмотрим на HTML для решения этой задачи:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
-  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
-  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
-  <span class="hljs-attr">action</span>=<span class="hljs-string">"https://vuejs.org/"</span>
-  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
-&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Имя<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"age"</span>&gt;</span>Возраст<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"age"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"age"</span>
-      <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"movie"</span>&gt;</span>Любимый фильм<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">select</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"movie"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"movie"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span>
-    &gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Star Wars<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Vanilla Sky<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Atomic Blonde<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
-      <span class="hljs-attr">value</span>=<span class="hljs-string">"Отправить"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span><br><span class="hljs-tag">  <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span></span><br><span class="hljs-tag">  @<span class="hljs-attr">submit</span>=<span class="hljs-string">&quot;checkForm&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;https://vuejs.org/&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span></span><br><span class="hljs-tag">&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;errors.length&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;error in errors&quot;</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Имя<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;age&quot;</span>&gt;</span>Возраст<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;age&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;age&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">min</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;movie&quot;</span>&gt;</span>Любимый фильм<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;movie&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;movie&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;movie&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Star Wars<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Vanilla Sky<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Atomic Blonde<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Отправить&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Начнём с начала. Тег <code>&lt;form&gt;</code> имеет ID, который мы будем использовать для компонента Vue. Есть обработчик события отправки формы (submit), который мы увидим далее, и также атрибут <code>action</code> с временным URL-адресом, который будет указывать на что-то реальное где-нибудь на сервере (где конечно же будет реализована и валидация на стороне сервера).</p>
 <p>После этого расположен абзац, который показывается или скрывается в зависимости от наличия ошибок. Это позволит отобразить простой список ошибок над формой. Также обратите внимание, что мы запускаем проверку на submit формы, а не при изменении каждого поля.</p>
 <p>Последнее, что нужно отметить — каждое из трёх полей имеет соответствующую <code>v-model</code> для связи с значениями, с которыми мы будем работать в JavaScript. Теперь давайте посмотрим на код.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">errors</span>: [],
-    <span class="hljs-attr">name</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">age</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">movie</span>: <span class="hljs-literal">null</span>
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.name &amp;&amp; <span class="hljs-keyword">this</span>.age) &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-      &#125;
-
-      <span class="hljs-keyword">this</span>.errors = [];
-
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.name) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Требуется указать имя.'</span>);
-      &#125;
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.age) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Требуется указать возраст.'</span>);
-      &#125;
-
-      e.preventDefault();
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">errors</span>: [],<br>    <span class="hljs-attr">name</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">age</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">movie</span>: <span class="hljs-literal">null</span><br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">checkForm</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> &amp;&amp; <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>      &#125;<br><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span> = [];<br><br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Требуется указать имя.&#x27;</span>);<br>      &#125;<br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Требуется указать возраст.&#x27;</span>);<br>      &#125;<br><br>      e.<span class="hljs-title function_">preventDefault</span>();<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Довольно коротко и просто. Мы определяем массив для хранения ошибок и задаём <code>null</code> в качестве значения для всех трёх полей формы. Логика <code>checkForm</code> (которая запускается при отправке формы) проверяет только имя и возраст, оставляя поле выбора фильма опциональным. Если они пусты, то мы проверяем по очереди и устанавливаем конкретную ошибку для каждого поля. И это в принципе всё. Вы можете запустить демо по ссылке ниже. Не забывайте, что при успешной отправке формы будет отправляться POST-запрос на временный URL.</p>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="GObpZM" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 1" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/GObpZM/" target="_blank" rel="noopener">валидация форм 1</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><p data-height="265" data-theme-id="0" data-slug-hash="GObpZM" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 1" class="codepen">Посмотрите Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/GObpZM/">валидация форм 1</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="Использование-пользовательских-проверок"><a href="#Использование-пользовательских-проверок" class="headerlink" title="Использование пользовательских проверок"></a>Использование пользовательских проверок</h2><p>Во втором примере, второе текстовое поле (возраст) было заменено на email, который будет проверяться с помощью специальной логики. Код взят из вопроса на StackOverflow, <a href="https://stackoverflow.com/questions/46155/how-to-validate-email-address-in-javascript" target="_blank" rel="noopener">Как валидировать электронный адрес в JavaScript?</a>. Классный вопрос — на его фоне любые политические/религиозные холивары выглядят как незначительные разночтения насчёт сортов пива. Серьёзно — это безумие. Вот HTML, хотя он действительно близок к первому примеру.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
-  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
-  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
-  <span class="hljs-attr">action</span>=<span class="hljs-string">"https://vuejs.org/"</span>
-  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
-  <span class="hljs-attr">novalidate</span>=<span class="hljs-string">"true"</span>
-&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Имя<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"email"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"email"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"email"</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"email"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"movie"</span>&gt;</span>Любимый фильм<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">select</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"movie"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"movie"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"movie"</span>
-    &gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Звёздные войны<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Ванильное небо<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Взрывная блондинка<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
-      <span class="hljs-attr">value</span>=<span class="hljs-string">"Отправить"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+<h2 id="Использование-пользовательских-проверок"><a href="#Использование-пользовательских-проверок" class="headerlink" title="Использование пользовательских проверок"></a>Использование пользовательских проверок</h2><p>Во втором примере, второе текстовое поле (возраст) было заменено на email, который будет проверяться с помощью специальной логики. Код взят из вопроса на StackOverflow, <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/46155/how-to-validate-email-address-in-javascript">Как валидировать электронный адрес в JavaScript?</a>. Классный вопрос — на его фоне любые политические/религиозные холивары выглядят как незначительные разночтения насчёт сортов пива. Серьёзно — это безумие. Вот HTML, хотя он действительно близок к первому примеру.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span><br><span class="hljs-tag">  <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span></span><br><span class="hljs-tag">  @<span class="hljs-attr">submit</span>=<span class="hljs-string">&quot;checkForm&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;https://vuejs.org/&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">novalidate</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;errors.length&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;error in errors&quot;</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Имя<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;email&quot;</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;email&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;email&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;email&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;movie&quot;</span>&gt;</span>Любимый фильм<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;movie&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;movie&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;movie&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Звёздные войны<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Ванильное небо<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Взрывная блондинка<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Отправить&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Хотя изменения достаточно малы, обратите внимание на <code>novalidate=&quot;true&quot;</code> наверху. Это важно, потому что браузер будет пытаться валидировать email адрес в поле с типом <code>type=&quot;email&quot;</code>. Честно говоря, в этом случае больше смысла доверять браузеру, но, поскольку нам нужен пример с пользовательской валидацией, мы отключим его. Вот обновлённый JavaScript.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">errors</span>: [],
-    <span class="hljs-attr">name</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">email</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">movie</span>: <span class="hljs-literal">null</span>
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
-      <span class="hljs-keyword">this</span>.errors = [];
-
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.name) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Укажите имя.'</span>);
-      &#125;
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.email) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Укажите электронную почту.'</span>);
-      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.validEmail(<span class="hljs-keyword">this</span>.email)) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Укажите корректный адрес электронной почты.'</span>);
-      &#125;
-
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.errors.length) &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-      &#125;
-
-      e.preventDefault();
-    &#125;,
-    <span class="hljs-attr">validEmail</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">email</span>) </span>&#123;
-      <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(([^&lt;&gt;()[\]\\.,;:\s@"]+(\.[^&lt;&gt;()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span>;
-      <span class="hljs-keyword">return</span> re.test(email);
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">errors</span>: [],<br>    <span class="hljs-attr">name</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">email</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">movie</span>: <span class="hljs-literal">null</span><br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">checkForm</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span> = [];<br><br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Укажите имя.&#x27;</span>);<br>      &#125;<br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">email</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Укажите электронную почту.&#x27;</span>);<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-title function_">validEmail</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">email</span>)) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Укажите корректный адрес электронной почты.&#x27;</span>);<br>      &#125;<br><br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-property">length</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>      &#125;<br><br>      e.<span class="hljs-title function_">preventDefault</span>();<br>    &#125;,<br>    <span class="hljs-attr">validEmail</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">email</span>) &#123;<br>      <span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(([^&lt;&gt;()[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]&#123;2,&#125;))$/</span>;<br>      <span class="hljs-keyword">return</span> re.<span class="hljs-title function_">test</span>(email);<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Как вы можете видеть, мы добавили <code>validEmail</code> в качестве нового метода и просто вызываем его из <code>checkForm</code>. Вы можете поиграть с этим примером здесь:</p>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="vWqNXZ" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 2" class="codepen">Посмотреть Pen <a href="https://codepen.io/cfjedimaster/pen/vWqNXZ/" target="_blank" rel="noopener">валидации форм 2</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><p data-height="265" data-theme-id="0" data-slug-hash="vWqNXZ" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 2" class="codepen">Посмотреть Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/vWqNXZ/">валидации форм 2</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Другой-пример-пользовательской-валидации"><a href="#Другой-пример-пользовательской-валидации" class="headerlink" title="Другой пример пользовательской валидации"></a>Другой пример пользовательской валидации</h2><p>Для третьего примера, мы создадим то, что вы вероятно видели в приложениях для опросов. Пользователю предлагается потратить «бюджет» на набор возможностей новой модели Star Destroyer. Сумма должна быть равна 100. Во-первых, HTML.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
-  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
-  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
-  <span class="hljs-attr">action</span>=<span class="hljs-string">"https://vuejs.org/"</span>
-  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
-  <span class="hljs-attr">novalidate</span>=<span class="hljs-string">"true"</span>
-&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    Учитывая бюджет в 100 долларов, укажите сколько
-    вы хотите потратить на следующие возможности для
-    Star Destroyer следующего поколения. Ваша сумма не должна превысить 100.
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"weapons"</span>
-      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"weapons"</span>
-    &gt;</span> Орудия <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"shields"</span>
-      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"shields"</span>
-    &gt;</span> Броня <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"coffee"</span>
-      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"coffee"</span>
-    &gt;</span> Кофе <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"ac"</span>
-      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"ac"</span>
-    &gt;</span> Кондиционирование <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"mousedroids"</span>
-      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">"mousedroids"</span>
-    &gt;</span> Мыши-дройды <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    Итого: &#123;&#123; total &#125;&#125;
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
-      <span class="hljs-attr">value</span>=<span class="hljs-string">"Отправить"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span><br><span class="hljs-tag">  <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span></span><br><span class="hljs-tag">  @<span class="hljs-attr">submit</span>=<span class="hljs-string">&quot;checkForm&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;https://vuejs.org/&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">novalidate</span>=<span class="hljs-string">&quot;true&quot;</span></span><br><span class="hljs-tag">&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;errors.length&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;error in errors&quot;</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    Учитывая бюджет в 100 долларов, укажите сколько<br>    вы хотите потратить на следующие возможности для<br>    Star Destroyer следующего поколения. Ваша сумма не должна превысить 100.<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;weapons&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;weapons&quot;</span></span><br><span class="hljs-tag">    &gt;</span> Орудия <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;shields&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;shields&quot;</span></span><br><span class="hljs-tag">    &gt;</span> Броня <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;coffee&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;coffee&quot;</span></span><br><span class="hljs-tag">    &gt;</span> Кофе <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ac&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;ac&quot;</span></span><br><span class="hljs-tag">    &gt;</span> Кондиционирование <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;mousedroids&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model.number</span>=<span class="hljs-string">&quot;mousedroids&quot;</span></span><br><span class="hljs-tag">    &gt;</span> Мыши-дройды <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    Итого: &#123;&#123; total &#125;&#125;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Отправить&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Обратите внимание на набор полей охватывающих пять разных функций. Обратите внимание на использование <code>.number</code> в атрибуте <code>v-model</code>. Это говорит Vue, что нужно преобразовывать значение в число, когда вы его используете. Однако, в этой функции есть ошибка — когда значение пустое, то оно будет превращаться в строку. Вы увидите ниже как можно обойти эту проблему. Чтобы сделать это немного проще для пользователя, мы также добавили итоговую сумму внизу, чтобы они могли видеть в реальном времени, на какую сумму выбрано возможностей. Теперь давайте посмотрим на JavaScript.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">errors</span>: [],
-    <span class="hljs-attr">weapons</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">shields</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">coffee</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">ac</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">mousedroids</span>: <span class="hljs-number">0</span>
-  &#125;,
-  <span class="hljs-attr">computed</span>: &#123;
-     <span class="hljs-attr">total</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-       <span class="hljs-comment">// необходимо парсить, потому что Vue</span>
-       <span class="hljs-comment">// преобразует пустое значение в строку</span>
-       <span class="hljs-keyword">return</span> <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.weapons) +
-         <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.shields) +
-         <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.coffee) +
-         <span class="hljs-built_in">Number</span>(<span class="hljs-keyword">this</span>.ac + <span class="hljs-keyword">this</span>.mousedroids);
-     &#125;
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
-      <span class="hljs-keyword">this</span>.errors = [];
-
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.total != <span class="hljs-number">100</span>) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Итоговая сумму должна быть 100!'</span>);
-      &#125;
-
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.errors.length) &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-      &#125;
-
-      e.preventDefault();
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">errors</span>: [],<br>    <span class="hljs-attr">weapons</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">shields</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">coffee</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">ac</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">mousedroids</span>: <span class="hljs-number">0</span><br>  &#125;,<br>  <span class="hljs-attr">computed</span>: &#123;<br>     <span class="hljs-attr">total</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>       <span class="hljs-comment">// необходимо парсить, потому что Vue</span><br>       <span class="hljs-comment">// преобразует пустое значение в строку</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-title class_">Number</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">weapons</span>) +<br>         <span class="hljs-title class_">Number</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">shields</span>) +<br>         <span class="hljs-title class_">Number</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">coffee</span>) +<br>         <span class="hljs-title class_">Number</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">ac</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">mousedroids</span>);<br>     &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">checkForm</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span> = [];<br><br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">total</span> != <span class="hljs-number">100</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Итоговая сумму должна быть 100!&#x27;</span>);<br>      &#125;<br><br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-property">length</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>      &#125;<br><br>      e.<span class="hljs-title function_">preventDefault</span>();<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Мы указали итоговую сумму как вычисляемое свойство, и это было достаточно просто реализовать для обхода этой ошибки. Мой метод checkForm теперь просто должен проверять является ли значение total равным 100 им всё. Вы можете поиграть с этим примером здесь:</p>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="vWqGoy" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 3" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/vWqGoy/" target="_blank" rel="noopener">валидации форм 3</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><p data-height="265" data-theme-id="0" data-slug-hash="vWqGoy" data-default-tab="html,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 3" class="codepen">Посмотрите Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/vWqGoy/">валидации форм 3</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="Валидация-на-стороне-сервера"><a href="#Валидация-на-стороне-сервера" class="headerlink" title="Валидация на стороне сервера"></a>Валидация на стороне сервера</h2><p>В последнем примере мы построили что-то, что использует Ajax для валидации на сервере. Форма предложит назвать новый продукт и затем проверит, чтобы имя было уникальным. Мы быстро накидали <a href="https://netlify.com/" target="_blank" rel="noopener">Netlify</a> serverless действие для этой валидации. Хотя это не очень важно, вот эта логика:</p>
-<pre><code class="hljs js">exports.handler = <span class="hljs-keyword">async</span> (event, context) =&gt; &#123;
-
-  <span class="hljs-keyword">const</span> badNames = [<span class="hljs-string">'vista'</span>, <span class="hljs-string">'empire'</span>, <span class="hljs-string">'mbp'</span>];
-  <span class="hljs-keyword">const</span> name = event.queryStringParameters.name;
-
-  <span class="hljs-keyword">if</span> (badNames.includes(name)) &#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">statusCode</span>: <span class="hljs-number">400</span>,
-      <span class="hljs-attr">body</span>: <span class="hljs-built_in">JSON</span>.stringify(&#123;<span class="hljs-attr">error</span>: <span class="hljs-string">'Invalid name passed.'</span>&#125;)
-    &#125;
-  &#125;
-
-  <span class="hljs-keyword">return</span> &#123;
-    <span class="hljs-attr">statusCode</span>: <span class="hljs-number">204</span>
-  &#125;
-&#125;</code></pre>
+<h2 id="Валидация-на-стороне-сервера"><a href="#Валидация-на-стороне-сервера" class="headerlink" title="Валидация на стороне сервера"></a>Валидация на стороне сервера</h2><p>В последнем примере мы построили что-то, что использует Ajax для валидации на сервере. Форма предложит назвать новый продукт и затем проверит, чтобы имя было уникальным. Мы быстро накидали <a target="_blank" rel="noopener" href="https://netlify.com/">Netlify</a> serverless действие для этой валидации. Хотя это не очень важно, вот эта логика:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">exports</span>.<span class="hljs-property">handler</span> = <span class="hljs-keyword">async</span> (event, context) =&gt; &#123;<br><br>  <span class="hljs-keyword">const</span> badNames = [<span class="hljs-string">&#x27;vista&#x27;</span>, <span class="hljs-string">&#x27;empire&#x27;</span>, <span class="hljs-string">&#x27;mbp&#x27;</span>];<br>  <span class="hljs-keyword">const</span> name = event.<span class="hljs-property">queryStringParameters</span>.<span class="hljs-property">name</span>;<br><br>  <span class="hljs-keyword">if</span> (badNames.<span class="hljs-title function_">includes</span>(name)) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">statusCode</span>: <span class="hljs-number">400</span>,<br>      <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;<span class="hljs-attr">error</span>: <span class="hljs-string">&#x27;Invalid name passed.&#x27;</span>&#125;)<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">statusCode</span>: <span class="hljs-number">204</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>В принципе, любое имя кроме «vista», «empire», и «mbp» приемлемы. Хорошо, давайте посмотрим на форму.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>
-  <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>
-  @<span class="hljs-attr">submit</span>=<span class="hljs-string">"checkForm"</span>
-  <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>
-&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"errors.length"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"error in errors"</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"name"</span>&gt;</span>Имя нового продукта: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>
-      <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
-      <span class="hljs-attr">name</span>=<span class="hljs-string">"name"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
-      <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>
-      <span class="hljs-attr">value</span>=<span class="hljs-string">"Отправить"</span>
-    &gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span><br><span class="hljs-tag">  <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span></span><br><span class="hljs-tag">  @<span class="hljs-attr">submit</span>=<span class="hljs-string">&quot;checkForm&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span></span><br><span class="hljs-tag">&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;errors.length&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>Пожалуйста исправьте указанные ошибки:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;error in errors&quot;</span>&gt;</span>&#123;&#123; error &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Имя нового продукта: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span></span><br><span class="hljs-tag">      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Отправить&quot;</span></span><br><span class="hljs-tag">    &gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Здесь нет ничего особенного. Давайте посмотрим на JavaScript.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> apiUrl = <span class="hljs-string">'https://vuecookbook.netlify.com/.netlify/functions/product-name?name='</span>;
-
-<span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">errors</span>: [],
-    <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">checkForm</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;
-      e.preventDefault();
-
-      <span class="hljs-keyword">this</span>.errors = [];
-
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.name === <span class="hljs-string">''</span>) &#123;
-        <span class="hljs-keyword">this</span>.errors.push(<span class="hljs-string">'Укажите имя продукта.'</span>);
-      &#125; <span class="hljs-keyword">else</span> &#123;
-        fetch(apiUrl + <span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-keyword">this</span>.name))
-          .then(<span class="hljs-keyword">async</span> res =&gt; &#123;
-            <span class="hljs-keyword">if</span> (res.status === <span class="hljs-number">204</span>) &#123;
-              alert(<span class="hljs-string">'OK'</span>);
-            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res.status === <span class="hljs-number">400</span>) &#123;
-              <span class="hljs-keyword">let</span> errorResponse = <span class="hljs-keyword">await</span> res.json();
-              <span class="hljs-keyword">this</span>.errors.push(errorResponse.error);
-            &#125;
-          &#125;);
-      &#125;
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> apiUrl = <span class="hljs-string">&#x27;https://vuecookbook.netlify.com/.netlify/functions/product-name?name=&#x27;</span>;<br><br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">errors</span>: [],<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">checkForm</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      e.<span class="hljs-title function_">preventDefault</span>();<br><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span> = [];<br><br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> === <span class="hljs-string">&#x27;&#x27;</span>) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Укажите имя продукта.&#x27;</span>);<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-title function_">fetch</span>(apiUrl + <span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>))<br>          .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">async</span> res =&gt; &#123;<br>            <span class="hljs-keyword">if</span> (res.<span class="hljs-property">status</span> === <span class="hljs-number">204</span>) &#123;<br>              <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;OK&#x27;</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res.<span class="hljs-property">status</span> === <span class="hljs-number">400</span>) &#123;<br>              <span class="hljs-keyword">let</span> errorResponse = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();<br>              <span class="hljs-variable language_">this</span>.<span class="hljs-property">errors</span>.<span class="hljs-title function_">push</span>(errorResponse.<span class="hljs-property">error</span>);<br>            &#125;<br>          &#125;);<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Мы начали с переменной, определяющей URL-адрес нашего API, который работает на OpenWhisk. Теперь посмотрим на <code>checkForm</code>. В этой версии мы всегда предотвращаем отправку формы (что, кстати, можно было бы сделать и в HTML вместе с Vue). Вы можете увидеть простую проверку на случай если <code>this.name</code> пуста, а затем мы делаем запрос на API. Если всё плохо — мы добавляем ошибку, как и раньше. Если всё хорошо — пока ничего не делаем (просто показываем alert), но вы можете перенаправить пользователя на новую страницу с именем продукта в URL или выполнять другие действия. Вы можете посмотреть демо по ссылке ниже:</p>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="BmgzeM" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 4" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/BmgzeM/" target="_blank" rel="noopener">валидация форм 4</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><p data-height="265" data-theme-id="0" data-slug-hash="BmgzeM" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="form validation 4" class="codepen">Посмотрите Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/BmgzeM/">валидация форм 4</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Альтернативы"><a href="#Альтернативы" class="headerlink" title="Альтернативы"></a>Альтернативы</h2><p>В то время как cookbook сосредотачивается на том, чтобы сделать валидацию формы своими руками, существует конечно и много отличных библиотек Vue, которые сделают большую часть работы за вас. Переход к использованию подготовленной библиотеки может повлиять на итоговый размер вашего приложения, но преимущества могут быть огромны. У вас есть код, который (скорее всего) основательно протестирован и регулярно обновляется. Некоторые примеры библиотек для валидации смотрите тут:</p>
 <ul>
-<li><a href="https://github.com/monterail/vuelidate" target="_blank" rel="noopener">vuelidate</a></li>
-<li><a href="https://logaretm.github.io/vee-validate/" target="_blank" rel="noopener">VeeValidate</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/monterail/vuelidate">vuelidate</a></li>
+<li><a target="_blank" rel="noopener" href="https://logaretm.github.io/vee-validate/">VeeValidate</a></li>
 </ul>
 
   
@@ -857,8 +539,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

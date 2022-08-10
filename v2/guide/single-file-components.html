@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Однофайловые компоненты — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/single-file-components.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/single-file-components.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/single-file-components.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/single-file-components.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/single-file-components.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/single-file-components.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/single-file-components.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/single-file-components.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/single-file-components.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar single-file-components-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1009,7 +1028,7 @@
   
     <h2 id="Введение"><a href="#Введение" class="headerlink" title="Введение"></a>Введение</h2><div class="vueschool"><a href="https://vueschool.io/lessons/introduction-to-single-file-components?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Single File Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
-<p>Во многих проектах, глобальные компоненты определяются посредством <code>Vue.component</code>, с последующим <code>new Vue({ el: &#39;#container&#39; })</code> для указания элемента-контейнера в теле каждой страницы.</p>
+<p>Во многих проектах, глобальные компоненты определяются посредством <code>Vue.component</code>, с последующим <code>new Vue(&#123; el: &#39;#container&#39; &#125;)</code> для указания элемента-контейнера в теле каждой страницы.</p>
 <p>Для проектов малого и среднего размера, в которых JavaScript используется лишь для некоторых страниц, этот подход может прекрасно работать. В более же сложных проектах или в случаях, когда весь ваш фронтенд управляется JavaScript, явными становятся следующие недостатки:</p>
 <ul>
 <li><strong>Глобальное определение</strong> заставляет давать уникальное имя каждому компоненту</li>
@@ -1022,32 +1041,27 @@
 <p><a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-single-file-components" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component.png" alt="Пример однофайловых компонентов" style="display: block; margin: 30px auto;"></a></p>
 <p>Мы получили:</p>
 <ul>
-<li><a href="https://github.com/vuejs/awesome-vue#source-code-editing" target="_blank" rel="noopener">полную подсветку синтаксиса</a></li>
-<li><a href="https://webpack.js.org/concepts/modules/#what-is-a-webpack-module" target="_blank" rel="noopener">модули CommonJS</a></li>
-<li><a href="https://vue-loader.vuejs.org/ru/features/scoped-css.html" target="_blank" rel="noopener">модульный CSS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue#source-code-editing">полную подсветку синтаксиса</a></li>
+<li><a target="_blank" rel="noopener" href="https://webpack.js.org/concepts/modules/#what-is-a-webpack-module">модули CommonJS</a></li>
+<li><a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/ru/features/scoped-css.html">модульный CSS</a></li>
 </ul>
 <p>Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.</p>
 <p><a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a></p>
 <p>Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с <code>vue-loader</code>, вы также получаете прекрасную поддержку CSS-модулей.</p>
 <h3 id="Что-насчёт-разделения-ответственности"><a href="#Что-насчёт-разделения-ответственности" class="headerlink" title="Что насчёт разделения ответственности?"></a>Что насчёт разделения ответственности?</h3><p>Одна важная вещь, что следует отметить — <strong>разделение ответственности это не то же самое, что разделение на файлы по типу.</strong> В современной разработке UI мы обнаружили, что вместо разделения кодовой базы на три огромных слоя, что тесно переплетаются друг с другом, имеет больше смысла делить их на слабо связанные компоненты и компоновать уже их. Внутри компонента, его шаблон, логика и стили неразрывно связаны между собой, что позволяет сделать компонент более сплочённым и удобным в поддержке.</p>
 <p>Если вам не нравится идея однофайловых компонентов, вы также можете пользоваться возможностями горячей замены модулей и прекомпиляцией, выделив JavaScript и CSS в отдельные файлы:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- my-component.vue --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Это будет предварительно скомпилировано<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./my-component.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./my-component.css"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
-<h2 id="Начало-работы"><a href="#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h2><h3 id="Песочница-с-примером"><a href="#Песочница-с-примером" class="headerlink" title="Песочница с примером"></a>Песочница с примером</h3><p>Если вы хотите прямо сейчас поиграть с однофайловыми компонентами — начните с этого <a href="https://codesandbox.io/s/o29j95wx9" target="_blank" rel="noopener">простого todo приложения</a> на CodeSandbox.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- my-component.vue --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Это будет предварительно скомпилировано<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./my-component.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./my-component.css&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Начало-работы"><a href="#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h2><h3 id="Песочница-с-примером"><a href="#Песочница-с-примером" class="headerlink" title="Песочница с примером"></a>Песочница с примером</h3><p>Если вы хотите прямо сейчас поиграть с однофайловыми компонентами — начните с этого <a target="_blank" rel="noopener" href="https://codesandbox.io/s/o29j95wx9">простого todo приложения</a> на CodeSandbox.</p>
 <h3 id="Для-новичков-в-модульных-системах-сборки-JavaScript"><a href="#Для-новичков-в-модульных-системах-сборки-JavaScript" class="headerlink" title="Для новичков в модульных системах сборки JavaScript"></a>Для новичков в модульных системах сборки JavaScript</h3><p>С <code>.vue</code>-компонентами, мы входим во вселенную продвинутых JavaScript-приложений. Это значит, что если вы этого ещё не сделали, нужно будет освоить некоторые дополнительные инструменты:</p>
 <ul>
-<li><p><strong>Node Package Manager (npm)</strong>: Прочитайте <a href="https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry" target="_blank" rel="noopener">руководство по началу работы</a> о том как устанавливать пакеты.</p>
+<li><p><strong>Node Package Manager (npm)</strong>: Прочитайте <a target="_blank" rel="noopener" href="https://docs.npmjs.com/packages-and-modules/getting-packages-from-the-registry">руководство по началу работы</a> о том как устанавливать пакеты.</p>
 </li>
-<li><p><strong>Современный JavaScript стандартов ES2015/16</strong>: Прочитайте <a href="https://babeljs.io/docs/learn-es2015/" target="_blank" rel="noopener">руководство по ES2015</a> от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.</p>
+<li><p><strong>Современный JavaScript стандартов ES2015/16</strong>: Прочитайте <a target="_blank" rel="noopener" href="https://babeljs.io/docs/learn-es2015/">руководство по ES2015</a> от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.</p>
 </li>
 </ul>
-<p>После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на <a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">Vue CLI 3</a>. Следуйте инструкциям, и очень скоро у вас будет рабочий проект с <code>.vue</code>-компонентами, ES2015, Webpack и горячей перезагрузкой модулей.</p>
-<h3 id="Для-продвинутых-пользователей"><a href="#Для-продвинутых-пользователей" class="headerlink" title="Для продвинутых пользователей"></a>Для продвинутых пользователей</h3><p>CLI позаботится о большинстве настроек конфигурации сборки для вас, но при необходимости позволяет настроить любые детали через <a href="https://cli.vuejs.org/ru/config/" target="_blank" rel="noopener">опции конфигурации</a>.</p>
-<p>Если вы предпочитаете создавать конфигурацию сборки с нуля, то необходимо вручную настроить webpack для работы с <a href="https://vue-loader.vuejs.org/ru/" target="_blank" rel="noopener">vue-loader</a>. Чтобы узнать больше о webpack, обратитесь к <a href="https://webpack.js.org/configuration/" target="_blank" rel="noopener">его официальной документации</a> и <a href="https://webpack.academy/p/the-core-concepts" target="_blank" rel="noopener">Webpack Academy</a>.</p>
+<p>После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на <a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/">Vue CLI 3</a>. Следуйте инструкциям, и очень скоро у вас будет рабочий проект с <code>.vue</code>-компонентами, ES2015, Webpack и горячей перезагрузкой модулей.</p>
+<h3 id="Для-продвинутых-пользователей"><a href="#Для-продвинутых-пользователей" class="headerlink" title="Для продвинутых пользователей"></a>Для продвинутых пользователей</h3><p>CLI позаботится о большинстве настроек конфигурации сборки для вас, но при необходимости позволяет настроить любые детали через <a target="_blank" rel="noopener" href="https://cli.vuejs.org/ru/config/">опции конфигурации</a>.</p>
+<p>Если вы предпочитаете создавать конфигурацию сборки с нуля, то необходимо вручную настроить webpack для работы с <a target="_blank" rel="noopener" href="https://vue-loader.vuejs.org/ru/">vue-loader</a>. Чтобы узнать больше о webpack, обратитесь к <a target="_blank" rel="noopener" href="https://webpack.js.org/configuration/">его официальной документации</a> и <a target="_blank" rel="noopener" href="https://webpack.academy/p/the-core-concepts">Webpack Academy</a>.</p>
 
   
   
@@ -1094,8 +1108,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

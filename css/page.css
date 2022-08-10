@@ -16,6 +16,12 @@
   font-weight: 600;
   src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url("/fonts/SourceSansPro-Semibold.otf.woff") format('woff');
 }
+figure.highlight {
+  overflow-x: auto;
+}
+figure.highlight > table {
+  width: 100%;
+}
 pre {
   border-radius: 2px;
   position: relative;

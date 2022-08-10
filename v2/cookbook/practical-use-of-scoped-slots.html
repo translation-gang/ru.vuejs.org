@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Практическое использование слотов с ограниченной областью видимости с GoogleMaps — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/practical-use-of-scoped-slots.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -445,220 +464,56 @@
 <p>Представьте себе компонент, который настраивает и подготавливает внешний API для использования в другом компоненте, но не имеет тесной связи с каким-либо конкретным шаблоном. Такой компонент может быть повторно использован в нескольких местах, отрисовывая различные шаблоны, но используя один и тот же базовый объект с определенным API.</p>
 <p>Мы создадим компонент (<code>GoogleMapLoader.vue</code>) который:</p>
 <ol>
-<li>Инициализирует <a href="https://developers.google.com/maps/documentation/javascript/reference/" target="_blank" rel="noopener">Google Maps API</a></li>
+<li>Инициализирует <a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/reference/">Google Maps API</a></li>
 <li>Создаёт объекты <code>google</code> и <code>map</code>.</li>
 <li>Предоставляет доступ к тем объектам родительского компонента, в котором используется <code>GoogleMapLoader</code>.</li>
 </ol>
 <p>Ниже приведён пример как этого можно добиться. Мы проанализируем код по частям и посмотрим, что на самом деле происходит в следующем разделе.</p>
 <p>Сначала создадим шаблон <code>GoogleMapLoader.vue</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"google-map"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"googleMap"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"Boolean(this.google) &amp;&amp; Boolean(this.map)"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>
-        <span class="hljs-attr">:google</span>=<span class="hljs-string">"google"</span>
-        <span class="hljs-attr">:map</span>=<span class="hljs-string">"map"</span>
-      /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
-<p>Теперь скрипту нужно передать некоторые данные компоненту, который позволяет установить <a href="https://developers.google.com/maps/documentation/javascript/reference/" target="_blank" rel="noopener">Google Maps API</a> и <a href="https://developers.google.com/maps/documentation/javascript/reference/map#Map" target="_blank" rel="noopener">Map object</a>:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> GoogleMapsApiLoader <span class="hljs-keyword">from</span> <span class="hljs-string">'google-maps-api-loader'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">props</span>: &#123;
-    <span class="hljs-attr">mapConfig</span>: <span class="hljs-built_in">Object</span>,
-    <span class="hljs-attr">apiKey</span>: <span class="hljs-built_in">String</span>
-  &#125;,
-
-  data() &#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">google</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-attr">map</span>: <span class="hljs-literal">null</span>
-    &#125;
-  &#125;,
-
-  <span class="hljs-keyword">async</span> mounted() &#123;
-    <span class="hljs-keyword">const</span> googleMapApi = <span class="hljs-keyword">await</span> GoogleMapsApiLoader(&#123;
-      <span class="hljs-attr">apiKey</span>: <span class="hljs-keyword">this</span>.apiKey
-    &#125;)
-
-    <span class="hljs-keyword">this</span>.google = googleMapApi
-    <span class="hljs-keyword">this</span>.initializeMap()
-  &#125;,
-
-  <span class="hljs-attr">methods</span>: &#123;
-    initializeMap() &#123;
-      <span class="hljs-keyword">const</span> mapContainer = <span class="hljs-keyword">this</span>.$refs.googleMap
-      <span class="hljs-keyword">this</span>.map = <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.google.maps.Map(
-        mapContainer, <span class="hljs-keyword">this</span>.mapConfig
-      )
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;google-map&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;googleMap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;Boolean(this.google) &amp;&amp; Boolean(this.map)&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">slot</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:google</span>=<span class="hljs-string">&quot;google&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:map</span>=<span class="hljs-string">&quot;map&quot;</span></span><br><span class="hljs-tag">      /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>Теперь скрипту нужно передать некоторые данные компоненту, который позволяет установить <a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/reference/">Google Maps API</a> и <a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/reference/map#Map">Map object</a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-title class_">GoogleMapsApiLoader</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;google-maps-api-loader&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">props</span>: &#123;<br>    <span class="hljs-attr">mapConfig</span>: <span class="hljs-title class_">Object</span>,<br>    <span class="hljs-attr">apiKey</span>: <span class="hljs-title class_">String</span><br>  &#125;,<br><br>  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">google</span>: <span class="hljs-literal">null</span>,<br>      <span class="hljs-attr">map</span>: <span class="hljs-literal">null</span><br>    &#125;<br>  &#125;,<br><br>  <span class="hljs-keyword">async</span> <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> googleMapApi = <span class="hljs-keyword">await</span> <span class="hljs-title class_">GoogleMapsApiLoader</span>(&#123;<br>      <span class="hljs-attr">apiKey</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">apiKey</span><br>    &#125;)<br><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">google</span> = googleMapApi<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">initializeMap</span>()<br>  &#125;,<br><br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-title function_">initializeMap</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">const</span> mapContainer = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">googleMap</span><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">new</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">google</span>.<span class="hljs-property">maps</span>.<span class="hljs-title class_">Map</span>(<br>        mapContainer, <span class="hljs-variable language_">this</span>.<span class="hljs-property">mapConfig</span><br>      )<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Это всего лишь часть рабочего примера, который можно найти в Codesandbox ниже.</p>
 <iframe src="https://codesandbox.io/embed/1o45zvxk0q" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
 
 <h2 id="Реальный-пример-Создание-компонента-Google-Map-Loader"><a href="#Реальный-пример-Создание-компонента-Google-Map-Loader" class="headerlink" title="Реальный пример: Создание компонента Google Map Loader"></a>Реальный пример: Создание компонента Google Map Loader</h2><h3 id="1-Создание-компонента-который-инициализирует-карту"><a href="#1-Создание-компонента-который-инициализирует-карту" class="headerlink" title="1. Создание компонента, который инициализирует карту"></a>1. Создание компонента, который инициализирует карту</h3><p><code>GoogleMapLoader.vue</code></p>
-<p>В шаблоне создаём контейнер для карты, в который будет монтироваться объект <a href="https://developers.google.com/maps/documentation/javascript/reference/map#Map" target="_blank" rel="noopener">Map</a> из Google Maps API.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"google-map"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"googleMap"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<p>В шаблоне создаём контейнер для карты, в который будет монтироваться объект <a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/reference/map#Map">Map</a> из Google Maps API.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;google-map&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;googleMap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Далее, скрипт должен получить данные от родительского компонента, который позволит установить Google Map. Эти данные состоят из:</p>
 <ul>
-<li><a href="https://developers.google.com/maps/documentation/javascript/reference/3/map#MapOptions" target="_blank" rel="noopener">mapConfig</a>: конфигурация Google Maps</li>
-<li><a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener">apiKey</a>: Персональный ключ API, требуемый для Google Maps</li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/reference/3/map#MapOptions">mapConfig</a>: конфигурация Google Maps</li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/maps/documentation/javascript/get-api-key">apiKey</a>: Персональный ключ API, требуемый для Google Maps</li>
 </ul>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> GoogleMapsApiLoader <span class="hljs-keyword">from</span> <span class="hljs-string">'google-maps-api-loader'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">props</span>: &#123;
-    <span class="hljs-attr">mapConfig</span>: <span class="hljs-built_in">Object</span>,
-    <span class="hljs-attr">apiKey</span>: <span class="hljs-built_in">String</span>
-  &#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-title class_">GoogleMapsApiLoader</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;google-maps-api-loader&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">props</span>: &#123;<br>    <span class="hljs-attr">mapConfig</span>: <span class="hljs-title class_">Object</span>,<br>    <span class="hljs-attr">apiKey</span>: <span class="hljs-title class_">String</span><br>  &#125;<br></code></pre></td></tr></table></figure>
 <p>Затем устанавливаем <code>null</code> в качестве начального значения <code>google</code> и <code>map</code>:</p>
-<pre><code class="hljs js">data() &#123;
-  <span class="hljs-keyword">return</span> &#123;
-    <span class="hljs-attr">google</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">map</span>: <span class="hljs-literal">null</span>
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">google</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">map</span>: <span class="hljs-literal">null</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>В хуке <code>mounted</code> инициализируем объекты <code>googleMapApi</code> и <code>Map</code> из <code>GoogleMapsApi</code> и устанавливаем значения <code>google</code> и <code>map</code> для создаваемых экземпляров:</p>
-<pre><code class="hljs js">  <span class="hljs-keyword">async</span> mounted() &#123;
-    <span class="hljs-keyword">const</span> googleMapApi = <span class="hljs-keyword">await</span> GoogleMapsApiLoader(&#123;
-      <span class="hljs-attr">apiKey</span>: <span class="hljs-keyword">this</span>.apiKey
-    &#125;)
-
-    <span class="hljs-keyword">this</span>.google = googleMapApi
-    <span class="hljs-keyword">this</span>.initializeMap()
-  &#125;,
-
-  <span class="hljs-attr">methods</span>: &#123;
-    initializeMap() &#123;
-      <span class="hljs-keyword">const</span> mapContainer = <span class="hljs-keyword">this</span>.$refs.googleMap
-      <span class="hljs-keyword">this</span>.map = <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.google.maps.Map(mapContainer, <span class="hljs-keyword">this</span>.mapConfig)
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">  <span class="hljs-keyword">async</span> <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> googleMapApi = <span class="hljs-keyword">await</span> <span class="hljs-title class_">GoogleMapsApiLoader</span>(&#123;<br>      <span class="hljs-attr">apiKey</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">apiKey</span><br>    &#125;)<br><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">google</span> = googleMapApi<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">initializeMap</span>()<br>  &#125;,<br><br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-title function_">initializeMap</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">const</span> mapContainer = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$refs</span>.<span class="hljs-property">googleMap</span><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span> = <span class="hljs-keyword">new</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">google</span>.<span class="hljs-property">maps</span>.<span class="hljs-title class_">Map</span>(mapContainer, <span class="hljs-variable language_">this</span>.<span class="hljs-property">mapConfig</span>)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Пока все хорошо. Сделав всё это при необходимости можно продолжать добавлять на карту другие объекты (Маркеры, Ломанные и т.д.) и использовать её как обычный компонент карты.</p>
 <p>Но мы хотим использовать наш компонент <code>GoogleMapLoader</code> только в качестве загрузчика, который подготавливает карту — мы не хотим ничего на ней отрисовывать.</p>
 <p>Для этого нам необходимо разрешить родительскому компоненту, который будет использовать наш <code>GoogleMapLoader</code>, получать доступ к <code>this.google</code> и <code>this.map</code>, определённые внутри компонента <code>GoogleMapLoader</code>. Вот где <a href="../guide/components-slots.html#Слоты-с-ограниченной-областью-видимости">слоты с ограниченной областью видимости</a> действительно выручают. Эти слоты позволяют в родительском компоненте получить доступ к свойствам, заданным в дочернем компоненте. Звучит с чего уже можно начинать, но потерпите ещё одну минуту, мы разберёмся с этим далее.</p>
 <h3 id="2-Создание-компонента-использующий-компонент-инициализатор"><a href="#2-Создание-компонента-использующий-компонент-инициализатор" class="headerlink" title="2. Создание компонента, использующий компонент-инициализатор"></a>2. Создание компонента, использующий компонент-инициализатор</h3><p><code>TravelMap.vue</code></p>
 <p>В шаблоне мы отрисовываем компонент <code>GoogleMapLoader</code> и передаём данные, необходимые для инициализации карты.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span>
-    <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">"mapConfig"</span>
-    <span class="hljs-attr">apiKey</span>=<span class="hljs-string">"yourApiKey"</span>
-  /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span></span><br><span class="hljs-tag">    <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">&quot;mapConfig&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">apiKey</span>=<span class="hljs-string">&quot;yourApiKey&quot;</span></span><br><span class="hljs-tag">  /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Логика компонента будет выглядеть так:</p>
-<pre><code class="hljs js">&lt;script&gt;
-<span class="hljs-keyword">import</span> GoogleMapLoader <span class="hljs-keyword">from</span> <span class="hljs-string">'./GoogleMapLoader'</span>
-<span class="hljs-keyword">import</span> &#123; mapSettings &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">components</span>: &#123;
-    GoogleMapLoader
-  &#125;,
-
-  <span class="hljs-attr">computed</span>: &#123;
-    mapConfig () &#123;
-      <span class="hljs-keyword">return</span> &#123;
-        ...mapSettings,
-        <span class="hljs-attr">center</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">0</span> &#125;
-      &#125;
-    &#125;
-  &#125;
-&#125;
-&lt;<span class="hljs-regexp">/script&gt;</span></code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">&lt;script&gt;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">GoogleMapLoader</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./GoogleMapLoader&#x27;</span><br><span class="hljs-keyword">import</span> &#123; mapSettings &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/constants/mapSettings&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-title class_">GoogleMapLoader</span><br>  &#125;,<br><br>  <span class="hljs-attr">computed</span>: &#123;<br>    mapConfig () &#123;<br>      <span class="hljs-keyword">return</span> &#123;<br>        ...mapSettings,<br>        <span class="hljs-attr">center</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">0</span> &#125;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 <p>До сих пор нет слотов с ограниченной областью видимости, так что давайте добавим один.</p>
 <h3 id="3-Предоставление-доступа-к-свойствам-google-и-map-в-родительском-компоненте-с-помощью-слота-с-ограниченной-областью-видимости"><a href="#3-Предоставление-доступа-к-свойствам-google-и-map-в-родительском-компоненте-с-помощью-слота-с-ограниченной-областью-видимости" class="headerlink" title="3. Предоставление доступа к свойствам google и map в родительском компоненте с помощью слота с ограниченной областью видимости"></a>3. Предоставление доступа к свойствам <code>google</code> и <code>map</code> в родительском компоненте с помощью слота с ограниченной областью видимости</h3><p>Наконец, мы можем добавить слот с ограниченной областью видимости, который позволит нам получить доступ к данным дочернего компонента в родительском. Мы сделаем это, добавив тег <code>&lt;slot&gt;</code> в дочерний компонент и передав данные, к которым хотим предоставить доступ (используя директиву <code>v-bind</code> или её сокращение <code>:propName</code>). Это не отличается от передачи данных в дочерний компонент, но если сделать это в теге <code>&lt;slot&gt;</code>то направление потока данных изменится.</p>
 <p><code>GoogleMapLoader.vue</code></p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"google-map"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"googleMap"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"Boolean(this.google) &amp;&amp; Boolean(this.map)"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>
-        <span class="hljs-attr">:google</span>=<span class="hljs-string">"google"</span>
-        <span class="hljs-attr">:map</span>=<span class="hljs-string">"map"</span>
-      /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;google-map&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;googleMap&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;Boolean(this.google) &amp;&amp; Boolean(this.map)&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">slot</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:google</span>=<span class="hljs-string">&quot;google&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">:map</span>=<span class="hljs-string">&quot;map&quot;</span></span><br><span class="hljs-tag">      /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Теперь, когда есть слот в дочернем компоненте, мы должны получать и использовать предоставленные входные параметры в родительском компоненте.</p>
 <h3 id="4-Получить-незащищенные-данные-в-родительском-компоненте-используя-атрибут-slot-scope"><a href="#4-Получить-незащищенные-данные-в-родительском-компоненте-используя-атрибут-slot-scope" class="headerlink" title="4. Получить незащищенные данные в родительском компоненте, используя атрибут slot-scope."></a>4. Получить незащищенные данные в родительском компоненте, используя атрибут <code>slot-scope</code>.</h3><p>Для получения данных в родительском компоненте, мы объявляем элемент шаблона и используем атрибут <code>slot-scope</code>. Этот атрибут имеет доступ к объекту со всеми данными из дочернего компонента, к которым открываем доступ. Мы можем использовать объект целиком или <a href="../guide/components-slots.html#Деструктурирование-входных-параметров-слота">деструктурировать его</a> и использовать только необходимое.</p>
 <p>Давайте воспользуемся деструктуризацией.</p>
 <p><code>TravelMap.vue</code></p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span>
-  <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">"mapConfig"</span>
-  <span class="hljs-attr">apiKey</span>=<span class="hljs-string">"yourApiKey"</span>
-&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"&#123; google, map &#125;"</span>&gt;</span>
-  	&#123;&#123; map &#125;&#125;
-  	&#123;&#123; google &#125;&#125;
-  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">GoogleMapLoader</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span></span><br><span class="hljs-tag">  <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">&quot;mapConfig&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">apiKey</span>=<span class="hljs-string">&quot;yourApiKey&quot;</span></span><br><span class="hljs-tag">&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">&quot;&#123; google, map &#125;&quot;</span>&gt;</span><br>  	&#123;&#123; map &#125;&#125;<br>  	&#123;&#123; google &#125;&#125;<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">GoogleMapLoader</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Несмотря на то, что свойства <code>google</code> и <code>map</code> не существуют в области видимости <code>TravelMap</code>, компонент имеет доступ к ним и мы можем использовать их в шаблоне.</p>
 <p>Ты можешь задаться вопросом, зачем нам делать такие вещи, и какая от этого польза?</p>
 <p>Слоты с ограниченной областью видимости позволяют передавать шаблон в слот вместо элемента рендера. Он называется <code>scoped</code>-слотом, потому что у него будет доступ к определенным данным дочернего компонента, даже если шаблон рендерится в области видимости родительского компонента. Это предоставляет нам свободу по наполнению шаблона пользовательским содержимым из родительского компонента.</p>
 <h3 id="5-Создание-фабричных-компонентов-для-маркеров-и-ломанных"><a href="#5-Создание-фабричных-компонентов-для-маркеров-и-ломанных" class="headerlink" title="5. Создание фабричных компонентов для маркеров и ломанных"></a>5. Создание фабричных компонентов для маркеров и ломанных</h3><p>Теперь, когда карта готова, создадим два фабричных компонента, которые будут использоваться для добавления элементов в <code>TravelMap</code>.</p>
 <p><code>GoogleMapMarker.vue</code></p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; POINT_MARKER_ICON_CONFIG &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">props</span>: &#123;
-    <span class="hljs-attr">google</span>: &#123;
-      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
-      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
-    &#125;,
-    <span class="hljs-attr">map</span>: &#123;
-      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
-      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
-    &#125;,
-    <span class="hljs-attr">marker</span>: &#123;
-      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
-      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
-    &#125;
-  &#125;,
-
-  mounted() &#123;
-    <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.google.maps.Marker(&#123;
-      <span class="hljs-attr">position</span>: <span class="hljs-keyword">this</span>.marker.position,
-      <span class="hljs-attr">marker</span>: <span class="hljs-keyword">this</span>.marker,
-      <span class="hljs-attr">map</span>: <span class="hljs-keyword">this</span>.map,
-      <span class="hljs-attr">icon</span>: POINT_MARKER_ICON_CONFIG
-    &#125;)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; <span class="hljs-variable constant_">POINT_MARKER_ICON_CONFIG</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/constants/mapSettings&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">props</span>: &#123;<br>    <span class="hljs-attr">google</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Object</span>,<br>      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>    &#125;,<br>    <span class="hljs-attr">map</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Object</span>,<br>      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>    &#125;,<br>    <span class="hljs-attr">marker</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Object</span>,<br>      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>    &#125;<br>  &#125;,<br><br>  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">new</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">google</span>.<span class="hljs-property">maps</span>.<span class="hljs-title class_">Marker</span>(&#123;<br>      <span class="hljs-attr">position</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">marker</span>.<span class="hljs-property">position</span>,<br>      <span class="hljs-attr">marker</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">marker</span>,<br>      <span class="hljs-attr">map</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>,<br>      <span class="hljs-attr">icon</span>: <span class="hljs-variable constant_">POINT_MARKER_ICON_CONFIG</span><br>    &#125;)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><code>GoogleMapLine.vue</code></p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; LINE_PATH_CONFIG &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">props</span>: &#123;
-    <span class="hljs-attr">google</span>: &#123;
-      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
-      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
-    &#125;,
-    <span class="hljs-attr">map</span>: &#123;
-      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
-      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
-    &#125;,
-    <span class="hljs-attr">path</span>: &#123;
-      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Array</span>,
-      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
-    &#125;
-  &#125;,
-
-  mounted() &#123;
-    <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.google.maps.Polyline(&#123;
-      <span class="hljs-attr">path</span>: <span class="hljs-keyword">this</span>.path,
-      <span class="hljs-attr">map</span>: <span class="hljs-keyword">this</span>.map,
-      ...LINE_PATH_CONFIG
-    &#125;)
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; <span class="hljs-variable constant_">LINE_PATH_CONFIG</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/constants/mapSettings&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">props</span>: &#123;<br>    <span class="hljs-attr">google</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Object</span>,<br>      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>    &#125;,<br>    <span class="hljs-attr">map</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Object</span>,<br>      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>    &#125;,<br>    <span class="hljs-attr">path</span>: &#123;<br>      <span class="hljs-attr">type</span>: <span class="hljs-title class_">Array</span>,<br>      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>    &#125;<br>  &#125;,<br><br>  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">new</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">google</span>.<span class="hljs-property">maps</span>.<span class="hljs-title class_">Polyline</span>(&#123;<br>      <span class="hljs-attr">path</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">path</span>,<br>      <span class="hljs-attr">map</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">map</span>,<br>      ...<span class="hljs-variable constant_">LINE_PATH_CONFIG</span><br>    &#125;)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Оба они получают <code>google</code>, который мы используем для извлечения нужного объекта (<code>Marker</code> или <code>Polyline</code>), а также <code>map</code>, в котором будет ссылка на карту, на которой можем разместить элемент.</p>
 <p>Каждый компонент также ожидает дополнительные данные для создания соответствующего элемента. В этом случае это <code>marker</code> и <code>path</code> соответственно.</p>
 <p>В хуке <code>mounted</code> создаём элемент (Marker/Polyline) и прикрепляем его к карте, передавая свойство <code>map</code> конструктору объекта.</p>
@@ -666,64 +521,9 @@
 <h3 id="6-Добавление-элементов-на-карту"><a href="#6-Добавление-элементов-на-карту" class="headerlink" title="6. Добавление элементов на карту"></a>6. Добавление элементов на карту</h3><p>Давайте используем наши фабричные компоненты для добавления элементов на карту. Мы должны отобразить фабричные компоненты и передать объекты <code>google</code> и <code>map</code> так, чтобы данные попали в нужные места.</p>
 <p>Нам также необходимо предоставить данные, которые требуются самому элементу. В нашем случае это объект <code>marker</code> с положением маркера и объект <code>path</code> с координатами ломанной.</p>
 <p>Итак, интегрируем точки данных непосредственно в шаблон:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span>
-  <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">"mapConfig"</span>
-  <span class="hljs-attr">apiKey</span>=<span class="hljs-string">"yourApiKey"</span>
-&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"&#123; google, map &#125;"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapMarker</span>
-      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"marker in markers"</span>
-      <span class="hljs-attr">:key</span>=<span class="hljs-string">"marker.id"</span>
-      <span class="hljs-attr">:marker</span>=<span class="hljs-string">"marker"</span>
-      <span class="hljs-attr">:google</span>=<span class="hljs-string">"google"</span>
-      <span class="hljs-attr">:map</span>=<span class="hljs-string">"map"</span>
-    /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLine</span>
-      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"line in lines"</span>
-      <span class="hljs-attr">:key</span>=<span class="hljs-string">"line.id"</span>
-      <span class="hljs-attr">:path.sync</span>=<span class="hljs-string">"line.path"</span>
-      <span class="hljs-attr">:google</span>=<span class="hljs-string">"google"</span>
-      <span class="hljs-attr">:map</span>=<span class="hljs-string">"map"</span>
-    /&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">GoogleMapLoader</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLoader</span></span><br><span class="hljs-tag">  <span class="hljs-attr">:mapConfig</span>=<span class="hljs-string">&quot;mapConfig&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">apiKey</span>=<span class="hljs-string">&quot;yourApiKey&quot;</span></span><br><span class="hljs-tag">&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">&quot;&#123; google, map &#125;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapMarker</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;marker in markers&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;marker.id&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:marker</span>=<span class="hljs-string">&quot;marker&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:google</span>=<span class="hljs-string">&quot;google&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:map</span>=<span class="hljs-string">&quot;map&quot;</span></span><br><span class="hljs-tag">    /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">GoogleMapLine</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;line in lines&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;line.id&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:path.sync</span>=<span class="hljs-string">&quot;line.path&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:google</span>=<span class="hljs-string">&quot;google&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">:map</span>=<span class="hljs-string">&quot;map&quot;</span></span><br><span class="hljs-tag">    /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">GoogleMapLoader</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Нам нужно импортировать необходимые фабричные компоненты в наш скрипт и задать данные, которые будут передаваться маркерам и линиям:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; mapSettings &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'@/constants/mapSettings'</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">components</span>: &#123;
-    GoogleMapLoader,
-    GoogleMapMarker,
-    GoogleMapLine
-  &#125;,
-
-  data () &#123;
-    <span class="hljs-keyword">return</span> &#123;
-      <span class="hljs-attr">markers</span>: [
-        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">'a'</span>, <span class="hljs-attr">position</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">101</span> &#125; &#125;,
-        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">'b'</span>, <span class="hljs-attr">position</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">99</span> &#125; &#125;,
-        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">'c'</span>, <span class="hljs-attr">position</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">97</span> &#125; &#125;,
-      ],
-      <span class="hljs-attr">lines</span>: [
-        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">'1'</span>, <span class="hljs-attr">path</span>: [&#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">101</span> &#125;, &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">99</span> &#125;] &#125;,
-        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">'2'</span>, <span class="hljs-attr">path</span>: [&#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">99</span> &#125;, &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">97</span> &#125;] &#125;
-      ],
-    &#125;
-  &#125;,
-
-  <span class="hljs-attr">computed</span>: &#123;
-    mapConfig () &#123;
-      <span class="hljs-keyword">return</span> &#123;
-        ...mapSettings,
-        <span class="hljs-attr">center</span>: <span class="hljs-keyword">this</span>.mapCenter
-      &#125;
-    &#125;,
-
-    mapCenter () &#123;
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.markers[<span class="hljs-number">1</span>].position
-    &#125;
-  &#125;
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; mapSettings &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/constants/mapSettings&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-title class_">GoogleMapLoader</span>,<br>    <span class="hljs-title class_">GoogleMapMarker</span>,<br>    <span class="hljs-title class_">GoogleMapLine</span><br>  &#125;,<br><br>  data () &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">markers</span>: [<br>        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-attr">position</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">101</span> &#125; &#125;,<br>        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-attr">position</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">99</span> &#125; &#125;,<br>        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-attr">position</span>: &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">97</span> &#125; &#125;,<br>      ],<br>      <span class="hljs-attr">lines</span>: [<br>        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-attr">path</span>: [&#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">101</span> &#125;, &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">99</span> &#125;] &#125;,<br>        &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-attr">path</span>: [&#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">99</span> &#125;, &#123; <span class="hljs-attr">lat</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">lng</span>: <span class="hljs-number">97</span> &#125;] &#125;<br>      ],<br>    &#125;<br>  &#125;,<br><br>  <span class="hljs-attr">computed</span>: &#123;<br>    mapConfig () &#123;<br>      <span class="hljs-keyword">return</span> &#123;<br>        ...mapSettings,<br>        <span class="hljs-attr">center</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">mapCenter</span><br>      &#125;<br>    &#125;,<br><br>    mapCenter () &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">markers</span>[<span class="hljs-number">1</span>].<span class="hljs-property">position</span><br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="Когда-следует-избегать-этого-паттерна"><a href="#Когда-следует-избегать-этого-паттерна" class="headerlink" title="Когда следует избегать этого паттерна"></a>Когда следует избегать этого паттерна</h2><p>Может возникнуть соблазн создать очень сложное решение на основе примера, но в какой-то момент можно попасть в ситуацию, когда эта абстракция становится самостоятельной частью кода, живущей в нашей кодовой базе. Если мы дойдём до этого момента, то, возможно, стоит подумать об извлечении в плагин.</p>
 <h2 id="Подытожим"><a href="#Подытожим" class="headerlink" title="Подытожим"></a>Подытожим</h2><p>Вот так. После создания всех этих маленьких частей мы теперь можем повторно использовать компонент <code>GoogleMapLoader</code> в качестве базы для всех наших карт, передавая в каждом случае различные шаблоны. Представьте, что вам нужно создать другую карту с разными Маркерами или просто Маркеры без Ломанных. Используя вышеприведенный шаблон, это становится очень просто, так как просто нужно будет передать разное содержимое компоненту <code>GoogleMapLoader</code>.</p>
 <p>Этот шаблон не связан строго с Google Maps; он может быть использован с любой библиотекой для реализации базового компонента и предоставления API библиотеки, которое может быть затем использовано в компоненте, вызвавшем базовый компонент.</p>
@@ -762,8 +562,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

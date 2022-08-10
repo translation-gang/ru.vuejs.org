@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Хранение данных на стороне клиента — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/client-side-storage.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/client-side-storage.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/client-side-storage.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -441,130 +460,38 @@
     <h1>Хранение данных на стороне клиента</h1>
   
   
-    <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Хранение данных на стороне клиента — это отличный способ быстро повысить производительность приложения, который заключается в том, чтобы пропустить получение информации от сервера каждый раз, когда пользователь нуждается в ней. Это особенно полезно в оффлайн-режиме, но даже для онлайн пользователей будет польза от использования данных локально в противовес удалённому серверу. Хранение на стороне клиента может быть организовано с использованием <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Cookies" target="_blank" rel="noopener">cookies</a>, <a href="https://developer.mozilla.org/ru/docs/Web/API/Web_Storage_API" target="_blank" rel="noopener">Local Storage</a> (технически «Web Storage»), <a href="https://developer.mozilla.org/ru/docs/IndexedDB" target="_blank" rel="noopener">IndexedDB</a> и <a href="https://www.w3.org/TR/webdatabase/" target="_blank" rel="noopener">WebSQL</a> (устаревший метод, который не следует использовать в новых проектах).</p>
+    <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Хранение данных на стороне клиента — это отличный способ быстро повысить производительность приложения, который заключается в том, чтобы пропустить получение информации от сервера каждый раз, когда пользователь нуждается в ней. Это особенно полезно в оффлайн-режиме, но даже для онлайн пользователей будет польза от использования данных локально в противовес удалённому серверу. Хранение на стороне клиента может быть организовано с использованием <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Cookies">cookies</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/Web/API/Web_Storage_API">Local Storage</a> (технически «Web Storage»), <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ru/docs/IndexedDB">IndexedDB</a> и <a target="_blank" rel="noopener" href="https://www.w3.org/TR/webdatabase/">WebSQL</a> (устаревший метод, который не следует использовать в новых проектах).</p>
 <p>В этом рецепте мы сфокусируемся на Local Storage (далее — локальное хранилище), простейшем механизме хранения. Локальное хранилище использует систему ключ-значение для хранения данных. Это ограничивает нас хранением только простых значений, но сложные структуры данных возможно сохранять, если вы готовы сериализовывать их в JSON и обратно. Локальное хранилище подходит для небольших наборов данных, например, настроек пользователя или данных формы. Для больших объёмов данных, где требуются комплексные требования к хранению, лучше использовать IndexedDB.</p>
 <p>Давайте начнём с простого примера в виде формы:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  Моё имя <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  Моё имя <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Этот пример имеет одно поле ввода, привязанное к свойству данных <code>name</code> в экземпляре Vue:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>
-  &#125;,
-  mounted() &#123;
-    <span class="hljs-keyword">if</span> (localStorage.name) &#123;
-      <span class="hljs-keyword">this</span>.name = localStorage.name;
-    &#125;
-  &#125;,
-  <span class="hljs-attr">watch</span>: &#123;
-    name(newName) &#123;
-      localStorage.name = newName;
-    &#125;
-  &#125;
-&#125;);</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;&#x27;</span><br>  &#125;,<br>  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">name</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">name</span>;<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">watch</span>: &#123;<br>    <span class="hljs-title function_">name</span>(<span class="hljs-params">newName</span>) &#123;<br>      <span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">name</span> = newName;<br>    &#125;<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 <p>Обратите внимание на фрагменты <code>mounted</code> и <code>watch</code>. Мы используем <code>mounted</code> для управления загрузкой значения из localStorage. Для управления записью данных в базу, мы следим за значением <code>name</code> и немедленно записываем изменения.</p>
 <p>Вы можете запустить этот пример самостоятельно здесь:</p>
-<p data-height="265" data-theme-id="0" data-slug-hash="KodaKb" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="testing localstorage" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/KodaKb/" target="_blank" rel="noopener">тестирование localstorage</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><br><script async src="https://static.codepen.io/assets/embed/ei.js"></script><br><br>Введите что-нибудь в форму и затем обновите эту страницу. Вы заметите, что введённое вами ранее значение будет показано автоматически. Не забывайте, что ваш браузер предоставляет замечательные инструменты разработчика для просмотра хранилища на стороне клиента. Ниже пример в Firefox:<br><br><img src="/images/devtools-storage.png" alt="Storage devtools in Firefox"><br><br>И вот пример в Chrome:<br><br><img src="/images/devtools-storage-chrome.png" alt="Storage devtools in Chrome"><br><br>И наконец пример в Microsoft Edge. Обратите внимание, что вы можете найти сохранённые значения приложения на вкладке «Отладчик».<br><br><img src="/images/devtools-storage-edge.png" alt="Storage devtools in Edge"><br><br><p class="tip">Небольшая заметка: инструменты разработчика также предоставляют возможность удалять значения из хранилища. Это может быть очень полезным при тестировании.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="KodaKb" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="testing localstorage" class="codepen">Посмотрите Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/KodaKb/">тестирование localstorage</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p><br><script async src="https://static.codepen.io/assets/embed/ei.js"></script><br><br>Введите что-нибудь в форму и затем обновите эту страницу. Вы заметите, что введённое вами ранее значение будет показано автоматически. Не забывайте, что ваш браузер предоставляет замечательные инструменты разработчика для просмотра хранилища на стороне клиента. Ниже пример в Firefox:<br><br><img src="/images/devtools-storage.png" alt="Storage devtools in Firefox"><br><br>И вот пример в Chrome:<br><br><img src="/images/devtools-storage-chrome.png" alt="Storage devtools in Chrome"><br><br>И наконец пример в Microsoft Edge. Обратите внимание, что вы можете найти сохранённые значения приложения на вкладке «Отладчик».<br><br><img src="/images/devtools-storage-edge.png" alt="Storage devtools in Edge"><br><br><p class="tip">Небольшая заметка: инструменты разработчика также предоставляют возможность удалять значения из хранилища. Это может быть очень полезным при тестировании.</p>
 
 <p>Немедленная запись значения может быть нецелесообразной. Давайте рассмотрим чуть более сложный пример. Во-первых, обновим форму.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    Моё имя <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"name"</span>&gt;</span>
-    и мне <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"age"</span>&gt;</span> лет.
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"persist"</span>&gt;</span>Сохранить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    Моё имя <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><br>    и мне <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;age&quot;</span>&gt;</span> лет.<br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>/&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;persist&quot;</span>&gt;</span>Сохранить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>У нас есть 2 поля (опять-таки связанные с экземпляром Vue), но теперь добавилась и кнопка, запускающая метод <code>persist</code>. Давайте посмотрим на код JavaScript.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>,
-    <span class="hljs-attr">age</span>: <span class="hljs-number">0</span>
-  &#125;,
-  mounted() &#123;
-    <span class="hljs-keyword">if</span> (localStorage.name) &#123;
-      <span class="hljs-keyword">this</span>.name = localStorage.name;
-    &#125;
-    <span class="hljs-keyword">if</span> (localStorage.age) &#123;
-      <span class="hljs-keyword">this</span>.age = localStorage.age;
-    &#125;
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    persist() &#123;
-      localStorage.name = <span class="hljs-keyword">this</span>.name;
-      localStorage.age = <span class="hljs-keyword">this</span>.age;
-      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'теперь я притворяюсь, что сделал ещё кое-что...'</span>);
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>    <span class="hljs-attr">age</span>: <span class="hljs-number">0</span><br>  &#125;,<br>  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">name</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">name</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">age</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">age</span>;<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-title function_">persist</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">name</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>;<br>      <span class="hljs-variable language_">localStorage</span>.<span class="hljs-property">age</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span>;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;теперь я притворяюсь, что сделал ещё кое-что...&#x27;</span>);<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Как и раньше, используем <code>mounted</code> для получения сохранённых данных, если такие были. На этот раз, однако, данные сохраняются только при нажатии кнопки. Мы также можем сделать любые проверки или преобразования перед сохранением значения. Вы также можете сохранить дату последнего обновления данных. С такими метаданными, метод <code>mounted</code> может проверять, следует ли сохранять значения снова или нет. Вы можете попробовать эту версию ниже.</p>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="rdOjLN" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="testing localstorage 2" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/rdOjLN/" target="_blank" rel="noopener">тестирование localstorage 2</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><p data-height="265" data-theme-id="0" data-slug-hash="rdOjLN" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="testing localstorage 2" class="codepen">Посмотрите Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/rdOjLN/">тестирование localstorage 2</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Работа-со-сложными-значениями"><a href="#Работа-со-сложными-значениями" class="headerlink" title="Работа со сложными значениями"></a>Работа со сложными значениями</h2><p>Локальное хранилище работает только с простыми значениями. Для хранения более комплексных значений (объектов или массивов) вам необходимо будет самостоятельно преобразовывать их в JSON и обратно. Ниже представлен пример сохранения массива кошек.</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Коты<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(cat, n) in cats"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cat"</span>&gt;</span>&#123;&#123; cat &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"removeCat(n)"</span>&gt;</span>Удалить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"newCat"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"addCat"</span>&gt;</span>Добавить кота<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Коты<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;(cat, n) in cats&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cat&quot;</span>&gt;</span>&#123;&#123; cat &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;removeCat(n)&quot;</span>&gt;</span>Удалить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;newCat&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;addCat&quot;</span>&gt;</span>Добавить кота<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Это приложение состоит из простого списка сверху (с кнопкой для удаления кота) и небольшой формы внизу для добавления нового кота. Посмотрим на код JavaScript.</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">cats</span>: [],
-    <span class="hljs-attr">newCat</span>: <span class="hljs-literal">null</span>
-  &#125;,
-  mounted() &#123;
-    <span class="hljs-keyword">if</span> (localStorage.getItem(<span class="hljs-string">'cats'</span>)) &#123;
-      <span class="hljs-keyword">try</span> &#123;
-        <span class="hljs-keyword">this</span>.cats = <span class="hljs-built_in">JSON</span>.parse(localStorage.getItem(<span class="hljs-string">'cats'</span>));
-      &#125; <span class="hljs-keyword">catch</span>(e) &#123;
-        localStorage.removeItem(<span class="hljs-string">'cats'</span>);
-      &#125;
-    &#125;
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    addCat() &#123;
-      <span class="hljs-comment">// убедиться, что было что-либо введено</span>
-      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.newCat) &#123;
-        <span class="hljs-keyword">return</span>;
-      &#125;
-
-      <span class="hljs-keyword">this</span>.cats.push(<span class="hljs-keyword">this</span>.newCat);
-      <span class="hljs-keyword">this</span>.newCat = <span class="hljs-string">''</span>;
-      <span class="hljs-keyword">this</span>.saveCats();
-    &#125;,
-    removeCat(x) &#123;
-      <span class="hljs-keyword">this</span>.cats.splice(x, <span class="hljs-number">1</span>);
-      <span class="hljs-keyword">this</span>.saveCats();
-    &#125;,
-    saveCats() &#123;
-      <span class="hljs-keyword">const</span> parsed = <span class="hljs-built_in">JSON</span>.stringify(<span class="hljs-keyword">this</span>.cats);
-      localStorage.setItem(<span class="hljs-string">'cats'</span>, parsed);
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">cats</span>: [],<br>    <span class="hljs-attr">newCat</span>: <span class="hljs-literal">null</span><br>  &#125;,<br>  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;cats&#x27;</span>)) &#123;<br>      <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">cats</span> = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;cats&#x27;</span>));<br>      &#125; <span class="hljs-keyword">catch</span>(e) &#123;<br>        <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">removeItem</span>(<span class="hljs-string">&#x27;cats&#x27;</span>);<br>      &#125;<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-title function_">addCat</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-comment">// убедиться, что было что-либо введено</span><br>      <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">newCat</span>) &#123;<br>        <span class="hljs-keyword">return</span>;<br>      &#125;<br><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">cats</span>.<span class="hljs-title function_">push</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">newCat</span>);<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">newCat</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">saveCats</span>();<br>    &#125;,<br>    <span class="hljs-title function_">removeCat</span>(<span class="hljs-params">x</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">cats</span>.<span class="hljs-title function_">splice</span>(x, <span class="hljs-number">1</span>);<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">saveCats</span>();<br>    &#125;,<br>    <span class="hljs-title function_">saveCats</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">const</span> parsed = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">cats</span>);<br>      <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">&#x27;cats&#x27;</span>, parsed);<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>В этом приложении мы будем использовать Local Storage API вместо «прямого» доступа. Оба варианта работают, однако метод API в целом предпочтительнее. В хуке <code>mounted</code> мы получаем JSON-значение и преобразуем в объект. Если что-то пошло не так, мы предполагаем, что данные повреждены и удаляем их. (Помните, если ваше приложение использует хранилище на стороне клиента, пользователь в любое время имеет доступ к нему и может изменить на своё усмотрение).</p>
 <p>Теперь у нас есть три метода для управления списком котов. Как <code>addCat</code>, так и <code>removeCat</code> обновляют данные экземпляра Vue в <code>this.cats</code>. Затем они вызывают метод <code>saveCats</code>, который занимается сериализацией и сохранением данных. Вы можете попробовать эту версию ниже.</p>
-<p></p><p data-height="265" data-theme-id="0" data-slug-hash="qoYbyW" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="localstorage, complex" class="codepen">Посмотрите Pen <a href="https://codepen.io/cfjedimaster/pen/qoYbyW/" target="_blank" rel="noopener">localstorage, complex</a> от Raymond Camden (<a href="https://codepen.io/cfjedimaster" target="_blank" rel="noopener">@cfjedimaster</a>) на <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<p><p data-height="265" data-theme-id="0" data-slug-hash="qoYbyW" data-default-tab="js,result" data-user="cfjedimaster" data-embed-version="2" data-pen-title="localstorage, complex" class="codepen">Посмотрите Pen <a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster/pen/qoYbyW/">localstorage, complex</a> от Raymond Camden (<a target="_blank" rel="noopener" href="https://codepen.io/cfjedimaster">@cfjedimaster</a>) на <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</p></p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 <h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>В то время как Local Storage API относительно прост, в нём отсутствуют некоторые базовые возможности, которые будут полезны во многих приложениях. Следующие плагины оборачивают доступ к локальному хранилищу и упрощают его, а также добавляют такую функциональность, как, например, значения по умолчанию.</p>
 <ul>
-<li><a href="https://github.com/pinguinjkeke/vue-local-storage" target="_blank" rel="noopener">vue-local-storage</a></li>
-<li><a href="https://github.com/ropbla9/vue-reactive-storage" target="_blank" rel="noopener">vue-reactive-storage</a></li>
-<li><a href="https://github.com/yarkovaleksei/vue2-storage" target="_blank" rel="noopener">vue2-storage</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pinguinjkeke/vue-local-storage">vue-local-storage</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ropbla9/vue-reactive-storage">vue-reactive-storage</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/yarkovaleksei/vue2-storage">vue2-storage</a></li>
 </ul>
 <h2 id="Итоги"><a href="#Итоги" class="headerlink" title="Итоги"></a>Итоги</h2><p>Хотя браузер никогда не заменит системы хранения на сервере, наличие различных способов кэширования данных локально может дать огромный прирост производительности вашему приложению, и работа с ними во Vue.js делает его ещё более мощным.</p>
 
@@ -602,8 +529,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

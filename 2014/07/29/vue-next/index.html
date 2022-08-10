@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Vue.js 0.10.6, and what's next — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/2014/07/29/vue-next/" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/2014/07/29/vue-next/" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/2014/07/29/vue-next/" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/2014/07/29/vue-next/" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/2014/07/29/vue-next/" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/2014/07/29/vue-next/" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/2014/07/29/vue-next/" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/2014/07/29/vue-next/" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/2014/07/29/vue-next/" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/2014/07/29/vue-next/" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/2014/07/29/vue-next/" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/2014/07/29/vue-next/" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/2014/07/29/vue-next/" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/2014/07/29/vue-next/" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/2014/07/29/vue-next/" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/2014/07/29/vue-next/" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/2014/07/29/vue-next/" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -326,14 +329,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/2014/07/29/vue-next/" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/2014/07/29/vue-next/" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/2014/07/29/vue-next/" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/2014/07/29/vue-next/" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/2014/07/29/vue-next/" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/2014/07/29/vue-next/" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/2014/07/29/vue-next/" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/2014/07/29/vue-next/" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/2014/07/29/vue-next/" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/2014/07/29/vue-next/" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/2014/07/29/vue-next/" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/2014/07/29/vue-next/" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/2014/07/29/vue-next/" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/2014/07/29/vue-next/" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/2014/07/29/vue-next/" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/2014/07/29/vue-next/" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/2014/07/29/vue-next/" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -395,7 +398,11 @@
 <div class="content with-sidebar blog post">
   
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -403,21 +410,21 @@
   <h1>Vue.js 0.10.6, and what's next</h1>
   <h4>Jul 29, 2014</h4>
   <h2 id="0-10-6"><a href="#0-10-6" class="headerlink" title="0.10.6"></a>0.10.6</h2><p>Vue.js 0.10.6 has been released! This is another small bug-fix release and will be the last maintainance version before the next major release.</p>
-<a id="more"></a>
+<span id="more"></span>
 <ul>
-<li>fix <code>v-style</code> error when value is falsy or a number. ( thanks to <a href="https://github.com/dmfilipenko" target="_blank" rel="noopener">@dmfilipenko</a> )</li>
-<li>fix the built-in <code>currency</code> filter error when value is a string ( thanks to <a href="https://github.com/dmfilipenko" target="_blank" rel="noopener">@dmfilipenko</a> )</li>
-<li>fix <code>Vue.require</code> for building with Component v1.0+ ( thanks to <a href="https://github.com/kewah" target="_blank" rel="noopener">@kewah</a> )</li>
-<li>Allow template nodes to be passed as a template option ( thanks to <a href="https://github.com/jordangarcia" target="_blank" rel="noopener">@jordangarcia</a> )</li>
+<li>fix <code>v-style</code> error when value is falsy or a number. ( thanks to <a target="_blank" rel="noopener" href="https://github.com/dmfilipenko">@dmfilipenko</a> )</li>
+<li>fix the built-in <code>currency</code> filter error when value is a string ( thanks to <a target="_blank" rel="noopener" href="https://github.com/dmfilipenko">@dmfilipenko</a> )</li>
+<li>fix <code>Vue.require</code> for building with Component v1.0+ ( thanks to <a target="_blank" rel="noopener" href="https://github.com/kewah">@kewah</a> )</li>
+<li>Allow template nodes to be passed as a template option ( thanks to <a target="_blank" rel="noopener" href="https://github.com/jordangarcia">@jordangarcia</a> )</li>
 <li><code>vm.$destroy()</code> now accepts an optional argument <code>noRemove</code>. When passed in as <code>true</code> it will leave the vm’s DOM node intact after the vm is destroyed.</li>
 </ul>
-<h2 id="Vue-next"><a href="#Vue-next" class="headerlink" title="Vue-next"></a>Vue-next</h2><p>Some of you might have noticed there is a <a href="https://github.com/yyx990803/vue/tree/next" target="_blank" rel="noopener">next</a> branch in the repo. And yes, I am re-writing Vue.js from scratch. There are two main reasons:</p>
+<h2 id="Vue-next"><a href="#Vue-next" class="headerlink" title="Vue-next"></a>Vue-next</h2><p>Some of you might have noticed there is a <a target="_blank" rel="noopener" href="https://github.com/yyx990803/vue/tree/next">next</a> branch in the repo. And yes, I am re-writing Vue.js from scratch. There are two main reasons:</p>
 <ul>
 <li>Fix some issues that are caused by design flaws in the current version. Because these changes affect the design of some core modules, it is actually easier to rewrite than to apply on the current codebase.</li>
 <li>Improve general code quality (in particular, <code>compiler.js</code> as of now is a big pile of mess, and comments are not consistent across the codebase.)</li>
 </ul>
-<p>Take note that the <code>next</code> branch is still in <strong>very</strong> early stage. The internals will change a lot, and when it comes out it <strong>will</strong> break current applications. Despite that I will try to keep the API changes to a minimum. Major differences with current 0.10 branch are documented in <a href="https://github.com/yyx990803/vue/blob/next/changes.md" target="_blank" rel="noopener"><code>changes.md</code></a>. The list is obviously incomplete and subject to change, some of them are simply ideas, but it at least gives you a taste of what to expect, and I’d appreicate your feedback on any of the topics.</p>
-<p>Share your thoughts at <a href="https://github.com/vuejs/Discussion/issues" target="_blank" rel="noopener">vuejs/Discussion</a>.</p>
+<p>Take note that the <code>next</code> branch is still in <strong>very</strong> early stage. The internals will change a lot, and when it comes out it <strong>will</strong> break current applications. Despite that I will try to keep the API changes to a minimum. Major differences with current 0.10 branch are documented in <a target="_blank" rel="noopener" href="https://github.com/yyx990803/vue/blob/next/changes.md"><code>changes.md</code></a>. The list is obviously incomplete and subject to change, some of them are simply ideas, but it at least gives you a taste of what to expect, and I’d appreicate your feedback on any of the topics.</p>
+<p>Share your thoughts at <a target="_blank" rel="noopener" href="https://github.com/vuejs/Discussion/issues">vuejs/Discussion</a>.</p>
 
 </div>
 
@@ -430,8 +437,10 @@
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

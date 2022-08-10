@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Публикация Vue-компонентов в npm — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/cookbook/packaging-sfc-for-npm.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -410,6 +419,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -423,14 +438,18 @@
 <div class="content cookbook with-sidebar ">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -443,20 +462,9 @@
   
     <h2 id="Простой-пример"><a href="#Простой-пример" class="headerlink" title="Простой пример"></a>Простой пример</h2><p>Vue-компоненты по своей сути предназначены для повторного использования. Это легко, когда компонент используется только в одном приложении. Но как мы можем написать компонент один раз и использовать его на нескольких сайтах или приложениях? Пожалуй, самое простое решение — использовать npm.</p>
 <p>Подготовив свой компонент для распространения через npm мы сможем его импортировать в процессе сборки для использования в полноценных веб-приложениях:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'my-component'</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">components</span>: &#123;
-    MyComponent
-  &#125;,
-  <span class="hljs-comment">// остальной код компонента</span>
-&#125;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;my-component&#x27;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-title class_">MyComponent</span><br>  &#125;,<br>  <span class="hljs-comment">// остальной код компонента</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>Или даже подключить компонент, используя тег <code>&lt;script&gt;</code> непосредственно в браузере:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/vue@2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/my-component"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-...
-<span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span>
-...</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/vue@2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://unpkg.com/my-component&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>...<br><span class="hljs-tag">&lt;<span class="hljs-name">my-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-component</span>&gt;</span><br>...<br></code></pre></td></tr></table></figure>
 <p>Данный подход поможет не только избежать копирования компонентов, но также помочь сообществу Vue.</p>
 <h2 id="Разве-я-не-могу-просто-поделиться-vue-файлами-напрямую"><a href="#Разве-я-не-могу-просто-поделиться-vue-файлами-напрямую" class="headerlink" title="Разве я не могу просто поделиться .vue файлами напрямую?"></a>Разве я не могу просто поделиться <code>.vue</code> файлами напрямую?</h2><p>Компоненты Vue уже могут быть представлены как один файл. Так как однофайловые компоненты уже являются одним файлом, вы можете спросить:</p>
 <blockquote>
@@ -465,122 +473,36 @@
 <p>Это правда, вы можете делиться непосредственно файлами <code>.vue</code>, и все, кто используют <a href="../guide/installation.html#Объяснение-различных-сборок">сборку Vue</a>, включающую в себя компилятор, смогут сразу их применять. К тому же, в SSR сборке используется конкатенация строк для оптимизации, в таком случае <code>.vue</code> файл может быть предпочтительнее (<a href="#Использование-с-SSR">Подготовка Vue-компонентов для npm &gt; Использование SSR</a> для более подробного объяснения). Тем не менее, вышеописанный метод исключает использование компонентов непосредственно в браузере с помощью тега <code>&lt;script&gt;</code>, а также для всех, кто использует runtime сборку, или другой тип сборки, который не понимает как обрабатывать <code>.vue</code> файлы.</p>
 <p>Правильная подготовка ваших однофайловых компонентов для распространения их через npm позволит использовать их где угодно.</p>
 <h2 id="Подготовка-компонентов-для-публикации-в-npm"><a href="#Подготовка-компонентов-для-публикации-в-npm" class="headerlink" title="Подготовка компонентов для публикации в npm"></a>Подготовка компонентов для публикации в npm</h2><p>Представим следующую файловую структуру:</p>
-<pre><code class="hljs undefined">package.json
-build/
-   rollup.config.js
-src/
-   wrapper.js
-   my-component.vue
-dist/</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">package.json<br>build/<br>   rollup.config.js<br>src/<br>   wrapper.js<br>   my-component.vue<br>dist/<br></code></pre></td></tr></table></figure>
 <p class="tip">В этом документе приводятся ссылки на файл package.json, указанный выше. Файл, используемый в этих примерах, был создан вручную и будет включать минимально необходимую конфигурацию для обсуждения/выполнения задачи. Вероятно, ваш собственный package.json файл будет содержать больше кода, чем представлено здесь.</p>
 
 <h3 id="Как-npm-узнает-какую-версию-использовать-в-браузере-а-какую-в-сборке"><a href="#Как-npm-узнает-какую-версию-использовать-в-браузере-а-какую-в-сборке" class="headerlink" title="Как npm узнает, какую версию использовать в браузере, а какую в сборке."></a>Как npm узнает, какую версию использовать в браузере, а какую в сборке.</h3><p>Файл package.json, используемый для npm, нуждается только в одной версии (<code>main</code>), но как оказалось, мы этим не ограничены. Мы можем рассмотреть наиболее распространённые варианты использования, указав 2 дополнительные версии (<code>module</code> и <code>unpkg</code>), и предоставить доступ к самому файлу <code>.vue</code>, используя свойство <code>browser</code>. Пример package.json представлен ниже:</p>
-<pre><code class="hljs json">&#123;
-  "name": "my-component",
-  "version": "1.2.3",
-  "main": "dist/my-component.umd.js",
-  "module": "dist/my-component.esm.js",
-  "unpkg": "dist/my-component.min.js",
-  "browser": &#123;
-    "./sfc": "src/my-component.vue"
-  &#125;,
-  ...
-&#125;</code></pre>
-<p>Когда используется Webpack 2+, Rollup или другие современные системы сборки, будет выбран файл из сборки <code>module</code>. Более старые приложения будут использовать файл из <code>main</code>, а файл из <code>unpkg</code> может быть использован непосредственно в браузере. На самом деле, cdn <a href="https://unpkg.com" target="_blank" rel="noopener">unpkg</a> автоматически используется, когда кто-то вбивает URL вашего модуля в свой сервис.</p>
-<h3 id="Использование-с-SSR"><a href="#Использование-с-SSR" class="headerlink" title="Использование с SSR"></a>Использование с SSR</h3><p>Вы могли заметить, что браузеры не будут использовать версию <code>browser</code> вашего модуля. Причина в том, что на самом деле это свойство предназначено для того, чтобы авторы могли предоставить <a href="https://github.com/defunctzombie/package-browser-field-spec#spec" target="_blank" rel="noopener">подсказки для сборщиков</a>, которые, в свою очередь, создадут свои собственные версии модуля для использования на клиенте. Проявив немного креативности, мы можем сопоставить псевдоним с самим файлом <code>.vue</code>. Например:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'my-component/sfc'</span>; <span class="hljs-comment">// Обратите внимание на '/sfc'</span></code></pre>
+<figure class="highlight json"><table><tr><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my-component&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.2.3&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/my-component.umd.js&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;module&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/my-component.esm.js&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;unpkg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/my-component.min.js&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;browser&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;./sfc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;src/my-component.vue&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  ...<br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+<p>Когда используется Webpack 2+, Rollup или другие современные системы сборки, будет выбран файл из сборки <code>module</code>. Более старые приложения будут использовать файл из <code>main</code>, а файл из <code>unpkg</code> может быть использован непосредственно в браузере. На самом деле, cdn <a target="_blank" rel="noopener" href="https://unpkg.com">unpkg</a> автоматически используется, когда кто-то вбивает URL вашего модуля в свой сервис.</p>
+<h3 id="Использование-с-SSR"><a href="#Использование-с-SSR" class="headerlink" title="Использование с SSR"></a>Использование с SSR</h3><p>Вы могли заметить, что браузеры не будут использовать версию <code>browser</code> вашего модуля. Причина в том, что на самом деле это свойство предназначено для того, чтобы авторы могли предоставить <a target="_blank" rel="noopener" href="https://github.com/defunctzombie/package-browser-field-spec#spec">подсказки для сборщиков</a>, которые, в свою очередь, создадут свои собственные версии модуля для использования на клиенте. Проявив немного креативности, мы можем сопоставить псевдоним с самим файлом <code>.vue</code>. Например:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;my-component/sfc&#x27;</span>; <span class="hljs-comment">// Обратите внимание на &#x27;/sfc&#x27;</span><br></code></pre></td></tr></table></figure>
 <p>Системы сборки видят объявление <code>browser</code> в package.json и преобразовывают запрос к <code>my-component/sfc</code> в <code>my-component/src/my-component.vue</code>, в результате используется исходный файл <code>.vue</code>. Теперь процесс SSR сможет использовать оптимизацию конкатенации строк, необходимую для повышения производительности.</p>
 <p class="tip">Примечание: При непосредственном использовании компонентов <code>.vue</code> обратите внимание на любую предварительную обработку, требуемую тегам <code>script</code> и <code>style</code>. Эти зависимости будут переданы пользователям. Попробуйте сделать <code>простые</code> однофайловые компоненты максимально тривиальными.</p>
 
-<h3 id="Как-мне-сделать-несколько-версий-моего-компонента"><a href="#Как-мне-сделать-несколько-версий-моего-компонента" class="headerlink" title="Как мне сделать несколько версий моего компонента?"></a>Как мне сделать несколько версий моего компонента?</h3><p>Нет необходимости писать код модуля несколько раз. Можно подготовить все 3 версии вашего компонента за 1 шаг и в считанные секунды. Для примера, ниже используется <a href="https://rollupjs.org" target="_blank" rel="noopener">Rollup</a> из-за своей минимальной конфигурации, но подобное можно сделать и с другими системами сборки - более подробно можно прочитать <a href="https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c" target="_blank" rel="noopener">здесь</a>. Раздел <code>scripts</code> в файле package.json можно обновить, добавив отдельную команду для каждой версии сборки и общую команду <code>build</code>, которая запустит их вместе. После этого, наш package.json будет выглядеть следующим образом:</p>
-<pre><code class="hljs json">&#123;
-  "name": "my-component",
-  "version": "1.2.3",
-  "main": "dist/my-component.umd.js",
-  "module": "dist/my-component.esm.js",
-  "unpkg": "dist/my-component.min.js",
-  "browser": &#123;
-    "./sfc": "src/my-component.vue"
-  &#125;,
-  "scripts": &#123;
-    "build": "npm run build:umd &amp; npm run build:es &amp; npm run build:unpkg",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/my-component.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/my-component.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/my-component.min.js"
-  &#125;,
-  "devDependencies": &#123;
-    "rollup": "^1.17.0",
-    "@rollup/plugin-buble": "^0.21.3",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "rollup-plugin-vue": "^5.0.1",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
-    ...
-  &#125;,
-  ...
-&#125;</code></pre>
+<h3 id="Как-мне-сделать-несколько-версий-моего-компонента"><a href="#Как-мне-сделать-несколько-версий-моего-компонента" class="headerlink" title="Как мне сделать несколько версий моего компонента?"></a>Как мне сделать несколько версий моего компонента?</h3><p>Нет необходимости писать код модуля несколько раз. Можно подготовить все 3 версии вашего компонента за 1 шаг и в считанные секунды. Для примера, ниже используется <a target="_blank" rel="noopener" href="https://rollupjs.org">Rollup</a> из-за своей минимальной конфигурации, но подобное можно сделать и с другими системами сборки - более подробно можно прочитать <a target="_blank" rel="noopener" href="https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c">здесь</a>. Раздел <code>scripts</code> в файле package.json можно обновить, добавив отдельную команду для каждой версии сборки и общую команду <code>build</code>, которая запустит их вместе. После этого, наш package.json будет выглядеть следующим образом:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my-component&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.2.3&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;main&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/my-component.umd.js&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;module&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/my-component.esm.js&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;unpkg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/my-component.min.js&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;browser&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;./sfc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;src/my-component.vue&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm run build:umd &amp; npm run build:es &amp; npm run build:unpkg&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;build:umd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;rollup --config build/rollup.config.js --format umd --file dist/my-component.umd.js&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;build:es&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;rollup --config build/rollup.config.js --format es --file dist/my-component.esm.js&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;build:unpkg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;rollup --config build/rollup.config.js --format iife --file dist/my-component.min.js&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;devDependencies&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;rollup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^1.17.0&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;@rollup/plugin-buble&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^0.21.3&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;@rollup/plugin-commonjs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^11.1.0&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;rollup-plugin-vue&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^5.0.1&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;vue&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^2.6.10&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;vue-template-compiler&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;^2.6.10&quot;</span><br>    ...<br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  ...<br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 <p class="tip">Не забудьте, если у вас уже есть файл package.json, вероятнее всего он будет содержать больше кода. Пример выше только демонстрирует, как можно начинать. Также, <i>пакеты</i>, перечисленные в devDependencies (не их версии), единственное требование для rollup, чтобы создать три отдельных вида сборки (umd, es, и unpkg). С появлением новых версий, модули следует обновить по мере необходимости.</p>
 
 <p>Мы закончили с изменениями в package.json. Далее, нам понадобится небольшая обёртка для экспорта или автоматической установки актуального однофайлового компонента. Плюс - минимальная конфигурация системы сборки Rollup - и настройка завершена!</p>
-<h3 id="Как-выглядит-мой-подготовленный-для-npm-компонент"><a href="#Как-выглядит-мой-подготовленный-для-npm-компонент" class="headerlink" title="Как выглядит мой подготовленный для npm компонент?"></a>Как выглядит мой подготовленный для npm компонент?</h3><p>В зависимости от того, как используется ваш компонент, он должен быть JavaScript-модулем, совместимым с <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a" target="_blank" rel="noopener">CommonJS/UMD</a>, <a href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e" target="_blank" rel="noopener">ES6 JavaScript</a> модулем, или, в случае использования тега <code>&lt;script&gt;</code>, он будет автоматически загружаться во Vue с помощью <code>Vue.use(...)</code>, поэтому он будет сразу доступен на странице. Это достигается простым файлом wrapper.js, который обрабатывает экспорт и автоматическую установку модуля. В целом, обёртка выглядит следующим образом:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// Импорт vue компонента</span>
-<span class="hljs-keyword">import</span> component <span class="hljs-keyword">from</span> <span class="hljs-string">'./my-component.vue'</span>;
-
-<span class="hljs-comment">// Объявление функции установки, выполняемой Vue.use()</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">install</span>(<span class="hljs-params">Vue</span>) </span>&#123;
-  <span class="hljs-keyword">if</span> (install.installed) <span class="hljs-keyword">return</span>;
-  install.installed = <span class="hljs-literal">true</span>;
-  Vue.component(<span class="hljs-string">'MyComponent'</span>, component);
-&#125;
-
-<span class="hljs-comment">// Создание значения модуля для Vue.use()</span>
-<span class="hljs-keyword">const</span> plugin = &#123;
-  install
-&#125;;
-
-<span class="hljs-comment">// Автоматическая установка, когда vue найден (например в браузере с помощью тега &lt;script&gt;)</span>
-<span class="hljs-keyword">let</span> GlobalVue = <span class="hljs-literal">null</span>;
-<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> !== <span class="hljs-string">'undefined'</span>) &#123;
-  GlobalVue = <span class="hljs-built_in">window</span>.Vue;
-&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> global !== <span class="hljs-string">'undefined'</span>) &#123;
-  GlobalVue = global.Vue;
-&#125;
-<span class="hljs-keyword">if</span> (GlobalVue) &#123;
-  GlobalVue.use(plugin);
-&#125;
-
-<span class="hljs-comment">// Экспорт компонента, для использования в качестве модуля (npm/webpack/etc.)</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> component;</code></pre>
+<h3 id="Как-выглядит-мой-подготовленный-для-npm-компонент"><a href="#Как-выглядит-мой-подготовленный-для-npm-компонент" class="headerlink" title="Как выглядит мой подготовленный для npm компонент?"></a>Как выглядит мой подготовленный для npm компонент?</h3><p>В зависимости от того, как используется ваш компонент, он должен быть JavaScript-модулем, совместимым с <a target="_blank" rel="noopener" href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#c33a">CommonJS/UMD</a>, <a target="_blank" rel="noopener" href="https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#4f5e">ES6 JavaScript</a> модулем, или, в случае использования тега <code>&lt;script&gt;</code>, он будет автоматически загружаться во Vue с помощью <code>Vue.use(...)</code>, поэтому он будет сразу доступен на странице. Это достигается простым файлом wrapper.js, который обрабатывает экспорт и автоматическую установку модуля. В целом, обёртка выглядит следующим образом:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Импорт vue компонента</span><br><span class="hljs-keyword">import</span> component <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./my-component.vue&#x27;</span>;<br><br><span class="hljs-comment">// Объявление функции установки, выполняемой Vue.use()</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">install</span>(<span class="hljs-params">Vue</span>) &#123;<br>  <span class="hljs-keyword">if</span> (install.<span class="hljs-property">installed</span>) <span class="hljs-keyword">return</span>;<br>  install.<span class="hljs-property">installed</span> = <span class="hljs-literal">true</span>;<br>  <span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;MyComponent&#x27;</span>, component);<br>&#125;<br><br><span class="hljs-comment">// Создание значения модуля для Vue.use()</span><br><span class="hljs-keyword">const</span> plugin = &#123;<br>  install<br>&#125;;<br><br><span class="hljs-comment">// Автоматическая установка, когда vue найден (например в браузере с помощью тега &lt;script&gt;)</span><br><span class="hljs-keyword">let</span> <span class="hljs-title class_">GlobalVue</span> = <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">window</span> !== <span class="hljs-string">&#x27;undefined&#x27;</span>) &#123;<br>  <span class="hljs-title class_">GlobalVue</span> = <span class="hljs-variable language_">window</span>.<span class="hljs-property">Vue</span>;<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-variable language_">global</span> !== <span class="hljs-string">&#x27;undefined&#x27;</span>) &#123;<br>  <span class="hljs-title class_">GlobalVue</span> = <span class="hljs-variable language_">global</span>.<span class="hljs-property">Vue</span>;<br>&#125;<br><span class="hljs-keyword">if</span> (<span class="hljs-title class_">GlobalVue</span>) &#123;<br>  <span class="hljs-title class_">GlobalVue</span>.<span class="hljs-title function_">use</span>(plugin);<br>&#125;<br><br><span class="hljs-comment">// Экспорт компонента, для использования в качестве модуля (npm/webpack/etc.)</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> component;<br></code></pre></td></tr></table></figure>
 <p>Обратите внимание, что в первой строке импортируется непосредственно ваш однофайловый компонент, а последняя строка экспортирует его без изменений. Как указано в комментариях в остальной части кода, обёртка предоставляет функцию <code>install</code> для Vue, затем пытается обнаружить Vue и автоматически установить компонент. Выполнив 90% работы, настало время ускориться к финишу!</p>
 <h3 id="Как-настроить-сборку-с-Rollup"><a href="#Как-настроить-сборку-с-Rollup" class="headerlink" title="Как настроить сборку с Rollup?"></a>Как настроить сборку с Rollup?</h3><p>С готовой секцией <code>scripts</code> и обёрткой для однофайловых компонентов, всё что нам осталось - убедиться, что Rollup правильно настроен. К счастью, это можно сделать с помощью маленького файла rollup.config.js, состоящего из 16 строк кода:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">import</span> commonjs <span class="hljs-keyword">from</span> <span class="hljs-string">'@rollup/plugin-commonjs'</span>; <span class="hljs-comment">// Конвертирование CommonJS модулей в ES6</span>
-<span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'rollup-plugin-vue'</span>; <span class="hljs-comment">// Обработка однофайловых компонентов .vue</span>
-<span class="hljs-keyword">import</span> buble <span class="hljs-keyword">from</span> <span class="hljs-string">'@rollup/plugin-buble'</span>; <span class="hljs-comment">// Транспиляция/добавление полифилов для умеренной поддержки браузеров</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
-  <span class="hljs-attr">input</span>: <span class="hljs-string">'src/wrapper.js'</span>, <span class="hljs-comment">// Путь до относительного package.json</span>
-  <span class="hljs-attr">output</span>: &#123;
-    <span class="hljs-attr">name</span>: <span class="hljs-string">'MyComponent'</span>,
-    <span class="hljs-attr">exports</span>: <span class="hljs-string">'named'</span>
-  &#125;,
-  <span class="hljs-attr">plugins</span>: [
-    commonjs(),
-    vue(&#123;
-        <span class="hljs-attr">css</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Динамически внедряем CSS в тег &lt;style&gt;</span>
-        <span class="hljs-attr">compileTemplate</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Явное преобразование шаблона в рендер-функцию</span>
-    &#125;),
-    buble() <span class="hljs-comment">// Транспиляция в ES5</span>
-  ],
-&#125;;</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> commonjs <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-commonjs&#x27;</span>; <span class="hljs-comment">// Конвертирование CommonJS модулей в ES6</span><br><span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rollup-plugin-vue&#x27;</span>; <span class="hljs-comment">// Обработка однофайловых компонентов .vue</span><br><span class="hljs-keyword">import</span> buble <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rollup/plugin-buble&#x27;</span>; <span class="hljs-comment">// Транспиляция/добавление полифилов для умеренной поддержки браузеров</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">input</span>: <span class="hljs-string">&#x27;src/wrapper.js&#x27;</span>, <span class="hljs-comment">// Путь до относительного package.json</span><br>  <span class="hljs-attr">output</span>: &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;MyComponent&#x27;</span>,<br>    <span class="hljs-attr">exports</span>: <span class="hljs-string">&#x27;named&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-title function_">commonjs</span>(),<br>    <span class="hljs-title function_">vue</span>(&#123;<br>        <span class="hljs-attr">css</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Динамически внедряем CSS в тег &lt;style&gt;</span><br>        <span class="hljs-attr">compileTemplate</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// Явное преобразование шаблона в рендер-функцию</span><br>    &#125;),<br>    <span class="hljs-title function_">buble</span>() <span class="hljs-comment">// Транспиляция в ES5</span><br>  ],<br>&#125;;<br></code></pre></td></tr></table></figure>
 <p>Этот пример конфигурации содержит минимальные настройки чтобы подготовить ваш однофайловый компонент для npm. Есть множество способов изменения, например экспорт CSS в отдельный файл, использование CSS-препроцессоров, минификации JS и т.д.</p>
 <p>Кроме того, стоит обратить внимание на <code>name</code>, данное компоненту. Компоненту будет присвоено имя в формате PascalCase, и оно должно соответствовать имени компонента в формате kebab-case, которое используется в данной статье.</p>
-<h3 id="Это-заменит-мой-текущий-процесс-разработки"><a href="#Это-заменит-мой-текущий-процесс-разработки" class="headerlink" title="Это заменит мой текущий процесс разработки?"></a>Это заменит мой текущий процесс разработки?</h3><p>Представленная конфигурация не предназначена для замены процесса разработки, который вы используете в настоящее время. Если у вас настроен webpack с горячей перезагрузкой модулей (HMR), продолжайте его использовать! Если вы начинаете с нуля - не стесняйтесь установить <a href="https://github.com/vuejs/vue-cli/" target="_blank" rel="noopener">Vue CLI 3</a>, который предоставит вам готовую конфигурацию с HMR:</p>
-<pre><code class="hljs bash">vue serve --open src/my-component.vue</code></pre>
+<h3 id="Это-заменит-мой-текущий-процесс-разработки"><a href="#Это-заменит-мой-текущий-процесс-разработки" class="headerlink" title="Это заменит мой текущий процесс разработки?"></a>Это заменит мой текущий процесс разработки?</h3><p>Представленная конфигурация не предназначена для замены процесса разработки, который вы используете в настоящее время. Если у вас настроен webpack с горячей перезагрузкой модулей (HMR), продолжайте его использовать! Если вы начинаете с нуля - не стесняйтесь установить <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-cli/">Vue CLI 3</a>, который предоставит вам готовую конфигурацию с HMR:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">vue serve --open src/my-component.vue<br></code></pre></td></tr></table></figure>
 <p>Другими словами, разрабатывайте любым удобным для вас способом. Все, что описано в этой статье, скорее представляет из себя «финальные штрихи», нежели полный процесс разработки.</p>
 <h2 id="Когда-избегать-этого-способа"><a href="#Когда-избегать-этого-способа" class="headerlink" title="Когда избегать этого способа"></a>Когда избегать этого способа</h2><p>Использование данного метода может быть плохой идеей в определённых случаях. В данной статье мы не вдавались в подробности того, как были написаны сами компоненты. Некоторые компоненты могут порождать побочные эффекты, например использовать директивы или расширять сторонние библиотеки дополнительным функционалом. В этих случаях вам нужно будет оценить, слишком ли велики изменения, необходимые для использования этого способа.</p>
 <p>Кроме того, обратите внимание на любые зависимости, которые может иметь ваш компонент. Например, если вы подключаете стороннюю библиотеку для сортировки или для работы с API, Rollup может включить их в итоговый код сборки, если будет неправильно настроен. Чтобы иметь возможность использовать данный способ, вам нужно будет настроить Rollup таким образом, чтобы он исключал эти файлы из финального результата. Затем вам нужно будет обновить документацию, чтобы сообщить своим пользователям о зависимостях.</p>
 <h2 id="Альтернативные-варианты"><a href="#Альтернативные-варианты" class="headerlink" title="Альтернативные варианты"></a>Альтернативные варианты</h2><p>В то время, когда эта статья была написана, Vue CLI 3 был в бета-версии. Эта версия CLI содержит в себе встроенный режим сборки <code>library</code>, который создаёт версии CommonJS и UMD компонента. Этого должно быть достаточно, тем не менее вам нужно будет убедиться, что в вашем файле package.json  правильно указаны значения <code>main</code> и <code>unpkg</code>. К тому же, отсутствует поддержка ES6 <code>module</code>, если только она не будет добавлена до релиза CLI или через плагин.</p>
-<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт является результатом выступления <a href="https://twitter.com/webdevdodge" target="_blank" rel="noopener">Mike Dodge</a> на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу <a href="https://www.npmjs.com/package/vue-sfc-rollup" target="_blank" rel="noopener">vue-sfc-rollup</a> из npm. Также, вы можете клонировать код <a href="https://github.com/team-innovation/vue-sfc-rollup" target="_blank" rel="noopener">из репозитория</a> и отредактировать его.</p>
+<h2 id="Благодарности"><a href="#Благодарности" class="headerlink" title="Благодарности"></a>Благодарности</h2><p>Этот рецепт является результатом выступления <a target="_blank" rel="noopener" href="https://twitter.com/webdevdodge">Mike Dodge</a> на VueConf.us в марте 2018. Он опубликовал программу в npm, которая быстро сгенерирует образец однофайлового компонента. Вы можете скачать программу <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue-sfc-rollup">vue-sfc-rollup</a> из npm. Также, вы можете клонировать код <a target="_blank" rel="noopener" href="https://github.com/team-innovation/vue-sfc-rollup">из репозитория</a> и отредактировать его.</p>
 
   
   
@@ -616,8 +538,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

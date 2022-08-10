@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Динамические и асинхронные компоненты — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/components-dynamic-async.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/components-dynamic-async.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/components-dynamic-async.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar components-dynamic-async-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1011,12 +1030,20 @@
 <p>Подразумевается, что вы уже изучили и разобрались с разделом <a href="components.html">Основы компонентов</a>. Если нет — прочитайте его сначала.</p>
 </blockquote>
 <h2 id="keep-alive-с-динамическими-компонентами"><a href="#keep-alive-с-динамическими-компонентами" class="headerlink" title="keep-alive с динамическими компонентами"></a><code>keep-alive</code> с динамическими компонентами</h2><p>Ранее мы использовали атрибут <code>is</code> для переключения компонентов в интерфейсе вкладок:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">&quot;currentTabComponent&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Но иногда, при переключении между компонентами, вы хотите сохранить их состояния или избежать повторной отрисовки по соображениям производительности. Например, когда немного доработаем наш интерфейс с вкладками:</p>
 
 <div id="dynamic-component-demo" class="demo">
-  <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]" v-on:click="currentTab = tab">{{ tab }}</button>
-  <component v-bind:is="currentTabComponent" class="dynamic-component-demo-tab"></component>
+  <button
+    v-for="tab in tabs"
+    v-bind:key="tab"
+    v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]"
+    v-on:click="currentTab = tab"
+  >{{ tab }}</button>
+  <component
+    v-bind:is="currentTabComponent"
+    class="dynamic-component-demo-tab"
+  ></component>
 </div>
 <script>
 Vue.component('tab-posts', {
@@ -1140,16 +1167,21 @@ new Vue({
 
 <p>Вы можете заметить, что если выбрать запись, переключиться на вкладку <em>Archive</em>, затем переключиться обратно на <em>Posts</em>, то больше не будет показываться выбранная запись. Это связано с тем, что каждый раз, когда вы переключаетесь на новую вкладку, Vue создаёт новый экземпляр <code>currentTabComponent</code>.</p>
 <p>Пересоздание динамических компонентов обычно является полезным поведением, но в нашем случае, мы хотим чтобы экземпляры компонентов вкладок кэшировались после их создания в первый раз. Для решения этой проблемы мы можем обернуть наш динамический компонент в элемент <code>&lt;keep-alive&gt;</code>:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Неактивные компоненты будут закэшированы! --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">"currentTabComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- Неактивные компоненты будут закэшированы! --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">v-bind:is</span>=<span class="hljs-string">&quot;currentTabComponent&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Посмотрите на результат ниже:</p>
 
 <div id="dynamic-component-keep-alive-demo" class="demo">
-  <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]" v-on:click="currentTab = tab">{{ tab }}</button>
+  <button
+    v-for="tab in tabs"
+    v-bind:key="tab"
+    v-bind:class="['dynamic-component-demo-tab-button', { 'dynamic-component-demo-active': currentTab === tab }]"
+    v-on:click="currentTab = tab"
+  >{{ tab }}</button>
   <keep-alive>
-    <component v-bind:is="currentTabComponent" class="dynamic-component-demo-tab"></component>
+    <component
+      v-bind:is="currentTabComponent"
+      class="dynamic-component-demo-tab"
+    ></component>
   </keep-alive>
 </div>
 <script>
@@ -1167,62 +1199,29 @@ new Vue({
 })
 </script>
 
-<p>Теперь вкладка <em>Posts</em> управляет собственным состоянием (выбранной записью) даже когда не отображается. Посмотрите <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-keep-alive-with-dynamic-components" target="_blank" rel="noopener">этот пример</a> для полного примера кода.</p>
+<p>Теперь вкладка <em>Posts</em> управляет собственным состоянием (выбранной записью) даже когда не отображается. Посмотрите <a target="_blank" rel="noopener" href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-keep-alive-with-dynamic-components">этот пример</a> для полного примера кода.</p>
 <p class="tip">Обратите внимание, что <code>&lt;keep-alive&gt;</code> требует, чтобы у всех переключаемых компонентов было задано имя, либо через опцию <code>name</code> компонента, либо через локальную/глобальную регистрацию.</p>
 
 <p>Подробнее с элементом <code>&lt;keep-alive&gt;</code> можно ознакомиться <a href="../api/#keep-alive">на странице API</a>.</p>
 <h2 id="Асинхронные-компоненты"><a href="#Асинхронные-компоненты" class="headerlink" title="Асинхронные компоненты"></a>Асинхронные компоненты</h2><div class="vueschool"><a href="https://vueschool.io/lessons/dynamically-load-components?friend=vuejs" target="_blank" rel="sponsored noopener" title="Free Vue.js Async Components lesson">Посмотрите бесплатный урок на Vue School</a></div>
 
 <p>Иногда бывает удобно разделить крупное приложение на части и подгружать компоненты с сервера только тогда, когда в них возникнет потребность. Для этого Vue позволяет определить компонент как функцию-фабрику, асинхронно возвращающую определение компонента. Vue вызовет фабричную функцию только тогда, когда компонент действительно понадобится, и закэширует результат для дальнейшего использования. Например:</p>
-<pre><code class="hljs js">Vue.component(<span class="hljs-string">'async-example'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>&#123;
-  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-comment">// Передаём определение компонента в коллбэк resolve</span>
-    resolve(&#123;
-      <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div&gt;Я — асинхронный!&lt;/div&gt;'</span>
-    &#125;)
-  &#125;, <span class="hljs-number">1000</span>)
-&#125;)</code></pre>
-<p>Функция-фабрика принимает параметр <code>resolve</code> — коллбэк, который вызывается после того, как определение компонента получено от сервера. Кроме того, можно вызвать <code>reject(reason)</code>, если загрузка по какой-либо причине не удалась. Мы используем <code>setTimeout</code> исключительно в демонстрационных целях; как именно получать компонент в реальной ситуации — решать только вам самим. Один из удачных подходов — это использовать асинхронные компоненты в связке с <a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener">функциями Webpack по разделению кода</a>:</p>
-<pre><code class="hljs js">Vue.component(<span class="hljs-string">'async-webpack-example'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) </span>&#123;
-  <span class="hljs-comment">// Специальный синтаксис require укажет Webpack</span>
-  <span class="hljs-comment">// автоматически разделить сборку на части</span>
-  <span class="hljs-comment">// для последующей асинхронной загрузки</span>
-  <span class="hljs-built_in">require</span>([<span class="hljs-string">'./my-async-component'</span>], resolve)
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;async-example&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) &#123;<br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// Передаём определение компонента в коллбэк resolve</span><br>    <span class="hljs-title function_">resolve</span>(&#123;<br>      <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;div&gt;Я — асинхронный!&lt;/div&gt;&#x27;</span><br>    &#125;)<br>  &#125;, <span class="hljs-number">1000</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>Функция-фабрика принимает параметр <code>resolve</code> — коллбэк, который вызывается после того, как определение компонента получено от сервера. Кроме того, можно вызвать <code>reject(reason)</code>, если загрузка по какой-либо причине не удалась. Мы используем <code>setTimeout</code> исключительно в демонстрационных целях; как именно получать компонент в реальной ситуации — решать только вам самим. Один из удачных подходов — это использовать асинхронные компоненты в связке с <a target="_blank" rel="noopener" href="https://webpack.js.org/guides/code-splitting/">функциями Webpack по разделению кода</a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;async-webpack-example&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) &#123;<br>  <span class="hljs-comment">// Специальный синтаксис require укажет Webpack</span><br>  <span class="hljs-comment">// автоматически разделить сборку на части</span><br>  <span class="hljs-comment">// для последующей асинхронной загрузки</span><br>  <span class="hljs-built_in">require</span>([<span class="hljs-string">&#x27;./my-async-component&#x27;</span>], resolve)<br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Также можно возвращать <code>Promise</code> из функции-фабрики, поэтому с Webpack 2 и синтаксисом ES2015 можно использовать динамические импорты:</p>
-<pre><code class="hljs js">Vue.component(
-  <span class="hljs-string">'async-webpack-example'</span>,
-  <span class="hljs-comment">// Динамический импорт возвращает Promise</span>
-  () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">'./my-async-component'</span>)
-)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<br>  <span class="hljs-string">&#x27;async-webpack-example&#x27;</span>,<br>  <span class="hljs-comment">// Динамический импорт возвращает Promise</span><br>  <span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;./my-async-component&#x27;</span>)<br>)<br></code></pre></td></tr></table></figure>
 <p>При использовании <a href="components-registration.html#Локальная-регистрация">локальной регистрации компонентов</a>, вы также можете непосредственно указывать функцию, которая возвращает <code>Promise</code>:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-comment">// ...</span>
-  <span class="hljs-attr">components</span>: &#123;
-    <span class="hljs-string">'my-component'</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./my-async-component'</span>)
-  &#125;
-&#125;)</code></pre>
-<p class="tip">Если вы используете <strong>Browserify</strong> и также хотите реализовать асинхронную загрузку компонентов, нам, к сожалению, придётся вас огорчить. Сам создатель Browserify <a href="https://github.com/substack/node-browserify/issues/58#issuecomment-21978224" target="_blank" rel="noopener">прояснил</a>, что асинхронная загрузка «не является функцией, которую Browserify когда-либо будет поддерживать». По крайней мере, официально. Сообщество Browserify обнаружило возможные <a href="https://github.com/vuejs/v2.vuejs.org/issues/620" target="_blank" rel="noopener">обходные пути</a>, которые могут быть полезны в уже существующих сложных приложениях. Но в целом мы советуем использовать Webpack, обладающий полноценной встроенной поддержкой асинхронной загрузки частей сборки.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-comment">// ...</span><br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-string">&#x27;my-component&#x27;</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;./my-async-component&#x27;</span>)<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p class="tip">Если вы используете <strong>Browserify</strong> и также хотите реализовать асинхронную загрузку компонентов, нам, к сожалению, придётся вас огорчить. Сам создатель Browserify <a target="_blank" rel="noopener" href="https://github.com/substack/node-browserify/issues/58#issuecomment-21978224">прояснил</a>, что асинхронная загрузка «не является функцией, которую Browserify когда-либо будет поддерживать». По крайней мере, официально. Сообщество Browserify обнаружило возможные <a target="_blank" rel="noopener" href="https://github.com/vuejs/v2.vuejs.org/issues/620">обходные пути</a>, которые могут быть полезны в уже существующих сложных приложениях. Но в целом мы советуем использовать Webpack, обладающий полноценной встроенной поддержкой асинхронной загрузки частей сборки.</p>
 
 <h3 id="Управление-состоянием-загрузки"><a href="#Управление-состоянием-загрузки" class="headerlink" title="Управление состоянием загрузки"></a>Управление состоянием загрузки</h3><blockquote>
 <p>Добавлено в версии 2.3.0+</p>
 </blockquote>
 <p>Фабрика асинхронного компонента также может возвращать объект следующего формата:</p>
-<pre><code class="hljs js"><span class="hljs-keyword">const</span> AsyncComponent = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (&#123;
-  <span class="hljs-comment">// Загружаемый компонент. Значение должно быть Promise</span>
-  <span class="hljs-attr">component</span>: <span class="hljs-keyword">import</span>(<span class="hljs-string">'./MyComponent.vue'</span>),
-  <span class="hljs-comment">// Компонент загрузки, используемый пока загружается асинхронный компонент</span>
-  <span class="hljs-attr">loading</span>: LoadingComponent,
-  <span class="hljs-comment">// Компонент ошибки, используемый при неудачной загрузке</span>
-  <span class="hljs-attr">error</span>: ErrorComponent,
-  <span class="hljs-comment">// Задержка перед показом компонента загрузки. По умолчанию: 200 мс.</span>
-  <span class="hljs-attr">delay</span>: <span class="hljs-number">200</span>,
-  <span class="hljs-comment">// Компонент ошибки будет отображаться, если таймаут</span>
-  <span class="hljs-comment">// был указан и время ожидания превышено. По умолчанию: Infinity.</span>
-  <span class="hljs-attr">timeout</span>: <span class="hljs-number">3000</span>
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">AsyncComponent</span> = (<span class="hljs-params"></span>) =&gt; (&#123;<br>  <span class="hljs-comment">// Загружаемый компонент. Значение должно быть Promise</span><br>  <span class="hljs-attr">component</span>: <span class="hljs-title function_">import</span>(<span class="hljs-string">&#x27;./MyComponent.vue&#x27;</span>),<br>  <span class="hljs-comment">// Компонент загрузки, используемый пока загружается асинхронный компонент</span><br>  <span class="hljs-attr">loading</span>: <span class="hljs-title class_">LoadingComponent</span>,<br>  <span class="hljs-comment">// Компонент ошибки, используемый при неудачной загрузке</span><br>  <span class="hljs-attr">error</span>: <span class="hljs-title class_">ErrorComponent</span>,<br>  <span class="hljs-comment">// Задержка перед показом компонента загрузки. По умолчанию: 200 мс.</span><br>  <span class="hljs-attr">delay</span>: <span class="hljs-number">200</span>,<br>  <span class="hljs-comment">// Компонент ошибки будет отображаться, если таймаут</span><br>  <span class="hljs-comment">// был указан и время ожидания превышено. По умолчанию: Infinity.</span><br>  <span class="hljs-attr">timeout</span>: <span class="hljs-number">3000</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>Обратите внимание, что вы должны использовать <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">Vue Router</a> версии 2.4.0+ если вы хотите использовать указанный выше синтаксис для компонентов маршрута.</p>
+<p>Обратите внимание, что вы должны использовать <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-router">Vue Router</a> версии 2.4.0+ если вы хотите использовать указанный выше синтаксис для компонентов маршрута.</p>
 </blockquote>
 
   
@@ -1270,8 +1269,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [

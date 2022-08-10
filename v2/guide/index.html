@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ru" class="with-v3-banner">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
         <title>Введение — Vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
@@ -37,7 +37,7 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -50,9 +50,9 @@
         <meta name="msapplication-config" content="browserconfig.xml">
         <link rel="manifest" href="/manifest.json">
 
-        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="">
+        <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Dosis:500&text=Vue.js&display=swap" rel="stylesheet">
@@ -60,7 +60,9 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- main page styles -->
-        <link rel="stylesheet" href="/css/page.css">
+        
+<link rel="stylesheet" href="/css/page.css">
+
 
         <!-- this needs to be loaded before guide's inline scripts -->
         <script src="/js/vue.js"></script>
@@ -85,16 +87,17 @@
 
         <!-- vimeo analytics -->
         <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
-    </head>
+    <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Vue.js" type="application/atom+xml">
+</head>
     <body class="docs">
-        <div id="mobile-bar">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
         <div>
   <div id="v3-banner">
     <span class="hidden-sm">Эта документация для версий v2.x и ранее.</span>
-    <a href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
+    <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">Перейти</a> к русской документации для v3.x.
   </div>
 
   <header id="header">
@@ -204,14 +207,14 @@
   <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/index.html" class="nav-link">English</a></li>
-    <li><a href="https://cn.vuejs.org/v2/guide/index.html" class="nav-link">中文</a></li>
-    <li><a href="https://jp.vuejs.org/v2/guide/index.html" class="nav-link">日本語</a></li>
-    <li><a href="https://kr.vuejs.org/v2/guide/index.html" class="nav-link">한국어</a></li>
-    <li><a href="https://br.vuejs.org/v2/guide/index.html" class="nav-link">Português</a></li>
-    <li><a href="https://fr.vuejs.org/v2/guide/index.html" class="nav-link">Français</a></li>
-    <li><a href="https://vi.vuejs.org/v2/guide/index.html" class="nav-link">Tiếng Việt</a></li>
-    <li><a href="https://es.vuejs.org/v2/guide/index.html" class="nav-link">Español</a></li>
-    <li><a href="https://docs.vuejs.id/v2/guide/index.html" class="nav-link">Bahasa Indonesia</a></li>
+    <li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/index.html" class="nav-link">中文</a></li>
+    <li><a target="_blank" rel="noopener" href="https://jp.vuejs.org/v2/guide/index.html" class="nav-link">日本語</a></li>
+    <li><a target="_blank" rel="noopener" href="https://kr.vuejs.org/v2/guide/index.html" class="nav-link">한국어</a></li>
+    <li><a target="_blank" rel="noopener" href="https://br.vuejs.org/v2/guide/index.html" class="nav-link">Português</a></li>
+    <li><a target="_blank" rel="noopener" href="https://fr.vuejs.org/v2/guide/index.html" class="nav-link">Français</a></li>
+    <li><a target="_blank" rel="noopener" href="https://vi.vuejs.org/v2/guide/index.html" class="nav-link">Tiếng Việt</a></li>
+    <li><a target="_blank" rel="noopener" href="https://es.vuejs.org/v2/guide/index.html" class="nav-link">Español</a></li>
+    <li><a target="_blank" rel="noopener" href="https://docs.vuejs.id/v2/guide/index.html" class="nav-link">Bahasa Indonesia</a></li>
   </ul>
 </li>
 
@@ -265,6 +268,12 @@
     </a>
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
+    </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
     </a>
     </div>
   </div>
@@ -976,6 +985,12 @@
     <a href="https://code-dict.com" target="_blank" rel="sponsored noopener" class="logo">
       <img src="https://sponsors.vuejs.org/images/codedict.svg" alt="CodeDict">
     </a>
+    <a href="https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/vuejs_de_conf.svg" alt="vuejs.de Conf">
+    </a>
+    <a href="https://activelogic.io/services/vue-js-development/?utm_source=vuepartner" target="_blank" rel="sponsored noopener" class="logo">
+      <img src="https://sponsors.vuejs.org/images/active_logic.png" alt="Active Logic">
+    </a>
     </div>
   </div>
   <a class="become-backer" href="/support-vuejs">
@@ -989,14 +1004,18 @@
 <div class="content guide with-sidebar index-guide">
   <p class="tip warning v3-warning">
     Эта документация для версий v2.x и ранее.
-      Для v3.x, <a href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
+      Для v3.x, <a target="_blank" rel="noopener" href="https://v3.ru.vuejs.org/">документация на русском здесь</a>.
   </p>
 
   
     
       
   <div id="ad">
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg" id="_carbonads_js">
+    <script
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CEBDT27Y&placement=vuejsorg"
+      id="_carbonads_js">
     </script>
   </div>
 
@@ -1007,7 +1026,7 @@
     <h1>Введение</h1>
   
   
-    <h2 id="Что-такое-Vue-js"><a href="#Что-такое-Vue-js" class="headerlink" title="Что такое Vue.js?"></a>Что такое Vue.js?</h2><p>Vue (произносится /vjuː/, примерно как <strong>view</strong>) — это <strong>прогрессивный фреймворк</strong> для создания пользовательских интерфейсов. В отличие от фреймворков-монолитов, Vue создан пригодным для постепенного внедрения. Его ядро в первую очередь решает задачи уровня представления (view), что упрощает интеграцию с другими библиотеками и существующими проектами. С другой стороны, Vue полностью подходит и для создания сложных одностраничных приложений (SPA, Single-Page Applications), если использовать его совместно с <a href="single-file-components.html">современными инструментами</a> и <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="noopener">дополнительными библиотеками</a>.</p>
+    <h2 id="Что-такое-Vue-js"><a href="#Что-такое-Vue-js" class="headerlink" title="Что такое Vue.js?"></a>Что такое Vue.js?</h2><p>Vue (произносится /vjuː/, примерно как <strong>view</strong>) — это <strong>прогрессивный фреймворк</strong> для создания пользовательских интерфейсов. В отличие от фреймворков-монолитов, Vue создан пригодным для постепенного внедрения. Его ядро в первую очередь решает задачи уровня представления (view), что упрощает интеграцию с другими библиотеками и существующими проектами. С другой стороны, Vue полностью подходит и для создания сложных одностраничных приложений (SPA, Single-Page Applications), если использовать его совместно с <a href="single-file-components.html">современными инструментами</a> и <a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue#components--libraries">дополнительными библиотеками</a>.</p>
 <p>Если вы хотите узнать больше о Vue перед тем как начать, мы <a id="modal-player" href="#">создали видео</a> с рассказом об основных принципах работы на примере проекта.</p>
 <p>Если вы — опытный фронтенд-разработчик, и хотите узнать, чем Vue отличается от остальных библиотек или фреймворков, обратите внимание на <a href="comparison.html">сравнение с другими фреймворками</a>.</p>
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="sponsored noopener" title="Бесплатный курс по Vue.js (на англ.)">Посмотрите бесплатный видео-курс на Vue Mastery</a></div>
@@ -1015,26 +1034,17 @@
 <h2 id="Начало-работы"><a href="#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h2><p><a class="button" href="installation.html">Установка</a></p>
 <p class="tip">В этом руководстве мы предполагаем, что вы уже знакомы с HTML, CSS и JavaScript на базовом уровне. Если же вы во фронтенд-разработке совсем новичок, начинать сразу с изучения фреймворка может быть не лучшей идеей — возвращайтесь, разобравшись с основами! Наличие опыта работы с другими фреймворками может помочь, но не является обязательным.</p>
 
-<p>Проще всего попробовать Vue.js, начав с <a href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-hello-world" target="_blank" rel="noopener">примера Hello World</a>. Откройте его в другой вкладке, и изменяйте по ходу чтения руководства. Можно и просто <a href="https://github.com/vuejs/v2.vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html" target="_blank" rel="noopener noreferrer" download="index.html">создать <code>index.html</code> файл</a> на диске и подключить Vue:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- версия для разработки, отображает полезные предупреждения в консоли --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<p>Проще всего попробовать Vue.js, начав с <a target="_blank" rel="noopener" href="https://codesandbox.io/s/github/vuejs/vuejs.org/tree/master/src/v2/examples/vue-20-hello-world">примера Hello World</a>. Откройте его в другой вкладке, и изменяйте по ходу чтения руководства. Можно и просто <a href="https://github.com/vuejs/v2.vuejs.org/blob/master/src/v2/examples/vue-20-hello-world/index.html" target="_blank" rel="noopener noreferrer" download="index.html">создать <code>index.html</code> файл</a> на диске и подключить Vue:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- версия для разработки, отображает полезные предупреждения в консоли --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>или:</p>
-<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- production-версия, оптимизированная для размера и скорости --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- production-версия, оптимизированная для размера и скорости --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>В разделе по <a href="installation.html">установке</a> описаны и другие варианты установки Vue. Обратите внимание, мы <strong>не рекомендуем</strong> новичкам начинать с <code>vue-cli</code>, особенно если нет опыта работы с инструментами сборки Node.js.</p>
-<p>Если предпочитаете что-то более интерактивное, можете пройти <a href="https://scrimba.com/g/gvuedocs" target="_blank" rel="noopener">эту серию уроков на Scrimba</a>, которая представляет собой сочетание скринкастов и песочницы для проверки примеров кода, где вы можете остановиться и продолжить изучение в любое время.</p>
+<p>Если предпочитаете что-то более интерактивное, можете пройти <a target="_blank" rel="noopener" href="https://scrimba.com/g/gvuedocs">эту серию уроков на Scrimba</a>, которая представляет собой сочетание скринкастов и песочницы для проверки примеров кода, где вы можете остановиться и продолжить изучение в любое время.</p>
 <h2 id="Декларативная-отрисовка"><a href="#Декларативная-отрисовка" class="headerlink" title="Декларативная отрисовка"></a>Декларативная отрисовка</h2><div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank" rel="noopener noreferrer">Пройдите этот урок на Scrimba</a></div>
 
 <p>В ядре Vue.js находится система, которая позволяет декларативно отображать данные в DOM с помощью простых шаблонов:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  &#123;&#123; message &#125;&#125;
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет, Vue!'</span>
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  &#123;&#123; message &#125;&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Привет, Vue!&#x27;</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app" class="demo">
   {{ message }}
@@ -1051,18 +1061,8 @@ var app = new Vue({
 <p>Вот мы и создали наше первое Vue-приложение! Выглядит как простая отрисовка шаблона, но «под капотом» Vue выполнил немало работы. Данные и DOM теперь <strong>реактивно</strong> связаны. Как это проверить? Просто откройте консоль JavaScript в браузере (прямо здесь, на этой странице) и задайте свойству <code>app.message</code> новое значение. Вы тут же увидите соответствующее изменение в браузере.</p>
 <p>Обратите внимание, что теперь больше не нужно напрямую взаимодействовать с HTML. Приложение Vue присоединяется к одному элементу DOM (<code>#app</code> в данном случае), а затем полностью контролирует его. HTML является нашей точкой входа, но всё остальное происходит внутри вновь созданного экземпляра Vue.</p>
 <p>Кроме интерполяции текста, можно также связывать атрибуты элементов:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-2"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"message"</span>&gt;</span>
-    Наведи на меня курсор на пару секунд,
-    чтобы увидеть динамически связанное значение title!
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> app2 = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-2'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">message</span>: <span class="hljs-string">'Вы загрузили эту страницу: '</span> + <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toLocaleString()
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app-2&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span><br>    Наведи на меня курсор на пару секунд,<br>    чтобы увидеть динамически связанное значение title!<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> app2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-2&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Вы загрузили эту страницу: &#x27;</span> + <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">toLocaleString</span>()<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app-2" class="demo">
   <span v-bind:title="message">
@@ -1083,15 +1083,8 @@ var app2 = new Vue({
 <h2 id="Условия-и-циклы"><a href="#Условия-и-циклы" class="headerlink" title="Условия и циклы"></a>Условия и циклы</h2><div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQe4SJ" target="_blank" rel="noopener noreferrer">Пройдите этот урок на Scrimba</a></div>
 
 <p>Управлять присутствием элемента в DOM тоже довольно просто:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-3"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"seen"</span>&gt;</span>Сейчас меня видно<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> app3 = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-3'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">seen</span>: <span class="hljs-literal">true</span>
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app-3&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;seen&quot;</span>&gt;</span>Сейчас меня видно<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> app3 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-3&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">seen</span>: <span class="hljs-literal">true</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app-3" class="demo">
   <span v-if="seen">Сейчас меня видно</span>
@@ -1108,23 +1101,8 @@ var app3 = new Vue({
 <p>Попробуйте ввести в консоли <code>app3.seen = false</code>. Сообщение пропадёт.</p>
 <p>Этот пример демонстрирует возможность связывать данные не только с текстом и атрибутами, но и со <strong>структурой</strong> DOM. Более того, Vue также имеет мощную систему анимации, которая автоматически применяет <a href="transitions.html">эффекты переходов</a>, когда элементы добавляются/обновляются/удаляются.</p>
 <p>Есть и другие директивы, каждая из которых имеет своё предназначение. Например, директива <code>v-for</code> для отображения списков, используя данные из массива:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-4"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"todo in todos"</span>&gt;</span>
-      &#123;&#123; todo.text &#125;&#125;
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> app4 = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-4'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">todos</span>: [
-      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Изучить JavaScript'</span> &#125;,
-      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Изучить Vue'</span> &#125;,
-      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Создать что-нибудь классное'</span> &#125;
-    ]
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app-4&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;todo in todos&quot;</span>&gt;</span><br>      &#123;&#123; todo.text &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> app4 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-4&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">todos</span>: [<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Изучить JavaScript&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Изучить Vue&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Создать что-нибудь классное&#x27;</span> &#125;<br>    ]<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app-4" class="demo">
   <ol>
@@ -1146,25 +1124,12 @@ var app4 = new Vue({
 })
 </script>
 
-<p>Введите в консоли <code>app4.todos.push({ text: &#39;Profit&#39; })</code>. Вы увидите, что к списку добавится новый элемент.</p>
+<p>Введите в консоли <code>app4.todos.push(&#123; text: &#39;Profit&#39; &#125;)</code>. Вы увидите, что к списку добавится новый элемент.</p>
 <h2 id="Работа-с-пользовательским-вводом"><a href="#Работа-с-пользовательским-вводом" class="headerlink" title="Работа с пользовательским вводом"></a>Работа с пользовательским вводом</h2><div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank" rel="noopener noreferrer">Пройдите этот урок на Scrimba</a></div>
 
 <p>Чтобы пользователи могли взаимодействовать с вашим приложением, используйте директиву <code>v-on</code> для отслеживания событий, указав метод-обработчик:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-5"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"reverseMessage"</span>&gt;</span>Перевернуть сообщение<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> app5 = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-5'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет, Vue.js!'</span>
-  &#125;,
-  <span class="hljs-attr">methods</span>: &#123;
-    <span class="hljs-attr">reverseMessage</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-      <span class="hljs-keyword">this</span>.message = <span class="hljs-keyword">this</span>.message.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>)
-    &#125;
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app-5&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">&quot;reverseMessage&quot;</span>&gt;</span>Перевернуть сообщение<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> app5 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-5&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Привет, Vue.js!&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-attr">reverseMessage</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">message</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">reverse</span>().<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>)<br>    &#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app-5" class="demo">
   <p>{{ message }}</p>
@@ -1186,16 +1151,8 @@ var app5 = new Vue({
 
 <p>Обратите внимание, в методе мы просто обновляем состояние приложения, не затрагивая DOM — всю работу с DOM выполняет Vue, а вы пишете код, который занимается только логикой приложения.</p>
 <p>Vue также предоставляет директиву <code>v-model</code>, позволяющую легко связывать элементы форм и состояние приложения:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-6"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"message"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js"><span class="hljs-keyword">var</span> app6 = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-6'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">message</span>: <span class="hljs-string">'Привет, Vue!'</span>
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app-6&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> app6 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-6&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Привет, Vue!&#x27;</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app-6" class="demo">
   <p>{{ message }}</p>
@@ -1215,56 +1172,14 @@ var app6 = new Vue({
 <p>Важной концепцией Vue являются компоненты. Эта абстракция позволяет собирать большие приложения из маленьких «кусочков». Они представляют собой пригодные к повторному использованию объекты. Если подумать, почти любой интерфейс можно представить как дерево компонентов:</p>
 <p><img src="/images/components.png" alt="Дерево Компонентов"></p>
 <p>Во Vue компонент — это, по сути, экземпляр Vue с предустановленными опциями. Создать новый компонент во Vue просто:</p>
-<pre><code class="hljs js"><span class="hljs-comment">// Определяем новый компонент под именем todo-item</span>
-Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;li&gt;Это одна задача в списке&lt;/li&gt;'</span>
-&#125;)
-
-<span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(...)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Определяем новый компонент под именем todo-item</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;todo-item&#x27;</span>, &#123;<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;li&gt;Это одна задача в списке&lt;/li&gt;&#x27;</span><br>&#125;)<br><br><span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(...)<br></code></pre></td></tr></table></figure>
 <p>Теперь его можно использовать в шаблоне другого компонента:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- Создаём экземпляр компонента todo-item --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">todo-item</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-item</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- Создаём экземпляр компонента todo-item --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">todo-item</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-item</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <p>Пока что у нас получилось так, что во всех элементах списка будет один и тот же текст — это не очень-то интересно. Хотелось бы иметь возможность передавать данные от родительского в дочерние компоненты. Давайте изменим определение компонента, чтобы он мог принимать <a href="components.html#Передача-данных-в-дочерние-компоненты-через-входные-параметры">входной параметр</a>:</p>
-<pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
-  <span class="hljs-comment">// Компонент todo-item теперь принимает</span>
-  <span class="hljs-comment">// "prop", то есть входной параметр.</span>
-  <span class="hljs-comment">// Имя входного параметра todo.</span>
-  <span class="hljs-attr">props</span>: [<span class="hljs-string">'todo'</span>],
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;'</span>
-&#125;)</code></pre>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;todo-item&#x27;</span>, &#123;<br>  <span class="hljs-comment">// Компонент todo-item теперь принимает</span><br>  <span class="hljs-comment">// &quot;prop&quot;, то есть входной параметр.</span><br>  <span class="hljs-comment">// Имя входного параметра todo.</span><br>  <span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;todo&#x27;</span>],<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;&#x27;</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <p>Теперь можно передать текст задачи в каждый компонент с помощью <code>v-bind</code>:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app-7"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
-    <span class="hljs-comment">&lt;!--
-      Теперь мы можем передать каждому компоненту todo-item объект
-      с информацией о задаче, который будет динамически меняться.
-      Мы также определяем для каждого компонента "key",
-      значение которого мы разберём далее в руководстве.
-    --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">todo-item</span>
-      <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in groceryList"</span>
-      <span class="hljs-attr">v-bind:todo</span>=<span class="hljs-string">"item"</span>
-      <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">"item.id"</span>
-    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-item</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<pre><code class="hljs js">Vue.component(<span class="hljs-string">'todo-item'</span>, &#123;
-  <span class="hljs-attr">props</span>: [<span class="hljs-string">'todo'</span>],
-  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;'</span>
-&#125;)
-
-<span class="hljs-keyword">var</span> app7 = <span class="hljs-keyword">new</span> Vue(&#123;
-  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app-7'</span>,
-  <span class="hljs-attr">data</span>: &#123;
-    <span class="hljs-attr">groceryList</span>: [
-      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Овощи'</span> &#125;,
-      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Сыр'</span> &#125;,
-      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">'Что там ещё люди едят?'</span> &#125;
-    ]
-  &#125;
-&#125;)</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app-7&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">      Теперь мы можем передать каждому компоненту todo-item объект</span><br><span class="hljs-comment">      с информацией о задаче, который будет динамически меняться.</span><br><span class="hljs-comment">      Мы также определяем для каждого компонента &quot;key&quot;,</span><br><span class="hljs-comment">      значение которого мы разберём далее в руководстве.</span><br><span class="hljs-comment">    --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">todo-item</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in groceryList&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-bind:todo</span>=<span class="hljs-string">&quot;item&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">v-bind:key</span>=<span class="hljs-string">&quot;item.id&quot;</span></span><br><span class="hljs-tag">    &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo-item</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">component</span>(<span class="hljs-string">&#x27;todo-item&#x27;</span>, &#123;<br>  <span class="hljs-attr">props</span>: [<span class="hljs-string">&#x27;todo&#x27;</span>],<br>  <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;&#x27;</span><br>&#125;)<br><br><span class="hljs-keyword">var</span> app7 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app-7&#x27;</span>,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">groceryList</span>: [<br>      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Овощи&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Сыр&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Что там ещё люди едят?&#x27;</span> &#125;<br>    ]<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <div id="app-7" class="demo">
   <ol>
@@ -1290,14 +1205,8 @@ var app7 = new Vue({
 
 <p>Конечно, этот пример слегка надуман, но посмотрите сами — мы разделили наше приложение на два меньших объекта, и дочерний, в разумной мере, отделён от родительского с помощью интерфейса входных параметров. Теперь можно улучшать компонент <code>&lt;todo-item&gt;</code>, усложнять его шаблон и логику, но не влиять на родительское приложение.</p>
 <p>В крупных приложениях разделение на компоненты становится обязательным условием для сохранения управляемости процесса разработки. Разговор о компонентах ещё далеко не окончен и мы вернёмся к ним <a href="components.html">позднее в этом руководстве</a>, но уже сейчас можно взглянуть на (вымышленный) пример того, как может выглядеть шаблон приложения, использующего компоненты:</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">app-nav</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-nav</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">app-view</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">app-sidebar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-sidebar</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">app-content</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-content</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">app-view</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-<h3 id="Отношение-к-пользовательским-элементам-Web-Components"><a href="#Отношение-к-пользовательским-элементам-Web-Components" class="headerlink" title="Отношение к пользовательским элементам Web Components"></a>Отношение к пользовательским элементам Web Components</h3><p>Вы могли заметить, что компоненты Vue довольно похожи на <strong>пользовательские элементы</strong>, являющиеся частью <a href="https://www.w3.org/wiki/WebComponents/" target="_blank" rel="noopener">спецификации W3C Web Components</a>. Дело в том, что синтаксис компонентов Vue и правда намеренно следует этой спецификации. В частности, компоненты Vue реализуют <a href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md" target="_blank" rel="noopener">API слотов</a> и специальный атрибут <code>is</code>. Но есть и несколько ключевых различий:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">app-nav</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-nav</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">app-view</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">app-sidebar</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-sidebar</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">app-content</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-content</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">app-view</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Отношение-к-пользовательским-элементам-Web-Components"><a href="#Отношение-к-пользовательским-элементам-Web-Components" class="headerlink" title="Отношение к пользовательским элементам Web Components"></a>Отношение к пользовательским элементам Web Components</h3><p>Вы могли заметить, что компоненты Vue довольно похожи на <strong>пользовательские элементы</strong>, являющиеся частью <a target="_blank" rel="noopener" href="https://www.w3.org/wiki/WebComponents/">спецификации W3C Web Components</a>. Дело в том, что синтаксис компонентов Vue и правда намеренно следует этой спецификации. В частности, компоненты Vue реализуют <a target="_blank" rel="noopener" href="https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md">API слотов</a> и специальный атрибут <code>is</code>. Но есть и несколько ключевых различий:</p>
 <ol>
 <li><p>Спецификация Web Components была завершена, но она реализована ещё не во всех браузерах. Safari 10.1+, Chrome 54+ и Firefox 63+ уже поддерживают веб-компоненты. Компоненты Vue, напротив, не требуют никаких полифилов и работают во всех поддерживаемых браузерах (IE9 и выше). При необходимости компоненты Vue могут быть «обёрнуты» в нативные пользовательские элементы.</p>
 </li>
@@ -1305,7 +1214,7 @@ var app7 = new Vue({
 </li>
 </ol>
 <h2 id="Готовы-к-большему"><a href="#Готовы-к-большему" class="headerlink" title="Готовы к большему?"></a>Готовы к большему?</h2><p>Пока мы лишь кратко представили самые основные возможности ядра Vue.js — остаток этого руководства посвящён более детальному рассмотрению этих и других возможностей, поэтому советуем прочитать его целиком!</p>
-<div id="video-modal" class="modal"><div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"><iframe src="https://player.vimeo.com/video/247494684?dnt=1" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><p class="modal-text">Видео <a href="https://www.vuemastery.com" target="_blank" rel="sponsored noopener" title="Vue.js курсы на Vue Mastery">Vue Mastery</a>. Посмотрите бесплатный курс Vue Mastery <a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="sponsored noopener" title="Vue.js курсы на Vue Mastery">Введение в курс Vue</a>.</p></div>
+<div id="video-modal" class="modal"><div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"><iframe src="https://player.vimeo.com/video/247494684?dnt=1" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><p class="modal-text">Видео <a href="https://www.vuemastery.com" target="_blank" rel="sponsored noopener" title="Vue.js курсы на Vue Mastery">Vue Mastery</a>. Посмотрите бесплатный курс Vue Mastery <a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="sponsored noopener" title="Vue.js курсы на Vue Mastery">Введение в курс Vue</a>.</div>
 
   
   
@@ -1352,8 +1261,10 @@ _bsa.init('custom', 'CKYD62QM', 'placement:vuejsorg',
         <script src="/js/common.js"></script>
 
         <!-- search -->
-        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/css/search.css">
+        <link href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" rel='stylesheet' type='text/css'>
+        
+<link rel="stylesheet" href="/css/search.css">
+
         <script src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
         <script>
         [
