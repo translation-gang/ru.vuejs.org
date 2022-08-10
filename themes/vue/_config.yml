@@ -1,13 +1,13 @@
 site_description: Vue.js — Прогрессивный JavaScript-фреймворк
 google_analytics: UA-46852172-1
 root_domain: ru.vuejs.org
-vue_version: 2.7.0
+vue_version: 2.7.8
 # START SPONSORS
 special:
-  - name: HBuilder
-    url: https://www.dcloud.io/hbuilderx.html?hmsr=vue-en&hmpl=&hmcu=&hmkw=&hmci=
-    img: hbuilder.png
-    description: An IDE for Vue
+  - name: uni-app
+    url: https://uniapp.dcloud.io/?hmsr=vueen&hmpl=&hmcu=&hmkw=&hmci=
+    img: uni_app.png?v3
+    description: Cross-Platform for Vue
 platinum:
   - name: VueMastery
     url: https://www.vuemastery.com/
@@ -45,10 +45,17 @@ platinum:
   - name: CodeDict
     url: https://code-dict.com
     img: codedict.svg
+  - name: vuejs.de Conf
+    url: >-
+      https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring
+    img: vuejs_de_conf.svg
+  - name: Active Logic
+    url: https://activelogic.io/services/vue-js-development/?utm_source=vuepartner
+    img: active_logic.png
 platinum_china:
-  - name: HBuilder
-    url: https://www.dcloud.io/hbuilderx.html?hmsr=vue-en&hmpl=&hmcu=&hmkw=&hmci=
-    img: hbuilder.png
+  - name: DCloud
+    url: https://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci=
+    img: dcloud.png
   - name: 稀土掘金技术社区
     url: https://juejin.cn/frontend?utm_source=vue&utm_campaign=sponsor
     img: xitujuejinjishushequ.png
@@ -59,15 +66,9 @@ gold:
   - name: HTML Burger
     url: https://htmlburger.com
     img: html_burger.png
-  - name: Neds
-    url: https://neds.com.au/
-    img: neds.png
   - name: Tidelift
     url: https://tidelift.com/subscription/npm/vue
     img: tidelift.png
-  - name: Firestick Tricks
-    url: https://www.firesticktricks.com/
-    img: firestick_tricks.png
   - name: Intygrate
     url: https://intygrate.com/
     img: intygrate.png
@@ -125,15 +126,18 @@ gold:
   - name: Cypress.io
     url: https://cypress.io
     img: cypress_io.svg
-  - name: QuickBooks Tool Hub
-    url: https://quickbookstoolhub.com
-    img: quickbooks_tool_hub.png
-  - name: Snyk
-    url: https://snyk.co/vuejs
-    img: snyk.png?v2
   - name: Handsontable - JavaScript Data Grid
     url: https://handsontable.com/
     img: handsontable___javascript_data_grid.svg
+  - name: 1Tool
+    url: https://www.1tool.com
+    img: 1tool.png
+  - name: LearnVue
+    url: https://learnvue.co
+    img: learnvue.png
+  - name: Quickbooks tool hub
+    url: https://quickbookstoolhub.com
+    img: quickbooks_tool_hub.png
 silver:
   - name: Draxlr
     url: https://www.draxlr.com
@@ -162,7 +166,10 @@ silver:
     img: localazy.png
   - name: AddWeb Solution
     url: http://addwebsolution.com/
-    img: addweb_solution.png
+    img: addweb_solution.png?v2
+  - name: 1394TA
+    url: https://1394ta.org
+    img: 1394ta.png
 bronze:
   - name: Derek Pollard
     url: https://polyglotengineer.com/derek.pollard
@@ -176,9 +183,6 @@ bronze:
   - name: RStudio
     url: https://rstudio.com
     img: rstudio.png
-  - name: Custouch Marketing Automation
-    url: http://www.custouch.com
-    img: custouch_marketing_automation.png
   - name: Darkhorse Analytics
     url: https://www.darkhorseanalytics.com/
     img: darkhorse_analytics.png
