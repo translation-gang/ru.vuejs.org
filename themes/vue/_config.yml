@@ -49,9 +49,6 @@ platinum:
     url: >-
       https://conf.vuejs.de/?utm_source=vuejs-vite&utm_medium=referral&utm_campaign=sponsoring
     img: vuejs_de_conf.svg
-  - name: Active Logic
-    url: https://activelogic.io/services/vue-js-development/?utm_source=vuepartner
-    img: active_logic.png
 platinum_china:
   - name: DCloud
     url: https://www.dcloud.io/?hmsr=vuejsorg&hmpl=&hmcu=&hmkw=&hmci=
@@ -195,6 +192,9 @@ bronze:
   - name: Monarch Air Group
     url: https://monarchairgroup.com
     img: monarch_air_group.png
+  - name: The Codest
+    url: https://thecodest.co/
+    img: the_codest.png
 # END SPONSORS
 redirects:
   '/v2/api/index.html': '/api/'
